@@ -1,0 +1,62 @@
+{
+	"format_version": "1.19.40",
+	"minecraft:block": {
+		"description": {
+			"identifier": "arx:fuel_powered_generator",
+			"menu_category": {
+				"category": "nature"
+			}
+		},
+		"components": {
+			"minecraft:geometry": "geometry.fuel_powered_generator",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "arx_fuel_powered_generator",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:collision_box": {
+				"origin": [
+					-8.0,
+					0.0,
+					-8.0
+				],
+				"size": [
+					16.0,
+					9.0,
+					16.0
+				]
+			},
+			"minecraft:selection_box": {
+				"origin": [
+					-8.0,
+					0.0,
+					-8.0
+				],
+				"size": [
+					16.0,
+					9.0,
+					16.0
+				]
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 2
+			},
+			"minecraft:on_interact":{
+				"event" : "arx:interact"
+			}
+		},
+		"events": {
+			"arx:interact": {
+				"run_command": {
+					"command": [
+						"tag @p add self",
+						"execute as @p[tag=self, scores={restrict_block_interact=0}] run tag @s add __activate_fuel_generator_in_electronics_shop__",
+						"scoreboard players set @p restrict_block_interact 15",
+						"tag @p remove self"
+					]
+				}
+			}
+		}
+	}
+}

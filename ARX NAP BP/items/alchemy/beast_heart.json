@@ -1,0 +1,14 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:item": {
+    "description": {
+      "identifier": "arx:beast_heart",
+      "category": "items"
+    },
+    "components": {
+      "minecraft:icon": {
+        "texture": "arx:beast_heart"
+      }
+    }
+  }
+}

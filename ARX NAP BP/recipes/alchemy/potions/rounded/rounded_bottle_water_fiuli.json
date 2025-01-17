@@ -1,0 +1,15 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_brewing_mix": {
+    "description": {
+      "identifier": "arx:rounded_bottle_water_fiuli"
+    },
+
+    "tags": [ "brewing_stand" ],
+
+    "input": "arx:rounded_bottle_water",
+    "reagent": "arx:fiuli",
+    "output": "arx:rounded_bottle_water_fiuli_preparation"
+  }
+
+}

@@ -1,0 +1,29 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "arx:rats_in_bar_clapping",
+      "min_engine_version": "1.8.0",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/mobs/rats_in_bar_clapping"
+      },
+      "geometry": {
+        "default": "geometry.rats_in_bar_clapping"
+      },
+      "animations": {
+        "clap": "animation.rats_in_bar_clapping.clap"
+      },
+      "scripts": {
+        "animate": [
+          "clap"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ]
+    }
+  }
+}

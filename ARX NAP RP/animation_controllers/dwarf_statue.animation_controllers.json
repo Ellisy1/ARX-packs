@@ -1,0 +1,15 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.dwarf_statue.basic": {
+			"initial_state": "passive",
+			"states": {
+				"passive": {
+					"animations": [
+						"passive"
+					]
+				}
+			}
+		}
+	}
+}

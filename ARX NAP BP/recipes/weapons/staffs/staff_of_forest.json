@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:staff_of_forest"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      " BB",
+      " AB",
+      "A  "
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:leaves"
+      },
+      "B": {
+        "item": "arx:cornelian_gem"
+      }
+    },
+    "result": {
+      "item": "arx:staff_of_forest"
+    }
+  }
+}

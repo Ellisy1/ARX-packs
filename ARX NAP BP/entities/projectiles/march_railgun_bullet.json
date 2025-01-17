@@ -1,0 +1,90 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "arx:march_railgun_bullet",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+
+    "components": {
+      "minecraft:collision_box": {
+        "width": 0.25,
+        "height": 0.25
+      },
+      "minecraft:projectile": {
+        "on_hit": {
+          "impact_damage": {
+            "damage": 12,
+            "knockback": true,
+            "semi_random_diff_damage": false,
+            "destroy_on_hit": true
+          }
+        },
+        "power": 1.6,
+        "gravity": 0,
+        "inertia": 1,
+        "uncertainty_base": 0,
+        "uncertainty_multiplier": 0,
+        "anchor": 1,
+        "should_bounce": false,
+        "offset": [ 0, -0.1, 0 ]
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+        "default_values": {
+          "max_optimized_distance": 80.0,
+          "max_dropped_ticks": 7,
+          "use_motion_prediction_hints": true
+        }
+      },
+      "minecraft:on_death": {
+				"event": "on_death",
+				"target": "self"
+			},
+      "minecraft:timer": {
+        "time": 0.05,
+        "looping": true,
+        "time_down_event": {
+          "event": "emit_small_amount_of_particles",
+          "target": "self"
+        }
+      }
+    },
+
+    "events": {
+      "minecraft:entity_spawned": {
+        "run_command": {
+          "command": [
+            "playsound railgun_shoot @a ~ ~ ~",
+            "playanimation @e[type=arx:march] animation.march.recoil",
+            "camerashake add @a[r=10] 0.8 0.2 positional",
+            "fill ~ ~ ~ ~ ~ ~ arx:dynamic_light_block_15",
+            "execute at @e[type=arx:march] run particle arx:march_railgun_bullet ~ ~2 ~"
+          ]
+        },
+        "emit_vibration": {
+          "vibration": "shear"
+        }
+      },
+      "on_death": {
+				"run_command": {
+					"command": [
+						"particle arx:march_railgun_bullet ~ ~ ~"
+					]
+				}
+			},
+      "emit_small_amount_of_particles": {
+				"run_command": {
+					"command": [
+						"particle arx:march_railgun_bullet_less ~ ~ ~"
+					]
+				}
+			}
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:dark_knight_armor"
+    },
+
+    
+    "tags": [ "heavy_armor_crafting_table" ],
+    "pattern": [
+      "B#C",
+      "#A#",
+      "#A#"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:steel_protective_plate"
+      },
+      "A": {
+        "item": "arx:silk"
+      },
+      "B": {
+        "item": "minecraft:dye:1"
+      },
+      "C": {
+        "item": "minecraft:dye:16"
+      }
+    },
+    "result": {
+      "item": "arx:dark_knight_armor"
+    }
+  }
+}

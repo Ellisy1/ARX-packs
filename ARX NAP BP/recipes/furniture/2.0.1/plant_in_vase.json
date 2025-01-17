@@ -1,0 +1,26 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:plant_in_vase"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "R",
+      "I"
+    ],
+    "key": {
+      "I": {
+        "item": "minecraft:flower_pot"
+      },
+      "R": {
+        "item": "minecraft:red_flower:0"
+      }
+    },
+    "result": {
+      "item": "arx:plant_in_vase"
+    }
+  }
+}

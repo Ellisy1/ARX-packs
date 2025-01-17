@@ -1,0 +1,21 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "minecraft:conduit"
+    },
+    "tags": [ "ban" ],
+    "pattern": [
+      "S"
+    ],
+    "key": {
+      "S": {
+        "item": "minecraft:bedrock"
+      }
+    },
+    "result": {
+      "item": "minecraft:stick"
+    },
+    "priority": -5
+  }
+}

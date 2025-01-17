@@ -1,0 +1,47 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:item": {
+    "description": {
+      "identifier": "arx:united_player_data",
+      "category": "items"
+    },
+    "components": {
+      "minecraft:hand_equipped": false,
+      "minecraft:max_stack_size": 1,
+      "minecraft:foil": false,
+      "minecraft:icon": {
+        "texture": "arx:united_player_data"
+      },
+      "minecraft:cooldown": {
+        "category": "united_player_data",
+        "duration": 1
+      },
+      "minecraft:on_use": {
+        "on_use": {
+          "event": "on_use_event"
+        }
+      },
+      "minecraft:display_name": {
+        "value": "§r§fИнфо §7[Обычное]"
+      }
+    },
+    "events": {
+      "on_use_event": {
+        "swing": {},
+        "run_command": {
+          "command": [
+            "execute @s[rx=-70] ~ ~ ~ function info/playerdata",
+            "execute @s[rx=-50, rxm=-70] ~ ~ ~ function info/playerskilldata",
+            "execute @s[rx=-30, rxm=-50] ~ ~ ~ function traits/traitdata", 
+            "execute @s[rx=-10, rxm=-30] ~ ~ ~ function food/taste_data",
+            "execute @s[rx=10, rxm=-10] ~ ~ ~ function info/full_effects_data",
+            "execute @s[rx=30, rxm=10] ~ ~ ~ function info/iconhelp",
+            "execute @s[rx=50, rxm=30] ~ ~ ~ function info/statistics",
+            "execute @s[rx=70, rxm=50] ~ ~ ~ function info/achievements",
+            "execute @s[rxm=70] ~ ~ ~ function info/authors"
+          ]
+        }
+      }
+    }
+  }
+}

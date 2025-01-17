@@ -1,0 +1,24 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:bed_straw"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      " RR",
+      "RRR",
+      "RR "
+    ],
+    "key": {
+      "R": {
+        "item": "minecraft:wheat"
+      }
+    },
+    "result": {
+      "item": "arx:bed_straw_spawn_egg"
+    }
+  }
+}

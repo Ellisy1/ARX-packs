@@ -1,0 +1,36 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:pires_paladin_armor"
+    },
+
+    
+    "tags": [ "heavy_armor_crafting_table" ],
+    "pattern": [
+      "#D#",
+      "ZAZ",
+      "BZA"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:durasteel_protective_plate"
+      },
+      "Z": {
+        "item": "arx:steel_protective_plate"
+      },
+      "A": {
+        "item": "arx:silk"
+      },
+      "B": {
+        "item": "minecraft:dye:1"
+      },
+      "D": {
+        "item": "arx:drawing_relig_pi_s"
+      }
+    },
+    "result": {
+      "item": "arx:pires_paladin_armor"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "format_version": "1.17",
+  "minecraft:recipe_furnace": {
+    "description": {
+    "identifier": "arx:baby_shark_meat_furnace"
+    },
+
+    "tags": ["furnace", "smoker", "campfire", "soul_campfire"],
+    "input": "arx:baby_shark_meat",
+    "output": "arx:preparation_baby_shark_meat_fried"
+  }
+  
+}

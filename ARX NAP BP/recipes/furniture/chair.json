@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:chair"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "  R",
+      "III",
+      "R R"
+    ],
+    "key": {
+      "I": {
+        "item": "minecraft:planks"
+      },
+      "R": {
+        "item": "minecraft:stick"
+      }
+    },
+    "result": {
+      "item": "arx:default_chair_spawn_egg"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:cave_rat_meat_in_caramel_a"
+    },
+
+    
+    "tags": [ "thermal_cooking_crafting_table" ],
+    "pattern": [
+      " A ",
+      "ABA",
+      " A "
+
+    ],
+    "key": {
+      "A": {
+        "item": "arx:caramel"
+      },
+      "B": {
+        "item": "arx:cave_rat_meat"
+      }
+    },
+    "result": {
+      "item": "arx:preparation_cave_rat_meat_in_caramel"
+    }
+  }
+}

@@ -1,0 +1,4 @@
+execute if entity @a[m=survival] run tellraw @s { "rawtext": [ { "text": "Игроки в §6режиме выживания§f: §a" }, { "selector": "@a[m=survival]" } ] }
+execute if entity @a[m=adventure] run tellraw @s { "rawtext": [ { "text": "Игроки в §6режиме приключения§f: §a" }, { "selector": "@a[m=adventure]" } ] }
+execute if entity @a[m=creative] run tellraw @s { "rawtext": [ { "text": "Игроки в §6творческом режиме§f: §a" }, { "selector": "@a[m=creative]" } ] }
+execute if entity @a[m=spectator] run tellraw @s { "rawtext": [ { "text": "Игроки в §6режиме наблюдателя§f: §a" }, { "selector": "@a[m=spectator]" } ] }

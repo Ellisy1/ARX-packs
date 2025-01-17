@@ -1,0 +1,30 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:golden_silk_coat"
+    },
+
+    
+    "tags": [ "light_armor_crafting_table" ],
+    "pattern": [
+      "#A#",
+      "#A#",
+      "BAB"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:golden_silk"
+      },
+      "A": {
+        "item": "minecraft:dye:18"
+      },
+      "B": {
+        "item": "arx:silk"
+      }
+    },
+    "result": {
+      "item": "arx:golden_silk_coat"
+    }
+  }
+}

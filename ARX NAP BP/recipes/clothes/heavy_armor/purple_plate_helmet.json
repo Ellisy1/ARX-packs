@@ -1,0 +1,29 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:purple_plate_helmet"
+    },
+
+    
+    "tags": [ "heavy_armor_crafting_table" ],
+    "pattern": [
+      "A#A",
+      "B B"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:naginitis_protective_plate"
+      },
+      "A": {
+        "item": "arx:durasteel_protective_plate"
+      },
+      "B": {
+        "item": "arx:steel_protective_plate"
+      }
+    },
+    "result": {
+      "item": "arx:purple_plate_helmet"
+    }
+  }
+}

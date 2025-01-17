@@ -1,0 +1,53 @@
+{
+	"format_version": "1.16.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "arx:rat_ghost_to_eliminator",
+			"is_spawnable": true,
+			"is_summonable": true
+		},
+		"components": {
+			"minecraft:type_family": {
+				"family": [
+					"logical"
+				]
+			},
+			"minecraft:health": {
+				"value": 9999
+			},
+			"minecraft:timer": {
+				"looping": false,
+				"time": 3,
+				"time_down_event": {
+					"event": "arx:suicide"
+				}
+			},
+			"minecraft:knockback_resistance": {
+				"value": 1.0
+			}
+		},
+		"component_groups": {
+			"arx:suicide": {
+				"minecraft:instant_despawn": {}
+			}
+		},
+		"events": {
+			"arx:suicide": {
+				"run_command": {
+					"command": [
+						"function summon_rat_eliminator",
+						"effect @a[r=15] blindness 3 0 true",
+						"summon arx:rat_monstr ~ ~ ~ become_agressive",
+						"summon arx:rat_monstr ~ ~ ~ become_agressive",
+						"scoreboard players add @a[r=15] stress 1000"
+					]
+				},
+				"add": {
+					"component_groups": [
+						"arx:suicide"
+					]
+				}
+			}
+		}
+	}
+}

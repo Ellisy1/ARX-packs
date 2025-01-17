@@ -1,0 +1,39 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:item": {
+    "description": {
+      "identifier": "arx:strength_up",
+      "category": "items"
+    },
+    "components": {
+      "minecraft:hand_equipped": false,
+      "minecraft:max_stack_size": 1,
+      "minecraft:foil": false,
+      "minecraft:icon": {
+        "texture": "arx:strength_up"
+      },
+      "minecraft:cooldown": {
+        "category": "strength_up",
+        "duration": 1
+      },
+      "minecraft:on_use": {
+        "on_use": {
+          "event": "on_use_event"
+        }
+      },
+      "minecraft:display_name": {
+        "value": "§r§fПовысить §cсилу\n§7Треб. §d1 очко обучения"
+      }
+    },
+    "events": {
+      "on_use_event": {
+        "swing": {},
+        "run_command": {
+          "command": [
+            "function crpg_items/strength_up"
+          ]
+        }
+      }
+    }
+  }
+}

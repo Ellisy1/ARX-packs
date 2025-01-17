@@ -1,0 +1,14 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:item": {
+      "description": {
+        "category": "items",
+        "identifier": "arx:bronze_ingot"
+      },
+      "components": {
+        "minecraft:icon": {
+          "texture": "arx:bronze_ingot"
+        }
+      }
+    }
+  }

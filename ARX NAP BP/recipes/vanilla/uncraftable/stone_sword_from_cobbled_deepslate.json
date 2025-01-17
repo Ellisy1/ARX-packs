@@ -1,0 +1,20 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "minecraft:stone_sword_from_cobbled_deepslate"
+    },
+    "tags": [ "ban30" ],
+    "pattern": [
+      "S"
+    ],
+    "key": {
+      "S": {
+        "item": "minecraft:bedrock"
+      }
+    },
+    "result": {
+      "item": "minecraft:stick"
+    }
+  }
+}

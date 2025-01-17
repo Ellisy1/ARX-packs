@@ -1,0 +1,29 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:crisps"
+    },
+
+    
+    "tags": [ "thermal_cooking_crafting_table" ],
+    "pattern": [
+      "BAB",
+      "ACA"
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:potato"
+      },
+      "B": {
+        "item": "arx:salt"
+      },
+      "C": {
+        "item": "minecraft:bowl"
+      }
+    },
+    "result": {
+      "item": "arx:preparation_crisps"
+    }
+  }
+}

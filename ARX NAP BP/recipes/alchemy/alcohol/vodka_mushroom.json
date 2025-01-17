@@ -1,0 +1,15 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_brewing_mix": {
+    "description": {
+      "identifier": "arx:vodka_mushroom"
+    },
+
+    "tags": [ "brewing_stand" ],
+
+    "input": "arx:vodka",
+    "reagent": "arx:mushroom_item",
+    "output": "arx:vodka_mushroom_preparation"
+  }
+
+}

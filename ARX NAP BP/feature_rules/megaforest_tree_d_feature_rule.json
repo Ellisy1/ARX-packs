@@ -1,0 +1,39 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:feature_rules": {
+		"description": {
+			"identifier": "arx:megaforest_tree_d_feature_rule",
+			"places_feature": "arx:megaforest_tree_d_feature"
+		},
+		"conditions": {
+			"placement_pass": "first_pass",
+			"minecraft:biome_filter": [
+				{
+					"all_of": [
+						{
+							"test": "has_biome_tag",
+							"operator": "==",
+							"value": "savanna"
+						}
+					]
+				}
+			]
+		},
+		"distribution": {
+			"scatter_chance": {
+				"numerator": 1,
+				"denominator": 2
+			},
+			"iterations": 8,
+			"x": {
+				"distribution": "uniform",
+				"extent": [ 0, 64 ]
+			  },
+			"y": "query.heightmap(variable.worldx, variable.worldz)",
+			"z": {
+				"distribution": "uniform",
+				"extent": [ 0, 64 ]
+			  }
+		}
+	}
+}

@@ -1,0 +1,35 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:red_sunset_dress"
+    },
+
+    
+    "tags": [ "clothes_crafting_table" ],
+    "pattern": [
+      " D ",
+      "EAB",
+      "BDE"
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:gold_nugget"
+      },
+      "B": {
+        "item": "minecraft:dye",
+        "data": 1
+      },
+      "E": {
+        "item": "minecraft:dye",
+        "data": 16
+      },
+      "D": {
+        "item": "arx:silk"
+      }
+    },
+    "result": {
+      "item": "arx:red_sunset_dress"
+    }
+  }
+}

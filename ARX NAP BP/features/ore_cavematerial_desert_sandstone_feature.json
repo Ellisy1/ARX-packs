@@ -1,0 +1,16 @@
+{
+    "format_version": "1.19.50",
+    "minecraft:ore_feature": {
+        "description": {
+            "identifier": "arx:ore_cavematerial_desert_sandstone_feature"
+        },
+        "count": 8,
+        "discard_chance_on_air_exposure": 0.5,
+        "replace_rules": [
+            {
+                "places_block": "minecraft:sand",
+                "may_replace": ["minecraft:sandstone"]
+            }
+        ]
+    }
+}

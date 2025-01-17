@@ -1,0 +1,35 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "arx:gray_dress",
+      "materials": {
+        "default": "armor",
+        "enchanted": "armor_enchanted"
+      },
+      "textures": {
+        "default": "textures/entity/clothes/clothes/gray_dress",
+        "enchanted": "textures/misc/enchanted_item_glint"
+      },
+      "geometry": {
+        "default": "geometry.gray_dress"
+      },
+      "animations": {
+        "cloak": "animation.cloak.default",
+        "dress": "animation.dress.default",
+        "cloak_controller": "controller.animation.cloak",
+        "controller_dress": "controller.animation.dress"
+      },
+      "scripts": {
+        "animate": [
+          "cloak_controller",
+          "controller_dress"
+        ],
+        "parent_setup": "variable.chest_layer_visible = 0.0;"
+      },
+      "render_controllers": [
+        "controller.render.armor"
+      ]
+    }
+  }
+}

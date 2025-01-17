@@ -1,0 +1,15 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_brewing_mix": {
+    "description": {
+      "identifier": "arx:rounded_bottle_water_golden_hay_feather"
+    },
+
+    "tags": [ "brewing_stand" ],
+
+    "input": "arx:rounded_bottle_water_golden_hay",
+    "reagent": "minecraft:feather",
+    "output": "arx:rounded_bottle_water_golden_hay_feather_preparation"
+  }
+
+}

@@ -1,0 +1,40 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:item": {
+    "description": {
+      "identifier": "arx:square_bottle_spirt_golden_hay_fioletic",
+      "category": "items"
+    },
+    "components": {
+      "minecraft:max_stack_size": 1,
+      "minecraft:cooldown": {
+        "category": "food",
+        "duration": 1
+      },
+      "minecraft:on_use": {
+        "on_use": {
+          "event": "on_eat"
+        }
+      },
+      "minecraft:icon": {
+        "texture": "arx:square_bottle_spirt_golden_hay_fioletic"
+      }
+    },
+    "events": {
+      "on_eat": {
+        "run_command": {
+          "command": [
+            "effect @p nausea 20 0 true",
+            "scoreboard players add @p xp_tray 65",
+            "scoreboard players set @p drugs_delay 0",
+            "scoreboard players add @p poisoning 2050",
+            
+            "clear @s arx:square_bottle_spirt_golden_hay_fioletic 0 1",
+            "give @s arx:square_bottle",
+            "function food/visual/potion"
+          ]
+        }
+      }
+    }
+  }
+}

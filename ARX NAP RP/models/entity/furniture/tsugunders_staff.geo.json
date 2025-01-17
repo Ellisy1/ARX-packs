@@ -1,0 +1,30 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.tsugunders_staff",
+				"texture_width": 128,
+				"texture_height": 64,
+				"visible_bounds_width": 4,
+				"visible_bounds_height": 4.5,
+				"visible_bounds_offset": [0, 1.75, 0]
+			},
+			"bones": [
+				{
+					"name": "staff",
+					"pivot": [0.05, 23.075, -1],
+					"rotation": [0, 0, -87.5],
+					"cubes": [
+						{"origin": [-20.95, 21.80706, -0.78717], "size": [24, 1, 1], "uv": [64, 62]},
+						{"origin": [5.05, 21.80706, -0.78717], "size": [2, 1, 1], "uv": [78, 60]},
+						{"origin": [-22.75, 21.80706, -1.28717], "size": [2, 1, 2], "pivot": [-21.75, 21.80706, -0.28717], "rotation": [0, -45, 0], "uv": [70, 59]},
+						{"origin": [3.05, 21.80706, -2.78717], "size": [2, 1, 5], "uv": [59, 51]},
+						{"origin": [3.05, 21.80706, 2.21283], "size": [6, 1, 1], "uv": [57, 57]},
+						{"origin": [-0.95, 21.80706, -3.78717], "size": [6, 1, 1], "uv": [57, 59]}
+					]
+				}
+			]
+		}
+	]
+}

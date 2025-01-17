@@ -1,0 +1,36 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:vicious_dagger_refined"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      "ACA",
+      "B#B",
+      "ADA"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:vicious_dagger"
+      },
+      "B": {
+        "item": "arx:essence_of_vicious_demon"
+      },
+      "A": {
+        "item": "arx:lamenite_ingot"
+      },
+      "C": {
+        "item": "arx:chloronite_billet"
+      },
+      "D": {
+        "item": "arx:naginitis_block"
+      }
+    },
+    "result": {
+      "item": "arx:vicious_dagger_refined"
+    }
+  }
+}

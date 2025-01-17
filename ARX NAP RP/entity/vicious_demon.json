@@ -1,0 +1,44 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "arx:vicious_demon",
+      "min_engine_version": "1.8.0",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/mobs/vicious_demon"
+      },
+      "geometry": {
+        "default": "geometry.vicious_demon"
+      },
+      "animations": {
+        "look_at_target_default": "animation.humanoid.look_at_target.default",
+        "look_at_target_gliding": "animation.humanoid.look_at_target.gliding",
+        "look_at_target_swimming": "animation.humanoid.look_at_target.swimming",
+        "move": "animation.vicious_demon.move",
+        "stay": "animation.vicious_demon.stay",
+        "spin": "animation.vicious_demon.spin",
+        "basic": "animation.vicious_demon.basic",
+        "rest": "animation.vicious_demon.rest",
+        "attack": "animation.vicious_demon.attack"
+      },
+      "animation_controllers": [
+        {
+          "basic": "controller.animation.vicious_demon.basic"
+        },
+        {
+          "look_at_target": "controller.animation.humanoid.look_at_target"
+        }
+      ],
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "spawn_egg": {
+        "base_color": "#15ac3b",
+        "overlay_color": "#c3f0c2"
+      }
+    }
+  }
+}

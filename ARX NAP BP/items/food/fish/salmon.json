@@ -1,0 +1,61 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:item": {
+    "description": {
+      "identifier": "arx:salmon",
+      "category": "equipment"
+    },
+    "components": {
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.cookedFood"
+      },
+      "minecraft:icon": {
+        "texture": "salmon"
+      },
+      "minecraft:cooldown": {
+        "category": "food_craft",
+        "duration": 3 
+      },
+      "minecraft:on_use": {
+        "on_use": {
+          "event": "on_use_event"
+        }
+      }
+    },
+    "events": {
+      "on_use_event": {
+        "run_command": {
+          "command": [
+            "tag @p add self",
+            
+            "clear @p[tag=self, scores={sk_a_12=1}] arx:salmon 0 1",
+
+            "w @p[tag=self, scores={sk_a_12=0}] Я не умею разделывать рыб. Для этого мне нужен навык §aA12§8",
+
+            "w @p[tag=self, scores={sk_a_12=1, sk_b_5=0, custom_random=0..250}] Это было неприятно.",
+            "w @p[tag=self, scores={sk_a_12=1, sk_b_5=0, custom_random=251..500}] Ну и гадость.",
+            "w @p[tag=self, scores={sk_a_12=1, sk_b_5=0, custom_random=501..750}] Мне не нравится разделывать рыбу. Наверное, стоит научиться делать это получше.",
+            "w @p[tag=self, scores={sk_a_12=1, sk_b_5=0, custom_random=751..1000}] Ну и дрянь.",
+            "give @p[tag=self, scores={sk_a_12=1, sk_b_5=0}] arx:salmon_fillet",
+            "scoreboard players add @p[tag=self, scores={sk_a_12=1, sk_b_5=0}] stress 350",
+
+            "w @p[tag=self, scores={sk_b_5=1, sk_c_5=0}] §aГотово.",
+            "give @p[tag=self, scores={sk_b_5=1, sk_c_5=0}] arx:salmon_fillet",
+            "scoreboard players add @p[tag=self, scores={sk_b_5=1, sk_c_5=0}] stress 100",
+
+            "w @p[tag=self, scores={sk_c_5=1, custom_random=0..800}] §6Готово.",
+            "w @p[tag=self, scores={sk_c_5=1, custom_random=801..1000}] §6Повезло!",
+            "give @p[tag=self, scores={sk_c_5=1, custom_random=0..800}] arx:salmon_fillet",
+            "give @p[tag=self, scores={sk_c_5=1, custom_random=801..1000}] arx:salmon_fillet 2",
+            "give @p[tag=self, scores={sk_c_5=1, custom_random=0..100}] arx:squama",
+            "scoreboard players add @p[tag=self, scores={sk_b_5=1}] stress -10",
+
+            "scoreboard players add @p[tag=self, scores={sk_a_12=1}] xp_tray 3",
+            
+            "tag @p remove self"
+          ]
+        }
+      }
+    }
+  }
+}

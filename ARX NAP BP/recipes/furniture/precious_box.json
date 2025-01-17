@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:precious_box"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      " I ",
+      "IRI",
+      "III"
+    ],
+    "key": {
+      "I": {
+        "item": "minecraft:gold_ingot"
+      },
+      "R": {
+        "item": "arx:steel_ingot"
+      }
+    },
+    "result": {
+      "item": "arx:precious_box"
+    }
+  }
+}

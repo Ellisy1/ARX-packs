@@ -1,0 +1,48 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:precious_tessellation"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "ABC",
+      "DEF",
+      "GHI"
+    ],
+    "key": {
+      "A": {
+        "item": "arx:aquamarine_gem"
+      },
+      "B": {
+        "item": "arx:chrysolite_gem"
+      },
+      "C": {
+        "item": "arx:cornelian_gem"
+      },
+      "D": {
+        "item": "arx:ruby_gem"
+      },
+      "E": {
+        "item": "minecraft:iron_block"
+      },
+      "F": {
+        "item": "arx:saphire_gem"
+      },
+      "G": {
+        "item": "arx:topaz_gem"
+      },
+      "H": {
+        "item": "minecraft:diamond"
+      },
+      "I": {
+        "item": "minecraft:emerald"
+      }
+    },
+    "result": {
+      "item": "arx:precious_tessellation"
+    }
+  }
+}

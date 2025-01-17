@@ -1,0 +1,26 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:steel_sword_with_golden_guard"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      " #",
+      "Y "
+    ],
+    "key": {
+      "#": {
+        "item": "arx:steel_billet"
+      },
+      "Y": {
+        "item": "minecraft:gold_ingot"
+      }
+    },
+    "result": {
+      "item": "arx:steel_sword_with_golden_guard"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+	"format_version": "1.19.50",
+	"minecraft:structure_template_feature": {
+		"description": {
+			"identifier": "arx:mini_tree_e_feature"
+		},
+		"structure_name": "arx:mini_tree_e",
+		"adjustment_radius": 0,
+		"constraints": {
+			"grounded": {},
+			"unburied": {}
+		}
+	}
+}

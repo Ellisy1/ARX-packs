@@ -1,0 +1,25 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:allaybread_a"
+    },
+
+    
+    "tags": [ "cooking_crafting_table" ],
+    "pattern": [
+      "A#"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:bread"
+      },
+      "A": {
+        "item": "arx:allay_meat"
+      }
+    },
+    "result": {
+      "item": "arx:preparation_allaybread"
+    }
+  }
+}

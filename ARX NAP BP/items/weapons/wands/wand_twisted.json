@@ -1,0 +1,63 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:item": {
+    "description": {
+      "category": "equipment",
+      "identifier": "arx:wand_twisted"
+    },
+    "components": {
+      "minecraft:icon": {
+        "texture": "arx:wand_twisted"
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:hand_equipped": true,
+      "minecraft:allow_off_hand": true,
+      "minecraft:mining_speed": 1,
+      "minecraft:damage": 2,
+      "minecraft:enchantable": {
+        "value": 15,
+        "slot": "sword"
+      },
+      "minecraft:weapon": {
+        "on_hurt_entity": {
+          "event": "hurt"
+        }
+      },
+      "minecraft:cooldown": {
+        "category": "wand",
+        "duration": 2
+      },
+      "minecraft:durability": {
+        "max_durability": 1000
+      },
+      "minecraft:on_use": {
+        "on_use": {
+          "event": "on_use_event"
+        }
+      },
+      "tag:minecraft:is_sword": {}
+    },
+    "events": {
+      "on_use_event": {
+        "swing": {},
+        "run_command": {
+          "command": [
+            "function wands/wand_radial"
+          ]
+        },
+        "damage": {
+          "type": "none",
+          "amount": 1,
+          "target": "self"
+        }
+      },
+      "hurt": {
+        "damage": {
+          "type": "none",
+          "amount": -10,
+          "target": "self"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:fish_soup_b"
+    },
+
+    
+    "tags": [ "boiler_crafting_table" ],
+    "pattern": [
+      "###",
+      "# #",
+      " A "
+    ],
+    "key": {
+      "#": {
+        "item": "arx:fish_fillet"
+      },
+      "A": {
+        "item": "minecraft:bowl"
+      }
+    },
+    "result": {
+      "item": "arx:preparation_fish_soup"
+    }
+  }
+}

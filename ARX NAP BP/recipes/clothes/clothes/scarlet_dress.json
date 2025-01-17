@@ -1,0 +1,28 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:scarlet_dress"
+    },
+
+    
+    "tags": [ "clothes_crafting_table" ],
+    "pattern": [
+      "#C#",
+      "#C#",
+      "#C#"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:silk"
+      },
+      "C": {
+        "item": "minecraft:dye",
+        "data": 1
+      }
+    },
+    "result": {
+      "item": "arx:scarlet_dress"
+    }
+  }
+}

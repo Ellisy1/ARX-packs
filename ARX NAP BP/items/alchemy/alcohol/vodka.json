@@ -1,0 +1,41 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:item": {
+    "description": {
+      "identifier": "arx:vodka",
+      "category": "items"
+    },
+    "components": {
+      "minecraft:max_stack_size": 1,
+      "minecraft:cooldown": {
+        "category": "food",
+        "duration": 1
+      },
+      "minecraft:on_use": {
+        "on_use": {
+          "event": "on_eat"
+        }
+      },
+      "minecraft:icon": {
+        "texture": "arx:vodka"
+      }
+    },
+    "events": {
+      "on_eat": {
+        "run_command": {
+          "command": [
+            "effect @p nausea 10 0 true",
+            "effect @p night_vision 15 0 true",
+            "scoreboard players add @p xp_tray 35",
+            "scoreboard players add @p poisoning 500",
+            "scoreboard players add @p stress -250",
+            
+            "clear @s arx:vodka 0 1",
+            "give @s arx:default_bottle",
+            "function food/visual/potion"
+          ]
+        }
+      }
+    }
+  }
+}

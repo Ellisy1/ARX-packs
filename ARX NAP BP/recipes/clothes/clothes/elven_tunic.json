@@ -1,0 +1,31 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:elven_tunic"
+    },
+
+    
+    "tags": [ "clothes_crafting_table" ],
+    "pattern": [
+      "#A#",
+      "A#A",
+      " B "
+    ],
+    "key": {
+      "#": {
+        "item": "arx:silk"
+      },
+      "A": {
+        "item": "minecraft:dye",
+        "data": 18
+      },
+      "B": {
+        "item": "arx:leather_super"
+      }
+    },
+    "result": {
+      "item": "arx:elven_tunic"
+    }
+  }
+}

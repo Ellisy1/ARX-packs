@@ -1,0 +1,23 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:caryite_block_reverse"
+    },
+
+    
+    "tags": [ "bugle_crafting_table" ],
+    "pattern": [
+      "#"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:caryite_block"
+      }
+    },
+    "result": {
+      "item": "arx:caryite_ingot",
+      "count": 9
+    }
+  }
+}

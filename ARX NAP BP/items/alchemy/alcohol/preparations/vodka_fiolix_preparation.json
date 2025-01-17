@@ -1,0 +1,44 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:item": {
+    "description": {
+      "identifier": "arx:vodka_fiolix_preparation",
+      "category": "items"
+    },
+    "components": {
+      "minecraft:max_stack_size": 2,
+      "minecraft:icon": {
+        "texture": "arx:vodka_fiolix"
+      },
+      "minecraft:cooldown": {
+        "category": "food",
+        "duration": 3
+      },
+      "minecraft:on_use": {
+        "on_use": {
+          "event": "on_use_event"
+        }
+      }
+    },
+    "events": {
+      "on_use_event": {
+        "swing": {},
+        "run_command": {
+          "command": [
+            "tag @p add smithself",
+
+            "execute @p[tag=smithself, scores={sk_b_11=0}] ~ ~ ~ w @p Чтобы закончить эту настойку, мне потребуется навык §eB11",
+
+            "execute @p[tag=smithself, scores={sk_b_11=1}] ~ ~ ~ w @p Готово!",
+            "execute @p[tag=smithself, scores={sk_b_11=1}] ~ ~ ~ playsound cauldron_drip.water.pointed_dripstone @a ~ ~ ~",
+            "execute @p[tag=smithself, scores={sk_b_11=1}] ~ ~ ~ scoreboard players add @p xp_tray 10",
+            "execute @p[tag=smithself, scores={sk_b_11=1}] ~ ~ ~ clear @p arx:vodka_fiolix_preparation 0 1",
+            "execute @p[tag=smithself, scores={sk_b_11=1}] ~ ~ ~ give @p arx:vodka_fiolix",
+
+            "tag @p remove smithself"
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:pires_5"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      " F ",
+      "AFA",
+      "AAA"
+    ],
+    "key": {
+      "A": {
+        "item": "arx:malafiotironite_ingot"
+      },
+      "F": {
+        "item": "arx:saphire_gem"
+      }
+    },
+    "result": {
+      "item": "arx:pires_5"
+    }
+  }
+}

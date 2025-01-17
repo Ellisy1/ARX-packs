@@ -1,0 +1,22 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:long_bottle_blood_karelo_evergreen_dream"
+    },
+
+    
+    "tags": [ "substractor" ],
+    "pattern": [
+      "#"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:long_bottle_blood_karelo_evergreen_dream_preparation_b"
+      }
+    },
+    "result": {
+      "item": "arx:long_bottle_blood_karelo_evergreen_dream"
+    }
+  }
+}

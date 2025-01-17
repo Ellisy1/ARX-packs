@@ -1,0 +1,62 @@
+{
+	"format_version": "1.19.40",
+	"minecraft:block": {
+		"description": {
+			"identifier": "arx:iron_trap_collapsed",
+			"menu_category": {
+				"category": "nature"
+			}
+		},
+		"components": {
+			"minecraft:map_color": "#e31b3c",
+			"minecraft:geometry": "geometry.iron_trap_collapsed",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "arx_iron_trap",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:collision_box": {
+				"origin": [
+					-6.0,
+					0.0,
+					-3.0
+				],
+				"size": [
+					12.0,
+					6.0,
+					6.0
+				]
+			},
+			"minecraft:selection_box": {
+				"origin": [
+					-6.0,
+					0.0,
+					-3.0
+				],
+				"size": [
+					12.0,
+					6.0,
+					6.0
+				]
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 0.2
+			},
+			"minecraft:on_interact": { 
+				"event": "arx:reinstall_trap"
+			},
+			"minecraft:loot": "loot_tables/blocks/defence/iron_trap_collapsed.json"
+		},
+		"events": {
+			"arx:reinstall_trap": {
+				"run_command": {
+					"command": [
+						"fill ~ ~ ~ ~ ~ ~ arx:iron_trap",
+						"playsound armor.equip_iron @a ~ ~ ~"
+					]
+				}
+			}
+		}
+	}
+}

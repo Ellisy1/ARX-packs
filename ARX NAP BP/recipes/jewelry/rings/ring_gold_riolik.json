@@ -1,0 +1,26 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:ring_gold_riolik"
+    },
+
+    
+    "tags": [ "jewelry_crafting_table" ],
+    "pattern": [
+      "R",
+      "I"
+    ],
+    "key": {
+      "I": {
+        "item": "arx:ring_gold__empty"
+      },
+      "R": {
+        "item": "arx:riolik_ingot"
+      }
+    },
+    "result": {
+      "item": "arx:ring_gold_riolik"
+    }
+  }
+}

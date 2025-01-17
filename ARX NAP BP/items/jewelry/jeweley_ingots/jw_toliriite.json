@@ -1,0 +1,14 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:item": {
+    "description": {
+      "identifier": "arx:jw_toliriite",
+      "category": "items"
+    },
+    "components": {
+      "minecraft:icon": {
+        "texture": "arx:jw_toliriite"
+      }
+    }
+  }
+}

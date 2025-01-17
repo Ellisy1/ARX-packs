@@ -1,0 +1,33 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.bear.main": {
+			"initial_state": "idle",
+			"states": {
+				"idle": {
+					"animations": [
+						"stay",
+						"blink",
+						{"attack": "variable.attack_time > 0.0"}
+					],
+					"transitions": [
+						{"walking": "q.ground_speed > 1.0"}
+					],
+					"blend_transition": 0.2
+				},
+				"walking": {
+					"animations": [
+						"stay",
+						"walk",
+						{"attack": "variable.attack_time > 0.0"},
+						"blink"
+					],
+					"transitions": [
+						{"idle": "q.ground_speed < 0.5"}
+					],
+					"blend_transition": 0.2
+				}
+			}
+		}
+	}
+}

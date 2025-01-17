@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:heavy_axe_with_chloronite_inlays"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      "AAA",
+      " B ",
+      "A  "
+    ],
+    "key": {
+      "A": {
+        "item": "arx:naginitis_billet"
+      },
+      "B": {
+        "item": "arx:chloronite_billet"
+      }
+    },
+    "result": {
+      "item": "arx:heavy_axe_with_chloronite_inlays"
+    }
+  }
+}

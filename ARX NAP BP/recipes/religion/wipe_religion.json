@@ -1,0 +1,42 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:wipe_religion"
+    },
+
+    
+    "tags": [ "rune_crafting_table" ],
+    "pattern": [
+      "GB ",
+      "AFC",
+      " DH"
+    ],
+    "key": {
+      "A": {
+        "item": "arx:naginitis_ingot"
+      },
+      "B": {
+        "item": "arx:malafiotironite_ingot"
+      },
+      "C": {
+        "item": "arx:toliriite_ingot"
+      },
+      "D": {
+        "item": "arx:caryite_ingot"
+      },
+      "F": {
+        "item": "arx:sphere_of_power"
+      },
+      "G": {
+        "item": "arx:swamp_monster_heart"
+      }, 
+      "H": {
+        "item": "arx:sand_elemental_heart"
+      }
+    },
+    "result": {
+      "item": "arx:wipe_religion_ingame"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:devil_soup"
+    },
+
+    
+    "tags": [ "boiler_crafting_table" ],
+    "pattern": [
+      "AAA",
+      "B C",
+      " D "
+    ],
+    "key": {
+      "A": {
+        "item": "arx:devil_fish_meat"
+      },
+      "B": {
+        "item": "arx:salt"
+      },
+      "C": {
+        "item": "arx:kaspora"
+      },
+      "D": {
+        "item": "minecraft:bowl"
+      }
+    },
+    "result": [
+      {"item": "arx:preparation_devil_soup"}
+    ]
+  }
+}

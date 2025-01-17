@@ -1,0 +1,13 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_furnace": {
+    "description": {
+      "identifier": "arx:furnace_lamenite"
+    },
+    "tags": [
+      "blast_furnace"
+    ],
+    "input": "arx:lamenit_ore",
+    "output": "arx:lamenite_ingot"
+  }
+}

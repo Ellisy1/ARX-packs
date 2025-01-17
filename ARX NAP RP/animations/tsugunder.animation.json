@@ -1,0 +1,83 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.tsugunder.stay": {
+			"loop": true,
+			"bones": {
+				"all": {
+					"rotation": ["math.sin(query.anim_time * 50) * 1", 0, 0]
+				},
+				"arm_r": {
+					"rotation": [-26.04955, 32.95043, 56.79869]
+				},
+				"hand1": {
+					"rotation": [2.227, 31.85097, "-61.9791- math.sin(query.anim_time * 50) * 1"]
+				},
+				"arm_l": {
+					"rotation": [0, 0, "math.sin(query.anim_time * 50) * 3"]
+				},
+				"l_ear": {
+					"rotation": [0, 0, "math.sin(query.anim_time * 50) * 3"]
+				},
+				"r_ear": {
+					"rotation": [0, 0, "-math.sin(query.anim_time * 50) * 3"]
+				}
+			}
+		},
+		"animation.tsugunder.walk": {
+			"loop": true,
+			"bones": {
+				"all": {
+					"rotation": [10, "math.sin(query.anim_time * 600) * 2", 0],
+					"position": [0, "math.sin(query.anim_time * 1200) * 0.5", 0]
+				},
+				"arm_l": {
+					"rotation": ["math.sin(query.anim_time * 600) * 30", "math.sin(query.anim_time * 600) * 20", 0]
+				},
+				"hand2": {
+					"rotation": [-49.59039, 22.40972, 2.06754]
+				},
+				"leg_r": {
+					"rotation": ["math.sin(query.anim_time * 600) * 50", 0, 0]
+				},
+				"knee_r": {
+					"rotation": ["math.sin(query.anim_time * 600) * 30", 0, 0]
+				},
+				"leg_l": {
+					"rotation": ["-math.sin(query.anim_time * 600) * 50", 0, 0]
+				},
+				"knee_l": {
+					"rotation": ["-math.sin(query.anim_time * 600) * 30", 0, 0]
+				},
+				"head": {
+					"rotation": [-10, 0, 0]
+				},
+				"arm_r": {
+					"rotation": [2.46809, "23.4746 + math.sin(query.anim_time * 600) * 10", 76.248]
+				},
+				"hand1": {
+					"rotation": [0, 0, "-math.sin(query.anim_time * 600) * 20 - 10"]
+				}
+			}
+		},
+		"animation.tsugunder.cast_spell": {
+			"animation_length": 0.375,
+			"bones": {
+				"arm_r": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.25": [-163.11433, 14.52146, -167.13049],
+						"0.375": [0, 0, 0]
+					}
+				},
+				"staff": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.25": [0, 15, 0],
+						"0.375": [0, 0, 0]
+					}
+				}
+			}
+		}
+	}
+}

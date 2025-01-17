@@ -1,0 +1,23 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:steel_bricks"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "AA",
+      "AA"
+    ],
+    "key": {
+      "A": {
+        "item": "arx:steel_ingot"
+      }
+    },
+    "result": {
+      "item": "arx:steel_bricks"
+    }
+  }
+}

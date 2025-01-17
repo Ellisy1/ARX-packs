@@ -1,0 +1,30 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:cake_contemplator_b"
+    },
+
+    
+    "tags": [ "cooking_crafting_table" ],
+    "pattern": [
+      "###",
+      "#B#",
+      " A "
+    ],
+    "key": {
+      "#": {
+        "item": "arx:animal_eye"
+      },
+      "A": {
+        "item": "arx:dough"
+      },
+      "B": {
+        "item": "arx:perfect_caramel"
+      }
+    },
+    "result": {
+      "item": "arx:preparation_cake_contemplator"
+    }
+  }
+}

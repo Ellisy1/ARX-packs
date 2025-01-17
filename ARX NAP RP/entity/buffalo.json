@@ -1,0 +1,42 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "arx:buffalo",
+      "min_engine_version": "1.8.0",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/mobs/buffalo"
+      },
+      "geometry": {
+        "default": "geometry.buffalo"
+      },
+      "animations": {
+        "look_at_target_default": "animation.humanoid.look_at_target.default",
+        "look_at_target_gliding": "animation.humanoid.look_at_target.gliding",
+        "look_at_target_swimming": "animation.humanoid.look_at_target.swimming",
+        "walk": "animation.buffalo.walk",
+        "attack": "animation.buffalo.attack",
+        "blink": "animation.buffalo.blink",
+        "stay": "animation.buffalo.stay"
+      },
+      "animation_controllers": [
+        {
+          "basic": "controller.animation.buffalo.basic"
+        },
+        {
+          "look_at_target": "controller.animation.humanoid.look_at_target"
+        }
+      ],
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "spawn_egg": {
+        "base_color": "#2b2205",
+        "overlay_color": "#968b7d"
+      }
+    }
+  }
+}

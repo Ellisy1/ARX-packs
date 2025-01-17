@@ -1,0 +1,41 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "arx:amul_of_desert_shield",
+      "materials": {
+        "default": "armor",
+        "enchanted": "armor_enchanted"
+      },
+      "textures": {
+        "default": "textures/entity/amulets/amul_of_desert_shield",
+        "enchanted": "textures/misc/enchanted_item_glint"
+      },
+      "geometry": {
+        "default": "geometry.amul_of_desert_shield"
+      },
+      "animations": {
+        "cloak": "animation.amulet.move",
+        "static": "animation.amul_of_desert_shield.static",
+        "small_borders": "animation.amul_of_desert_shield.small_borders",
+        "small_base": "animation.amul_of_desert_shield.small_base",
+        "cloak_controller": "controller.animation.cloak"
+      },
+      "scripts": {
+        "animate": [
+          "cloak_controller",
+          "static",
+          {
+            "small_borders": "query.health > 5"
+          },
+          {
+            "small_base": "query.health > 10"
+          }
+        ]
+      },
+      "render_controllers": [
+        "controller.render.armor"
+      ]
+    }
+  }
+}

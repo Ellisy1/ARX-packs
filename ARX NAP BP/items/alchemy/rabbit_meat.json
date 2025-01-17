@@ -1,0 +1,14 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:item": {
+    "description": {
+      "identifier": "arx:rabbit_meat",
+      "category": "items"
+    },
+    "components": {
+      "minecraft:icon": {
+        "texture": "arx:rabbit_meat"
+      }
+    }
+  }
+}

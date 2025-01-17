@@ -1,0 +1,30 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:reconstruction_meat_cake_a"
+    },
+
+    
+    "tags": [ "thermal_cooking_crafting_table" ],
+    "pattern": [
+      "AAA",
+      "AAA",
+      "BCB"
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:porkchop"
+      },
+      "B": {
+        "item": "arx:cheese"
+      },
+      "C": {
+        "item": "arx:spicy_sauce"
+      }
+    },
+    "result": {
+      "item": "arx:preparation_reconstruction_meat_cake"
+    }
+  }
+}

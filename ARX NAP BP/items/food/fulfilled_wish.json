@@ -1,0 +1,49 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:item": {
+    "description": {
+      "identifier": "arx:fulfilled_wish",
+      "category": "equipment"
+    },
+    "components": {
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.cookedFood"
+      },
+      "minecraft:icon": {
+        "texture": "arx:fulfilled_wish"
+      },
+      "minecraft:cooldown": {
+        "category": "food",
+        "duration": 1
+      },
+      "minecraft:on_use": {
+        "on_use": {
+          "event": "on_eat"
+        }
+      },
+      "minecraft:fuel": {
+        "duration": 3.0
+      },
+      "minecraft:max_stack_size": 1
+    },
+    "events": {
+      "on_eat": {
+        "run_command": {
+          "command": [
+            "tag @p add tt_f_fish",
+            "tag @p add is_solid_food",
+            "scoreboard players set @p t_f_deliciousness 85",
+
+            "scoreboard players set @p t_f_salty 60",
+
+            "scoreboard players set @p t_f_poisoning 70",
+            "function food/food",
+
+            "clear @s[scores={saturation=0}] arx:fulfilled_wish 0 1",
+            "function food/cooldown/set_default_cooldown"
+          ]
+        }
+      }
+    }
+  }
+}

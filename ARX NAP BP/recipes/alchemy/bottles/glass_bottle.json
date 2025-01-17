@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "minecraft:glass_bottle"
+    },
+
+    
+    "tags": [ "glassworks_crafting_table" ],
+    "pattern": [
+      "#A#",
+      "A#A"
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:glass"
+      },
+      "A": {
+        "item": "arx:bung"
+      }
+    },
+	"unlock": [
+      {
+        "item": "minecraft:glass"
+      }
+    ],
+    "result": {
+      "item": "minecraft:glass_bottle",
+      "count": 3
+    }
+  }
+}

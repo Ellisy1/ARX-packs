@@ -1,0 +1,55 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:feature_rules": {
+		"description": {
+			"identifier": "arx:beach_small_tree_b_feature_rule",
+			"places_feature": "arx:jungle_small_tree_b_feature"
+		},
+		"conditions": {
+			"placement_pass": "first_pass",
+			"minecraft:biome_filter": [
+				{
+					"all_of": [
+						{
+							"test": "has_biome_tag",
+							"operator": "==",
+							"value": "beach"
+						},
+						{
+							"test": "has_biome_tag",
+							"operator": "!=",
+							"value": "stone"
+						},
+						{
+							"test": "has_biome_tag",
+							"operator": "!=",
+							"value": "cold"
+						}
+					]
+				}
+			]
+		},
+		"distribution": {
+			"scatter_chance": {
+				"numerator": 1,
+				"denominator": 9
+			},
+			"iterations": 1,
+			"x": {
+				"distribution": "gaussian",
+				"extent": [
+					0,
+					16
+				]
+			},
+			"y": "query.heightmap(variable.worldx, variable.worldz)",
+			"z": {
+				"distribution": "gaussian",
+				"extent": [
+					0,
+					16
+				]
+			}
+		}
+	}
+}

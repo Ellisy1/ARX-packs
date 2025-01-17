@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:firesalo_b"
+    },
+
+    
+    "tags": [ "cooking_crafting_table" ],
+    "pattern": [
+      " A ",
+      "A#A",
+      " A "
+    ],
+    "key": {
+      "#": {
+        "item": "arx:salo"
+      },
+      "A": {
+        "item": "arx:perfect_spicy_sauce"
+      }
+    },
+    "result": {
+      "item": "arx:preparation_firesalo"
+    }
+  }
+}

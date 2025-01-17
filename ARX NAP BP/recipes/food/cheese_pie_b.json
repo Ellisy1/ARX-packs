@@ -1,0 +1,30 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:cheese_pie_b"
+    },
+
+    
+    "tags": [ "thermal_cooking_crafting_table" ],
+    "pattern": [
+      "C C",
+      " A ",
+      "BBB"
+    ],
+    "key": {
+      "A": {
+        "item": "arx:perfect_cheese"
+      },
+      "B": {
+        "item": "arx:dough"
+      },
+      "C": {
+        "item": "minecraft:sugar"
+      }
+    },
+    "result": {
+      "item": "arx:preparation_cheese_pie"
+    }
+  }
+}

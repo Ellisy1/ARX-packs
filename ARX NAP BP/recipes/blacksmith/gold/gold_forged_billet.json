@@ -1,0 +1,22 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:gold_forged_billet"
+    },
+
+    
+    "tags": [ "anvil_crafting_table" ],
+    "pattern": [
+      "##"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:gold_hot_billet"
+      }
+    },
+    "result": {
+      "item": "arx:gold_forged_billet"
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.apples_bunch",
+				"texture_width": 16,
+				"texture_height": 16,
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 1.5,
+				"visible_bounds_offset": [0, 0.25, 0]
+			},
+			"bones": [
+				{
+					"name": "apple",
+					"pivot": [-1.25, 0, 5],
+					"rotation": [5.76863, -29.8742, -2.88066],
+					"cubes": [
+						{"origin": [-3.25, 0, 3], "size": [4, 4, 4], "uv": [0, 0]},
+						{"origin": [-1.75, 4, 5], "size": [2, 2, 0], "pivot": [-1.25, 4, 5], "rotation": [-15, 0, 0], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "apple2",
+					"pivot": [1, 0, -5],
+					"rotation": [-5, -25, 0],
+					"cubes": [
+						{"origin": [-1, 0, -7], "size": [4, 4, 4], "uv": [0, 0]},
+						{"origin": [0.5, 4, -5], "size": [2, 2, 0], "pivot": [1, 4, -5], "rotation": [-15, 0, 0], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "apple3",
+					"pivot": [0, 0, 0],
+					"rotation": [0, -120, 0],
+					"cubes": [
+						{"origin": [-2, 0, -2], "size": [4, 4, 4], "uv": [0, 0]},
+						{"origin": [-0.5, 4, 0], "size": [2, 2, 0], "pivot": [0, 4, 0], "rotation": [-15, 0, 0], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "apple4",
+					"pivot": [-4.5, 0, -1],
+					"rotation": [0, -30, 0],
+					"cubes": [
+						{"origin": [-6.5, 0, -3], "size": [4, 4, 4], "uv": [0, 0]},
+						{"origin": [-5, 4, -1], "size": [2, 2, 0], "pivot": [-4.5, 4, -1], "rotation": [-15, 0, 0], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "apple5",
+					"pivot": [4.25, 3.48296, 4.12941],
+					"rotation": [177.5, -37.5, 180],
+					"cubes": [
+						{"origin": [2, 0, 2], "size": [4, 4, 4], "uv": [0, 0]},
+						{"origin": [3.5, 4, 4], "size": [2, 2, 0], "pivot": [4, 4, 4], "rotation": [-15, 0, 0], "uv": [0, 0]}
+					]
+				}
+			]
+		}
+	]
+}

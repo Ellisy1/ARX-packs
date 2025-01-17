@@ -1,0 +1,22 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:forfactorite_hot_billet"
+    },
+
+    
+    "tags": [ "bugle_crafting_table" ],
+    "pattern": [
+      "#"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:forfactorite_ingot"
+      }
+    },
+    "result": {
+      "item": "arx:forfactorite_hot_billet"
+    }
+  }
+}

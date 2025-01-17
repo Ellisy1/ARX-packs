@@ -1,0 +1,11 @@
+{
+	"format_version": "1.19.50",
+	"minecraft:single_block_feature": {
+		"description": {
+			"identifier": "arx:nest_feature"
+		},
+		"places_block": "arx:nest",
+		"enforce_placement_rules": true,
+		"enforce_survivability_rules": true
+	}
+}

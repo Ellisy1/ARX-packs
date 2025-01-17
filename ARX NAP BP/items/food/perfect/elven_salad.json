@@ -1,0 +1,53 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:item": {
+    "description": {
+      "identifier": "arx:perfect_elven_salad",
+      "category": "equipment"
+    },
+    "components": {
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.cookedFood"
+      },
+      "minecraft:icon": {
+        "texture": "arx:elven_salad"
+      },
+      "minecraft:cooldown": {
+        "category": "food",
+        "duration": 1
+      },
+      "minecraft:on_use": {
+        "on_use": {
+          "event": "on_eat"
+        }
+      },
+      "minecraft:fuel": {
+        "duration": 3.0
+      },
+      "minecraft:max_stack_size": 1
+    },
+    "events": {
+      "on_eat": {
+        "run_command": {
+          "command": [
+            "tag @p add tt_f_perfect",
+            "tag @p add tt_f_herbal",
+            "tag @p add is_solid_food",
+            "scoreboard players set @p t_f_deliciousness 65",
+
+            "scoreboard players set @p t_f_salty 15",
+            "scoreboard players set @p t_f_sour 20",
+            "scoreboard players set @p t_f_exotic 25",
+
+            "scoreboard players set @p t_f_poisoning 80",
+            "function food/food",
+
+            "clear @s[scores={saturation=0}] arx:perfect_elven_salad 0 1",
+            "give @s[scores={saturation=0}] bowl",
+            "function food/cooldown/set_default_cooldown"
+          ]
+        }
+      }
+    }
+  }
+}

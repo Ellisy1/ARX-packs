@@ -1,0 +1,13 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.breakable_bag_in_e19_parking.opened": {
+			"loop": true,
+			"bones": {
+				"lid": {
+					"rotation": [0, 0, -175]
+				}
+			}
+		}
+	}
+}

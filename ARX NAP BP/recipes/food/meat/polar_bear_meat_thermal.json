@@ -1,0 +1,22 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:polar_bear_meat_thermal"
+    },
+
+    
+    "tags": [ "thermal_cooking_crafting_table" ],
+    "pattern": [
+      "#"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:polar_bear_meat"
+      }
+    },
+    "result": {
+      "item": "arx:preparation_polar_bear_meat"
+    }
+  }
+}

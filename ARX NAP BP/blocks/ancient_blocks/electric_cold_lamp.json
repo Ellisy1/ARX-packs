@@ -1,0 +1,117 @@
+{
+	"format_version": "1.19.40",
+	"minecraft:block": {
+		"description": {
+			"identifier": "arx:electric_cold_lamp",
+			"properties": {
+				"arx:facing_direction": [
+					2,
+					3,
+					4,
+					5
+				]
+			},
+			"menu_category": {
+				"category": "nature"
+			}
+		},
+		"permutations": [
+			{
+				"condition": "query.block_property('arx:facing_direction') == 3",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							0,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_property('arx:facing_direction') == 5",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							90,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_property('arx:facing_direction') == 2",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							180,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_property('arx:facing_direction') == 4",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							270,
+							0
+						]
+					} 
+				}
+			}
+		],
+		"components": {
+			"minecraft:geometry": "geometry.electric_cold_lamp",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "electric_cold_lamp",
+					"render_method": "alpha_test",
+					"face_dimming": false
+				}
+			},
+			"minecraft:collision_box": {
+				"origin": [
+					-8.0,
+					15.0,
+					-8.0
+				],
+				"size": [
+					16.0,
+					1.0,
+					16.0
+				]
+			},
+			"minecraft:selection_box": {
+				"origin": [
+					-8.0,
+					15.0,
+					-8.0
+				],
+				"size": [
+					16.0,
+					1.0,
+					16.0
+				]
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 2
+			},
+			"minecraft:on_player_placing": { 
+				"event": "set_facing_direction"
+			},
+			"minecraft:light_emission": 15
+		},
+		"events": {
+			"set_facing_direction": {
+				"set_block_property": {
+					"arx:facing_direction": "query.cardinal_facing_2d"
+				}
+			}
+		}
+	}
+}

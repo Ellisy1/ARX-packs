@@ -1,0 +1,132 @@
+{
+	"format_version": "1.16.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "arx:breakable_bag_in_e19_parking",
+			"is_spawnable": true,
+			"is_summonable": true,
+			"properties": {
+				"arx:is_opened": {
+					"client_sync": true,
+					"default": 0,
+					"range": [
+						0,
+						1
+					],
+					"type": "int"
+				}
+			}
+		},
+		"components": {
+			"minecraft:collision_box": {
+				"width": 0.4,
+				"height": 0.6
+			},
+			"minecraft:health": {
+				"value": 1000000
+			},
+			"minecraft:balloonable": {},
+			"minecraft:physics": {},
+			"minecraft:pushable": {
+				"is_pushable": false,
+				"is_pushable_by_piston": true
+			},
+			"minecraft:conditional_bandwidth_optimization": {},
+			"minecraft:damage_sensor": {
+				"triggers": {
+					"on_damage": {
+						"event": "on_get_damage"
+					}
+				}
+			},
+			"minecraft:interact": {
+				"interactions": [
+					{
+						"on_interact": {
+							"event": "interact_closed"
+						}
+					}
+				]
+			},
+			"minecraft:knockback_resistance": {
+				"value": 0.5
+			}
+		},
+		"component_groups": {
+			"opened": {
+				"minecraft:knockback_resistance": {
+					"value": 1
+				},
+				"minecraft:interact": {
+					"interactions": [
+						{
+							"on_interact": {
+								"event": "interact_opened"
+							}
+						}
+					]
+				},
+				"minecraft:damage_sensor": {
+					"triggers": [
+						{
+							"cause": "all",
+							"deals_damage": false
+						}
+					]
+				}
+			}
+		},
+		"events": {
+			"on_get_damage": {
+				"sequence": [
+					{
+						"run_command": {
+							"command": [
+								"effect @s regeneration 999999 255 true",
+								"event entity @s on_get_critical_damage"
+							]
+						}
+					}
+				]
+			},
+			"on_get_critical_damage": {
+				"sequence": [
+					{
+						"filters": {
+							"test": "actor_health",
+							"operator": "<=",
+							"value": 999890
+						},
+						"set_property": {
+							"arx:is_opened": 1
+						},
+						"run_command": {
+							"command": [
+								"playsound random.break @a ~ ~ ~"
+							]
+						},
+						"add": {
+							"component_groups": [
+								"opened"
+							]
+						}
+					}
+				]
+			},
+			"interact_opened": {
+				"run_command": {
+					"command": [
+						"execute as @p run function high_tec/breakable_bag_in_e19_parking"
+					]
+				}
+			},
+			"interact_closed": {
+				"run_command": {
+					"command": [
+						"execute as @p run w @s §eКейс выглядит довольно крепким и защищенным. Интересно, получится ли его открыть?"
+					]
+				}
+			}
+		}
+	}
+}

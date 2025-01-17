@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:netherite_secyra"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      " Z ",
+      " #Z",
+      "Z  "
+    ],
+    "key": {
+      "#": {
+        "item": "arx:netherite_billet"
+      },
+      "Z": {
+        "item": "minecraft:netherite_ingot"
+      }
+    },
+    "result": {
+      "item": "arx:netherite_secyra"
+    }
+  }
+}

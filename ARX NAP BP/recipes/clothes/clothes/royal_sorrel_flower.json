@@ -1,0 +1,25 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:royal_sorrel_flower"
+    },
+
+    
+    "tags": [ "clothes_crafting_table" ],
+    "pattern": [
+      "#C"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:royal_sorrel"
+      },
+      "C": {
+        "item": "arx:rounded_bottle_water_golden_hay_mp_flower"
+      }
+    },
+    "result": {
+      "item": "arx:royal_sorrel_flower"
+    }
+  }
+}

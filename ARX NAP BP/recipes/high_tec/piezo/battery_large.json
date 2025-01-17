@@ -1,0 +1,39 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:battery_large"
+    },
+
+    
+    "tags": [ "piezo_crafting_table" ],
+    "pattern": [
+      "JKH",
+      "IGI",
+      "JKJ"
+    ],
+    "key": {
+      "I": {
+        "item": "arx:plumbum_block"
+      },
+      "J": {
+        "item": "arx:plumbum_ingot"
+      },
+      "X": {
+        "item": "arx:copper_provoloka"
+      },
+      "G": {
+        "item": "arx:chrome_ingot"
+      },
+      "K": {
+        "item": "arx:caryite_ingot"
+      },
+      "H": {
+        "item": "minecraft:gold_ingot"
+      }
+    },
+    "result": {
+      "item": "arx:battery_large"
+    }
+  }
+}

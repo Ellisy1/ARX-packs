@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:crystal_of_durability"
+    },
+
+    
+    "tags": [ "jewelry_crafting_table" ],
+    "pattern": [
+      "A",
+      "B",
+      "A"
+    ],
+    "key": {
+      "B": {
+        "item": "minecraft:diamond"
+      },
+      "A": {
+        "item": "arx:steel_protective_plate"
+      }
+    },
+    "result": {
+      "item": "arx:crystal_of_durability"
+    }
+  }
+}

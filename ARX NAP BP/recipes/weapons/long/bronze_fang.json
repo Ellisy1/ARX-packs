@@ -1,0 +1,26 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:bronze_fang"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      " #",
+      "A "
+    ],
+    "key": {
+      "#": {
+        "item": "arx:bronze_billet"
+      },
+      "A": {
+        "item": "arx:bronze_ingot"
+      }
+    },
+    "result": {
+      "item": "arx:bronze_fang"
+    }
+  }
+}

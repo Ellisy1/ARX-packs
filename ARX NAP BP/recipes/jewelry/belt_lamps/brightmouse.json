@@ -1,0 +1,30 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:brightmouse"
+    },
+
+    
+    "tags": [ "jewelry_crafting_table" ],
+    "pattern": [
+      "ARA",
+      " I ",
+      "ARA"
+    ],
+    "key": {
+      "I": {
+        "item": "arx:belt_lamp"
+      },
+      "R": {
+        "item": "arx:riolik_protective_plate"
+      },
+      "A": {
+        "item": "arx:toliriite_ingot"
+      }
+    },
+    "result": {
+      "item": "arx:brightmouse"
+    }
+  }
+}

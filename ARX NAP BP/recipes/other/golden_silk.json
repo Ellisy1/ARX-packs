@@ -1,0 +1,26 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:golden_silk"
+    },
+
+    
+    "tags": [ "loom_crafting_table" ],
+    "pattern": [
+      "AFA",
+      "FAF"
+    ],
+    "key": {
+      "A": {
+        "item": "arx:gold_protective_plate"
+      },
+      "F": {
+        "item": "arx:silk"
+      }
+    },
+    "result": {
+      "item": "arx:golden_silk"
+    }
+  }
+}

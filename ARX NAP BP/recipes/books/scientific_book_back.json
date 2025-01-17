@@ -1,0 +1,22 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:scientific_book_back"
+    },
+
+    "priority": 1,
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "A"
+    ],
+    "key": {
+      "A": {
+        "item": "arx:scientific_book_unused"
+      }
+    },
+    "result": {
+      "item": "minecraft:book"
+    }
+  }
+}

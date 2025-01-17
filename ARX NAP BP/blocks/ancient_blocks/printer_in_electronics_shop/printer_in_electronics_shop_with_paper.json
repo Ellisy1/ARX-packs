@@ -1,0 +1,60 @@
+{
+	"format_version": "1.19.40",
+	"minecraft:block": {
+		"description": {
+			"identifier": "arx:printer_in_electronics_shop_with_paper",
+
+			"menu_category": {
+				"category": "nature"
+			}
+		},
+		"components": {
+			"minecraft:geometry": "geometry.printer_in_electronics_shop_with_paper",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "printer_in_electronics_shop_with_paper",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:collision_box": {
+				"origin": [
+					-6.0,
+					0.0,
+					-6.0
+				],
+				"size": [
+					12.0,
+					6.0,
+					12.0
+				]
+			},
+			"minecraft:selection_box": {
+				"origin": [
+					-6.0,
+					0.0,
+					-6.0
+				],
+				"size": [
+					12.0,
+					6.0,
+					12.0
+				]
+			},
+			"minecraft:on_interact":{
+				"event" : "arx:interact"
+			}
+		},
+		"events": {
+			"arx:interact": {
+				"run_command": {
+					"command": [
+						"tag @p add self",
+						"execute if entity @p[tag=self, scores={restrict_block_interact=0}] run function high_tec/activate_taking_paper_from_printer_in_electronics_shop",
+						"scoreboard players set @p restrict_block_interact 5",
+						"tag @p remove self"
+					]
+				}
+			}
+		}
+	}
+}

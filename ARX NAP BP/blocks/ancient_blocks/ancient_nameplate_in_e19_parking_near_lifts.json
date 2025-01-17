@@ -1,0 +1,126 @@
+{
+	"format_version": "1.19.40",
+	"minecraft:block": {
+		"description": {
+			"identifier": "arx:ancient_nameplate_in_e19_parking_near_lifts",
+			"properties": {
+				"arx:facing_direction": [
+					2,
+					3,
+					4,
+					5
+				]
+			},
+			"menu_category": {
+				"category": "nature"
+			}
+		},
+		"permutations": [
+			{
+				"condition": "query.block_property('arx:facing_direction') == 3",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							0,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_property('arx:facing_direction') == 5",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							90,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_property('arx:facing_direction') == 2",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							180,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_property('arx:facing_direction') == 4",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							270,
+							0
+						]
+					} 
+				}
+			}
+		],
+		"components": {
+			"minecraft:map_color": "#2e8926",
+			"minecraft:geometry": "geometry.ancient_nameplate",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "arx_ancient_nameplate_in_e19_parking_near_lifts",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:collision_box": {
+				"origin": [
+					-8.0,
+					2.0,
+					8.0
+				],
+				"size": [
+					16.0,
+					11.0,
+					-1.5
+				]
+			},
+			"minecraft:selection_box": {
+				"origin": [
+					-8.0,
+					2.0,
+					8.0
+				],
+				"size": [
+					16.0,
+					11.0,
+					-1.5
+				]
+			},
+			"minecraft:on_interact":{
+				"event" : "arx:interact"
+			},
+			"minecraft:on_player_placing": { 
+				"event": "set_facing_direction"
+			}
+		},
+		"events": {
+			"set_facing_direction": {
+				"set_block_property": {
+					"arx:facing_direction": "query.cardinal_facing_2d"
+				}
+			},
+			"arx:interact": {
+				"run_command": {
+					"command": [
+						"tag @p add self",
+						"execute as @p[tag=self, scores={restrict_block_interact=0}] at @s run function high_tec/nameplates/ancient_nameplate_in_e19_parking_near_lifts",
+						"scoreboard players set @p restrict_block_interact 5",
+						"tag @p remove self"
+					]
+				}
+			}
+		}
+	}
+}

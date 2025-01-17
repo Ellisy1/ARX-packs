@@ -1,0 +1,29 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:electrodinner"
+    },
+
+    
+    "tags": [ "thermal_cooking_crafting_table" ],
+    "pattern": [
+      " B",
+      "A#"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:cramp_fish_meat"
+      },
+      "A": {
+        "item": "arx:salt"
+      },
+      "B": {
+        "item": "arx:night_kosk"
+      }
+    },
+    "result": {
+      "item": "arx:preparation_electrodinner"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+	"format_version": "1.19.40",
+	"minecraft:block": {
+		"description": {
+			"identifier": "arx:dynamic_light_block_12"
+		},
+		"components": {
+			"minecraft:geometry": "geometry.none",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "arx_invisible",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:light_emission": 12,
+			"minecraft:collision_box": false,
+			"minecraft:selection_box": false,
+			"minecraft:queued_ticking": {
+				"interval_range": [1, 1],
+				"on_tick": {
+					"event": "arx:remove"
+				}
+			},
+			"minecraft:loot": "loot_tables/blocks/empty.json"
+		},
+		"events": {
+			"arx:remove": {
+				"run_command": {
+					"command": [
+						"fill ~ ~ ~ ~ ~ ~ air"
+					]
+				}
+			}
+		}
+	}
+}

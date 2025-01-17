@@ -1,0 +1,48 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:meat_hurricane"
+    },
+
+    
+    "tags": [ "thermal_cooking_crafting_table" ],
+    "pattern": [
+      "ABC",
+      "DEF",
+      "GHI"
+    ],
+    "key": {
+      "A": {
+        "item": "arx:allay_meat"
+      },
+      "B": {
+        "item": "arx:rat_monstr_meat"
+      },
+      "C": {
+        "item": "arx:cave_rat_meat"
+      },
+      "D": {
+        "item": "arx:kapibara_meat"
+      },
+      "E": {
+        "item": "minecraft:beef"
+      },
+      "F": {
+        "item": "arx:bat_meat"
+      },
+      "G": {
+        "item": "arx:fiercewolf_meat"
+      },
+      "H": {
+        "item": "arx:snow_bars_meat"
+      },
+      "I": {
+        "item": "arx:sea_turtle_meat"
+      }
+    },
+    "result": [
+      {"item": "arx:preparation_meat_hurricane"}
+    ]
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:purple_plates"
+    },
+
+    
+    "tags": [ "heavy_armor_crafting_table" ],
+    "pattern": [
+      "A#A",
+      "#B#",
+      "ADA"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:naginitis_protective_plate"
+      },
+      "A": {
+        "item": "arx:durasteel_protective_plate"
+      },
+      "B": {
+        "item": "arx:silk"
+      },
+      "D": {
+        "item": "minecraft:dye:5"
+      }
+    },
+    "result": {
+      "item": "arx:purple_plates"
+    }
+  }
+}

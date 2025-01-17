@@ -1,0 +1,22 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:string_kavra"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "I"
+    ],
+    "key": {
+      "I": {
+        "item": "arx:kavra"
+      }
+    },
+    "result": {
+      "item": "minecraft:string"
+    }
+  }
+}

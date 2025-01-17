@@ -1,0 +1,26 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:piratebread_a_a"
+    },
+
+    
+    "tags": [ "cooking_crafting_table" ],
+    "pattern": [
+      "A#",
+      "AA"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:bread"
+      },
+      "A": {
+        "item": "arx:fish_fillet_fried"
+      }
+    },
+    "result": {
+      "item": "arx:preparation_piratebread"
+    }
+  }
+}

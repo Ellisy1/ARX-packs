@@ -1,0 +1,170 @@
+{
+  "format_version": "1.20.30",
+  "minecraft:block": {
+    "description": {
+      "identifier": "arx:potatoes",
+      "menu_category": {
+        "category": "none"
+      },
+      "states": {
+        "arx:growth_stage": [
+          0,
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    "components": {
+      "minecraft:flammable": true,
+      "minecraft:collision_box": false,
+      "minecraft:geometry": "geometry.crop1",
+      "minecraft:light_dampening": 0,
+      "minecraft:placement_filter": {
+        "conditions": [
+          {
+            "allowed_faces": [
+              "up"
+            ],
+            "block_filter": [
+              "minecraft:farmland"
+            ]
+          }
+        ]
+      },
+      "minecraft:loot": "loot_tables/blocks/potatoes_young.json",
+      "minecraft:random_ticking": {
+        "on_tick": {
+          "event": "arx:grow",
+          "condition": "q.block_state('arx:growth_stage') < 3 && math.random_integer(0, 9) >= 8"
+        }
+      },
+      "minecraft:queued_ticking": {
+        "interval_range": [
+          10,
+          10
+        ],
+        "looping": true,
+        "on_tick": {
+          "event": "arx:destroy",
+          "condition": "q.block_neighbor_has_any_tag(1,0,0,'water') || q.block_neighbor_has_any_tag(-1,0,0,'water') || q.block_neighbor_has_any_tag(0,0,1,'water') || q.block_neighbor_has_any_tag(0,0,-1,'water') || q.block_neighbor_has_any_tag(0,1,0,'water')"
+        }
+      }
+    },
+    "events": {
+      "arx:destroy": {
+        "run_command": {
+          "command": "setblock ~~~ air destroy"
+        }
+      },
+      "arx:grow": {
+        "set_block_state": {
+          "arx:growth_stage": "q.block_state('arx:growth_stage') + 1"
+        }
+      }
+    },
+    "permutations": [
+      {
+        "condition": "q.block_state('arx:growth_stage') == 0",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "potatoes_stage_0",
+              "render_method": "alpha_test",
+              "face_dimming": false,
+              "ambient_occlusion": false
+            }
+          },
+          "minecraft:selection_box": {
+            "origin": [
+              -8,
+              0,
+              -8
+            ],
+            "size": [
+              16,
+              2,
+              16
+            ]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('arx:growth_stage') == 1",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "potatoes_stage_1",
+              "render_method": "alpha_test",
+              "face_dimming": false,
+              "ambient_occlusion": false
+            }
+          },
+          "minecraft:selection_box": {
+            "origin": [
+              -8,
+              0,
+              -8
+            ],
+            "size": [
+              16,
+              5,
+              16
+            ]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('arx:growth_stage') == 2",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "potatoes_stage_2",
+              "render_method": "alpha_test",
+              "face_dimming": false,
+              "ambient_occlusion": false
+            }
+          },
+          "minecraft:selection_box": {
+            "origin": [
+              -8,
+              0,
+              -8
+            ],
+            "size": [
+              16,
+              9,
+              16
+            ]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('arx:growth_stage') == 3",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "potatoes_stage_3",
+              "render_method": "alpha_test",
+              "face_dimming": false,
+              "ambient_occlusion": false
+            }
+          },
+          "minecraft:selection_box": {
+            "origin": [
+              -8,
+              0,
+              -8
+            ],
+            "size": [
+              16,
+              13,
+              16
+            ]
+          },
+          "minecraft:loot": "loot_tables/blocks/potatoes_mature.json"
+        }
+      }
+    ]
+  }
+}

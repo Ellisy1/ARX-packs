@@ -1,0 +1,1 @@
+loot give @s loot "custom/book_case_a" 

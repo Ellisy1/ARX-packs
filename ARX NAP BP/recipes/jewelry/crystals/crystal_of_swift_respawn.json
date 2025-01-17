@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:crystal_of_swift_respawn"
+    },
+
+    
+    "tags": [ "jewelry_crafting_table" ],
+    "pattern": [
+      "R",
+      "I",
+      "R"
+    ],
+    "key": {
+      "I": {
+        "item": "minecraft:diamond"
+      },
+      "R": {
+        "item": "arx:gold_billet"
+      }
+    },
+    "result": {
+      "item": "arx:crystal_of_swift_respawn"
+    }
+  }
+}

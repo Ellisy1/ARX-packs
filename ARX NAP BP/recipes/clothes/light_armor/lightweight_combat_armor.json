@@ -1,0 +1,36 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:lightweight_combat_armor"
+    },
+
+    
+    "tags": [ "light_armor_crafting_table" ],
+    "pattern": [
+      "CAC",
+      "#A#",
+      "ADA"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:plumbum_protective_plate"
+      },
+      "A": {
+        "item": "arx:pushnina"
+      },
+      "B": {
+        "item": "minecraft:dye:6"
+      },
+      "C": {
+        "item": "arx:tin_protective_plate"
+      },
+      "D": {
+        "item": "arx:caryite_protective_plate"
+      }
+    },
+    "result": {
+      "item": "arx:lightweight_combat_armor"
+    }
+  }
+}

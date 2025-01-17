@@ -1,0 +1,24 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:cast_iron_hammer_crusher"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      " A ",
+      " AA",
+      "A  "
+    ],
+    "key": {
+      "A": {
+        "item": "arx:cast_iron_billet"
+      }
+    },
+    "result": {
+      "item": "arx:cast_iron_hammer_crusher"
+    }
+  }
+}

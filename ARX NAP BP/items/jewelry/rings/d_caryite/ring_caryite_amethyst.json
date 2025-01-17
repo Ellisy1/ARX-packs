@@ -1,0 +1,36 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:item": {
+    "description": {
+      "identifier": "arx:ring_caryite_amethyst",
+      "category": "Equipment"
+    },
+    "components": {
+      "minecraft:icon": {
+        "texture": "arx:ring_caryite_amethyst"
+      },
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.boots"
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:enchantable": {
+        "value": 15,
+        "slot": "armor_feet"
+      },
+      "minecraft:durability": {
+        "max_durability": 1000
+      },
+      "minecraft:wearable": {
+        "slot": "slot.armor.feet"
+      },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": ["arx:jw_caryite"],
+            "repair_amount": 500
+          }
+        ]
+      }
+    }
+  }
+}

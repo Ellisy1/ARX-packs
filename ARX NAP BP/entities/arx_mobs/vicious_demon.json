@@ -1,0 +1,634 @@
+{
+	"format_version": "1.20.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "arx:vicious_demon",
+			"is_spawnable": true,
+			"is_summonable": true
+		},
+		"components": {
+			"minecraft:navigation.walk": {
+				"can_path_over_water": true,
+				"avoid_water": false,
+				"avoid_damage_blocks": false,
+				"avoid_portals": false
+			},
+			"minecraft:movement.basic": {},
+			"minecraft:knockback_resistance": {
+				"value": 0.5
+			},
+			"minecraft:scale": {
+				"value": 1.0
+			},
+			"minecraft:type_family": {
+				"family": [
+					"vicious",
+					"boss"
+				]
+			},
+			"minecraft:behavior.look_at_entity": {
+				"priority": 20,
+				"look_distance": 20,
+				"filters": {
+					"test": "is_family",
+					"subject": "other",
+					"value": "player"
+				}
+			},
+			"minecraft:boss": {
+				"hud_range": 20,
+				"name": "§a§lПорочный демон",
+				"should_darken_sky": false
+			},
+			"minecraft:experience_reward": {
+				"on_death": "query.last_hit_by_player ? 1000 : 0"
+			},
+			"minecraft:loot": {
+				"table": "loot_tables/entities/vicious_demon.json"
+			},
+			"minecraft:is_hidden_when_invisible": {},
+			"minecraft:collision_box": {
+				"width": 0.6,
+				"height": 1.8
+			},
+			"minecraft:health": {
+				"value": 2000
+			},
+			"minecraft:movement": {
+				"value": 0.28
+			},
+			"minecraft:balloonable": {},
+			"minecraft:physics": {},
+			"minecraft:pushable": {
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			},
+			"minecraft:conditional_bandwidth_optimization": {},
+			"minecraft:damage_sensor": {
+				"triggers": {
+					"on_damage": {
+						"event": "increase_hit_counter"
+					}
+				}
+			},
+			"minecraft:on_death": {
+				"event": "on_death",
+				"target": "self"
+			}
+		},
+		"component_groups": {
+			// ОСНОВНАЯ ФАЗА (СПИН)
+			"spin": {
+				"minecraft:timer": {
+					"looping": false,
+					"time": 10,
+					"time_down_event": {
+						"event": "stop_spin"
+					}
+				},
+				"minecraft:scale": {
+					"value": 1.05
+				},
+				"minecraft:behavior.nearest_attackable_target": {
+					"priority": 2,
+					"reselect_targets": true,
+					"must_see_forget_duration": 25.0,
+					"entity_types": [
+						{
+							"filters": {
+								"any_of": [
+									{
+										"test": "is_family",
+										"subject": "other",
+										"value": "player"
+									}
+								]
+							},
+							"max_dist": 1000
+						}
+					]
+				},
+				"minecraft:behavior.melee_attack": {
+					"priority": 1,
+					"speed_multiplier": 1.1
+				},
+				"minecraft:attack": {
+					"damage": 1
+				}
+			},
+			// ОСНОВНАЯ ФАЗА (РАШ)
+			"rush": {
+				"minecraft:timer": {
+					"looping": false,
+					"time": 7,
+					"time_down_event": {
+						"event": "stop_rush"
+					}
+				},
+				"minecraft:behavior.nearest_attackable_target": {
+					"priority": 2,
+					"reselect_targets": true,
+					"must_see_forget_duration": 25.0,
+					"entity_types": [
+						{
+							"filters": {
+								"any_of": [
+									{
+										"test": "is_family",
+										"subject": "other",
+										"value": "player"
+									}
+								]
+							},
+							"max_dist": 1000
+						}
+					]
+				},
+				"minecraft:behavior.melee_attack": {
+					"priority": 1,
+					"speed_multiplier": 1.7,
+					"cooldown_time": 2
+				},
+				"minecraft:attack": {
+					"damage": 7
+				}
+			},
+			// ОСНОВНАЯ ФАЗА (АГРОРАШ)
+			"agressive_rush": {
+				"minecraft:timer": {
+					"looping": false,
+					"time": 5,
+					"time_down_event": {
+						"event": "stop_agressive_rush"
+					}
+				},
+				"minecraft:behavior.nearest_attackable_target": {
+					"priority": 2,
+					"reselect_targets": true,
+					"must_see_forget_duration": 25.0,
+					"entity_types": [
+						{
+							"filters": {
+								"any_of": [
+									{
+										"test": "is_family",
+										"subject": "other",
+										"value": "player"
+									}
+								]
+							},
+							"max_dist": 1000
+						}
+					]
+				},
+				"minecraft:behavior.melee_attack": {
+					"priority": 1,
+					"speed_multiplier": 1.9
+				},
+				"minecraft:attack": {
+					"damage": 9
+				}
+			},
+			// ОСНОВНАЯ ФАЗА (ВЫНУЖДЕННАЯ. Включается при сильном избиении демона)
+			"shield": {
+				"minecraft:timer": {
+					"looping": false,
+					"time": 4,
+					"time_down_event": {
+						"event": "circle_attack"
+					}
+				},
+				"minecraft:knockback_resistance": {
+					"value": 1
+				}
+			},
+			// ФАЗА ОТДЫХА (После атак)
+			"rest_stage": {
+				"minecraft:scale": {
+					"value": 0.95
+				},
+				"minecraft:knockback_resistance": {
+					"value": 1
+				}
+			},
+			"rest_stage_cd2s": {
+				"minecraft:timer": {
+					"looping": false,
+					"time": 2,
+					"time_down_event": {
+						"event": "stop_rest"
+					}
+				}
+			},
+			"rest_stage_cd3s": {
+				"minecraft:timer": {
+					"looping": false,
+					"time": 3,
+					"time_down_event": {
+						"event": "stop_rest"
+					}
+				}
+			},
+			"rest_stage_cd4s": {
+				"minecraft:timer": {
+					"looping": false,
+					"time": 5,
+					"time_down_event": {
+						"event": "stop_rest"
+					}
+				}
+			},
+			// ВСПОМОГАТЕЛЬНЫЙ ЭВЕНТ (Вернуть размер как было)
+			"reset_scale": {
+				"minecraft:scale": {
+					"value": 1.0
+				}
+			},
+			// ВСПОМОГАТЕЛЬНЫЙ ЭВЕНТ (Вернуть отбрасывание)
+			"reset_knockback_resistance": {
+				"minecraft:knockback_resistance": {
+					"value": 0.5
+				}
+			},
+			// СУИЦИД
+			"despawn": {
+				"minecraft:instant_despawn": {}
+			},
+			// ВЗГЛЯД НА ЦЕЛЬ
+			"look_at_player": {
+				"minecraft:behavior.look_at_entity": {
+					"priority": 20,
+					"look_distance": 20,
+					"filters": {
+						"test": "is_family",
+						"subject": "other",
+						"value": "player"
+					}
+				}
+			},
+			// НОВЫЙ ТИТЛ
+			"final_boss_title": {
+				"minecraft:boss": {
+					"hud_range": 20,
+					"name": "§c§lПорочный демон - ярость",
+					"should_darken_sky": false
+				}
+			}
+		},
+		"events": {
+			// НОВЫЙ ТИТЛ
+			"final_boss_title": {
+				"add": {
+					"component_groups": [
+						"final_boss_title"
+					]
+				}
+			},
+			// АВТО-ТРИГГЕР ПРИ СМЕРТИ
+			"on_death": {
+				"run_command": {
+					"command": [
+						"scoreboard players add @a[r=15] xp_tray 3000",
+						"scoreboard players add @a[r=15] count_bss_kills 1",
+						"function entities/vicious_demon"
+					]
+				}
+			},
+			// ДЕЛАЕМ ЩИТ
+			"shield": {
+				"remove": {
+					"component_groups": [
+						"rush",
+						"spin"
+					]
+				},
+				"add": {
+					"component_groups": [
+						"shield",
+						"reset_scale"
+					]
+				},
+				"run_command": {
+					"command": [
+						"tag @s remove rush",
+						"tag @s remove agressive_rush",
+						"tag @s remove spin",
+						"tag @s add shield",
+						"effect @s regeneration 4 6",
+						"effect @s resistance 4 255 true"
+					]
+				}
+			},
+			// ПРОБИВАЕМ СИЛЬНУЮ КРУГОВУЮ АТАКУ
+			"circle_attack": {
+				"remove": {
+					"component_groups": "shield"
+				},
+				"add": {
+					"component_groups": "reset_knockback_resistance"
+				},
+				"run_command": {
+					"command": [
+						"tag @s remove shield",
+						"playanimation @s animation.vicious_demon.circle_attack",
+						"particle arx:vicious_flame ~ ~ ~",
+						"particle arx:vicious_demon_spawn_flame_outward ~ ~ ~",
+						"damage @a[r=5] 20 entity_attack",
+						"scoreboard players add @a[r=5] vicious_flame 5",
+						"tag @s add rested",
+						"event entity @s main_stage_redirect"
+					]
+				}
+			},
+			// ЕБАШИМ МАГИЕЙ
+			"cast_default_damage_spell": {
+				"run_command": {
+					"command": [
+						"playanimation @s animation.vicious_demon.cast_default_damage_spell",
+						"particle arx:vicious_demon_spawn_flame_outward ~ ~ ~",
+						"execute at @p[r=15] run particle arx:sempra_a ~ ~1 ~",
+						"damage @p[r=15, scores={tick_nosempra_a=0, tick_nosempra_b=0, tick_nosempra_c=0}] 8 entity_attack entity @s",
+						"damage @p[r=15, scores={tick_nosempra_a=!0}] 6 entity_attack entity @s",
+						"damage @p[r=15, scores={tick_nosempra_b=!0}] 4 entity_attack entity @s",
+						"damage @p[r=15, scores={tick_nosempra_c=!0}] 0 entity_attack entity @s",
+						"execute if entity @s[tag=hp_0_to_25] run effect @p[r=15] levitation 1 1 true",
+						"effect @s slowness 1 3 true",
+						"playsound dissecting_fog @a ~ ~ ~"
+					]
+				}
+			},
+			// ПОВЫШАЕМ СЧЕТЧИК ДАМАГА ПО ДЕМОНУ
+			"increase_hit_counter": {
+				"run_command": {
+					"command": [
+						"scoreboard players add @s vic_dem_hit_cnt 2"
+					]
+				}
+			},
+			// АТАКА ОСЛЕПЛЕНИЕМ
+			"blindness_attack": {
+				"run_command": {
+					"command": [
+						"particle arx:vicious_demon_spawn_flame_outward ~ ~ ~",
+						"execute as @a[r=15] at @s run tp @s ~ ~ ~ facing @r[r=15, rm=0.1]",
+						"execute as @a[r=15] at @s run playsound mob.rat_eliminator.spawn @s",
+						"execute as @a[r=15] run camera @s fade time 0 6 1 color 60 20 20",
+						"title @a[r=15] title Вы ослеплены демоном!"
+					]
+				}
+			},
+			// СУИЦИД
+			"despawn": {
+				"run_command": {
+					"command": [
+						"scoreboard players set @a[scores={verify=2}] vicious_demon 0",
+						"particle arx:vicious_demon_spawn_flame_outward ~ ~ ~",
+						"execute as @a[scores={verify=2, vic_dem_defeated=1}] run fill -204 34 337 -204 36 335 air",
+						"fill -191 56 336 -191 56 336 air"
+					]
+				},
+				"add": {
+					"component_groups": "despawn"
+				}
+			},
+			// НАЧИНАЕМ ОТДЫХ
+			"start_rest": {
+				"add": {
+					"component_groups": "rest_stage"
+				},
+				"remove": {
+					"component_groups": "look_at_player"
+				},
+				"run_command": {
+					"command": [
+						"event entity @s test_hp",
+						"tag @s add rested",
+						"event entity @s[tag=hp_25_tp_50] launch_rest_cd2s",
+						"event entity @s[tag=hp_50_to_75] launch_rest_cd3s",
+						"event entity @s[tag=hp_75_to_100] launch_rest_cd4s"
+					]
+				}
+			},
+			// ЗАКАНЧИВАЕМ ОТДЫХ
+			"stop_rest": {
+				"add": {
+					"component_groups": [
+						"reset_scale",
+						"look_at_player",
+						"reset_knockback_resistance"
+					]
+				},
+				"run_command": {
+					"command": [
+						"event entity @s main_stage_redirect"
+					]
+				}
+			},
+			// ВСПОМОГАТЕЛЬНЫЕ ЭВЕНТЫ ДЛЯ ОТДЫХА
+			"launch_rest_cd2s": {
+				"add": {
+					"component_groups": "rest_stage_cd2s"
+				}
+			},
+			"launch_rest_cd3s": {
+				"add": {
+					"component_groups": "rest_stage_cd3s"
+				}
+			},
+			"launch_rest_cd4s": {
+				"add": {
+					"component_groups": "rest_stage_cd4s"
+				}
+			},
+			// I НАЧИНАЕМ ФАЗУ АТАКИ С ВРАЩЕНИЕМ
+			"start_spin": {
+				"run_command": {
+					"command": [
+						"tag @s add spin"
+					]
+				},
+				"add": {
+					"component_groups": "spin"
+				}
+			},
+			// ЗАКАНЧИВАЕМ ВРАЩЕНИЕ
+			"stop_spin": {
+				"remove": {
+					"component_groups": "spin"
+				},
+				"add": {
+					"component_groups": [
+						"reset_scale"
+					]
+				},
+				"run_command": {
+					"command": [
+						"tag @s remove spin",
+						"event entity @s main_stage_redirect"
+					]
+				}
+			},
+			// II НАЧИИНАЕМ РАШ-АТАКУ
+			"start_rush": {
+				"add": {
+					"component_groups": "rush"
+				},
+				"run_command": {
+					"command": [
+						"tag @s add rush"
+					]
+				}
+			},
+			// ОКАНЧИВАЕМ РАШ-АТАКУ
+			"stop_rush": {
+				"remove": {
+					"component_groups": [
+						"rush"
+					]
+				},
+				"run_command": {
+					"command": [
+						"tag @s remove rush",
+						"event entity @s main_stage_redirect"
+					]
+				}
+			},
+			// III НАЧИНАЕМ АГРОРАШ-АТАКУ
+			"start_agressive_rush": {
+				"add": {
+					"component_groups": "agressive_rush"
+				},
+				"run_command": {
+					"command": [
+						"tag @s add agressive_rush"
+					]
+				}
+			},
+			// ОКАНЧИВАЕМ АГРОРАШ-АТАКУ
+			"stop_agressive_rush": {
+				"remove": {
+					"component_groups": "agressive_rush"
+				},
+				"run_command": {
+					"command": [
+						"tag @s remove agressive_rush",
+						"event entity @s main_stage_redirect"
+					]
+				}
+			},
+			// DRIVER
+			// ОПРЕДЕЛЯЕМ ХП
+			"test_hp": {
+				"run_command": {
+					"command": [
+						"tag @s remove hp_0_to_25",
+						"tag @s remove hp_25_tp_50",
+						"tag @s remove hp_50_to_75",
+						"tag @s remove hp_75_to_100",
+						"event entity @s test_hp_0_to_25",
+						"event entity @s test_hp_25_tp_50",
+						"event entity @s test_hp_50_to_75",
+						"event entity @s test_hp_75_to_100",
+						"execute if entity @s[tag=hp_0_to_25] run event entity @s final_boss_title"
+					]
+				}
+			},
+			"test_hp_0_to_25": {
+				"sequence": [
+					{
+						"filters": {
+							"test": "actor_health",
+							"operator": "<=",
+							"value": 500
+						},
+						"run_command": {
+							"command": [
+								"tag @s add hp_0_to_25"
+							]
+						}
+					}
+				]
+			},
+			"test_hp_25_tp_50": {
+				"sequence": [
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "actor_health",
+									"operator": ">",
+									"value": 500
+								},
+								{
+									"test": "actor_health",
+									"operator": "<=",
+									"value": 1000
+								}
+							]
+						},
+						"run_command": {
+							"command": [
+								"tag @s add hp_25_tp_50"
+							]
+						}
+					}
+				]
+			},
+			"test_hp_50_to_75": {
+				"sequence": [
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "actor_health",
+									"operator": ">",
+									"value": 1000
+								},
+								{
+									"test": "actor_health",
+									"operator": "<=",
+									"value": 1500
+								}
+							]
+						},
+						"run_command": {
+							"command": [
+								"tag @s add hp_50_to_75"
+							]
+						}
+					}
+				]
+			},
+			"test_hp_75_to_100": {
+				"sequence": [
+					{
+						"filters": {
+							"test": "actor_health",
+							"operator": ">",
+							"value": 1500
+						},
+						"run_command": {
+							"command": [
+								"tag @s add hp_75_to_100"
+							]
+						}
+					}
+				]
+			},
+			// (ОСНОВНАЯ ЧАСТЬ ДРАЙВЕРА) ДРАЙВЕР СМЕНЫ ФАЗ АТАКИ
+			"main_stage_redirect": {
+				"run_command": {
+					"command": [
+						"event entity @s test_hp",
+						"tag @s[tag=rested] add allow_launch_attack_phase",
+						"tag @s[tag=hp_0_to_25] add allow_launch_attack_phase",
+						"execute if entity @s[tag=allow_launch_attack_phase] run function vicious_demon/launch_attack_phase",
+						"execute if entity @s[tag=!allow_launch_attack_phase] run event entity @s start_rest",
+						"tag @s[tag=allow_launch_attack_phase] remove rested",
+						"tag @s remove allow_launch_attack_phase"
+					]
+				}
+			}
+		}
+	}
+}

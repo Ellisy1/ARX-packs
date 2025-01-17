@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:hoof_bouillon"
+    },
+
+    
+    "tags": [ "boiler_crafting_table" ],
+    "pattern": [
+      "###",
+      "###",
+      " A "
+    ],
+    "key": {
+      "#": {
+        "item": "arx:hoof"
+      },
+      "A": {
+        "item": "minecraft:bowl"
+      }
+    },
+    "result": {
+      "item": "arx:preparation_hoof_bouillon"
+    }
+  }
+}

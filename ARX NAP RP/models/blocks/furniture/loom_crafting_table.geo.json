@@ -1,0 +1,87 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.loom_crafting_table",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [0, 0.75, 0]
+			},
+			"bones": [
+				{
+					"name": "base",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "main",
+					"parent": "base",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [4, 2, -5], "size": [2, 1, 10], "uv": [14, 17]},
+						{"origin": [-6, 2, -5], "size": [2, 1, 10], "uv": [0, 16]},
+						{"origin": [-6, 0, -7], "size": [12, 3, 2], "uv": [28, 16]}
+					]
+				},
+				{
+					"name": "back",
+					"parent": "base",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-4, 14, 5], "size": [8, 2, 2], "uv": [28, 21]},
+						{"origin": [-6, 0, 5], "size": [2, 16, 2], "uv": [22, 28]},
+						{"origin": [4, 0, 5], "size": [2, 16, 2], "uv": [30, 28]}
+					]
+				},
+				{
+					"name": "up",
+					"parent": "base",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-6, 15, -1], "size": [2, 1, 6], "uv": [38, 25]},
+						{"origin": [4, 15, -1], "size": [2, 1, 6], "uv": [31, 0]},
+						{"origin": [-4, 15, -1], "size": [8, 1, 2], "uv": [30, 10]},
+						{"origin": [-5, 6, 0], "size": [10, 9, 1], "uv": [0, 28]}
+					]
+				},
+				{
+					"name": "front",
+					"parent": "base",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-6, 3, -7], "size": [2, 2, 4], "uv": [38, 38]},
+						{"origin": [4, 3, -7], "size": [2, 2, 4], "uv": [38, 32]},
+						{"origin": [-6, 5, -4], "size": [12, 1, 7], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "val",
+					"parent": "front",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-7, 4, -6], "size": [14, 2, 2], "uv": [0, 12]}
+					]
+				},
+				{
+					"name": "inside",
+					"parent": "base",
+					"pivot": [0, 0, -2],
+					"cubes": [
+						{"origin": [-6, 3, 2], "size": [2, 2, 3], "uv": [14, 16]},
+						{"origin": [4, 3, 2], "size": [2, 2, 3], "uv": [0, 16]}
+					]
+				},
+				{
+					"name": "val2",
+					"parent": "inside",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-7, 4, 3], "size": [14, 2, 2], "uv": [0, 8]}
+					]
+				}
+			]
+		}
+	]
+}

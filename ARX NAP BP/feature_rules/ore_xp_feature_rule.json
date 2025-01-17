@@ -1,0 +1,52 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:feature_rules": {
+		"description": {
+			"identifier": "arx:ore_xp_feature_rule",
+			"places_feature": "arx:ore_xp_feature"
+		},
+		"conditions": {
+			"placement_pass": "before_underground_pass",
+			"minecraft:biome_filter": [
+				{
+					"all_of": [
+						{
+							"test": "has_biome_tag",
+							"operator": "!=",
+							"value": "nether"
+						},
+						{
+							"test": "has_biome_tag",
+							"operator": "!=",
+							"value": "mesa"
+						}
+					]
+				}
+			]
+		},
+		"distribution": {
+			"iterations": 5,
+			"x": {
+				"distribution": "uniform",
+				"extent": [
+					0,
+					16
+				]
+			},
+			"y": {
+				"distribution": "uniform",
+				"extent": [
+					-60,
+					60
+				]
+			},
+			"z": {
+				"distribution": "uniform",
+				"extent": [
+					0,
+					16
+				]
+			}
+		}
+	}
+}

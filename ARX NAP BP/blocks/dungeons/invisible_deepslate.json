@@ -1,0 +1,21 @@
+{
+	"format_version": "1.19.40",
+	"minecraft:block": {
+		"description": {
+			"identifier": "arx:invisible_deepslate",
+			"menu_category": {
+				"category": "nature"
+			}
+		},
+		"components": {
+			"minecraft:collision_box": false,
+			"minecraft:geometry": "geometry.default_cube",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "deepslate",
+					"render_method": "alpha_test"
+				}
+			}
+		}
+	}
+}

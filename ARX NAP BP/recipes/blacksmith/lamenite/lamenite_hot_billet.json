@@ -1,0 +1,22 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:lamenite_hot_billet"
+    },
+
+    
+    "tags": [ "bugle_crafting_table" ],
+    "pattern": [
+      "#"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:lamenite_ingot"
+      }
+    },
+    "result": {
+      "item": "arx:lamenite_hot_billet"
+    }
+  }
+}

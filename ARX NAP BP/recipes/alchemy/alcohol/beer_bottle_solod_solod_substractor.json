@@ -1,0 +1,22 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:beer_bottle_solod_solod_substractor"
+    },
+
+    
+    "tags": [ "substractor" ],
+    "pattern": [
+      "#"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:beer_bottle_solod_solod"
+      }
+    },
+    "result": {
+      "item": "arx:beer_bottle_solod_solod_substractor"
+    }
+  }
+}

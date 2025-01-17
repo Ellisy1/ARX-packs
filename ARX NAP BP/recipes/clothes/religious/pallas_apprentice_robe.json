@@ -1,0 +1,30 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:pallas_apprentice_robe"
+    },
+
+    
+    "tags": [ "clothes_crafting_table" ],
+    "pattern": [
+      "DZZ",
+      "AZA",
+      "ZZZ"
+    ],
+    "key": {
+      "Z": {
+        "item": "arx:silk"
+      },
+      "D": {
+        "item": "arx:drawing_relig_pa_u"
+      },
+      "A": {
+        "item": "minecraft:dye:16"
+      }
+    },
+    "result": {
+      "item": "arx:pallas_apprentice_robe"
+    }
+  }
+}

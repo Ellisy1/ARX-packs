@@ -1,0 +1,20 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:item": {
+    "description": {
+      "category": "equipment",
+      "identifier": "arx:wand_wooden_broken"
+    },
+    "components": {
+      "minecraft:icon": {
+        "texture": "arx:wand_wooden_broken"
+      },
+      "minecraft:hand_equipped": true,
+      "minecraft:allow_off_hand": true,
+      "minecraft:enchantable": {
+        "value": 15,
+        "slot": "sword"
+      }
+    }
+  }
+}

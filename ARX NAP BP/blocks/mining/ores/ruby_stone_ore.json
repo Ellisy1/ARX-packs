@@ -1,0 +1,19 @@
+{
+	"format_version": "1.19.40",
+	"minecraft:block": {
+		"description": {
+			"identifier": "arx:ruby_stone_ore",
+			"menu_category": {
+				"category": "nature"
+			}
+		},
+		"components": {
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 1
+			},
+			"tag:stone": {},
+			"minecraft:loot": "loot_tables/blocks/ores/ruby_ore.json",
+			"tag:arx_stone": {}
+		}
+	}
+}

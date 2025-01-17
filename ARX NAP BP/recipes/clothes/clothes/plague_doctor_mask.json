@@ -1,0 +1,29 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:plague_doctor_mask"
+    },
+
+    
+    "tags": [ "clothes_crafting_table" ],
+    "pattern": [
+      "###",
+      "CAC"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:cheap_cloth"
+      },
+      "A": {
+        "item": "arx:leather_super"
+      },
+      "C": {
+        "item": "minecraft:iron_nugget"
+      }
+    },
+    "result": {
+      "item": "arx:plague_doctor_mask"
+    }
+  }
+}

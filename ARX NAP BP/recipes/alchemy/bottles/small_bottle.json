@@ -1,0 +1,26 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:small_bottle"
+    },
+
+    
+    "tags": [ "glassworks_crafting_table" ],
+    "pattern": [
+      "##",
+      "XX"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:bung"
+      },
+      "X": {
+        "item": "minecraft:glass"
+      }
+    },
+    "result": [
+      {"item": "arx:small_bottle_preparation", "count": 2}
+    ]
+  }
+}

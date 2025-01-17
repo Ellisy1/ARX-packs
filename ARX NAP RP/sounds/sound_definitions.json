@@ -1,0 +1,380 @@
+{
+   "dissecting_fog": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/swords/dissecting_fog"
+      ]
+   },
+   "knife_use": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/swords/knifea",
+         "sounds/swords/knifeb",
+         "sounds/swords/knifec"
+      ]
+   },
+   "axe_use": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/swords/axea",
+         "sounds/swords/axeb",
+         "sounds/swords/axec"
+      ]
+   },
+   "elemental_use": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/swords/elementala",
+         "sounds/swords/elementalb",
+         "sounds/swords/elementalc",
+         "sounds/swords/elementald",
+         "sounds/swords/elementale",
+         "sounds/swords/elementalf",
+         "sounds/swords/elementalg",
+         "sounds/swords/elementalh",
+         "sounds/swords/elementali",
+         "sounds/swords/elementalj",
+         "sounds/swords/elementalk",
+         "sounds/swords/elementall"
+      ]
+   },
+   "omnios": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/swords/omnios"
+      ]
+   },
+   "sword_use_a": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/swords/sword_use_a"
+      ]
+   },
+   "click": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/items/click"
+      ]
+   },
+   "crystal": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/items/crystal"
+      ]
+   },
+   "strapon": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/items/womanfucka",
+         "sounds/items/womanfuckb"
+      ]
+   },
+   "gachi": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/items/gachia",
+         "sounds/items/gachib",
+         "sounds/items/gachic",
+         "sounds/items/gachid",
+         "sounds/items/gachie"
+      ]
+   },
+   "pallada_beacon": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/charaters/pallada_beacon"
+      ]
+   },
+   "demon.agressive": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/demon/agressive"
+      ]
+   },
+   "getdemon": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/demon/getdemon"
+      ]
+   },
+   "demon.say": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/demon/say1",
+         "sounds/demon/say2",
+         "sounds/demon/say3",
+         "sounds/demon/say4"
+      ]
+   },
+   "undemon": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/demon/undemon"
+      ]
+   },
+   "action.lvl_up": {
+      "category": "music",
+      "sounds": [
+         {
+            "name": "sounds/crpg_system/lvl_up",
+            "stream": true
+         }
+      ]
+   },
+   "action.sneeze.man": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/player_actions/sneeze/sneeze_man_1",
+         "sounds/player_actions/sneeze/sneeze_man_2",
+         "sounds/player_actions/sneeze/sneeze_man_3"
+      ]
+   },
+   "action.sneeze.woman": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/player_actions/sneeze/sneeze_woman_1",
+         "sounds/player_actions/sneeze/sneeze_woman_2",
+         "sounds/player_actions/sneeze/sneeze_woman_3"
+      ]
+   },
+   "action.cough.man": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/player_actions/cough/cough_man_1",
+         "sounds/player_actions/cough/cough_man_2"
+      ]
+   },
+   "action.cough.woman": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/player_actions/cough/cough_woman_1",
+         "sounds/player_actions/cough/cough_woman_2"
+      ]
+   },
+   "skill_upgrade_stream": {
+      "category": "music",
+      "sounds": [
+         {
+            "name": "sounds/items/skill",
+            "stream": true
+         }
+      ]
+   },
+   "skill_upgrade_positional": {
+      "category": "neutral",
+      "sounds": [
+         {
+            "name": "sounds/items/skill"
+         }
+      ]
+   },
+   "moder_gun": {
+      "category": "hostile",
+      "sounds": [
+         {
+            "name": "sounds/items/moder_gun"
+         }
+      ]
+   },
+   "eat.solid": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/eating/eat_solid"
+      ]
+   },
+   "eat.liquid": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/eating/drink_a",
+         "sounds/eating/drink_b"
+      ]
+   },
+   "eat.soup": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/eating/eat_soup"
+      ]
+   },
+   "mob.rat_eliminator.spawn": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/demon/say2"
+      ]
+   },
+   "shackles.saw": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/items/shackles.saw"
+      ]
+   },
+   "portal.arrive": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/portal/portal_arrive"
+      ]
+   },
+   "portal.embark": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/portal/portal_embark"
+      ]
+   },
+   "portal.passive": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/portal/portal_passive"
+      ]
+   },
+   "vicious_flame": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/vicious_demon/vicious_flame"
+      ]
+   },
+   "gasgolder_istribitor_saw": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/gasgolder_istribitor/saw"
+      ]
+   },
+   "din_hijo_block": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/equipment/din_hijo_block"
+      ]
+   },
+   "get_achievement": {
+      "category": "music",
+      "sounds": [
+         {
+            "name": "sounds/achievements/get_achievement",
+            "stream": true
+         }
+      ]
+   },
+   "magic_dash": {
+      "category": "neutral",
+      "sounds": [
+         {
+            "name": "sounds/spells/magic_dash"
+         }
+      ]
+   },
+   "block.campfire.crackle" : {
+      "__use_legacy_max_distance" : "true",
+      "category" : "block",
+      "max_distance" : 8.0,
+      "min_distance" : null,
+      "sounds" : [
+         "sounds/block/campfire/crackle1",
+         "sounds/block/campfire/crackle2",
+         "sounds/block/campfire/crackle3",
+         "sounds/block/campfire/crackle4",
+         "sounds/block/campfire/crackle5",
+         "sounds/block/campfire/crackle6"
+      ]
+   },
+   "meca_motor": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/meca/meca_motor"
+      ]
+   },
+   "mob.wandering_flame_of_night.breathe": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/flames/wandering_flame_of_night_breathe"
+      ]
+   },
+   "electroshock": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/ancient_locations/electroshock"
+      ]
+   },
+   "mob.mosquito.fly": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/mosquito/fly_1",
+         "sounds/mosquito/fly_2"
+      ]
+   },
+   "battery_discharging": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/meca/battery_discharging"
+      ]
+   },
+   "block_kon_inoffo_sempra": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/spells/block_kon_inoffo_sempra"
+      ]
+   },
+   "pour_fuel_into_generator": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/meca/pour_fuel_into_generator"
+      ]
+   },
+   "generator_noise": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/meca/generator_noise"
+      ]
+   },
+   "urk_activation_beep": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/meca/urk_activation_beep"
+      ]
+   },
+   "railgun_shoot": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/march/railgun_shoot"
+      ]
+   },
+   "march_engines": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/march/march_engines"
+      ]
+   },
+   "cherry_rat_jumpscare": {
+      "category": "music",
+      "sounds": [
+         {
+            "name": "sounds/meca/cherry_rat_jumpscare",
+            "stream": true
+         }
+      ]
+   },
+   "e19_entrance_jumpscare": {
+      "category": "music",
+      "sounds": [
+         {
+            "name": "sounds/meca/e19_entrance_jumpscare",
+            "stream": true
+         }
+      ]
+   },
+   "charging": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/meca/charging"
+      ]
+   },
+   "printer": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/meca/printer"
+      ]
+   },
+   "abrupt_closing_of_metal_door": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/meca/abrupt_closing_of_metal_door"
+      ]
+   }
+}

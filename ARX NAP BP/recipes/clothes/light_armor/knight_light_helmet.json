@@ -1,0 +1,26 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:knight_light_helmet"
+    },
+
+    
+    "tags": [ "light_armor_crafting_table" ],
+    "pattern": [
+      " # ",
+      "#D#"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:steel_protective_plate"
+      },
+      "D": {
+        "item": "arx:leather_super"
+      }
+    },
+    "result": {
+      "item": "arx:knight_light_helmet"
+    }
+  }
+}

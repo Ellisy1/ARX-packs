@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:staff_steel_with_topaz"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      "  B",
+      " A ",
+      "A  "
+    ],
+    "key": {
+      "A": {
+        "item": "arx:steel_billet"
+      },
+      "B": {
+        "item": "arx:topaz_gem"
+      }
+    },
+    "result": {
+      "item": "arx:staff_steel_with_topaz"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "arx:night_hunter_dress",
+      "materials": {
+        "default": "armor",
+        "enchanted": "armor_enchanted"
+      },
+      "textures": {
+        "default": "textures/entity/clothes/clothes/night_hunter_dress",
+        "enchanted": "textures/misc/enchanted_item_glint"
+      },
+      "geometry": {
+        "default": "geometry.night_hunter_dress"
+      },
+      "animations": {
+        "dress": "animation.dress.default",
+        "controller_dress": "controller.animation.dress"
+      },
+      "scripts": {
+        "animate": [
+          "controller_dress"
+        ],
+        "parent_setup": "variable.chest_layer_visible = 0.0;"
+      },
+      "render_controllers": [
+        "controller.render.armor"
+      ]
+    }
+  }
+}

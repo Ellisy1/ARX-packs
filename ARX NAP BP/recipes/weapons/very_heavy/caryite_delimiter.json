@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:caryite_delimiter"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      "  A",
+      "AA ",
+      "XA "
+    ],
+    "key": {
+      "X": {
+        "item": "arx:durasteel_billet"
+      },
+      "A": {
+        "item": "arx:caryite_billet"
+      }
+    },
+    "result": {
+      "item": "arx:caryite_delimiter"
+    }
+  }
+}

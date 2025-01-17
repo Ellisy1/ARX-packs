@@ -1,0 +1,46 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:item": {
+    "description": {
+      "identifier": "arx:baby_shark_meat_fried",
+      "category": "equipment"
+    },
+    "components": {
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.cookedFood"
+      },
+      "minecraft:icon": {
+        "texture": "arx:baby_shark_meat_fried"
+      },
+      "minecraft:cooldown": {
+        "category": "food",
+        "duration": 1
+      },
+      "minecraft:on_use": {
+        "on_use": {
+          "event": "on_eat"
+        }
+      },
+      "minecraft:max_stack_size": 1
+    },
+    "events": {
+      "on_eat": {
+        "run_command": {
+          "command": [
+            "tag @p add tt_f_fish",
+            "tag @p add is_solid_food",
+            "scoreboard players set @p t_f_deliciousness 40",
+
+            "scoreboard players set @p t_f_salty 30",
+
+            "scoreboard players set @p t_f_poisoning 150",
+            "function food/food",
+
+            "clear @s[scores={saturation=0}] arx:baby_shark_meat_fried 0 1",
+            "function food/cooldown/set_short_cooldown"
+          ]
+        }
+      }
+    }
+  }
+}

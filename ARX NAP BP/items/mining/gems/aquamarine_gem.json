@@ -1,0 +1,14 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:item": {
+      "description": {
+        "category": "equipment",
+        "identifier": "arx:aquamarine_gem"
+      },
+      "components": {
+        "minecraft:icon": {
+          "texture": "arx:aquamarine_gem"
+        }
+      }
+    }
+  }

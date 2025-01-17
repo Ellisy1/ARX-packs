@@ -1,0 +1,26 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:blindness_bandage"
+    },
+
+    
+    "tags": [ "clothes_crafting_table" ],
+    "pattern": [
+      "#A"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:silk"
+      },
+      "A": {
+        "item": "minecraft:dye",
+        "data": 13
+      }
+    },
+    "result": {
+      "item": "arx:blindness_bandage"
+    }
+  }
+}

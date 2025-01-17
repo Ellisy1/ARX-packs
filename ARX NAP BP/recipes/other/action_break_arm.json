@@ -1,0 +1,26 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:action_break_arm"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "A ",
+      " B"
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:book"
+      },
+      "B": {
+        "item": "minecraft:paper"
+      }
+    },
+    "result": {
+      "item": "arx:action_break_arm"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:curd_b"
+    },
+
+    
+    "tags": [ "boiler_crafting_table" ],
+    "pattern": [
+      "A A",
+      "BBB",
+      "BBB"
+    ],
+    "key": {
+      "A": {
+        "item": "arx:perfect_kefir"
+      },
+      "B": {
+        "item": "minecraft:milk_bucket"
+      }
+    },
+    "result": [
+      {"item": "arx:preparation_curd"},
+      {"item": "minecraft:bucket", "count": 6},
+      {"item": "arx:default_bottle", "count": 2}
+  ]
+  }
+}

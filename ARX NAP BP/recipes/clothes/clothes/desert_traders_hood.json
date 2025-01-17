@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:desert_traders_hood"
+    },
+
+    
+    "tags": [ "clothes_crafting_table" ],
+    "pattern": [
+      "ABA",
+      "ABA"
+    ],
+    "key": {
+      "A": {
+        "item": "arx:silk"
+      },
+      "B": {
+        "item": "minecraft:dye",
+        "data": 2
+      }
+    },
+    "result": {
+      "item": "arx:desert_traders_hood"
+    }
+  }
+}

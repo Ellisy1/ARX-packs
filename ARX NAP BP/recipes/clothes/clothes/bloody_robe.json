@@ -1,0 +1,31 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:bloody_robe"
+    },
+
+    
+    "tags": [ "clothes_crafting_table" ],
+    "pattern": [
+      "B B",
+      "#A#",
+      "#A#"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:cheap_cloth"
+      },
+      "A": {
+        "item": "minecraft:dye",
+        "data": 1
+      },
+      "B": {
+        "item": "minecraft:gold_ingot" 
+      }
+    },
+    "result": {
+      "item": "arx:bloody_robe"
+    }
+  }
+}

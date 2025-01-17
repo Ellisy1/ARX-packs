@@ -1,0 +1,40 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:item": {
+    "description": {
+      "identifier": "arx:default_bottle_sugar",
+      "category": "items"
+    },
+    "components": {
+      "minecraft:max_stack_size": 1,
+      "minecraft:cooldown": {
+        "category": "food",
+        "duration": 1
+      },
+      "minecraft:on_use": {
+        "on_use": {
+          "event": "on_eat"
+        }
+      },
+      "minecraft:icon": {
+        "texture": "arx:default_bottle_sugar"
+      }
+    },
+    "events": {
+      "on_eat": {
+        "run_command": {
+          "command": [
+            "effect @p nausea 30 0 true",
+            "scoreboard players add @p xp_tray 25",
+            "scoreboard players add @p poisoning 1500",
+            "scoreboard players add @p stress -350",
+            
+            "clear @s arx:default_bottle_sugar 0 1",
+            "give @s arx:default_bottle",
+            "function food/visual/potion"
+          ]
+        }
+      }
+    }
+  }
+}

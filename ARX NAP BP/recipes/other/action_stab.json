@@ -1,0 +1,26 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:action_stab"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "B",
+      "A"
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:book"
+      },
+      "B": {
+        "item": "minecraft:paper"
+      }
+    },
+    "result": {
+      "item": "arx:action_stab"
+    }
+  }
+}

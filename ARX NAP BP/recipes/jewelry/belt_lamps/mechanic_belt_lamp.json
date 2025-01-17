@@ -1,0 +1,33 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:mechanic_belt_lamp"
+    },
+
+    
+    "tags": [ "jewelry_crafting_table" ],
+    "pattern": [
+      "ARA",
+      "BIB",
+      " B "
+    ],
+    "key": {
+      "I": {
+        "item": "arx:bronze_block"
+      },
+      "R": {
+        "item": "minecraft:string"
+      },
+      "A": {
+        "item": "arx:steel_ingot"
+      },
+      "B": {
+        "item": "arx:bronze_ingot"
+      }
+    },
+    "result": {
+      "item": "arx:mechanic_belt_lamp"
+    }
+  }
+}

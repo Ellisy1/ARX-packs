@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:naginits_and_forfacorite_sword"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      " #",
+      "#Z",
+      "Z "
+    ],
+    "key": {
+      "#": {
+        "item": "arx:naginitis_billet"
+      },
+      "Z": {
+        "item": "arx:forfactorite_billet"
+      }
+    },
+    "result": {
+      "item": "arx:naginits_and_forfacorite_sword"
+    }
+  }
+}

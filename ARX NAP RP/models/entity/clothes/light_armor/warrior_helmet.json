@@ -1,0 +1,79 @@
+{
+	"format_version": "1.10.0",
+	"geometry.warrior_helmet": {
+		"texturewidth": 64,
+		"textureheight": 64,
+		"visible_bounds_width": 3,
+		"visible_bounds_height": 3,
+		"visible_bounds_offset": [0, 1.5, 0],
+		"bones": [
+			{
+				"name": "head",
+				"pivot": [0, 24, 0],
+				"cubes": [
+					{"origin": [-4, 24, -4], "size": [8, 8, 8], "uv": [0, 0], "inflate": 0.6},
+					{"origin": [-4, 24, -4], "size": [8, 8, 8], "uv": [32, 0], "inflate": 1.2}
+				]
+			},
+			{
+				"name": "horns",
+				"parent": "head",
+				"pivot": [0, 5.275, 0]
+			},
+			{
+				"name": "left",
+				"parent": "horns",
+				"pivot": [5.65, 28.50406, 0.01537],
+				"rotation": [0, 0, 17.5],
+				"cubes": [
+					{"origin": [4.15, 27.50406, -0.98463], "size": [1, 2, 2], "uv": [0, 20], "inflate": 0.6}
+				]
+			},
+			{
+				"name": "bone3",
+				"parent": "left",
+				"pivot": [5.65, 28.50406, 0.01537],
+				"rotation": [0, 2.5, 10],
+				"cubes": [
+					{"origin": [3.65, 27.50406, -0.98463], "size": [4, 2, 2], "uv": [0, 16]}
+				]
+			},
+			{
+				"name": "bone",
+				"parent": "bone3",
+				"pivot": [7.65, 28.50406, 0.01537],
+				"rotation": [5.38152, 19.291, 15.91527],
+				"cubes": [
+					{"origin": [6.65, 27.50406, -0.98463], "size": [5, 2, 2], "uv": [0, 24], "inflate": -0.4}
+				]
+			},
+			{
+				"name": "right",
+				"parent": "horns",
+				"pivot": [-5.65, 28.50406, 0.01537],
+				"rotation": [0, 0, -17.5],
+				"cubes": [
+					{"origin": [-5.15, 27.50406, -0.98463], "size": [1, 2, 2], "uv": [0, 20], "inflate": 0.6, "mirror": true}
+				]
+			},
+			{
+				"name": "bone2",
+				"parent": "right",
+				"pivot": [-5.65, 28.50406, 0.01537],
+				"rotation": [0, -2.5, -10],
+				"cubes": [
+					{"origin": [-7.65, 27.50406, -0.98463], "size": [4, 2, 2], "uv": [0, 16], "mirror": true}
+				]
+			},
+			{
+				"name": "bone4",
+				"parent": "bone2",
+				"pivot": [-7.65, 28.50406, 0.01537],
+				"rotation": [5.38152, -19.291, -15.91527],
+				"cubes": [
+					{"origin": [-11.65, 27.50406, -0.98463], "size": [5, 2, 2], "uv": [0, 24], "inflate": -0.4, "mirror": true}
+				]
+			}
+		]
+	}
+}

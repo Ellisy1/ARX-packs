@@ -1,0 +1,12 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.rat_in_bar_with_drum.basic": {
+			"states": {
+				"default": {
+					"animations": ["play_and_dance"]
+				}
+			}
+		}
+	}
+}

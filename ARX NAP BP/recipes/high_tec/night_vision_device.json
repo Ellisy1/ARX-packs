@@ -1,0 +1,33 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:night_vision_device"
+    },
+
+    
+    "tags": [ "electronics_crafting_table" ],
+    "pattern": [
+      "MIM",
+      "RRR",
+      "X X"
+    ],
+    "key": {
+      "I": {
+        "item": "arx:chrome_block"
+      },
+      "R": {
+        "item": "arx:conductive_glass"
+      },
+      "X": {
+        "item": "arx:stream_accelerator"
+      },
+      "M": {
+        "item": "arx:copper_provoloka"
+      }
+    },
+    "result": {
+      "item": "arx:night_vision_device"
+    }
+  }
+}

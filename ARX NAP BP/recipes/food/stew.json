@@ -1,0 +1,33 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:stew"
+    },
+
+    
+    "tags": [ "boiler_crafting_table" ],
+    "pattern": [
+      "D D",
+      "BCB",
+      " A "
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:bowl"
+      },
+      "B": {
+        "item": "arx:forcemeat"
+      },
+      "C": {
+        "item": "minecraft:potato"
+      },
+      "D": {
+        "item": "arx:salt"
+      }
+    },
+    "result": [
+      {"item": "arx:preparation_stew"}
+    ]
+  }
+}

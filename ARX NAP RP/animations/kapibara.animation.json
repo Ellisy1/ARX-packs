@@ -1,0 +1,42 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.kapibara.stay": {
+			"loop": true,
+			"bones": {
+				"head": {
+					"rotation": ["math.cos(query.anim_time * 150) * 1", 0, 0]
+				}
+			}
+		},
+		"animation.kapibara.attack": {
+			"animation_length": 0.16667,
+			"bones": {
+				"head": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0833": [-25, 0, 0],
+						"0.1667": [0, 0, 0]
+					}
+				}
+			}
+		},
+		"animation.kapibara.move": {
+			"loop": true,
+			"bones": {
+				"f_l": {
+					"rotation": ["math.cos(query.anim_time * 500) * 45", 0, 0]
+				},
+				"f_r": {
+					"rotation": ["math.cos(query.anim_time * 500) * -45", 0, 0]
+				},
+				"b_l": {
+					"rotation": ["math.cos(query.anim_time * 500) * -45", 0, 0]
+				},
+				"b_r": {
+					"rotation": ["math.cos(query.anim_time * 500) * 45", 0, 0]
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,81 @@
+{
+	"format_version": "1.10.0",
+	"geometry.beryl_armor": {
+		"texturewidth": 128,
+		"textureheight": 64,
+		"visible_bounds_width": 3,
+		"visible_bounds_height": 3,
+		"visible_bounds_offset": [0, 1.5, 0],
+		"bones": [
+			{
+				"name": "head",
+				"pivot": [0, 24, 0],
+				"cubes": [
+					{"origin": [-4, 24, -4], "size": [8, 8, 8], "uv": [0, 32], "inflate": 0.6},
+					{"origin": [-4, 24, -4], "size": [8, 8, 8], "uv": [32, 32], "inflate": 1.2}
+				]
+			},
+			{
+				"name": "body",
+				"pivot": [0, 24, 0],
+				"cubes": [
+					{"origin": [-4, 12, -2], "size": [8, 12, 4], "uv": [0, 0], "inflate": 0.6},
+					{"origin": [-4, 12, -2], "size": [8, 12, 4], "uv": [0, 16], "inflate": 0.9}
+				]
+			},
+			{
+				"name": "rightArm",
+				"pivot": [-5, 22, 0],
+				"cubes": [
+					{"origin": [-8, 12, -2], "size": [4, 12, 4], "uv": [24, 0], "inflate": 0.5},
+					{"origin": [-8, 12, -2], "size": [4, 12, 4], "uv": [24, 16], "inflate": 0.8}
+				]
+			},
+			{
+				"name": "leftArm",
+				"pivot": [5, 22, 0],
+				"mirror": true,
+				"cubes": [
+					{"origin": [4, 12, -2], "size": [4, 12, 4], "uv": [24, 0], "inflate": 0.5},
+					{"origin": [4, 12, -2], "size": [4, 12, 4], "uv": [24, 16], "inflate": 0.8}
+				]
+			},
+			{
+				"name": "rightLeg",
+				"pivot": [-1.9, 12, 0],
+				"cubes": [
+					{"origin": [-4.2, 2, -2], "size": [4, 10, 4], "uv": [55, 0], "inflate": 0.5},
+					{"origin": [-4.2, 2, -2], "size": [4, 10, 4], "uv": [55, 16], "inflate": 0.7}
+				]
+			},
+			{
+				"name": "rightLeg2",
+				"parent": "rightLeg",
+				"pivot": [-1.9, 12, 0],
+				"cubes": [
+					{"origin": [-4.2, 0, -2], "size": [4, 5, 4], "uv": [71, 23], "inflate": 0.6},
+					{"origin": [-4.2, 0, -2], "size": [4, 5, 4], "uv": [71, 39], "inflate": 0.9}
+				]
+			},
+			{
+				"name": "leftLeg",
+				"pivot": [1.9, 12, 0],
+				"mirror": true,
+				"cubes": [
+					{"origin": [0.3, 2, -2], "size": [4, 10, 4], "uv": [55, 0], "inflate": 0.5},
+					{"origin": [0.3, 2, -2], "size": [4, 10, 4], "uv": [55, 16], "inflate": 0.7}
+				]
+			},
+			{
+				"name": "leftLeg2",
+				"parent": "leftLeg",
+				"pivot": [1.9, 12, 0],
+				"mirror": true,
+				"cubes": [
+					{"origin": [0.3, 0, -2], "size": [4, 5, 4], "uv": [71, 23], "inflate": 0.6},
+					{"origin": [0.3, 0, -2], "size": [4, 5, 4], "uv": [71, 39], "inflate": 0.9}
+				]
+			}
+		]
+	}
+}

@@ -1,0 +1,22 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:coin_sanderra"
+    },
+
+    
+    "tags": [ "coin_crafting_table_sanderra" ],
+    "pattern": [
+      "i"
+    ],
+    "key": {
+      "i": {
+        "item": "minecraft:gold_ingot"
+      }
+    },
+    "result": [
+      {"item": "arx:coin_sanderra"}
+    ]
+  }
+}

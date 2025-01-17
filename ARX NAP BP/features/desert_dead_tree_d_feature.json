@@ -1,0 +1,15 @@
+{
+	"format_version": "1.19.50",
+	"minecraft:structure_template_feature": {
+		"description": {
+			"identifier": "arx:desert_dead_tree_d_feature"
+		},
+		"structure_name": "arx:desert_dead_tree_d",
+		"adjustment_radius": 0,
+		"facing_direction": "south",
+		"constraints": {
+			"grounded": {},
+			"unburied": {}
+		}
+	}
+}

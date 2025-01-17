@@ -1,0 +1,26 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:ring_malafiotironite_chrysolite"
+    },
+
+    
+    "tags": [ "jewelry_crafting_table" ],
+    "pattern": [
+      "R",
+      "I"
+    ],
+    "key": {
+      "I": {
+        "item": "arx:ring_malafiotironite__empty"
+      },
+      "R": {
+        "item": "arx:chrysolite_gem"
+      }
+    },
+    "result": {
+      "item": "arx:ring_malafiotironite_chrysolite"
+    }
+  }
+}

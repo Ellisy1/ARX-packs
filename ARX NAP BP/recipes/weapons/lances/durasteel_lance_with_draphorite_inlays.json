@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:durasteel_lance_with_draphorite_inlays"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      "  A",
+      " # ",
+      "A  "
+    ],
+    "key": {
+      "#": {
+        "item": "arx:draphorite_billet"
+      },
+      "A": {
+        "item": "arx:durasteel_billet"
+      }
+    },
+    "result": {
+      "item": "arx:durasteel_lance_with_draphorite_inlays"
+    }
+  }
+}

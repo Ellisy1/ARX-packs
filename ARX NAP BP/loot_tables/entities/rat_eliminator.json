@@ -1,0 +1,14 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "arx:demon_essence",
+                    "weight": 1
+                }
+            ]
+        }
+    ]
+}

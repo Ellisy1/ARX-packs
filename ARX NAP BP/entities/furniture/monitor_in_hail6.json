@@ -1,0 +1,92 @@
+{
+	"format_version": "1.16.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "arx:monitor_in_hail6",
+			"is_spawnable": true,
+			"is_summonable": true,
+			"properties": {
+				"arx:screen": {
+					"client_sync": true,
+					"default": 0,
+					"range": [0, 100],
+					"type": "int"
+				}
+			}
+		},
+		"components": {
+			"minecraft:knockback_resistance": {
+				"value": 1
+			},
+			"minecraft:collision_box": {
+				"width": 0.001,
+				"height": 0.001
+			},
+			"minecraft:health": {
+				"value": 1000
+			},
+			"minecraft:balloonable": {},
+			"minecraft:physics": {},
+			"minecraft:pushable": {
+				"is_pushable": false,
+				"is_pushable_by_piston": false
+			},
+			"minecraft:conditional_bandwidth_optimization": {},
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "all",
+						"deals_damage": false
+					}
+				]
+			}
+		},
+		"events": {
+			"set_screen_black": {
+				"set_property": {
+					"arx:screen": 0
+				}
+			},
+			"set_screen_rgb": {
+				"set_property": {
+					"arx:screen": 1
+				}
+			},
+			"set_screen_initialisation": {
+				"set_property": {
+					"arx:screen": 2
+				}
+			},
+			"set_screen_loading": {
+				"set_property": {
+					"arx:screen": 3
+				}
+			},
+			"set_screen_42": {
+				"set_property": {
+					"arx:screen": 4
+				}
+			},
+			"set_screen_43": {
+				"set_property": {
+					"arx:screen": 5
+				}
+			},
+			"set_screen_44": {
+				"set_property": {
+					"arx:screen": 6
+				}
+			},
+			"set_screen_49": {
+				"set_property": {
+					"arx:screen": 7
+				}
+			},
+			"set_screen_18207": {
+				"set_property": {
+					"arx:screen": 8
+				}
+			}
+		}
+	}
+}

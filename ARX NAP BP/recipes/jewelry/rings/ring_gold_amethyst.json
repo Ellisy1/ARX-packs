@@ -1,0 +1,26 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:ring_gold_amethyst"
+    },
+
+    
+    "tags": [ "jewelry_crafting_table" ],
+    "pattern": [
+      "R",
+      "I"
+    ],
+    "key": {
+      "I": {
+        "item": "arx:ring_gold__empty"
+      },
+      "R": {
+        "item": "minecraft:amethyst_shard"
+      }
+    },
+    "result": {
+      "item": "arx:ring_gold_amethyst"
+    }
+  }
+}

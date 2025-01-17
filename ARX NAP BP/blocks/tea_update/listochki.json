@@ -1,0 +1,115 @@
+{
+	"format_version": "1.19.40",
+	"minecraft:block": {
+		"description": {
+			"identifier": "arx:listochki",
+			"properties": {
+				"arx:facing_direction": [
+					2,
+					3,
+					4,
+					5
+				]
+			},
+			"menu_category": {
+				"category": "nature"
+			}
+		},
+		"permutations": [
+			{
+				"condition": "query.block_property('arx:facing_direction') == 3",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							0,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_property('arx:facing_direction') == 5",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							90,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_property('arx:facing_direction') == 2",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							180,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_property('arx:facing_direction') == 4",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							270,
+							0
+						]
+					}
+				}
+			}
+		],
+		"components": {
+			"minecraft:geometry": "geometry.listochki",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "listochki",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 0.5
+			},
+			"minecraft:on_player_placing": {
+				"event": "set_facing_direction"
+			},
+            "minecraft:collision_box": {
+                "origin": [
+                    -8.0,
+                    2.0,
+                    8.0
+                ],
+                "size": [
+                    16.0,
+                    11.0,
+                    -1.5
+                ]
+            },
+            "minecraft:selection_box": {
+                "origin": [
+                    -8.0,
+                    2.0,
+                    8.0
+                ],
+                "size": [
+                    16.0,
+                    11.0,
+                    -1.5
+                ]
+            }
+		},
+		"events": {
+			"set_facing_direction": {
+				"set_block_property": {
+					"arx:facing_direction": "query.cardinal_facing_2d"
+				}
+			}
+		}
+	}
+}

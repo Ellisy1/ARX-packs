@@ -1,0 +1,33 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:shark_soup"
+    },
+
+    
+    "tags": [ "boiler_crafting_table" ],
+    "pattern": [
+      "AAA",
+      "B C",
+      " D "
+    ],
+    "key": {
+      "A": {
+        "item": "arx:baby_shark_meat"
+      },
+      "B": {
+        "item": "arx:salt"
+      },
+      "C": {
+        "item": "arx:kavra"
+      },
+      "D": {
+        "item": "minecraft:bowl"
+      }
+    },
+    "result": [
+      {"item": "arx:preparation_shark_soup"}
+    ]
+  }
+}

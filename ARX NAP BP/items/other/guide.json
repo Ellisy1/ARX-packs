@@ -1,0 +1,36 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:item": {
+    "description": {
+      "identifier": "arx:guide",
+      "category": "items"
+    },
+    "components": {
+      "minecraft:icon": {
+        "texture": "arx:guide"
+      },
+      "minecraft:cooldown": {
+        "category": "guide",
+        "duration": 1
+      },
+      "minecraft:on_use": {
+        "on_use": {
+          "event": "on_use_event"
+        }
+      },
+      "minecraft:display_name": {
+        "value": "§r§fГид\n§7§oВаш самый надежный друг"
+      }
+    },
+    "events": {
+      "on_use_event": {
+        "swing": {},
+        "run_command": {
+          "command": [
+            "function info/guide/router"
+          ]
+        }
+      }
+    }
+  }
+}

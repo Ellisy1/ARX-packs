@@ -1,0 +1,49 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:item": {
+    "description": {
+      "identifier": "arx:cave_rat_meat_in_caramel",
+      "category": "equipment"
+    },
+    "components": {
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.cookedFood"
+      },
+      "minecraft:icon": {
+        "texture": "arx:cave_rat_meat_in_caramel"
+      },
+      "minecraft:cooldown": {
+        "category": "food",
+        "duration": 1
+      },
+      "minecraft:on_use": {
+        "on_use": {
+          "event": "on_eat"
+        }
+      },
+      "minecraft:fuel": {
+        "duration": 3.0
+      },
+      "minecraft:max_stack_size": 1
+    },
+    "events": {
+      "on_eat": {
+        "run_command": {
+          "command": [
+            "tag @p add tt_f_meat",
+            "tag @p add is_solid_food",
+            "scoreboard players set @p t_f_deliciousness 65",
+
+            "scoreboard players set @p t_f_sweet 30",
+
+            "scoreboard players set @p t_f_poisoning 200",
+            "function food/food",
+
+            "clear @s[scores={saturation=0}] arx:cave_rat_meat_in_caramel 0 1",
+            "function food/cooldown/set_default_cooldown"
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:item": {
+    "description": {
+      "identifier": "arx:grease",
+      "category": "items"
+    },
+    "components": {
+      "minecraft:icon": {
+        "texture": "arx:grease"
+      },
+      "minecraft:fuel": {
+        "duration": 22.0
+      }
+    }
+  }
+}

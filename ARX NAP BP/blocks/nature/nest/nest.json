@@ -1,0 +1,127 @@
+{
+	"format_version": "1.19.40",
+	"minecraft:block": {
+		"description": {
+			"identifier": "arx:nest",
+			"properties": {
+				"arx:facing_direction": [
+					2,
+					3,
+					4,
+					5
+				]
+			},
+			"menu_category": {
+				"category": "nature"
+			}
+		},
+		"permutations": [
+			{
+				"condition": "query.block_property('arx:facing_direction') == 3",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							0,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_property('arx:facing_direction') == 5",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							90,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_property('arx:facing_direction') == 2",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							180,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_property('arx:facing_direction') == 4",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							270,
+							0
+						]
+					} 
+				}
+			}
+		],
+		"components": {
+			"minecraft:map_color": "#8e6e3a",
+			"minecraft:geometry": "geometry.arx_nest",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "arx_nest",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:collision_box": {
+				"origin": [
+					-4.0,
+					0.0,
+					-4.0
+				],
+				"size": [
+					8.0,
+					3.0,
+					8.0
+				]
+			},
+			"minecraft:selection_box": {
+				"origin": [
+					-4.0,
+					0.0,
+					-4.0
+				],
+				"size": [
+					8.0,
+					3.0,
+					8.0
+				]
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 2
+			},
+			"minecraft:on_player_placing": { 
+				"event": "set_facing_direction"
+			},
+			"minecraft:placement_filter": {
+				"conditions": [
+					{
+						"allowed_faces": ["up"],
+						"block_filter": [
+							"grass",
+							"dirt"
+						]
+					}
+				]
+			}
+		},
+		"events": {
+			"set_facing_direction": {
+				"set_block_property": {
+					"arx:facing_direction": "query.cardinal_facing_2d"
+				}
+			}
+		}
+	}
+}

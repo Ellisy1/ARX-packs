@@ -1,0 +1,260 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "arx:marchs_monitor",
+      "min_engine_version": "1.8.0",
+      "materials": {
+        "default": "entity_emissive"
+      },
+      "textures": {
+        "default": "textures/entity/furniture/marchs_monitor"
+      },
+      "geometry": {
+        "default": "geometry.marchs_monitor"
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "animations": {
+        "basic_scale": "animation.marchs_monitor.basic_scale",
+
+        "default_screen": "animation.marchs_monitor.default_screen",
+        "default_screen_sel_1": "animation.marchs_monitor.default_screen_sel_1",
+        "default_screen_sel_2": "animation.marchs_monitor.default_screen_sel_2",
+        "default_screen_sel_3": "animation.marchs_monitor.default_screen_sel_3",
+
+        "exit_screen": "animation.marchs_monitor.exit_screen",
+        "exit_screen_sel_1": "animation.marchs_monitor.exit_screen_sel_1",
+
+        "about_march_screen": "animation.marchs_monitor.about_march_screen",
+        "about_march_screen_sel_1": "animation.marchs_monitor.about_march_screen_sel_1",
+        "about_march_screen_sel_2": "animation.marchs_monitor.about_march_screen_sel_2",
+
+        "about_marchs_name_screen": "animation.marchs_monitor.about_marchs_name_screen",
+        "about_marchs_name_screen_sel_1": "animation.marchs_monitor.about_marchs_name_screen_sel_1",
+        "about_marchs_name_screen_sel_2": "animation.marchs_monitor.about_marchs_name_screen_sel_2",
+
+        "about_february_screen": "animation.marchs_monitor.about_february_screen",
+        "about_february_screen_sel_1": "animation.marchs_monitor.about_february_screen_sel_1",
+        "about_february_screen_sel_2": "animation.marchs_monitor.about_february_screen_sel_2",
+        "about_february_screen_sel_3": "animation.marchs_monitor.about_february_screen_sel_3",
+
+        "about_breaking_march_screen": "animation.marchs_monitor.about_breaking_march_screen",
+        "about_breaking_march_screen_sel_1": "animation.marchs_monitor.about_breaking_march_screen_sel_1",
+
+        "about_silly_user_screen": "animation.marchs_monitor.about_silly_user_screen",
+        "about_silly_user_screen_sel_1": "animation.marchs_monitor.about_silly_user_screen_sel_1",
+
+        "ask_about_smth_screen": "animation.marchs_monitor.ask_about_smth_screen",
+        "ask_about_smth_screen_sel_1": "animation.marchs_monitor.ask_about_smth_screen_sel_1",
+        "ask_about_smth_screen_sel_2": "animation.marchs_monitor.ask_about_smth_screen_sel_2",
+        "ask_about_smth_screen_sel_3": "animation.marchs_monitor.ask_about_smth_screen_sel_3",
+        "ask_about_smth_screen_sel_4": "animation.marchs_monitor.ask_about_smth_screen_sel_4",
+        "ask_about_smth_screen_sel_5": "animation.marchs_monitor.ask_about_smth_screen_sel_5",
+        "ask_about_smth_screen_sel_6": "animation.marchs_monitor.ask_about_smth_screen_sel_6",
+        "ask_about_smth_screen_sel_7": "animation.marchs_monitor.ask_about_smth_screen_sel_7",
+        "ask_about_smth_screen_sel_8": "animation.marchs_monitor.ask_about_smth_screen_sel_8",
+        "ask_about_smth_screen_sel_9": "animation.marchs_monitor.ask_about_smth_screen_sel_9",
+
+        "about_e19_screen": "animation.marchs_monitor.about_e19_screen",
+        "about_e19_screen_sel_1": "animation.marchs_monitor.about_e19_screen_sel_1",
+
+        "about_hail6_screen": "animation.marchs_monitor.about_hail6_screen",
+        "about_hail6_screen_sel_1": "animation.marchs_monitor.about_hail6_screen_sel_1",
+
+        "about_second_moon_screen": "animation.marchs_monitor.about_second_moon_screen",
+        "about_second_moon_screen_sel_1": "animation.marchs_monitor.about_second_moon_screen_sel_1",
+
+        "about_extinction_screen": "animation.marchs_monitor.about_extinction_screen",
+        "about_extinction_screen_sel_1": "animation.marchs_monitor.about_extinction_screen_sel_1",
+
+        "about_keepers_screen": "animation.marchs_monitor.about_keepers_screen",
+        "about_keepers_screen_sel_1": "animation.marchs_monitor.about_keepers_screen_sel_1",
+
+        "about_gods_screen": "animation.marchs_monitor.about_gods_screen",
+        "about_gods_screen_sel_1": "animation.marchs_monitor.about_gods_screen_sel_1",
+
+        "about_attack_on_players_screen": "animation.marchs_monitor.about_attack_on_players_screen",
+        "about_attack_on_players_screen_sel_1": "animation.marchs_monitor.about_attack_on_players_screen_sel_1",
+
+        "about_magic_screen": "animation.marchs_monitor.about_magic_screen",
+        "about_magic_screen_sel_1": "animation.marchs_monitor.about_magic_screen_sel_1"
+
+      },
+      "scripts": {
+        "animate": [
+          "basic_scale",
+          {
+            "default_screen": "query.property('arx:screen') == 0 && query.property('arx:aim_direction') < 7"
+          },
+          {
+            "default_screen_sel_1": "query.property('arx:screen') == 0 && query.property('arx:aim_direction') == 7"
+          },
+          {
+            "default_screen_sel_2": "query.property('arx:screen') == 0 && query.property('arx:aim_direction') == 8"
+          },
+          {
+            "default_screen_sel_3": "query.property('arx:screen') == 0 && query.property('arx:aim_direction') == 9"
+          },
+
+
+          {
+            "exit_screen": "query.property('arx:screen') == 1 && query.property('arx:aim_direction') != 8"
+          },
+          {
+            "exit_screen_sel_1": "query.property('arx:screen') == 1 && query.property('arx:aim_direction') == 8"
+          },
+
+
+          {
+            "about_march_screen": "query.property('arx:screen') == 2 && (query.property('arx:aim_direction') == 8 || query.property('arx:aim_direction') < 7)"
+          },
+          {
+            "about_march_screen_sel_1": "query.property('arx:screen') == 2 && query.property('arx:aim_direction') == 7"
+          },
+          {
+            "about_march_screen_sel_2": "query.property('arx:screen') == 2 && query.property('arx:aim_direction') == 9"
+          },
+
+
+          {
+            "about_marchs_name_screen": "query.property('arx:screen') == 3 && (query.property('arx:aim_direction') == 8 || query.property('arx:aim_direction') < 7)"
+          },
+          {
+            "about_marchs_name_screen_sel_1": "query.property('arx:screen') == 3 && query.property('arx:aim_direction') == 7"
+          },
+          {
+            "about_marchs_name_screen_sel_2": "query.property('arx:screen') == 3 && query.property('arx:aim_direction') == 9"
+          },
+
+
+          {
+            "about_february_screen": "query.property('arx:screen') == 4 && query.property('arx:aim_direction') < 7"
+          },
+          {
+            "about_february_screen_sel_1": "query.property('arx:screen') == 4 && query.property('arx:aim_direction') == 7"
+          },
+          {
+            "about_february_screen_sel_2": "query.property('arx:screen') == 4 && query.property('arx:aim_direction') == 8"
+          },
+          {
+            "about_february_screen_sel_3": "query.property('arx:screen') == 4 && query.property('arx:aim_direction') == 9"
+          },
+
+
+          {
+            "about_breaking_march_screen": "query.property('arx:screen') == 5 && query.property('arx:aim_direction') < 9"
+          },
+          {
+            "about_breaking_march_screen_sel_1": "query.property('arx:screen') == 5 && query.property('arx:aim_direction') == 9"
+          },
+
+
+          {
+            "about_silly_user_screen": "query.property('arx:screen') == 6 && query.property('arx:aim_direction') < 9"
+          },
+          {
+            "about_silly_user_screen_sel_1": "query.property('arx:screen') == 6 && query.property('arx:aim_direction') == 9"
+          },
+
+
+          {
+            "ask_about_smth_screen": "query.property('arx:screen') == 10 && query.property('arx:aim_direction') == 0"
+          },
+          {
+            "ask_about_smth_screen_sel_1": "query.property('arx:screen') == 10 && query.property('arx:aim_direction') == 1"
+          },
+          {
+            "ask_about_smth_screen_sel_2": "query.property('arx:screen') == 10 && query.property('arx:aim_direction') == 2"
+          },
+          {
+            "ask_about_smth_screen_sel_3": "query.property('arx:screen') == 10 && query.property('arx:aim_direction') == 3"
+          },
+          {
+            "ask_about_smth_screen_sel_4": "query.property('arx:screen') == 10 && query.property('arx:aim_direction') == 4"
+          },
+          {
+            "ask_about_smth_screen_sel_5": "query.property('arx:screen') == 10 && query.property('arx:aim_direction') == 5"
+          },
+          {
+            "ask_about_smth_screen_sel_6": "query.property('arx:screen') == 10 && query.property('arx:aim_direction') == 6"
+          },
+          {
+            "ask_about_smth_screen_sel_7": "query.property('arx:screen') == 10 && query.property('arx:aim_direction') == 7"
+          },
+          {
+            "ask_about_smth_screen_sel_8": "query.property('arx:screen') == 10 && query.property('arx:aim_direction') == 8"
+          },
+          {
+            "ask_about_smth_screen_sel_9": "query.property('arx:screen') == 10 && query.property('arx:aim_direction') == 9"
+          },
+
+
+          {
+            "about_e19_screen": "query.property('arx:screen') == 11 && query.property('arx:aim_direction') < 9"
+          },
+          {
+            "about_e19_screen_sel_1": "query.property('arx:screen') == 11 && query.property('arx:aim_direction') == 9"
+          },
+
+
+          {
+            "about_hail6_screen": "query.property('arx:screen') == 12 && query.property('arx:aim_direction') < 9"
+          },
+          {
+            "about_hail6_screen_sel_1": "query.property('arx:screen') == 12 && query.property('arx:aim_direction') == 9"
+          },
+
+
+          {
+            "about_second_moon_screen": "query.property('arx:screen') == 13 && query.property('arx:aim_direction') < 9"
+          },
+          {
+            "about_second_moon_screen_sel_1": "query.property('arx:screen') == 13 && query.property('arx:aim_direction') == 9"
+          },
+
+
+          {
+            "about_extinction_screen": "query.property('arx:screen') == 14 && query.property('arx:aim_direction') < 9"
+          },
+          {
+            "about_extinction_screen_sel_1": "query.property('arx:screen') == 14 && query.property('arx:aim_direction') == 9"
+          },
+
+
+          {
+            "about_keepers_screen": "query.property('arx:screen') == 15 && query.property('arx:aim_direction') < 9"
+          },
+          {
+            "about_keepers_screen_sel_1": "query.property('arx:screen') == 15 && query.property('arx:aim_direction') == 9"
+          },
+
+
+          {
+            "about_gods_screen": "query.property('arx:screen') == 16 && query.property('arx:aim_direction') < 9"
+          },
+          {
+            "about_gods_screen_sel_1": "query.property('arx:screen') == 16 && query.property('arx:aim_direction') == 9"
+          },
+
+
+          {
+            "about_attack_on_players_screen": "query.property('arx:screen') == 17 && query.property('arx:aim_direction') < 9"
+          },
+          {
+            "about_attack_on_players_screen_sel_1": "query.property('arx:screen') == 17 && query.property('arx:aim_direction') == 9"
+          },
+
+
+          {
+            "about_magic_screen": "query.property('arx:screen') == 18 && query.property('arx:aim_direction') < 9"
+          },
+          {
+            "about_magic_screen_sel_1": "query.property('arx:screen') == 18 && query.property('arx:aim_direction') == 9"
+          }
+        ]
+      }
+    }
+  }
+}

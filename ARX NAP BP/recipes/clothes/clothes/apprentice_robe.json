@@ -1,0 +1,38 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:apprentice_robe"
+    },
+
+    
+    "tags": [ "clothes_crafting_table" ],
+    "pattern": [
+      "A#A",
+      "BDB",
+      "C#C"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:silk"
+      },
+      "A": {
+        "item": "minecraft:dye",
+        "data": 1
+      },
+      "B": {
+        "item": "minecraft:dye",
+        "data": 11
+      },
+      "C": {
+        "item": "arx:cheap_cloth"
+      },
+      "D": {
+        "item": "arx:leather_super"
+      }
+    },
+    "result": {
+      "item": "arx:apprentice_robe"
+    }
+  }
+}

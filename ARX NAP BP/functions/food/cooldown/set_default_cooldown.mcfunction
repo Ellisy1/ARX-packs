@@ -1,0 +1,1 @@
+scoreboard players set @s[scores={saturation=0}] saturation 600

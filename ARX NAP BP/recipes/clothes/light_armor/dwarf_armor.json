@@ -1,0 +1,33 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:dwarf_armor"
+    },
+
+    
+    "tags": [ "light_armor_crafting_table" ],
+    "pattern": [
+      "#A#",
+      "BCB",
+      " A "
+    ],
+    "key": {
+      "#": {
+        "item": "arx:steel_protective_plate"
+      },
+      "A": {
+        "item": "arx:silk"
+      },
+      "B": {
+        "item": "arx:bronze_protective_plate"
+      },
+      "C": {
+        "item": "arx:leather_super"
+      }
+    },
+    "result": {
+      "item": "arx:dwarf_armor"
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+	"format_version": "1.20.0",
+	"animation_controllers": {
+		"controller.animation.vicious_demon.basic": {
+			"initial_state": "stay_state",
+			"states": {
+				"stay_state": {
+					"animations": [
+						"stay",
+						"basic",
+						{"attack": "variable.attack_time > 0.0"}
+					],
+					"transitions": [
+						{"move_state": "q.ground_speed > 1.0"},
+						{"spin_state": "query.model_scale >= 0.063"},
+						{"rest_state": "query.model_scale < 0.061"}
+					],
+					"blend_transition": 0.2
+				},
+				"move_state": {
+					"animations": [
+						"move",
+						"basic",
+						{"attack": "variable.attack_time > 0.0"}
+					],
+					"transitions": [
+						{"stay_state": "q.ground_speed < 0.5"},
+						{"spin_state": "query.model_scale >= 0.063"}
+					],
+					"blend_transition": 0.2
+				},
+				"spin_state": {
+					"animations": ["spin", "basic"],
+					"transitions": [
+						{"stay_state": "query.model_scale < 0.063"}
+					],
+					"blend_transition": 0.2
+				},
+				"rest_state": {
+					"animations": ["rest", "basic"],
+					"transitions": [
+						{"stay_state": "query.model_scale > 0.061"}
+					],
+					"blend_transition": 0.3
+				}
+			}
+		},
+		"controller.animation.vicious_demon.sit": {
+			"states": {
+				"default": {
+					"animations": ["sit"]
+				}
+			}
+		}
+	}
+}

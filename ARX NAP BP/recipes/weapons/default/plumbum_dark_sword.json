@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:plumbum_dark_sword"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      "  #",
+      " Z ",
+      "Z  "
+    ],
+    "key": {
+      "#": {
+        "item": "arx:plumbum_billet"
+      },
+      "Z": {
+        "item": "arx:plumbum_ingot"
+      }
+    },
+    "result": {
+      "item": "arx:plumbum_dark_sword"
+    }
+  }
+}

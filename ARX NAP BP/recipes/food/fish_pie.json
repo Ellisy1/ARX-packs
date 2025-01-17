@@ -1,0 +1,25 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:fish_pie"
+    },
+
+    
+    "tags": [ "thermal_cooking_crafting_table" ],
+    "pattern": [
+      "#A#"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:salmon_fillet"
+      },
+      "A": {
+        "item": "arx:dough"
+      }
+    },
+    "result": {
+      "item": "arx:preparation_fish_pie"
+    }
+  }
+}

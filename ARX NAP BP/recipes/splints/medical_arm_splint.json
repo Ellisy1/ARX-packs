@@ -1,0 +1,26 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:medical_arm_splint"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "AB",
+      "AB"
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:stick"
+      },
+      "B": {
+        "item": "minecraft:string"
+      }
+    },
+    "result": [
+      {"item": "arx:medical_arm_splint"}
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:forest_fairy_wreath"
+    },
+
+    
+    "tags": [ "clothes_crafting_table" ],
+    "pattern": [
+      "BAB"
+    ],
+    "key": {
+      "A": {
+        "item": "arx:cheap_cloth"
+      },
+      "B": {
+        "item": "minecraft:leaves"
+      }
+    },
+    "result": {
+      "item": "arx:forest_fairy_wreath"
+    }
+  }
+}

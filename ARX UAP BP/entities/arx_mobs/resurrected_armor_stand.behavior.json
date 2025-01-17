@@ -1,0 +1,112 @@
+{
+	"format_version": "1.16.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "arx:resurrected_armor_stand",
+			"is_spawnable": false,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+		"components": {
+			"minecraft:experience_reward": {
+				"on_death": "query.last_hit_by_player ? 25 : 0"
+			},
+			"minecraft:nameable": {},
+			"minecraft:type_family": {
+				"family": [
+					"undead",
+					"monster",
+					"mob"
+				]
+			},
+			"minecraft:movement": {
+				"value": 0.35
+			},
+			"minecraft:collision_box": {
+				"width": 0.6,
+				"height": 1.9
+			},
+			"minecraft:movement.basic": {},
+			"minecraft:navigation.walk": {
+				"can_pass_doors": true,
+				"can_walk": true,
+				"can_break_doors": true
+			},
+			"minecraft:annotation.break_door": {},
+			"minecraft:jump.static": {},
+			"minecraft:can_climb": {},
+			"minecraft:health": {
+				"value": 30
+			},
+			"minecraft:hurt_on_condition": {
+				"damage_conditions": [
+					{
+						"filters": {
+							"test": "in_lava",
+							"subject": "self",
+							"operator": "==",
+							"value": true
+						},
+						"cause": "lava",
+						"damage_per_tick": 10
+					},
+					{
+						"filters": {
+							"test": "on_fire",
+							"subject": "self",
+							"operator": "==",
+							"value": true
+						},
+						"cause": "lava",
+						"damage_per_tick": 5
+					}
+				]
+			},
+			"minecraft:attack": {
+				"damage": 9
+			},
+			"minecraft:loot": {
+				"table": "loot_tables/entities/resurrected_armor_stand.json"
+			},
+			"minecraft:behavior.melee_attack": {
+				"priority": 3
+			},
+			"minecraft:behavior.nearest_attackable_target": {
+				"priority": 2,
+				"must_see": true,
+				"reselect_targets": true,
+				"within_radius": 25.0,
+				"entity_types": [
+					{
+						"filters": {
+							"any_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "player"
+								}
+							]
+						},
+						"max_dist": 15
+					}
+				]
+			},
+			"minecraft:physics": {},
+			"minecraft:conditional_bandwidth_optimization": {},
+			"minecraft:on_death": {
+				"event": "on_death",
+				"target": "self"
+			}
+		},
+		"events": {
+			"on_death": {
+				"run_command": {
+					"command": [
+						"scoreboard players add @a[r=10] xp_tray 25",
+						"scoreboard players add @a[r=10] count_mob_kills 1"
+					]
+				}
+			}
+		}
+	}
+}

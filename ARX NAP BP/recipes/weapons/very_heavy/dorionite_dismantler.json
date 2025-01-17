@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:dorionite_dismantler"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      " A ",
+      "A A",
+      "BA "
+    ],
+    "key": {
+      "A": {
+        "item": "arx:dorionite_billet"
+      },
+      "B": {
+        "item": "arx:plumbum_billet"
+      }
+    },
+    "result": {
+      "item": "arx:dorionite_dismantler"
+    }
+  }
+}

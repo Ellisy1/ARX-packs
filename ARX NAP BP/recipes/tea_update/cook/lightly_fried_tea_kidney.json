@@ -1,0 +1,14 @@
+{
+	"format_version": "1.20.60",
+	"minecraft:recipe_furnace": {
+		"description": {
+			"identifier": "arx:lightly_fried_tea_kidney"
+		},
+		"tags": ["furnace", "smoker", "campfire", "soul_campfire"],
+		"input": "arx:tea_bud",
+		"output": {
+			"item": "arx:lightly_fried_tea_kidney",
+			"count": 1
+		}
+	}
+}

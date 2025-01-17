@@ -1,0 +1,112 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:item": {
+    "description": {
+      "identifier": "arx:iron_krutka",
+      "category": "items"
+    },
+    "components": {
+      "minecraft:hand_equipped": false,
+      "minecraft:max_stack_size": 64,
+      "minecraft:foil": false,
+      "minecraft:icon": {
+        "texture": "arx:iron_krutka"
+      },
+      "minecraft:on_use": {
+        "on_use": {
+          "event": "on_use_event"
+        }
+      },
+      "minecraft:cooldown": {
+        "category": "krutka",
+        "duration": 1
+      }
+    },
+    "events": {
+      "on_use_event": {
+        "swing": {},
+        "randomize": [
+          {
+            "run_command": {
+              "command": [
+                "clear @p arx:iron_krutka 0 1",
+                "title @p title §7[Обычное]"
+              ]
+            },
+            "weight": 2850
+          },
+          {
+            "run_command": {
+              "command": [
+                "clear @p arx:iron_krutka 0 1",
+                "title @p title §7[Обычное]",
+                "give @p iron_nugget"
+              ]
+            },
+            "weight": 2850
+          },
+          {
+            "run_command": {
+              "command": [
+                "clear @p arx:iron_krutka 0 1",
+                "title @p title §a[Необычное]",
+                "give @p arx:god_energy 1"
+              ]
+            },
+            "weight": 2500
+          },
+          {
+            "run_command": {
+              "command": [
+                "clear @p arx:iron_krutka 0 1",
+                "title @p title §b[Редкое]",
+                "give @p arx:god_energy 3"
+              ]
+            },
+            "weight": 1200
+          },
+          {
+            "run_command": {
+              "command": [
+                "clear @p arx:iron_krutka 0 1",
+                "title @p title §6[Эпическое]",
+                "give @p arx:god_energy 9"
+              ]
+            },
+            "weight": 500
+          },
+          {
+            "run_command": {
+              "command": [
+                "clear @p arx:iron_krutka 0 1",
+                "title @p title §e[Легендарное]",
+                "give @p arx:god_energy 32"
+              ]
+            },
+            "weight": 100
+          },
+          {
+            "run_command": {
+              "command": [
+                "clear @p arx:iron_krutka 0 1",
+                "title @p title §c[Мифическое]",
+                "give @p arx:god_energy 128"
+              ]
+            },
+            "weight": 10
+          },
+          {
+            "run_command": {
+              "command": [
+                "clear @p arx:iron_krutka 0 1",
+                "title @p title §d[Божественное]",
+                "give @p arx:god_energy 512"
+              ]
+            },
+            "weight": 1
+          }
+        ]
+      }
+    }
+  }
+}

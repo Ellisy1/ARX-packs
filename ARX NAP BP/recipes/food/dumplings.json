@@ -1,0 +1,36 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:dumplings"
+    },
+
+    
+    "tags": [ "boiler_crafting_table" ],
+    "pattern": [
+      "ADA",
+      "BCB",
+      "AEA"
+    ],
+    "key": {
+      "A": {
+        "item": "arx:forcemeat"
+      },
+      "B": {
+        "item": "arx:dough"
+      },
+      "C": {
+        "item": "arx:salt"
+      },
+      "D": {
+        "item": "arx:kaspora"
+      },
+      "E": {
+        "item": "minecraft:bowl"
+      }
+    },
+    "result": [
+      {"item": "arx:preparation_dumplings"}
+    ]
+  }
+}

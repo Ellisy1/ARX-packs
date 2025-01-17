@@ -1,0 +1,36 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:item": {
+    "description": {
+      "identifier": "arx:default_bottle",
+      "category": "items"
+    },
+    "components": {
+      "minecraft:icon": {
+        "texture": "arx:default_bottle"
+      },
+      "minecraft:cooldown": {
+        "category": "water_fill",
+        "duration": 1
+      },
+      "minecraft:on_use": {
+        "on_use": {
+          "event": "on_use_event"
+        }
+      }
+    },
+    "events": {
+      "on_use_event": {
+        "run_command": {
+          "command": [
+            "tag @p add self",
+            "w @p[tag=self, tag=!in_block_water] Чтобы наполнить бутылку, придется залезть в воду...",
+            "clear @p[tag=self, tag=in_block_water] arx:default_bottle 0 1",
+            "give @p[tag=self, tag=in_block_water] arx:default_bottle_water",
+            "tag @p remove self"
+          ]
+        }
+      }
+    }
+  }
+}

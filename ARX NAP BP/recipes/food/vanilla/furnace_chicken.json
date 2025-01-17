@@ -1,0 +1,18 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_furnace": {
+    "description": {
+    "identifier": "minecraft:furnace_chicken"
+    },
+
+    "unlock": [
+      {
+        "item": "minecraft:chicken"
+      }
+    ],
+    "tags": ["ban"],
+    "input": "minecraft:chicken",
+    "output": "minecraft:cooked_chicken"
+  }
+  
+}

@@ -1,0 +1,33 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:alchemy_crafting_table"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "AIA",
+      "RiR",
+      " i "
+    ],
+    "key": {
+      "I": {
+        "item": "minecraft:iron_ingot"
+      },
+      "R": {
+        "item": "arx:default_bottle"
+      },
+      "i": {
+        "item": "minecraft:planks"
+      },
+      "A": {
+        "item": "minecraft:bowl"
+      }
+    },
+    "result": {
+      "item": "arx:alchemy_crafting_table"
+    }
+  }
+}

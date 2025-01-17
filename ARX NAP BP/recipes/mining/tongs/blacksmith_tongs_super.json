@@ -1,0 +1,24 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:blacksmith_tongs_super"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      " # ",
+      "# #",
+      "# #"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:cast_iron_ingot"
+      }
+    },
+    "result": {
+      "item": "arx:blacksmith_tongs_super"
+    }
+  }
+}

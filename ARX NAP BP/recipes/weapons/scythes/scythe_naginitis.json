@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:scythe_naginitis"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      "##A",
+      " A ",
+      "#  "
+    ],
+    "key": {
+      "#": {
+        "item": "arx:naginitis_billet"
+      },
+      "A": {
+        "item": "arx:duraluminum_ingot"
+      }
+    },
+    "result": {
+      "item": "arx:scythe_naginitis"
+    }
+  }
+}

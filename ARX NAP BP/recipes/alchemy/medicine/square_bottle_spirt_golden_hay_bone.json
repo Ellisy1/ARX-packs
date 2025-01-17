@@ -1,0 +1,15 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_brewing_mix": {
+    "description": {
+      "identifier": "arx:square_bottle_spirt_golden_hay_bone"
+    },
+
+    "tags": [ "brewing_stand" ],
+
+    "input": "arx:square_bottle_spirt_golden_hay",
+    "reagent": "minecraft:bone",
+    "output": "arx:square_bottle_spirt_golden_hay_bone_preparation"
+  }
+
+}

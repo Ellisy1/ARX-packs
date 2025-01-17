@@ -1,0 +1,13 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_furnace": {
+    "description": {
+      "identifier": "arx:furnace_plumbum_deep"
+    },
+    "tags": [
+      "blast_furnace", "furnace"
+    ],
+    "input": "arx:plumbum_deep_ore",
+    "output": "arx:plumbum_ingot"
+  }
+}

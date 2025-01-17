@@ -1,0 +1,38 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:elite_gown"
+    },
+
+    
+    "tags": [ "clothes_crafting_table" ],
+    "pattern": [
+      "AAA",
+      "BEB",
+      "CAC"
+    ],
+    "key": {
+      "A": {
+        "item": "arx:silk"
+      },
+      "B": {
+        "item": "minecraft:dye",
+        "data": 19
+      },
+      "C": {
+        "item": "minecraft:dye",
+        "data": 12
+      },
+      "D": {
+        "item": "arx:golden_silk"
+      },
+      "E": {
+        "item": "arx:ruby_gem"
+      }
+    },
+    "result": {
+      "item": "arx:elite_gown"
+    }
+  }
+}

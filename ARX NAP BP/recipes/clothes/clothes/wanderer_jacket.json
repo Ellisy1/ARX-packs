@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:wanderer_jacket"
+    },
+
+    
+    "tags": [ "clothes_crafting_table" ],
+    "pattern": [
+      "#A#",
+      "AAA",
+      "#A#"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:pushnina"
+      },
+      "A": {
+        "item": "arx:silk"
+      }
+    },
+    "result": {
+      "item": "arx:wanderer_jacket"
+    }
+  }
+}

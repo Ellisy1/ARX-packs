@@ -1,0 +1,30 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:staff_with_diamond"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      " CB",
+      " AC",
+      "A  "
+    ],
+    "key": {
+      "A": {
+        "item": "arx:gold_billet"
+      },
+      "B": {
+        "item": "minecraft:diamond"
+      },
+      "C": {
+        "item": "minecraft:gold_ingot"
+      }
+    },
+    "result": {
+      "item": "arx:staff_with_diamond"
+    }
+  }
+}

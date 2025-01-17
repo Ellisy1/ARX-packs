@@ -1,0 +1,20 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "arx:mechanic_belt_lamp",
+      "materials": {
+        "default": "entity_emissive_alpha"
+      },
+      "textures": {
+        "default": "textures/entity/belt_lamps/mechanic_belt_lamp"
+      },
+      "geometry": {
+        "default": "geometry.mechanic_belt_lamp"
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ]
+    }
+  }
+}

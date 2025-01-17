@@ -1,0 +1,20 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "minecraft:wooden_sword"
+    },
+    "tags": [ "ban26" ],
+    "pattern": [
+      "S"
+    ],
+    "key": {
+      "S": {
+        "item": "minecraft:bedrock"
+      }
+    },
+    "result": {
+      "item": "minecraft:stick"
+    }
+  }
+}

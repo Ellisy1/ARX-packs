@@ -1,0 +1,41 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:item": {
+    "description": {
+      "identifier": "arx:long_bottle_blood_karelo_evergreen_dream_dragon_pion",
+      "category": "items"
+    },
+    "components": {
+      "minecraft:max_stack_size": 1,
+      "minecraft:cooldown": {
+        "category": "food",
+        "duration": 1
+      },
+      "minecraft:on_use": {
+        "on_use": {
+          "event": "on_eat"
+        }
+      },
+      "minecraft:icon": {
+        "texture": "arx:long_bottle_blood_karelo_evergreen_dream_dragon_pion"
+      }
+    },
+    "events": {
+      "on_eat": {
+        "run_command": {
+          "command": [
+            "tag @p add self",
+            "scoreboard players add @p xp_tray 600",
+            "scoreboard players add @p poisoning 250",
+            "function traits/get_positive_trait",
+            "tag @p remove self",
+            
+            "clear @s arx:long_bottle_blood_karelo_evergreen_dream_dragon_pion 0 1",
+            "give @s arx:long_bottle",
+            "function food/visual/potion"
+          ]
+        }
+      }
+    }
+  }
+}

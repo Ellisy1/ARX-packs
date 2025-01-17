@@ -1,0 +1,42 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "arx:crocodile",
+      "min_engine_version": "1.8.0",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/mobs/crocodile"
+      },
+      "geometry": {
+        "default": "geometry.crocodile"
+      },
+      "animations": {
+        "look_at_target_default": "animation.humanoid.look_at_target.default",
+        "look_at_target_gliding": "animation.humanoid.look_at_target.gliding",
+        "look_at_target_swimming": "animation.humanoid.look_at_target.swimming",
+        "walk": "animation.crocodile.walk",
+        "attack": "animation.crocodile.attack",
+        "blink": "animation.crocodile.blink",
+        "stay": "animation.crocodile.stay"
+      },
+      "animation_controllers": [
+        {
+          "move": "controller.animation.crocodile.basic"
+        },
+        {
+          "look_at_target": "controller.animation.humanoid.look_at_target"
+        }
+      ],
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "spawn_egg": {
+        "base_color": "#0a2b04",
+        "overlay_color": "#409f44"
+      }
+    }
+  }
+}

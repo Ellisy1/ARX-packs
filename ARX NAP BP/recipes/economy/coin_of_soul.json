@@ -1,0 +1,22 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:coin_of_soul"
+    },
+
+    
+    "tags": [ "coin_crafting_table_soul" ],
+    "pattern": [
+      "i"
+    ],
+    "key": {
+      "i": {
+        "item": "minecraft:gold_ingot"
+      }
+    },
+    "result": [
+      {"item": "arx:coin_of_soul"}
+    ]
+  }
+}

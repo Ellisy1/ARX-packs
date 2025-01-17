@@ -1,0 +1,45 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:item": {
+    "description": {
+      "identifier": "arx:reestr",
+      "category": "items"
+    },
+    "components": {
+      "minecraft:hand_equipped": false,
+      "minecraft:max_stack_size": 64,
+      "minecraft:foil": false,
+      "minecraft:icon": {
+        "texture": "arx:reestr"
+      },
+      "minecraft:cooldown": {
+        "category": "reestr",
+        "duration": 1
+      },
+      "minecraft:on_use": {
+        "on_use": {
+          "event": "on_use_event"
+        }
+      }
+    },
+    "events": {
+      "on_use_event": {
+        "swing": {},
+        "run_command": {
+          "command": [
+            "tag @p add self",
+            "execute @e[name=worlddata, tag=!venard_reestr_fixed] ~ ~ ~ tag @p[tag = self, x=-341 , y=6 , z=520 , dx=4 , dy=2 , dz=4] add reestr_control",
+            "execute @p[tag = self, tag=reestr_control] ~ ~ ~ clear @p arx:reestr 0 1",
+            "execute @p[tag = self, tag=reestr_control] ~ ~ ~ playsound undemon",
+            "title @p[tag = self, tag=reestr_control] subtitle §gфрагмент реестра",
+            "title @p[tag = self, tag=reestr_control] title §aВы вставляете",
+            "execute @p[tag = self, tag=reestr_control] ~ ~ ~ tag @e[name=worlddata] add venard_reestr_fixed",
+            "w @p[tag = self, tag=!reestr_control] Здесь не к чему применить",
+            "tag @p[tag = self] remove reestr_control",
+            "tag @p remove self"
+          ]
+        }
+      }
+    }
+  }
+}

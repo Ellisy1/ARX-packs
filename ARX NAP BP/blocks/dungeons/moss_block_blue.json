@@ -1,0 +1,12 @@
+{
+	"format_version": "1.19.40",
+	"minecraft:block": {
+		"description": {
+			"identifier": "arx:moss_block_blue",
+			"menu_category": {
+				"category": "nature"
+			}
+		},
+		"components": {}
+	}
+}

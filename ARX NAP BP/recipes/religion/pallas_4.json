@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:pallas_4"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "F F",
+      "AAA",
+      "A A"
+    ],
+    "key": {
+      "A": {
+        "item": "arx:naginitis_ingot"
+      },
+      "F": {
+        "item": "arx:saphire_gem"
+      }
+    },
+    "result": {
+      "item": "arx:pallas_4"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:wine"
+    },
+
+    
+    "tags": [ "substractor" ],
+    "pattern": [
+      "#"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:vodka_sweet_berrie"
+      }
+    },
+    "result": {
+      "item": "arx:wine_preparation"
+    }
+  }
+}

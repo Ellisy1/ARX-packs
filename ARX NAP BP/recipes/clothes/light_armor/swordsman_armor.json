@@ -1,0 +1,36 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:swordsman_armor"
+    },
+
+    
+    "tags": [ "light_armor_crafting_table" ],
+    "pattern": [
+      "DAB",
+      "DED",
+      "C C"
+    ],
+    "key": {
+      "A": {
+        "item": "arx:silk"
+      },
+      "B": {
+        "item": "minecraft:dye:6"
+      },
+      "C": {
+        "item": "arx:durasteel_protective_plate"
+      },
+      "E": {
+        "item": "arx:gold_protective_plate"
+      },
+      "D": {
+        "item": "arx:steel_ingot"
+      }
+    },
+    "result": {
+      "item": "arx:swordsman_armor"
+    }
+  }
+}

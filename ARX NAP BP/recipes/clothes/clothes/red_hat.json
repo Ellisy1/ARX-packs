@@ -1,0 +1,30 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:red_hat"
+    },
+
+    
+    "tags": [ "clothes_crafting_table" ],
+    "pattern": [
+      "C#D"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:silk"
+      },
+      "C": {
+        "item": "minecraft:dye",
+        "data": 1
+      },
+      "D": {
+        "item": "minecraft:dye",
+        "data": 16
+      }
+    },
+    "result": {
+      "item": "arx:red_hat"
+    }
+  }
+}

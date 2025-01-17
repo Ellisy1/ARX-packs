@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:durasteel_ripper"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      " ##",
+      "## ",
+      "Z  "
+    ],
+    "key": {
+      "#": {
+        "item": "arx:durasteel_billet"
+      },
+      "Z": {
+        "item": "arx:durasteel_ingot"
+      }
+    },
+    "result": {
+      "item": "arx:durasteel_ripper"
+    }
+  }
+}

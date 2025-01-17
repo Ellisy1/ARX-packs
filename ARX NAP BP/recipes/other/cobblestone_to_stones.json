@@ -1,0 +1,22 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:cobblestone_to_stones"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "A"
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:cobblestone"
+      }
+    },
+    "result": {
+      "item": "arx:small_stone", "count": 4
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:meat_bug_bug_b"
+    },
+
+    
+    "tags": [ "boiler_crafting_table" ],
+    "pattern": [
+      "#C#",
+      " A "
+    ],
+    "key": {
+      "#": {
+        "item": "arx:perfect_fried_meat_beatle_meat"
+      },
+      "A": {
+        "item": "arx:hoof_bouillon"
+      },
+      "C": {
+        "item": "arx:salt"
+      }
+    },
+    "result": [
+      {"item": "arx:preparation_meat_bug_bug"}
+    ]
+  }
+}

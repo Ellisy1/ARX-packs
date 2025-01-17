@@ -1,0 +1,40 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:item": {
+    "description": {
+      "identifier": "arx:triangle_bottle_water_karelo",
+      "category": "items"
+    },
+    "components": {
+      "minecraft:max_stack_size": 1,
+      "minecraft:cooldown": {
+        "category": "food",
+        "duration": 1
+      },
+      "minecraft:on_use": {
+        "on_use": {
+          "event": "on_eat"
+        }
+      },
+      "minecraft:icon": {
+        "texture": "arx:triangle_bottle_water_karelo"
+      }
+    },
+    "events": {
+      "on_eat": {
+        "run_command": {
+          "command": [
+            "w @p отвар цветка карело немного неприятен на вкус.",
+            "scoreboard players add @p xp_tray 5",
+            "scoreboard players add @p poisoning 30",
+            "scoreboard players add @p stress 100",
+            
+            "clear @s arx:triangle_bottle_water_karelo 0 1",
+            "give @s arx:triangle_bottle",
+            "function food/visual/potion"
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,125 @@
+{
+	"format_version": "1.19.40",
+	"minecraft:block": {
+		"description": {
+			"identifier": "arx:tablet_with_sheets_in_electronics_shop",
+			"properties": {
+				"arx:facing_direction": [
+					2,
+					3,
+					4,
+					5
+				]
+			},
+			"menu_category": {
+				"category": "nature"
+			}
+		},
+		"permutations": [
+			{
+				"condition": "query.block_property('arx:facing_direction') == 3",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							0,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_property('arx:facing_direction') == 5",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							90,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_property('arx:facing_direction') == 2",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							180,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_property('arx:facing_direction') == 4",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							270,
+							0
+						]
+					} 
+				}
+			}
+		],
+		"components": {
+			"minecraft:geometry": "geometry.tablet_with_sheets_in_electronics_shop",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "tablet_with_sheets_in_electronics_shop",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:collision_box": {
+				"origin": [
+					-7.0,
+					0.0,
+					-7.0
+				],
+				"size": [
+					14.0,
+					1.0,
+					14.0
+				]
+			},
+			"minecraft:selection_box": {
+				"origin": [
+					-7.0,
+					0.0,
+					-7.0
+				],
+				"size": [
+					14.0,
+					1.0,
+					14.0
+				]
+			},
+			"minecraft:on_interact":{
+				"event" : "arx:interact"
+			},
+			"minecraft:on_player_placing": { 
+				"event": "set_facing_direction"
+			}
+		},
+		"events": {
+			"set_facing_direction": {
+				"set_block_property": {
+					"arx:facing_direction": "query.cardinal_facing_2d"
+				}
+			},
+			"arx:interact": {
+				"run_command": {
+					"command": [
+						"tag @p add self",
+						"execute as @p[tag=self, scores={restrict_block_interact=0}] at @s run function high_tec/tablet_with_sheets_in_electronics_shop",
+						"scoreboard players set @p[tag=self, scores={restrict_block_interact=0}] restrict_block_interact 10",
+						"tag @p remove self"
+					]
+				}
+			}
+		}
+	}
+}

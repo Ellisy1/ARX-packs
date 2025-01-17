@@ -1,0 +1,10 @@
+scoreboard players operation @p[scores={verify=2}] stability_core *= @p[scores={verify=2}] const_100
+scoreboard players operation @p[scores={verify=2}] stability_core /= @p[scores={verify=2}] stability_const
+execute @p[scores={verify=2, stability_core=101..}] ~ ~ ~ tellraw @a[tag=report_stability] { "rawtext": [ { "text": "§g[Система]§f " }, { "score": {"name": "@p[scores={verify=2}]", "objective": "stability_core" } }, { "text": "% стабильность UAP §4[Ошибка в снятии показаний]" } ] }
+execute @p[scores={verify=2, stability_core=100}] ~ ~ ~ tellraw @a[tag=report_stability] { "rawtext": [ { "text": "§g[Система]§f " }, { "score": {"name": "@p[scores={verify=2}]", "objective": "stability_core" } }, { "text": "% стабильность UAP §a[Идеально]" } ] }
+execute @p[scores={verify=2, stability_core=97..99}] ~ ~ ~ tellraw @a[tag=report_stability] { "rawtext": [ { "text": "§g[Система]§f " }, { "score": {"name": "@p[scores={verify=2}]", "objective": "stability_core" } }, { "text": "% стабильность UAP §2[Хорошо]" } ] }
+execute @p[scores={verify=2, stability_core=90..96}] ~ ~ ~ tellraw @a[tag=report_stability] { "rawtext": [ { "text": "§g[Система]§f " }, { "score": {"name": "@p[scores={verify=2}]", "objective": "stability_core" } }, { "text": "% стабильность UAP §e[Допустимо]" } ] }
+execute @p[scores={verify=2, stability_core=80..89}] ~ ~ ~ tellraw @a[tag=report_stability] { "rawtext": [ { "text": "§g[Система]§f " }, { "score": {"name": "@p[scores={verify=2}]", "objective": "stability_core" } }, { "text": "% стабильность UAP §6[Ниже нормы]" } ] }
+execute @p[scores={verify=2, stability_core=60..79}] ~ ~ ~ tellraw @a[tag=report_stability] { "rawtext": [ { "text": "§g[Система]§f " }, { "score": {"name": "@p[scores={verify=2}]", "objective": "stability_core" } }, { "text": "% стабильность UAP §c[Низко]" } ] }
+execute @p[scores={verify=2, stability_core=..59}] ~ ~ ~ tellraw @a[tag=report_stability] { "rawtext": [ { "text": "§g[Система]§f " }, { "score": {"name": "@p[scores={verify=2}]", "objective": "stability_core" } }, { "text": "% стабильность UAP §4[Крайне низко]" } ] }
+scoreboard players set @p[scores={verify=2}] stability_core 0

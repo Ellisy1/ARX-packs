@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:netherite_naginata"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      " A#",
+      " # ",
+      "#  "
+    ],
+    "key": {
+      "#": {
+        "item": "arx:netherite_billet"
+      },
+      "A": {
+        "item": "arx:gold_billet"
+      }
+    },
+    "result": {
+      "item": "arx:netherite_naginata"
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.baguk.walk": {
+			"loop": true,
+			"bones": {
+				"leftleg1": {
+					"rotation": ["- math.cos(query.anim_time * 360) * 20", "math.cos(query.anim_time * 360) * 20", 0]
+				},
+				"leftleg2": {
+					"rotation": ["math.cos(query.anim_time * 360) * 20", "- math.cos(query.anim_time * 360) * 20", 0]
+				},
+				"s_leg_r_2": {
+					"rotation": ["math.cos(query.anim_time * 360) * 5", "- math.cos(query.anim_time * 360) * 5", 0]
+				},
+				"lefthand": {
+					"rotation": [0, 12.5, 0]
+				},
+				"righthand": {
+					"rotation": [0, -12.5, 0]
+				},
+				"rightleg1": {
+					"rotation": ["- math.cos(query.anim_time * 360) * 20", "- math.cos(query.anim_time * 360) * 20", 0]
+				},
+				"rightleg2": {
+					"rotation": ["math.cos(query.anim_time * 360) * 20", "math.cos(query.anim_time * 360) * 20", 0]
+				},
+				"s_leg_r_3": {
+					"rotation": ["- math.cos(query.anim_time * 360) * 5", "math.cos(query.anim_time * 360) * 5", 0]
+				}
+			}
+		},
+		"animation.baguk.attack": {
+			"animation_length": 0.2083,
+			"bones": {
+				"lefthand": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0833": [-61.67, 0, 43.33],
+						"0.125": [65, 0, 65],
+						"0.2083": [0, 0, 0]
+					}
+				},
+				"righthand": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0833": [-60.44709, 1.26544, -42.6976],
+						"0.125": [61.45763, -3.73399, -59.52902],
+						"0.2083": [0, 0, 0]
+					}
+				}
+			}
+		}
+	}
+}

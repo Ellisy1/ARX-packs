@@ -1,0 +1,36 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:knight_light_armor"
+    },
+
+    
+    "tags": [ "light_armor_crafting_table" ],
+    "pattern": [
+      "#D#",
+      "BDC",
+      "#D#"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:steel_protective_plate"
+      },
+      "A": {
+        "item": "arx:silk"
+      },
+      "B": {
+        "item": "minecraft:dye:18"
+      },
+      "C": {
+        "item": "minecraft:dye:11"
+      },
+      "D": {
+        "item": "arx:leather_super"
+      }
+    },
+    "result": {
+      "item": "arx:knight_light_armor"
+    }
+  }
+}

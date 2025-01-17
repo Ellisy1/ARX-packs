@@ -1,0 +1,40 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:fog_settings": {
+      "description": {
+        "identifier": "arx:overworld_mesa_fog"
+      },
+      "distance": {
+      "air": {
+        "fog_start": 0.6,
+        "fog_end": 1,
+        "fog_color": "#e0aa8c",
+        "render_distance_type": "render"
+      },
+      "water": {
+        "fog_start": 0,
+        "fog_end": 12,
+        "fog_color": "#040c38",
+        "render_distance_type": "fixed"
+      },
+      "weather": {
+        "fog_start": -10,
+        "fog_end": 60,
+        "fog_color": "#8a8a8a",
+        "render_distance_type": "fixed"
+      },
+      "lava": {
+        "fog_start": 0,
+        "fog_end": 1,
+        "fog_color": "#992400",
+        "render_distance_type": "fixed"
+      },
+      "lava_resistance": {
+        "fog_start": 0,
+        "fog_end": 1,
+        "fog_color": "#992400",
+        "render_distance_type": "fixed"
+      }
+    }
+  }
+}

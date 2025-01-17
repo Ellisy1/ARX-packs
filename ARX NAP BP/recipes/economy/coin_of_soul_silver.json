@@ -1,0 +1,22 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:coin_of_soul_silver"
+    },
+
+    
+    "tags": [ "ban" ],
+    "pattern": [
+      "i"
+    ],
+    "key": {
+      "i": {
+        "item": "arx:coin_of_soul"
+      }
+    },
+    "result": [
+      {"item": "arx:coin_of_soul_silver", "count": 9}
+    ]
+  }
+}

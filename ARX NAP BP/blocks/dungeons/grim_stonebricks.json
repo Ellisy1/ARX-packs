@@ -1,0 +1,31 @@
+{
+	"format_version": "1.19.40",
+	"minecraft:block": {
+		"description": {
+			"identifier": "arx:grim_stonebricks",
+			"menu_category": {
+				"category": "nature"
+			}
+		},
+		"components": {
+			"minecraft:queued_ticking": {
+				"interval_range": [
+					10,
+					100
+				],
+				"on_tick": {
+					"event": "flame"
+				}
+			}
+		},
+		"events": {
+			"flame": {
+				"run_command": {
+					"command": [
+						"particle arx:grim_stonebricks ~ ~ ~"
+					]
+				}
+			}
+		}
+	}
+}

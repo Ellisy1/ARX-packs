@@ -1,0 +1,77 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.chair",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [0, 0.75, 0]
+			},
+			"bones": [
+				{
+					"name": "legs",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "front",
+					"parent": "legs",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-5, 0, -6], "size": [1, 10, 2], "uv": [6, 0]},
+						{"origin": [4, 0, -6], "size": [1, 10, 2], "uv": [6, 0], "mirror": true}
+					]
+				},
+				{
+					"name": "back",
+					"parent": "legs",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-5, 0, 4], "size": [1, 12, 2], "uv": [16, 16]},
+						{"origin": [4, 0, 4], "size": [1, 12, 2], "uv": [16, 16], "mirror": true}
+					]
+				},
+				{
+					"name": "props",
+					"parent": "legs",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-4, 8, -5], "size": [8, 2, 1], "uv": [0, 13]},
+						{"origin": [-4, 8, 4], "size": [8, 2, 1], "uv": [0, 13]}
+					]
+				},
+				{
+					"name": "symmethry",
+					"parent": "props",
+					"pivot": [0, 0, 0],
+					"rotation": [0, -90, 0],
+					"cubes": [
+						{"origin": [-4, 8, 3], "size": [8, 2, 1], "uv": [0, 13]},
+						{"origin": [-4, 8, -4], "size": [8, 2, 1], "uv": [0, 13]}
+					]
+				},
+				{
+					"name": "plate",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-5, 10, -6], "size": [10, 1, 12], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "back2",
+					"pivot": [0, 11, 3.9],
+					"rotation": [-7.5, 0, 0],
+					"cubes": [
+						{"origin": [-5, 12, 3.9], "size": [1, 10, 2], "uv": [0, 0]},
+						{"origin": [4, 12, 3.9], "size": [1, 10, 2], "uv": [0, 0], "mirror": true},
+						{"origin": [-2, 11, 4.9], "size": [1, 11, 1], "uv": [0, 18]},
+						{"origin": [1, 11, 4.9], "size": [1, 11, 1], "uv": [0, 18], "mirror": true},
+						{"origin": [-4, 22, 4.9], "size": [8, 1, 1], "uv": [0, 16]}
+					]
+				}
+			]
+		}
+	]
+}

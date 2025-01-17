@@ -1,0 +1,14 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:item": {
+      "description": {
+        "category": "items",
+        "identifier": "arx:forfactorite_ingot"
+      },
+      "components": {
+        "minecraft:icon": {
+          "texture": "arx:forfactorite_ingot"
+        }
+      }
+    }
+  }

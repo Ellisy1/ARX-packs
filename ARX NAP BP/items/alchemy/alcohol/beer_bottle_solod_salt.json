@@ -1,0 +1,39 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:item": {
+    "description": {
+      "identifier": "arx:beer_bottle_solod_salt",
+      "category": "items"
+    },
+    "components": {
+      "minecraft:max_stack_size": 1,
+      "minecraft:cooldown": {
+        "category": "food",
+        "duration": 1
+      },
+      "minecraft:on_use": {
+        "on_use": {
+          "event": "on_eat"
+        }
+      },
+      "minecraft:icon": {
+        "texture": "arx:beer_bottle_solod_salt"
+      }
+    },
+    "events": {
+      "on_eat": {
+        "run_command": {
+          "command": [
+            "scoreboard players add @p xp_tray 20",
+            "scoreboard players add @p poisoning 350",
+            "scoreboard players add @p stress -100",
+            
+            "clear @s arx:beer_bottle_solod_salt 0 1",
+            "give @s arx:beer_bottle",
+            "function food/visual/potion"
+          ]
+        }
+      }
+    }
+  }
+}

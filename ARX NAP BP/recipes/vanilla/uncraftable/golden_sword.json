@@ -1,0 +1,20 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "minecraft:golden_sword"
+    },
+    "tags": [ "ban13" ],
+    "pattern": [
+      "S"
+    ],
+    "key": {
+      "S": {
+        "item": "minecraft:bedrock"
+      }
+    },
+    "result": {
+      "item": "minecraft:stick"
+    }
+  }
+}

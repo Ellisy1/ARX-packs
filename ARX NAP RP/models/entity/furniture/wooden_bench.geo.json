@@ -1,0 +1,31 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.wooden_bench",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [0, 0.75, 0]
+			},
+			"bones": [
+				{
+					"name": "wooden_bench",
+					"pivot": [0, -6, -2],
+					"cubes": [
+						{"origin": [-10.90192, 8, -5], "size": [21.90192, 1, 9], "uv": [0, 0]},
+						{"origin": [8, 0, 1], "size": [2, 8, 2], "uv": [0, 16]},
+						{"origin": [7, 8, 3], "size": [2, 3, 1], "pivot": [8, 8, 4], "rotation": [-25, 0, 0], "uv": [0, 26]},
+						{"origin": [-10.90192, 10, 4.35], "size": [21.90192, 5, 1], "uv": [0, 10]},
+						{"origin": [-9, 8, 3], "size": [2, 3, 1], "pivot": [-8, 8, 4], "rotation": [-25, 0, 0], "uv": [6, 26]},
+						{"origin": [-10, 0, 1], "size": [2, 8, 2], "uv": [8, 16]},
+						{"origin": [-10, 0, -4], "size": [2, 8, 2], "uv": [16, 16]},
+						{"origin": [8, 0, -4], "size": [2, 8, 2], "uv": [24, 16]}
+					]
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,26 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:weapon_data"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "AB",
+      " A"
+    ],
+    "key": {
+      "A": {
+        "item": "arx:small_stone"
+      },
+      "B": {
+        "item": "minecraft:paper"
+      }
+    },
+    "result": {
+      "item": "arx:weapon_data"
+    }
+  }
+}

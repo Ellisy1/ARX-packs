@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:caryite_sword_with_sapphire"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      "  A",
+      " X ",
+      "A  "
+    ],
+    "key": {
+      "X": {
+        "item": "arx:saphire_gem"
+      },
+      "A": {
+        "item": "arx:caryite_billet"
+      }
+    },
+    "result": {
+      "item": "arx:caryite_sword_with_sapphire"
+    }
+  }
+}

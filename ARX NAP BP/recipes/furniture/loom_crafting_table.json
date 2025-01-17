@@ -1,0 +1,30 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:loom_crafting_table"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "R R",
+      "III",
+      "R R"
+    ],
+    "key": {
+      "I": {
+        "item": "minecraft:string"
+      },
+      "R": {
+        "item": "minecraft:planks"
+      },
+      "F": {
+        "item": "arx:silk"
+      }
+    },
+    "result": [
+      {"item": "arx:loom_crafting_table"}
+    ]
+  }
+}

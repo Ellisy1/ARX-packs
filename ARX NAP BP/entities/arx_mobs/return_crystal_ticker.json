@@ -1,0 +1,53 @@
+{
+	"format_version": "1.16.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "arx:return_crystal_ticker",
+			"is_summonable": true
+		},
+		"components": {
+			"minecraft:type_family": {
+				"family": [
+					"logical"
+				]
+			},
+			"minecraft:health": {
+				"value": 10000000
+			},
+			"minecraft:conditional_bandwidth_optimization": {},
+			"minecraft:tick_world": {
+				"never_despawn": true,
+				"radius": 2
+			},
+			"minecraft:knockback_resistance": {
+				"value": 1
+			},
+			"minecraft:timer": {
+				"looping": true,
+				"time": 5,
+				"time_down_event": {
+					"event": "arx:despawn"
+				}
+			}
+		},
+		"component_groups": {
+			"arx:despawn": {
+				"minecraft:instant_despawn": {}
+			}
+		},
+		"events": {
+			"arx:despawn":{
+				"run_command": {
+					"command": [
+						"function crystals/report_if_return_crystal_ticker_expired"
+					]
+				},
+				"add": {
+					"component_groups": [
+						"arx:despawn"
+					]
+				}
+			}
+		}
+	}
+}

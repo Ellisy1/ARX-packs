@@ -1,0 +1,22 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:simple_coin"
+    },
+
+    
+    "tags": [ "coin_crafting_table_default" ],
+    "pattern": [
+      "i"
+    ],
+    "key": {
+      "i": {
+        "item": "minecraft:gold_ingot"
+      }
+    },
+    "result": [
+      {"item": "arx:simple_coin"}
+    ]
+  }
+}

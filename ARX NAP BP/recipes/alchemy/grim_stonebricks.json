@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:grim_stonebricks"
+    },
+
+    
+    "tags": [ "alchemy_crafting_table" ],
+    "pattern": [
+      "###",
+      "#A#"
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:stonebrick"
+      },
+      "A": {
+        "item": "arx:essence_of_vicious_demon"
+      }
+    },
+    "result": {
+      "item": "arx:grim_stonebricks",
+      "count": 5
+    }
+  }
+}

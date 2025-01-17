@@ -1,0 +1,13 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_furnace": {
+    "description": {
+      "identifier": "arx:furnace_caryite_deep"
+    },
+    "tags": [
+      "blast_furnace"
+    ],
+    "input": "arx:caryite_deep_ore",
+    "output": "arx:caryite_ingot"
+  }
+}

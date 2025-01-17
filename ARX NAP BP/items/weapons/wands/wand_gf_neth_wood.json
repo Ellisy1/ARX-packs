@@ -1,0 +1,45 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:item": {
+    "description": {
+      "category": "equipment",
+      "identifier": "arx:wand_gf_neth_wood"
+    },
+    "components": {
+      "minecraft:icon": {
+        "texture": "arx:wand_gf_neth_wood"
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:hand_equipped": true,
+      "minecraft:allow_off_hand": true,
+      "minecraft:mining_speed": 1,
+      "minecraft:damage": 3,
+      "minecraft:enchantable": {
+        "value": 15,
+        "slot": "sword"
+      },
+      "minecraft:weapon": {
+      },
+      "minecraft:cooldown": {
+        "category": "wand",
+        "duration": 1
+      },
+      "minecraft:on_use": {
+        "on_use": {
+          "event": "on_use_event"
+        }
+      },
+      "tag:minecraft:is_sword": {}
+    },
+    "events": {
+      "on_use_event": {
+        "swing": {},
+        "run_command": {
+          "command": [
+            "function wands/wand_default"
+          ]
+        }
+      }
+    }
+  }
+}

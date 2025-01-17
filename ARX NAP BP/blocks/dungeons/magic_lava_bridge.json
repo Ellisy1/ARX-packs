@@ -1,0 +1,113 @@
+{
+	"format_version": "1.19.40",
+	"minecraft:block": {
+		"description": {
+			"identifier": "arx:magic_lava_bridge",
+			"properties": {
+				"arx:facing_direction": [
+					2,
+					3,
+					4,
+					5
+				]
+			},
+			"menu_category": {
+				"category": "nature"
+			}
+		},
+		"permutations": [
+			{
+				"condition": "query.block_property('arx:facing_direction') == 3",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							0,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_property('arx:facing_direction') == 5",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							90,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_property('arx:facing_direction') == 2",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							180,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_property('arx:facing_direction') == 4",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							270,
+							0
+						]
+					} 
+				}
+			}
+		],
+		"components": {
+			"minecraft:map_color": "#2e8926",
+			"minecraft:geometry": "geometry.plate_on_the_top",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "arx_magic_lava_bridge",
+					"render_method": "blend"
+				}
+			},
+			"minecraft:collision_box": {
+				"origin": [
+					-8.0,
+					15.0,
+					-8.0
+				],
+				"size": [
+					16.0,
+					1.0,
+					16.0
+				]
+			},
+			"minecraft:selection_box": {
+				"origin": [
+					-8.0,
+					15.0,
+					-8.0
+				],
+				"size": [
+					16.0,
+					1.0,
+					16.0
+				]
+			},
+			"minecraft:on_player_placing": { 
+				"event": "set_facing_direction"
+			}
+		},
+		"events": {
+			"set_facing_direction": {
+				"set_block_property": {
+					"arx:facing_direction": "query.cardinal_facing_2d"
+				}
+			}
+		}
+	}
+}

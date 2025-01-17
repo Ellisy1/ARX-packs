@@ -1,0 +1,24 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:biggest_dirt_brick"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "AA",
+      "AA"
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:dirt"
+      }
+    },
+    "result": {
+      "item": "arx:biggest_dirt_brick",
+      "count": 2
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:grass_soup"
+    },
+
+    
+    "tags": [ "boiler_crafting_table" ],
+    "pattern": [
+      "###",
+      " A "
+    ],
+    "key": {
+      "#": {
+        "item": "arx:kavra"
+      },
+      "A": {
+        "item": "minecraft:bowl"
+      }
+    },
+    "result": {
+      "item": "arx:preparation_grass_soup"
+    }
+  }
+}

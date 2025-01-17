@@ -1,0 +1,36 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:feature_rules": {
+		"description": {
+			"identifier": "arx:ore_cavematerial_magma_feature_rule",
+			"places_feature": "arx:ore_cavematerial_magma_feature"
+		},
+		"conditions": {
+			"placement_pass": "underground_pass"
+		},
+		"distribution": {
+			"iterations": 60,
+			"x": {
+				"distribution": "uniform",
+				"extent": [
+					0,
+					32
+				]
+			},
+			"y": {
+				"distribution": "uniform",
+				"extent": [
+					-60,
+					-48
+				]
+			},
+			"z": {
+				"distribution": "uniform",
+				"extent": [
+					0,
+					32
+				]
+			}
+		}
+	}
+}

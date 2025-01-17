@@ -1,0 +1,24 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:magic_up"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      " # ",
+      "###",
+      " # "
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:cobblestone"
+      }
+    },
+    "result": [
+      {"item": "arx:magic_up"}
+    ]
+  }
+}

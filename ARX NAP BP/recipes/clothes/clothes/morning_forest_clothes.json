@@ -1,0 +1,32 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:morning_forest_clothes"
+    },
+
+    
+    "tags": [ "clothes_crafting_table" ],
+    "pattern": [
+      "# #",
+      "B#B",
+      "C#C"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:cheap_cloth"
+      },
+      "B": {
+        "item": "minecraft:dye",
+        "data": 10
+      },
+      "C": {
+        "item": "minecraft:dye",
+        "data": 17
+      }
+    },
+    "result": {
+      "item": "arx:morning_forest_clothes"
+    }
+  }
+}

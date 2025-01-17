@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:duraluminium_dismantler_with_draphorite_inlays"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      " AA",
+      "AB ",
+      "A  "
+    ],
+    "key": {
+      "A": {
+        "item": "arx:duraluminum_billet"
+      },
+      "B": {
+        "item": "arx:draphorite_billet"
+      }
+    },
+    "result": {
+      "item": "arx:duraluminium_dismantler_with_draphorite_inlays"
+    }
+  }
+}

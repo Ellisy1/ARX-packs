@@ -1,0 +1,33 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:night_knight"
+    },
+
+    
+    "tags": [ "light_armor_crafting_table" ],
+    "pattern": [
+      "ACA",
+      "###",
+      "###"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:steel_protective_plate"
+      },
+      "A": {
+        "item": "arx:silk"
+      },
+      "B": {
+        "item": "minecraft:dye:18"
+      },
+      "C": {
+        "item": "minecraft:dye:5"
+      }
+    },
+    "result": {
+      "item": "arx:night_knight"
+    }
+  }
+}

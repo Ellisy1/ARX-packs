@@ -1,0 +1,20 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:item": {
+    "description": {
+      "identifier": "arx:blacksmith_tongs",
+      "category": "items"
+    },
+    "components": {
+      "minecraft:hand_equipped": true,
+      "minecraft:max_stack_size": 1,
+      "minecraft:allow_off_hand": true,
+      "minecraft:icon": {
+        "texture": "arx:blacksmith_tongs"
+      },
+      "minecraft:display_name": {
+        "value": "§r§fПростые кузнечные клещи [İ1] §a[Необычное]\n§o§7Позволяют держать горячие [Ė] предметы\n§6Для левой руки"
+      }
+    }
+  }
+}

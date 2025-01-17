@@ -1,0 +1,31 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:desert_traders_clothes"
+    },
+
+    
+    "tags": [ "clothes_crafting_table" ],
+    "pattern": [
+      "AAA",
+      "BAB",
+      "BCB"
+    ],
+    "key": {
+      "A": {
+        "item": "arx:silk"
+      },
+      "B": {
+        "item": "minecraft:dye",
+        "data": 2
+      },
+      "C": {
+        "item": "minecraft:string"
+      }
+    },
+    "result": {
+      "item": "arx:desert_traders_clothes"
+    }
+  }
+}

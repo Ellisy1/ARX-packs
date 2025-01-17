@@ -1,0 +1,76 @@
+{
+	"format_version": "1.19.40",
+	"minecraft:block": {
+		"description": {
+			"identifier": "arx:iron_trap",
+			"menu_category": {
+				"category": "nature"
+			}
+		},
+		"components": {
+			"minecraft:map_color": "#e31b3c",
+			"minecraft:geometry": "geometry.iron_trap",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "arx_iron_trap",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:collision_box": {
+				"origin": [
+					-3.0,
+					0.0,
+					-3.0
+				],
+				"size": [
+					6.0,
+					4.0,
+					6.0
+				]
+			},
+			"minecraft:selection_box": {
+				"origin": [
+					-7.0,
+					0.0,
+					-7.0
+				],
+				"size": [
+					14.0,
+					4.0,
+					14.0
+				]
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 0.2
+			},
+			"minecraft:on_step_on": {
+				"event": "arx:collapse"
+			},
+			"minecraft:on_interact": {
+				"event": "arx:collapse_by_interact"
+			}
+		},
+		"events": {
+			"arx:collapse": {
+				"run_command": {
+					"command": [
+						"fill ~ ~ ~ ~ ~ ~ arx:iron_trap_collapsed",
+						"effect @e[type=!item, r=1] slowness 5 255 true",
+						"damage @e[type=!item, r=1] 15",
+						"scoreboard players add @a[r=1] stress 2000",
+						"scoreboard players set @a[r=1] ill_broken_leg 72000",
+						"playsound random.anvil_land @a ~ ~ ~"
+					]
+				}
+			},
+			"arx:collapse_by_interact": {
+				"run_command": {
+					"command": [
+						"fill ~ ~ ~ ~ ~ ~ arx:iron_trap_collapsed",
+						"playsound armor.equip_iron @a ~ ~ ~"
+					]
+				}
+			}
+		}
+	}
+}

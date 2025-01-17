@@ -1,0 +1,30 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:cupcake"
+    },
+
+    
+    "tags": [ "thermal_cooking_crafting_table" ],
+    "pattern": [
+      " C ",
+      "CAC",
+      "BCB"
+    ],
+    "key": {
+      "A": {
+        "item": "arx:dough"
+      },
+      "B": {
+        "item": "minecraft:egg"
+      },
+      "C": {
+        "item": "minecraft:sugar"
+      }
+    },
+    "result": {
+      "item": "arx:preparation_cupcake"
+    }
+  }
+}

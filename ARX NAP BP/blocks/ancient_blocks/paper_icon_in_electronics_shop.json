@@ -1,0 +1,59 @@
+{
+	"format_version": "1.19.40",
+	"minecraft:block": {
+		"description": {
+			"identifier": "arx:paper_icon_in_electronics_shop",
+			"menu_category": {
+				"category": "nature"
+			}
+		},
+		"components": {
+			"minecraft:geometry": "geometry.paper_icon_in_electronics_shop",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "paper_icon_in_electronics_shop",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:collision_box": {
+				"origin": [
+					-8.0,
+					0.0,
+					-8.0
+				],
+				"size": [
+					1.0,
+					16.0,
+					16.0
+				]
+			},
+			"minecraft:selection_box": {
+				"origin": [
+					-8.0,
+					0.0,
+					-8.0
+				],
+				"size": [
+					1.0,
+					16.0,
+					16.0
+				]
+			},
+			"minecraft:on_interact":{
+				"event" : "arx:interact"
+			}
+		},
+		"events": {
+			"arx:interact": {
+				"run_command": {
+					"command": [
+						"tag @p add self",
+						"w @p[tag=self, scores={restrict_block_interact=0}] §eПо всей видимости, на изображении бумага",
+						"scoreboard players set @p restrict_block_interact 10",
+						"tag @p remove self"
+					]
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,24 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:forfacorite_block"
+    },
+
+    
+    "tags": [ "bugle_crafting_table" ],
+    "pattern": [
+      "###",
+      "###",
+      "###"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:forfactorite_ingot"
+      }
+    },
+    "result": {
+      "item": "arx:forfacorite_block"
+    }
+  }
+}

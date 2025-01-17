@@ -1,0 +1,41 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:item": {
+    "description": {
+      "identifier": "arx:square_bottle_spirt_golden_hay_bone",
+      "category": "items"
+    },
+    "components": {
+      "minecraft:max_stack_size": 1,
+      "minecraft:cooldown": {
+        "category": "food",
+        "duration": 1
+      },
+      "minecraft:on_use": {
+        "on_use": {
+          "event": "on_eat"
+        }
+      },
+      "minecraft:icon": {
+        "texture": "arx:square_bottle_spirt_golden_hay_bone"
+      }
+    },
+    "events": {
+      "on_eat": {
+        "run_command": {
+          "command": [
+            "effect @p nausea 10 0 true",
+            "scoreboard players add @p xp_tray 55",
+            "scoreboard players add @p ill_broken_leg -25000",
+            "scoreboard players add @p ill_broken_arm -25000",
+            "scoreboard players add @p poisoning 1500",
+            
+            "clear @s arx:square_bottle_spirt_golden_hay_bone 0 1",
+            "give @s arx:square_bottle",
+            "function food/visual/potion"
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:steel_preperation"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "###",
+      "B#B",
+      "ABA"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:cast_iron_ingot"
+      },
+      "A": {
+        "item": "minecraft:coal"
+      },
+      "B": {
+        "item": "arx:aluminum_ingot"
+      }
+    },
+    "result": {
+      "item": "arx:steel_preperation"
+    }
+  }
+}

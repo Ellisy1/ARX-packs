@@ -1,0 +1,33 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:cooking_crafting_table"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "NAA",
+      "RRR",
+      "i i"
+    ],
+    "key": {
+      "R": {
+        "item": "arx:default_bottle"
+      },
+      "i": {
+        "item": "minecraft:planks"
+      },
+      "A": {
+        "item": "minecraft:iron_ingot"
+      },
+      "N": {
+        "item": "minecraft:bowl"
+      }
+    },
+    "result": {
+      "item": "arx:cooking_crafting_table"
+    }
+  }
+}

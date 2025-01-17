@@ -1,0 +1,49 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.small_rat",
+				"texture_width": 32,
+				"texture_height": 32,
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 1.5,
+				"visible_bounds_offset": [0, 0.25, 0]
+			},
+			"bones": [
+				{
+					"name": "base",
+					"pivot": [0.5, 0, 0],
+					"cubes": [
+						{"origin": [-1.5, 0, -4], "size": [3, 2, 6], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "tail",
+					"parent": "base",
+					"pivot": [0.5, 0, 0],
+					"cubes": [
+						{"origin": [-0.5, 0, 2], "size": [1, 1, 5], "uv": [0, 8]}
+					]
+				},
+				{
+					"name": "head",
+					"parent": "base",
+					"pivot": [0.5, 1, -4],
+					"cubes": [
+						{"origin": [-1, 0, -6], "size": [2, 2, 2], "uv": [7, 8]}
+					]
+				},
+				{
+					"name": "ears",
+					"parent": "head",
+					"pivot": [0.5, 0, 0],
+					"cubes": [
+						{"origin": [-1.25, 1.5, -5], "size": [1, 1, 1], "pivot": [-1, 2.5, -4.5], "rotation": [0, 12.5, 0], "uv": [1, 1]},
+						{"origin": [0.25, 1.5, -5], "size": [1, 1, 1], "pivot": [1, 2.5, -4.5], "rotation": [0, -12.5, 0], "uv": [1, 1], "mirror": true}
+					]
+				}
+			]
+		}
+	]
+}

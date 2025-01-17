@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:scythe_forfacorite"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      "###",
+      " A ",
+      "A  "
+    ],
+    "key": {
+      "#": {
+        "item": "arx:forfactorite_billet"
+      },
+      "A": {
+        "item": "arx:forfactorite_ingot"
+      }
+    },
+    "result": {
+      "item": "arx:scythe_forfacorite"
+    }
+  }
+}

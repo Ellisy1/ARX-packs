@@ -1,0 +1,28 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:twilight_dress"
+    },
+
+    
+    "tags": [ "clothes_crafting_table" ],
+    "pattern": [
+      "A A",
+      "DAD",
+      "AAA"
+    ],
+    "key": {
+      "A": {
+        "item": "arx:silk"
+      },
+      "D": {
+        "item": "minecraft:dye",
+        "data": 5
+      }
+    },
+    "result": {
+      "item": "arx:twilight_dress"
+    }
+  }
+}

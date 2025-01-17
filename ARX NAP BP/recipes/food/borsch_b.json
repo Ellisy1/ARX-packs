@@ -1,0 +1,36 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:borsch_b"
+    },
+
+    
+    "tags": [ "boiler_crafting_table" ],
+    "pattern": [
+      "#C#",
+      "BDB",
+      " A "
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:beetroot"
+      },
+      "A": {
+        "item": "arx:perfect_hoof_bouillon"
+      },
+      "B": {
+        "item": "minecraft:beef"
+      },
+      "C": {
+        "item": "minecraft:potato"
+      },
+      "D": {
+        "item": "minecraft:carrot"
+      }
+    },
+    "result": {
+      "item": "arx:preparation_borsch"
+    }
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:spawn_rules": {
+    "description": {
+      "identifier": "arx:kapibara",
+      "population_control": "animal"
+    },
+    "conditions": [
+      {
+        "minecraft:spawns_on_surface": {},
+        "minecraft:weight": {
+          "default": 500
+        },
+        "minecraft:brightness_filter": {
+          "min": 7,
+          "max": 15,
+          "adjust_for_weather": false
+        },
+        "minecraft:biome_filter": [
+          {"test": "has_biome_tag", "operator":"==", "value": "river"},
+          {"test": "has_biome_tag", "operator":"!=", "value": "frozen"},
+          {"test": "has_biome_tag", "operator":"!=", "value": "taiga"},
+          {"test": "has_biome_tag", "operator":"!=", "value": "desert"}
+        ]
+      },
+      {
+        "minecraft:spawns_on_surface": {},
+        "minecraft:weight": {
+          "default": 400
+        },
+        "minecraft:brightness_filter": {
+          "min": 7,
+          "max": 15,
+          "adjust_for_weather": false
+        },
+        "minecraft:biome_filter": [
+          {"test": "has_biome_tag", "operator":"==", "value": "beach"},
+          {"test": "has_biome_tag", "operator":"!=", "value": "frozen"},
+          {"test": "has_biome_tag", "operator":"!=", "value": "desert"}
+        ]
+      },
+      {
+        "minecraft:spawns_on_surface": {},
+        "minecraft:weight": {
+          "default": 100
+        },
+        "minecraft:brightness_filter": {
+          "min": 7,
+          "max": 15,
+          "adjust_for_weather": false
+        },
+        "minecraft:biome_filter": [
+          {"test": "has_biome_tag", "operator":"==", "value": "animal"},
+          {"test": "has_biome_tag", "operator":"!=", "value": "frozen"},
+          {"test": "has_biome_tag", "operator":"!=", "value": "desert"}
+        ]
+      },
+      {
+        "minecraft:spawns_on_surface": {},
+        "minecraft:weight": {
+          "default": 200
+        },
+        "minecraft:brightness_filter": {
+          "min": 7,
+          "max": 15,
+          "adjust_for_weather": false
+        },
+        "minecraft:biome_filter": [
+          {"test": "has_biome_tag", "operator":"==", "value": "savanna"},
+          {"test": "has_biome_tag", "operator":"!=", "value": "frozen"},
+          {"test": "has_biome_tag", "operator":"!=", "value": "desert"}
+        ]
+      }
+    ]
+  }
+}

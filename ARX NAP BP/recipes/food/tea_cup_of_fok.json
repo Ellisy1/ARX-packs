@@ -1,0 +1,26 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:tea_cup_of_fok"
+    },
+
+    
+    "tags": [ "tea_table" ],
+    "pattern": [
+      "#",
+      "A"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:fok"
+      },
+      "A": {
+        "item": "arx:cup"
+      }
+    },
+    "result": {
+      "item": "arx:preparation_tea_cup_of_fok"
+    }
+  }
+}

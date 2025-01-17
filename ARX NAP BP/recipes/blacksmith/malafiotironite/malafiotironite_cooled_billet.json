@@ -1,0 +1,22 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:malafiotironite_cooled_billet"
+    },
+
+    
+    "tags": [ "barrel_of_water_crafting_table" ],
+    "pattern": [
+      "#"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:malafiotironite_forged_billet"
+      }
+    },
+    "result": {
+      "item": "arx:malafiotironite_cooled_billet"
+    }
+  }
+}

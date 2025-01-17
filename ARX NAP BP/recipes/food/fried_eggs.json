@@ -1,0 +1,25 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:fried_eggs"
+    },
+
+    
+    "tags": [ "thermal_cooking_crafting_table" ],
+    "pattern": [
+      "A#"
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:egg"
+      },
+      "A": {
+        "item": "arx:salt"
+      }
+    },
+    "result": {
+      "item": "arx:preparation_fried_eggs"
+    }
+  }
+}

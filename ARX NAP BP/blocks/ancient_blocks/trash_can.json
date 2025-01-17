@@ -1,0 +1,128 @@
+{
+	"format_version": "1.19.40",
+	"minecraft:block": {
+		"description": {
+			"identifier": "arx:trash_can",
+			"properties": {
+				"arx:facing_direction": [
+					2,
+					3,
+					4,
+					5
+				]
+			},
+			"menu_category": {
+				"category": "nature"
+			}
+		},
+		"permutations": [
+			{
+				"condition": "query.block_property('arx:facing_direction') == 3",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							0,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_property('arx:facing_direction') == 5",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							90,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_property('arx:facing_direction') == 2",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							180,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_property('arx:facing_direction') == 4",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							270,
+							0
+						]
+					} 
+				}
+			}
+		],
+		"components": {
+			"minecraft:geometry": "geometry.trash_can",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "trash_can",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:collision_box": {
+				"origin": [
+					-6.0,
+					0.0,
+					-6.0
+				],
+				"size": [
+					12.0,
+					16.0,
+					12.0
+				]
+			},
+			"minecraft:selection_box": {
+				"origin": [
+					-6.0,
+					0.0,
+					-6.0
+				],
+				"size": [
+					12.0,
+					16.0,
+					12.0
+				]
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 2
+			},
+			"minecraft:on_player_placing": { 
+				"event": "set_facing_direction"
+			},
+			"minecraft:on_interact":{
+				"event" : "arx:interact"
+			}
+		},
+		"events": {
+			"set_facing_direction": {
+				"set_block_property": {
+					"arx:facing_direction": "query.cardinal_facing_2d"
+				}
+			},
+			"arx:interact": {
+				"run_command": {
+					"command": [
+						"tag @p add self",
+						"execute as @p[tag=self, scores={restrict_block_interact=0}] run function high_tec/talk_with_trash_can",
+						"scoreboard players set @p restrict_block_interact 10",
+						"tag @p remove self"
+					]
+				}
+			}
+		}
+	}
+}

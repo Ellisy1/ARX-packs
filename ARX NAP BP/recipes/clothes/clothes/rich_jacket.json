@@ -1,0 +1,37 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:rich_jacket"
+    },
+
+    
+    "tags": [ "clothes_crafting_table" ],
+    "pattern": [
+      "A#A",
+      "#B#",
+      "DCD"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:silk"
+      },
+      "A": {
+        "item": "arx:cave_rat_skin"
+      },
+      "B": {
+        "item": "arx:bat_skin"
+      },
+      "C": {
+        "item": "minecraft:dye",
+        "data": 17
+      },
+      "D": {
+        "item": "arx:cow_skin"
+      }
+    },
+    "result": {
+      "item": "arx:rich_jacket"
+    }
+  }
+}

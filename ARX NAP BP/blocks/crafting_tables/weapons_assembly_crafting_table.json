@@ -1,0 +1,129 @@
+{
+	"format_version": "1.19.40",
+	"minecraft:block": {
+		"description": {
+			"identifier": "arx:weapons_assembly_crafting_table",
+			"properties": {
+				"arx:facing_direction": [
+					2,
+					3,
+					4,
+					5
+				]
+			},
+			"menu_category": {
+				"category": "nature"
+			}
+		},
+		"permutations": [
+			{
+				"condition": "query.block_property('arx:facing_direction') == 3",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							0,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_property('arx:facing_direction') == 5",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							90,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_property('arx:facing_direction') == 2",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							180,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_property('arx:facing_direction') == 4",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							270,
+							0
+						]
+					}
+				}
+			}
+		],
+		"components": {
+			"minecraft:map_color": "#e31b3c",
+			"minecraft:geometry": "geometry.weapons_assembly_crafting_table",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "arx_weapons_assembly_crafting_table",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 2
+			},
+			"minecraft:on_player_placing": {
+				"event": "set_facing_direction"
+			},
+			"minecraft:crafting_table": {
+				"crafting_tags": [
+					"weapons_assembly_crafting_table"
+				],
+				"table_name": "Оружесборочная"
+			},
+			"minecraft:placement_filter": {
+				"conditions": [
+					{
+						"allowed_faces": ["up"]
+					}
+				]
+			},
+			"minecraft:collision_box": {
+				"origin": [
+					-8.0,
+					0.0,
+					-8.0
+				],
+				"size": [
+					16.0,
+					11.0,
+					16.0
+				]
+			},
+			"minecraft:selection_box": {
+				"origin": [
+					-8.0,
+					0.0,
+					-8.0
+				],
+				"size": [
+					16.0,
+					11.0,
+					16.0
+				]
+			}
+		},
+		"events": {
+			"set_facing_direction": {
+				"set_block_property": {
+					"arx:facing_direction": "query.cardinal_facing_2d"
+				}
+			}
+		}
+	}
+}

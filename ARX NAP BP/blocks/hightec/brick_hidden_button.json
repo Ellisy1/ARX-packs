@@ -1,0 +1,40 @@
+{
+	"format_version": "1.19.40",
+	"minecraft:block": {
+		"description": {
+			"identifier": "arx:brick_hidden_button",
+			"menu_category": {
+				"category": "nature"
+			}
+		},
+		"components": {
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 2.0
+			},
+			"minecraft:on_interact":{
+				"event" : "arx:interact"
+			}
+		},
+		"events": {
+			"arx:interact": {
+				"run_command": {
+					"command": [
+						"tag @p add self",
+						"execute if entity @p[tag=self, scores={restrict_block_interact=0}] if entity @a[scores={verify=2}, tag=pas_door_1_opened] run playsound tile.piston.in @a ~ ~ ~-1",
+						"execute if entity @p[tag=self, scores={restrict_block_interact=0}] if entity @a[scores={verify=2}, tag=pas_door_1_opened] run fill ~ ~-1 ~-1 ~ ~ ~-1 minecraft:brick_block",
+						"execute if entity @p[tag=self, scores={restrict_block_interact=0}] if entity @a[scores={verify=2}, tag=!pas_door_1_opened] run playsound tile.piston.out @a ~ ~ ~-1",
+						"execute if entity @p[tag=self, scores={restrict_block_interact=0}] if entity @a[scores={verify=2}, tag=!pas_door_1_opened] run fill ~ ~-1 ~-1 ~ ~ ~-1 minecraft:air",
+						"execute if entity @p[tag=self, scores={restrict_block_interact=0}] run tag @a[scores={verify=2}, tag=pas_door_1_opened] add pas_door_1_opened_ctr",
+						"execute if entity @p[tag=self, scores={restrict_block_interact=0}] run tag @a[scores={verify=2}, tag=pas_door_1_opened_ctr] remove pas_door_1_opened",
+						"execute if entity @p[tag=self, scores={restrict_block_interact=0}] run tag @a[scores={verify=2}, tag=!pas_door_1_opened_ctr] add pas_door_1_opened",
+
+						"scoreboard players set @p[tag=self, scores={restrict_block_interact=0}] restrict_block_interact 20",
+
+						"tag @a remove pas_door_1_opened_ctr",
+						"tag @p remove self"
+					]
+				}
+			}
+		}
+	}
+}

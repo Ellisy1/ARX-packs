@@ -1,0 +1,395 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.marchs_monitor.basic_scale": {
+			"loop": true,
+			"bones": {
+				"screens": {
+					"scale": 0.5
+				}
+			}
+		},
+		"animation.marchs_monitor.default_screen": {
+			"loop": true,
+			"bones": {
+				"default_screen": {
+					"scale": 2
+				}
+			}
+		},
+		"animation.marchs_monitor.default_screen_sel_1": {
+			"loop": true,
+			"bones": {
+				"default_screen_sel_1": {
+					"scale": 2
+				}
+			}
+		},
+		"animation.marchs_monitor.default_screen_sel_2": {
+			"loop": true,
+			"bones": {
+				"default_screen_sel_2": {
+					"scale": 2
+				}
+			}
+		},
+		"animation.marchs_monitor.default_screen_sel_3": {
+			"loop": true,
+			"bones": {
+				"default_screen_sel_3": {
+					"scale": 2
+				}
+			}
+		},
+		"animation.marchs_monitor.exit_screen": {
+			"loop": true,
+			"bones": {
+				"exit_screen": {
+					"scale": 2
+				}
+			}
+		},
+		"animation.marchs_monitor.exit_screen_sel_1": {
+			"loop": true,
+			"bones": {
+				"exit_screen_sel_1": {
+					"scale": 2
+				}
+			}
+		},
+		"animation.marchs_monitor.about_march_screen": {
+			"loop": true,
+			"bones": {
+				"about_march_screen": {
+					"scale": 2
+				}
+			}
+		},
+		"animation.marchs_monitor.about_march_screen_sel_1": {
+			"loop": true,
+			"bones": {
+				"about_march_screen_sel_1": {
+					"scale": 2
+				}
+			}
+		},
+		"animation.marchs_monitor.about_march_screen_sel_2": {
+			"loop": true,
+			"bones": {
+				"about_march_screen_sel_2": {
+					"scale": 2
+				}
+			}
+		},
+
+		"animation.marchs_monitor.about_marchs_name_screen": {
+			"loop": true,
+			"bones": {
+				"about_marchs_name_screen": {
+					"scale": 2
+				}
+			}
+		},
+		"animation.marchs_monitor.about_marchs_name_screen_sel_1": {
+			"loop": true,
+			"bones": {
+				"about_marchs_name_screen_sel_1": {
+					"scale": 2
+				}
+			}
+		},
+		"animation.marchs_monitor.about_marchs_name_screen_sel_2": {
+			"loop": true,
+			"bones": {
+				"about_marchs_name_screen_sel_2": {
+					"scale": 2
+				}
+			}
+		},
+
+		"animation.marchs_monitor.about_february_screen": {
+			"loop": true,
+			"bones": {
+				"about_february_screen": {
+					"scale": 2
+				}
+			}
+		},
+		"animation.marchs_monitor.about_february_screen_sel_1": {
+			"loop": true,
+			"bones": {
+				"about_february_screen_sel_1": {
+					"scale": 2
+				}
+			}
+		},
+		"animation.marchs_monitor.about_february_screen_sel_2": {
+			"loop": true,
+			"bones": {
+				"about_february_screen_sel_2": {
+					"scale": 2
+				}
+			}
+		},
+		"animation.marchs_monitor.about_february_screen_sel_3": {
+			"loop": true,
+			"bones": {
+				"about_february_screen_sel_3": {
+					"scale": 2
+				}
+			}
+		},
+
+		"animation.marchs_monitor.about_breaking_march_screen": {
+			"loop": true,
+			"bones": {
+				"about_breaking_march_screen": {
+					"scale": 2
+				}
+			}
+		},
+		"animation.marchs_monitor.about_breaking_march_screen_sel_1": {
+			"loop": true,
+			"bones": {
+				"about_breaking_march_screen_sel_1": {
+					"scale": 2
+				}
+			}
+		},
+
+		"animation.marchs_monitor.about_silly_user_screen": {
+			"loop": true,
+			"bones": {
+				"about_silly_user_screen": {
+					"scale": 2
+				}
+			}
+		},
+		"animation.marchs_monitor.about_silly_user_screen_sel_1": {
+			"loop": true,
+			"bones": {
+				"about_silly_user_screen_sel_1": {
+					"scale": 2
+				}
+			}
+		},
+
+		"animation.marchs_monitor.ask_about_smth_screen": {
+			"loop": true,
+			"bones": {
+				"ask_about_smth_screen": {
+					"scale": 2
+				}
+			}
+		},
+		"animation.marchs_monitor.ask_about_smth_screen_sel_1": {
+			"loop": true,
+			"bones": {
+				"ask_about_smth_screen_sel_1": {
+					"scale": 2
+				}
+			}
+		},
+		"animation.marchs_monitor.ask_about_smth_screen_sel_2": {
+			"loop": true,
+			"bones": {
+				"ask_about_smth_screen_sel_2": {
+					"scale": 2
+				}
+			}
+		},
+		"animation.marchs_monitor.ask_about_smth_screen_sel_3": {
+			"loop": true,
+			"bones": {
+				"ask_about_smth_screen_sel_3": {
+					"scale": 2
+				}
+			}
+		},
+		"animation.marchs_monitor.ask_about_smth_screen_sel_4": {
+			"loop": true,
+			"bones": {
+				"ask_about_smth_screen_sel_4": {
+					"scale": 2
+				}
+			}
+		},
+		"animation.marchs_monitor.ask_about_smth_screen_sel_5": {
+			"loop": true,
+			"bones": {
+				"ask_about_smth_screen_sel_5": {
+					"scale": 2
+				}
+			}
+		},
+		"animation.marchs_monitor.ask_about_smth_screen_sel_6": {
+			"loop": true,
+			"bones": {
+				"ask_about_smth_screen_sel_6": {
+					"scale": 2
+				}
+			}
+		},
+		"animation.marchs_monitor.ask_about_smth_screen_sel_7": {
+			"loop": true,
+			"bones": {
+				"ask_about_smth_screen_sel_7": {
+					"scale": 2
+				}
+			}
+		},
+		"animation.marchs_monitor.ask_about_smth_screen_sel_8": {
+			"loop": true,
+			"bones": {
+				"ask_about_smth_screen_sel_8": {
+					"scale": 2
+				}
+			}
+		},
+		"animation.marchs_monitor.ask_about_smth_screen_sel_9": {
+			"loop": true,
+			"bones": {
+				"ask_about_smth_screen_sel_9": {
+					"scale": 2
+				}
+			}
+		},
+
+
+		"animation.marchs_monitor.about_e19_screen": {
+			"loop": true,
+			"bones": {
+				"about_e19_screen": {
+					"scale": 2
+				}
+			}
+		},
+		"animation.marchs_monitor.about_e19_screen_sel_1": {
+			"loop": true,
+			"bones": {
+				"about_e19_screen_sel_1": {
+					"scale": 2
+				}
+			}
+		},
+
+		"animation.marchs_monitor.about_hail6_screen": {
+			"loop": true,
+			"bones": {
+				"about_hail6_screen": {
+					"scale": 2
+				}
+			}
+		},
+		"animation.marchs_monitor.about_hail6_screen_sel_1": {
+			"loop": true,
+			"bones": {
+				"about_hail6_screen_sel_1": {
+					"scale": 2
+				}
+			}
+		},
+
+		"animation.marchs_monitor.about_second_moon_screen": {
+			"loop": true,
+			"bones": {
+				"about_second_moon_screen": {
+					"scale": 2
+				}
+			}
+		},
+		"animation.marchs_monitor.about_second_moon_screen_sel_1": {
+			"loop": true,
+			"bones": {
+				"about_second_moon_screen_sel_1": {
+					"scale": 2
+				}
+			}
+		},
+
+		"animation.marchs_monitor.about_extinction_screen": {
+			"loop": true,
+			"bones": {
+				"about_extinction_screen": {
+					"scale": 2
+				}
+			}
+		},
+		"animation.marchs_monitor.about_extinction_screen_sel_1": {
+			"loop": true,
+			"bones": {
+				"about_extinction_screen_sel_1": {
+					"scale": 2
+				}
+			}
+		},
+
+		"animation.marchs_monitor.about_keepers_screen": {
+			"loop": true,
+			"bones": {
+				"about_keepers_screen": {
+					"scale": 2
+				}
+			}
+		},
+		"animation.marchs_monitor.about_keepers_screen_sel_1": {
+			"loop": true,
+			"bones": {
+				"about_keepers_screen_sel_1": {
+					"scale": 2
+				}
+			}
+		},
+
+		"animation.marchs_monitor.about_gods_screen": {
+			"loop": true,
+			"bones": {
+				"about_gods_screen": {
+					"scale": 2
+				}
+			}
+		},
+		"animation.marchs_monitor.about_gods_screen_sel_1": {
+			"loop": true,
+			"bones": {
+				"about_gods_screen_sel_1": {
+					"scale": 2
+				}
+			}
+		},
+
+		"animation.marchs_monitor.about_attack_on_players_screen": {
+			"loop": true,
+			"bones": {
+				"about_attack_on_players_screen": {
+					"scale": 2
+				}
+			}
+		},
+		"animation.marchs_monitor.about_attack_on_players_screen_sel_1": {
+			"loop": true,
+			"bones": {
+				"about_attack_on_players_screen_sel_1": {
+					"scale": 2
+				}
+			}
+		},
+
+		"animation.marchs_monitor.about_magic_screen": {
+			"loop": true,
+			"bones": {
+				"about_magic_screen": {
+					"scale": 2
+				}
+			}
+		},
+		"animation.marchs_monitor.about_magic_screen_sel_1": {
+			"loop": true,
+			"bones": {
+				"about_magic_screen_sel_1": {
+					"scale": 2
+				}
+			}
+		}
+	}
+}

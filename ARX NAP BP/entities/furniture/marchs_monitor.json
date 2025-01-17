@@ -1,0 +1,268 @@
+{
+	"format_version": "1.16.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "arx:marchs_monitor",
+			"is_spawnable": true,
+			"is_summonable": true,
+			"properties": {
+				"arx:screen": {
+					"client_sync": true,
+					"default": "0",
+					"type": "int",
+					"range": [0, 18]
+				},
+				"arx:aim_direction": {
+					"client_sync": true,
+					"default": "0",
+					"type": "int", 
+					"range": [0, 9] // Аналогично набору номера на домофоне или телефоне. 0 - никто не использует
+				}
+			}
+		},
+		"components": {
+			"minecraft:knockback_resistance": {
+				"value": 1
+			},
+			"minecraft:type_family": {
+				"family": [
+					"marchs_monitor"
+				]
+			},
+			"minecraft:collision_box": {
+				"width": 0.001,
+				"height": 0.001
+			},
+			"minecraft:health": {
+				"value": 1000
+			},
+			"minecraft:balloonable": {},
+			"minecraft:physics": {},
+			"minecraft:pushable": {
+				"is_pushable": false,
+				"is_pushable_by_piston": false
+			},
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "all",
+						"deals_damage": false
+					}
+				]
+			}
+		},
+		"events": {
+			"set_aim_direction_1": {
+				"set_property": {
+					"arx:aim_direction": 1
+				}
+			},
+			"set_aim_direction_2": {
+				"set_property": {
+					"arx:aim_direction": 2
+				}
+			},
+			"set_aim_direction_3": {
+				"set_property": {
+					"arx:aim_direction": 3
+				}
+			},
+			"set_aim_direction_4": {
+				"set_property": {
+					"arx:aim_direction": 4
+				}
+			},
+			"set_aim_direction_5": {
+				"set_property": {
+					"arx:aim_direction": 5
+				}
+			},
+			"set_aim_direction_6": {
+				"set_property": {
+					"arx:aim_direction": 6
+				}
+			},
+			"set_aim_direction_7": {
+				"set_property": {
+					"arx:aim_direction": 7
+				}
+			},
+			"set_aim_direction_8": {
+				"set_property": {
+					"arx:aim_direction": 8
+				}
+			},
+			"set_aim_direction_9": {
+				"set_property": {
+					"arx:aim_direction": 9
+				}
+			},
+			"set_aim_direction_0": {
+				"set_property": {
+					"arx:aim_direction": 0
+				}
+			},
+
+			"set_screen_0": {
+				"set_property": {
+					"arx:screen": 0
+				},
+				"run_command": {
+					"command": [
+						"tag @a add marchs_monitor_screen_control"
+					]
+				}
+			},
+			"set_screen_1": {
+				"set_property": {
+					"arx:screen": 1
+				},
+				"run_command": {
+					"command": [
+						"tag @a add marchs_monitor_screen_control"
+					]
+				}
+			},
+			"set_screen_2": {
+				"set_property": {
+					"arx:screen": 2
+				},
+				"run_command": {
+					"command": [
+						"tag @a add marchs_monitor_screen_control"
+					]
+				}
+			},
+			"set_screen_3": {
+				"set_property": {
+					"arx:screen": 3
+				},
+				"run_command": {
+					"command": [
+						"tag @a add marchs_monitor_screen_control"
+					]
+				}
+			},
+			"set_screen_4": {
+				"set_property": {
+					"arx:screen": 4
+				},
+				"run_command": {
+					"command": [
+						"tag @a add marchs_monitor_screen_control"
+					]
+				}
+			},
+			"set_screen_5": {
+				"set_property": {
+					"arx:screen": 5
+				},
+				"run_command": {
+					"command": [
+						"tag @a add marchs_monitor_screen_control"
+					]
+				}
+			},
+			"set_screen_6": {
+				"set_property": {
+					"arx:screen": 6
+				},
+				"run_command": {
+					"command": [
+						"tag @a add marchs_monitor_screen_control"
+					]
+				}
+			},
+			"set_screen_10": {
+				"set_property": {
+					"arx:screen": 10
+				},
+				"run_command": {
+					"command": [
+						"tag @a add marchs_monitor_screen_control"
+					]
+				}
+			},
+			"set_screen_11": {
+				"set_property": {
+					"arx:screen": 11
+				},
+				"run_command": {
+					"command": [
+						"tag @a add marchs_monitor_screen_control"
+					]
+				}
+			},
+			"set_screen_12": {
+				"set_property": {
+					"arx:screen": 12
+				},
+				"run_command": {
+					"command": [
+						"tag @a add marchs_monitor_screen_control"
+					]
+				}
+			},
+			"set_screen_13": {
+				"set_property": {
+					"arx:screen": 13
+				},
+				"run_command": {
+					"command": [
+						"tag @a add marchs_monitor_screen_control"
+					]
+				}
+			},
+			"set_screen_14": {
+				"set_property": {
+					"arx:screen": 14
+				},
+				"run_command": {
+					"command": [
+						"tag @a add marchs_monitor_screen_control"
+					]
+				}
+			},
+			"set_screen_15": {
+				"set_property": {
+					"arx:screen": 15
+				},
+				"run_command": {
+					"command": [
+						"tag @a add marchs_monitor_screen_control"
+					]
+				}
+			},
+			"set_screen_16": {
+				"set_property": {
+					"arx:screen": 16
+				},
+				"run_command": {
+					"command": [
+						"tag @a add marchs_monitor_screen_control"
+					]
+				}
+			},
+			"set_screen_17": {
+				"set_property": {
+					"arx:screen": 17
+				},
+				"run_command": {
+					"command": [
+						"tag @a add marchs_monitor_screen_control"
+					]
+				}
+			},
+			"set_screen_18": {
+				"set_property": {
+					"arx:screen": 18
+				},
+				"run_command": {
+					"command": [
+						"tag @a add marchs_monitor_screen_control"
+					]
+				}
+			}
+		}
+	}
+}

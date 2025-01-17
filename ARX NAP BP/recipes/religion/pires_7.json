@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:pires_7"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      " F ",
+      "AFA",
+      "AAA"
+    ],
+    "key": {
+      "A": {
+        "item": "arx:toliriite_ingot"
+      },
+      "F": {
+        "item": "arx:ruby_gem"
+      }
+    },
+    "result": {
+      "item": "arx:pires_7"
+    }
+  }
+}

@@ -1,0 +1,3 @@
+execute as @s[scores={dummy_damage=-1}] run tellraw @a[r=8] { "rawtext": [ { "text": "§cВозникла ошибка. Обратитесь к модератору." } ] }
+execute as @s[scores={dummy_damage=0..999}] run tellraw @a[r=8] { "rawtext": [ { "text": "§cDMG >>> §l§f" }, { "score": {"name": "@s", "objective": "dummy_damage" } } ] }
+execute as @s[scores={dummy_damage=1000}] run tellraw @a[r=8] { "rawtext": [ { "text": "§cDMG >>> §l§d1000+" } ] }

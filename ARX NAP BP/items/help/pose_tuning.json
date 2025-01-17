@@ -1,0 +1,39 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:item": {
+    "description": {
+      "identifier": "arx:pose_tuning",
+      "category": "items"
+    },
+    "components": {
+      "minecraft:hand_equipped": false,
+      "minecraft:max_stack_size": 1,
+      "minecraft:foil": false,
+      "minecraft:icon": {
+        "texture": "arx:pose_tuning"
+      },
+      "minecraft:cooldown": {
+        "category": "pose_tuning",
+        "duration": 1
+      },
+      "minecraft:on_use": {
+        "on_use": {
+          "event": "on_use_event"
+        }
+      },
+      "minecraft:display_name": {
+        "value": "§r§fНастройка позы\n§7§oПока вы это держите, анимации бездействия отключены"
+      },
+      "tag:is_invisible": {}
+    },
+    "events": {
+      "on_use_event": {
+        "run_command": {
+          "command": [
+            "function info/pose_tuning"
+          ]
+        }
+      }
+    }
+  }
+}

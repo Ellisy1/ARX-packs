@@ -1,0 +1,24 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:necro_1"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      " A ",
+      "AAA",
+      " A "
+    ],
+    "key": {
+      "A": {
+        "item": "arx:naginitis_ingot"
+      }
+    },
+    "result": {
+      "item": "arx:necro_1"
+    }
+  }
+}

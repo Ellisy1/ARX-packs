@@ -1,0 +1,29 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:steel_advanced_guard_dagger"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      " #",
+      "XY"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:steel_billet"
+      },
+      "X": {
+        "item": "minecraft:stick"
+      },
+      "Y": {
+        "item": "arx:cast_iron_ingot"
+      }
+    },
+    "result": {
+      "item": "arx:steel_advanced_guard_dagger"
+    }
+  }
+}

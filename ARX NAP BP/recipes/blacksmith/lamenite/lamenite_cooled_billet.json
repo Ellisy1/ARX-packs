@@ -1,0 +1,22 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:lamenite_cooled_billet"
+    },
+
+    
+    "tags": [ "barrel_of_water_crafting_table" ],
+    "pattern": [
+      "#"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:lamenite_forged_billet"
+      }
+    },
+    "result": {
+      "item": "arx:lamenite_cooled_billet"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:dorionite_megahammer"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      "AA ",
+      "ABA",
+      "BAA"
+    ],
+    "key": {
+      "A": {
+        "item": "arx:dorionite_billet"
+      },
+      "B": {
+        "item": "arx:tin_billet"
+      }
+    },
+    "result": {
+      "item": "arx:dorionite_megahammer"
+    }
+  }
+}

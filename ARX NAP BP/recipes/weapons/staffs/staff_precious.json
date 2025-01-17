@@ -1,0 +1,36 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:staff_precious"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      " BC",
+      "ACD",
+      "CE "
+    ],
+    "key": {
+      "A": {
+        "item": "arx:ruby_gem"
+      },
+      "B": {
+        "item": "arx:chrysolite_gem"
+      },
+      "D": {
+        "item": "minecraft:amethyst_shard"
+      },
+      "E": {
+        "item": "arx:saphire_gem"
+      },
+      "C": {
+        "item": "minecraft:stick"
+      }
+    },
+    "result": {
+      "item": "arx:staff_precious"
+    }
+  }
+}

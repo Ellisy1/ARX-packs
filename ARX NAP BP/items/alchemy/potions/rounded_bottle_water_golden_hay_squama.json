@@ -1,0 +1,38 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:item": {
+    "description": {
+      "identifier": "arx:rounded_bottle_water_golden_hay_squama",
+      "category": "items"
+    },
+    "components": {
+      "minecraft:max_stack_size": 1,
+      "minecraft:cooldown": {
+        "category": "food",
+        "duration": 1
+      },
+      "minecraft:on_use": {
+        "on_use": {
+          "event": "on_eat"
+        }
+      },
+      "minecraft:icon": {
+        "texture": "arx:rounded_bottle_water_golden_hay_squama"
+      }
+    },
+    "events": {
+      "on_eat": {
+        "run_command": {
+          "command": [
+            "effect @p water_breathing 60 0 true",
+            "scoreboard players add @p poisoning 250",
+            
+            "clear @s arx:rounded_bottle_water_golden_hay_squama 0 1",
+            "give @s arx:rounded_bottle",
+            "function food/visual/potion"
+          ]
+        }
+      }
+    }
+  }
+}

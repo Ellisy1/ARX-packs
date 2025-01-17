@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:durasteel_and_aluminium_lance"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      " AA",
+      " # ",
+      "#  "
+    ],
+    "key": {
+      "#": {
+        "item": "arx:duraluminum_billet"
+      },
+      "A": {
+        "item": "arx:durasteel_billet"
+      }
+    },
+    "result": {
+      "item": "arx:durasteel_and_aluminium_lance"
+    }
+  }
+}

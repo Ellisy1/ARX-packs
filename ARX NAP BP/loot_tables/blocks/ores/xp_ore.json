@@ -1,0 +1,19 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "arx:xp_shard",
+                    "weight": 49
+                },
+                {
+                    "type": "item",
+                    "name": "arx:xp_megashard",
+                    "weight": 1
+                }
+            ]
+        }
+    ]
+}

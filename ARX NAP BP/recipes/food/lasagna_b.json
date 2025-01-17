@@ -1,0 +1,33 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:lasagna_b"
+    },
+
+    
+    "tags": [ "thermal_cooking_crafting_table" ],
+    "pattern": [
+      "CBC",
+      "A#A"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:dough"
+      },
+      "A": {
+        "item": "minecraft:beef"
+      },
+      "B": {
+        "item": "minecraft:milk_bucket"
+      },
+      "C": {
+        "item": "arx:perfect_cheese"
+      }
+    },
+    "result": [
+      {"item": "arx:preparation_lasagna"},
+      {"item": "minecraft:bucket"}
+    ]
+  }
+}

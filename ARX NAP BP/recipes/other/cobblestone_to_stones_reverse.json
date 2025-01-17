@@ -1,0 +1,23 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:cobblestone_to_stones_reverse"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "AA",
+      "AA"
+    ],
+    "key": {
+      "A": {
+        "item": "arx:small_stone"
+      }
+    },
+    "result": {
+      "item": "minecraft:cobblestone"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_brewing_mix": {
+    "description": {
+      "identifier": "arx:hole_bottle_mp_potion_royal_sorrel_preparation"
+    },
+
+    "tags": [ "brewing_stand" ],
+
+    "input": "arx:hole_bottle_mp_potion",
+    "reagent": "arx:royal_sorrel",
+    "output": "arx:hole_bottle_mp_potion_royal_sorrel_preparation"
+  }
+
+}

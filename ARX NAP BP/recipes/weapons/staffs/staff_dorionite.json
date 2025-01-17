@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:staff_dorionite"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      "  S",
+      " A ",
+      "A  "
+    ],
+    "key": {
+      "A": {
+        "item": "arx:dorionite_billet"
+      },
+      "S": {
+        "item": "arx:sphere_of_power"
+      }
+    },
+    "result": {
+      "item": "arx:staff_dorionite"
+    }
+  }
+}

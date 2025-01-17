@@ -1,0 +1,33 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:silver_samurai_armor"
+    },
+
+    
+    "tags": [ "heavy_armor_crafting_table" ],
+    "pattern": [
+      "#C#",
+      "ABA",
+      "#A#"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:durasteel_protective_plate"
+      },
+      "A": {
+        "item": "arx:duraluminum_protective_plate"
+      },
+      "B": {
+        "item": "arx:caryite_protective_plate"
+      },
+      "C": {
+        "item": "arx:pushnina"
+      }
+    },
+    "result": {
+      "item": "arx:silver_samurai_armor"
+    }
+  }
+}

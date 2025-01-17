@@ -1,0 +1,30 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:apple_pie"
+    },
+
+    
+    "tags": [ "thermal_cooking_crafting_table" ],
+    "pattern": [
+      "# #",
+      "BAB",
+      "#  "
+    ],
+    "key": {
+      "#": {
+        "item": "arx:dough"
+      },
+      "A": {
+        "item": "minecraft:apple"
+      },
+      "B": {
+        "item": "minecraft:sugar"
+      }
+    },
+    "result": {
+      "item": "arx:preparation_apple_pie"
+    }
+  }
+}

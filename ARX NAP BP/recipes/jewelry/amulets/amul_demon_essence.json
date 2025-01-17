@@ -1,0 +1,30 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:amul_demon_essence"
+    },
+
+    
+    "tags": [ "jewelry_crafting_table" ],
+    "pattern": [
+      "I",
+      "R",
+      "X"
+    ],
+    "key": {
+      "I": {
+        "item": "arx:amul_string"
+      },
+      "R": {
+        "item": "arx:demon_essence"
+      },
+      "X": {
+        "item": "arx:sphere_of_power"
+      }
+    },
+    "result": {
+      "item": "arx:amul_demon_essence"
+    }
+  }
+}

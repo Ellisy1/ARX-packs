@@ -1,0 +1,31 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:pink_dress"
+    },
+
+    
+    "tags": [ "clothes_crafting_table" ],
+    "pattern": [
+      "A#A",
+      "#B#",
+      "#A#"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:silk"
+      },
+      "A": {
+        "item": "minecraft:dye",
+        "data": 9
+      },
+      "B": {
+        "item": "arx:leather_super"
+      }
+    },
+    "result": {
+      "item": "arx:pink_dress"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+	"format_version": "1.20.60",
+	"minecraft:recipe_furnace": {
+		"description": {
+			"identifier": "arx:medium_fried_tea_leaf"
+		},
+		"tags": ["furnace", "smoker", "campfire", "soul_campfire"],
+		"input": "arx:lightly_fried_tea_leaf",
+		"output": {
+			"item": "arx:medium_fried_tea_leaf",
+			"count": 1
+		}
+	}
+}

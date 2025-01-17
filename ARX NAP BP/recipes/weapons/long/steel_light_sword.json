@@ -1,0 +1,30 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:steel_light_sword"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      "A #",
+      " X ",
+      "A A"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:steel_billet"
+      },
+      "A": {
+        "item": "arx:steel_ingot"
+      },
+      "X": {
+        "item": "minecraft:stick"
+      }
+    },
+    "result": {
+      "item": "arx:steel_light_sword"
+    }
+  }
+}

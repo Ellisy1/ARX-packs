@@ -1,0 +1,23 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:dorionite_small_battleaxe"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      " #",
+      "# "
+    ],
+    "key": {
+      "#": {
+        "item": "arx:dorionite_billet"
+      }
+    },
+    "result": {
+      "item": "arx:dorionite_small_battleaxe"
+    }
+  }
+}
