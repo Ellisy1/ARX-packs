@@ -1063,9 +1063,6 @@
     "arx:blood_waiting": {
       "textures": "textures/items/weapons/swords/blood_waiting"
     },
-    "arx:staff_of_darkness": {
-      "textures": "textures/items/weapons/wands/wand_of_darkness"
-    },
     "arx:mod_sword": {
       "textures": "textures/items/weapons/swords/mod_sword"
     },
@@ -1095,9 +1092,6 @@
     },
     "arx:cup": {
       "textures": "textures/items/other/cup"
-    },
-    "arx:sun_wand": {
-      "textures": "textures/items/weapons/wands/sun_wand"
     },
     "arx:magic_goblet": {
       "textures": "textures/items/food/magic_goblet"
@@ -1325,9 +1319,6 @@
     },
     "arx:evergreen_apple_step_c": {
       "textures": "textures/items/food/evergreen_apple/evergreen_apple_step_c"
-    },
-    "arx:heal_wand": {
-      "textures": "textures/items/weapons/wands/heal_wand"
     },
     "arx:necro_1": {
       "textures": "textures/items/religious/necro_1"
@@ -2228,6 +2219,8 @@
     "arx:book_case_d": {
       "textures": "textures/items/books/book_case_d"
     },
+
+
     "arx:wand_wooden": {
       "textures": "textures/items/weapons/wands/wand_wooden"
     },
@@ -2261,6 +2254,23 @@
     "arx:wand_gf_neth_wood": {
       "textures": "textures/items/weapons/wands/wand_gf_neth_wood"
     },
+    "arx:wand_of_darkness": {
+      "textures": "textures/items/weapons/wands/wand_of_darkness"
+    },
+    "arx:wand_flame": {
+      "textures": "textures/items/weapons/wands/wand_flame"
+    },
+    "arx:wand_naginitis": {
+      "textures": "textures/items/weapons/wands/wand_naginitis"
+    },
+    "arx:wand_altaite": {
+      "textures": "textures/items/weapons/wands/wand_altaite"
+    },
+    "arx:wand_tironite_butterfly": {
+      "textures": "textures/items/weapons/wands/wand_tironite_butterfly"
+    },
+
+
     "arx:world_registration": {
       "textures": "textures/items/help/world_registration"
     },
@@ -3905,9 +3915,6 @@
     },
     "arx:mushroom_knife": {
       "textures": "textures/items/weapons/mushroom_knife"
-    },
-    "arx:iron_pickaxe": {
-      "textures": "textures/items/mining/pickaxes/iron_pickaxe"
     },
     "arx:cast_iron_preperation": {
       "textures": "textures/items/blacksmith/preperations/cast_iron_preperation"

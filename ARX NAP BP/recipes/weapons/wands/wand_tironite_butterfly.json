@@ -2,29 +2,29 @@
   "format_version": "1.12",
   "minecraft:recipe_shaped": {
     "description": {
-    "identifier": "arx:wand_gf_neth_wood"
+    "identifier": "arx:wand_tironite_butterfly"
     },
 
     
     "tags": [ "weapons_assembly_crafting_table" ],
     "pattern": [
-      "  S",
+      "  D",
       " A ",
-      "Z  "
+      "S  "
     ],
     "key": {
+      "D": {
+        "item": "arx:malafiotironite_billet"
+      },
       "A": {
         "item": "minecraft:feather"
       },
       "S": {
         "item": "minecraft:crimson_planks"
-      },
-      "Z": {
-        "item": "arx:netherite_billet"
       }
     },
     "result": {
-      "item": "arx:wand_gf_neth_wood"
+      "item": "arx:wand_tironite_butterfly"
     }
   }
 }

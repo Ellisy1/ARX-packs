@@ -2,29 +2,32 @@
   "format_version": "1.12",
   "minecraft:recipe_shaped": {
     "description": {
-    "identifier": "arx:wand_gf_neth_wood"
+    "identifier": "arx:wand_of_darkness"
     },
 
     
     "tags": [ "weapons_assembly_crafting_table" ],
     "pattern": [
-      "  S",
-      " A ",
-      "Z  "
+      " ED",
+      " AE",
+      "S  "
     ],
     "key": {
+      "E": {
+        "item": "arx:steel_ingot"
+      },
+      "D": {
+        "item": "arx:myterious_eye"
+      },
       "A": {
         "item": "minecraft:feather"
       },
       "S": {
-        "item": "minecraft:crimson_planks"
-      },
-      "Z": {
-        "item": "arx:netherite_billet"
+        "item": "arx:gold_billet"
       }
     },
     "result": {
-      "item": "arx:wand_gf_neth_wood"
+      "item": "arx:wand_of_darkness"
     }
   }
 }

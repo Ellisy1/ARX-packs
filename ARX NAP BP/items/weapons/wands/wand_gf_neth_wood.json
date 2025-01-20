@@ -12,14 +12,12 @@
       "minecraft:max_stack_size": 1,
       "minecraft:hand_equipped": true,
       "minecraft:allow_off_hand": true,
-      "minecraft:mining_speed": 1,
-      "minecraft:damage": 3,
+      "minecraft:damage": 4,
       "minecraft:enchantable": {
         "value": 15,
         "slot": "sword"
       },
-      "minecraft:weapon": {
-      },
+      "minecraft:weapon": {},
       "minecraft:cooldown": {
         "category": "wand",
         "duration": 1
@@ -29,15 +27,29 @@
           "event": "on_use_event"
         }
       },
-      "tag:minecraft:is_sword": {}
+      "tag:minecraft:is_sword": {},
+      "minecraft:durability": {
+        "max_durability": 2200
+      }
     },
     "events": {
       "on_use_event": {
-        "swing": {},
         "run_command": {
           "command": [
-            "function wands/wand_default"
+            "function wands/wand_radial"
           ]
+        },
+        "damage": {
+          "type": "none",
+          "amount": 1,
+          "target": "self"
+        }
+      },
+      "hurt": {
+        "damage": {
+          "type": "none",
+          "amount": 50,
+          "target": "self"
         }
       }
     }

@@ -15,7 +15,6 @@
       "minecraft:durability": {
         "max_durability": 30
       },
-      "minecraft:mining_speed": 1,
       "minecraft:damage": 2,
       "minecraft:enchantable": {
         "value": 15,
@@ -39,16 +38,10 @@
     },
     "events": {
       "on_use_event": {
-        "swing": {},
         "run_command": {
           "command": [
-            "function wands/wand_default"
+            "function wands/wand_wooden"
           ]
-        },
-        "damage": {
-          "type": "none",
-          "amount": 1,
-          "target": "self"
         }
       },
       "hurt": {

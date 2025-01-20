@@ -400,6 +400,9 @@
 
         scoreboard players set @a[scores={verify=2, hail6_enabled=1..50, e19_tracer_condition=!11}] hail6_enabled 0
 
+    # Принудительно выключаем
+        execute if entity @a[scores={verify=2, e19_tracer_condition=!11}] run scoreboard players set @a[scores={verify=2}] hail6_enabled 0
+
 #Туманы
     fog @a remove "a"
     fog @a remove "b"

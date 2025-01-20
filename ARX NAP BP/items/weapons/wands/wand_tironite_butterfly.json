@@ -3,28 +3,25 @@
   "minecraft:item": {
     "description": {
       "category": "equipment",
-      "identifier": "arx:wand_duo"
+      "identifier": "arx:wand_tironite_butterfly"
     },
     "components": {
       "minecraft:icon": {
-        "texture": "arx:wand_duo"
+        "texture": "arx:wand_tironite_butterfly"
       },
       "minecraft:max_stack_size": 1,
       "minecraft:hand_equipped": true,
       "minecraft:allow_off_hand": true,
-      "minecraft:damage": 2,
+      "minecraft:damage": 3,
       "minecraft:enchantable": {
         "value": 15,
         "slot": "sword"
       },
       "minecraft:weapon": {
-        "on_hurt_entity": {
-          "event": "hurt"
-        }
       },
       "minecraft:cooldown": {
         "category": "wand",
-        "duration": 4
+        "duration": 1
       },
       "minecraft:on_use": {
         "on_use": {
@@ -33,14 +30,14 @@
       },
       "tag:minecraft:is_sword": {},
       "minecraft:durability": {
-        "max_durability": 1000
+        "max_durability": 2500
       }
     },
-    "events": {
+"events": {
       "on_use_event": {
         "run_command": {
           "command": [
-            "function wands/wand_default"
+            "function wands/wand_radial"
           ]
         },
         "damage": {

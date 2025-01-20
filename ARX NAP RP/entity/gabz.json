@@ -1,0 +1,42 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "arx:gabz",
+      "min_engine_version": "1.8.0",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/mobs/gabz"
+      },
+      "geometry": {
+        "default": "geometry.gabz"
+      },
+      "animations": {
+        "look_at_target_default": "animation.humanoid.look_at_target.default",
+        "look_at_target_gliding": "animation.humanoid.look_at_target.gliding",
+        "look_at_target_swimming": "animation.humanoid.look_at_target.swimming",
+        "walk": "animation.gabz.walk",
+        "attack": "animation.gabz.attack",
+        "blink": "animation.gabz.blink",
+        "basic": "animation.gabz.basic"
+      },
+      "animation_controllers": [
+        {
+          "basic": "controller.animation.gabz.basic"
+        },
+        {
+          "look_at_target": "controller.animation.humanoid.look_at_target"
+        }
+      ],
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "spawn_egg": {
+        "base_color": "#2b2205",
+        "overlay_color": "#968b7d"
+      }
+    }
+  }
+}
