@@ -2,14 +2,14 @@
 	"format_version": "1.16.0",
 	"minecraft:entity": {
 		"description": {
-			"identifier": "arx:clothes_hanger",
+			"identifier": "arx:clothes_hanger_empty",
 			"is_spawnable": true,
 			"is_summonable": true
 		},
 		"components": {
 			"minecraft:type_family": {
 				"family": [
-					"clothes_hanger"
+					"clothes_hanger_empty"
 				]
 			},
 			"minecraft:collision_box": {
@@ -21,13 +21,15 @@
 			},
 			"minecraft:physics": {},
 			"minecraft:conditional_bandwidth_optimization": {},
-			"minecraft:inventory":{
-				"can_be_siphoned_from": false,
-				"container_type": "inventory",
-				"inventory_size": 27,
-				"private": false,
-				"restrict_to_owner": false
-			}
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "all",
+						"deals_damage": false
+					}
+				]
+			},
+			"minecraft:fire_immune": {}
 		}
 	}
 }

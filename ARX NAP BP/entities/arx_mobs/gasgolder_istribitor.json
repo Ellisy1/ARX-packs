@@ -90,11 +90,6 @@
 								{
 									"test": "is_family",
 									"subject": "other",
-									"value": "helpless"
-								},
-								{
-									"test": "is_family",
-									"subject": "other",
 									"value": "player"
 								}
 							]
