@@ -4,12 +4,10 @@
     "description": {
       "identifier": "arx:golden_silk_coat",
       "materials": {
-        "default": "armor",
-        "enchanted": "armor_enchanted"
+        "default": "entity_alphatest"
       },
       "textures": {
-        "default": "textures/entity/clothes/light_armor/golden_silk_coat",
-        "enchanted": "textures/misc/enchanted_item_glint"
+        "default": "textures/entity/clothes/light_armor/golden_silk_coat"
       },
       "geometry": {
         "default": "geometry.golden_silk_coat"
@@ -18,7 +16,7 @@
         "parent_setup": "variable.chest_layer_visible = 0.0;"
       },
       "render_controllers": [
-        "controller.render.armor"
+        "controller.render.default"
       ]
     }
   }

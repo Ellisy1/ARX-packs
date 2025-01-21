@@ -164,6 +164,9 @@ tellraw @s[rxm=60, scores={sk_a_24=1}] { "rawtext": [ { "text": "§bЗаписа
     execute as @s[rx=-60, scores={sk_a_24=1}] run scoreboard players set @s ADFNГГГ 0
     execute as @s[rx=-60, scores={sk_a_24=1}] run scoreboard players set @s[scores={ADHXZTUГЖЗ=!7}] ADHXZTUГЖЗ 0
     execute as @s[rx=-60, scores={sk_a_24=1}] run scoreboard players set @s[scores={ADHXZTUГЖЗ=7}] ADHXZTUГЖЗ 8
+    execute as @s[rx=-60, scores={sk_a_24=1}] run scoreboard players set @s ADFXMД 0
+    execute as @s[rx=-60, scores={sk_a_24=1}] run scoreboard players set @s ADFXMГ 0
+    execute as @s[rx=-60, scores={sk_a_24=1}] run scoreboard players set @s ADFXMГГ 0
     execute as @s[rx=-60, scores={sk_a_24=1}] run scoreboard players set @s ADFXMГГГ 0
     execute as @s[rx=-60, scores={sk_a_24=1}] run scoreboard players set @s ADIR 0
     execute as @s[rx=-60, scores={sk_a_24=1}] run scoreboard players set @s ADJM 0
@@ -346,6 +349,9 @@ tellraw @s[rxm=60, scores={sk_a_24=1}] { "rawtext": [ { "text": "§bЗаписа
     execute as @s[rxm=-60, rx=-30, scores={sk_a_24=1}] run scoreboard players set @s BDFNГГГ 0
     execute as @s[rxm=-60, rx=-30, scores={sk_a_24=1}] run scoreboard players set @s[scores={BDHXZTUГЖЗ=!7}] BDHXZTUГЖЗ 0
     execute as @s[rxm=-60, rx=-30, scores={sk_a_24=1}] run scoreboard players set @s[scores={BDHXZTUГЖЗ=7}] BDHXZTUГЖЗ 8
+    execute as @s[rxm=-60, rx=-30, scores={sk_a_24=1}] run scoreboard players set @s BDFXMД 0
+    execute as @s[rxm=-60, rx=-30, scores={sk_a_24=1}] run scoreboard players set @s BDFXMГ 0
+    execute as @s[rxm=-60, rx=-30, scores={sk_a_24=1}] run scoreboard players set @s BDFXMГГ 0
     execute as @s[rxm=-60, rx=-30, scores={sk_a_24=1}] run scoreboard players set @s BDFXMГГГ 0
     execute as @s[rxm=-60, rx=-30, scores={sk_a_24=1}] run scoreboard players set @s BDIR 0
     execute as @s[rxm=-60, rx=-30, scores={sk_a_24=1}] run scoreboard players set @s BDJM 0
@@ -528,6 +534,9 @@ tellraw @s[rxm=60, scores={sk_a_24=1}] { "rawtext": [ { "text": "§bЗаписа
     execute as @s[rxm=-30, rx=0, scores={sk_a_24=1}] run scoreboard players set @s CDFNГГГ 0
     execute as @s[rxm=-30, rx=0, scores={sk_a_24=1}] run scoreboard players set @s[scores={CDHXZTUГЖЗ=!7}] CDHXZTUГЖЗ 0
     execute as @s[rxm=-30, rx=0, scores={sk_a_24=1}] run scoreboard players set @s[scores={CDHXZTUГЖЗ=7}] CDHXZTUГЖЗ 8
+    execute as @s[rxm=-30, rx=0, scores={sk_a_24=1}] run scoreboard players set @s CDFXMД 0
+    execute as @s[rxm=-30, rx=0, scores={sk_a_24=1}] run scoreboard players set @s CDFXMГ 0
+    execute as @s[rxm=-30, rx=0, scores={sk_a_24=1}] run scoreboard players set @s CDFXMГГ 0
     execute as @s[rxm=-30, rx=0, scores={sk_a_24=1}] run scoreboard players set @s CDFXMГГГ 0
     execute as @s[rxm=-30, rx=0, scores={sk_a_24=1}] run scoreboard players set @s CDIR 0
     execute as @s[rxm=-30, rx=0, scores={sk_a_24=1}] run scoreboard players set @s CDJM 0
@@ -710,6 +719,9 @@ tellraw @s[rxm=60, scores={sk_a_24=1}] { "rawtext": [ { "text": "§bЗаписа
     execute as @s[rxm=0.001, rx=30, scores={sk_a_24=1}] run scoreboard players set @s DDFNГГГ 0
     execute as @s[rxm=0.001, rx=30, scores={sk_a_24=1}] run scoreboard players set @s[scores={DDHXZTUГЖЗ=!7}] DDHXZTUГЖЗ 0
     execute as @s[rxm=0.001, rx=30, scores={sk_a_24=1}] run scoreboard players set @s[scores={DDHXZTUГЖЗ=7}] DDHXZTUГЖЗ 8
+    execute as @s[rxm=0.001, rx=30, scores={sk_a_24=1}] run scoreboard players set @s DDFXMД 0
+    execute as @s[rxm=0.001, rx=30, scores={sk_a_24=1}] run scoreboard players set @s DDFXMГ 0
+    execute as @s[rxm=0.001, rx=30, scores={sk_a_24=1}] run scoreboard players set @s DDFXMГГ 0
     execute as @s[rxm=0.001, rx=30, scores={sk_a_24=1}] run scoreboard players set @s DDFXMГГГ 0
     execute as @s[rxm=0.001, rx=30, scores={sk_a_24=1}] run scoreboard players set @s DDIR 0
     execute as @s[rxm=0.001, rx=30, scores={sk_a_24=1}] run scoreboard players set @s DDJM 0
@@ -892,6 +904,9 @@ tellraw @s[rxm=60, scores={sk_a_24=1}] { "rawtext": [ { "text": "§bЗаписа
     execute as @s[rxm=30, rx=60, scores={sk_a_24=1}] run scoreboard players set @s EDFNГГГ 0
     execute as @s[rxm=30, rx=60, scores={sk_a_24=1}] run scoreboard players set @s[scores={EDHXZTUГЖЗ=!7}] EDHXZTUГЖЗ 0
     execute as @s[rxm=30, rx=60, scores={sk_a_24=1}] run scoreboard players set @s[scores={EDHXZTUГЖЗ=7}] EDHXZTUГЖЗ 8
+    execute as @s[rxm=30, rx=60, scores={sk_a_24=1}] run scoreboard players set @s EDFXMД 0
+    execute as @s[rxm=30, rx=60, scores={sk_a_24=1}] run scoreboard players set @s EDFXMГ 0
+    execute as @s[rxm=30, rx=60, scores={sk_a_24=1}] run scoreboard players set @s EDFXMГГ 0
     execute as @s[rxm=30, rx=60, scores={sk_a_24=1}] run scoreboard players set @s EDFXMГГГ 0
     execute as @s[rxm=30, rx=60, scores={sk_a_24=1}] run scoreboard players set @s EDIR 0
     execute as @s[rxm=30, rx=60, scores={sk_a_24=1}] run scoreboard players set @s EDJM 0
@@ -1074,6 +1089,9 @@ tellraw @s[rxm=60, scores={sk_a_24=1}] { "rawtext": [ { "text": "§bЗаписа
     execute as @s[rxm=60, scores={sk_a_24=1}] run scoreboard players set @s FDFNГГГ 0
     execute as @s[rxm=60, scores={sk_a_24=1}] run scoreboard players set @s[scores={FDHXZTUГЖЗ=!7}] FDHXZTUГЖЗ 0
     execute as @s[rxm=60, scores={sk_a_24=1}] run scoreboard players set @s[scores={FDHXZTUГЖЗ=7}] FDHXZTUГЖЗ 8
+    execute as @s[rxm=60, scores={sk_a_24=1}] run scoreboard players set @s FDFXMД 0
+    execute as @s[rxm=60, scores={sk_a_24=1}] run scoreboard players set @s FDFXMГ 0
+    execute as @s[rxm=60, scores={sk_a_24=1}] run scoreboard players set @s FDFXMГГ 0
     execute as @s[rxm=60, scores={sk_a_24=1}] run scoreboard players set @s FDFXMГГГ 0
     execute as @s[rxm=60, scores={sk_a_24=1}] run scoreboard players set @s FDIR 0
     execute as @s[rxm=60, scores={sk_a_24=1}] run scoreboard players set @s FDJM 0

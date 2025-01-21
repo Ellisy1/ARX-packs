@@ -4,12 +4,10 @@
     "description": {
       "identifier": "arx:big_hat_dyed_red",
       "materials": {
-        "default": "armor",
-        "enchanted": "armor_enchanted"
+        "default": "entity_alphatest"
       },
       "textures": {
-        "default": "textures/entity/clothes/clothes/big_hat_dyed_red",
-        "enchanted": "textures/misc/enchanted_item_glint"
+        "default": "textures/entity/clothes/clothes/big_hat_dyed_red"
       },
       "geometry": {
         "default": "geometry.big_hat"
@@ -18,7 +16,7 @@
         "parent_setup": "variable.helmet_layer_visible = 0.0;"
       },
       "render_controllers": [
-        "controller.render.armor"
+        "controller.render.default"
       ]
     }
   }

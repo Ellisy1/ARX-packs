@@ -139,6 +139,9 @@ scoreboard objectives add ADENГГГ dummy ADENГГГ
 scoreboard objectives add ADFNГ dummy ADFNГ
 scoreboard objectives add ADFNГГГ dummy ADFNГГГ
 scoreboard objectives add ADHXZTUГЖЗ dummy ADHXZTUГЖЗ
+scoreboard objectives add ADFXMД dummy ADFXMД
+scoreboard objectives add ADFXMГ dummy ADFXMГ
+scoreboard objectives add ADFXMГГ dummy ADFXMГГ
 scoreboard objectives add ADFXMГГГ dummy ADFXMГГГ
 scoreboard objectives add ADIR dummy ADIR
 scoreboard objectives add ADJM dummy ADJM
@@ -302,6 +305,9 @@ scoreboard objectives add BDENГГГ dummy BDENГГГ
 scoreboard objectives add BDFNГ dummy BDFNГ
 scoreboard objectives add BDFNГГГ dummy BDFNГГГ
 scoreboard objectives add BDHXZTUГЖЗ dummy BDHXZTUГЖЗ
+scoreboard objectives add BDFXMД dummy BDFXMД
+scoreboard objectives add BDFXMГ dummy BDFXMГ
+scoreboard objectives add BDFXMГГ dummy BDFXMГГ
 scoreboard objectives add BDFXMГГГ dummy BDFXMГГГ
 scoreboard objectives add BDIR dummy BDIR
 scoreboard objectives add BDJM dummy BDJM
@@ -465,6 +471,9 @@ scoreboard objectives add CDENГГГ dummy CDENГГГ
 scoreboard objectives add CDFNГ dummy CDFNГ
 scoreboard objectives add CDFNГГГ dummy CDFNГГГ
 scoreboard objectives add CDHXZTUГЖЗ dummy CDHXZTUГЖЗ
+scoreboard objectives add CDFXMД dummy CDFXMД
+scoreboard objectives add CDFXMГ dummy CDFXMГ
+scoreboard objectives add CDFXMГГ dummy CDFXMГГ
 scoreboard objectives add CDFXMГГГ dummy CDFXMГГГ
 scoreboard objectives add CDIR dummy CDIR
 scoreboard objectives add CDJM dummy CDJM
@@ -628,6 +637,9 @@ scoreboard objectives add DDENГГГ dummy DDENГГГ
 scoreboard objectives add DDFNГ dummy DDFNГ
 scoreboard objectives add DDFNГГГ dummy DDFNГГГ
 scoreboard objectives add DDHXZTUГЖЗ dummy DDHXZTUГЖЗ
+scoreboard objectives add DDFXMД dummy DDFXMД
+scoreboard objectives add DDFXMГ dummy DDFXMГ
+scoreboard objectives add DDFXMГГ dummy DDFXMГГ
 scoreboard objectives add DDFXMГГГ dummy DDFXMГГГ
 scoreboard objectives add DDIR dummy DDIR
 scoreboard objectives add DDJM dummy DDJM
@@ -791,6 +803,9 @@ scoreboard objectives add EDENГГГ dummy EDENГГГ
 scoreboard objectives add EDFNГ dummy EDFNГ
 scoreboard objectives add EDFNГГГ dummy EDFNГГГ
 scoreboard objectives add EDHXZTUГЖЗ dummy EDHXZTUГЖЗ
+scoreboard objectives add EDFXMД dummy EDFXMД
+scoreboard objectives add EDFXMГ dummy EDFXMГ
+scoreboard objectives add EDFXMГГ dummy EDFXMГГ
 scoreboard objectives add EDFXMГГГ dummy EDFXMГГГ
 scoreboard objectives add EDIR dummy EDIR
 scoreboard objectives add EDJM dummy EDJM
@@ -954,6 +969,9 @@ scoreboard objectives add FDENГГГ dummy FDENГГГ
 scoreboard objectives add FDFNГ dummy FDFNГ
 scoreboard objectives add FDFNГГГ dummy FDFNГГГ
 scoreboard objectives add FDHXZTUГЖЗ dummy FDHXZTUГЖЗ
+scoreboard objectives add FDFXMД dummy FDFXMД
+scoreboard objectives add FDFXMГ dummy FDFXMГ
+scoreboard objectives add FDFXMГГ dummy FDFXMГГ
 scoreboard objectives add FDFXMГГГ dummy FDFXMГГГ
 scoreboard objectives add FDIR dummy FDIR
 scoreboard objectives add FDJM dummy FDJM

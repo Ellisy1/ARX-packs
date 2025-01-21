@@ -4,12 +4,10 @@
     "description": {
       "identifier": "arx:royal_gown",
       "materials": {
-        "default": "armor",
-        "enchanted": "armor_enchanted"
+        "default": "entity_alphatest"
       },
       "textures": {
-        "default": "textures/entity/clothes/clothes/royal_gown_D",
-        "enchanted": "textures/misc/enchanted_item_glint"
+        "default": "textures/entity/clothes/clothes/royal_gown_D"
       },
       "geometry": {
         "default": "geometry.default_model_v2"
@@ -25,7 +23,7 @@
         "parent_setup": "variable.chest_layer_visible = 0.0;"
       },
       "render_controllers": [
-        "controller.render.armor"
+        "controller.render.default"
       ]
     }
   }

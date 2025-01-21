@@ -146,6 +146,8 @@ scoreboard objectives add stress dummy stress
 scoreboard objectives add stress_cond dummy stress_cond
 scoreboard objectives add stress_co_delta dummy stress_co_delta
 scoreboard objectives add stress_co_hist dummy stress_co_hist
+scoreboard objectives add stress_normalize dummy stress_normalize
+
 scoreboard objectives add on_hurt_delay dummy on_hurt_delay
 
 scoreboard objectives add water_block_saki dummy water_block_saki

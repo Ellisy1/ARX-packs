@@ -82,19 +82,25 @@
     execute unless entity @e[type=arx:vicious_demon] run playsound portal.passive @a -186 40 341
 
     particle arx:portal_fog -213 34 336
-    playsound portal.passive @a -213 34 336
+    playsound portal.passive @a -213 34 336 0.5
 
     particle arx:portal_fog_down -213 43 336
-    playsound portal.passive @a -213 43 336
+    playsound portal.passive @a -213 43 336 0.5
 
     particle arx:portal_fog -213 40 354
-    playsound portal.passive @a -213 40 354
+    playsound portal.passive @a -213 40 354 0.5
 
     particle arx:portal_fog -20 -42 -303
-    playsound portal.passive @a -20 -42 -303
+    playsound portal.passive @a -20 -42 -303 0.5
 
     particle arx:portal_fog 22.0 9 -83.0
     playsound portal.passive @a 22.0 9 -83.0 0.2
+
+    particle arx:portal_fog -172 67 24
+    playsound portal.passive @a -172 67 24 0.5
+
+    particle arx:portal_fog 1475 63 2692 
+    playsound portal.passive @a 1475 63 2692 0.5
 
 
 # Статуя дварфа
@@ -269,6 +275,7 @@
 # Определяем, что игрок сражался с боссом
     tag @a remove is_fighting_with_boss
     execute at @e[type=arx:vicious_demon] run tag @a[r=15] add is_fighting_with_boss
+    execute at @e[type=arx:march] run tag @a[r=15] add is_fighting_with_boss
 
 # Если я (админ) в выживании, отключаем показ координат
     execute if entity @a[scores={verify=2}, m=survival] run gamerule showcoordinates false
@@ -476,6 +483,31 @@
             scoreboard players add @a[scores={custom_random=201, custom_random_b=0..100, c_indifference=0, c_inflexible=0}] stress 2000
             scoreboard players add @a[scores={custom_random=201, custom_random_b=0..100, c_indifference=1.., c_inflexible=0}] stress 1000
             tellraw @a[scores={custom_random=201, custom_random_b=0..100, c_inflexible=0, xp_stage=2..}] { "rawtext": [ { "text": "đ Вы вспомнили плохие времена. Это испортило ваше настроение." } ] }
+
+    # Корректирующая динамика. Этот код не позволяет оставаться игроку очень долго на стрессе или счастье, приближая его к нейтральным значениям
+
+        # Изменяем нормализацию стресса зависимо от самого стресса
+            # Если стресс (stress_normalize стремится к отрицательным значениям)
+                execute as @a[scores={stress_cond=4, custom_random=..100}] run scoreboard players add @s stress_normalize -1
+                execute as @a[scores={stress_cond=3, custom_random=..35}] run scoreboard players add @s stress_normalize -1
+                execute as @a[scores={stress_cond=2, custom_random=..15}] run scoreboard players add @s stress_normalize -1
+            
+            # Если счастье (stress_normalize стремится к положительным значениям)
+                execute as @a[scores={stress_cond=-4, custom_random=..100}] run scoreboard players add @s stress_normalize 1
+                execute as @a[scores={stress_cond=-3, custom_random=..35}] run scoreboard players add @s stress_normalize 1
+                execute as @a[scores={stress_cond=-2, custom_random=..15}] run scoreboard players add @s stress_normalize 1
+
+            # Угасание переменной
+                execute as @a[scores={stress_cond=-1..4, stress_normalize=1.., custom_random=500..535}] run scoreboard players add @s stress_normalize -1
+                execute as @a[scores={stress_cond=-4..1, stress_normalize=..-1, custom_random=500..535}] run scoreboard players add @s stress_normalize 1
+
+        # Граница
+            execute as @a[scores={stress_normalize=21..}] run scoreboard players set @s stress_normalize 20
+            execute as @a[scores={stress_normalize=..-21}] run scoreboard players set @s stress_normalize -20
+
+        # Прибавляем нормализацию к стрессу
+            execute as @a run scoreboard players operation @s stress += @s stress_normalize
+
 
     #Действие колец и амулетов
         scoreboard players add @a[scores={stress=-1500..}, hasitem={item=arx:ring_caryite_prismarine, location=slot.armor.feet}] stress -1

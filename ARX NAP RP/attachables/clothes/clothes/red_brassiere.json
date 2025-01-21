@@ -4,12 +4,10 @@
     "description": {
       "identifier": "arx:red_brassiere",
       "materials": {
-        "default": "armor",
-        "enchanted": "armor_enchanted"
+        "default": "entity_alphatest"
       },
       "textures": {
-        "default": "textures/entity/clothes/clothes/red_brassiere",
-        "enchanted": "textures/misc/enchanted_item_glint"
+        "default": "textures/entity/clothes/clothes/red_brassiere"
       },
       "geometry": {
         "default": "geometry.red_brassiere"
@@ -18,7 +16,7 @@
         "parent_setup": "variable.chest_layer_visible = 0.0;"
       },
       "render_controllers": [
-        "controller.render.armor"
+        "controller.render.default"
       ]
     }
   }

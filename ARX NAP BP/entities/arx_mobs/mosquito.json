@@ -95,7 +95,7 @@
 				"speed_multiplier": 1.4
 			},
 			"minecraft:attack": {
-				"damage": 7
+				"damage": 6
 			},
 			"minecraft:behavior.melee_box_attack": {
 				"priority": 2,

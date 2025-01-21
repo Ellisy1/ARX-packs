@@ -2,6 +2,11 @@
   "resource_pack_name": "vanilla",
   "texture_name": "atlas.items",
   "texture_data": {
+    "arx:blue_dawn_dress_icon": {
+      "textures": [
+        "textures/items/clothes/clothes/blue_dawn_dress_icon"
+      ]
+    },
     "arx:home_gown": {
       "textures": [
         "textures/items/clothes/clothes/home_gown_icon"
@@ -4196,29 +4201,8 @@
     "arx:registration_step3_refuse": {
       "textures": "textures/items/help/registration/registration_step3_refuse"
     },
-    "arx:registration_step4_fish_eater": {
-      "textures": "textures/items/help/registration/registration_step4_fish_eater"
-    },
-    "arx:registration_step4_meat_eater": {
-      "textures": "textures/items/help/registration/registration_step4_meat_eater"
-    },
-    "arx:registration_step4_neutral": {
-      "textures": "textures/items/help/registration/registration_step4_neutral"
-    },
-    "arx:registration_step4_random": {
-      "textures": "textures/items/help/registration/registration_step4_random"
-    },
-    "arx:registration_step4_soft_random": {
-      "textures": "textures/items/help/registration/registration_step4_soft_random"
-    },
-    "arx:registration_step4_sweet_tooth": {
-      "textures": "textures/items/help/registration/registration_step4_sweet_tooth"
-    },
     "arx:registration_step4_rerun": {
       "textures": "textures/items/help/registration/registration_step4_rerun"
-    },
-    "arx:registration_step4_agree": {
-      "textures": "textures/items/help/registration/registration_step4_agree"
     },
     "arx:registration_step5_ready": {
       "textures": "textures/items/help/registration/registration_step5_ready"

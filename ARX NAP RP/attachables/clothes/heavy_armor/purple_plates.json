@@ -4,12 +4,10 @@
     "description": {
       "identifier": "arx:purple_plates",
       "materials": {
-        "default": "armor",
-        "enchanted": "armor_enchanted"
+        "default": "entity_alphatest"
       },
       "textures": {
-        "default": "textures/entity/clothes/heavy_armor/purple_plates",
-        "enchanted": "textures/misc/enchanted_item_glint"
+        "default": "textures/entity/clothes/heavy_armor/purple_plates"
       },
       "geometry": {
         "default": "geometry.purple_plates"
@@ -25,7 +23,7 @@
         "parent_setup": "variable.chest_layer_visible = 0.0;"
       },
       "render_controllers": [
-        "controller.render.armor"
+        "controller.render.default"
       ]
     }
   }

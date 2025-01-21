@@ -7,6 +7,11 @@
 			"is_summonable": true
 		},
 		"components": {
+			"minecraft:tick_world": {
+				"distance_to_players": 128,
+				"never_despawn": true,
+				"radius": 2
+			},
 			"minecraft:navigation.walk": {
 				"can_path_over_water": true,
 				"avoid_water": false,
@@ -383,7 +388,7 @@
 					"command": [
 						"scoreboard players set @a[scores={verify=2}] vicious_demon 0",
 						"particle arx:vicious_demon_spawn_flame_outward ~ ~ ~",
-						"execute as @a[scores={verify=2, vic_dem_defeated=1}] run fill -204 34 337 -204 36 335 air",
+						"execute if entity @a[scores={verify=2, vic_dem_defeated=1}] run fill -204 34 337 -204 36 335 air",
 						"fill -191 56 336 -191 56 336 air"
 					]
 				},

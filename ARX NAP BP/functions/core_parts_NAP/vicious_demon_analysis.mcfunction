@@ -21,6 +21,7 @@
         execute if entity @a[x=-204, y=33, z=324, dx=25, dy=5, dz=25] as @a[scores={verify=2}] run tag @s add players_inside_scull_temple
         execute if entity @e[type=arx:vicious_demon, x=-204, y=33, z=324, dx=25, dy=5, dz=25] as @a[scores={verify=2}] run tag @s add demon_inside_scull_temple
 
+    # Если никого нет в локации порочного демона
         execute if entity @a[scores={verify=2}, tag=demon_inside_scull_temple, tag=!players_inside_scull_temple] run event entity @e[type=arx:vicious_demon] despawn
 
     # Частицы когда мало хп

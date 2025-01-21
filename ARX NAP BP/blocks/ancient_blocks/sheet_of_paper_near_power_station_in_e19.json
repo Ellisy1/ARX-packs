@@ -115,7 +115,7 @@
 					"command": [
 						"tag @p add self",
 						"execute as @p at @s run function high_tec/sheet_of_paper_near_power_station_in_e19",
-						"scoreboard players set @p restrict_block_interact 5",
+						"scoreboard players set @p restrict_block_interact 10",
 						"tag @p remove self"
 					]
 				}

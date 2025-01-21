@@ -4,12 +4,10 @@
     "description": {
       "identifier": "arx:dark_captain_jacket",
       "materials": {
-        "default": "armor",
-        "enchanted": "armor_enchanted"
+        "default": "entity_alphatest"
       },
       "textures": {
-        "default": "textures/entity/clothes/clothes/dark_captain_jacket_D",
-        "enchanted": "textures/misc/enchanted_item_glint"
+        "default": "textures/entity/clothes/clothes/dark_captain_jacket_D"
       },
       "animations": {
         "bust": "animation.player.bust",
@@ -25,7 +23,7 @@
         "parent_setup": "variable.chest_layer_visible = 0.0;"
       },
       "render_controllers": [
-        "controller.render.armor"
+        "controller.render.default"
       ]
     }
   }

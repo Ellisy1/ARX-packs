@@ -4,12 +4,10 @@
     "description": {
       "identifier": "arx:plate_chainmail_armor",
       "materials": {
-        "default": "armor",
-        "enchanted": "armor_enchanted"
+        "default": "entity_alphatest"
       },
       "textures": {
-        "default": "textures/entity/clothes/heavy_armor/plate_chainmail_armor_D",
-        "enchanted": "textures/misc/enchanted_item_glint"
+        "default": "textures/entity/clothes/heavy_armor/plate_chainmail_armor_D"
       },
       "geometry": {
         "default": "geometry.default_model"
@@ -18,7 +16,7 @@
         "parent_setup": "variable.chest_layer_visible = 0.0;"
       },
       "render_controllers": [
-        "controller.render.armor"
+        "controller.render.default"
       ]
     }
   }

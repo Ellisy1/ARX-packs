@@ -4,28 +4,29 @@
     "description": {
       "identifier": "arx:archmage_robe",
       "materials": {
-        "default": "armor",
-        "enchanted": "armor_enchanted"
+        "default": "entity_alphatest"
       },
       "textures": {
-        "default": "textures/entity/clothes/clothes/archmage_robe",
-        "enchanted": "textures/misc/enchanted_item_glint"
+        "default": "textures/entity/clothes/clothes/archmage_robe"
       },
       "geometry": {
         "default": "geometry.archmage_robe"
       },
       "animations": {
         "cloak": "animation.cloak.default",
-        "cloak_controller": "controller.animation.cloak"
+        "cloak_controller": "controller.animation.cloak",
+        "bust": "animation.player.bust",
+        "bust_controller": "controller.animation.bust"
       },
       "scripts": {
         "animate": [
-          "cloak_controller"
+          "cloak_controller",
+          "bust_controller"
         ],
         "parent_setup": "variable.chest_layer_visible = 0.0;"
       },
       "render_controllers": [
-        "controller.render.armor"
+        "controller.render.default"
       ]
     }
   }

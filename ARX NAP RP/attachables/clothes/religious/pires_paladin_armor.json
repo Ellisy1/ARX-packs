@@ -4,12 +4,10 @@
     "description": {
       "identifier": "arx:pires_paladin_armor",
       "materials": {
-        "default": "armor",
-        "enchanted": "armor_enchanted"
+        "default": "entity_alphatest"
       },
       "textures": {
-        "default": "textures/entity/clothes/religious/pires_paladin_armor",
-        "enchanted": "textures/misc/enchanted_item_glint"
+        "default": "textures/entity/clothes/religious/pires_paladin_armor"
       },
       "geometry": {
         "default": "geometry.pires_paladin_armor"
@@ -28,7 +26,7 @@
         "parent_setup": "variable.chest_layer_visible = 0.0;"
       },
       "render_controllers": [
-        "controller.render.armor"
+        "controller.render.default"
       ]
     }
   }

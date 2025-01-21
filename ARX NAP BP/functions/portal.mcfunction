@@ -25,6 +25,12 @@
     tag @s[x=21, y=8, z=-84, dx=1, dy=3, dz=1] add portal8_above_blue_lake_in_e19
     tag @s[x=21, y=8, z=-84, dx=1, dy=3, dz=1] add in_portal
 
+    tag @s[x=-173, y=66, z=23, dx=2, dy=3, dz=2] add portal9_in_jungle_near_spawn_to_sea
+    tag @s[x=-173, y=66, z=23, dx=2, dy=3, dz=2] add in_portal
+
+    tag @s[x=1474, y=62, z=2691, dx=2, dy=3, dz=2] add portal10_on_island_far_away_to_jungle
+    tag @s[x=1474, y=62, z=2691, dx=2, dy=3, dz=2] add in_portal
+
 # Если мы не в портале и не используем свиток
     tag @s[tag=spell_available, tag=!in_portal, tag=!driven_by_scroll] add block_mp_withdraw
 
@@ -55,6 +61,9 @@
 
     execute as @s[tag=portal8_above_blue_lake_in_e19] run tp @s 20 51 -160
 
+    execute as @s[tag=portal9_in_jungle_near_spawn_to_sea] run tp @s 1475 63 2692 
+    execute as @s[tag=portal10_on_island_far_away_to_jungle] run tp @s -172 67 24
+
 # Поворачиваем камеру вниз
     tp @s[tag=in_portal] ~ ~ ~ facing ~ ~-1 ~
 
@@ -75,6 +84,8 @@
     tag @s remove portal6_in_skull_temple_for_dwarfs
     tag @s remove portal7_in_bertolds_mines
     tag @s remove portal8_above_blue_lake_in_e19
+    tag @s remove portal9_in_jungle_near_spawn_to_sea
+    tag @s remove portal10_on_island_far_away_to_jungle
 
 # Чистим остатки данных
     tag @s remove driven_by_scroll

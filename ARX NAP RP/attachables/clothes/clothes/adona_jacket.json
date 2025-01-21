@@ -4,12 +4,10 @@
     "description": {
       "identifier": "arx:adona_jacket",
       "materials": {
-        "default": "armor",
-        "enchanted": "armor_enchanted"
+        "default": "entity_alphatest"
       },
       "textures": {
-        "default": "textures/entity/clothes/clothes/adona_jacket",
-        "enchanted": "textures/misc/enchanted_item_glint"
+        "default": "textures/entity/clothes/clothes/adona_jacket"
       },
       "geometry": {
         "default": "geometry.adona_jacket"
@@ -28,7 +26,7 @@
         "parent_setup": "variable.chest_layer_visible = 0.0;"
       },
       "render_controllers": [
-        "controller.render.armor"
+        "controller.render.default"
       ]
     }
   }

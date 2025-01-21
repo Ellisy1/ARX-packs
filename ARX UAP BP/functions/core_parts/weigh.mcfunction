@@ -343,6 +343,7 @@ scoreboard players set @a heavy 0
     execute @a[hasitem={item=arx:descriptor}] ~ ~ ~ scoreboard players add @s heavy 1
     execute @a[hasitem={item=arx:pink_dress}] ~ ~ ~ scoreboard players add @s heavy 1
     execute @a[hasitem={item=arx:home_gown}] ~ ~ ~ scoreboard players add @s heavy 1
+    execute @a[hasitem={item=arx:blue_dawn_dress}] ~ ~ ~ scoreboard players add @s heavy 1
 
     execute @a[hasitem={item=arx:pallas_apprentice_robe}] ~ ~ ~ scoreboard players add @s heavy 1
     execute @a[hasitem={item=arx:pires_apprentice_robe}] ~ ~ ~ scoreboard players add @s heavy 1

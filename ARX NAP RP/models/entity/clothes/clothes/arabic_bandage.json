@@ -34,7 +34,7 @@
 					]
 				},
 				{
-					"name": "hat",
+					"name": "head1",
 					"parent": "head",
 					"pivot": [0, 24, 0],
 					"cubes": [

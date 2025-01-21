@@ -563,8 +563,8 @@
 			"textures": "textures/blocks/illumination/chloronite_lamp"
 		},
 
-		"arx_ancient_nameplate": {
-			"textures": "textures/blocks/dungeons/ancient_nameplate"
+		"ancient_nameplate_in_scull_temple": {
+			"textures": "textures/blocks/dungeons/ancient_nameplate_in_scull_temple"
 		},
 
 		"arx_magic_lava_bridge": {

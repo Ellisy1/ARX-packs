@@ -118,7 +118,10 @@
 			"arx:interact": {
 				"run_command": {
 					"command": [
-						"function scull_temple/start_battle"
+						"tag @p add self",
+						"execute as @p[tag=self, scores={restrict_block_interact=0}] at @s run function scull_temple/start_battle",
+						"scoreboard players set @p[tag=self, scores={restrict_block_interact=0}] restrict_block_interact 20",
+						"tag @p remove self"
 					]
 				}
 			},

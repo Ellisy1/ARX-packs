@@ -192,6 +192,9 @@ tag @p[tag=!self, r=15] add self2
         execute as @s[tag=1_channel, scores={ADFNГ=99}] at @s run function spells/din/ACBEAEAP
         execute as @s[tag=1_channel, scores={ADFNГГГ=99}] at @s run function spells/din/ACBEAEAPAPAP
         execute as @s[tag=1_channel, scores={ADHXZTUГЖЗ=99}] at @s run function spells/din/ACAABCAUBDAGAPASAD
+        execute as @s[tag=1_channel, scores={ADFXMД=99}] at @s run function spells/din/ACBEBCALAN
+        execute as @s[tag=1_channel, scores={ADFXMГ=99}] at @s run function spells/din/ACBEBCALAP
+        execute as @s[tag=1_channel, scores={ADFXMГГ=99}] at @s run function spells/din/ACBEBCALAPAP
         execute as @s[tag=1_channel, scores={ADFXMГГГ=99}] at @s run function spells/din/ACBEBCALAPAPAP
         execute as @s[tag=1_channel, scores={ADIR=99}] at @s run function spells/din/ACBAAZ
         execute as @s[tag=1_channel, scores={ADJM=99}] at @s run function spells/din/ACAHAL
@@ -356,6 +359,9 @@ tag @p[tag=!self, r=15] add self2
         execute as @s[tag=2_channel, scores={BDFNГ=99}] at @s run function spells/din/ACBEAEAP
         execute as @s[tag=2_channel, scores={BDFNГГГ=99}] at @s run function spells/din/ACBEAEAPAPAP
         execute as @s[tag=2_channel, scores={BDHXZTUГЖЗ=99}] at @s run function spells/din/ACAABCAUBDAGAPASAD
+        execute as @s[tag=2_channel, scores={BDFXMД=99}] at @s run function spells/din/ACBEBCALAN
+        execute as @s[tag=2_channel, scores={BDFXMГ=99}] at @s run function spells/din/ACBEBCALAP
+        execute as @s[tag=2_channel, scores={BDFXMГГ=99}] at @s run function spells/din/ACBEBCALAPAP
         execute as @s[tag=2_channel, scores={BDFXMГГГ=99}] at @s run function spells/din/ACBEBCALAPAPAP
         execute as @s[tag=2_channel, scores={BDIR=99}] at @s run function spells/din/ACBAAZ
         execute as @s[tag=2_channel, scores={BDJM=99}] at @s run function spells/din/ACAHAL
@@ -520,6 +526,9 @@ tag @p[tag=!self, r=15] add self2
         execute as @s[tag=3_channel, scores={CDFNГ=99}] at @s run function spells/din/ACBEAEAP
         execute as @s[tag=3_channel, scores={CDFNГГГ=99}] at @s run function spells/din/ACBEAEAPAPAP
         execute as @s[tag=3_channel, scores={CDHXZTUГЖЗ=99}] at @s run function spells/din/ACAABCAUBDAGAPASAD
+        execute as @s[tag=3_channel, scores={CDFXMД=99}] at @s run function spells/din/ACBEBCALAN
+        execute as @s[tag=3_channel, scores={CDFXMГ=99}] at @s run function spells/din/ACBEBCALAP
+        execute as @s[tag=3_channel, scores={CDFXMГГ=99}] at @s run function spells/din/ACBEBCALAPAP
         execute as @s[tag=3_channel, scores={CDFXMГГГ=99}] at @s run function spells/din/ACBEBCALAPAPAP
         execute as @s[tag=3_channel, scores={CDIR=99}] at @s run function spells/din/ACBAAZ
         execute as @s[tag=3_channel, scores={CDJM=99}] at @s run function spells/din/ACAHAL
@@ -684,6 +693,9 @@ tag @p[tag=!self, r=15] add self2
         execute as @s[tag=4_channel, scores={DDFNГ=99}] at @s run function spells/din/ACBEAEAP
         execute as @s[tag=4_channel, scores={DDFNГГГ=99}] at @s run function spells/din/ACBEAEAPAPAP
         execute as @s[tag=4_channel, scores={DDHXZTUГЖЗ=99}] at @s run function spells/din/ACAABCAUBDAGAPASAD
+        execute as @s[tag=4_channel, scores={DDFXMД=99}] at @s run function spells/din/ACBEBCALAN
+        execute as @s[tag=4_channel, scores={DDFXMГ=99}] at @s run function spells/din/ACBEBCALAP
+        execute as @s[tag=4_channel, scores={DDFXMГГ=99}] at @s run function spells/din/ACBEBCALAPAP
         execute as @s[tag=4_channel, scores={DDFXMГГГ=99}] at @s run function spells/din/ACBEBCALAPAPAP
         execute as @s[tag=4_channel, scores={DDIR=99}] at @s run function spells/din/ACBAAZ
         execute as @s[tag=4_channel, scores={DDJM=99}] at @s run function spells/din/ACAHAL
@@ -848,6 +860,9 @@ tag @p[tag=!self, r=15] add self2
         execute as @s[tag=5_channel, scores={EDFNГ=99}] at @s run function spells/din/ACBEAEAP
         execute as @s[tag=5_channel, scores={EDFNГГГ=99}] at @s run function spells/din/ACBEAEAPAPAP
         execute as @s[tag=5_channel, scores={EDHXZTUГЖЗ=99}] at @s run function spells/din/ACAABCAUBDAGAPASAD
+        execute as @s[tag=5_channel, scores={EDFXMД=99}] at @s run function spells/din/ACBEBCALAN
+        execute as @s[tag=5_channel, scores={EDFXMГ=99}] at @s run function spells/din/ACBEBCALAP
+        execute as @s[tag=5_channel, scores={EDFXMГГ=99}] at @s run function spells/din/ACBEBCALAPAP
         execute as @s[tag=5_channel, scores={EDFXMГГГ=99}] at @s run function spells/din/ACBEBCALAPAPAP
         execute as @s[tag=5_channel, scores={EDIR=99}] at @s run function spells/din/ACBAAZ
         execute as @s[tag=5_channel, scores={EDJM=99}] at @s run function spells/din/ACAHAL
@@ -1012,6 +1027,9 @@ tag @p[tag=!self, r=15] add self2
         execute as @s[tag=6_channel, scores={FDFNГ=99}] at @s run function spells/din/ACBEAEAP
         execute as @s[tag=6_channel, scores={FDFNГГГ=99}] at @s run function spells/din/ACBEAEAPAPAP
         execute as @s[tag=6_channel, scores={FDHXZTUГЖЗ=99}] at @s run function spells/din/ACAABCAUBDAGAPASAD
+        execute as @s[tag=6_channel, scores={FDFXMД=99}] at @s run function spells/din/ACBEBCALAN
+        execute as @s[tag=6_channel, scores={FDFXMГ=99}] at @s run function spells/din/ACBEBCALAP
+        execute as @s[tag=6_channel, scores={FDFXMГГ=99}] at @s run function spells/din/ACBEBCALAPAP
         execute as @s[tag=6_channel, scores={FDFXMГГГ=99}] at @s run function spells/din/ACBEBCALAPAPAP
         execute as @s[tag=6_channel, scores={FDIR=99}] at @s run function spells/din/ACBAAZ
         execute as @s[tag=6_channel, scores={FDJM=99}] at @s run function spells/din/ACAHAL

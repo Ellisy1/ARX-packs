@@ -139,6 +139,9 @@ scoreboard players add @a ADENГГГ 0
 scoreboard players add @a ADFNГ 0
 scoreboard players add @a ADFNГГГ 0
 scoreboard players add @a ADHXZTUГЖЗ 0
+scoreboard players add @a ADFXMД 0
+scoreboard players add @a ADFXMГ 0
+scoreboard players add @a ADFXMГГ 0
 scoreboard players add @a ADFXMГГГ 0
 scoreboard players add @a ADIR 0
 scoreboard players add @a ADJM 0
@@ -302,6 +305,9 @@ scoreboard players add @a BDENГГГ 0
 scoreboard players add @a BDFNГ 0
 scoreboard players add @a BDFNГГГ 0
 scoreboard players add @a BDHXZTUГЖЗ 0
+scoreboard players add @a BDFXMД 0
+scoreboard players add @a BDFXMГ 0
+scoreboard players add @a BDFXMГГ 0
 scoreboard players add @a BDFXMГГГ 0
 scoreboard players add @a BDIR 0
 scoreboard players add @a BDJM 0
@@ -465,6 +471,9 @@ scoreboard players add @a CDENГГГ 0
 scoreboard players add @a CDFNГ 0
 scoreboard players add @a CDFNГГГ 0
 scoreboard players add @a CDHXZTUГЖЗ 0
+scoreboard players add @a CDFXMД 0
+scoreboard players add @a CDFXMГ 0
+scoreboard players add @a CDFXMГГ 0
 scoreboard players add @a CDFXMГГГ 0
 scoreboard players add @a CDIR 0
 scoreboard players add @a CDJM 0
@@ -628,6 +637,9 @@ scoreboard players add @a DDENГГГ 0
 scoreboard players add @a DDFNГ 0
 scoreboard players add @a DDFNГГГ 0
 scoreboard players add @a DDHXZTUГЖЗ 0
+scoreboard players add @a DDFXMД 0
+scoreboard players add @a DDFXMГ 0
+scoreboard players add @a DDFXMГГ 0
 scoreboard players add @a DDFXMГГГ 0
 scoreboard players add @a DDIR 0
 scoreboard players add @a DDJM 0
@@ -791,6 +803,9 @@ scoreboard players add @a EDENГГГ 0
 scoreboard players add @a EDFNГ 0
 scoreboard players add @a EDFNГГГ 0
 scoreboard players add @a EDHXZTUГЖЗ 0
+scoreboard players add @a EDFXMД 0
+scoreboard players add @a EDFXMГ 0
+scoreboard players add @a EDFXMГГ 0
 scoreboard players add @a EDFXMГГГ 0
 scoreboard players add @a EDIR 0
 scoreboard players add @a EDJM 0
@@ -954,6 +969,9 @@ scoreboard players add @a FDENГГГ 0
 scoreboard players add @a FDFNГ 0
 scoreboard players add @a FDFNГГГ 0
 scoreboard players add @a FDHXZTUГЖЗ 0
+scoreboard players add @a FDFXMД 0
+scoreboard players add @a FDFXMГ 0
+scoreboard players add @a FDFXMГГ 0
 scoreboard players add @a FDFXMГГГ 0
 scoreboard players add @a FDIR 0
 scoreboard players add @a FDJM 0

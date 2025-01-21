@@ -16,7 +16,7 @@
     scoreboard players set @s[scores={sk_b_12=1}] move_delay 400
 
 # Без особой религии
-    playanimation @s[scores={religion=!5, religion=!15, religion=!25, sk_b_12=1}] animation.arx.wand_b_a
+    playanimation @s[scores={religion=!5, religion=!15, religion=!22, sk_b_12=1}] animation.arx.wand_b_a
 
 # С религией - вышкой
     playanimation @s[scores={custom_random=..333, religion=5, sk_b_12=1}] animation.arx.wand_a_a
@@ -27,6 +27,6 @@
     playanimation @s[scores={custom_random=334..666, religion=15, sk_b_12=1}] animation.arx.wand_a_b
     playanimation @s[scores={custom_random=667.., religion=15, sk_b_12=1}] animation.arx.wand_a_c
 
-    playanimation @s[scores={custom_random=..333, religion=25, sk_b_12=1}] animation.arx.wand_a_a
-    playanimation @s[scores={custom_random=334..666, religion=25, sk_b_12=1}] animation.arx.wand_a_b
-    playanimation @s[scores={custom_random=667.., religion=25, sk_b_12=1}] animation.arx.wand_a_c
+    playanimation @s[scores={custom_random=..333, religion=22, sk_b_12=1}] animation.arx.wand_a_a
+    playanimation @s[scores={custom_random=334..666, religion=22, sk_b_12=1}] animation.arx.wand_a_b
+    playanimation @s[scores={custom_random=667.., religion=22, sk_b_12=1}] animation.arx.wand_a_c
