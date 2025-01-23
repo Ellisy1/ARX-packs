@@ -6,6 +6,9 @@
       "identifier": "arx:wand_iron"
     },
     "components": {
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.sword"
+      },
       "minecraft:icon": {
         "texture": "arx:wand_iron"
       },
@@ -34,7 +37,8 @@
           "event": "on_use_event"
         }
       },
-      "tag:minecraft:is_sword": {}
+      "tag:minecraft:is_sword": {},
+      "tag:is_wand": {}
     },
     "events": {
       "on_use_event": {

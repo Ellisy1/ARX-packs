@@ -27,7 +27,7 @@
         "swing": {},
         "run_command": {
           "command": [
-            "function wands/wand_wooden"
+            "function books/scientific_book_unused"
           ]
         }
       },

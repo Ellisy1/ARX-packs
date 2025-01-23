@@ -6,6 +6,9 @@
       "identifier": "arx:wand_tironite_butterfly"
     },
     "components": {
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.sword"
+      },
       "minecraft:icon": {
         "texture": "arx:wand_tironite_butterfly"
       },
@@ -17,8 +20,7 @@
         "value": 15,
         "slot": "sword"
       },
-      "minecraft:weapon": {
-      },
+      "minecraft:weapon": {},
       "minecraft:cooldown": {
         "category": "wand",
         "duration": 1
@@ -31,9 +33,10 @@
       "tag:minecraft:is_sword": {},
       "minecraft:durability": {
         "max_durability": 2500
-      }
+      },
+      "tag:is_wand": {}
     },
-"events": {
+    "events": {
       "on_use_event": {
         "run_command": {
           "command": [

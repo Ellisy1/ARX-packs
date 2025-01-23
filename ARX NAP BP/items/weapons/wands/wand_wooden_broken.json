@@ -6,6 +6,9 @@
       "identifier": "arx:wand_wooden_broken"
     },
     "components": {
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.sword"
+      },
       "minecraft:icon": {
         "texture": "arx:wand_wooden_broken"
       },

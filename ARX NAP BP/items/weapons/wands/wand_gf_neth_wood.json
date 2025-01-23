@@ -6,6 +6,9 @@
       "identifier": "arx:wand_gf_neth_wood"
     },
     "components": {
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.sword"
+      },
       "minecraft:icon": {
         "texture": "arx:wand_gf_neth_wood"
       },
@@ -30,7 +33,8 @@
       "tag:minecraft:is_sword": {},
       "minecraft:durability": {
         "max_durability": 2200
-      }
+      },
+      "tag:is_wand": {}
     },
     "events": {
       "on_use_event": {

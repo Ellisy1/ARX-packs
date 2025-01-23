@@ -35,6 +35,11 @@
         "minecraft:herd": {
           "min_size": 3,
           "max_size": 6
+        },
+        "minecraft:brightness_filter": {
+          "min": 7,
+          "max": 15,
+          "adjust_for_weather": false
         }
       },
       {
@@ -57,6 +62,11 @@
         "minecraft:herd": {
           "min_size": 1,
           "max_size": 3
+        },
+        "minecraft:brightness_filter": {
+          "min": 7,
+          "max": 15,
+          "adjust_for_weather": false
         }
       }
     ]

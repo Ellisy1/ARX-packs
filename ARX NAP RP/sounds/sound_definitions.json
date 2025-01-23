@@ -376,5 +376,12 @@
       "sounds": [
          "sounds/meca/abrupt_closing_of_metal_door"
       ]
+   },
+   "demon_fly": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/demon/demon_fly",
+         "sounds/demon/demon_fly_2"
+      ]
    }
 }

@@ -31,7 +31,12 @@
             "operator": "!=",
             "value": "cold"
           }
-        ]
+        ],
+        "minecraft:brightness_filter": {
+          "min": 7,
+          "max": 15,
+          "adjust_for_weather": false
+        }
       }
     ]
   }

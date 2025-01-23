@@ -6,6 +6,9 @@
       "identifier": "arx:wand_duo"
     },
     "components": {
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.sword"
+      },
       "minecraft:icon": {
         "texture": "arx:wand_duo"
       },
@@ -34,7 +37,8 @@
       "tag:minecraft:is_sword": {},
       "minecraft:durability": {
         "max_durability": 1000
-      }
+      },
+      "tag:is_wand": {}
     },
     "events": {
       "on_use_event": {

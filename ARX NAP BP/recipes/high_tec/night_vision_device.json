@@ -8,13 +8,13 @@
     
     "tags": [ "electronics_crafting_table" ],
     "pattern": [
-      "MIM",
+      "III",
       "RRR",
-      "X X"
+      "XAX"
     ],
     "key": {
       "I": {
-        "item": "arx:chrome_block"
+        "item": "arx:chrome_ingot"
       },
       "R": {
         "item": "arx:conductive_glass"
@@ -22,8 +22,8 @@
       "X": {
         "item": "arx:stream_accelerator"
       },
-      "M": {
-        "item": "arx:copper_provoloka"
+      "A": {
+        "item": "minecraft:glass"
       }
     },
     "result": {

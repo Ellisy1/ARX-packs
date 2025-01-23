@@ -38,7 +38,8 @@
         "on_use": {
           "event": "on_use_event"
         }
-      }
+      },
+      "tag:is_wand": {}
     },
     "events": {
       "on_use_event": {

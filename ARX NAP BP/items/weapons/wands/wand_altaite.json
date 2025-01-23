@@ -6,6 +6,9 @@
       "identifier": "arx:wand_altaite"
     },
     "components": {
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.sword"
+      },
       "minecraft:icon": {
         "texture": "arx:wand_altaite"
       },
@@ -30,7 +33,8 @@
       "tag:minecraft:is_sword": {},
       "minecraft:durability": {
         "max_durability": 1800
-      }
+      },
+      "tag:is_wand": {}
     },
     "events": {
       "on_use_event": {
