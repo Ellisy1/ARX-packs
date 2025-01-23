@@ -984,69 +984,7 @@
     "arx:bio_juggernaut": {
       "textures": "textures/items/high_tec/biochips/bio_juggernaut"
     },
-    "arx:air_nucleous": {
-      "textures": "textures/items/crafting/nuclei/air_nucleous"
-    },
-    "arx:electro_nucleous": {
-      "textures": "textures/items/crafting/nuclei/electro_nucleous"
-    },
-    "arx:freeze_nucleous": {
-      "textures": "textures/items/crafting/nuclei/freeze_nucleous"
-    },
-    "arx:geo_nucleous": {
-      "textures": "textures/items/crafting/nuclei/geo_nucleous"
-    },
-    "arx:gidro_nucleous": {
-      "textures": "textures/items/crafting/nuclei/gidro_nucleous"
-    },
-    "arx:life_nucleous": {
-      "textures": "textures/items/crafting/nuclei/life_nucleous"
-    },
-    "arx:piro_nucleous": {
-      "textures": "textures/items/crafting/nuclei/piro_nucleous"
-    },
-    "arx:pires_gift": {
-      "textures": "textures/items/cases/pires_gift"
-    },
-    "arx:pallas_gift": {
-      "textures": "textures/items/cases/pallas_gift"
-    },
-    "arx:lotoffish": {
-      "textures": "textures/items/cases/lotoffish"
-    },
-    "arx:fish_krutka": {
-      "textures": "textures/items/cases/fish_krutka"
-    },
-    "arx:iron_krutka": {
-      "textures": "textures/items/cases/iron_krutka"
-    },
-    "arx:diamond_case": {
-      "textures": "textures/items/cases/diamond_case"
-    },
-    "arx:redstone_case": {
-      "textures": "textures/items/cases/redstone_case"
-    },
-    "arx:lapis_case": {
-      "textures": "textures/items/cases/lapis_case"
-    },
-    "arx:amethyst_case": {
-      "textures": "textures/items/cases/amethyst_case"
-    },
-    "arx:copper_lom": {
-      "textures": "textures/items/cases/copper_lom"
-    },
-    "arx:gift_counter": {
-      "textures": "textures/items/cases/gift_counter"
-    },
-    "arx:torn_skin": {
-      "textures": "textures/items/cases/torn_skin"
-    },
-    "arx:gold_lom": {
-      "textures": "textures/items/cases/gold_lom"
-    },
-    "arx:god_energy": {
-      "textures": "textures/items/cases/god_energy"
-    },
+
     "arx:adona_sword": {
       "textures": "textures/items/weapons/swords/adona_sword"
     },
@@ -1307,9 +1245,6 @@
     "arx:phantom_icon": {
       "textures": "textures/items/runes/special/phantom_icon"
     },
-    "arx:moon_light": {
-      "textures": "textures/items/runes/special/moon_light"
-    },
     "arx:golden_cross": {
       "textures": "textures/items/runes/special/golden_cross"
     },
@@ -1388,15 +1323,6 @@
     "arx:wipe_religion": {
       "textures": "textures/items/religious/wipe_religion"
     },
-    "arx:mage_crystal": {
-      "textures": "textures/items/crafting/mage_crystal"
-    },
-    "arx:voin_crystal": {
-      "textures": "textures/items/crafting/voin_crystal"
-    },
-    "arx:necro_crystal": {
-      "textures": "textures/items/crafting/necro_crystal"
-    },
     "arx:scientific_book_unused": {
       "textures": "textures/items/books/scientific_book_unused"
     },
@@ -1405,15 +1331,6 @@
     },
     "arx:advice_book": {
       "textures": "textures/items/books/advice_book"
-    },
-    "arx:diamond_dust": {
-      "textures": "textures/items/crafting/diamond_dust"
-    },
-    "arx:emerald_dust": {
-      "textures": "textures/items/crafting/emerald_dust"
-    },
-    "arx:salt_dust": {
-      "textures": "textures/items/crafting/salt_dust"
     },
     "arx:jw_aluminum": {
       "textures": "textures/items/jewelry/jewelry_ingots/jw_aluminum"

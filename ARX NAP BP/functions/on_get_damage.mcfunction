@@ -1,8 +1,8 @@
 # Эта функция запускается файлом игрока player.json в папке entities при получении урона
 
 # Партиклы крови
-    execute at @s[scores={class=0}] run particle arx:blood ~ ~1 ~
-    execute at @s[scores={class=1}] run particle arx:ghost_blood ~ ~1.5 ~
+    execute at @s[tag=!damaged_without_blood, scores={class=0}] run particle arx:blood ~ ~1 ~
+    execute at @s[tag=!damaged_without_blood, scores={class=1}] run particle arx:ghost_blood ~ ~1.5 ~
 
 # Графика (1 лицо)
     effect @s[scores={allow_block_buff=!15..20}] blindness 1 0 true
@@ -66,3 +66,6 @@
 # Действие амулета брызг
     execute as @s[hasitem={item=arx:amul_of_splash, location=slot.armor.legs}, scores={custom_random=0..500}] run effect @s fire_resistance 2 0 true
     execute at @s[hasitem={item=arx:amul_of_splash, location=slot.armor.legs}] run particle arx:amul_of_splash ~ ~1.5 ~ 
+
+# Снятие передаваемых данных
+    tag @s remove damaged_without_blood

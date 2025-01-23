@@ -90,7 +90,6 @@
             },
             "camel": {
                 "events": {
-                    "ambient": "mob.camel.ambient",
                     "death": "mob.camel.death",
                     "eat": "mob.camel.eat",
                     "hurt": "mob.camel.hurt",
