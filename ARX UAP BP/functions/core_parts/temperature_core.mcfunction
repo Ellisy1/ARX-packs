@@ -48,6 +48,7 @@
         tag @a[tag=in_e19] add cold_resistance
         tag @a[tag=blue_lake] add cold_resistance
         tag @a[tag=in_green_place_in_e19_sewer] add cold_resistance
+        tag @a[tag=heating_by_heater_block_activate] add cold_resistance
 
 
 #ЗАМЕРЗАНИЕ
@@ -66,9 +67,6 @@
             tag @a[x=-216, y=33, z=325, dx=40, dy=20, dz=35] add in_warm_custom_location
         execute @a[tag=in_mines, tag=!cold_resistance, tag=!in_warm_custom_location, m=!spectator] ~ ~ ~ scoreboard players add @s freezing 6
         tag @a remove in_warm_custom_location
-
-    #Урон при холоде
-        execute @a[scores={verify=2, tick=20}] ~ ~ ~ damage @a[tag=!at_respawn_room, scores={freezing=1001..2400, custom_random=0..200}] 2 freezing
 
     #Титлы
         title @a[scores={freezing=2..200}] actionbar Đ §bВы замерзаете §fĐ

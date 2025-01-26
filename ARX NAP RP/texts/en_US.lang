@@ -2416,3 +2416,5 @@ entity.arx:statue_of_trailblazer.name=Статуя Первопроходца
 item.arx:blueprint_paper=§r§fТехнческая чертежная бумага §e[Легендарное]
 
 entity.arx:march_sitting_calm.name=Избитый Март
+
+tile.arx:heater.name=Обогреватель (дальность 16м) [İ3] §g[Эпическое]

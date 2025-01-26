@@ -272,6 +272,7 @@ scoreboard players set @a heavy 0
     execute @a[hasitem={item=arx:shackles}] ~ ~ ~ scoreboard players add @s heavy 3
     execute @a[hasitem={item=arx:blacksmith_tongs}] ~ ~ ~ scoreboard players add @s heavy 1
     execute @a[hasitem={item=arx:blacksmith_tongs_super}] ~ ~ ~ scoreboard players add @s heavy 2
+    execute @a[hasitem={item=arx:heater}] ~ ~ ~ scoreboard players add @s heavy 3
 
 #Одежда
     execute @a[hasitem={item=arx:adona_jacket}] ~ ~ ~ scoreboard players add @s heavy 2

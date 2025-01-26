@@ -894,6 +894,9 @@
 
 		"power_button_in_hail6": {
 			"textures": "textures/blocks/ancient_blocks/hail6/power_button_in_hail6"
+		},
+		"heater": {
+			"textures": "textures/blocks/furniture/heater"
 		}
 	}
 } 

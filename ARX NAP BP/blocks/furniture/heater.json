@@ -1,0 +1,68 @@
+{
+	"format_version": "1.19.40",
+	"minecraft:block": {
+		"description": {
+			"identifier": "arx:heater",
+			"menu_category": {
+				"category": "construction"
+			}
+		},
+		"components": {
+			"minecraft:geometry": "geometry.heater",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "heater",
+					"render_method": "alpha_test",
+					"face_dimming": false
+				}
+			},
+			"minecraft:collision_box": {
+				"origin": [
+					-5.0,
+					0.0,
+					-5.0
+				],
+				"size": [
+					10.0,
+					16.0,
+					10.0
+				]
+			},
+			"minecraft:selection_box": {
+				"origin": [
+					-5.0,
+					0.0,
+					-5.0
+				],
+				"size": [
+					10.0,
+					16.0,
+					10.0
+				]
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 2
+			},
+			"minecraft:light_emission": 12,
+			"minecraft:queued_ticking": {
+				"interval_range": [
+					20,
+					20
+				],
+				"on_tick": {
+					"event": "heat"
+				}
+			}
+		},
+		"events": {
+			"heat": {
+				"run_command": {
+					"command": [
+						"tag @a[r=16] add heating_by_heater_block_activate",
+						"tag @a[r=16] add heating_by_heater_block_control"
+					]
+				}
+			}
+		}
+	}
+}

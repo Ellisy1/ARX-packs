@@ -319,9 +319,9 @@ tellraw @s { "rawtext": [ { "text": "§6=====§aЛампадное масло:§
     tellraw @s { "rawtext": [ { "text": "Масла осталось: " }, { "score": {"name": "@s", "objective": "lamp_oil_prc" } }, { "text": "%" } ] }
 
 tellraw @s { "rawtext": [{ "text": "§6=====§aЗагруженность§6=====" } ] } 
-    tellraw @s[scores={heavy_result=1..}] { "rawtext": [{ "text": "Загруженность (§4текущая§f/§4лимит§f): §4" }, { "score": {"name": "@s", "objective": "heavy" } }, { "text": "§f/§4" }, { "score": {"name": "@s", "objective": "heavy_compens" } } ] } 
-    tellraw @s[scores={heavy_result=0}] { "rawtext": [{ "text": "Загруженность (§eтекущая§f/§eлимит§f): §e" }, { "score": {"name": "@s", "objective": "heavy" } }, { "text": "§f/§e" }, { "score": {"name": "@s", "objective": "heavy_compens" } } ] } 
-    tellraw @s[scores={heavy_result=..-1}] { "rawtext": [{ "text": "Загруженность (§aтекущая§f/§aлимит§f): §a" }, { "score": {"name": "@s", "objective": "heavy" } }, { "text": "§f/§a" }, { "score": {"name": "@s", "objective": "heavy_compens" } } ] } 
+    tellraw @s[scores={heavy_result=1..}] { "rawtext": [{ "text": "§4Текущая§f/§4Лимит§f: §4" }, { "score": {"name": "@s", "objective": "heavy" } }, { "text": "§f/§4" }, { "score": {"name": "@s", "objective": "heavy_compens" } } ] } 
+    tellraw @s[scores={heavy_result=0}] { "rawtext": [{ "text": "§eТекущая§f/§eЛимит§f: §e" }, { "score": {"name": "@s", "objective": "heavy" } }, { "text": "§f/§e" }, { "score": {"name": "@s", "objective": "heavy_compens" } } ] } 
+    tellraw @s[scores={heavy_result=..-1}] { "rawtext": [{ "text": "§aТекущая§f/§aЛимит§f: §a" }, { "score": {"name": "@s", "objective": "heavy" } }, { "text": "§f/§a" }, { "score": {"name": "@s", "objective": "heavy_compens" } } ] } 
     tellraw @s[scores={backpack_volume=1..}] { "rawtext": [{ "text": "Объём сумок: §a" }, { "score": {"name": "@s", "objective": "backpack_volume" } } ] } 
 
 

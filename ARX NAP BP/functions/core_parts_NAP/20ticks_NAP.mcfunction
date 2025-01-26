@@ -297,15 +297,20 @@
     scoreboard players add @a[scores={mark=1..}] mark -1
 
 # Снятие тегов, которые выдаются блоками по радиусу
-    # Контроль выпадающего такта
-        tag @a remove disable_magic_of_modified_moving_control
-        tag @a[tag=disable_magic_of_modified_moving_activate] add disable_magic_of_modified_moving_control
+    # Запретители магии измененного движения
+        # Контроль выпадающего такта
+            tag @a remove disable_magic_of_modified_moving_control
+            tag @a[tag=disable_magic_of_modified_moving_activate] add disable_magic_of_modified_moving_control
 
-    tag @a remove disable_magic_of_modified_moving
-    tag @a[tag=disable_magic_of_modified_moving_activate] add disable_magic_of_modified_moving
-    tag @a[tag=disable_magic_of_modified_moving_control] add disable_magic_of_modified_moving
+        tag @a remove disable_magic_of_modified_moving
+        tag @a[tag=disable_magic_of_modified_moving_activate] add disable_magic_of_modified_moving
+        tag @a[tag=disable_magic_of_modified_moving_control] add disable_magic_of_modified_moving
 
-    tag @a remove disable_magic_of_modified_moving_activate
+        tag @a remove disable_magic_of_modified_moving_activate
+    
+    # Нагреватели
+        tag @a[tag=!heating_by_heater_block_control] remove heating_by_heater_block_activate
+        tag @a remove heating_by_heater_block_control
 
 # Партиклы в синем озере
     particle arx:blue_bliss 21 2 -83
