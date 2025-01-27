@@ -3,7 +3,7 @@
   "minecraft:item": {
     "description": {
       "identifier": "arx:rounded_bottle_water_golden_hay_animal_eye_day_kosk_preparation",
-      "category": "items"
+      "category": "equipment"
     },
     "components": {
       "minecraft:icon": {

@@ -3,7 +3,7 @@
   "minecraft:item": {
     "description": {
       "identifier": "arx:vial_lamp_oil_spirt",
-      "category": "items"
+      "category": "equipment"
     },
     "components": {
       "minecraft:max_stack_size": 4,

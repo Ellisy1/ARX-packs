@@ -177,6 +177,8 @@ tellraw @s[rxm=60, scores={sk_a_24=1}] { "rawtext": [ { "text": "§bЗаписа
     execute as @s[rx=-60, scores={sk_a_24=1}] run scoreboard players set @s ADIUЖ 0
     execute as @s[rx=-60, scores={sk_a_24=1}] run scoreboard players set @s ADIUГГГ 0
     execute as @s[rx=-60, scores={sk_a_24=1}] run scoreboard players set @s ADIUГГГЖ 0
+    execute as @s[rx=-60, scores={sk_a_24=1}] run scoreboard players set @s[scores={ADHZД=!3}] ADHZД 0
+    execute as @s[rx=-60, scores={sk_a_24=1}] run scoreboard players set @s[scores={ADHZД=3}] ADHZД 99
 
 # Канал 2
     execute as @s[rxm=-60, rx=-30, scores={sk_a_24=1}] run scoreboard players set @s BAEK 0
@@ -349,6 +351,8 @@ tellraw @s[rxm=60, scores={sk_a_24=1}] { "rawtext": [ { "text": "§bЗаписа
     execute as @s[rxm=-60, rx=-30, scores={sk_a_24=1}] run scoreboard players set @s BDIUЖ 0
     execute as @s[rxm=-60, rx=-30, scores={sk_a_24=1}] run scoreboard players set @s BDIUГГГ 0
     execute as @s[rxm=-60, rx=-30, scores={sk_a_24=1}] run scoreboard players set @s BDIUГГГЖ 0
+    execute as @s[rxm=-60, rx=-30, scores={sk_a_24=1}] run scoreboard players set @s[scores={BDHZД=!3}] BDHZД 0
+    execute as @s[rxm=-60, rx=-30, scores={sk_a_24=1}] run scoreboard players set @s[scores={BDHZД=3}] BDHZД 99
 
 # Канал 3
     execute as @s[rxm=-30, rx=0, scores={sk_a_24=1}] run scoreboard players set @s CAEK 0
@@ -521,6 +525,8 @@ tellraw @s[rxm=60, scores={sk_a_24=1}] { "rawtext": [ { "text": "§bЗаписа
     execute as @s[rxm=-30, rx=0, scores={sk_a_24=1}] run scoreboard players set @s CDIUЖ 0
     execute as @s[rxm=-30, rx=0, scores={sk_a_24=1}] run scoreboard players set @s CDIUГГГ 0
     execute as @s[rxm=-30, rx=0, scores={sk_a_24=1}] run scoreboard players set @s CDIUГГГЖ 0
+    execute as @s[rxm=-30, rx=0, scores={sk_a_24=1}] run scoreboard players set @s[scores={CDHZД=!3}] CDHZД 0
+    execute as @s[rxm=-30, rx=0, scores={sk_a_24=1}] run scoreboard players set @s[scores={CDHZД=3}] CDHZД 99
 
 # Канал 4
     execute as @s[rxm=0.001, rx=30, scores={sk_a_24=1}] run scoreboard players set @s DAEK 0
@@ -693,6 +699,8 @@ tellraw @s[rxm=60, scores={sk_a_24=1}] { "rawtext": [ { "text": "§bЗаписа
     execute as @s[rxm=0.001, rx=30, scores={sk_a_24=1}] run scoreboard players set @s DDIUЖ 0
     execute as @s[rxm=0.001, rx=30, scores={sk_a_24=1}] run scoreboard players set @s DDIUГГГ 0
     execute as @s[rxm=0.001, rx=30, scores={sk_a_24=1}] run scoreboard players set @s DDIUГГГЖ 0
+    execute as @s[rxm=0.001, rx=30, scores={sk_a_24=1}] run scoreboard players set @s[scores={DDHZД=!3}] DDHZД 0
+    execute as @s[rxm=0.001, rx=30, scores={sk_a_24=1}] run scoreboard players set @s[scores={DDHZД=3}] DDHZД 99
 
 # Канал 5
     execute as @s[rxm=30, rx=60, scores={sk_a_24=1}] run scoreboard players set @s EAEK 0
@@ -865,6 +873,8 @@ tellraw @s[rxm=60, scores={sk_a_24=1}] { "rawtext": [ { "text": "§bЗаписа
     execute as @s[rxm=30, rx=60, scores={sk_a_24=1}] run scoreboard players set @s EDIUЖ 0
     execute as @s[rxm=30, rx=60, scores={sk_a_24=1}] run scoreboard players set @s EDIUГГГ 0
     execute as @s[rxm=30, rx=60, scores={sk_a_24=1}] run scoreboard players set @s EDIUГГГЖ 0
+    execute as @s[rxm=30, rx=60, scores={sk_a_24=1}] run scoreboard players set @s[scores={EDHZД=!3}] EDHZД 0
+    execute as @s[rxm=30, rx=60, scores={sk_a_24=1}] run scoreboard players set @s[scores={EDHZД=3}] EDHZД 99
 
 # Канал 6
     execute as @s[rxm=60, scores={sk_a_24=1}] run scoreboard players set @s FAEK 0
@@ -1037,5 +1047,7 @@ tellraw @s[rxm=60, scores={sk_a_24=1}] { "rawtext": [ { "text": "§bЗаписа
     execute as @s[rxm=60, scores={sk_a_24=1}] run scoreboard players set @s FDIUЖ 0
     execute as @s[rxm=60, scores={sk_a_24=1}] run scoreboard players set @s FDIUГГГ 0
     execute as @s[rxm=60, scores={sk_a_24=1}] run scoreboard players set @s FDIUГГГЖ 0
+    execute as @s[rxm=60, scores={sk_a_24=1}] run scoreboard players set @s[scores={FDHZД=!3}] FDHZД 0
+    execute as @s[rxm=60, scores={sk_a_24=1}] run scoreboard players set @s[scores={FDHZД=3}] FDHZД 99
 
 tellraw @s[scores={sk_a_24=0}] { "rawtext": [ { "text": "Я не умею пользоваться рунами. Для этого мне надо изучить навык §aA24§f." } ] }

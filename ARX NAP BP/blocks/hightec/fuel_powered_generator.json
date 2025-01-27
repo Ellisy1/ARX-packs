@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "arx:fuel_powered_generator",
 			"menu_category": {
-				"category": "nature"
+				"category": "construction"
 			}
 		},
 		"components": {

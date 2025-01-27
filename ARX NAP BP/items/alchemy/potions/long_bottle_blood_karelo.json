@@ -3,7 +3,7 @@
   "minecraft:item": {
     "description": {
       "identifier": "arx:long_bottle_blood_karelo",
-      "category": "items"
+      "category": "equipment"
     },
     "components": {
       "minecraft:max_stack_size": 1,

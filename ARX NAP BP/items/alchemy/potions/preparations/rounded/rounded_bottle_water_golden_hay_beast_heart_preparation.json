@@ -3,7 +3,7 @@
   "minecraft:item": {
     "description": {
       "identifier": "arx:rounded_bottle_water_golden_hay_beast_heart_preparation",
-      "category": "items"
+      "category": "equipment"
     },
     "components": {
       "minecraft:icon": {

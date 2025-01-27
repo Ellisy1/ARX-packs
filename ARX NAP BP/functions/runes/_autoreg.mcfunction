@@ -163,6 +163,7 @@ scoreboard players add @a ADIU 0
 scoreboard players add @a ADIUЖ 0
 scoreboard players add @a ADIUГГГ 0
 scoreboard players add @a ADIUГГГЖ 0
+scoreboard players add @a ADHZД 0
 
 scoreboard players add @a BAEK 0
 scoreboard players add @a BAEKЗ 0
@@ -329,6 +330,7 @@ scoreboard players add @a BDIU 0
 scoreboard players add @a BDIUЖ 0
 scoreboard players add @a BDIUГГГ 0
 scoreboard players add @a BDIUГГГЖ 0
+scoreboard players add @a BDHZД 0
 
 scoreboard players add @a CAEK 0
 scoreboard players add @a CAEKЗ 0
@@ -495,6 +497,7 @@ scoreboard players add @a CDIU 0
 scoreboard players add @a CDIUЖ 0
 scoreboard players add @a CDIUГГГ 0
 scoreboard players add @a CDIUГГГЖ 0
+scoreboard players add @a CDHZД 0
 
 scoreboard players add @a DAEK 0
 scoreboard players add @a DAEKЗ 0
@@ -661,6 +664,7 @@ scoreboard players add @a DDIU 0
 scoreboard players add @a DDIUЖ 0
 scoreboard players add @a DDIUГГГ 0
 scoreboard players add @a DDIUГГГЖ 0
+scoreboard players add @a DDHZД 0
 
 scoreboard players add @a EAEK 0
 scoreboard players add @a EAEKЗ 0
@@ -827,6 +831,7 @@ scoreboard players add @a EDIU 0
 scoreboard players add @a EDIUЖ 0
 scoreboard players add @a EDIUГГГ 0
 scoreboard players add @a EDIUГГГЖ 0
+scoreboard players add @a EDHZД 0
 
 scoreboard players add @a FAEK 0
 scoreboard players add @a FAEKЗ 0
@@ -993,4 +998,5 @@ scoreboard players add @a FDIU 0
 scoreboard players add @a FDIUЖ 0
 scoreboard players add @a FDIUГГГ 0
 scoreboard players add @a FDIUГГГЖ 0
+scoreboard players add @a FDHZД 0
 

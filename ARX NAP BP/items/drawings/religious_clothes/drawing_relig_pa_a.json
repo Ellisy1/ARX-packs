@@ -3,7 +3,7 @@
   "minecraft:item": {
     "description": {
       "identifier": "arx:drawing_relig_pa_a",
-      "category": "items"
+      "category": "equipment"
     },
     "components": {
       "minecraft:icon": {

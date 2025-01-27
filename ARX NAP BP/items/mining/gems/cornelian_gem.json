@@ -2,7 +2,7 @@
     "format_version": "1.16.100",
     "minecraft:item": {
       "description": {
-        "category": "equipment",
+        "category": "items",
         "identifier": "arx:cornelian_gem"
       },
       "components": {

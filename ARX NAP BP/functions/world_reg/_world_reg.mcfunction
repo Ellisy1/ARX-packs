@@ -627,3 +627,5 @@ scoreboard objectives add hail6_second_moon_power dummy hail6_second_moon_power
     # КД
         # Кд при стрельбе. Контроллирует саму стрельбу и то, чтобы она не повторялась слишком часто
             scoreboard objectives add march_shoot_cd dummy march_shoot_cd
+
+scoreboard objectives add spell_of_small_head dummy spell_of_small_head

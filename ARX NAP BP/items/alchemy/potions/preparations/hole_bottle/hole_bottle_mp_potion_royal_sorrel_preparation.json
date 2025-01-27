@@ -3,7 +3,7 @@
   "minecraft:item": {
     "description": {
       "identifier": "arx:hole_bottle_mp_potion_royal_sorrel_preparation",
-      "category": "items"
+      "category": "equipment"
     },
     "components": {
       "minecraft:icon": {

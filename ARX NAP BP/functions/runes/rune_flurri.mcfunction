@@ -182,6 +182,7 @@ tellraw @s[rxm=60, scores={sk_a_24=1}] { "rawtext": [ { "text": "§bЗаписа
     execute as @s[rx=-60, scores={sk_a_24=1}] run scoreboard players set @s[scores={ADIUГГГ=2}] ADIUГГГ 3
     execute as @s[rx=-60, scores={sk_a_24=1}] run scoreboard players set @s[scores={ADIUГГГЖ=!2}] ADIUГГГЖ 0
     execute as @s[rx=-60, scores={sk_a_24=1}] run scoreboard players set @s[scores={ADIUГГГЖ=2}] ADIUГГГЖ 3
+    execute as @s[rx=-60, scores={sk_a_24=1}] run scoreboard players set @s ADHZД 0
 
 # Канал 2
     execute as @s[rxm=-60, rx=-30, scores={sk_a_24=1}] run scoreboard players set @s BAEK 0
@@ -359,6 +360,7 @@ tellraw @s[rxm=60, scores={sk_a_24=1}] { "rawtext": [ { "text": "§bЗаписа
     execute as @s[rxm=-60, rx=-30, scores={sk_a_24=1}] run scoreboard players set @s[scores={BDIUГГГ=2}] BDIUГГГ 3
     execute as @s[rxm=-60, rx=-30, scores={sk_a_24=1}] run scoreboard players set @s[scores={BDIUГГГЖ=!2}] BDIUГГГЖ 0
     execute as @s[rxm=-60, rx=-30, scores={sk_a_24=1}] run scoreboard players set @s[scores={BDIUГГГЖ=2}] BDIUГГГЖ 3
+    execute as @s[rxm=-60, rx=-30, scores={sk_a_24=1}] run scoreboard players set @s BDHZД 0
 
 # Канал 3
     execute as @s[rxm=-30, rx=0, scores={sk_a_24=1}] run scoreboard players set @s CAEK 0
@@ -536,6 +538,7 @@ tellraw @s[rxm=60, scores={sk_a_24=1}] { "rawtext": [ { "text": "§bЗаписа
     execute as @s[rxm=-30, rx=0, scores={sk_a_24=1}] run scoreboard players set @s[scores={CDIUГГГ=2}] CDIUГГГ 3
     execute as @s[rxm=-30, rx=0, scores={sk_a_24=1}] run scoreboard players set @s[scores={CDIUГГГЖ=!2}] CDIUГГГЖ 0
     execute as @s[rxm=-30, rx=0, scores={sk_a_24=1}] run scoreboard players set @s[scores={CDIUГГГЖ=2}] CDIUГГГЖ 3
+    execute as @s[rxm=-30, rx=0, scores={sk_a_24=1}] run scoreboard players set @s CDHZД 0
 
 # Канал 4
     execute as @s[rxm=0.001, rx=30, scores={sk_a_24=1}] run scoreboard players set @s DAEK 0
@@ -713,6 +716,7 @@ tellraw @s[rxm=60, scores={sk_a_24=1}] { "rawtext": [ { "text": "§bЗаписа
     execute as @s[rxm=0.001, rx=30, scores={sk_a_24=1}] run scoreboard players set @s[scores={DDIUГГГ=2}] DDIUГГГ 3
     execute as @s[rxm=0.001, rx=30, scores={sk_a_24=1}] run scoreboard players set @s[scores={DDIUГГГЖ=!2}] DDIUГГГЖ 0
     execute as @s[rxm=0.001, rx=30, scores={sk_a_24=1}] run scoreboard players set @s[scores={DDIUГГГЖ=2}] DDIUГГГЖ 3
+    execute as @s[rxm=0.001, rx=30, scores={sk_a_24=1}] run scoreboard players set @s DDHZД 0
 
 # Канал 5
     execute as @s[rxm=30, rx=60, scores={sk_a_24=1}] run scoreboard players set @s EAEK 0
@@ -890,6 +894,7 @@ tellraw @s[rxm=60, scores={sk_a_24=1}] { "rawtext": [ { "text": "§bЗаписа
     execute as @s[rxm=30, rx=60, scores={sk_a_24=1}] run scoreboard players set @s[scores={EDIUГГГ=2}] EDIUГГГ 3
     execute as @s[rxm=30, rx=60, scores={sk_a_24=1}] run scoreboard players set @s[scores={EDIUГГГЖ=!2}] EDIUГГГЖ 0
     execute as @s[rxm=30, rx=60, scores={sk_a_24=1}] run scoreboard players set @s[scores={EDIUГГГЖ=2}] EDIUГГГЖ 3
+    execute as @s[rxm=30, rx=60, scores={sk_a_24=1}] run scoreboard players set @s EDHZД 0
 
 # Канал 6
     execute as @s[rxm=60, scores={sk_a_24=1}] run scoreboard players set @s FAEK 0
@@ -1067,5 +1072,6 @@ tellraw @s[rxm=60, scores={sk_a_24=1}] { "rawtext": [ { "text": "§bЗаписа
     execute as @s[rxm=60, scores={sk_a_24=1}] run scoreboard players set @s[scores={FDIUГГГ=2}] FDIUГГГ 3
     execute as @s[rxm=60, scores={sk_a_24=1}] run scoreboard players set @s[scores={FDIUГГГЖ=!2}] FDIUГГГЖ 0
     execute as @s[rxm=60, scores={sk_a_24=1}] run scoreboard players set @s[scores={FDIUГГГЖ=2}] FDIUГГГЖ 3
+    execute as @s[rxm=60, scores={sk_a_24=1}] run scoreboard players set @s FDHZД 0
 
 tellraw @s[scores={sk_a_24=0}] { "rawtext": [ { "text": "Я не умею пользоваться рунами. Для этого мне надо изучить навык §aA24§f." } ] }

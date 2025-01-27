@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "arx:brick_hidden_button",
 			"menu_category": {
-				"category": "nature"
+				"category": "construction"
 			}
 		},
 		"components": {

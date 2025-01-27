@@ -3,7 +3,7 @@
   "minecraft:item": {
     "description": {
       "identifier": "arx:rounded_bottle_blood_preparation",
-      "category": "items"
+      "category": "equipment"
     },
     "components": {
       "minecraft:icon": {

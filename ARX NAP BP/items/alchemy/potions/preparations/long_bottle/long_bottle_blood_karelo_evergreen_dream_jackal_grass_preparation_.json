@@ -3,7 +3,7 @@
   "minecraft:item": {
     "description": {
       "identifier": "arx:long_bottle_blood_karelo_evergreen_dream_jackal_grass_preparation_b",
-      "category": "items"
+      "category": "equipment"
     },
     "components": {
       "minecraft:icon": {

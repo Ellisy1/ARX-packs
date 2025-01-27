@@ -216,6 +216,7 @@ tag @p[tag=!self, r=15] add self2
         execute as @s[tag=1_channel, scores={ADIUЖ=99}] at @s run function spells/din/ACBAAGAS
         execute as @s[tag=1_channel, scores={ADIUГГГ=99}] at @s run function spells/din/ACBAAGAPAPAP
         execute as @s[tag=1_channel, scores={ADIUГГГЖ=99}] at @s run function spells/din/ACBAAGAPAPAPAS
+        execute as @s[tag=1_channel, scores={ADHZД=99}] at @s run function spells/din/ACAAAUAN
 
     # 2 канал
         execute as @s[tag=2_channel, scores={BAEK=99}] at @s run function spells/kon/AKAJAV
@@ -383,6 +384,7 @@ tag @p[tag=!self, r=15] add self2
         execute as @s[tag=2_channel, scores={BDIUЖ=99}] at @s run function spells/din/ACBAAGAS
         execute as @s[tag=2_channel, scores={BDIUГГГ=99}] at @s run function spells/din/ACBAAGAPAPAP
         execute as @s[tag=2_channel, scores={BDIUГГГЖ=99}] at @s run function spells/din/ACBAAGAPAPAPAS
+        execute as @s[tag=2_channel, scores={BDHZД=99}] at @s run function spells/din/ACAAAUAN
 
     # 3 канал
         execute as @s[tag=3_channel, scores={CAEK=99}] at @s run function spells/kon/AKAJAV
@@ -550,6 +552,7 @@ tag @p[tag=!self, r=15] add self2
         execute as @s[tag=3_channel, scores={CDIUЖ=99}] at @s run function spells/din/ACBAAGAS
         execute as @s[tag=3_channel, scores={CDIUГГГ=99}] at @s run function spells/din/ACBAAGAPAPAP
         execute as @s[tag=3_channel, scores={CDIUГГГЖ=99}] at @s run function spells/din/ACBAAGAPAPAPAS
+        execute as @s[tag=3_channel, scores={CDHZД=99}] at @s run function spells/din/ACAAAUAN
 
     # 4 канал
         execute as @s[tag=4_channel, scores={DAEK=99}] at @s run function spells/kon/AKAJAV
@@ -717,6 +720,7 @@ tag @p[tag=!self, r=15] add self2
         execute as @s[tag=4_channel, scores={DDIUЖ=99}] at @s run function spells/din/ACBAAGAS
         execute as @s[tag=4_channel, scores={DDIUГГГ=99}] at @s run function spells/din/ACBAAGAPAPAP
         execute as @s[tag=4_channel, scores={DDIUГГГЖ=99}] at @s run function spells/din/ACBAAGAPAPAPAS
+        execute as @s[tag=4_channel, scores={DDHZД=99}] at @s run function spells/din/ACAAAUAN
 
     # 5 канал
         execute as @s[tag=5_channel, scores={EAEK=99}] at @s run function spells/kon/AKAJAV
@@ -884,6 +888,7 @@ tag @p[tag=!self, r=15] add self2
         execute as @s[tag=5_channel, scores={EDIUЖ=99}] at @s run function spells/din/ACBAAGAS
         execute as @s[tag=5_channel, scores={EDIUГГГ=99}] at @s run function spells/din/ACBAAGAPAPAP
         execute as @s[tag=5_channel, scores={EDIUГГГЖ=99}] at @s run function spells/din/ACBAAGAPAPAPAS
+        execute as @s[tag=5_channel, scores={EDHZД=99}] at @s run function spells/din/ACAAAUAN
 
     # 6 канал
         execute as @s[tag=6_channel, scores={FAEK=99}] at @s run function spells/kon/AKAJAV
@@ -1051,6 +1056,7 @@ tag @p[tag=!self, r=15] add self2
         execute as @s[tag=6_channel, scores={FDIUЖ=99}] at @s run function spells/din/ACBAAGAS
         execute as @s[tag=6_channel, scores={FDIUГГГ=99}] at @s run function spells/din/ACBAAGAPAPAP
         execute as @s[tag=6_channel, scores={FDIUГГГЖ=99}] at @s run function spells/din/ACBAAGAPAPAPAS
+        execute as @s[tag=6_channel, scores={FDHZД=99}] at @s run function spells/din/ACAAAUAN
 
 # SPELL_INDEXATION
 

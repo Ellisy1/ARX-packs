@@ -3,7 +3,7 @@
   "minecraft:item": {
     "description": {
       "identifier": "arx:rounded_bottle_water_golden_hay_claws_jackal_grass_preparation",
-      "category": "items"
+      "category": "equipment"
     },
     "components": {
       "minecraft:icon": {

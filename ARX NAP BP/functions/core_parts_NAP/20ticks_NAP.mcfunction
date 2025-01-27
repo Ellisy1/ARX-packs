@@ -631,3 +631,7 @@
         scoreboard players add @a[scores={c_unstable=1.., stress_cond=4, custom_random=701}] stress -150
 
         execute as @a[scores={stress_cond=-4}] run function traits/clear_loose_traits
+
+# Маленькая голова (закл)
+    scoreboard players add @a[scores={spell_of_small_head=1..}] spell_of_small_head -1 
+    playanimation @a[scores={spell_of_small_head=1..}] animation.player.invisible_head

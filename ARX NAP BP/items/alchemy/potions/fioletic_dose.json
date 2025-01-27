@@ -3,7 +3,7 @@
   "minecraft:item": {
     "description": {
       "identifier": "arx:fioletic_dose",
-      "category": "items"
+      "category": "equipment"
     },
     "components": {
       "minecraft:cooldown": {

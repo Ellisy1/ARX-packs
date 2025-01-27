@@ -3,7 +3,7 @@
   "minecraft:item": {
     "description": {
       "identifier": "arx:hole_bottle_mp_potion",
-      "category": "items"
+      "category": "equipment"
     },
     "components": {
       "minecraft:max_stack_size": 1,

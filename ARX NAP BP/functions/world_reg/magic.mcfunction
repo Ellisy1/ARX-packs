@@ -163,6 +163,7 @@ scoreboard objectives add ADIU dummy ADIU
 scoreboard objectives add ADIUЖ dummy ADIUЖ
 scoreboard objectives add ADIUГГГ dummy ADIUГГГ
 scoreboard objectives add ADIUГГГЖ dummy ADIUГГГЖ
+scoreboard objectives add ADHZД dummy ADHZД
 
 scoreboard objectives add BAEK dummy BAEK
 scoreboard objectives add BAEKЗ dummy BAEKЗ
@@ -329,6 +330,7 @@ scoreboard objectives add BDIU dummy BDIU
 scoreboard objectives add BDIUЖ dummy BDIUЖ
 scoreboard objectives add BDIUГГГ dummy BDIUГГГ
 scoreboard objectives add BDIUГГГЖ dummy BDIUГГГЖ
+scoreboard objectives add BDHZД dummy BDHZД
 
 scoreboard objectives add CAEK dummy CAEK
 scoreboard objectives add CAEKЗ dummy CAEKЗ
@@ -495,6 +497,7 @@ scoreboard objectives add CDIU dummy CDIU
 scoreboard objectives add CDIUЖ dummy CDIUЖ
 scoreboard objectives add CDIUГГГ dummy CDIUГГГ
 scoreboard objectives add CDIUГГГЖ dummy CDIUГГГЖ
+scoreboard objectives add CDHZД dummy CDHZД
 
 scoreboard objectives add DAEK dummy DAEK
 scoreboard objectives add DAEKЗ dummy DAEKЗ
@@ -661,6 +664,7 @@ scoreboard objectives add DDIU dummy DDIU
 scoreboard objectives add DDIUЖ dummy DDIUЖ
 scoreboard objectives add DDIUГГГ dummy DDIUГГГ
 scoreboard objectives add DDIUГГГЖ dummy DDIUГГГЖ
+scoreboard objectives add DDHZД dummy DDHZД
 
 scoreboard objectives add EAEK dummy EAEK
 scoreboard objectives add EAEKЗ dummy EAEKЗ
@@ -827,6 +831,7 @@ scoreboard objectives add EDIU dummy EDIU
 scoreboard objectives add EDIUЖ dummy EDIUЖ
 scoreboard objectives add EDIUГГГ dummy EDIUГГГ
 scoreboard objectives add EDIUГГГЖ dummy EDIUГГГЖ
+scoreboard objectives add EDHZД dummy EDHZД
 
 scoreboard objectives add FAEK dummy FAEK
 scoreboard objectives add FAEKЗ dummy FAEKЗ
@@ -993,4 +998,5 @@ scoreboard objectives add FDIU dummy FDIU
 scoreboard objectives add FDIUЖ dummy FDIUЖ
 scoreboard objectives add FDIUГГГ dummy FDIUГГГ
 scoreboard objectives add FDIUГГГЖ dummy FDIUГГГЖ
+scoreboard objectives add FDHZД dummy FDHZД
 

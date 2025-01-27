@@ -3,7 +3,7 @@
   "minecraft:item": {
     "description": {
       "identifier": "arx:triangle_bottle_water_karelo_fioletic_preparation",
-      "category": "items"
+      "category": "equipment"
     },
     "components": {
       "minecraft:icon": {

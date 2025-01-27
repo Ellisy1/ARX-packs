@@ -55,3 +55,7 @@
                 execute if entity @a[scores={verify=2, march_battle_time=1..55}] run fill 55 17 -195 55 17 -195 minecraft:air
                 execute if entity @a[scores={verify=2, march_battle_time=1..55}] run fill 48 17 -188 48 17 -188 minecraft:air
                 execute if entity @a[scores={verify=2, march_battle_time=1..55}] run fill 48 17 -195 48 17 -195 minecraft:air
+
+# Партиклы от деражщих факел
+    execute at @a[hasitem={item=minecraft:torch, location=slot.weapon.mainhand}] positioned ~ ~1.9 ~ run particle minecraft:basic_smoke_particle ^-0.3 ^0 ^0.4
+    
