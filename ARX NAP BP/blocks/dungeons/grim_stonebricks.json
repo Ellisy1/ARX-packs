@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "arx:grim_stonebricks",
 			"menu_category": {
-				"category": "nature"
+				"category": "construction"
 			}
 		},
 		"components": {

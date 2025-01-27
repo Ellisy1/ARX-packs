@@ -134,3 +134,10 @@
 
 # Деспавним всех приговоренных алой ночью / обычной ночью
     execute if entity @a[scores={is_day=0}] run event entity @e[tag=force_to_despawn] arx:despawn_forced
+
+#Комната попущения
+    spawnpoint @a 10000 -36 10000
+
+    tag @a remove at_respawn_room
+    tag @e[x=9990, y=-43, z=9990, dx=20, dy=20, dz=20] add at_respawn_room
+    tp @e[tag=at_respawn_room, type=!armor_stand, type=!player, type=!arx:adona_spawn, type=!arx:rat_monstr_spawn] -10000 -100 -10000

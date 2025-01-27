@@ -10,6 +10,11 @@
         },
         {
           "type": "item",
+          "name": "arx:sea_bricks",
+          "weight": 50
+        },
+        {
+          "type": "item",
           "name": "minecraft:netherite_upgrade_smithing_template",
           "weight": 10
         },

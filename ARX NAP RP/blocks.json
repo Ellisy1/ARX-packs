@@ -525,5 +525,29 @@
 	},
 	"arx:connection_controller_green_flip_h": {
 		"textures": "connection_controller_green_flip_h"
+	},
+
+
+	"arx:crying_obsidian_small_bricks": {
+		"textures": "crying_obsidian_small_bricks"
+	},
+	"arx:crying_obsidian_big_bricks": {
+		"textures": "crying_obsidian_big_bricks"
+	},
+	"arx:crying_obsidian_even_bricks": {
+		"textures": "crying_obsidian_even_bricks"
+	},
+
+	"arx:sea_bricks": {
+		"textures": "sea_bricks"
+	},
+
+	"arx:gold_decorative_block": {
+		"textures": "gold_decorative_block",
+		"sound": "netherite"
+	},
+	"arx:caryite_bricks": {
+		"textures": "caryite_bricks",
+		"sound": "netherite"
 	}
 }

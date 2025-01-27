@@ -2,23 +2,22 @@
   "format_version": "1.12",
   "minecraft:recipe_shaped": {
     "description": {
-    "identifier": "arx:planks_iron"
+    "identifier": "arx:caryite_bricks"
     },
 
     
     "tags": [ "bugle_crafting_table" ],
     "pattern": [
-      "AAA",
-      "   ",
-      "AAA"
+      "AA"
     ],
     "key": {
       "A": {
-        "item": "minecraft:iron_ingot"
+        "item": "arx:caryite_ingot"
       }
     },
     "result": {
-      "item": "arx:planks_iron"
+      "item": "arx:caryite_bricks",
+      "count": 1
     }
   }
 }

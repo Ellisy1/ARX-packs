@@ -897,6 +897,30 @@
 		},
 		"heater": {
 			"textures": "textures/blocks/furniture/heater"
+		},
+
+
+
+		"crying_obsidian_small_bricks": {
+			"textures": "textures/blocks/decorative_blocks/crying_obsidian_small_bricks"
+		},
+		"crying_obsidian_big_bricks": {
+			"textures": "textures/blocks/decorative_blocks/crying_obsidian_big_bricks"
+		},
+		"crying_obsidian_even_bricks": {
+			"textures": "textures/blocks/decorative_blocks/crying_obsidian_even_bricks"
+		},
+
+
+
+		"sea_bricks": {
+			"textures": "textures/blocks/decorative_blocks/sea_bricks"
+		},
+		"gold_decorative_block": {
+			"textures": "textures/blocks/decorative_blocks/gold_decorative_block"
+		},
+		"caryite_bricks": {
+			"textures": "textures/blocks/decorative_blocks/caryite_bricks"
 		}
 	}
 } 

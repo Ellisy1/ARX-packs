@@ -1,0 +1,16 @@
+{
+	"format_version": "1.19.40",
+	"minecraft:block": {
+		"description": {
+			"identifier": "arx:gold_decorative_block",
+			"menu_category": {
+				"category": "construction"
+			}
+		},
+		"components": {
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 1.5
+			}
+		}
+	}
+}

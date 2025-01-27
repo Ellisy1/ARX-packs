@@ -2,22 +2,22 @@
   "format_version": "1.12",
   "minecraft:recipe_shaped": {
     "description": {
-    "identifier": "arx:steel_bricks"
+    "identifier": "arx:crying_obsidian_big_bricks"
     },
 
     
-    "tags": [ "bugle_crafting_table" ],
+    "tags": [ "crafting_table" ],
     "pattern": [
-      "AA",
       "AA"
     ],
     "key": {
       "A": {
-        "item": "arx:steel_ingot"
+        "item": "minecraft:crying_obsidian"
       }
     },
     "result": {
-      "item": "arx:steel_bricks"
+      "item": "arx:crying_obsidian_big_bricks",
+      "count": 2
     }
   }
 }

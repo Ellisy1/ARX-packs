@@ -1,0 +1,25 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:crying_obsidian_small_bricks"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "A A",
+      " A ",
+      "A A"
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:crying_obsidian"
+      }
+    },
+    "result": {
+      "item": "arx:crying_obsidian_small_bricks",
+      "count": 5
+    }
+  }
+}

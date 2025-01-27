@@ -235,13 +235,6 @@
     tp @e[type=zombie_villager] -10000 -100 -10000
     tp @e[type=spider] -10000 -100 -10000
 
-#Комната попущения
-    spawnpoint @a 10000 -36 10000
-
-    tag @a remove at_respawn_room
-    tag @e[x=9990, y=-43, z=9990, dx=20, dy=20, dz=20] add at_respawn_room
-    tp @e[tag=at_respawn_room, type=!armor_stand, type=!player, type=!arx:adona_spawn, type=!arx:rat_monstr_spawn] -10000 -100 -10000
-
 #Определение взгляда вниз
     scoreboard players add @a[rxm=89, tag=is_sneaking] dtct_look_down 1
     scoreboard players set @a[rx=89] dtct_look_down 0
