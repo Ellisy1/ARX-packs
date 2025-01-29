@@ -1,4 +1,4 @@
-menu.copyright=UAP ARX OFFICIAL ruspatch §a2.2
+menu.copyright=ARX packs §aactive
 
 rarity=§7[Обычное] §a[Необычное] §b[Редкое] §g[Эпическое] §e[Легендарное] §c[Мифическое] §d[Божественное]
 
@@ -141,11 +141,6 @@ item.arx:cigarette_kavra_preparation=§r§fСигарета - заготовка
 
 item.arx:cigarette_fiolix=§r§fФиоликсовое курево §b[Редкое]
 item.arx:cigarette_kavra=§r§fСигарета §a[Необычное]
-
-
-item.arx:nagnium=§r§fНагниум §e[Легендарное]
-item.arx:plumbium=§r§fСвинцовиум §b[Редкое]
-item.arx:tironium=§r§fТирониум §c[Мифическое+]
 
 
 item.arx:square_bottle_spirt=§r§fКвадратная колба со спиртом §b[Редкое]
@@ -1994,7 +1989,7 @@ item.arx:pireta_sword=§r§fМеч Пиреты §d[Божественное]
 item.arx:pallada_sword=§r§fМеч Паллады §d[Божественное]
 
 
-item.arx:wand_of_darkness=§r§fТёмная волшебная палочека (стандартная) §e[Легендарное]
+item.arx:wand_of_darkness=§r§fТёмная волшебная палочка (стандартная) §e[Легендарное]
 item.arx:wand_flame=§r§fСолнечная волшебная палочка (радиальная) §e[Легендарное]
 item.arx:wand_dragon=§r§fДраконья палочка из огнедуба (радиальная) §c[Мифическое+++]
 item.arx:wand_duo=§r§fСтранная волшебная палочка (стандартная) §e[Легендарное]
@@ -2047,45 +2042,50 @@ tile.arx:chromakey_white.name=§r§fБелый хромакей §7[Обычно
 tile.arx:chloronite_obstruction.name=§r§fХлоронитовая баррикада §c[Мифическое]
 tile.arx:iron_obstruction.name=§r§fЖелезная баррикада §a[Необычное]
 tile.arx:wooden_obstruction.name=§r§fДеревянная баррикада §7[Обычное]
-
-
-
-tile.arx:alchemy_crafting_table.name=§r§fАлхимический верстак §b[Редкое]
-tile.arx:alcohol_mashine.name=§r§fСамогонный аппарат §b[Редкое]
-tile.arx:anvil_crafting_table.name=§r§fРасковочная наковальня §b[Редкое]
-tile.arx:barrel_of_water_crafting_table.name=§r§fВедро с водой §a[Необычное]
-tile.arx:boiler_crafting_table.name=§r§fКотелок §a[Необычное]
-tile.arx:bugle_crafting_table.name=§r§fПлавильный горн §b[Редкое]
 tile.arx:chair.name=§r§fСтул §7[Обычное]
-tile.arx:clothes_crafting_table.name=§r§fШвейный стол §a[Необычное]
 
-tile.arx:coin_crafting_table_default.name=§r§fМонетный станок (обычная форма) §e[Легендарное]
-tile.arx:coin_crafting_table_falcon.name=§r§fМонетный станок (форма - сокол) §e[Легендарное]
-tile.arx:coin_crafting_table_pires.name=§r§fМонетный станок (форма - пирес) §e[Легендарное]
-tile.arx:coin_crafting_table_soul.name=§r§fМонетный станок (форма - душа) §e[Легендарное]
-tile.arx:coin_crafting_table_irus.name=§r§fМонетный станок (форма - айрус) §e[Легендарное]
-tile.arx:coin_crafting_table_sanderra.name=§r§fМонетный станок (форма - сандеррские монеты) §e[Легендарное]
 
-tile.arx:cooking_crafting_table.name=§r§fСтол для готовки §b[Редкое]
-tile.arx:glassworks_crafting_table.name=§r§fСтеклоплавильня §a[Необычное]
-tile.arx:heavy_armor_crafting_table.name=§r§fВерстак для тяжёлых доспехов §b[Редкое]
-tile.arx:jewelry_crafting_table.name=§r§fЮвелирный станок §b[Редкое]
+
+tile.arx:crafting_table.name=§r§fПростой верстак §g§o[Верстак]§r §7[Обычное]
+tile.arx:alchemy_crafting_table.name=§r§fАлхимический стол §g§o[Верстак]§r§f §b[Редкое]
+tile.arx:alcohol_mashine.name=§r§fСамогонный аппарат §g§o[Верстак]§r§f §b[Редкое]
+tile.arx:anvil_crafting_table.name=§r§fРасковочная наковальня §g§o[Верстак]§r§f §b[Редкое]
+tile.arx:barrel_of_water_crafting_table.name=§r§fВедро с водой §g§o[Верстак]§r§f §a[Необычное]
+tile.arx:boiler_crafting_table.name=§r§fКотелок §g§o[Верстак]§r§f §a[Необычное]
+tile.arx:bugle_crafting_table.name=§r§fПлавильный горн §g§o[Верстак]§r§f §b[Редкое]
+tile.arx:clothes_crafting_table.name=§r§fШвейный стол §g§o[Верстак]§r§f §a[Необычное]
+tile.arx:cooking_crafting_table.name=§r§fСтол для готовки §g§o[Верстак]§r§f §b[Редкое]
+tile.arx:glassworks_crafting_table.name=§r§fСтеклоплавильня §g§o[Верстак]§r§f §a[Необычное]
+tile.arx:heavy_armor_crafting_table.name=§r§fВерстак для тяжёлых доспехов §g§o[Верстак]§r§f §b[Редкое]
+tile.arx:jewelry_crafting_table.name=§r§fЮвелирный станок §g§o[Верстак]§r§f §b[Редкое]
+tile.arx:leather_bench_crafting_table.name=§r§fДубильный станок §g§o[Верстак]§r§f §7[Обычное]
+tile.arx:light_armor_crafting_table.name=§r§fВерстак для лёгких доспехов §g§o[Верстак]§r§f §a[Необычное]
+tile.arx:loom_crafting_table.name=§r§fПрядильный станок §g§o[Верстак]§r§f §7[Обычное]
+tile.arx:pounder_crafting_table.name=§r§fСтупка §g§o[Верстак]§r§f §7[Обычное]
+tile.arx:rune_crafting_table.name=§r§fРуническая сфера §g§o[Верстак]§r§f §b[Редкое]
+tile.arx:substractor.name=§r§fСубстактор §g§o[Верстак]§r§f §c[Мифическое+]
+tile.arx:thermal_cooking_crafting_table.name=§r§fМангал §g§o[Верстак]§r§f §a[Необычное]
+tile.arx:weapons_assembly_crafting_table.name=§r§fОружесборочная §g§o[Верстак]§r§f §a[Необычное]
+tile.arx:tea_table.name=§r§fЧайный стол §g§o[Верстак]§r§f §b[Редкое] 
+
+
+tile.arx:coin_crafting_table_default.name=§r§fМонетный станок §g§o[Верстак]§r§f (обычная форма) §e[Легендарное]
+tile.arx:coin_crafting_table_falcon.name=§r§fМонетный станок §g§o[Верстак]§r§f (форма - сокол) §e[Легендарное]
+tile.arx:coin_crafting_table_pires.name=§r§fМонетный станок §g§o[Верстак]§r§f (форма - пирес) §e[Легендарное]
+tile.arx:coin_crafting_table_soul.name=§r§fМонетный станок §g§o[Верстак]§r§f (форма - душа) §e[Легендарное]
+tile.arx:coin_crafting_table_irus.name=§r§fМонетный станок §g§o[Верстак]§r§f (форма - айрус) §e[Легендарное]
+tile.arx:coin_crafting_table_sanderra.name=§r§fМонетный станок §g§o[Верстак]§r§f (форма - сандеррские монеты) §e[Легендарное]
+
+
 tile.arx:lamp.name=§r§fМедная лампа §a[Необычное]
 tile.arx:bronze_lamp.name=§r§fБронзовая лампа §b[Редкое]
 tile.arx:chloronite_lamp.name=§r§fХлоронитовая лампа §c[Мифическое]
 tile.arx:chloronite_hanging_lamp.name=§r§fХлоронитовая подвесная лампа §c[Мифическое]
-tile.arx:leather_bench_crafting_table.name=§r§fДубильный станок §7[Обычное]
-tile.arx:light_armor_crafting_table.name=§r§fВерстак для лёгких доспехов §a[Необычное]
-tile.arx:loom_crafting_table.name=§r§fПрядильный станок §7[Обычное]
-tile.arx:pounder_crafting_table.name=§r§fСтупка §7[Обычное]
 tile.arx:precious_box.name=§r§fЛарец §b[Редкое]
-tile.arx:rune_crafting_table.name=§r§fРунический верстак §b[Редкое]
+
 tile.arx:shield_and_swords.name=§r§fЩит и мечи §b[Редкое]
-tile.arx:substractor.name=§r§fСубстактор §c[Мифическое+]
 tile.arx:table.name=§r§fСтолик §7[Обычное]
-tile.arx:thermal_cooking_crafting_table.name=§r§fМангал §a[Необычное]
 tile.arx:wall_wheel.name=§r§fДекоративное колесо §7[Обычное]
-tile.arx:weapons_assembly_crafting_table.name=§r§fОружесборочная §a[Необычное]
 tile.arx:writing_instruments.name=§r§fИнструменты для письма §a[Необычное]
 
 
@@ -2183,9 +2183,6 @@ tile.arx:gloomy_flower.name=§r§fСветяшка §b[Редкое]
 tile.arx:xp_flower.name=§r§fЦветок знаний §b[Редкое]
 tile.arx:firebloom.name=§r§fОгнецвет §g[Эпическое]
 
-
-
-tile.arx:crafting_table.name=§r§fВерстак §7[Обычное]
 
 
 tile.arx:broken_minibot.name=§r§fСломаный бот §d[Божественное]
@@ -2329,7 +2326,6 @@ item.arx:lightly_fried_tea_kidney=§r§fОбжаренная чайная поч
 item.arx:lightly_fried_tea_leaf=§r§fОбжаренный чайный лист §a[Необычное] 
 item.arx:medium_fried_tea_leaf=§r§fПережаренный чайный лист §a[Необычное] 
 item.arx:heavily_fried_tea_leaf=§r§fСушённый чайный лист §a[Необычное] 
-tile.arx:tea_table.name=§r§fЧайный стол §b[Редкое] 
 item.arx:perfect_black_tea=§r§fПревосходный чёрный чай §a[Необычное]
 item.arx:perfect_green_tea=§r§fПревосходный зелёный чай §a[Необычное]
 item.arx:perfect_milk_ylyn=§r§fПревосходный молочный улун §a[Необычное]

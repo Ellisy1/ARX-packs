@@ -1,3 +1,6 @@
+function knockout_system/data_wipe/wipe_achievements
+function knockout_system/data_wipe/wipe_ready_spells
+
 # Навыки
     scoreboard players set @s sk_a_1 0
     scoreboard players set @s sk_a_2 0
@@ -92,7 +95,17 @@
 
 #Статистика
     scoreboard players set @s count_death 0
+
+    scoreboard players set @s count_mbs_kills 0
     scoreboard players set @s count_mob_kills 0
+    scoreboard players set @s count_bss_kills 0
+
+    scoreboard players set @s count_death 0
+    scoreboard players set @s count_hits 0
+    scoreboard players set @s count_dist_x100 0
+
+    scoreboard players set @s count_spells 0
+    scoreboard players set @s count_spent_mp 0
 
 #Возвращаем family в нормальное состояние
     event entity @s arx:return_default_family_data
@@ -151,5 +164,4 @@
     scoreboard players set @s c_aquaphobe 0
 
     scoreboard players set @s c_seen_death 0
-
     scoreboard players set @s c_demon 0

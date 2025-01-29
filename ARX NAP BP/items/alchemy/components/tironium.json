@@ -8,6 +8,9 @@
     "components": {
       "minecraft:icon": {
         "texture": "arx:tironium"
+      },
+      "minecraft:display_name": {
+        "value": "§r§fТирониум §c[Мифическое+]\n§7§oИзмельчённый в ступке малафиотиронит"
       }
     }
   }

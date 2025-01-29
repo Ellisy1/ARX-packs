@@ -6,11 +6,11 @@
     },
 
     
-    "tags": [ "jewelry_crafting_table" ],
+    "tags": [ "rune_crafting_table" ],
     "pattern": [
-      "R",
-      "I",
-      "R"
+      "R X",
+      " I ",
+      "X R"
     ],
     "key": {
       "I": {
@@ -18,6 +18,9 @@
       },
       "R": {
         "item": "arx:gold_billet"
+      },
+      "X": {
+        "item": "arx:tin_billet"
       }
     },
     "result": {

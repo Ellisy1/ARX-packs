@@ -72,7 +72,7 @@
 
       "minecraft:parrot_tame": {
         "minecraft:type_family": {
-          "family": [ "parrot_tame", "mob" ]
+          "family": [ "parrot_tame", "mob", "player_rideable" ]
         },
         "minecraft:is_tamed": {
         },

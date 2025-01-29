@@ -1,0 +1,30 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:crystal_of_return"
+    },
+
+    
+    "tags": [ "rune_crafting_table" ],
+    "pattern": [
+      "C A",
+      " B ",
+      "A C"
+    ],
+    "key": {
+      "B": {
+        "item": "minecraft:diamond"
+      },
+      "A": {
+        "item": "arx:durasteel_billet"
+      },
+      "C": {
+        "item": "arx:xp_shard"
+      }
+    },
+    "result": {
+      "item": "arx:crystal_of_return"
+    }
+  }
+}

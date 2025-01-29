@@ -45,6 +45,9 @@
     tag @a remove is_riding
     event entity @a arx:test_is_riding 
 
+    tag @a remove has_riders
+    event entity @a arx:test_has_riders 
+
 
 # Код для специального анимирования от предметов, на которых можно сидеть
     # Пуфик поджопник
@@ -148,4 +151,7 @@
     # Темнеем камеру, если нокнуты
         execute as @a[scores={respawn_delay=7..}] run camera @s fade time 0.1 2 0 color 20 3 3
     # Выход из состояния нокаута
-        execute as @a[scores={respawn_delay=0}, has_property={arx:is_knocked=1..}, tag=is_moving] run event entity @s arx:property_is_knockout_set_0
+        execute as @a[scores={respawn_delay=0}, has_property={arx:is_knocked=1..}, tag=is_moving, tag=!is_riding] run event entity @s arx:property_is_knockout_set_0
+
+        # Сбрасываем игрока, если тащим его, присев и разблокируем ему управление если это нужно
+            execute as @a[tag=is_riding, has_property={arx:is_knocked=1..}] at @s if entity @p[r=1.2, has_property={arx:is_knocked=0}, tag=is_sneaking] run ride @s stop_riding

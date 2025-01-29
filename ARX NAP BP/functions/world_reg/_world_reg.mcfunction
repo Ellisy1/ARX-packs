@@ -627,3 +627,4 @@ tellraw @s { "rawtext": [ { "text": "§aПеременные успешно за
     scoreboard objectives add respawn_delay dummy Откат_респ
     scoreboard objectives add respawn_delay_history dummy Откат_респ_история
     scoreboard objectives add revive_delay dummy Поднятие_нокнутого
+    scoreboard objectives add knockout_row_sounter dummy Счетчик_последовательности_ноков

@@ -246,36 +246,39 @@
         "days_until_insomnia": 3
       },
       "minecraft:rideable": {
-        "seat_count": 2,
+        "seat_count": 1,
         "family_types": [
-          "parrot_tame"
+          "player_rideable",
+          "player"
         ],
-        "pull_in_entities": true,
+        "pull_in_entities": false,
         "seats": [
           {
             "position": [
-              0.4,
-              -0.2,
-              -0.1
-            ],
-            "min_rider_count": 0,
-            "max_rider_count": 0,
-            "lock_rider_rotation": 0
-          },
-          {
-            "position": [
-              -0.4,
-              -0.2,
-              -0.1
+              -0.3,
+              -1.0,
+              0.0
             ],
             "min_rider_count": 1,
-            "max_rider_count": 2,
-            "lock_rider_rotation": 0
+            "max_rider_count": 1,
+            "lock_rider_rotation": 50
           }
         ]
       },
+
+      "minecraft:interact": {
+				"interactions": [
+					{
+						"on_interact": {
+							"event": "on_interact"
+						}
+					}
+				]
+			},
+      
       "minecraft:conditional_bandwidth_optimization": {},
       "minecraft:block_climber": {},
+
       //Компонент damage_sensor проходит по очереди по каждому триггеру. Может активироваться только один эвент
       "minecraft:damage_sensor": {
         "triggers": [
@@ -326,8 +329,8 @@
       "arx:on_death": {
         "run_command": {
           "command": [
-            "summon arx:grave ~ ~1.5 ~",
-            "function knockout"
+            "summon arx:grave ^ ^ ^",
+            "function knockout_system/on_knockout"
           ]
         }
       },
@@ -1012,6 +1015,22 @@
           }
         ]
       },
+      "arx:test_has_riders": {
+        "sequence": [
+          {
+            "filters": {
+              "test": "rider_count",
+              "operator": "not",
+              "value": 0
+            },
+            "run_command": {
+              "command": [
+                "tag @s add has_riders"
+              ]
+            }
+          }
+        ]
+      },
       // PROPERTIES
 
       // bust size
@@ -1084,6 +1103,20 @@
             }
           }
         ]
+      },
+
+      "on_interact": {
+        "run_command": {
+          "command": [
+            // Поднимаем нокнутого игрока
+            "execute as @s[has_property={arx:is_knocked=1..}] run ride @s start_riding @p[r=1.5, has_property={arx:is_knocked=0}, tag=!has_riders] teleport_rider",
+            "execute as @s[has_property={arx:is_knocked=1..}] at @s run playanimation @p[r=1.5, has_property={arx:is_knocked=0}, tag=!has_riders] animation.player.pick_up_knocked_player",
+            // Поднимаем нормального игрока
+            "execute as @s[has_property={arx:is_knocked=0}, tag=!has_riders, tag=is_sneaking, rxm=80, tag=!is_moving] at @s if entity @p[r=1.5, rm=0.001, has_property={arx:is_knocked=0}, tag=!has_riders] run ride @s start_riding @p[r=1.5, rm=0.001, has_property={arx:is_knocked=0}, tag=!has_riders] teleport_rider",
+            "execute as @s[has_property={arx:is_knocked=0}, tag=!has_riders, tag=is_sneaking, rxm=80, tag=!is_moving] at @s if entity @p[r=1.5, rm=0.001, has_property={arx:is_knocked=0}, tag=!has_riders] run playanimation @p[r=1.5, rm=0.001, has_property={arx:is_knocked=0}, tag=!has_riders] animation.player.pick_up_knocked_player",
+            "execute as @s[has_property={arx:is_knocked=0}, tag=!has_riders, tag=is_sneaking, rxm=80, tag=!is_moving] at @s if entity @p[r=1.5, rm=0.001, has_property={arx:is_knocked=0}, tag=!has_riders] run event entity @s arx:property_is_knockout_set_true"
+          ]
+        }
       }
     }
   }

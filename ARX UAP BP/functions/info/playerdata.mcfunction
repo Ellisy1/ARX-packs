@@ -101,8 +101,8 @@ tellraw @s { "rawtext": [{ "text": "§6=====§aОТРАВЛЕНИЕ§6=====" } ]
 
     tellraw @s[tag=show_crystals] { "rawtext": [{ "text": "§6=====§aКРИСТАЛЛЫ§6=====" } ] } 
     tellraw @s[tag=show_crystals, scores={crys_dur=1}] { "rawtext": [{ "text": "§eАктивен кристалл стойкости" } ] } 
-    tellraw @s[tag=show_crystals, scores={crys_mob_calm=1}] { "rawtext": [{ "text": "§cАктивен кристалл умиротворения" } ] } 
-    tellraw @s[tag=show_crystals, scores={crys_return=1}] { "rawtext": [{ "text": "§dАктивен кристалл возврата" } ] } 
+    tellraw @s[tag=show_crystals, scores={crys_mob_calm=1}] { "rawtext": [{ "text": "§cАктивен кристалл щита" } ] } 
+    tellraw @s[tag=show_crystals, scores={crys_return=1}] { "rawtext": [{ "text": "§dАктивен кристалл второй жизни" } ] } 
     tellraw @s[tag=show_crystals, scores={crys_sw_respawn=1}] { "rawtext": [{ "text": "§aАктивен кристалл быстрого возрождения" } ] } 
 
     tag @s remove show_crystals

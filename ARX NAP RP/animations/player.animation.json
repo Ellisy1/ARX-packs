@@ -189,11 +189,11 @@
 		"animation.player.move.arms": {
 			"loop": true,
 			"bones": {
-				"leftarm": {
+				"leftArm": {
 					"rotation": ["variable.tcos0", 0, 0]
 				},
-				"rightarm": {
-					"rotation": ["-variable.tcos0", 0, 0]
+				"rightArm": {
+					"rotation": ["query.has_rider ? -variable.tcos0 * 0.5 : -variable.tcos0", 0, 0]
 				}
 			}
 		},
@@ -691,7 +691,7 @@
 			"bones": {
 				"root": {
 					"rotation": [-90, 0, 0],
-					"position": [0, 1.7, -10]
+					"position": [0, 1.7, -16]
 				},
 				"head": {
 					"rotation": [-15.80185, 34.76135, 21.17901]
@@ -709,6 +709,92 @@
 				},
 				"rightLeg": {
 					"rotation": [7.58816, 53.25457, 34.29693]
+				}
+			}
+		},
+		"animation.player.carried_by_someone_static": {
+			"loop": true,
+			"bones": {
+				"root": {
+					"rotation": [-145, 0, 180],
+					"position": [0, 13, -8]
+				},
+				"waist": {
+					"position": [0, -1.3, 0.8]
+				},
+				"body": {
+					"rotation": [110, 0, 0],
+					"position": [0, -13.8, -12]
+				},
+				"head": {
+					"rotation": [37.5, 0, 0]
+				},
+				"leftArm": {
+					"rotation": [-145, 0, 0]
+				},
+				"rightArm": {
+					"rotation": [-145, 0, 0]
+				},
+				"rightLeg": {
+					"rotation": [-7.5, 0, 5]
+				}
+			}
+		},
+		"animation.player.carried_by_someone_moving": {
+			"loop": true,
+			"bones": {
+				"root": {
+					"rotation": [0, 0, "math.sin(q.anim_time * 600) * 5"],
+					"position": ["math.sin(q.anim_time * 600) * -1", "math.sin(q.anim_time * 600) * 0.5 ", 0]
+				},
+				"body": {
+					"rotation": [-5, 0, 0],
+					"position": [0, 0, 1]
+				},
+				"head": {
+					"rotation": [-20, 0, "-math.sin(q.anim_time * 600) * 5 "]
+				},
+				"leftArm": {
+					"rotation": [-20, 0, "-math.sin(q.anim_time * 600) * 5 "]
+				},
+				"rightArm": {
+					"rotation": [-20, 0, "-math.sin(q.anim_time * 600) * 5 "]
+				}
+			}
+		},
+		"animation.player.pick_up_knocked_player": {
+			"animation_length": 0.3333,
+			"bones": {
+				"root": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.1667": [-5, 0, 0],
+						"0.25": [0, 0, 0]
+					}
+				},
+				"waist": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.125": [52.5, 0, 0],
+						"0.1667": [52.5, 0, 0],
+						"0.25": [0, 0, 0]
+					}
+				},
+				"leftArm": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.125": [-80, 0, 0],
+						"0.1667": [-80, 0, 0],
+						"0.25": [0, 0, 0]
+					}
+				},
+				"rightArm": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.125": [-80, 0, 0],
+						"0.1667": [-80, 0, 0],
+						"0.25": [0, 0, 0]
+					}
 				}
 			}
 		}

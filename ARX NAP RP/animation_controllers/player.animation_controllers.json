@@ -526,23 +526,56 @@
 					"blend_transition": 0.1
 				},
 
+
+
+
 				"knockout_tracer": { // Настраиваем анимацию нокаута
 					"animations": [
 						"none"
 					],
 					"transitions": [
+						{"carried_by_someone_static": "query.property('arx:is_knocked') > 0 && q.is_riding"},
 						{"knockout_var_a": "query.property('arx:is_knocked') == 1"},
-						{"knockout_var_b": "query.property('arx:is_knocked') == 2"}
+						{"knockout_var_b": "query.property('arx:is_knocked') == 2"},
+						{"third_person": "query.property('arx:is_knocked') == 0"}
 					],
 					"blend_transition": 0.1
 				},
-				"knockout_var_a": {
+
+				"carried_by_someone_static": { // Если нас взяли и мы is_riding (СТАТИЧНАЯ)
+					"animations": [
+						"bob",
+						"carried_by_someone_static"
+					],
+					"transitions": [
+						{"carried_by_someone_moving": "query.is_moving"},
+						{"third_person": "query.property('arx:is_knocked') == 0"},
+						{"knockout_tracer": "!q.is_riding"}
+					],
+					"blend_transition": 0.3
+				},
+				"carried_by_someone_moving": { // Если нас взяли и мы is_riding (ДИВЖУЮЩАЯСЯ)
+					"animations": [
+						"bob",
+						"carried_by_someone_static",
+						"carried_by_someone_moving"
+					],
+					"transitions": [
+						{"carried_by_someone_static": "!query.is_moving && variable.is_not_moving_tick_counter > 120"},
+						{"third_person": "query.property('arx:is_knocked') == 0"},
+						{"knockout_tracer": "!q.is_riding"}
+					],
+					"blend_transition": 0.3
+				},
+
+				"knockout_var_a": { // Далее разные анимации перенесения игрока (рандомно определяющиеся)
 					"animations": [
 						"bob",
 						"knockout_basic",
 						"knockout_var_a"
 					],
 					"transitions": [
+						{"knockout_tracer": "q.is_riding"},
 						{"third_person": "query.property('arx:is_knocked') == 0"}
 					],
 					"blend_transition": 0.1
@@ -554,6 +587,7 @@
 						"knockout_var_b"
 					],
 					"transitions": [
+						{"knockout_tracer": "q.is_riding"},
 						{"third_person": "query.property('arx:is_knocked') == 0"}
 					],
 					"blend_transition": 0.1

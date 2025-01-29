@@ -8,6 +8,9 @@
     "components": {
       "minecraft:icon": {
         "texture": "arx:nagnium"
+      },
+      "minecraft:display_name": {
+        "value": "§r§fНагниум §e[Легендарное]\n§7§oИзмельчённый в ступке нагинит"
       }
     }
   }

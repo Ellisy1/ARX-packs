@@ -306,9 +306,9 @@
 
 
 # Запуск анимации
-    playanimation @s[tag=!no_animate_killing_time, scores={custom_random=0..333}] animation.killing_time.a a 0.1 query.is_moving 
-    playanimation @s[tag=!no_animate_killing_time, scores={custom_random=333..666}] animation.killing_time.b a 0.1 query.is_moving 
-    playanimation @s[tag=!no_animate_killing_time, scores={custom_random=666..1000}] animation.killing_time.c a 0.1 query.is_moving 
+    playanimation @s[tag=!no_animate_killing_time, scores={custom_random=0..333}] animation.killing_time.a a 0.1 "query.is_moving || q.property('arx:is_knocked') > 0"
+    playanimation @s[tag=!no_animate_killing_time, scores={custom_random=333..666}] animation.killing_time.b a 0.1 "query.is_moving || q.property('arx:is_knocked') > 0"
+    playanimation @s[tag=!no_animate_killing_time, scores={custom_random=666..1000}] animation.killing_time.c a 0.1 "query.is_moving || q.property('arx:is_knocked') > 0"
 
 # Чистка тегов
     tag @s remove no_animate_killing_time

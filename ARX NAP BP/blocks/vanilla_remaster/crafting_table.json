@@ -80,7 +80,7 @@
 				"crafting_tags": [
 					"crafting_table"
 				],
-				"table_name": "Деревянный верстак"
+				"table_name": "Простой верстак"
 			},
 			"minecraft:on_player_placing": {
 				"event": "set_facing_direction"
