@@ -1,21 +1,24 @@
-#Это функция, запускающаяся каждый такт, использующая новый синтаксис execute [NAP]
+# Это функция, запускающаяся каждый такт, использующая новый синтаксис execute [NAP]
 
-#Могила
-    #Выдаём тег, если рядом с коробом есть неподнятый им лут
+# Могила (выпадает из игрока при его ноке и подсасывает лут)
+    # Выдаём тег могиле, если рядом с коробом есть неподнятый им лут
         tag @e[type=arx:grave, tag=grave_cd_expired] remove some_items_not_hopped
         execute at @e[type=arx:grave, tag=grave_cd_expired, tag=!some_items_not_hopped, tag=!stop_hopping] at @e[type=item, r=3] run tag @e[type=arx:grave, tag=grave_cd_expired] add some_items_not_hopped
-    #Запускаем эвент arx:remove_item_hopper (теперь могила не притягивает предметы) 
+    
+    # Запускаем эвент arx:remove_item_hopper (теперь могила не притягивает предметы) 
         event entity @e[type=arx:grave, tag=grave_cd_expired, tag=!some_items_not_hopped] arx:remove_item_hopper
         tag @e[type=arx:grave, tag=grave_cd_expired, tag=!some_items_not_hopped] add stop_hopping
         tag @e[type=arx:grave, tag=grave_cd_expired, tag=stop_hopping] remove some_items_not_hopped
-    #Телепортируем все предметы на короб, если они ещё не закончились
+
+    # Телепортируем все предметы на короб, если они ещё не закончились
         execute at @e[type=arx:grave, tag=!grave_cd_expired] run tp @e[type=item, r=3] ~ ~0.5 ~
         execute at @e[type=arx:grave, tag=some_items_not_hopped] run tp @e[type=item, r=3] ~ ~0.5 ~
-    #Киляем гроб, если он пустой
+
+    # Киляем гроб, если он пустой
         event entity @e[type=arx:grave, tag=grave_cd_expired] arx:test_is_empty
 
 
-# Анализируем, сколько игроков с verify = 2
+# Проверяем количество игроков с scores={verify=2} (Не может располагаться в другой области движка, так как на @a[scores={verify=2}] базируется запуск всех остальных областей движка)
     scoreboard players set @a debug_verify 0
     execute as @a[scores={verify=2}] run scoreboard players add @a debug_verify 1
     execute as @r[scores={verify=2, debug_verify=2..}] run w @a[scores={verify=2}] §4Обнаржуена §cкритическая §4ошибка системы core>>>scores>>>too_many_players_with_verification_2
@@ -135,9 +138,14 @@
 # Деспавним всех приговоренных алой ночью / обычной ночью
     execute if entity @a[scores={is_day=0}] run event entity @e[tag=force_to_despawn] arx:despawn_forced
 
-#Комната попущения
-    spawnpoint @a 10000 -36 10000
+# Комментарии при взятии книжки инфо
+    execute if entity @a[m=!spectator, hasitem={item=arx:united_player_data, location=slot.weapon.mainhand}] run function core_parts_NAP/display_united_player_data
 
-    tag @a remove at_respawn_room
-    tag @e[x=9990, y=-43, z=9990, dx=20, dy=20, dz=20] add at_respawn_room
-    tp @e[tag=at_respawn_room, type=!armor_stand, type=!player, type=!arx:adona_spawn, type=!arx:rat_monstr_spawn] -10000 -100 -10000
+# Анализ маны
+    function core_parts_NAP/mana
+
+# Нокаут
+    # Темнеем камеру, если нокнуты
+        execute as @a[scores={respawn_delay=7..}] run camera @s fade time 0.1 2 0 color 20 3 3
+    # Выход из состояния нокаута
+        execute as @a[scores={respawn_delay=0}, has_property={arx:is_knocked=1..}, tag=is_moving] run event entity @s arx:property_is_knockout_set_0

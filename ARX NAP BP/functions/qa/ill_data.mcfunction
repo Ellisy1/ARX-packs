@@ -1,0 +1,12 @@
+tellraw @s { "rawtext": [ { "text": "ill_cancer" }, { "score": {"name": "@s", "objective": "ill_cancer" } } ] }
+tellraw @s { "rawtext": [ { "text": "ill_mild_cold" }, { "score": {"name": "@s", "objective": "ill_mild_cold" } } ] }
+tellraw @s { "rawtext": [ { "text": "ill_severe_cold" }, { "score": {"name": "@s", "objective": "ill_severe_cold" } } ] }
+tellraw @s { "rawtext": [ { "text": "ill_pneumonia" }, { "score": {"name": "@s", "objective": "ill_pneumonia" } } ] }
+tellraw @s { "rawtext": [ { "text": "ill_broken_leg" }, { "score": {"name": "@s", "objective": "ill_broken_leg" } } ] }
+tellraw @s { "rawtext": [ { "text": "ill_broken_arm" }, { "score": {"name": "@s", "objective": "ill_broken_arm" } } ] }
+tellraw @s { "rawtext": [ { "text": "ill_flu" }, { "score": {"name": "@s", "objective": "ill_flu" } } ] }
+tellraw @s { "rawtext": [ { "text": "ill_helminth" }, { "score": {"name": "@s", "objective": "ill_helminth" } } ] }
+tellraw @s { "rawtext": [ { "text": "ill_appendicitis" }, { "score": {"name": "@s", "objective": "ill_appendicitis" } } ] }
+tellraw @s { "rawtext": [ { "text": "ill_anal_fissure" }, { "score": {"name": "@s", "objective": "ill_anal_fissure" } } ] }
+tellraw @s { "rawtext": [ { "text": "ill_r_head" }, { "score": {"name": "@s", "objective": "ill_r_head" } } ] }
+tellraw @s { "rawtext": [ { "text": "ill_r_stomach" }, { "score": {"name": "@s", "objective": "ill_r_stomach" } } ] }

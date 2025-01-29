@@ -299,6 +299,8 @@
 
     tag @s[hasitem={item=arx:pose_tuning, location=slot.weapon.mainhand}] add no_animate_killing_time
 
+    tag @s[has_property={arx:is_knocked=1..}] add no_animate_killing_time
+
 # Нельзя анимировать если мы лежим/сидим
     tag @s[tag=is_riding] add no_animate_killing_time
 

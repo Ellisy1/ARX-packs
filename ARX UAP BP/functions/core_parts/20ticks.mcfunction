@@ -50,27 +50,29 @@
     tellraw @a[scores={drugs_delay=1}] { "rawtext": [ { "text": "§4Вы погибли по РП от невыносимой ломки" } ] }
     kill @a[scores={drugs_delay=1}]
 
-#Болезни
-    #чих и кашель
-        #Случайный чих
-            execute @a[m=!spectator, tag=!at_respawn_room, scores={class=0, custom_random=100, custom_random_b=0..250}] ~ ~ ~ function actions/sneeze
+# Болезни
+    # Чих + кашель
+        # Случайный чих
+            execute @a[m=!spectator, scores={class=0, respawn_delay=0, custom_random=100, custom_random_b=0..250}] ~ ~ ~ function actions/sneeze
 
-        #Болезнь
-            execute @a[m=!spectator, tag=!at_respawn_room, scores={class=0, sneeze_prob=1, custom_random=100..105}] ~ ~ ~ function actions/sneeze
-            execute @a[m=!spectator, tag=!at_respawn_room, scores={class=0, sneeze_prob=2, custom_random=100..110}] ~ ~ ~ function actions/sneeze
-            execute @a[m=!spectator, tag=!at_respawn_room, scores={class=0, sneeze_prob=3, custom_random=100..115}] ~ ~ ~ function actions/sneeze
-            execute @a[m=!spectator, tag=!at_respawn_room, scores={class=0, sneeze_prob=4, custom_random=100..120}] ~ ~ ~ function actions/sneeze
-            execute @a[m=!spectator, tag=!at_respawn_room, scores={class=0, sneeze_prob=5.., custom_random=100..130}] ~ ~ ~ function actions/sneeze
-            scoreboard players set @a sneeze_prob 0
+        # Болезнь
+            # Чих
+                execute @a[m=!spectator, scores={class=0, respawn_delay=0, sneeze_prob=1, custom_random=100..105}] ~ ~ ~ function actions/sneeze
+                execute @a[m=!spectator, scores={class=0, respawn_delay=0, sneeze_prob=2, custom_random=100..110}] ~ ~ ~ function actions/sneeze
+                execute @a[m=!spectator, scores={class=0, respawn_delay=0, sneeze_prob=3, custom_random=100..115}] ~ ~ ~ function actions/sneeze
+                execute @a[m=!spectator, scores={class=0, respawn_delay=0, sneeze_prob=4, custom_random=100..120}] ~ ~ ~ function actions/sneeze
+                execute @a[m=!spectator, scores={class=0, respawn_delay=0, sneeze_prob=5.., custom_random=100..130}] ~ ~ ~ function actions/sneeze
+                scoreboard players set @a sneeze_prob 0
 
-            execute @a[m=!spectator, tag=!at_respawn_room, scores={class=0, cough_prob=1, custom_random=400..405}] ~ ~ ~ function actions/cough
-            execute @a[m=!spectator, tag=!at_respawn_room, scores={class=0, cough_prob=2, custom_random=400..410}] ~ ~ ~ function actions/cough
-            execute @a[m=!spectator, tag=!at_respawn_room, scores={class=0, cough_prob=3, custom_random=400..415}] ~ ~ ~ function actions/cough
-            execute @a[m=!spectator, tag=!at_respawn_room, scores={class=0, cough_prob=4, custom_random=400..420}] ~ ~ ~ function actions/cough
-            execute @a[m=!spectator, tag=!at_respawn_room, scores={class=0, cough_prob=5.., custom_random=400..430}] ~ ~ ~ function actions/cough
-            scoreboard players set @a cough_prob 0
+            # Кашель
+                execute @a[m=!spectator, scores={class=0, respawn_delay=0, cough_prob=1, custom_random=400..405}] ~ ~ ~ function actions/cough
+                execute @a[m=!spectator, scores={class=0, respawn_delay=0, cough_prob=2, custom_random=400..410}] ~ ~ ~ function actions/cough
+                execute @a[m=!spectator, scores={class=0, respawn_delay=0, cough_prob=3, custom_random=400..415}] ~ ~ ~ function actions/cough
+                execute @a[m=!spectator, scores={class=0, respawn_delay=0, cough_prob=4, custom_random=400..420}] ~ ~ ~ function actions/cough
+                execute @a[m=!spectator, scores={class=0, respawn_delay=0, cough_prob=5.., custom_random=400..430}] ~ ~ ~ function actions/cough
+                scoreboard players set @a cough_prob 0
 
-    #рак
+    # Рак
         #эффекты
             execute @a[tag=!at_respawn_room, scores={ill_cancer=1..1200}] ~ ~ ~ damage @s 1 suicide
             execute @a[scores={ill_cancer=1..1200}] ~ ~ ~ scoreboard players add @s stress 1000
@@ -271,75 +273,6 @@
     #Вычитание поинтов зелья блока тяжёлой фазы
         execute @a[scores={no_hard_ill=1..}] ~ ~ ~ scoreboard players add @s no_hard_ill -1
 
-#Отравление
-    #Вычисление эффективности снятия отравления
-        scoreboard players set @a pois_dec 1
-        scoreboard players add @a[scores={poit_pois_dec_a=1..}] pois_dec 1
-        scoreboard players add @a[scores={poit_pois_dec_b=1..}] pois_dec 2
-        scoreboard players add @a[scores={poit_pois_dec_c=1..}] pois_dec 4
-        scoreboard players add @a[scores={poit_pois_dec_d=1..}] pois_dec 8
-        scoreboard players add @a[hasitem={item=arx:ring_caryite_aquamarine, location=slot.armor.feet}] pois_dec 1
-        scoreboard players add @a[hasitem={item=arx:ring_malafiotironite_aquamarine, location=slot.armor.feet}] pois_dec 3
-        scoreboard players add @a[hasitem={item=arx:ring_lamenite_aquamarine, location=slot.armor.feet}] pois_dec 5
-        scoreboard players add @a[hasitem={item=arx:ring_of_immortal_eagle, location=slot.armor.feet}] pois_dec 5
-
-        scoreboard players add @a[scores={trailblazer_skill=1..2}] pois_dec 1
-        scoreboard players add @a[scores={trailblazer_skill=3..4}] pois_dec 2
-        scoreboard players add @a[scores={trailblazer_skill=5..6}] pois_dec 3
-
-    #Вычитание отравления
-        execute @a[scores={poisoning=1..}] ~ ~ ~ scoreboard players operation @s poisoning -= @s pois_dec
-
-    #Определяем уровень отравления
-        execute @a[scores={poisoning=0}] ~ ~ ~ scoreboard players set @s pois_cond 0
-        execute @a[scores={poisoning=260..1000}] ~ ~ ~ scoreboard players set @s pois_cond 1
-        execute @a[scores={poisoning=1000..2000}] ~ ~ ~ scoreboard players set @s pois_cond 2
-        execute @a[scores={poisoning=2000..3000}] ~ ~ ~ scoreboard players set @s pois_cond 3
-        execute @a[scores={poisoning=3000..}] ~ ~ ~ scoreboard players set @s pois_cond 4
-
-    #Определяем дельту состояния отравления
-        execute @a ~ ~ ~ scoreboard players operation @s pois_cond_delta = @s pois_cond
-        execute @a ~ ~ ~ scoreboard players operation @s pois_cond_delta -= @s pois_cond_log
-
-    #Выводим сообщения
-        execute @a[scores={pois_cond_delta=1.., pois_cond=1}] ~ ~ ~ tellraw @s { "rawtext": [  { "text": "Мне стало хуже §4(1 ур. отравления)" } ] } 
-        execute @a[scores={pois_cond_delta=1.., pois_cond=2}] ~ ~ ~ tellraw @s { "rawtext": [  { "text": "Мне стало хуже §4(2 ур. отравления)" } ] } 
-        execute @a[scores={pois_cond_delta=1.., pois_cond=3}] ~ ~ ~ tellraw @s { "rawtext": [  { "text": "Мне стало хуже §4(3 ур. отравления)" } ] } 
-        execute @a[scores={pois_cond_delta=1.., pois_cond=4}] ~ ~ ~ tellraw @s { "rawtext": [  { "text": "Мне стало хуже §4(4 ур. отравления)" } ] } 
-        execute @a[scores={pois_cond_delta=..-1, pois_cond=0}] ~ ~ ~ tellraw @s { "rawtext": [  { "text": "Мне стало лучше §a(Отравление прошло)" } ] } 
-        execute @a[scores={pois_cond_delta=..-1, pois_cond=1}] ~ ~ ~ tellraw @s { "rawtext": [  { "text": "Мне стало лучше §a(1 ур. отравления)" } ] } 
-        execute @a[scores={pois_cond_delta=..-1, pois_cond=2}] ~ ~ ~ tellraw @s { "rawtext": [  { "text": "Мне стало лучше §a(2 ур. отравления)" } ] } 
-        execute @a[scores={pois_cond_delta=..-1, pois_cond=3}] ~ ~ ~ tellraw @s { "rawtext": [  { "text": "Мне стало лучше §a(3 ур. отравления)" } ] } 
-
-    #Воздействие на стресс
-        execute @a[scores={pois_cond=1.., c_persistent=0}] ~ ~ ~ scoreboard players add @s stress 1
-        execute @a[scores={pois_cond=2.., c_persistent=0}] ~ ~ ~ scoreboard players add @s stress 2
-        execute @a[scores={pois_cond=3.., c_persistent=0}] ~ ~ ~ scoreboard players add @s stress 4
-        execute @a[scores={pois_cond=4, c_persistent=0}] ~ ~ ~ scoreboard players add @s stress 8
-    #Непосредственные дебаффы
-        #Отравление 2 ур
-            effect @a[scores={pois_cond=2, custom_random=0..50}] nausea 20 0
-
-        #Отравление 3 ур
-            effect @a[scores={pois_cond=3, custom_random=1..50}] darkness 20 0
-            effect @a[scores={pois_cond=3, custom_random=51..100}] fatal_poison 10 0
-            effect @a[scores={pois_cond=3..4}] nausea 20 0
-            #Отравление 3.. ур блокирует регенерацию (см. Авторегенерация хп)
-            #scoreboard players set @a[scores={pois_cond=3..4}] regen_mp 0
-
-        #Отравление 4 ур
-            effect @a[scores={pois_cond=4}] blindness 20 0
-            effect @a[scores={pois_cond=4}] fatal_poison 5 0
-
-    #Обновляем перменную-историю уровня отравления
-        execute @a ~ ~ ~ scoreboard players operation @s pois_cond_log = @s pois_cond
-
-    #Вычитание поинта блокировки отравления (ванильного, но надо проверить)
-        execute @e[scores={pois_block=1..}] ~ ~ ~ scoreboard players add @e[r=0.0001] pois_block -1
-
-    # Дебаг
-        scoreboard players set @a[scores={poisoning=..-1}] poisoning 0
-
 #Невидимость 
     scoreboard players add @a[scores={invisible=1..}] invisible -1
     effect @a[scores={invisible=1..}] invisibility 2 0 true
@@ -511,34 +444,8 @@
         effect @a[scores={verify=0}] slowness 1 255 true
         effect @a[scores={verify=0}] invisibility 2 0 true
         effect @a[scores={verify=0}] blindness 2 0 true
-        title @a[scores={verify=0}] subtitle §a§lверификации
-        title @a[scores={verify=0}] title §a§lДождитесь
-        camera @a[scores={verify=0}] fade time 0 2 0 color 0 0 0 
-
-#Комната попущения
-    #Если выдан тег knock - отключен автореспавн
-        execute @a[tag=knock, scores={respawn_delay=1..}] ~ ~ ~ function core_parts/timeless_knockout
-
-    #Титлы экшнбары
-        title @a[scores={respawn_delay=1..}] actionbar §aВы скоро возродитесь!
-        title @a[scores={respawn_delay=-1}] actionbar §cОжидайте, пока вас решат возродить!
-
-    # Основной анализ
-        #Дебаг
-            tellraw @a[tag=!at_respawn_room, scores={respawn_delay=1..}] { "rawtext": [ { "text": "§6Вас телепортировали из комнаты до естественного отката." } ] }
-            scoreboard players set @a[tag=!at_respawn_room] respawn_delay 0
-            
-        #Телепортация при respawn_delay=1
-            clear @a[scores={respawn_delay=1}] arx:respawn_time_checker
-            execute @a[scores={respawn_delay=1}] ~ ~ ~ function tp/1_spawn
-
-        # Вычитание
-            scoreboard players add @a[scores={respawn_delay=1..}] respawn_delay -1
-
-    #Эффекты в комнате
-        effect @a[tag=at_respawn_room] saturation 1 0 true
-        effect @a[tag=at_respawn_room] regeneration 1 255 true
-        effect @a[tag=at_respawn_room] weakness 1 255 true
+        title @a[scores={verify=0}] actionbar §a§lДождитесь верификации...
+        camera @a[scores={verify=0}] fade time 0 2 0 color 40 50 40 
 
 #Анализ биомов
     tag @a remove BIOME_birch

@@ -113,7 +113,13 @@
         "shield_block_main_hand": "animation.player.shield_block_main_hand",
         "shield_block_off_hand": "animation.player.shield_block_off_hand",
         "blink": "controller.animation.persona.blink",
-        "statue_of_liberty": "animation.player.move.arms.statue_of_liberty"
+        "statue_of_liberty": "animation.player.move.arms.statue_of_liberty",
+
+        "knockout_basic": "animation.player.knockout_basic",
+        "knockout_var_a": "animation.player.knockout_var_a",
+        "knockout_var_b": "animation.player.knockout_var_b",
+
+        "none": "animation.none"
       },
       "render_controllers": [
         { "controller.render.player.first_person_spectator": "variable.is_first_person && query.is_spectator" },

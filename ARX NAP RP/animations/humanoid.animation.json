@@ -24,6 +24,9 @@
 			"bones": {
 				"waist": {
 					"rotation": [0, 0, 0]
+				},
+				"root": {
+					"rotation": [0, 0, 0]
 				}
 			}
 		},

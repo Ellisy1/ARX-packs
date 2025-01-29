@@ -646,6 +646,71 @@
 					"scale": "(query.property('arx:bust_size') != 0) && (query.equipped_item_any_tag('slot.armor.legs', 'is_bust_compressor') == 0)"
 				}
 			}
+		},
+		"animation.player.knockout_basic": {
+			"loop": true,
+			"bones": {
+				"rightItem": {
+					"scale": 0
+				}
+			}
+		},
+		"animation.player.knockout_var_a": {
+			"loop": true,
+			"bones": {
+				"root": {
+					"rotation": [85, 0, 0],
+					"position": [0, 1.7, 16]
+				},
+				"body": {
+					"rotation": [0, 0, 0],
+					"position": [0, 0, -0.9]
+				},
+				"head": {
+					"rotation": [38.38852, -16.41371, -6.15491]
+				},
+				"leftArm": {
+					"rotation": [-112.42149, 55.42658, -48.76479],
+					"position": [0, -1, 0]
+				},
+				"rightArm": {
+					"rotation": [9.47635, -40.65128, 18.0384]
+				},
+				"leftLeg": {
+					"rotation": [-4.58681, -3.21132, -14.65993],
+					"position": [0, 1, -2]
+				},
+				"rightLeg": {
+					"rotation": [5, 0, 5],
+					"position": [0, 0, -0.7]
+				}
+			}
+		},
+		"animation.player.knockout_var_b": {
+			"loop": true,
+			"bones": {
+				"root": {
+					"rotation": [-90, 0, 0],
+					"position": [0, 1.7, -10]
+				},
+				"head": {
+					"rotation": [-15.80185, 34.76135, 21.17901]
+				},
+				"leftArm": {
+					"rotation": [-47.24691, 50.21799, 24.64639],
+					"position": [1, -2, 0]
+				},
+				"rightArm": {
+					"rotation": [-46.77678, -39.95321, -20.48446],
+					"position": [-1, 0, 0]
+				},
+				"leftLeg": {
+					"rotation": [1.63219, -7.32123, -12.60443]
+				},
+				"rightLeg": {
+					"rotation": [7.58816, 53.25457, 34.29693]
+				}
+			}
 		}
 	}
 }

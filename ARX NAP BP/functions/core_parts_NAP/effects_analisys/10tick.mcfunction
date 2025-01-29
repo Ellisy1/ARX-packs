@@ -48,6 +48,8 @@
 
         scoreboard players add @a[scores={dwarf_curse=1}] final_mining 1
 
+        scoreboard players add @a[has_property={arx:is_knocked=1..}] final_mining -1000
+
         #взаимодействие болезней
             scoreboard players add @a[scores={ill_cancer=1..4800}] final_mining -1
             scoreboard players add @a[scores={ill_cancer=1..1200}] final_mining -3

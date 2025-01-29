@@ -1,0 +1,143 @@
+{
+	"format_version": "1.16.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "arx:elemental_snow",
+			"is_spawnable": true,
+			"is_summonable": true
+		},
+		"components": {
+			"minecraft:despawn": {
+				"despawn_from_distance": {}
+			},
+			"minecraft:experience_reward": {
+				"on_death": "query.last_hit_by_player ? 40 : 0"
+			},
+			"minecraft:loot": {
+				"table": "loot_tables/entities/elemental_snow.json"
+			},
+			"minecraft:is_hidden_when_invisible": {},
+			"minecraft:type_family": {
+				"family": [
+					"mob",
+					"dangerous"
+				]
+			},
+			"minecraft:breathable": {
+				"total_supply": 15,
+				"suffocate_time": 0
+			},
+			"minecraft:movement.basic": {},
+			"minecraft:jump.static": {},
+			"minecraft:can_climb": {},
+			"minecraft:collision_box": {
+				"width": 0.7,
+				"height": 0.7
+			},
+			"minecraft:nameable": {},
+			"minecraft:health": {
+				"value": 30
+			},
+			"minecraft:hurt_on_condition": {
+				"damage_conditions": [
+					{
+						"filters": {
+							"test": "in_lava",
+							"subject": "self",
+							"operator": "==",
+							"value": true
+						},
+						"cause": "lava",
+						"damage_per_tick": 4
+					}
+				]
+			},
+			"minecraft:movement": {
+				"value": 0.01
+			},
+			"minecraft:behavior.random_stroll": {
+				"priority": 6,
+				"speed_multiplier": 0.5
+			},
+			"minecraft:balloonable": {},
+			"minecraft:physics": {},
+			"minecraft:pushable": {
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			},
+			"minecraft:conditional_bandwidth_optimization": {},
+			"minecraft:behavior.look_at_entity": {
+				"priority": 7,
+				"look_distance": 16,
+				"look_time": [
+					1,
+					5
+				],
+				"probability": 0.5
+			},
+			"minecraft:behavior.melee_attack": {
+				"priority": 1
+			},
+			"minecraft:attack": {
+				"damage": 10
+			},
+			"minecraft:behavior.nearest_attackable_target": {
+				"priority": 2,
+				"must_see": true,
+				"reselect_targets": true,
+				"within_radius": 15.0,
+				"must_see_forget_duration": 25.0,
+				"entity_types": [
+					{
+						"filters": {
+							"any_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "helpless"
+								},
+								{
+									"all_of": [
+										{
+											"test": "is_family",
+											"subject": "other",
+											"value": "player"
+										},
+										{
+											"test": "is_family",
+											"subject": "other",
+											"operator": "not",
+											"value": "is_knocked"
+										}
+									]
+								}
+							]
+						}
+					}
+				]
+			},
+			"minecraft:can_fly": {},
+			"minecraft:navigation.float": {
+				"can_path_over_water": true
+			},
+			"minecraft:behavior.float_wander": {
+				"priority": 4,
+				"must_reach": true
+			},
+			"minecraft:on_death": {
+				"event": "on_death",
+				"target": "self"
+			}
+		},
+		"events": {
+			"on_death": {
+				"run_command": {
+					"command": [
+						"scoreboard players add @a[r=10] xp_tray 40",
+						"scoreboard players add @a[r=10] count_mob_kills 1"
+					]
+				}
+			}
+		}
+	}
+}

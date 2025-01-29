@@ -174,14 +174,14 @@
 						"execute if score @s mp > @s mp_max run scoreboard players operation @s mp = @s mp_max",
 						// Анализ действий
 						// Атака магией
-						"execute as @s[scores={mp=30.., custom_random=0..300}] if entity @a[r=15] run playsound dissecting_fog @a ~ ~ ~",
-						"execute as @s[scores={mp=30.., custom_random=0..300}] if entity @a[r=15] run tag @s add spell_activated",
-						"execute as @s[scores={mp=30.., custom_random=0..300}] if entity @a[r=15] at @p run particle arx:sempra_a ~ ~2 ~",
-						"execute as @s[scores={mp=30.., custom_random=0..300}] if entity @a[r=15] run damage @p[scores={tick_nosempra_a=0, tick_nosempra_b=0, tick_nosempra_c=0}] 20 entity_attack entity @p",
-						"execute as @s[scores={mp=30.., custom_random=0..300}] if entity @a[r=15] run damage @p[scores={tick_nosempra_a=!0}] 15 entity_attack entity @s",
-						"execute as @s[scores={mp=30.., custom_random=0..300}] if entity @a[r=15] run damage @p[scores={tick_nosempra_b=!0}] 10 entity_attack entity @s",
-						"execute as @s[scores={mp=30.., custom_random=0..300}] if entity @a[r=15] run damage @p[scores={tick_nosempra_c=!0}] 0 entity_attack entity @s",
-						"execute as @s[scores={mp=30.., custom_random=0..300}] if entity @a[r=15] run scoreboard players add @s mp -30",
+						"execute as @s[scores={mp=30.., custom_random=0..300}] if entity @a[r=15, has_property={arx:is_knocked=0}] run playsound dissecting_fog @a ~ ~ ~",
+						"execute as @s[scores={mp=30.., custom_random=0..300}] if entity @a[r=15, has_property={arx:is_knocked=0}] run tag @s add spell_activated",
+						"execute as @s[scores={mp=30.., custom_random=0..300}] if entity @a[r=15, has_property={arx:is_knocked=0}] at @p[has_property={arx:is_knocked=0}] run particle arx:sempra_a ~ ~2 ~",
+						"execute as @s[scores={mp=30.., custom_random=0..300}] if entity @a[r=15, has_property={arx:is_knocked=0}] run damage @p[scores={tick_nosempra_a=0, tick_nosempra_b=0, tick_nosempra_c=0}, has_property={arx:is_knocked=0}] 20 entity_attack entity @p",
+						"execute as @s[scores={mp=30.., custom_random=0..300}] if entity @a[r=15, has_property={arx:is_knocked=0}] run damage @p[scores={tick_nosempra_a=!0}, has_property={arx:is_knocked=0}] 15 entity_attack entity @s",
+						"execute as @s[scores={mp=30.., custom_random=0..300}] if entity @a[r=15, has_property={arx:is_knocked=0}] run damage @p[scores={tick_nosempra_b=!0}, has_property={arx:is_knocked=0}] 10 entity_attack entity @s",
+						"execute as @s[scores={mp=30.., custom_random=0..300}] if entity @a[r=15, has_property={arx:is_knocked=0}] run damage @p[scores={tick_nosempra_c=!0}, has_property={arx:is_knocked=0}] 0 entity_attack entity @s",
+						"execute as @s[scores={mp=30.., custom_random=0..300}] if entity @a[r=15, has_property={arx:is_knocked=0}] run scoreboard players add @s mp -30",
 						// Хил
 						"execute as @s[scores={mp=30.., custom_random=500..700}, tag=low_hp] run effect @s regeneration 10 2",
 						"execute as @s[scores={mp=30.., custom_random=500..700}, tag=low_hp] run tag @s add spell_activated",

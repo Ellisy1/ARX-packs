@@ -244,6 +244,8 @@
 
         scoreboard players add @a[scores={dwarf_curse=1}] final_strength -2
 
+        scoreboard players add @a[has_property={arx:is_knocked=1..}] final_strength -1000
+
         # Слабость при держании ванильных инструментов
             scoreboard players add @a[hasitem={item=minecraft:wooden_axe, location=slot.weapon.mainhand}] final_strength -100
             scoreboard players add @a[hasitem={item=minecraft:stone_axe, location=slot.weapon.mainhand}] final_strength -100

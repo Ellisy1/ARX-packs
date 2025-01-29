@@ -24,9 +24,13 @@
       "on_eat": {
         "run_command": {
           "command": [
-            "scoreboard players add @p poisoning 1500",
-            "scoreboard players add @p mp_const 1",
-            "scoreboard players add @p xp_tray 500",
+            "scoreboard players add @s poisoning 800",
+
+            "w @s[scores={mp_const=..14}] §bВаша магическая сила растет... §a(скорость регенерации маны +1)",
+            "w @s[scores={mp_const=15..}] §cВаша магическая сила слишком мощна, и её уже не увеличить этим зельем",
+
+            "scoreboard players add @s[scores={mp_const=..14}] mp_const 1",
+            "scoreboard players add @s xp_tray 500",
             
             "clear @s arx:hole_bottle_mp_potion_royal_sorrel 0 1",
             "give @s arx:hole_bottle",

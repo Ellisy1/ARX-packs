@@ -69,7 +69,7 @@
         event entity @a arx:test_sneaking
 
 
-#Призрак - механики
+# Призрак - механики
     tag @a remove above_liquid_high
     tag @a remove above_liquid_low
 
@@ -94,10 +94,6 @@
     effect @a[scores={class=1}, tag=above_liquid_high] slow_falling 2 0 true
     effect @a[scores={class=1}, tag=above_liquid_low] levitation 1 0 true
     #Ещё часть в 20ticks
-
-
-#МАНА
-    function core_parts_NAP/mana
 
 #Телепортация мага
     execute @a[tag=!is_dead, scores={teleport_def=20}] ~ ~ ~ tp @p ~-5 ~ ~
@@ -133,7 +129,7 @@
     scoreboard players set @a[scores={speed_skill=2..3}] bow_result 1
     scoreboard players set @a[scores={speed_skill=4..5}] bow_result 2
     scoreboard players set @a[scores={speed_skill=6}] bow_result 3
-    execute @a[hasitem={item=arx:ring_lamenite_diamond, location=slot.armor.feet}] ~ ~ ~ scoreboard players add @p bow_result 1
+    scoreboard players add @a[hasitem={item=arx:ring_lamenite_diamond, location=slot.armor.feet}] bow_result 1
     scoreboard players add @a[scores={bow_spell_a=1..}] bow_result 1
     scoreboard players add @a[scores={bow_spell_b=1..}] bow_result 2
     scoreboard players add @a[scores={bow_spell_c=1..}] bow_result -1
@@ -157,16 +153,7 @@
         execute @a[m=!spectator, hasitem={item=minecraft:trident, location=slot.weapon.mainhand}, scores={bow_tick=2, bow_result=2}] ~ ~ ~ camerashake add @s 0.2 1.00 rotational
 
 
-#ДЕЙСТВИЕ АМУЛЕТОВ
-    execute @a[hasitem={item=arx:amul_antighost, location=slot.armor.legs}] ~ ~ ~ scoreboard players add @a[scores={class=1}, r=10] stress 15
-    execute @a[hasitem={item=arx:amul_antighost, location=slot.armor.legs}] ~ ~ ~ title @a[scores={class=1}, r=10] actionbar §4Вас накрывает ужас
-
-    effect @a[tag=high_bright, hasitem={item=arx:amul_photoresonance, location=slot.armor.legs}] night_vision 11 0 true
-
-    effect @a[hasitem={item=arx:amul_ruby, location=slot.armor.legs}, scores={freezing=!..-1001}] fire_resistance 1 0 true
-
-
-#Движок боёвки
+# Движок боёвки
     title @a[scores={attack_weakness=1, blocking = 0}] actionbar Ĥ 0
     title @a[scores={attack_weakness=2..20, blocking = 0}] actionbar Ĥ 1
     title @a[scores={attack_weakness=21..40, blocking = 0}] actionbar Ĥ 2
@@ -203,29 +190,12 @@
 #Вычитание очков удара
     scoreboard players add @a[scores={on_hurt_delay=1..}] on_hurt_delay -1
 
-#Комментарии при взятии предметов
-    title @a[m=!spectator, rx=-70, hasitem={item=arx:united_player_data, location=slot.weapon.mainhand}] actionbar ↓ §cОбщие данные о персонаже
-    title @a[m=!spectator, rx=-50, rxm=-70, hasitem={item=arx:united_player_data, location=slot.weapon.mainhand}] actionbar ↑↓ §6Навыки
-    title @a[m=!spectator, rx=-30, rxm=-50, hasitem={item=arx:united_player_data, location=slot.weapon.mainhand}] actionbar ↑↓ §eЧерты характера
-    title @a[m=!spectator, rx=-10, rxm=-30, hasitem={item=arx:united_player_data, location=slot.weapon.mainhand}] actionbar ↑↓ §aВкусы
-    title @a[m=!spectator, rx=10, rxm=-10, hasitem={item=arx:united_player_data, location=slot.weapon.mainhand}] actionbar ↑↓ §bПолные характеристики
-    title @a[m=!spectator, rx=30, rxm=10, hasitem={item=arx:united_player_data, location=slot.weapon.mainhand}] actionbar ↑↓ §1Помощь по иконкам
-    title @a[m=!spectator, rx=50, rxm=30, hasitem={item=arx:united_player_data, location=slot.weapon.mainhand}] actionbar ↑↓ §dСтатистика
-    title @a[m=!spectator, rx=70, rxm=50, hasitem={item=arx:united_player_data, location=slot.weapon.mainhand}] actionbar ↑↓ §cДостижения
-    title @a[m=!spectator, rxm=70, hasitem={item=arx:united_player_data, location=slot.weapon.mainhand}] actionbar ↑ §6Авторы и разработчики
-
 #Снятие особых фич брони
     scoreboard players add @a[scores={armor_assas_dmg=1..}] armor_assas_dmg -1
     scoreboard players add @a[scores={armor_conq_dmg=1..}] armor_conq_dmg -1
     scoreboard players add @a[scores={armor_ranger_dmg=1..}] armor_ranger_dmg -1
 
-#Обнаружение ошибок
-    execute @a[tag=self] ~ ~ ~ w @a[scores={verify=2}] §4Обнаружена ошибка у @p core>>tags>>self
-    tag @a remove self
-    execute @a[tag=staffself] ~ ~ ~ w @a[scores={verify=2}] §4Обнаружена ошибка у @p core>>tags>>staffself
-    tag @a remove staffself
-    execute @a[tag=success] ~ ~ ~ w @a[scores={verify=2}] §4Обнаружена ошибка у @p core>>tags>>success 
-    tag @a remove success
+# Обнаружение несуществующих мобов и их деспавн
     tp @e[type=pillager] -10000 -100 -10000
     tp @e[type=villager] -10000 -100 -10000
     tp @e[type=wandering_trader] -10000 -100 -10000
@@ -234,12 +204,6 @@
     tp @e[type=skeleton_horse] -10000 -100 -10000
     tp @e[type=zombie_villager] -10000 -100 -10000
     tp @e[type=spider] -10000 -100 -10000
-
-#Определение взгляда вниз
-    scoreboard players add @a[rxm=89, tag=is_sneaking] dtct_look_down 1
-    scoreboard players set @a[rx=89] dtct_look_down 0
-    scoreboard players set @a[tag=!is_sneaking] dtct_look_down 0
-    execute @a[scores={dtct_look_down=1}] ~ ~ ~ function core_parts/inspect_item
 
 # Партиклы
     execute @a ~ ~ ~ execute @s[m=!spectator, tag=BIOME_forest, y=55, dy=200, scores={custom_random=0..600}] ~ ~ ~ particle arx:forest_ambient_leaf

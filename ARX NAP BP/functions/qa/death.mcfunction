@@ -1,0 +1,72 @@
+# Запускается автоматически при смерти игрока
+
+# Анализируем, какой класс у игрока
+    tag @s[scores={class=0}] add is_not_ghost
+    tag @s[scores={class=1}] add is_ghost
+
+    # Если класс неопределён (ошибка)
+        execute as @s[tag=!is_not_ghost, tag=!is_ghost] run w @a[scores={verify=2}] §4Обнаружена ошибка у @s scripts>>scores>>no_class_detected_on_death
+        execute as @s[tag=!is_not_ghost, tag=!is_ghost] run w @s §4Обнаружена ошибка входных данных. Обратитесь к модератору.
+
+# Если в комнате (else к условию выше)
+    # Логика
+        effect @s clear
+        scoreboard players set @s stress 0
+
+    # Звук 
+        playsound mob.rat_eliminator.spawn @s ~ ~ ~ 
+
+    # Затемнение экрана
+        camera @s fade time 0.8 1 0.8 color 60 20 20
+
+    # Сообщение титлом
+        title @s title §c= Вы погибли =
+
+        tellraw @s { "rawtext": [ { "text": "=====" } ] }
+
+    # Если умер призрак
+        execute as @s[tag=is_ghost, tag=!death_by_disease] run tellraw @s { "rawtext": [ { "text": "§cТак и закончилась эта история. Вы погибли навсегда." } ] }
+        execute as @s[tag=is_ghost, tag=death_by_disease, scores={drugs_delay=1..1200}] run tellraw @s { "rawtext": [ { "text": "§cТак и закончилась эта история. Вы доигрались с наркотиками и погибли навсегда." } ] }
+        execute as @s[tag=is_ghost, tag=death_by_disease, scores={drugs_delay=!1..1200}] run tellraw @s { "rawtext": [ { "text": "§cТак и закончилась эта история. Вы серьёзно заболели и погибли навсегда." } ] }
+        execute as @s[tag=is_ghost] run function completely_wipe_character
+        execute as @s[tag=is_ghost] run scoreboard players set @s respawn_delay -1
+        execute as @s[tag=is_ghost] run tag @s add rp_is_dead
+        execute as @s[tag=is_ghost] run function food/set_zero_tastes
+        execute as @s[tag=is_ghost] run clear @s
+
+    # Если умер не призрак
+        execute as @s[tag=is_not_ghost, tag=!death_by_disease] run tellraw @s { "rawtext": [ { "text": "§6Вы былы убиты и обращены в §4ПРИЗРАКА!§f. Достигнув 7 уровня Аркса, вы сможете снова стать человеком." } ] }
+        execute as @s[tag=is_not_ghost, tag=death_by_disease, scores={drugs_delay=1..1200}] run tellraw @s { "rawtext": [ { "text": "§6Вы погибли во время наркотической ломки и обратились в §4ПРИЗРАКА!§f. Достигнув 7 уровня Аркса, вы сможете снова стать человеком." } ] }
+        execute as @s[tag=is_not_ghost, tag=death_by_disease, scores={drugs_delay=!1..1200}] run tellraw @s { "rawtext": [ { "text": "§6Вы слишком тяжело заболели, умерли и обратились в §4ПРИЗРАКА!§f. Достигнув 7 уровня Аркса, вы сможете снова стать человеком." } ] }
+        execute as @s[tag=is_not_ghost] run tellraw @s { "rawtext": [ { "text": "§aВаш откат респавна обновлён, выставлено 60 секунд." } ] }
+        execute as @s[tag=is_not_ghost] run tellraw @s { "rawtext": [ { "text": "§6Вы будете невидимы 3 минуты с текущего момента. Не забудьте, что вы будете получать урон под солнцем, под дождём и в воде." } ] }
+        execute as @s[tag=is_not_ghost] run effect @s invisibility 180 0 true
+        execute as @s[tag=is_not_ghost] run event entity @s arx:become_ghost
+        execute as @s[tag=is_not_ghost] run scoreboard players set @s xp 0
+        execute as @s[tag=is_not_ghost] run scoreboard players set @s xp_stage 0
+        execute as @s[tag=is_not_ghost] run scoreboard players set @s speed_skill 0
+        execute as @s[tag=is_not_ghost] run scoreboard players set @s magic_skill 0
+        execute as @s[tag=is_not_ghost] run scoreboard players set @s strength_skill 0
+        execute as @s[tag=is_not_ghost] run scoreboard players set @s skill_point 0
+        execute as @s[tag=is_not_ghost] run scoreboard players set @s sk_a_1 0
+        execute as @s[tag=is_not_ghost] run scoreboard players set @s respawn_delay 60
+        execute as @s[tag=is_not_ghost] run scoreboard players set @s stress 0
+        execute as @s[tag=is_not_ghost] run scoreboard players set @s ill_cancer 0
+        execute as @s[tag=is_not_ghost] run scoreboard players set @s ill_mild_cold 0
+        execute as @s[tag=is_not_ghost] run scoreboard players set @s ill_severe_cold 0
+        execute as @s[tag=is_not_ghost] run scoreboard players set @s ill_pneumonia 0
+        execute as @s[tag=is_not_ghost] run scoreboard players set @s ill_broken_leg 0
+        execute as @s[tag=is_not_ghost] run scoreboard players set @s ill_broken_arm 0
+        execute as @s[tag=is_not_ghost] run scoreboard players set @s ill_flu 0
+        execute as @s[tag=is_not_ghost] run scoreboard players set @s ill_helminth 0
+        execute as @s[tag=is_not_ghost] run scoreboard players set @s ill_appendicitis 0
+        execute as @s[tag=is_not_ghost] run scoreboard players set @s ill_anal_fissure 0
+        execute as @s[tag=is_not_ghost] run scoreboard players set @s ill_r_head 0
+        execute as @s[tag=is_not_ghost] run scoreboard players set @s ill_r_stomach 0
+        execute as @s[tag=is_not_ghost] run scoreboard players set @s class 1
+        execute as @s[tag=is_not_ghost] run scoreboard players set @s drugs_delay 0
+
+# Чистим теги
+    tag @s remove is_not_ghost
+    tag @s remove is_ghost
+    tag @s remove death_by_disease

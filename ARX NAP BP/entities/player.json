@@ -7,11 +7,22 @@
       "is_summonable": false,
       "is_experimental": false,
       "properties": {
+        // Размер грузи 
         "arx:bust_size": {
           "type": "int",
           "range": [
             0,
             3
+          ],
+          "default": 0,
+          "client_sync": true
+        },
+        // Нокнут ли игрок
+        "arx:is_knocked": {
+          "type": "int",
+          "range": [
+            0,
+            2
           ],
           "default": 0,
           "client_sync": true
@@ -132,12 +143,11 @@
           ]
         }
       },
-      "arx:become_ghost": {
+      "arx:set_knocked_family_data": {
         "minecraft:type_family": {
           "family": [
             "player",
-            "dangerous",
-            "ghost"
+            "is_knocked"
           ]
         }
       }
@@ -316,7 +326,8 @@
       "arx:on_death": {
         "run_command": {
           "command": [
-            "summon arx:grave ~ ~1.5 ~"
+            "summon arx:grave ~ ~1.5 ~",
+            "function knockout"
           ]
         }
       },
@@ -1002,6 +1013,8 @@
         ]
       },
       // PROPERTIES
+
+      // bust size
       "arx:property_bust_size_set_0": { // No bust (for all men and some women)
         "set_property": {
           "arx:bust_size": 0
@@ -1022,6 +1035,39 @@
           "arx:bust_size": 3
         }
       },
+
+      // Knockout
+      "arx:property_is_knockout_set_0":{ // Выход из нокаута
+        "set_property": {
+          "arx:is_knocked": 0
+        },
+        "queue_command": {
+          "command": [
+            "scoreboard players set @s respawn_delay 0"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "arx:return_default_family_data"
+          ]
+        }
+      },
+      "arx:property_is_knockout_set_true":{ // Игрока нокнули
+        "set_property": {
+          "arx:is_knocked": "math.random_integer(1, 2)"
+        },
+        "queue_command": {
+          "command": [
+            "scoreboard players set @s revive_delay 0"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "arx:set_knocked_family_data"
+          ]
+        }
+      },
+      
       // Фаза луны
       "arx:test_moon_phase": {
         "sequence": [

@@ -160,9 +160,6 @@
     # Запуск музыки
         scoreboard players set @a[scores={online_log=!0, verify=!2}] music_delay 0
 
-# Чистим у игроков не на респе часы
-    clear @a[tag=!at_respawn_room] arx:respawn_time_checker
-
 # Музыка
     function core_parts_NAP/music_core
 
@@ -268,10 +265,6 @@
     # Записываем журнальное значение gamemode_data_log для определения динамики
         execute as @a run scoreboard players operation @s gamemode_data_log = @s gamemode_data
 
-# Автоопределение нокнутого игрока
-    execute as @a[x=9999, y=-37, z=9999, dx=2, dy=2, dz=2, m=survival] at @s run function knockout
-    execute as @a[x=9999, y=-37, z=9999, dx=2, dy=2, dz=2, m=adventure] at @s run function knockout
-
 # Определяем, что игрок сражался с боссом
     tag @a remove is_fighting_with_boss
     execute at @e[type=arx:vicious_demon] run tag @a[r=15] add is_fighting_with_boss
@@ -312,7 +305,7 @@
         tag @a[tag=!heating_by_heater_block_control] remove heating_by_heater_block_activate
         tag @a remove heating_by_heater_block_control
 
-# Партиклы в синем озере
+# Партиклы в голубом озере
     particle arx:blue_bliss 21 2 -83
 
 # Активируем или выключаем свет в МЭ зависимо от трассировки
@@ -325,95 +318,6 @@
 
 # Анализ МЭ
     execute if entity @a[x=-169, y=55, z=127, dx=14, dy=9, dz=16] run function core_parts_NAP/analyse_electronics_shop
-
-# Анализ Оклика
-    # Включен
-        # Свет
-            execute if entity @a[scores={verify=2, hail6_enabled=33..}] run fill -38 61 26 -38 61 26 minecraft:redstone_block
-            execute if entity @a[scores={verify=2, hail6_enabled=33..}] run fill -39 61 27 -39 61 27 minecraft:redstone_block
-
-            execute if entity @a[scores={verify=2, hail6_enabled=33..}] run fill -39 61 31 -39 61 31 minecraft:redstone_block
-            execute if entity @a[scores={verify=2, hail6_enabled=33..}] run fill -38 61 32 -38 61 32 minecraft:redstone_block
-
-            execute if entity @a[scores={verify=2, hail6_enabled=33..}] run fill -34 61 32 -34 61 32 minecraft:redstone_block
-            execute if entity @a[scores={verify=2, hail6_enabled=33..}] run fill -33 61 31 -33 61 31 minecraft:redstone_block
-
-            execute if entity @a[scores={verify=2, hail6_enabled=33..}] run fill -33 61 27 -33 61 27 minecraft:redstone_block
-            execute if entity @a[scores={verify=2, hail6_enabled=33..}] run fill -34 61 26 -34 61 26 minecraft:redstone_block
-
-        # Контроллер
-            execute if entity @a[scores={verify=2, hail6_enabled=1}] run fill -40 57 35 -32 58 35 arx:connection_controller_red
-            execute if entity @a[scores={verify=2, hail6_enabled=2}] run fill -40 57 35 -32 58 35 arx:connection_controller_disabled
-
-            execute if entity @a[scores={verify=2, hail6_enabled=4}] run fill -32 57 35 -32 58 35 arx:connection_controller_red
-            execute if entity @a[scores={verify=2, hail6_enabled=5}] run fill -33 57 35 -33 58 35 arx:connection_controller_red
-            execute if entity @a[scores={verify=2, hail6_enabled=6}] run fill -34 57 35 -34 58 35 arx:connection_controller_red
-            execute if entity @a[scores={verify=2, hail6_enabled=7}] run fill -35 57 35 -35 58 35 arx:connection_controller_red
-            execute if entity @a[scores={verify=2, hail6_enabled=8}] run fill -36 57 35 -36 58 35 arx:connection_controller_red
-            execute if entity @a[scores={verify=2, hail6_enabled=9}] run fill -37 57 35 -37 58 35 arx:connection_controller_red
-            execute if entity @a[scores={verify=2, hail6_enabled=10}] run fill -38 57 35 -38 58 35 arx:connection_controller_red
-            execute if entity @a[scores={verify=2, hail6_enabled=11}] run fill -39 57 35 -39 58 35 arx:connection_controller_red
-            execute if entity @a[scores={verify=2, hail6_enabled=12}] run fill -40 57 35 -40 58 35 arx:connection_controller_red
-
-            execute if entity @a[scores={verify=2, hail6_enabled=15}] run fill -32 57 35 -32 57 35 arx:connection_controller_green_flip_a
-            execute if entity @a[scores={verify=2, hail6_enabled=16}] run fill -32 58 35 -32 58 35 arx:connection_controller_green_flip_e
-            execute if entity @a[scores={verify=2, hail6_enabled=17}] run fill -33 57 35 -33 57 35 arx:connection_controller_green_flip_b
-            execute if entity @a[scores={verify=2, hail6_enabled=18}] run fill -33 58 35 -33 58 35 arx:connection_controller_green_flip_d
-            execute if entity @a[scores={verify=2, hail6_enabled=19}] run fill -34 57 35 -34 57 35 arx:connection_controller_green_flip_h
-            execute if entity @a[scores={verify=2, hail6_enabled=20}] run fill -34 58 35 -34 58 35 arx:connection_controller_green_flip_b
-            execute if entity @a[scores={verify=2, hail6_enabled=21}] run fill -35 57 35 -35 57 35 arx:connection_controller_green_flip_d
-            execute if entity @a[scores={verify=2, hail6_enabled=22}] run fill -35 58 35 -35 58 35 arx:connection_controller_green
-            execute if entity @a[scores={verify=2, hail6_enabled=23}] run fill -36 57 35 -36 57 35 arx:connection_controller_green_flip_a
-            execute if entity @a[scores={verify=2, hail6_enabled=24}] run fill -36 58 35 -36 58 35 arx:connection_controller_green_flip_c
-            execute if entity @a[scores={verify=2, hail6_enabled=25}] run fill -37 57 35 -37 57 35 arx:connection_controller_green_flip_g
-            execute if entity @a[scores={verify=2, hail6_enabled=26}] run fill -37 58 35 -37 58 35 arx:connection_controller_green_flip_f
-            execute if entity @a[scores={verify=2, hail6_enabled=27}] run fill -38 57 35 -38 57 35 arx:connection_controller_green_flip_e
-            execute if entity @a[scores={verify=2, hail6_enabled=28}] run fill -38 58 35 -38 58 35 arx:connection_controller_green
-            execute if entity @a[scores={verify=2, hail6_enabled=29}] run fill -39 57 35 -39 57 35 arx:connection_controller_green_flip_c
-            execute if entity @a[scores={verify=2, hail6_enabled=30}] run fill -39 58 35 -39 58 35 arx:connection_controller_green_flip_g
-            execute if entity @a[scores={verify=2, hail6_enabled=31}] run fill -40 57 35 -40 57 35 arx:connection_controller_green_flip_h
-            execute if entity @a[scores={verify=2, hail6_enabled=32}] run fill -40 58 35 -40 58 35 arx:connection_controller_green_flip_f
-
-        # Моник
-            execute if entity @a[scores={verify=2, hail6_enabled=1}] run event entity @e[type=arx:monitor_in_hail6] set_screen_rgb
-            execute if entity @a[scores={verify=2, hail6_enabled=2..3}] run event entity @e[type=arx:monitor_in_hail6] set_screen_black
-            execute if entity @a[scores={verify=2, hail6_enabled=4..13}] run event entity @e[type=arx:monitor_in_hail6] set_screen_initialisation
-            execute if entity @a[scores={verify=2, hail6_enabled=14..32}] run event entity @e[type=arx:monitor_in_hail6] set_screen_loading
-            execute if entity @a[scores={verify=2, hail6_enabled=33..}] run event entity @e[type=arx:monitor_in_hail6] set_screen_loading
-
-            execute if entity @a[scores={verify=2, hail6_enabled=33.., hail6_second_moon_power=42}] run event entity @e[type=arx:monitor_in_hail6] set_screen_42
-            execute if entity @a[scores={verify=2, hail6_enabled=33.., hail6_second_moon_power=43}] run event entity @e[type=arx:monitor_in_hail6] set_screen_43
-            execute if entity @a[scores={verify=2, hail6_enabled=33.., hail6_second_moon_power=44}] run event entity @e[type=arx:monitor_in_hail6] set_screen_44
-            execute if entity @a[scores={verify=2, hail6_enabled=33.., hail6_second_moon_power=49}] run event entity @e[type=arx:monitor_in_hail6] set_screen_49
-            execute if entity @a[scores={verify=2, hail6_enabled=33.., hail6_second_moon_power=18207}] run event entity @e[type=arx:monitor_in_hail6] set_screen_18207
-
-    # Выключен
-        # Свет
-            execute if entity @a[scores={verify=2, hail6_enabled=0}] run fill -38 61 26 -38 61 26 minecraft:air
-            execute if entity @a[scores={verify=2, hail6_enabled=0}] run fill -39 61 27 -39 61 27 minecraft:air
-
-            execute if entity @a[scores={verify=2, hail6_enabled=0}] run fill -39 61 31 -39 61 31 minecraft:air
-            execute if entity @a[scores={verify=2, hail6_enabled=0}] run fill -38 61 32 -38 61 32 minecraft:air
-
-            execute if entity @a[scores={verify=2, hail6_enabled=0}] run fill -34 61 32 -34 61 32 minecraft:air
-            execute if entity @a[scores={verify=2, hail6_enabled=0}] run fill -33 61 31 -33 61 31 minecraft:air
-
-            execute if entity @a[scores={verify=2, hail6_enabled=0}] run fill -33 61 27 -33 61 27 minecraft:air
-            execute if entity @a[scores={verify=2, hail6_enabled=0}] run fill -34 61 26 -34 61 26 minecraft:air
-        
-        # Контроллер
-            execute if entity @a[scores={verify=2, hail6_enabled=0}] run fill -40 57 35 -32 58 35 arx:connection_controller_disabled
-
-        # Моник
-            execute if entity @a[scores={verify=2, hail6_enabled=0}] run event entity @e[type=arx:monitor_in_hail6] set_screen_black
-
-    # Увеличиваем отсчет с момента включенности
-        scoreboard players add @a[scores={verify=2, hail6_enabled=1..50}] hail6_enabled 1
-
-        scoreboard players set @a[scores={verify=2, hail6_enabled=1..50, e19_tracer_condition=!11}] hail6_enabled 0
-
-    # Принудительно выключаем
-        execute if entity @a[scores={verify=2, e19_tracer_condition=!11}] run scoreboard players set @a[scores={verify=2}] hail6_enabled 0
 
 #Туманы
     fog @a remove "a"
@@ -447,11 +351,13 @@
         fog @a[hasitem={item=arx:glasses_red, location=slot.armor.head}] push arx:redglasses_fog "a"
         
     #Стресс
-        fog @a[scores={is_day=1, stress_cond=4}] push arx:overworld_stress_fog "c"
+        fog @a[scores={is_day=1, stress_cond=4, respawn_delay=..5}] push arx:overworld_stress_fog "c"
 
     #Амулет истинного демона
         fog @a[hasitem={item=arx:amul_demon_essence, location=slot.armor.legs}] push arx:true_demon_fog "true_demon"
 
+# Запускаем ананлиз оклика 6
+    execute if entity @a[x=-61, y=50, z=4, dx=50, dy=100, dz=50] run function core_parts_NAP/hail6_analysis
 
 # СТРЕСС
     #Холод
@@ -541,8 +447,8 @@
         scoreboard players add @a[tag=very_low_hp] stress 25
 
     #Воздействие черт
-        execute at @e[type=spider] run scoreboard players add @a[r=5, scores={c_nospider=1..}] stress 100
-        execute at @e[type=spider] run title @a[r=5, scores={c_nospider=1..}] actionbar Вы боитесь паука!
+        execute at @e[type=cave_spider] run scoreboard players add @a[r=5, scores={c_nospider=1..}] stress 100
+        execute at @e[type=cave_spider] run title @a[r=5, scores={c_nospider=1..}] actionbar Вы боитесь паука!
 
         execute at @e[type=zombie] run scoreboard players add @a[r=5, scores={c_nonecro=1..}] stress 100
         execute at @e[type=zombie] run title @a[r=5, scores={c_nonecro=1..}] actionbar Вы боитесь мертвеца!
@@ -635,3 +541,159 @@
 # Маленькая голова (закл)
     scoreboard players add @a[scores={spell_of_small_head=1..}] spell_of_small_head -1 
     playanimation @a[scores={spell_of_small_head=1..}] animation.player.invisible_head
+
+# Действите некоторых амулетов
+    execute at @a[hasitem={item=arx:amul_antighost, location=slot.armor.legs}] run scoreboard players add @a[scores={class=1}, r=10] stress 100
+    execute at @a[hasitem={item=arx:amul_antighost, location=slot.armor.legs}] run title @a[scores={class=1}, r=10] actionbar §4Вас накрывает ужас
+
+    effect @a[hasitem={item=arx:amul_photoresonance, location=slot.armor.legs}, tag=high_bright] night_vision 11 0 true
+
+    effect @a[hasitem={item=arx:amul_ruby, location=slot.armor.legs}, scores={freezing=!..-1001}] fire_resistance 1 0 true
+
+# Обнаружение и автофикс некоторых ошибок
+    execute as @a[tag=self] run w @a[scores={verify=2}] §4Обнаружена ошибка у @s core>>tags>>self
+    tag @a remove self
+    execute as @a[tag=staffself] run w @a[scores={verify=2}] §4Обнаружена ошибка у @s core>>tags>>staffself
+    tag @a remove staffself
+    execute as @a[tag=success] run w @a[scores={verify=2}] §4Обнаружена ошибка у @s core>>tags>>success 
+    tag @a remove success
+
+# Обжигание об горячие предметы
+    # Теги кузнечных клещей (tongs - обычные клещи, tongs_super - усиленные)
+        # Левая рука
+            tag @a[hasitem={item=arx:blacksmith_tongs, location=slot.weapon.offhand}] add tongs
+            tag @a[hasitem={item=arx:blacksmith_tongs_super, location=slot.weapon.offhand}] add tongs
+            tag @a[hasitem={item=arx:blacksmith_tongs_super, location=slot.weapon.offhand}] add tongs_super
+
+        # Правая рука 
+            tag @a[hasitem={item=arx:blacksmith_tongs, location=slot.weapon.mainhand}] add tongs
+            tag @a[hasitem={item=arx:blacksmith_tongs_super, location=slot.weapon.mainhand}] add tongs
+            tag @a[hasitem={item=arx:blacksmith_tongs_super, location=slot.weapon.mainhand}] add tongs_super
+
+    # Обжигаем
+        function core_parts_NAP/damage_by_hot_item
+
+    # Чистка
+        tag @a remove tongs
+        tag @a remove tongs_super
+
+# Отравление
+    # Вычисление эффективности снятия отравления
+        scoreboard players set @a pois_dec 1
+        scoreboard players add @a[scores={poit_pois_dec_a=1..}] pois_dec 1
+        scoreboard players add @a[scores={poit_pois_dec_b=1..}] pois_dec 2
+        scoreboard players add @a[scores={poit_pois_dec_c=1..}] pois_dec 4
+        scoreboard players add @a[scores={poit_pois_dec_d=1..}] pois_dec 8
+        scoreboard players add @a[hasitem={item=arx:ring_caryite_aquamarine, location=slot.armor.feet}] pois_dec 1
+        scoreboard players add @a[hasitem={item=arx:ring_malafiotironite_aquamarine, location=slot.armor.feet}] pois_dec 3
+        scoreboard players add @a[hasitem={item=arx:ring_lamenite_aquamarine, location=slot.armor.feet}] pois_dec 5
+        scoreboard players add @a[hasitem={item=arx:ring_of_immortal_eagle, location=slot.armor.feet}] pois_dec 5
+
+        scoreboard players add @a[scores={trailblazer_skill=1..2}] pois_dec 1
+        scoreboard players add @a[scores={trailblazer_skill=3..4}] pois_dec 2
+        scoreboard players add @a[scores={trailblazer_skill=5..6}] pois_dec 3
+
+    # Вычитание отравления
+        execute as @a[scores={poisoning=1..}] run scoreboard players operation @s poisoning -= @s pois_dec
+
+    # Определяем уровень отравления
+        scoreboard players set @a[scores={poisoning=0}] pois_cond 0
+        scoreboard players set @a[scores={poisoning=260..999}] pois_cond 1
+        scoreboard players set @a[scores={poisoning=1000..1999}] pois_cond 2
+        scoreboard players set @a[scores={poisoning=2000..2999}] pois_cond 3
+        scoreboard players set @a[scores={poisoning=3000..}] pois_cond 4
+
+    # Определяем дельту состояния отравления
+        execute as @a run scoreboard players operation @s pois_cond_delta = @s pois_cond
+        execute as @a run scoreboard players operation @s pois_cond_delta -= @s pois_cond_log
+
+    # Выводим сообщения
+        tellraw @a[scores={pois_cond_delta=1.., pois_cond=1}] { "rawtext": [  { "text": "Мне стало хуже §4(1 ур. отравления)" } ] } 
+        tellraw @a[scores={pois_cond_delta=1.., pois_cond=2}] { "rawtext": [  { "text": "Мне стало хуже §4(2 ур. отравления)" } ] } 
+        tellraw @a[scores={pois_cond_delta=1.., pois_cond=3}] { "rawtext": [  { "text": "Мне стало хуже §4(3 ур. отравления)" } ] } 
+        tellraw @a[scores={pois_cond_delta=1.., pois_cond=4}] { "rawtext": [  { "text": "Мне стало хуже §4(4 ур. отравления)" } ] } 
+        tellraw @a[scores={pois_cond_delta=..-1, pois_cond=0}] { "rawtext": [  { "text": "Мне стало лучше §a(Отравление прошло)" } ] } 
+        tellraw @a[scores={pois_cond_delta=..-1, pois_cond=1}] { "rawtext": [  { "text": "Мне стало лучше §a(1 ур. отравления)" } ] } 
+        tellraw @a[scores={pois_cond_delta=..-1, pois_cond=2}] { "rawtext": [  { "text": "Мне стало лучше §a(2 ур. отравления)" } ] } 
+        tellraw @a[scores={pois_cond_delta=..-1, pois_cond=3}] { "rawtext": [  { "text": "Мне стало лучше §a(3 ур. отравления)" } ] } 
+
+    # Воздействие на стресс
+        scoreboard players add @a[scores={pois_cond=1.., c_persistent=0}] stress 2
+        scoreboard players add @a[scores={pois_cond=2.., c_persistent=0}] stress 5
+        scoreboard players add @a[scores={pois_cond=3.., c_persistent=0}] stress 20
+        scoreboard players add @a[scores={pois_cond=4, c_persistent=0}] stress 100
+
+    # Непосредственные дебаффы
+        #Отравление 2 ур
+            effect @a[scores={pois_cond=2, custom_random=0..50}] nausea 20 0
+
+        # Отравление 3 ур
+            effect @a[scores={pois_cond=3, custom_random=1..50}] darkness 20 0
+            effect @a[scores={pois_cond=3, custom_random=51..100}] fatal_poison 10 0
+            effect @a[scores={pois_cond=3..4}] nausea 20 0
+            #Отравление 3.. ур блокирует регенерацию (см. Авторегенерация хп)
+            #scoreboard players set @a[scores={pois_cond=3..4}] regen_mp 0
+
+        # Отравление 4 ур
+            effect @a[scores={pois_cond=4}] blindness 20 0
+            effect @a[scores={pois_cond=4}] fatal_poison 5 0
+
+    # Обновляем перменную-историю уровня отравления
+        execute as @a run scoreboard players operation @s pois_cond_log = @s pois_cond
+
+    # Вычитание поинта блокировки отравления (ванильного, но надо проверить)
+        execute as @e[scores={pois_block=1..}] run scoreboard players add @e[r=0.0001] pois_block -1
+
+    # Дебаг
+        scoreboard players set @a[scores={poisoning=..-1}] poisoning 0
+
+# Нокаут
+    # Заморозка управления
+        execute as @a if score @s respawn_delay > @s respawn_delay_history run inputpermission set @s camera disabled
+        execute as @a if score @s respawn_delay > @s respawn_delay_history run inputpermission set @s movement disabled
+        execute as @a if score @s respawn_delay > @s respawn_delay_history run event entity @s arx:property_is_knockout_set_true
+        
+    # Разморозка управления 
+        execute as @a[scores={respawn_delay=0}] if score @s respawn_delay < @s respawn_delay_history run inputpermission set @s camera enabled
+        execute as @a[scores={respawn_delay=0}] if score @s respawn_delay < @s respawn_delay_history run inputpermission set @s movement enabled
+        execute as @a[scores={respawn_delay=0}] if score @s respawn_delay < @s respawn_delay_history run tellraw @s { "rawtext": [ { "text": "§o§eГде я...?" } ] }
+        execute as @a[scores={respawn_delay=0}] if score @s respawn_delay < @s respawn_delay_history if entity @s[tag=crystal_of_shield_activate] run tellraw @s { "rawtext": [ { "text": "§aВас защищает магическая сила (крситалл щита использован)" } ] }
+        execute as @a[scores={respawn_delay=0}] if score @s respawn_delay < @s respawn_delay_history if entity @s[tag=crystal_of_shield_activate] run effect @s resistance 60 0 true
+        execute as @a[scores={respawn_delay=0}] if score @s respawn_delay < @s respawn_delay_history if entity @s[tag=crystal_of_shield_activate] run tag @s remove crystal_of_shield_activate
+
+    # Темнеем камеру, если нокнуты
+        execute as @a[scores={respawn_delay=6}] run camera @s fade time 0 0 10 color 20 3 3
+
+    # Ресанье игрока
+        execute as @a[has_property={arx:is_knocked=1..}] at @s if entity @a[tag=is_sneaking, r=2.2, rxm=0.001] run scoreboard players add @s revive_delay 1
+        execute as @a[has_property={arx:is_knocked=1..}] at @s unless entity @a[tag=is_sneaking, r=2.2, rxm=0.001] run scoreboard players set @s revive_delay 0
+
+        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=1}] at @s run title @a[tag=is_sneaking, r=2.2, rxm=0.001] actionbar §a█
+        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=1}] run title @s actionbar §a█
+        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=2}] at @s run title @a[tag=is_sneaking, r=2.2, rxm=0.001] actionbar §a█ █
+        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=2}] run title @s actionbar §a█ █
+        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=3}] at @s run title @a[tag=is_sneaking, r=2.2, rxm=0.001] actionbar §a█ █ █
+        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=3}] run title @s actionbar §a█ █ █
+        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=4}] at @s run title @a[tag=is_sneaking, r=2.2, rxm=0.001] actionbar §a█ █ █ █
+        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=4}] run title @s actionbar §a█ █ █ █
+        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=5}] at @s run title @a[tag=is_sneaking, r=2.2, rxm=0.001] actionbar §a█ █ █ █ █
+        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=5}] run title @s actionbar §a█ █ █ █ █
+        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=6}] at @s run title @a[tag=is_sneaking, r=2.2, rxm=0.001] actionbar §a█ █ █ █ █ █
+        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=6}] run title @s actionbar §a█ █ █ █ █ █
+        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=7}] at @s run title @a[tag=is_sneaking, r=2.2, rxm=0.001] actionbar §a█ █ █ █ █ █ █
+        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=7}] run title @s actionbar §a█ █ █ █ █ █ █
+        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=8}] at @s run title @a[tag=is_sneaking, r=2.2, rxm=0.001] actionbar §a█ █ █ █ █ █ █ █
+        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=8}] run title @s actionbar §a█ █ █ █ █ █ █ █
+        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=9}] at @s run title @a[tag=is_sneaking, r=2.2, rxm=0.001] actionbar §a█ █ █ █ █ █ █ █ █
+        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=9}] run title @s actionbar §a█ █ █ █ █ █ █ █ █
+        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=10}] at @s run title @a[tag=is_sneaking, r=2.2, rxm=0.001] actionbar §a█ █ █ █ █ █ █ █ █ █
+        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=10}] run title @s actionbar §a█ █ █ █ █ █ █ █ █ █
+        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=10}] run event entity @s arx:property_is_knockout_set_0
+        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=10, respawn_delay=1..}] run tellraw @s { "rawtext": [ { "selector": "@a[tag=is_sneaking, r=2.2, rxm=0.001]" }, { "text": " §aпомогает мне" } ] }
+        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=10, respawn_delay=1..}] run scoreboard players add @s stress -1500
+        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=10, respawn_delay=0}] run tellraw @s { "rawtext": [ { "selector": "@a[tag=is_sneaking, r=2.2, rxm=0.001]" }, { "text": " §aпомогает мне. Притворяться вырубленным сейчас не выйдет" } ] }
+        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=10}] run tellraw @a[tag=is_sneaking, r=2.2, rxm=0.001] { "rawtext": [ { "selector": "@s" }, { "text": " §aстановится лучше" } ] }
+
+    # Обработка переменных (Должно быть последним в блоке "Нокаут")
+        execute as @a run scoreboard players operation @s respawn_delay_history = @s respawn_delay
+        scoreboard players add @a[scores={respawn_delay=1..}] respawn_delay -1

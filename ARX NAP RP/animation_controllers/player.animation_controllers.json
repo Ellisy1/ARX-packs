@@ -81,7 +81,8 @@
 						{"third_person_staff_moving": "query.equipped_item_any_tag('slot.weapon.mainhand', 'is_staff') && q.is_moving"},
 						{"third_person_gun": "query.is_item_name_any('slot.weapon.mainhand', 0, 'arx:moder_gun')"},
 						{"third_person_umbrella": "query.equipped_item_any_tag('slot.weapon.mainhand', 'is_umbrella')"},
-						{"third_person_torch": "query.is_item_name_any('slot.weapon.mainhand', 'minecraft:torch')"}
+						{"third_person_torch": "query.is_item_name_any('slot.weapon.mainhand', 'minecraft:torch')"},
+						{"knockout_tracer": "query.property('arx:is_knocked') > 0"}
 					],
 					"blend_transition": 0.1
 				},
@@ -521,6 +522,39 @@
 						{"first_person": "variable.is_first_person"},
 						{"map_player": "variable.map_face_icon"},
 						{"third_person": "!query.is_item_name_any('slot.weapon.mainhand', 'minecraft:torch')"}
+					],
+					"blend_transition": 0.1
+				},
+
+				"knockout_tracer": { // Настраиваем анимацию нокаута
+					"animations": [
+						"none"
+					],
+					"transitions": [
+						{"knockout_var_a": "query.property('arx:is_knocked') == 1"},
+						{"knockout_var_b": "query.property('arx:is_knocked') == 2"}
+					],
+					"blend_transition": 0.1
+				},
+				"knockout_var_a": {
+					"animations": [
+						"bob",
+						"knockout_basic",
+						"knockout_var_a"
+					],
+					"transitions": [
+						{"third_person": "query.property('arx:is_knocked') == 0"}
+					],
+					"blend_transition": 0.1
+				},
+				"knockout_var_b": {
+					"animations": [
+						"bob",
+						"knockout_basic",
+						"knockout_var_b"
+					],
+					"transitions": [
+						{"third_person": "query.property('arx:is_knocked') == 0"}
 					],
 					"blend_transition": 0.1
 				}
