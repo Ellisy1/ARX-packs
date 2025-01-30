@@ -1,0 +1,18 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:item": {
+    "description": {
+      "identifier": "arx:slot_blocker",
+      "category": "items"
+    },
+    "components": {
+      "minecraft:icon": {
+        "texture": "arx:slot_blocker"
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:display_name": {
+        "value": "§r§cСлот заблокирован"
+      }
+    }
+  }
+}

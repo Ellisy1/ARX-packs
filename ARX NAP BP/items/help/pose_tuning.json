@@ -30,7 +30,7 @@
       "on_use_event": {
         "run_command": {
           "command": [
-            "function info/pose_tuning"
+            "execute @s[has_property={arx:is_knocked=0}] ~ ~ ~ function info/pose_tuning"
           ]
         }
       }

@@ -17,6 +17,9 @@
     # Киляем гроб, если он пустой
         event entity @e[type=arx:grave, tag=grave_cd_expired] arx:test_is_empty
 
+# Комната регистрации (определяем, в ней ли игрок)
+    tag @a remove at_respawn_room
+    tag @e[x=9990, y=-43, z=9990, dx=20, dy=20, dz=20] add at_respawn_room
 
 # Проверяем количество игроков с scores={verify=2} (Не может располагаться в другой области движка, так как на @a[scores={verify=2}] базируется запуск всех остальных областей движка)
     scoreboard players set @a debug_verify 0
@@ -129,7 +132,7 @@
 #    execute as @a[tag=shoulersurfing_camera] at @s run camera @s set minecraft:free ease 0.2 linear pos ^-1 ^2 ^-3.3 facing ^-0.8 ^2 ^0
     
 # Настройка позы
-    execute if entity @a[hasitem={item=arx:pose_tuning, location=slot.weapon.mainhand}] run function core_parts_NAP/pose_tuning_titles
+    execute if entity @a[has_property={arx:is_knocked=0}, hasitem={item=arx:pose_tuning, location=slot.weapon.mainhand}] run function core_parts_NAP/pose_tuning_titles
 
 # Свет от огоньков
     execute unless entity @a[tag=scarlet_night] at @e[type=arx:wandering_flame_of_night] if block ~ ~ ~ air run fill ~ ~ ~ ~ ~ ~ arx:dynamic_light_block_14
@@ -142,7 +145,7 @@
     execute if entity @a[scores={is_day=0}] run event entity @e[tag=force_to_despawn] arx:despawn_forced
 
 # Комментарии при взятии книжки инфо
-    execute if entity @a[m=!spectator, hasitem={item=arx:united_player_data, location=slot.weapon.mainhand}] run function core_parts_NAP/display_united_player_data
+    execute if entity @a[scores={respawn_delay=0}, m=!spectator, hasitem={item=arx:united_player_data, location=slot.weapon.mainhand}] run function core_parts_NAP/display_united_player_data
 
 # Анализ маны
     function core_parts_NAP/mana
@@ -153,5 +156,7 @@
     # Выход из состояния нокаута
         execute as @a[scores={respawn_delay=0}, has_property={arx:is_knocked=1..}, tag=is_moving, tag=!is_riding] run event entity @s arx:property_is_knockout_set_0
 
-        # Сбрасываем игрока, если тащим его, присев и разблокируем ему управление если это нужно
-            execute as @a[tag=is_riding, has_property={arx:is_knocked=1..}] at @s if entity @p[r=1.2, has_property={arx:is_knocked=0}, tag=is_sneaking] run ride @s stop_riding
+        # Сбрасываем игрока, если тащим его, присев и разблокируем ему управление, если это нужно
+            execute as @a[tag=is_riding, has_property={arx:is_knocked=1..}] at @s if entity @p[r=2, has_property={arx:is_knocked=0}, tag=is_sneaking, tag=has_riders] run ride @s stop_riding
+            execute as @a[has_property={arx:is_knocked=1..}, scores={respawn_delay=0}] at @s if entity @p[r=2, has_property={arx:is_knocked=0}, tag=is_sneaking, tag=has_riders] run inputpermission set @s movement enabled
+            execute as @a[has_property={arx:is_knocked=1..}, scores={respawn_delay=0}] at @s if entity @p[r=2, has_property={arx:is_knocked=0}, tag=is_sneaking, tag=has_riders] run event entity @s arx:property_is_knockout_set_0

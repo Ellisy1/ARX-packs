@@ -27,7 +27,7 @@
         "swing": {},
         "run_command": {
           "command": [
-            "function crpg_items/wipe_skill_points"
+            "execute @s[has_property={arx:is_knocked=0}] ~ ~ ~ function crpg_items/wipe_skill_points"
           ]
         }
       }

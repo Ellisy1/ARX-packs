@@ -25,7 +25,7 @@
         "swing": {},
         "run_command": {
           "command": [
-            "function dead_mobs/arctic_fox"
+            "execute @s[has_property={arx:is_knocked=0}] ~ ~ ~ function dead_mobs/arctic_fox"
           ]
         }
       }

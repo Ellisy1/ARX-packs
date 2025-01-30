@@ -1109,12 +1109,12 @@
         "run_command": {
           "command": [
             // Поднимаем нокнутого игрока
-            "execute as @s[has_property={arx:is_knocked=1..}] run ride @s start_riding @p[r=1.5, has_property={arx:is_knocked=0}, tag=!has_riders] teleport_rider",
-            "execute as @s[has_property={arx:is_knocked=1..}] at @s run playanimation @p[r=1.5, has_property={arx:is_knocked=0}, tag=!has_riders] animation.player.pick_up_knocked_player",
+            "execute as @s[has_property={arx:is_knocked=1..}] at @s if entity @p[r=1.5, rm=0.001, has_property={arx:is_knocked=0}, tag=!has_riders, tag=!is_sneaking] run ride @s start_riding @p[r=1.5, has_property={arx:is_knocked=0}, tag=!has_riders] teleport_rider",
+            "execute as @s[has_property={arx:is_knocked=1..}] at @s if entity @p[r=1.5, rm=0.001, has_property={arx:is_knocked=0}, tag=!has_riders, tag=!is_sneaking] run playanimation @p[r=1.5, has_property={arx:is_knocked=0}, tag=!has_riders] animation.player.pick_up_knocked_player",
             // Поднимаем нормального игрока
-            "execute as @s[has_property={arx:is_knocked=0}, tag=!has_riders, tag=is_sneaking, rxm=80, tag=!is_moving] at @s if entity @p[r=1.5, rm=0.001, has_property={arx:is_knocked=0}, tag=!has_riders] run ride @s start_riding @p[r=1.5, rm=0.001, has_property={arx:is_knocked=0}, tag=!has_riders] teleport_rider",
-            "execute as @s[has_property={arx:is_knocked=0}, tag=!has_riders, tag=is_sneaking, rxm=80, tag=!is_moving] at @s if entity @p[r=1.5, rm=0.001, has_property={arx:is_knocked=0}, tag=!has_riders] run playanimation @p[r=1.5, rm=0.001, has_property={arx:is_knocked=0}, tag=!has_riders] animation.player.pick_up_knocked_player",
-            "execute as @s[has_property={arx:is_knocked=0}, tag=!has_riders, tag=is_sneaking, rxm=80, tag=!is_moving] at @s if entity @p[r=1.5, rm=0.001, has_property={arx:is_knocked=0}, tag=!has_riders] run event entity @s arx:property_is_knockout_set_true"
+            "execute as @s[has_property={arx:is_knocked=0}, tag=!has_riders, tag=is_sneaking, rxm=80, tag=!is_moving] at @s if entity @p[r=1.5, rm=0.001, has_property={arx:is_knocked=0}, tag=!has_riders, tag=!is_sneaking] run ride @s start_riding @p[r=1.5, rm=0.001, has_property={arx:is_knocked=0}, tag=!has_riders] teleport_rider",
+            "execute as @s[has_property={arx:is_knocked=0}, tag=!has_riders, tag=is_sneaking, rxm=80, tag=!is_moving] at @s if entity @p[r=1.5, rm=0.001, has_property={arx:is_knocked=0}, tag=!has_riders, tag=!is_sneaking] run playanimation @p[r=1.5, rm=0.001, has_property={arx:is_knocked=0}, tag=!has_riders] animation.player.pick_up_knocked_player",
+            "execute as @s[has_property={arx:is_knocked=0}, tag=!has_riders, tag=is_sneaking, rxm=80, tag=!is_moving] at @s if entity @p[r=1.5, rm=0.001, has_property={arx:is_knocked=0}, tag=!has_riders, tag=!is_sneaking] run event entity @s arx:property_is_knockout_set_true"
           ]
         }
       }

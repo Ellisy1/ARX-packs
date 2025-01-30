@@ -301,6 +301,8 @@
 
     tag @s[has_property={arx:is_knocked=1..}] add no_animate_killing_time
 
+    execute as @a[tag=is_riding, has_property={arx:is_knocked=1..}] at @s run tag @p[r=0.8, tag=has_riders] add no_animate_killing_time
+
 # Нельзя анимировать если мы лежим/сидим
     tag @s[tag=is_riding] add no_animate_killing_time
 

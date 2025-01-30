@@ -37,6 +37,11 @@
     # Сообщаем, что кристалл сработал 
         tellraw @s[scores={knockout_row_sounter=2}, tag=crystal_of_second_life_activate] { "rawtext": [ { "text": "§dВы не сдаётесь (кристалл второй жизни активен)" } ] }
 
+# Выдаем блокировщики слота
+    give @s arx:slot_blocker 100 0 {"item_lock": { "mode": "lock_in_slot" } }
+    # Удаляем дропнутые рядом блокировщики
+        kill @e[type=item, name="§r§cСлот заблокирован", r=4]
+
 # Чистим данные о кристаллах
     scoreboard players set @s crys_dur 0
     scoreboard players set @s crys_mob_calm 0
@@ -48,5 +53,5 @@
     scoreboard players set @s allow_archlight 0
 
 # Убиваем по рп, если это требуется
-    execute if entity @s[scores={knockout_row_sounter=2}, tag=!crystal_of_second_life_activate] run function knockout_system/on_rp_death
-    execute if entity @s[scores={knockout_row_sounter=3..}, tag=crystal_of_second_life_activate] run function knockout_system/on_rp_death
+    execute if entity @s[scores={knockout_row_sounter=2}, tag=!crystal_of_second_life_activate] run tag @s add __force_to_rp_death__
+    execute if entity @s[scores={knockout_row_sounter=3..}, tag=crystal_of_second_life_activate] run tag @s add __force_to_rp_death__

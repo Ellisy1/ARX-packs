@@ -81,7 +81,7 @@ item.arx:beer_bottle_solod_kari_substractor=§r§fТёмное пиво §g[Эп
 item.arx:beer_bottle_solod_salt=§r§fБезалкогольное пиво §a[Необычное]
 item.arx:beer_bottle_solod_solod=§r§fНефильтрованное светлое пиво §b[Редкое]
 item.arx:beer_bottle_solod_solod_substractor=§r§fСветлое пиво §g[Эпическое]
-item.arx:beer_bottle_water=§r§fПивная бутылка с водой §a[Необычное]
+item.arx:beer_bottle_water=§r§fБанка с водой §a[Необычное]
 item.arx:default_bottle_sugar=§r§fЧистый спирт §a[Необычное]
 item.arx:default_bottle_water=§r§fБутылка с водой §a[Необычное]
 item.arx:vodka=§r§fВодка §a[Необычное]
@@ -112,7 +112,7 @@ item.arx:wine_preparation=§r§fВино - заготовка [треб. §cC8§
 
 item.arx:bung=§r§fПробка §7[Обычное]
 
-item.arx:beer_bottle=§r§fПивная бутылка §a[Необычное]
+item.arx:beer_bottle=§r§fБанка §a[Необычное]
 item.arx:bottle_for_blood=§r§fКолба для крови §a[Необычное]
 item.arx:bottle_of_blood=§r§fКолба с кровью §g[Эпическое]
 item.arx:default_bottle=§r§fБутылка §a[Необычное]
@@ -124,7 +124,7 @@ item.arx:square_bottle=§r§fКвадратный сосуд §b[Редкое]
 item.arx:triangle_bottle=§r§fТреугольный сосуд §b[Редкое]
 item.arx:vial=§r§fФлакон §a[Необычное]
 
-item.arx:beer_bottle_preparation=§r§fПивная бутылка - заготовка [треб. §aА28§f] §a[Необычное]
+item.arx:beer_bottle_preparation=§r§fБанка - заготовка [треб. §aА28§f] §a[Необычное]
 item.arx:bottle_for_blood_preparation=§r§fКолба для крови - заготовка [треб. §aА28§f] §a[Необычное]
 item.arx:default_bottle_preparation=§r§fБутылка - заготовка [треб. §aА28§f] §a[Необычное]
 item.arx:hole_bottle_preparation=§r§fСосуд тора - заготовка [треб. §eB13§f] §b[Редкое]
@@ -2422,3 +2422,5 @@ tile.arx:crying_obsidian_even_bricks.name=§r§fРовные обсидиано�
 tile.arx:sea_bricks.name=§r§fМорские кирпичи §b[Редкое]
 tile.arx:gold_decorative_block.name=§r§fЗолотой декоративный блок §b[Редкое]
 tile.arx:caryite_bricks.name=§r§fКариитовые кирпичи §c[Мифическое]
+
+action.hint.exit.player=§fВас кто-то поднял

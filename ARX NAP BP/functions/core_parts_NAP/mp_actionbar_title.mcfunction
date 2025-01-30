@@ -14,6 +14,8 @@
         tag @a[tag=holds_staff_mono] add deny_to_show_mp_on_actionbar
     # Запрещаем, если нет навыка
         tag @a[scores={sk_a_22=0}] add deny_to_show_mp_on_actionbar
+    # Запрещаем, если нокнут
+        tag @a[scores={knockout_delay=1..}] add deny_to_show_mp_on_actionbar
 
 title @a[tag=!deny_to_show_mp_on_actionbar, scores={mp=0}] actionbar 0 §1MP
 title @a[tag=!deny_to_show_mp_on_actionbar, scores={mp=1}] actionbar 1 §1MP

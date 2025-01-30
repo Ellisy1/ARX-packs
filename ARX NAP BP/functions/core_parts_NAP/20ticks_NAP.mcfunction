@@ -656,20 +656,21 @@
     # Выход из нокаута (именно не вставание, а выход из нокаута. Игрок может продолжить лежать и притворяться мертвым)
         execute as @a[scores={respawn_delay=0}] if score @s respawn_delay < @s respawn_delay_history run inputpermission set @s camera enabled
         execute as @a[scores={respawn_delay=0}] if score @s respawn_delay < @s respawn_delay_history run inputpermission set @s[tag=!is_riding] movement enabled
-        execute as @a[scores={respawn_delay=0}] if score @s respawn_delay < @s respawn_delay_history run tellraw @s[scores={custom_random=0..333}] { "rawtext": [ { "text": "§o§eГде я...?" } ] }
-        execute as @a[scores={respawn_delay=0}] if score @s respawn_delay < @s respawn_delay_history run tellraw @s[scores={custom_random=334..666}] { "rawtext": [ { "text": "§o§eСколько прошло времени...?" } ] }
-        execute as @a[scores={respawn_delay=0}] if score @s respawn_delay < @s respawn_delay_history run tellraw @s[scores={custom_random=667..1000}] { "rawtext": [ { "text": "§o§eКак больно..." } ] }
-        execute as @a[scores={respawn_delay=0}] if score @s respawn_delay < @s respawn_delay_history if entity @s[tag=crystal_of_shield_activate] run tellraw @s { "rawtext": [ { "text": "§aВас защищает магическая сила (крситалл щита активен)" } ] }
-        execute as @a[scores={respawn_delay=0}] if score @s respawn_delay < @s respawn_delay_history if entity @s[tag=crystal_of_shield_activate] run effect @s resistance 60 0 true
+        execute as @a[scores={respawn_delay=0}] if score @s respawn_delay < @s respawn_delay_history run tellraw @s[tag=!__died_last_second__, scores={custom_random=0..333}] { "rawtext": [ { "text": "§o§eГде я...?" } ] }
+        execute as @a[scores={respawn_delay=0}] if score @s respawn_delay < @s respawn_delay_history run tellraw @s[tag=!__died_last_second__, scores={custom_random=334..666}] { "rawtext": [ { "text": "§o§eСколько прошло времени...?" } ] }
+        execute as @a[scores={respawn_delay=0}] if score @s respawn_delay < @s respawn_delay_history run tellraw @s[tag=!__died_last_second__, scores={custom_random=667..1000}] { "rawtext": [ { "text": "§o§eКак больно..." } ] }
+        execute as @a[scores={respawn_delay=0}] if score @s respawn_delay < @s respawn_delay_history if entity @s[tag=!__died_last_second__, tag=crystal_of_shield_activate] run tellraw @s { "rawtext": [ { "text": "§aВас защищает магическая сила (кристалл щита активен)" } ] }
+        execute as @a[scores={respawn_delay=0}] if score @s respawn_delay < @s respawn_delay_history if entity @s[tag=!__died_last_second__, tag=crystal_of_shield_activate] run effect @s resistance 60 0 true
         execute as @a[scores={respawn_delay=0}] if score @s respawn_delay < @s respawn_delay_history run scoreboard players set @s knockout_row_sounter 0
         execute as @a[scores={respawn_delay=0}] if score @s respawn_delay < @s respawn_delay_history run tag @s remove crystal_of_shield_activate
         execute as @a[scores={respawn_delay=0}] if score @s respawn_delay < @s respawn_delay_history run tag @s remove crystal_of_second_life_activate
+        execute as @a[scores={respawn_delay=0}] if score @s respawn_delay < @s respawn_delay_history run clear @s arx:slot_blocker
 
     # Темнеем камеру, если нокнуты
         execute as @a[scores={respawn_delay=6}] run camera @s fade time 0 0 10 color 20 3 3
 
     # Ресанье игрока
-        execute as @a[has_property={arx:is_knocked=1..}] at @s if entity @a[has_property={arx:is_knocked=0}, tag=is_sneaking, r=2.2, rm=0.001] run scoreboard players add @s revive_delay 1
+        execute as @a[has_property={arx:is_knocked=1..}, tag=!is_riding] at @s if entity @a[has_property={arx:is_knocked=0}, tag=is_sneaking, r=2.2, rm=0.001] run scoreboard players add @s revive_delay 1
         execute as @a[has_property={arx:is_knocked=1..}] at @s unless entity @a[has_property={arx:is_knocked=0}, tag=is_sneaking, r=2.2, rm=0.001] run scoreboard players set @s revive_delay 0
 
         execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=1}] at @s run title @a[tag=is_sneaking, r=2.2, rm=0.001] actionbar §a█
@@ -702,3 +703,8 @@
     # Обработка переменных (Должно быть последним в блоке "Нокаут")
         execute as @a run scoreboard players operation @s respawn_delay_history = @s respawn_delay
         scoreboard players add @a[scores={respawn_delay=1..}] respawn_delay -1
+
+        tag @s remove __died_last_second__
+
+    # Умираем по рп, если есть нужный тег
+        execute as @a[tag=__force_to_rp_death__] at @s run function knockout_system/on_rp_death

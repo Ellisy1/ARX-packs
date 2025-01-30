@@ -522,6 +522,12 @@ scoreboard players set @a heavy 0
     execute @a[scores={sk_a_2=0, heavy_ha=!0}] ~ ~ ~ scoreboard players add @s heavy 1000
     execute @a[scores={sk_a_2=1, sk_c_1=0}] ~ ~ ~ scoreboard players operation @s heavy += @s heavy_ha
 
+# Вес от носимого игрока
+    # Базовый 
+        execute @a[tag=is_riding, has_property={arx:is_knocked=1..}] ~ ~ ~ scoreboard players add @p[r=0.8, tag=has_riders] heavy 3
+    # Экипировка
+        execute @a[tag=is_riding, has_property={arx:is_knocked=1..}] ~ ~ ~ scoreboard players operation @p[r=0.8, tag=has_riders] heavy += @s heavy
+
 # Сумки backpack_volume
     scoreboard players set @a backpack_volume 0
     scoreboard players add @a[hasitem={item=arx:leg_bag_dual, location=slot.armor.feet}] backpack_volume 2

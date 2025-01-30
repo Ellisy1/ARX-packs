@@ -75,6 +75,10 @@
         execute as @s[lm=70] run tag @s add level_is_more_or_equal_70
 
 # Даем советы
+    # Нокаут
+        execute as @s[scores={respawn_delay=1..}] run tellraw @s { "rawtext": [ { "text": "§cВы в нокауте. Ничего страшного, это не смерть. Вы встанете через минуту - полторы после нока, но вам могут помочь ваши друзья, если они присядут (встанут на шифт) рядом с вами." } ] }
+        execute as @s[scores={respawn_delay=1..}] run tag @s add has_smth_to_guide
+
     # Ранения
         # very_low_hp - очень сильные ранения
             execute as @s[tag=very_low_hp, hasitem={item=arx:scroll_of_healing}, tag=!has_smth_to_guide] run tellraw @s { "rawtext": [ { "text": "§cВы очень сильно ранены!§6\nВылечитесь как можно быстрее, иначе у вас повысится стресс!\nИспользуйте §dсвиток регенерации§6, который у вас есть." } ] }
