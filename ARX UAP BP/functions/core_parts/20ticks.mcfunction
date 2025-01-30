@@ -439,14 +439,6 @@
 #Шизофреник
     execute @r[scores={c_schizophrenic=1.., custom_random=1..10}] ~ ~ ~ function core_parts/schizophrenic
 
-#Верификация
-    #Эффекты, если не верифицирован (verify=0)
-        effect @a[scores={verify=0}] slowness 1 255 true
-        effect @a[scores={verify=0}] invisibility 2 0 true
-        effect @a[scores={verify=0}] blindness 2 0 true
-        title @a[scores={verify=0}] actionbar §a§lДождитесь верификации...
-        camera @a[scores={verify=0}] fade time 0 2 0 color 40 50 40 
-
 #Анализ биомов
     tag @a remove BIOME_birch
     event entity @a arx:test_biome_birch

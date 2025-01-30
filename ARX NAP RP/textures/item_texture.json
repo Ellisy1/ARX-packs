@@ -2211,9 +2211,6 @@
     "arx:united_player_data": {
       "textures": "textures/items/help/united_player_data"
     },
-    "arx:respawn_time_checker": {
-      "textures": "textures/items/help/respawn_time_checker"
-    },
     "arx:weapon_data": {
       "textures": "textures/items/help/weapon_data"
     },

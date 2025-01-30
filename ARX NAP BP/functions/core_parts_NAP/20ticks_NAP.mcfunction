@@ -698,6 +698,7 @@
         execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=10, respawn_delay=0}] at @s run tellraw @s { "rawtext": [ { "selector": "@a[has_property={arx:is_knocked=0}, tag=is_sneaking, r=2.2, rm=0.001]" }, { "text": " §aпомогает мне. Притворяться вырубленным сейчас не выйдет" } ] }
         execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=10}] at @s run tellraw @a[tag=is_sneaking, r=2.2, rm=0.001] { "rawtext": [ { "selector": "@s" }, { "text": " §aстановится лучше" } ] }
         execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=10}] run camera @s fade time 0 0 5 color 20 3 3
+        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=10}] run clear @s arx:slot_blocker
         execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=10}] run event entity @s arx:property_is_knockout_set_0
 
     # Обработка переменных (Должно быть последним в блоке "Нокаут")
@@ -708,3 +709,9 @@
 
     # Умираем по рп, если есть нужный тег
         execute as @a[tag=__force_to_rp_death__] at @s run function knockout_system/on_rp_death
+
+#Верификация
+    #Эффекты, если не верифицирован (verify=0)
+        effect @a[scores={verify=0}] slowness 1 255 true
+        title @a[scores={verify=0}] actionbar §a§lДождитесь верификации...
+        camera @a[scores={verify=0}] fade time 0 2 0.2 color 40 50 40 

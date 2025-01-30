@@ -71,4 +71,4 @@
     tag @s remove damaged_without_blood
 
 # Встаем, если притворялись мертвым
-    event entity @s[has_property={arx:is_knocked=1..}, scores={respawn_delay=0}] arx:property_is_knockout_set_0
+    event entity @s[has_property={arx:is_knocked=1..}, scores={respawn_delay=0}, tag=!is_riding] arx:property_is_knockout_set_0

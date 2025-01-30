@@ -1,10 +1,10 @@
 # Эта функция вызывается каждые 10 тактов при условии что в мире есть хотя бы один порочный демон в нужной для него локации
 # Задача функции - "руковоить" порочным демоном и выполнять различные действия от его лица
     # Урон от вращения
-        execute as @e[type=arx:vicious_demon, tag=spin, tag=hp_0_to_25] at @s run damage @a[r=3] 8 entity_attack
-        execute as @e[type=arx:vicious_demon, tag=spin, tag=!hp_0_to_25] at @s run damage @a[r=3] 6 entity_attack
-        execute at @e[type=arx:vicious_demon, tag=spin] if entity @a[r=3] run playsound axe_use @a ~ ~ ~
-        execute at @e[type=arx:vicious_demon, tag=spin] unless entity @a[r=3] run playsound knife_use @a ~ ~ ~
+        execute as @e[type=arx:vicious_demon, tag=spin, tag=hp_0_to_25] at @s run damage @a[r=3, has_property={arx:is_knocked=0}] 8 entity_attack
+        execute as @e[type=arx:vicious_demon, tag=spin, tag=!hp_0_to_25] at @s run damage @a[r=3, has_property={arx:is_knocked=0}] 6 entity_attack
+        execute at @e[type=arx:vicious_demon, tag=spin] if entity @a[r=3, has_property={arx:is_knocked=0}] run playsound axe_use @a ~ ~ ~
+        execute at @e[type=arx:vicious_demon, tag=spin] unless entity @a[r=3, has_property={arx:is_knocked=0}] run playsound knife_use @a ~ ~ ~
 
     # Анимируем блокировку
         execute as @e[type=arx:vicious_demon, tag=shield] run playanimation @s animation.vicious_demon.block
@@ -18,7 +18,7 @@
         tag @a remove players_inside_scull_temple
         tag @a remove demon_inside_scull_temple
 
-        execute if entity @a[x=-204, y=33, z=324, dx=25, dy=5, dz=25] as @a[scores={verify=2}] run tag @s add players_inside_scull_temple
+        execute if entity @a[has_property={arx:is_knocked=0}, x=-204, y=33, z=324, dx=25, dy=5, dz=25] as @a[scores={verify=2}] run tag @s add players_inside_scull_temple
         execute if entity @e[type=arx:vicious_demon, x=-204, y=33, z=324, dx=25, dy=5, dz=25] as @a[scores={verify=2}] run tag @s add demon_inside_scull_temple
 
     # Если никого нет в локации порочного демона
@@ -26,4 +26,4 @@
 
     # Частицы когда мало хп
         execute at @e[type=arx:vicious_demon, tag=hp_0_to_25, tag=spin] run particle arx:vicious_flame ~ ~1.4 ~
-        execute at @e[type=arx:vicious_demon, tag=hp_0_to_25, tag=spin] run scoreboard players set @a[r=3] vicious_flame 1
+        execute at @e[type=arx:vicious_demon, tag=hp_0_to_25, tag=spin] run scoreboard players set @a[r=3, has_property={arx:is_knocked=0}] vicious_flame 1

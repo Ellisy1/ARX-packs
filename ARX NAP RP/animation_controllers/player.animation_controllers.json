@@ -544,11 +544,11 @@
 
 				"carried_by_someone_static": { // Если нас взяли и мы is_riding (СТАТИЧНАЯ)
 					"animations": [
-						"bob",
-						"carried_by_someone_static"
+						"carried_by_someone_static",
+						"knockout_basic"
 					],
 					"transitions": [
-						{"carried_by_someone_moving": "query.is_moving"},
+						{"carried_by_someone_moving": "query.cape_flap_amount > 0.3"},
 						{"third_person": "query.property('arx:is_knocked') == 0"},
 						{"knockout_tracer": "!q.is_riding"}
 					],
@@ -556,12 +556,12 @@
 				},
 				"carried_by_someone_moving": { // Если нас взяли и мы is_riding (ДИВЖУЮЩАЯСЯ)
 					"animations": [
-						"bob",
 						"carried_by_someone_static",
-						"carried_by_someone_moving"
+						"carried_by_someone_moving",
+						"knockout_basic"
 					],
 					"transitions": [
-						{"carried_by_someone_static": "!query.is_moving && variable.is_not_moving_tick_counter > 120"},
+						{"carried_by_someone_static": "query.cape_flap_amount < 0.2"},
 						{"third_person": "query.property('arx:is_knocked') == 0"},
 						{"knockout_tracer": "!q.is_riding"}
 					],
