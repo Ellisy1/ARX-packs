@@ -2165,7 +2165,7 @@
       "textures": "textures/items/weapons/wands/wand_pine_and_neth"
     },
     "arx:wand_wooden_broken": {
-      "textures": "textures/items/weapons/wands/wand_wooden_broken"
+      "textures": "textures/items/other/wand_wooden_broken"
     },
     "arx:wand_sakura": {
       "textures": "textures/items/weapons/wands/wand_sakura"
