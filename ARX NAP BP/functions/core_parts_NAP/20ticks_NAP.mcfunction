@@ -671,6 +671,8 @@
 
     # Ресанье игрока
         execute as @a[has_property={arx:is_knocked=1..}, tag=!is_riding] at @s if entity @a[has_property={arx:is_knocked=0}, tag=is_sneaking, r=2.2, rm=0.001] run scoreboard players add @s revive_delay 1
+        execute as @a[has_property={arx:is_knocked=1..}, tag=!is_riding] at @s if entity @a[has_property={arx:is_knocked=0}, tag=is_sneaking, r=2.2, rm=0.001, hasitem={item=arx:amul_revive, location=slot.armor.legs}] run scoreboard players add @s revive_delay 2
+
         execute as @a[has_property={arx:is_knocked=1..}] at @s unless entity @a[has_property={arx:is_knocked=0}, tag=is_sneaking, r=2.2, rm=0.001] run scoreboard players set @s revive_delay 0
 
         execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=1}] at @s run title @a[tag=is_sneaking, r=2.2, rm=0.001] actionbar §a█
@@ -691,15 +693,15 @@
         execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=8}] run title @s actionbar §a█ █ █ █ █ █ █ █
         execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=9}] at @s run title @a[tag=is_sneaking, r=2.2, rm=0.001] actionbar §a█ █ █ █ █ █ █ █ █
         execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=9}] run title @s actionbar §a█ █ █ █ █ █ █ █ █
-        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=10}] at @s run title @a[tag=is_sneaking, r=2.2, rm=0.001] actionbar §a█ █ █ █ █ █ █ █ █ █
-        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=10}] run title @s actionbar §a█ █ █ █ █ █ █ █ █ █
-        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=10, respawn_delay=1..}] at @s run tellraw @s { "rawtext": [ { "selector": "@a[has_property={arx:is_knocked=0}, tag=is_sneaking, r=2.2, rm=0.001]" }, { "text": " §aпомогает мне" } ] }
-        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=10, respawn_delay=1..}] at @s run scoreboard players add @s stress -1500
-        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=10, respawn_delay=0}] at @s run tellraw @s { "rawtext": [ { "selector": "@a[has_property={arx:is_knocked=0}, tag=is_sneaking, r=2.2, rm=0.001]" }, { "text": " §aпомогает мне. Притворяться вырубленным сейчас не выйдет" } ] }
-        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=10}] at @s run tellraw @a[tag=is_sneaking, r=2.2, rm=0.001] { "rawtext": [ { "selector": "@s" }, { "text": " §aстановится лучше" } ] }
-        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=10}] run camera @s fade time 0 0 5 color 20 3 3
-        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=10}] run clear @s arx:slot_blocker
-        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=10}] run event entity @s arx:property_is_knockout_set_0
+        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=10..}] at @s run title @a[tag=is_sneaking, r=2.2, rm=0.001] actionbar §a█ █ █ █ █ █ █ █ █ █
+        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=10..}] run title @s actionbar §a█ █ █ █ █ █ █ █ █ █
+        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=10.., respawn_delay=1..}] at @s run tellraw @s { "rawtext": [ { "selector": "@a[has_property={arx:is_knocked=0}, tag=is_sneaking, r=2.2, rm=0.001]" }, { "text": " §aпомогает мне" } ] }
+        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=10.., respawn_delay=1..}] at @s run scoreboard players add @s stress -1500
+        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=10.., respawn_delay=0}] at @s run tellraw @s { "rawtext": [ { "selector": "@a[has_property={arx:is_knocked=0}, tag=is_sneaking, r=2.2, rm=0.001]" }, { "text": " §aпомогает мне. Притворяться вырубленным сейчас не выйдет" } ] }
+        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=10..}] at @s run tellraw @a[tag=is_sneaking, r=2.2, rm=0.001] { "rawtext": [ { "selector": "@s" }, { "text": " §aстановится лучше" } ] }
+        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=10..}] run camera @s fade time 0 0 5 color 20 3 3
+        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=10..}] run clear @s arx:slot_blocker
+        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=10..}] run event entity @s arx:property_is_knockout_set_0
 
     # Обработка переменных (Должно быть последним в блоке "Нокаут")
         execute as @a run scoreboard players operation @s respawn_delay_history = @s respawn_delay

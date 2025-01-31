@@ -40,8 +40,13 @@
     execute as @s[tag=!is_ghost] run tellraw @s { "rawtext": [ { "text": "§eВы будете невидимы 3 минуты с текущего момента. Не забудьте, что вы будете получать урон под солнцем, под дождём и в воде." } ] }
     execute as @s[tag=!is_ghost] run effect @s invisibility 180 0 true
     execute as @s[tag=!is_ghost] run event entity @s arx:become_ghost
+
+    execute as @s[tag=!is_ghost] run scoreboard players operation @s xp_roll_back = @s xp
+    execute as @s[tag=!is_ghost] run scoreboard players operation @s xp_stage_roll_back = @s xp_stage
+
     execute as @s[tag=!is_ghost] run scoreboard players set @s xp 0
     execute as @s[tag=!is_ghost] run scoreboard players set @s xp_stage 0
+    
     execute as @s[tag=!is_ghost] run scoreboard players set @s speed_skill 0
     execute as @s[tag=!is_ghost] run scoreboard players set @s magic_skill 0
     execute as @s[tag=!is_ghost] run scoreboard players set @s strength_skill 0

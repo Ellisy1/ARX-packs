@@ -1570,6 +1570,9 @@
     "arx:amul_of_starpower": {
       "textures": "textures/items/jewelry/amulets/amul_of_starpower"
     },
+    "arx:amul_revive": {
+      "textures": "textures/items/jewelry/amulets/amul_revive"
+    },
 
     "arx:belt_lamp": {
       "textures": "textures/items/belt_lamps/belt_lamp"

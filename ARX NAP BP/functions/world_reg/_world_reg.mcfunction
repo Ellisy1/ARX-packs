@@ -631,3 +631,7 @@ tellraw @s { "rawtext": [ { "text": "§aПеременные успешно за
 
 # Обучение
     scoreboard objectives add learning dummy Этап_обучения
+
+# Данные для отката в до-смертельное состояние
+    scoreboard objectives add xp_roll_back dummy xp_roll_back
+    scoreboard objectives add xp_stage_roll_back dummy xp_stage_roll_back

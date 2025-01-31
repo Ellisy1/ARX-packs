@@ -548,7 +548,7 @@
 						"knockout_basic"
 					],
 					"transitions": [
-						{"carried_by_someone_moving": "query.cape_flap_amount > 0.3"},
+						{"carried_by_someone_moving": "query.cape_flap_amount > 0.2"},
 						{"third_person": "query.property('arx:is_knocked') == 0"},
 						{"knockout_tracer": "!q.is_riding"}
 					],
@@ -561,7 +561,7 @@
 						"knockout_basic"
 					],
 					"transitions": [
-						{"carried_by_someone_static": "query.cape_flap_amount < 0.2"},
+						{"carried_by_someone_static": "query.cape_flap_amount < 0.15"},
 						{"third_person": "query.property('arx:is_knocked') == 0"},
 						{"knockout_tracer": "!q.is_riding"}
 					],
