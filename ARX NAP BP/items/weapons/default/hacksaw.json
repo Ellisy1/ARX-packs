@@ -1,101 +1,96 @@
 {
     "format_version": "1.16.100",
     "minecraft:item": {
-      "description": {
-        "category": "equipment",
-        "identifier": "arx:hacksaw"
-      },
-      "components": {
-        "minecraft:icon": {
-          "texture": "arx:hacksaw"
+        "description": {
+            "category": "equipment",
+            "identifier": "arx:hacksaw"
         },
-        "minecraft:creative_category": {
-          "parent": "itemGroup.name.sword"
+        "components": {
+            "minecraft:icon": {
+                "texture": "arx:hacksaw"
+            },
+            "minecraft:creative_category": {
+                "parent": "itemGroup.name.sword"
+            },
+            "minecraft:max_stack_size": 1,
+            "minecraft:hand_equipped": true,
+            "minecraft:durability": {
+                "max_durability": 876
+            },
+            "minecraft:damage": 5,
+            "minecraft:enchantable": {
+                "value": 15,
+                "slot": "sword"
+            },
+            "minecraft:can_destroy_in_creative": true,
+            "minecraft:weapon": {
+                "on_hurt_entity": {
+                    "event": "hurt"
+                }
+            },
+            "tag:minecraft:is_sword": {},
+            "tag:is_default_sword": {},
+            "minecraft:cooldown": {
+                "category": "blocking",
+                "duration": 10
+            },
+            "minecraft:on_use": {
+                "on_use": {
+                    "event": "sawing"
+                }
+            }
         },
-        "minecraft:max_stack_size": 1,
-        "minecraft:hand_equipped": true,
-        "minecraft:durability": {
-          "max_durability": 100
-        },
-        "minecraft:damage": 3,
-        "minecraft:enchantable": {
-          "value": 15,
-          "slot": "sword"
-        },
-        "minecraft:can_destroy_in_creative": true,
-        "minecraft:weapon": {
-          "on_hurt_entity": {
-            "event": "hurt"
-          }
-        },
-        "tag:minecraft:is_sword": {},
-        "tag:is_default_sword": {},
-        "minecraft:cooldown": {
-          "category": "blocking",
-          "duration": 10
-        },
-        "minecraft:on_use": {
-          "on_use": {
-            "event": "sawing"
-          }
+        "events": {
+            "hurt": {
+                "run_command": {
+                    "command": [
+                        "tag @s add is_default",
+                        "scoreboard players set @s uni_cool_down 3",
+                        "function attack/on_attack"
+                    ]
+                },
+                "damage": {
+                    "type": "none",
+                    "amount": 1,
+                    "target": "self"
+                }
+            },
+            "sawing": {
+                "run_command": {
+                    "command": [
+                        "tag @s add self",
+                        "tag @s[hasitem={item=arx:shackles, location=slot.armor.legs}] add has_own_shackles",
+                        "execute @p[r=3, tag=!self] ~ ~ ~ tag @p[tag=self] add not_alone",
+                        "execute @s[tag=not_alone] ~ ~ ~ execute @p[r=3, tag=!self, hasitem={item=arx:shackles, location=slot.armor.legs}] ~ ~ ~ tag @p[tag=self] add nearest_player_has_shackles",
+                        "execute @s[tag=has_own_shackles] ~ ~ ~ playsound shackles.saw @a ~ ~ ~",
+                        "execute @s[tag=has_own_shackles] ~ ~ ~ playanimation @s animation.player.hacksaw",
+                        "execute @s[tag=has_own_shackles, scores={custom_random=..200}] ~ ~ ~ clear @s arx:shackles 0 1",
+                        "w @s[tag=has_own_shackles, scores={custom_random=..200}] \u00a7a\u041f\u043e\u043b\u0443\u0447\u0438\u043b\u043e\u0441\u044c! \u041a\u0430\u043d\u0434\u0430\u043b\u043e\u0432 \u043d\u0430 \u043c\u043d\u0435 \u0431\u043e\u043b\u044c\u0448\u0435 \u043d\u0435\u0442.",
+                        "execute @s[tag=has_own_shackles, scores={custom_random=..200}] ~ ~ ~ playsound random.break @a ~ ~ ~",
+                        "w @s[tag=has_own_shackles, scores={custom_random=201..}] \u00a76\u0420\u0430\u0441\u043f\u0438\u043b\u0438\u0442\u044c \u043a\u0430\u043d\u0434\u0430\u043b\u044b \u043d\u0435 \u043f\u043e\u043b\u0443\u0447\u0438\u043b\u043e\u0441\u044c",
+                        "execute @s[tag=!has_own_shackles, tag=nearest_player_has_shackles] ~ ~ ~ playsound shackles.saw @a ~ ~ ~",
+                        "execute @s[tag=!has_own_shackles, tag=nearest_player_has_shackles] ~ ~ ~ playanimation @s animation.player.hacksaw",
+                        "execute @s[tag=!has_own_shackles, tag=nearest_player_has_shackles, scores={custom_random=..200}] ~ ~ ~ clear @p[tag=!self] arx:shackles 0 1",
+                        "w @s[tag=!has_own_shackles, tag=nearest_player_has_shackles, scores={custom_random=..200}] \u00a7a\u041f\u043e\u043b\u0443\u0447\u0438\u043b\u043e\u0441\u044c! \u041a\u0430\u043d\u0434\u0430\u043b\u043e\u0432 \u043d\u0430 @p[tag=!self] \u0431\u043e\u043b\u044c\u0448\u0435 \u043d\u0435\u0442.",
+                        "execute @s[tag=!has_own_shackles, tag=nearest_player_has_shackles, scores={custom_random=..200}] ~ ~ ~ playsound random.break @a ~ ~ ~",
+                        "execute @s[tag=!has_own_shackles, tag=nearest_player_has_shackles, scores={custom_random=..200, gender=1}] ~ ~ ~ w @p[tag=!self] \u00a7a\u041f\u043e\u043b\u0443\u0447\u0438\u043b\u043e\u0441\u044c! @p[tag=self] \u0440\u0430\u0441\u043f\u0438\u043b\u0438\u043b \u043c\u043e\u0438 \u043a\u0430\u043d\u0434\u0430\u043b\u044b!",
+                        "execute @s[tag=!has_own_shackles, tag=nearest_player_has_shackles, scores={custom_random=..200, gender=2}] ~ ~ ~ w @p[tag=!self] \u00a7a\u041f\u043e\u043b\u0443\u0447\u0438\u043b\u043e\u0441\u044c! @p[tag=self] \u0440\u0430\u0441\u043f\u0438\u043b\u0438\u043b\u0430 \u043c\u043e\u0438 \u043a\u0430\u043d\u0434\u0430\u043b\u044b!",
+                        "execute @s[tag=!has_own_shackles, tag=nearest_player_has_shackles, scores={custom_random=201..}] ~ ~ ~ w @p[tag=!self] \u00a76\u0423 @p[tag=self] \u043d\u0435 \u043f\u043e\u043b\u0443\u0447\u0438\u043b\u043e\u0441\u044c \u0440\u0430\u0441\u043f\u0438\u043b\u0438\u0442\u044c \u043c\u043e\u0438 \u043a\u0430\u043d\u0434\u0430\u043b\u044b",
+                        "w @s[tag=!has_own_shackles, tag=nearest_player_has_shackles, scores={custom_random=201..}] \u00a76\u0420\u0430\u0441\u043f\u0438\u043b\u0438\u0442\u044c \u043a\u0430\u043d\u0434\u0430\u043b\u044b @p[tag=!self] \u043d\u0435 \u043f\u043e\u043b\u0443\u0447\u0438\u043b\u043e\u0441\u044c",
+                        "w @s[tag=!has_own_shackles, tag=!nearest_player_has_shackles, tag=not_alone] \u041d\u0438 \u043d\u0430 \u043c\u043d\u0435, \u043d\u0438 \u043d\u0430 @p[tag=!self] \u043d\u0435\u0442 \u043a\u0430\u043d\u0434\u0430\u043b\u043e\u0432",
+                        "w @s[tag=!has_own_shackles, tag=!nearest_player_has_shackles, tag=!not_alone] \u041d\u0430 \u043c\u043d\u0435 \u043d\u0435\u0442 \u043a\u0430\u043d\u0434\u0430\u043b\u043e\u0432",
+                        "tag @a[r=3] remove self",
+                        "tag @a[r=3] remove has_own_shackles",
+                        "tag @a[r=3] remove not_alone",
+                        "tag @a[r=3] remove nearest_player_has_shackles"
+                    ]
+                },
+                "damage": {
+                    "type": "none",
+                    "amount": 10,
+                    "target": "self"
+                }
+            }
         }
-      },
-      "events": {
-        "hurt": {
-          "run_command": {
-            "command": [
-              "tag @s add is_default",
-              "scoreboard players set @s uni_cool_down 3",
-              "function attack/on_attack"
-            ]
-          },
-          "damage": {
-            "type": "none",
-            "amount": 1,
-            "target": "self"
-          }
-        },
-        "sawing": {
-          "run_command": {
-            "command": [
-              "tag @s add self",
-
-              "tag @s[hasitem={item=arx:shackles, location=slot.armor.legs}] add has_own_shackles",
-              "execute @p[r=3, tag=!self] ~ ~ ~ tag @p[tag=self] add not_alone",
-              "execute @s[tag=not_alone] ~ ~ ~ execute @p[r=3, tag=!self, hasitem={item=arx:shackles, location=slot.armor.legs}] ~ ~ ~ tag @p[tag=self] add nearest_player_has_shackles",
-
-              "execute @s[tag=has_own_shackles] ~ ~ ~ playsound shackles.saw @a ~ ~ ~",
-              "execute @s[tag=has_own_shackles] ~ ~ ~ playanimation @s animation.player.hacksaw",
-              "execute @s[tag=has_own_shackles, scores={custom_random=..200}] ~ ~ ~ clear @s arx:shackles 0 1",
-              "w @s[tag=has_own_shackles, scores={custom_random=..200}] §aПолучилось! Кандалов на мне больше нет.",
-              "execute @s[tag=has_own_shackles, scores={custom_random=..200}] ~ ~ ~ playsound random.break @a ~ ~ ~",
-              "w @s[tag=has_own_shackles, scores={custom_random=201..}] §6Распилить кандалы не получилось",
-
-              "execute @s[tag=!has_own_shackles, tag=nearest_player_has_shackles] ~ ~ ~ playsound shackles.saw @a ~ ~ ~",
-              "execute @s[tag=!has_own_shackles, tag=nearest_player_has_shackles] ~ ~ ~ playanimation @s animation.player.hacksaw",
-              "execute @s[tag=!has_own_shackles, tag=nearest_player_has_shackles, scores={custom_random=..200}] ~ ~ ~ clear @p[tag=!self] arx:shackles 0 1",
-              "w @s[tag=!has_own_shackles, tag=nearest_player_has_shackles, scores={custom_random=..200}] §aПолучилось! Кандалов на @p[tag=!self] больше нет.",
-              "execute @s[tag=!has_own_shackles, tag=nearest_player_has_shackles, scores={custom_random=..200}] ~ ~ ~ playsound random.break @a ~ ~ ~",
-              "execute @s[tag=!has_own_shackles, tag=nearest_player_has_shackles, scores={custom_random=..200, gender=1}] ~ ~ ~ w @p[tag=!self] §aПолучилось! @p[tag=self] распилил мои кандалы!",
-              "execute @s[tag=!has_own_shackles, tag=nearest_player_has_shackles, scores={custom_random=..200, gender=2}] ~ ~ ~ w @p[tag=!self] §aПолучилось! @p[tag=self] распилила мои кандалы!",
-              "execute @s[tag=!has_own_shackles, tag=nearest_player_has_shackles, scores={custom_random=201..}] ~ ~ ~ w @p[tag=!self] §6У @p[tag=self] не получилось распилить мои кандалы",
-              "w @s[tag=!has_own_shackles, tag=nearest_player_has_shackles, scores={custom_random=201..}] §6Распилить кандалы @p[tag=!self] не получилось",
-
-              "w @s[tag=!has_own_shackles, tag=!nearest_player_has_shackles, tag=not_alone] Ни на мне, ни на @p[tag=!self] нет кандалов",
-              "w @s[tag=!has_own_shackles, tag=!nearest_player_has_shackles, tag=!not_alone] На мне нет кандалов",
-
-              "tag @a[r=3] remove self",
-              "tag @a[r=3] remove has_own_shackles",
-              "tag @a[r=3] remove not_alone",
-              "tag @a[r=3] remove nearest_player_has_shackles"
-            ]
-          },
-          "damage": {
-            "type": "none",
-            "amount": 10,
-            "target": "self"
-          }
-        }
-      }
     }
-  }
+}
