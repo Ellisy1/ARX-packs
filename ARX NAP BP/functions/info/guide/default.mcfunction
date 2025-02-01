@@ -74,10 +74,17 @@
         execute as @s[lm=60] run tag @s add level_is_more_or_equal_60
         execute as @s[lm=70] run tag @s add level_is_more_or_equal_70
 
+    # Позиционка
+        tag @s[x=-95, y=65, z=-137, dx=20, dy=20, dz=20] add is_on_indestructible_spawn
+
 # Даем советы
     # Нокаут
         execute as @s[scores={respawn_delay=1..}] run tellraw @s { "rawtext": [ { "text": "§cВы в нокауте. Ничего страшного, это не смерть. Вы встанете через минуту - полторы после нока, но вам могут помочь ваши друзья, если они присядут (встанут на шифт) рядом с вами." } ] }
         execute as @s[scores={respawn_delay=1..}] run tag @s add has_smth_to_guide
+
+    # На спавне
+        execute as @s[tag=is_on_indestructible_spawn] run tellraw @s { "rawtext": [ { "text": "§aВы сейчас на самом спавне. Здесь не ломаются блоки, отойдите немного подальше." } ] }
+        execute as @s[tag=is_on_indestructible_spawn] run tag @s add has_smth_to_guide
 
     # Ранения
         # very_low_hp - очень сильные ранения
@@ -131,7 +138,7 @@
         execute as @s[scores={ach_has_crafting_table=0}, tag=!has_smth_to_guide] run tag @s add has_smth_to_guide
     
     # Невложенные очки обучения
-        execute as @s[scores={skill_point=1..}, tag=!has_smth_to_guide] run tellraw @s { "rawtext": [ { "text": "§aУ вас есть §d" }, { "score": {"name": "@s", "objective": "skill_point" } }, { "text": " §aневкачанное(-ых) очко(-в) обучения.§6 Чтобы их использовать, создайте и используйте один из трех предметов на обычном вестаке: Повысить силу, Повысить ловкость или Повысить магию." } ] }
+        execute as @s[scores={skill_point=1..}, tag=!has_smth_to_guide] run tellraw @s { "rawtext": [ { "text": "§aУ вас есть §d" }, { "score": {"name": "@s", "objective": "skill_point" } }, { "text": " §aневкачанное(-ых) очко(-в) обучения.§f Чтобы их использовать, создайте и используйте один из трех предметов на обычном вестаке: §cПовысить силу§f, §aПовысить ловкость§f или §bПовысить магию§f." } ] }
         execute as @s[scores={skill_point=1..}, tag=!has_smth_to_guide] run tag @s add has_smth_to_guide
 
     # Еда
@@ -139,7 +146,7 @@
         execute as @s[scores={saturation=0}, tag=!has_smth_to_guide] run tag @s add has_smth_to_guide
 
     # Повышение религии 
-        execute as @s[scores={religion=0}, tag=level_is_more_or_equal_30, tag=!has_smth_to_guide] run tellraw @s { "rawtext": [ { "text": "§aВы можете повысить религию до уровня Ученик! §6Скрафтите на обычном верстаке либо каменного Пиреса, либо каменного Палласа, и используйте." } ] }
+        execute as @s[scores={religion=0}, tag=level_is_more_or_equal_30, tag=!has_smth_to_guide] run tellraw @s { "rawtext": [ { "text": "§aВы можете повысить религию до уровня Ученик! §fСкрафтите на обычном верстаке либо §aкаменного Пиреса§f, либо §aкаменного Палласа§f, и используйте. §cНо осторожно! Некоторые персонажи могут очень отрицательно относиться к тем, кто верит не в их бога." } ] }
         execute as @s[scores={religion=0}, tag=level_is_more_or_equal_30, tag=!has_smth_to_guide] run tag @s add has_smth_to_guide
 
 
@@ -185,3 +192,5 @@
     tag @s remove level_is_more_or_equal_50
     tag @s remove level_is_more_or_equal_60
     tag @s remove level_is_more_or_equal_70
+
+    tag @s remove is_on_indestructible_spawn
