@@ -7,7 +7,7 @@
 
     "tags": ["furnace", "smoker", "campfire", "soul_campfire"],
     "input": "arx:liver",
-    "output": "arx:preparation_liver"
+    "output": "arx:liver"
   }
   
 }

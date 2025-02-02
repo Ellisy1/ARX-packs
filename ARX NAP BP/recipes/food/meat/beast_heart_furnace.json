@@ -7,7 +7,7 @@
 
     "tags": ["furnace", "smoker", "campfire", "soul_campfire"],
     "input": "arx:beast_heart",
-    "output": "arx:preparation_beast_heart"
+    "output": "arx:beast_heart"
   }
   
 }

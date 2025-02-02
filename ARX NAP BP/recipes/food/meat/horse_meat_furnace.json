@@ -7,7 +7,7 @@
 
     "tags": ["furnace", "smoker", "campfire", "soul_campfire"],
     "input": "arx:horse_meat",
-    "output": "arx:preparation_horse_meat"
+    "output": "arx:horse_meat"
   }
   
 }

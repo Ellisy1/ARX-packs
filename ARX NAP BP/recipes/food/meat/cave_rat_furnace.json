@@ -7,7 +7,7 @@
 
     "tags": ["furnace", "smoker", "campfire", "soul_campfire"],
     "input": "arx:cave_rat_meat",
-    "output": "arx:preparation_cave_rat_meat"
+    "output": "arx:cave_rat_meat"
   }
   
 }

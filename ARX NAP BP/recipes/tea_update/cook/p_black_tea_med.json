@@ -10,12 +10,12 @@
 			"C"
 		],
 		"key": {
-			"C": "arx:perfect_black_tea",
+			"C": "arx:black_tea",
 			"L": "minecraft:honey_bottle"
 		},
 		"result": [
 			{
-				"item": "arx:preparation_black_tea_med",
+				"item": "arx:black_tea_med",
 				
 				"count": 1
 			}

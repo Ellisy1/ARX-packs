@@ -2,7 +2,7 @@
   "format_version": "1.12",
   "minecraft:recipe_shaped": {
     "description": {
-    "identifier": "arx:toliriite_cooled_protective_plate"
+    "identifier": "arx:toliriite_protective_plate"
     },
 
     
@@ -16,7 +16,7 @@
       }
     },
     "result": {
-      "item": "arx:toliriite_cooled_protective_plate"
+      "item": "arx:toliriite_protective_plate"
     }
   }
 }

@@ -15,7 +15,7 @@
             "M":"minecraft:milk_bucket"
 		},
 		"result": [
-			{"item": "arx:preparation_milk_ylyn", "count": 1},
+			{"item": "arx:milk_ylyn", "count": 1},
 			{"item": "minecraft:bucket", "count": 1}
 		  ]
 	}

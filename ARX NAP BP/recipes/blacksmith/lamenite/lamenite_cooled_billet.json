@@ -2,7 +2,7 @@
   "format_version": "1.12",
   "minecraft:recipe_shaped": {
     "description": {
-    "identifier": "arx:lamenite_cooled_billet"
+    "identifier": "arx:lamenite_billet"
     },
 
     
@@ -16,7 +16,7 @@
       }
     },
     "result": {
-      "item": "arx:lamenite_cooled_billet"
+      "item": "arx:lamenite_billet"
     }
   }
 }

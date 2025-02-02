@@ -7,7 +7,7 @@
 
     "tags": ["furnace", "smoker", "campfire", "soul_campfire"],
     "input": "minecraft:mutton",
-    "output": "arx:preparation_mutton"
+    "output": "arx:fried_mutton"
   }
   
 }

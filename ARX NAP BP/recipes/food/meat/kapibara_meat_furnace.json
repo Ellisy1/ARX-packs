@@ -7,7 +7,7 @@
 
     "tags": ["furnace", "smoker", "campfire", "soul_campfire"],
     "input": "arx:kapibara_meat",
-    "output": "arx:preparation_kapibara_meat"
+    "output": "arx:kapibara_meat"
   }
   
 }

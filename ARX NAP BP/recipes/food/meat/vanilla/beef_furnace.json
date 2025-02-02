@@ -7,7 +7,7 @@
 
     "tags": ["furnace", "smoker", "campfire", "soul_campfire"],
     "input": "minecraft:beef",
-    "output": "arx:preparation_beef"
+    "output": "arx:fried_beef"
   }
   
 }

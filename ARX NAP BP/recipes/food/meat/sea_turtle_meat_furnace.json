@@ -7,7 +7,7 @@
 
     "tags": ["furnace", "smoker", "campfire", "soul_campfire"],
     "input": "arx:sea_turtle_meat",
-    "output": "arx:preparation_sea_turtle_meat"
+    "output": "arx:sea_turtle_meat"
   }
   
 }

@@ -2,7 +2,7 @@
   "format_version": "1.12",
   "minecraft:recipe_shaped": {
     "description": {
-    "identifier": "arx:duraluminum_cooled_billet"
+    "identifier": "arx:duraluminum_billet"
     },
 
     
@@ -16,7 +16,7 @@
       }
     },
     "result": {
-      "item": "arx:duraluminum_cooled_billet"
+      "item": "arx:duraluminum_billet"
     }
   }
 }

@@ -192,72 +192,7 @@ scoreboard objectives add item_control dummy item_control
 scoreboard objectives add online dummy online
 scoreboard objectives add online_log dummy online_log
 
-# Навыки
-    scoreboard objectives add sk_a_1 dummy sk_a_1
-    scoreboard objectives add sk_a_2 dummy sk_a_2
-    scoreboard objectives add sk_a_3 dummy sk_a_3
-    scoreboard objectives add sk_a_4 dummy sk_a_4
-    scoreboard objectives add sk_a_5 dummy sk_a_5
-    scoreboard objectives add sk_a_6 dummy sk_a_6
-    scoreboard objectives add sk_a_7 dummy sk_a_7
-    scoreboard objectives add sk_a_8 dummy sk_a_8
-    scoreboard objectives add sk_a_9 dummy sk_a_9
-    scoreboard objectives add sk_a_10 dummy sk_a_11
-    scoreboard objectives add sk_a_11 dummy sk_a_11
-    scoreboard objectives add sk_a_12 dummy sk_a_12
-    scoreboard objectives add sk_a_13 dummy sk_a_13
-    scoreboard objectives add sk_a_14 dummy sk_a_14
-    scoreboard objectives add sk_a_15 dummy sk_a_15
-    scoreboard objectives add sk_a_16 dummy sk_a_16
-    scoreboard objectives add sk_a_17 dummy sk_a_17
-    scoreboard objectives add sk_a_18 dummy sk_a_18
-    scoreboard objectives add sk_a_19 dummy sk_a_19
-    scoreboard objectives add sk_a_20 dummy sk_a_20
-    scoreboard objectives add sk_a_21 dummy sk_a_21
-    scoreboard objectives add sk_a_22 dummy sk_a_22
-    scoreboard objectives add sk_a_23 dummy sk_a_23
-    scoreboard objectives add sk_a_24 dummy sk_a_24
-    scoreboard objectives add sk_a_25 dummy sk_a_25
-    scoreboard objectives add sk_a_26 dummy sk_a_26
-    scoreboard objectives add sk_a_27 dummy sk_a_27
-    scoreboard objectives add sk_a_28 dummy sk_a_28
-    scoreboard objectives add sk_a_29 dummy sk_a_29
 
-    scoreboard objectives add sk_b_1 dummy sk_b_1
-    scoreboard objectives add sk_b_2 dummy sk_b_2
-    scoreboard objectives add sk_b_3 dummy sk_b_3
-    scoreboard objectives add sk_b_4 dummy sk_b_4
-    scoreboard objectives add sk_b_5 dummy sk_b_5
-    scoreboard objectives add sk_b_6 dummy sk_b_6
-    scoreboard objectives add sk_b_7 dummy sk_b_7
-    scoreboard objectives add sk_b_8 dummy sk_b_8
-    scoreboard objectives add sk_b_9 dummy sk_b_9
-    scoreboard objectives add sk_b_10 dummy sk_b_11
-    scoreboard objectives add sk_b_11 dummy sk_b_11
-    scoreboard objectives add sk_b_12 dummy sk_b_12
-    scoreboard objectives add sk_b_13 dummy sk_b_13
-    scoreboard objectives add sk_b_14 dummy sk_b_14
-
-    scoreboard objectives add sk_c_1 dummy sk_c_1
-    scoreboard objectives add sk_c_2 dummy sk_c_2
-    scoreboard objectives add sk_c_3 dummy sk_c_3
-    scoreboard objectives add sk_c_4 dummy sk_c_4
-    scoreboard objectives add sk_c_5 dummy sk_c_5
-    scoreboard objectives add sk_c_6 dummy sk_c_6
-    scoreboard objectives add sk_c_7 dummy sk_c_7
-    scoreboard objectives add sk_c_8 dummy sk_c_8
-    scoreboard objectives add sk_c_9 dummy sk_c_9
-    scoreboard objectives add sk_c_10 dummy sk_c_11
-    scoreboard objectives add sk_c_11 dummy sk_c_11
-    scoreboard objectives add sk_c_12 dummy sk_c_12
-    scoreboard objectives add sk_c_13 dummy sk_c_13
-    scoreboard objectives add sk_c_14 dummy sk_c_14
-    scoreboard objectives add sk_c_15 dummy sk_c_15
-
-    scoreboard objectives add sk_d_1 dummy sk_d_1
-    scoreboard objectives add sk_d_2 dummy sk_d_2
-    scoreboard objectives add sk_d_3 dummy sk_d_3
-    scoreboard objectives add sk_d_4 dummy sk_d_4
 
 # Константы (для команд scoreboard players operation...)
     scoreboard objectives add const_-1 dummy Константа_-1

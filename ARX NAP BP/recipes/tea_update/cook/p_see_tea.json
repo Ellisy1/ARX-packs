@@ -10,12 +10,12 @@
 			"C"
 		],
 		"key": {
-			"C": "arx:perfect_pyer_tea",
+			"C": "arx:pyer_tea",
 			"L": "arx:monster_eye"
 		},
 		"result": [
 			{
-				"item": "arx:preparation_see_tea",
+				"item": "arx:see_tea",
 				
 				"count": 1
 			}

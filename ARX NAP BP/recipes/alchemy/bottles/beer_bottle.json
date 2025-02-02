@@ -21,7 +21,7 @@
       }
     },
     "result": [
-      {"item": "arx:beer_bottle_preparation", "count": 4}
+      {"item": "arx:beer_bottle", "count": 4}
     ]
   }
 }

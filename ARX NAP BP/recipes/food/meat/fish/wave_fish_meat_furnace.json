@@ -7,7 +7,7 @@
 
     "tags": ["furnace", "smoker", "campfire", "soul_campfire"],
     "input": "arx:wave_fish_meat",
-    "output": "arx:preparation_wave_fish_meat_fried"
+    "output": "arx:wave_fish_meat_fried"
   }
   
 }

@@ -7,7 +7,7 @@
 
     "tags": ["furnace", "smoker", "campfire", "soul_campfire"],
     "input": "arx:gold_tail_fish_meat",
-    "output": "arx:preparation_gold_tail_fish_meat_fried"
+    "output": "arx:gold_tail_fish_meat_fried"
   }
   
 }

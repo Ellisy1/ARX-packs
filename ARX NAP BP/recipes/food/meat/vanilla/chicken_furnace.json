@@ -7,7 +7,7 @@
 
     "tags": ["furnace", "smoker", "campfire", "soul_campfire"],
     "input": "minecraft:chicken",
-    "output": "arx:preparation_chicken"
+    "output": "arx:fried_chicken"
   }
   
 }

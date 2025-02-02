@@ -15,7 +15,7 @@
             "W": "minecraft:potion"
 		},
 		"result": [
-			{"item": "arx:preparation_pyer_tea", "count": 1},
+			{"item": "arx:pyer_tea", "count": 1},
 			{"item": "minecraft:glass_bottle", "count": 1}
 		  ]
 	}

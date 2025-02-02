@@ -7,7 +7,7 @@
 
     "tags": ["furnace", "smoker", "campfire", "soul_campfire"],
     "input": "arx:salmon_fillet",
-    "output": "arx:preparation_salmon_fillet_fried"
+    "output": "arx:salmon_fillet_fried"
   }
   
 }

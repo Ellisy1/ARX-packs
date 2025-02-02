@@ -2,7 +2,7 @@
   "format_version": "1.12",
   "minecraft:recipe_shaped": {
     "description": {
-    "identifier": "arx:dorionite_cooled_protective_plate"
+    "identifier": "arx:dorionite_protective_plate"
     },
 
     
@@ -16,7 +16,7 @@
       }
     },
     "result": {
-      "item": "arx:dorionite_cooled_protective_plate"
+      "item": "arx:dorionite_protective_plate"
     }
   }
 }

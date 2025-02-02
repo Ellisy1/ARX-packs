@@ -2,7 +2,7 @@
   "format_version": "1.12",
   "minecraft:recipe_shaped": {
     "description": {
-    "identifier": "arx:tin_cooled_billet"
+    "identifier": "arx:tin_billet"
     },
 
     
@@ -16,7 +16,7 @@
       }
     },
     "result": {
-      "item": "arx:tin_cooled_billet"
+      "item": "arx:tin_billet"
     }
   }
 }

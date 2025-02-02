@@ -1,0 +1,25 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:beefbread"
+    },
+
+    
+    "tags": [ "cooking_crafting_table" ],
+    "pattern": [
+      "A#"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:bread"
+      },
+      "A": {
+        "item": "arx:fried_beef"
+      }
+    },
+    "result": {
+      "item": "arx:beefbread"
+    }
+  }
+}

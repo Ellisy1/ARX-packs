@@ -7,7 +7,7 @@
 
     "tags": ["furnace", "smoker", "campfire", "soul_campfire"],
     "input": "arx:allay_meat",
-    "output": "arx:preparation_allay_meat"
+    "output": "arx:allay_meat"
   }
   
 }

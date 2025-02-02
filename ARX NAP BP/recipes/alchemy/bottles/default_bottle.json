@@ -21,7 +21,7 @@
       }
     },
     "result": [
-      {"item": "arx:default_bottle_preparation", "count": 4}
+      {"item": "arx:default_bottle", "count": 4}
     ]
   }
 }

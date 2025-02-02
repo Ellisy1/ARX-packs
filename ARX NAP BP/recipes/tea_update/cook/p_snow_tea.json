@@ -11,13 +11,13 @@
 			"LLL"
 		],
 		"key": {
-			"C": "arx:perfect_white_tea",
+			"C": "arx:white_tea",
 			"L": "minecraft:snowball",
 			"S":"minecraft:sugar"
 		},
 		"result": [
 			{
-				"item": "arx:preparation_snow_tea",
+				"item": "arx:snow_tea",
 				
 				"count": 1
 			}

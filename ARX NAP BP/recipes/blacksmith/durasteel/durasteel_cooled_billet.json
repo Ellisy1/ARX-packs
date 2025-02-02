@@ -2,7 +2,7 @@
   "format_version": "1.12",
   "minecraft:recipe_shaped": {
     "description": {
-    "identifier": "arx:durasteel_cooled_billet"
+    "identifier": "arx:durasteel_billet"
     },
 
     
@@ -16,7 +16,7 @@
       }
     },
     "result": {
-      "item": "arx:durasteel_cooled_billet"
+      "item": "arx:durasteel_billet"
     }
   }
 }

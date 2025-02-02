@@ -7,7 +7,7 @@
 
     "tags": ["furnace", "smoker", "campfire", "soul_campfire"],
     "input": "arx:raw_venison",
-    "output": "arx:preparation_fried_venison"
+    "output": "arx:fried_venison"
   }
   
 }

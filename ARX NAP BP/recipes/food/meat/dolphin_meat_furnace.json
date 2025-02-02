@@ -7,7 +7,7 @@
 
     "tags": ["furnace", "smoker", "campfire", "soul_campfire"],
     "input": "arx:dolphin_meat",
-    "output": "arx:preparation_dolphin_meat"
+    "output": "arx:dolphin_meat"
   }
   
 }

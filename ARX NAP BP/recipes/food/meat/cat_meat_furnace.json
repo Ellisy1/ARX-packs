@@ -7,7 +7,7 @@
 
     "tags": ["furnace", "smoker", "campfire", "soul_campfire"],
     "input": "arx:cat_meat",
-    "output": "arx:preparation_cat_meat"
+    "output": "arx:cat_meat"
   }
   
 }

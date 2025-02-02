@@ -7,7 +7,7 @@
 
     "tags": ["furnace", "smoker", "campfire", "soul_campfire"],
     "input": "arx:brain",
-    "output": "arx:preparation_fried_brain"
+    "output": "arx:fried_brain"
   }
   
 }

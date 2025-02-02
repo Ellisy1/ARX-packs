@@ -2,7 +2,7 @@
   "format_version": "1.12",
   "minecraft:recipe_shaped": {
     "description": {
-    "identifier": "arx:forfactorite_cooled_billet"
+    "identifier": "arx:forfactorite_billet"
     },
 
     
@@ -16,7 +16,7 @@
       }
     },
     "result": {
-      "item": "arx:forfactorite_cooled_billet"
+      "item": "arx:forfactorite_billet"
     }
   }
 }

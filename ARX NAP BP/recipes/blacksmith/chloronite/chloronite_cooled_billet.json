@@ -2,7 +2,7 @@
   "format_version": "1.12",
   "minecraft:recipe_shaped": {
     "description": {
-    "identifier": "arx:chloronite_cooled_billet"
+    "identifier": "arx:chloronite_billet"
     },
 
     
@@ -16,7 +16,7 @@
       }
     },
     "result": {
-      "item": "arx:chloronite_cooled_billet"
+      "item": "arx:chloronite_billet"
     }
   }
 }

@@ -289,7 +289,7 @@
         {
           "wants": [
             {
-              "item": "arx:preparation_forcemeat",
+              "item": "arx:forcemeat",
               "quantity": 5
             }
           ],

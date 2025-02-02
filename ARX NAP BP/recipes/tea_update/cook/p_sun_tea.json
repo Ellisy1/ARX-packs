@@ -11,13 +11,13 @@
 			"S"
 		],
 		"key": {
-			"C": "arx:perfect_yellow_tea",
+			"C": "arx:yellow_tea",
 			"G": "minecraft:glow_berries",
 			"S":"arx:day_kosk"
 		},
 		"result": [
 			{
-				"item": "arx:preparation_sun_tea",
+				"item": "arx:sun_tea",
 				
 				"count": 1
 			}

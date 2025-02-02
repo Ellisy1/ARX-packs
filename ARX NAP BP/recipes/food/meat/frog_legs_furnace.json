@@ -7,7 +7,7 @@
 
     "tags": ["furnace", "smoker", "campfire", "soul_campfire"],
     "input": "arx:frog_legs",
-    "output": "arx:preparation_frog_legs"
+    "output": "arx:frog_legs"
   }
   
 }

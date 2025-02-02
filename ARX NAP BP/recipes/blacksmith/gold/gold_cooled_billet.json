@@ -2,7 +2,7 @@
   "format_version": "1.12",
   "minecraft:recipe_shaped": {
     "description": {
-    "identifier": "arx:gold_cooled_billet"
+    "identifier": "arx:gold_billet"
     },
 
     
@@ -16,7 +16,7 @@
       }
     },
     "result": {
-      "item": "arx:gold_cooled_billet"
+      "item": "arx:gold_billet"
     }
   }
 }

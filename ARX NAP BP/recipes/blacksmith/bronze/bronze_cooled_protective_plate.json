@@ -2,7 +2,7 @@
   "format_version": "1.12",
   "minecraft:recipe_shaped": {
     "description": {
-    "identifier": "arx:bronze_cooled_protective_plate"
+    "identifier": "arx:bronze_protective_plate"
     },
 
     
@@ -16,7 +16,7 @@
       }
     },
     "result": {
-      "item": "arx:bronze_cooled_protective_plate"
+      "item": "arx:bronze_protective_plate"
     }
   }
 }

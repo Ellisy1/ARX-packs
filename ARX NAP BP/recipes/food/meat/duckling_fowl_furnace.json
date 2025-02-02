@@ -7,7 +7,7 @@
 
     "tags": ["furnace", "smoker", "campfire", "soul_campfire"],
     "input": "arx:duckling_fowl",
-    "output": "arx:preparation_duckling_fowl"
+    "output": "arx:duckling_fowl"
   }
   
 }
