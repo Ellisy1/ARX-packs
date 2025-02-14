@@ -7,7 +7,7 @@
 
     "tags": ["furnace", "smoker", "campfire", "soul_campfire"],
     "input": "arx:parrot_fowl",
-    "output": "arx:parrot_fowl"
+    "output": "arx:fried_parrot_fowl"
   }
   
 }

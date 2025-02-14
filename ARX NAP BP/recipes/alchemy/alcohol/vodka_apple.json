@@ -9,7 +9,7 @@
 
     "input": "arx:vodka",
     "reagent": "minecraft:apple",
-    "output": "arx:vodka_apple_preparation"
+    "output": "arx:vodka_apple"
   }
 
 }

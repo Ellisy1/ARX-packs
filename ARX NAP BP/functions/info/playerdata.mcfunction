@@ -32,12 +32,11 @@
     tellraw @s[scores={karma_pallas=1..}] { "rawtext": [{ "text": "§4Карма Палласа продлится ещё "}, { "score": {"name": "@s", "objective": "karma_pallas" } }, { "text": " минут." } ] }
     tellraw @s[scores={karma_pires=1..}] { "rawtext": [{ "text": "§4Карма Пиреса продлится ещё "}, { "score": {"name": "@s", "objective": "karma_pires" } }, { "text": " минут." } ] }
 
-    tellraw @s[scores={sk_a_21=1}] { "rawtext": [ { "text": "МАНА§f: §b" }, { "score": {"name": "@s", "objective": "mp" } }, { "text": "§f маны, §3" }, { "score": {"name": "@s", "objective": "mp_max" } }, { "text": "§f макс. маны, " } ] }
+    tellraw @s { "rawtext": [ { "text": "МАНА§f: §b" }, { "score": {"name": "@s", "objective": "mp" } }, { "text": "§f маны, §3" }, { "score": {"name": "@s", "objective": "mp_max" } }, { "text": "§f макс. маны, " } ] }
 
-    tellraw @s[scores={regen_mp=9999.., sk_a_22=1}] { "rawtext": [ { "text": "РЕГЕН МАНЫ: мана не регенирируется." } ] }
-    tellraw @s[scores={regen_mp=1..9999, sk_a_22=1}] { "rawtext": [ { "text": "РЕГЕН МАНЫ: §d" }, { "score": {"name": "@s", "objective": "regen_mp" } }, { "text": "§f сек. скорость регенерации §d" }, { "score": {"name": "@s", "objective": "mp_regeneration_amplification" } }, { "text": "§f маны" } ] }
-    tellraw @s[scores={regen_mp=..0, sk_a_22=1}] { "rawtext": [ { "text": "РЕГЕН МАНЫ: " }, { "text": "1 сек. скорость регенерации очка маны" } ] }
-    tellraw @s[scores={sk_a_21=1, sk_a_22=0}] { "rawtext": [ { "text": "РЕГЕН МАНЫ: §cНе изучено, требуется навык A22" } ] }
+    tellraw @s[scores={regen_mp=9999..}] { "rawtext": [ { "text": "РЕГЕН МАНЫ: мана не регенирируется." } ] }
+    tellraw @s[scores={regen_mp=1..9999}] { "rawtext": [ { "text": "РЕГЕН МАНЫ: §d" }, { "score": {"name": "@s", "objective": "regen_mp" } }, { "text": "§f сек. скорость регенерации §d" }, { "score": {"name": "@s", "objective": "mp_regeneration_amplification" } }, { "text": "§f маны" } ] }
+    tellraw @s[scores={regen_mp=..0}] { "rawtext": [ { "text": "РЕГЕН МАНЫ: " }, { "text": "1 сек. скорость регенерации очка маны" } ] }
 
     tellraw @s { "rawtext": [ { "text": "РЕГЕН ХП: (§eуровень эффекта§f/§6раз в .. сек.§f): §e" }, { "score": {"name": "@s", "objective": "regen_effect" } }, { "text": "§f/§6" }, { "score": {"name": "@s", "objective": "regen_speed" } } ] }
 

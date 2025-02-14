@@ -2,14 +2,14 @@
   "format_version": "1.12",
   "minecraft:recipe_brewing_mix": {
     "description": {
-      "identifier": "arx:long_bottle_blood_karelo_preparation"
+      "identifier": "arx:long_bottle_blood_karelo"
     },
 
     "tags": [ "brewing_stand" ],
 
     "input": "arx:long_bottle_blood",
     "reagent": "arx:karelo",
-    "output": "arx:long_bottle_blood_karelo_preparation"
+    "output": "arx:long_bottle_blood_karelo"
   }
 
 }

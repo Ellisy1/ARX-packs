@@ -16,7 +16,7 @@
             "minecraft:hand_equipped": true,
             "minecraft:allow_off_hand": true,
             "minecraft:durability": {
-                "max_durability": 876
+                "max_durability": 672
             },
             "minecraft:damage": 3,
             "minecraft:enchantable": {

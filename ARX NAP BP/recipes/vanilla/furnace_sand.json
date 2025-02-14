@@ -8,7 +8,7 @@
     
     "tags": ["furnace"],
     "input": "minecraft:sand",
-    "output": "arx:glass_preperation"
+    "output": "minecraft:glass"
   }
   
 }

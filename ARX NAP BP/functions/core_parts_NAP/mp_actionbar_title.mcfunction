@@ -12,8 +12,6 @@
         tag @a[tag=holds_staff_trio] add deny_to_show_mp_on_actionbar
         tag @a[tag=holds_staff_duo] add deny_to_show_mp_on_actionbar
         tag @a[tag=holds_staff_mono] add deny_to_show_mp_on_actionbar
-    # Запрещаем, если нет навыка
-        tag @a[scores={sk_a_22=0}] add deny_to_show_mp_on_actionbar
     # Запрещаем, если нокнут
         tag @a[scores={knockout_delay=1..}] add deny_to_show_mp_on_actionbar
 

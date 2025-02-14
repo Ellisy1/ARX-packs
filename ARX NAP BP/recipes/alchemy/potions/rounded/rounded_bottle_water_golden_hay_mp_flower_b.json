@@ -9,7 +9,7 @@
 
     "input": "arx:rounded_bottle_water_golden_hay",
     "reagent": "arx:mp_mushroom_item",
-    "output": "arx:rounded_bottle_water_golden_hay_mp_flower_preparation"
+    "output": "arx:rounded_bottle_water_golden_hay_mp_flower"
   }
 
 }

@@ -60,8 +60,6 @@ scoreboard objectives add mark dummy Метка
 scoreboard objectives add regen_hp dummy Регенерация
 scoreboard objectives add regen_mp dummy Восст_маны
 scoreboard objectives add heavy dummy Загруж.
-scoreboard objectives add heavy_la dummy Загруж.лег
-scoreboard objectives add heavy_ha dummy Загруж.тяж
 scoreboard objectives add heavy_delta dummy Загруж_разн
 scoreboard objectives add heavy_log dummy Загруж_ист
 scoreboard objectives add heavy_compens dummy Загруж_компенс
@@ -135,7 +133,7 @@ scoreboard objectives add regen_effect dummy Степень_автреген
 scoreboard objectives add regen_delay dummy Счёт_автреген
 
 
-scoreboard objectives add move_delay dummy move_delay
+scoreboard objectives add move_delay dummy задержка_аним_бездействия
             
 scoreboard objectives add freezing dummy freezing
 

@@ -9,7 +9,7 @@
 
     "input": "arx:square_bottle_spirt_golden_hay",
     "reagent": "minecraft:bone",
-    "output": "arx:square_bottle_spirt_golden_hay_bone_preparation"
+    "output": "arx:square_bottle_spirt_golden_hay_bone"
   }
 
 }

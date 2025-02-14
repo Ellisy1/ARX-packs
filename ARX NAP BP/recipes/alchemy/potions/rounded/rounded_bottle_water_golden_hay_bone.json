@@ -9,7 +9,7 @@
 
     "input": "arx:rounded_bottle_water_golden_hay",
     "reagent": "minecraft:bone",
-    "output": "arx:rounded_bottle_water_golden_hay_bone_preparation"
+    "output": "arx:rounded_bottle_water_golden_hay_bone"
   }
 
 }

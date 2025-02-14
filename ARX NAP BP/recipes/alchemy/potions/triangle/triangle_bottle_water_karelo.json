@@ -9,7 +9,7 @@
 
     "input": "arx:triangle_bottle_water",
     "reagent": "arx:karelo",
-    "output": "arx:triangle_bottle_water_karelo_preparation"
+    "output": "arx:triangle_bottle_water_karelo"
   }
 
 }

@@ -7,7 +7,7 @@
 
     "tags": ["furnace", "smoker", "campfire", "soul_campfire"],
     "input": "arx:polar_bear_meat",
-    "output": "arx:polar_bear_meat"
+    "output": "arx:fried_polar_bear_meat"
   }
   
 }

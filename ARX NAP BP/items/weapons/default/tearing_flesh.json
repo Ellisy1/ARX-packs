@@ -17,10 +17,10 @@
             "minecraft:allow_off_hand": true,
             "minecraft:foil": false,
             "minecraft:durability": {
-                "max_durability": 1000
+                "max_durability": 1734
             },
             "minecraft:mining_speed": 1,
-            "minecraft:damage": 12,
+            "minecraft:damage": 8,
             "minecraft:enchantable": {
                 "value": 15,
                 "slot": "sword"
@@ -32,6 +32,7 @@
                 }
             },
             "tag:minecraft:is_sword": {},
+            "tag:raw_cost:42000": {},
             "tag:is_default_sword": {},
             "minecraft:cooldown": {
                 "category": "blocking",

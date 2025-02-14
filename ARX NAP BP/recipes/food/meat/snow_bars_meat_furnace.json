@@ -7,7 +7,7 @@
 
     "tags": ["furnace", "smoker", "campfire", "soul_campfire"],
     "input": "arx:snow_bars_meat",
-    "output": "arx:snow_bars_meat"
+    "output": "arx:fried_snow_bars_meat"
   }
   
 }

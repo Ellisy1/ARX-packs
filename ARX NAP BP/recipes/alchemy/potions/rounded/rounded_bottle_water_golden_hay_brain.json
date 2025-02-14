@@ -9,7 +9,7 @@
 
     "input": "arx:rounded_bottle_water_golden_hay",
     "reagent": "arx:brain",
-    "output": "arx:rounded_bottle_water_golden_hay_brain_preparation"
+    "output": "arx:rounded_bottle_water_golden_hay_brain"
   }
 
 }

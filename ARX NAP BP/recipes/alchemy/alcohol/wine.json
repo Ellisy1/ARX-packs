@@ -8,15 +8,20 @@
     
     "tags": [ "substractor" ],
     "pattern": [
-      "#"
+      "AAA",
+      "A#A",
+      "AAA"
     ],
     "key": {
       "#": {
         "item": "arx:vodka_sweet_berrie"
+      },
+      "A": {
+        "item": "minecraft:sweet_berries"
       }
     },
     "result": {
-      "item": "arx:wine_preparation"
+      "item": "arx:wine"
     }
   }
 }

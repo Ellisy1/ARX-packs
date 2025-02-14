@@ -985,20 +985,16 @@
       "textures": "textures/items/high_tec/biochips/bio_juggernaut"
     },
 
+
+    
     "arx:adona_sword": {
       "textures": "textures/items/weapons/swords/adona_sword"
     },
     "arx:kofata_sword": {
       "textures": "textures/items/weapons/swords/kofata_sword"
     },
-    "arx:pallada_sword": {
-      "textures": "textures/items/weapons/swords/pallada_sword"
-    },
     "arx:tearing_flesh": {
       "textures": "textures/items/weapons/swords/tearing_flesh"
-    },
-    "arx:pireta_sword": {
-      "textures": "textures/items/weapons/swords/pireta_sword"
     },
     "arx:podlik": {
       "textures": "textures/items/weapons/swords/podlik"
@@ -1637,9 +1633,6 @@
       "textures": "textures/items/alchemy/vials/vial_lamp_oil_fire"
     },
 
-    "arx:glass_preperation": {
-      "textures": "textures/items/alchemy/bottles/glass_preperation"
-    },
     "arx:hole_bottle": {
       "textures": "textures/items/alchemy/bottles/hole_bottle"
     },
@@ -2853,9 +2846,6 @@
     },
     "arx:elder_white_crusher": {
       "textures": "textures/items/weapons/swords/elder_white_crusher"
-    },
-    "arx:steel_extreme_heavy_crusher": {
-      "textures": "textures/items/weapons/swords/steel_extreme_heavy_crusher"
     },
     "arx:chloronite_big_sword": {
       "textures": "textures/items/weapons/swords/chloronite_big_sword"
@@ -4552,6 +4542,9 @@
     },
     "arx:book_oculus_primae_maledictionis": {
       "textures": "textures/items/books/storybooks/foreign/book_oculus_primae_maledictionis"
+    },
+    "arx:book_mage_notes": {
+      "textures": "textures/items/books/storybooks/foreign/book_mage_notes"
     },
     "arx:bundle_with_vinyl": {
       "textures": "textures/items/other/bundle_with_vinyl"

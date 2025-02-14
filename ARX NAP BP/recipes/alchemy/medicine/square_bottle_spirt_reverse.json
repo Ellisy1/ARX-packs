@@ -5,7 +5,7 @@
     "identifier": "arx:square_bottle_spirt_reverse"
     },
 
-    
+    "priority": 1,
     "tags": [ "alchemy_crafting_table" ],
     "pattern": [
       "#X"

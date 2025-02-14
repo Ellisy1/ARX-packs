@@ -53,7 +53,6 @@
     execute as @s[tag=!is_ghost] run scoreboard players set @s trailblazer_skill 0
     execute as @s[tag=!is_ghost] run scoreboard players set @s might_skill 0
     execute as @s[tag=!is_ghost] run scoreboard players set @s skill_point 0
-    execute as @s[tag=!is_ghost] run scoreboard players set @s sk_a_1 0
     execute as @s[tag=!is_ghost] run scoreboard players set @s stress 0
     execute as @s[tag=!is_ghost] run scoreboard players set @s ill_cancer 0
     execute as @s[tag=!is_ghost] run scoreboard players set @s ill_mild_cold 0

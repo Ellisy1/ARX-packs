@@ -294,7 +294,6 @@
         scoreboard players add @a[scores={speed_skill=3..4}] regen_speed -60
         scoreboard players add @a[scores={speed_skill=5..6}] regen_speed -90
         scoreboard players add @a[scores={c_tenacious=1..}] regen_speed -15
-        scoreboard players add @a[scores={sk_a_3=1}] regen_speed -15
         scoreboard players add @a[hasitem={item=arx:ring_aluminum_riolik, location=slot.armor.feet}] regen_speed -10
         scoreboard players add @a[hasitem={item=arx:ring_gold_riolik, location=slot.armor.feet}] regen_speed -20
         scoreboard players add @a[hasitem={item=arx:ring_durasteel_riolik, location=slot.armor.feet}] regen_speed -30

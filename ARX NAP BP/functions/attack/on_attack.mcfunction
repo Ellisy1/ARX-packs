@@ -1,48 +1,25 @@
 # Отчёт о фулл данных
     tellraw @s[tag=show_full_weapon_data] { "rawtext": [ { "text": ">>> §6Атака. ИНФО:" } ] }
-    tellraw @s[tag=show_full_weapon_data, tag=is_dagger] { "rawtext": [ { "text": "Тип оружия: кинжал\nТреб. навык §aA9" } ] }
-    tellraw @s[tag=show_full_weapon_data, tag=is_default] { "rawtext": [ { "text": "Тип оружия: одноручный меч\nТреб. навык §aA5" } ] }
-    tellraw @s[tag=show_full_weapon_data, tag=is_heavy] { "rawtext": [ { "text": "Тип оружия: тяжёлый двуручный меч\nТреб. навык §eB2" } ] }
-    tellraw @s[tag=show_full_weapon_data, tag=is_lance] { "rawtext": [ { "text": "Тип оружия: копье\nТреб. навык §A10" } ] }
-    tellraw @s[tag=show_full_weapon_data, tag=is_longsword] { "rawtext": [ { "text": "Тип оружия: лёгкий двуручный меч\nТреб. навык §B2" } ] }
-    tellraw @s[tag=show_full_weapon_data, tag=is_scythe] { "rawtext": [ { "text": "Тип оружия: коса\nТреб. навык §B14" } ] }
-    tellraw @s[tag=show_full_weapon_data, tag=is_very_heavy] { "rawtext": [ { "text": "Тип оружия: сверхтяжёлый меч\nТреб. навык §cC2" } ] }
+    tellraw @s[tag=show_full_weapon_data, tag=is_dagger] { "rawtext": [ { "text": "Тип оружия: §6кинжал" } ] }
+    tellraw @s[tag=show_full_weapon_data, tag=is_default] { "rawtext": [ { "text": "Тип оружия: одноручный §6меч" } ] }
+    tellraw @s[tag=show_full_weapon_data, tag=is_heavy] { "rawtext": [ { "text": "Тип оружия: тяжёлый двуручный §6меч" } ] }
+    tellraw @s[tag=show_full_weapon_data, tag=is_lance] { "rawtext": [ { "text": "Тип оружия: §6копье" } ] }
+    tellraw @s[tag=show_full_weapon_data, tag=is_longsword] { "rawtext": [ { "text": "Тип оружия: лёгкий двуручный §6меч" } ] }
+    tellraw @s[tag=show_full_weapon_data, tag=is_scythe] { "rawtext": [ { "text": "Тип оружия: §6коса" } ] }
+    tellraw @s[tag=show_full_weapon_data, tag=is_very_heavy] { "rawtext": [ { "text": "Тип оружия: сверхтяжёлый §6меч" } ] }
 
-    tellraw @s[tag=show_full_weapon_data] { "rawtext": [ { "text": "Ослабление атаки (в сек.): " }, { "score": {"name": "@s", "objective": "uni_cool_down" } } ] }
-    tellraw @s[tag=show_full_weapon_data] { "rawtext": [ { "text": "§cЕсли нет навыка оружия (см. выше), то ослабление атаки будет умножено на 4" } ] }
+    tellraw @s[tag=show_full_weapon_data] { "rawtext": [ { "text": "Ослабление атаки от оружия: " }, { "score": {"name": "@s", "objective": "uni_cool_down" } } ] }
 
 
-# Выставляем кд
-    execute if entity @s[tag=is_dagger, scores={sk_a_9=1}] run scoreboard players operation @s uni_cool_down *= @p[scores={verify=2}] const_20
-    execute if entity @s[tag=is_dagger, scores={sk_a_9=0}] run scoreboard players operation @s uni_cool_down *= @p[scores={verify=2}] const_80
+# Конвертируем кд с секунд в такты (uni_cool_down)
+    scoreboard players operation @s uni_cool_down *= @p[scores={verify=2}] const_20
 
-    execute if entity @s[tag=is_default, scores={sk_a_5=1}] run scoreboard players operation @s uni_cool_down *= @p[scores={verify=2}] const_20
-    execute if entity @s[tag=is_default, scores={sk_a_5=0}] run scoreboard players operation @s uni_cool_down *= @p[scores={verify=2}] const_80
-
-    execute if entity @s[tag=is_heavy, scores={sk_b_2=1}] run scoreboard players operation @s uni_cool_down *= @p[scores={verify=2}] const_20
-    execute if entity @s[tag=is_heavy, scores={sk_b_2=0}] run scoreboard players operation @s uni_cool_down *= @p[scores={verify=2}] const_80
-
-    execute if entity @s[tag=is_lance, scores={sk_a_10=1}] run scoreboard players operation @s uni_cool_down *= @p[scores={verify=2}] const_20
-    execute if entity @s[tag=is_lance, scores={sk_a_10=0}] run scoreboard players operation @s uni_cool_down *= @p[scores={verify=2}] const_80
-
-    execute if entity @s[tag=is_longsword, scores={sk_b_2=1}] run scoreboard players operation @s uni_cool_down *= @p[scores={verify=2}] const_20
-    execute if entity @s[tag=is_longsword, scores={sk_b_2=0}] run scoreboard players operation @s uni_cool_down *= @p[scores={verify=2}] const_80
-
-    execute if entity @s[tag=is_scythe, scores={sk_b_14=1}] run scoreboard players operation @s uni_cool_down *= @p[scores={verify=2}] const_20
-    execute if entity @s[tag=is_scythe, scores={sk_b_14=0}] run scoreboard players operation @s uni_cool_down *= @p[scores={verify=2}] const_80
-
-    execute if entity @s[tag=is_staff, scores={sk_a_29=1}] run scoreboard players operation @s uni_cool_down *= @p[scores={verify=2}] const_20
-    execute if entity @s[tag=is_staff, scores={sk_a_29=0}] run scoreboard players operation @s uni_cool_down *= @p[scores={verify=2}] const_80
-
-    execute if entity @s[tag=is_very_heavy, scores={sk_c_2=1}] run scoreboard players operation @s uni_cool_down *= @p[scores={verify=2}] const_20
-    execute if entity @s[tag=is_very_heavy, scores={sk_c_2=0}] run scoreboard players operation @s uni_cool_down *= @p[scores={verify=2}] const_80
-
-    # Прибавляем рассчетный кд к фактическому
+    # Прибавляем к фактическому (который, например, мог остаться с прошлого удара) вычисленный выше кд
         scoreboard players operation @s attack_weakness += @s uni_cool_down
 
-# Отчет по факту кд
-    tellraw @s[tag=show_full_weapon_data] { "rawtext": [ { "text": "Фактическое кол-во тактов (1/20 сек) ослабления атаки: " }, { "score": {"name": "@s", "objective": "attack_weakness" } } ] }
-    tellraw @s[tag=show_full_weapon_data] { "rawtext": [ { "text": "§6=====" } ] }
+    # Отчет по факту кд
+        tellraw @s[tag=show_full_weapon_data] { "rawtext": [ { "text": "Фактическое кол-во тактов ослабления атаки: " }, { "score": {"name": "@s", "objective": "attack_weakness" } } ] }
+        tellraw @s[tag=show_full_weapon_data] { "rawtext": [ { "text": "§6=====" } ] }
 
 
 # Анимация + звук

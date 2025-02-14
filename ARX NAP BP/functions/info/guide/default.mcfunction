@@ -1,71 +1,4 @@
 # Проводим самостоятельный (от лица скрипта) сбор нужных данных
-    # Навыки
-        # A
-            execute as @s[scores={sk_a_1=0}] run tag @s add has_unimproved_a_skill
-            execute as @s[scores={sk_a_2=0}] run tag @s add has_unimproved_a_skill
-            execute as @s[scores={sk_a_3=0}] run tag @s add has_unimproved_a_skill
-            execute as @s[scores={sk_a_4=0}] run tag @s add has_unimproved_a_skill
-            execute as @s[scores={sk_a_5=0}] run tag @s add has_unimproved_a_skill
-            execute as @s[scores={sk_a_6=0}] run tag @s add has_unimproved_a_skill
-            execute as @s[scores={sk_a_7=0}] run tag @s add has_unimproved_a_skill
-            execute as @s[scores={sk_a_8=0}] run tag @s add has_unimproved_a_skill
-            execute as @s[scores={sk_a_9=0}] run tag @s add has_unimproved_a_skill
-            execute as @s[scores={sk_a_10=0}] run tag @s add has_unimproved_a_skill
-            execute as @s[scores={sk_a_11=0}] run tag @s add has_unimproved_a_skill
-            execute as @s[scores={sk_a_12=0}] run tag @s add has_unimproved_a_skill
-            execute as @s[scores={sk_a_13=0}] run tag @s add has_unimproved_a_skill
-            execute as @s[scores={sk_a_14=0}] run tag @s add has_unimproved_a_skill
-            execute as @s[scores={sk_a_15=0}] run tag @s add has_unimproved_a_skill
-            execute as @s[scores={sk_a_16=0}] run tag @s add has_unimproved_a_skill
-            execute as @s[scores={sk_a_17=0}] run tag @s add has_unimproved_a_skill
-            execute as @s[scores={sk_a_18=0}] run tag @s add has_unimproved_a_skill
-            execute as @s[scores={sk_a_19=0}] run tag @s add has_unimproved_a_skill
-            execute as @s[scores={sk_a_20=0}] run tag @s add has_unimproved_a_skill
-            execute as @s[scores={sk_a_21=0}] run tag @s add has_unimproved_a_skill
-            execute as @s[scores={sk_a_22=0}] run tag @s add has_unimproved_a_skill
-            execute as @s[scores={sk_a_23=0}] run tag @s add has_unimproved_a_skill
-            execute as @s[scores={sk_a_24=0}] run tag @s add has_unimproved_a_skill
-            execute as @s[scores={sk_a_25=0}] run tag @s add has_unimproved_a_skill
-            execute as @s[scores={sk_a_26=0}] run tag @s add has_unimproved_a_skill
-            execute as @s[scores={sk_a_27=0}] run tag @s add has_unimproved_a_skill
-            execute as @s[scores={sk_a_28=0}] run tag @s add has_unimproved_a_skill
-            execute as @s[scores={sk_a_29=0}] run tag @s add has_unimproved_a_skill
-        # B
-            execute as @s[scores={sk_b_1=0}] run tag @s add has_unimproved_b_skill
-            execute as @s[scores={sk_b_2=0}] run tag @s add has_unimproved_b_skill
-            execute as @s[scores={sk_b_3=0}] run tag @s add has_unimproved_b_skill
-            execute as @s[scores={sk_b_4=0}] run tag @s add has_unimproved_b_skill
-            execute as @s[scores={sk_b_5=0}] run tag @s add has_unimproved_b_skill
-            execute as @s[scores={sk_b_6=0}] run tag @s add has_unimproved_b_skill
-            execute as @s[scores={sk_b_7=0}] run tag @s add has_unimproved_b_skill
-            execute as @s[scores={sk_b_8=0}] run tag @s add has_unimproved_b_skill
-            execute as @s[scores={sk_b_9=0}] run tag @s add has_unimproved_b_skill
-            execute as @s[scores={sk_b_10=0}] run tag @s add has_unimproved_b_skill
-            execute as @s[scores={sk_b_11=0}] run tag @s add has_unimproved_b_skill
-            execute as @s[scores={sk_b_12=0}] run tag @s add has_unimproved_b_skill
-            execute as @s[scores={sk_b_13=0}] run tag @s add has_unimproved_b_skill
-            execute as @s[scores={sk_b_14=0}] run tag @s add has_unimproved_b_skill
-        # C
-            execute as @s[scores={sk_c_1=0}] run tag @s add has_unimproved_c_skill
-            execute as @s[scores={sk_c_2=0}] run tag @s add has_unimproved_c_skill
-            execute as @s[scores={sk_c_3=0}] run tag @s add has_unimproved_c_skill
-            execute as @s[scores={sk_c_4=0}] run tag @s add has_unimproved_c_skill
-            execute as @s[scores={sk_c_5=0}] run tag @s add has_unimproved_c_skill
-            execute as @s[scores={sk_c_6=0}] run tag @s add has_unimproved_c_skill
-            execute as @s[scores={sk_c_7=0}] run tag @s add has_unimproved_c_skill
-            execute as @s[scores={sk_c_8=0}] run tag @s add has_unimproved_c_skill
-            execute as @s[scores={sk_c_9=0}] run tag @s add has_unimproved_c_skill
-            execute as @s[scores={sk_c_10=0}] run tag @s add has_unimproved_c_skill
-            execute as @s[scores={sk_c_11=0}] run tag @s add has_unimproved_c_skill
-            execute as @s[scores={sk_c_12=0}] run tag @s add has_unimproved_c_skill
-            execute as @s[scores={sk_c_13=0}] run tag @s add has_unimproved_c_skill
-            execute as @s[scores={sk_c_14=0}] run tag @s add has_unimproved_c_skill
-            execute as @s[scores={sk_c_15=0}] run tag @s add has_unimproved_c_skill
-        # D
-            execute as @s[scores={sk_d_1=0}] run tag @s add has_unimproved_d_skill
-            execute as @s[scores={sk_d_2=0}] run tag @s add has_unimproved_d_skill
-            execute as @s[scores={sk_d_3=0}] run tag @s add has_unimproved_d_skill
-            execute as @s[scores={sk_d_4=0}] run tag @s add has_unimproved_d_skill
 
     # Опыт майна
         execute as @s[lm=30] run tag @s add level_is_more_or_equal_30
@@ -150,22 +83,6 @@
         execute as @s[scores={religion=0}, tag=level_is_more_or_equal_30, tag=!has_smth_to_guide] run tag @s add has_smth_to_guide
 
 
-    # Есть доступные d-навыки
-        execute as @s[tag=has_unimproved_d_skill, tag=level_is_more_or_equal_60, tag=!has_smth_to_guide] run tellraw @s { "rawtext": [ { "text": "§aВы можете вкачать D навык! §6У вас как раз хватает опыта, и вы можете его вкачать с помощью книжки. Чтобы скрафтить книжки для D навыков, создайте на обычном верстаке набор D-навыков и используйте его." } ] }
-        execute as @s[tag=has_unimproved_d_skill, tag=level_is_more_or_equal_60, tag=!has_smth_to_guide] run tag @s add has_smth_to_guide
-
-    # Есть доступные c-навыки
-        execute as @s[tag=has_unimproved_c_skill, tag=level_is_more_or_equal_50, tag=!has_smth_to_guide] run tellraw @s { "rawtext": [ { "text": "§aВы можете вкачать C навык! §6У вас как раз хватает опыта, и вы можете его вкачать с помощью книжки. Чтобы скрафтить книжки для C навыков, создайте на обычном верстаке набор C-навыков и используйте его." } ] }
-        execute as @s[tag=has_unimproved_c_skill, tag=level_is_more_or_equal_50, tag=!has_smth_to_guide] run tag @s add has_smth_to_guide
-
-    # Есть доступные b-навыки
-        execute as @s[tag=has_unimproved_b_skill, tag=level_is_more_or_equal_40, tag=!has_smth_to_guide] run tellraw @s { "rawtext": [ { "text": "§aВы можете вкачать B навык! §6У вас как раз хватает опыта, и вы можете его вкачать с помощью книжки. Чтобы скрафтить книжки для B навыков, создайте на обычном верстаке набор B-навыков и используйте его." } ] }
-        execute as @s[tag=has_unimproved_b_skill, tag=level_is_more_or_equal_40, tag=!has_smth_to_guide] run tag @s add has_smth_to_guide
-
-    # Есть доступные a-навыки
-        execute as @s[tag=has_unimproved_a_skill, tag=level_is_more_or_equal_30, tag=!has_smth_to_guide] run tellraw @s { "rawtext": [ { "text": "§aВы можете вкачать A навык! §6У вас как раз хватает опыта, и вы можете его вкачать с помощью книжки. Чтобы скрафтить книжки для А навыков, создайте на обычном верстаке набор А-навыков и используйте его." } ] }
-        execute as @s[tag=has_unimproved_a_skill, tag=level_is_more_or_equal_30, tag=!has_smth_to_guide] run tag @s add has_smth_to_guide
-
     # Есть доступная религия
         # 1 ур
             execute as @s[scores={religion=0}, tag=!level_is_more_or_equal_30, tag=!has_smth_to_guide] run tellraw @s { "rawtext": [ { "text": "§aВы сможете повысить религию до уровня Ученик, если у вас будет 30-й уровень! §6Это даст приятные бонусы." } ] }
@@ -181,11 +98,6 @@
 
 # Чистим теги
     tag @s remove has_smth_to_guide
-
-    tag @s remove has_unimproved_a_skill
-    tag @s remove has_unimproved_b_skill
-    tag @s remove has_unimproved_c_skill
-    tag @s remove has_unimproved_d_skill
 
     tag @s remove level_is_more_or_equal_30
     tag @s remove level_is_more_or_equal_40

@@ -9,7 +9,7 @@
 
     "input": "arx:vodka",
     "reagent": "arx:cactus",
-    "output": "arx:vodka_cactus_preparation"
+    "output": "arx:vodka_cactus"
   }
 
 }

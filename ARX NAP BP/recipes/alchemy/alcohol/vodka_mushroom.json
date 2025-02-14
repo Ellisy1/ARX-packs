@@ -9,7 +9,7 @@
 
     "input": "arx:vodka",
     "reagent": "arx:mushroom_item",
-    "output": "arx:vodka_mushroom_preparation"
+    "output": "arx:vodka_mushroom"
   }
 
 }

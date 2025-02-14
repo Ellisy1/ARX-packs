@@ -1,0 +1,22 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:gold_tail_fish"
+    },
+
+    
+    "tags": [ "cooking_crafting_table" ],
+    "pattern": [
+      "#"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:gold_tail_fish"
+      }
+    },
+    "result": {
+      "item": "arx:gold_tail_fish_meat"
+    }
+  }
+}

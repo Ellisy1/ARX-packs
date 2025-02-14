@@ -179,7 +179,6 @@
     title @a[scores={attack_weakness=181.., blocking = 1..}] actionbar ĥ Ĥ MAX
 
     scoreboard players add @a[scores={attack_weakness=1..}] attack_weakness -1
-    scoreboard players add @a[scores={attack_weakness=4.., sk_d_3=1, tick=1}] attack_weakness -3
     scoreboard players add @a[scores={blocking=1..}] blocking -1
     scoreboard players add @a[scores={allow_block_buff=1..}] allow_block_buff -1
 

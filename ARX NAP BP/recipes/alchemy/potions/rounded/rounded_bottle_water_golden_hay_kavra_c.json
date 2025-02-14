@@ -2,14 +2,14 @@
   "format_version": "1.12",
   "minecraft:recipe_brewing_mix": {
     "description": {
-      "identifier": "arx:rounded_bottle_water_golden_hay_kavra_b"
+      "identifier": "arx:rounded_bottle_water_golden_hay_kavra"
     },
 
     "tags": [ "brewing_stand" ],
 
     "input": "arx:rounded_bottle_water_golden_hay",
     "reagent": "arx:cactus",
-    "output": "arx:rounded_bottle_water_golden_hay_kavra_preparation"
+    "output": "arx:rounded_bottle_water_golden_hay_kavra"
   }
 
 }

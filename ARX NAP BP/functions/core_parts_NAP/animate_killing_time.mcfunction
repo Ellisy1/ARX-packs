@@ -118,7 +118,6 @@
     tag @s[hasitem={item=arx:elder_battleboard, location=slot.weapon.mainhand}] add no_animate_killing_time
     tag @s[hasitem={item=arx:tin_heavy_sword, location=slot.weapon.mainhand}] add no_animate_killing_time
     tag @s[hasitem={item=arx:elder_white_crusher, location=slot.weapon.mainhand}] add no_animate_killing_time
-    tag @s[hasitem={item=arx:steel_extreme_heavy_crusher, location=slot.weapon.mainhand}] add no_animate_killing_time
     tag @s[hasitem={item=arx:chloronite_big_sword, location=slot.weapon.mainhand}] add no_animate_killing_time
     tag @s[hasitem={item=arx:duraluminium_delimiter, location=slot.weapon.mainhand}] add no_animate_killing_time
     tag @s[hasitem={item=arx:cast_iron_alebard, location=slot.weapon.mainhand}] add no_animate_killing_time

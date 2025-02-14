@@ -53,7 +53,6 @@
         "holding_lance": "animation.weapon.hold.lance",
         "holding_default_sword": "animation.weapon.hold.default",
         "holding_default_sword_fast_moving": "animation.weapon.hold.default.fast_moving",
-        "holding_arxaco": "animation.weapon.hold.arxaco",
         "holding_scythe": "animation.weapon.hold.scythe",
         "holding_staff_standing": "animation.weapon.hold.staff_standing",
         "holding_gun": "animation.weapon.hold.gun",

@@ -9,7 +9,7 @@
 
     "input": "arx:rounded_bottle_water",
     "reagent": "arx:fiuli",
-    "output": "arx:rounded_bottle_water_fiuli_preparation"
+    "output": "arx:rounded_bottle_water_fiuli"
   }
 
 }

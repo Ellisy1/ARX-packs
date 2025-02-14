@@ -21,3 +21,6 @@ give @s arx:registration_step1_male 1 0 {"item_lock": { "mode": "lock_in_invento
 tellraw @s { "rawtext": [ { "text": " " } ] }
 
 tag @s remove rp_is_dead
+tag @s remove __chose_mage_start__
+tag @s remove __chose_hunter_start__
+tag @s remove __chose_warrior_start__

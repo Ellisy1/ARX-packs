@@ -32,11 +32,6 @@
         scoreboard players add @a[scores={religion=21..22}] mp_max 15
     # Призрак
         scoreboard players add @a[scores={class=1}] mp_max 15
-    # Навыки
-        scoreboard players add @a[scores={sk_a_21=1}] mp_max 5
-        scoreboard players add @a[scores={sk_c_10=1}] mp_max 5
-        scoreboard players add @a[scores={sk_c_11=1}] mp_max 5
-        scoreboard players add @a[scores={sk_d_4=1}] mp_max 15
     # Черты
         scoreboard players add @a[scores={c_stupid=1..}] mp_max -5
         scoreboard players add @a[scores={c_seen_death=1..}] mp_max 5
@@ -82,10 +77,6 @@
         scoreboard players add @a[scores={c_wise=1..}] regen_mp -1
         scoreboard players add @a[scores={c_paranoid=1..}] regen_mp 2
         scoreboard players add @a[scores={c_seen_death=1..}] regen_mp -2
-    # Навыки
-        scoreboard players add @a[scores={sk_c_12=1}] regen_mp -2
-        scoreboard players add @a[scores={sk_c_13=1}] regen_mp -2
-        scoreboard players add @a[scores={sk_d_4=1}] regen_mp -3
     # Счастье
         scoreboard players add @a[scores={stress_cond=2}] regen_mp 5
         scoreboard players add @a[scores={stress_cond=3}] regen_mp 10

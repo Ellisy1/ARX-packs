@@ -5,20 +5,16 @@ function core_parts_NAP/5ticks
 
 #ТЯЖЕСТЬ ИНВЕНТАРЯ (вес)
     #Вычисление тяжести
-        function core_parts/weigh
+        function core_parts_NAP/weigh
     # Вычисление компенсации тяжести (= вместимости инвентаря по весу)
         # Навыки, статы
-            scoreboard players set @a heavy_compens 1
+            scoreboard players set @a heavy_compens 5
             execute @a[scores={religion=2..9}] ~ ~ ~ scoreboard players set @s heavy_compens 1
             execute @a[scores={religion=12..29}] ~ ~ ~ scoreboard players set @s heavy_compens 1
             execute @a[scores={religion=6..7}] ~ ~ ~ scoreboard players set @s heavy_compens 2
             execute @a[scores={religion=16..17}] ~ ~ ~ scoreboard players set @s heavy_compens 2
             execute @a[scores={poit_heigth_a=1..}] ~ ~ ~ scoreboard players add @s heavy_compens 2
             execute @a[scores={poit_heigth_b=1..}] ~ ~ ~ scoreboard players add @s heavy_compens 5
-            execute @a[scores={sk_a_1=1..}] ~ ~ ~ scoreboard players add @s heavy_compens 1
-            execute @a[scores={sk_a_4=1..}] ~ ~ ~ scoreboard players add @s heavy_compens 1
-            execute @a[scores={sk_c_14=1..}] ~ ~ ~ scoreboard players add @s heavy_compens 1
-            execute @a[scores={sk_c_15=1..}] ~ ~ ~ scoreboard players add @s heavy_compens 1
             execute @a[scores={c_powerful=1..}] ~ ~ ~ scoreboard players add @s heavy_compens 1
             execute @a[scores={c_seen_death=1..}] ~ ~ ~ scoreboard players add @s heavy_compens 1
             execute @a[scores={c_indeclinable=1..}] ~ ~ ~ scoreboard players add @s heavy_compens 1

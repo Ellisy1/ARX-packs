@@ -9,7 +9,7 @@
 
     "input": "arx:vodka",
     "reagent": "minecraft:sweet_berries",
-    "output": "arx:vodka_sweet_berrie_preparation"
+    "output": "arx:vodka_sweet_berrie"
   }
 
 }

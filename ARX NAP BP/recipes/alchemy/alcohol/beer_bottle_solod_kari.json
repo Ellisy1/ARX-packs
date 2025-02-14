@@ -9,7 +9,7 @@
 
     "input": "arx:beer_bottle_solod",
     "reagent": "arx:kari",
-    "output": "arx:beer_bottle_solod_kari_preparation"
+    "output": "arx:beer_bottle_solod_kari"
   }
 
 }

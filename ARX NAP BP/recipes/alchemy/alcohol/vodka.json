@@ -5,7 +5,7 @@
     "identifier": "arx:vodka"
     },
 
-    
+    "priority": 0,
     "tags": [ "alchemy_crafting_table" ],
     "pattern": [
       "#X"
@@ -18,8 +18,9 @@
         "item": "arx:default_bottle_water"
       }
     },
-    "result": {
-      "item": "arx:vodka_preparation", "count": 2
-    }
+    "result": [
+      {"item": "arx:vodka"},
+      {"item": "arx:default_bottle"}
+    ]
   }
 }

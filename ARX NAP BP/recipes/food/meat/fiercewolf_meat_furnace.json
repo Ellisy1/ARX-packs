@@ -7,7 +7,7 @@
 
     "tags": ["furnace", "smoker", "campfire", "soul_campfire"],
     "input": "arx:fiercewolf_meat",
-    "output": "arx:fiercewolf_meat"
+    "output": "arx:fried_fiercewolf_meat"
   }
   
 }

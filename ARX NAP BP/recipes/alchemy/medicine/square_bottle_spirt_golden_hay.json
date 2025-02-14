@@ -9,7 +9,7 @@
 
     "input": "arx:square_bottle_spirt",
     "reagent": "arx:golden_hay",
-    "output": "arx:square_bottle_spirt_golden_hay_preparation"
+    "output": "arx:square_bottle_spirt_golden_hay"
   }
 
 }

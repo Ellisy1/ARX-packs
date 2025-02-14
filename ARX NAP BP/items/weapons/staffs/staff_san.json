@@ -72,12 +72,11 @@
                 "swing": {},
                 "run_command": {
                     "command": [
-                        "tag @p add staffself",
-                        "tag @p[tag=staffself, scores={sk_a_25=1}] add staff_sexto",
-                        "tag @p[tag=staffself, scores={sk_a_25=1}] add staff_san",
-                        "execute @p[tag=staffself, scores={sk_a_25=1}] ~ ~ ~ function staffs/staff_default",
-                        "execute @p[tag=staffself, scores={sk_a_25=0}] ~ ~ ~ w @p \u042f \u043d\u0435 \u0443\u043c\u0435\u044e \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u044c \u043f\u043e\u0441\u043e\u0445\u0438. \u0414\u043b\u044f \u044d\u0442\u043e\u0433\u043e \u043c\u043d\u0435 \u0441\u0442\u043e\u0438\u0442 \u0438\u0437\u0443\u0447\u0438\u0442\u044c \u043d\u0430\u0432\u044b\u043a \u00a7aA25",
-                        "tag @p remove staffself"
+                        "tag @s add staffself",
+                        "tag @s add staff_sexto",
+                        "tag @s add staff_san",
+                        "function staffs/staff_default",
+                        "tag @s remove staffself"
                     ]
                 },
                 "damage": {
