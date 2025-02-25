@@ -48,7 +48,7 @@
 		},
 		"events": {
 			"start_battle": {
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"function march/start_battle"
 					]
@@ -60,7 +60,7 @@
 				}
 			},
 			"interact": {
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"w @p §aВы завалили меня числом. Я больше не в силах вам противостоять. Делайте, что хотели, и сваливайте."
 					]

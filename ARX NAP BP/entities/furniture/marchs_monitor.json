@@ -107,7 +107,7 @@
 				"set_property": {
 					"arx:screen": 0
 				},
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"tag @a add marchs_monitor_screen_control"
 					]
@@ -117,7 +117,7 @@
 				"set_property": {
 					"arx:screen": 1
 				},
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"tag @a add marchs_monitor_screen_control"
 					]
@@ -127,7 +127,7 @@
 				"set_property": {
 					"arx:screen": 2
 				},
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"tag @a add marchs_monitor_screen_control"
 					]
@@ -137,7 +137,7 @@
 				"set_property": {
 					"arx:screen": 3
 				},
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"tag @a add marchs_monitor_screen_control"
 					]
@@ -147,7 +147,7 @@
 				"set_property": {
 					"arx:screen": 4
 				},
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"tag @a add marchs_monitor_screen_control"
 					]
@@ -157,7 +157,7 @@
 				"set_property": {
 					"arx:screen": 5
 				},
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"tag @a add marchs_monitor_screen_control"
 					]
@@ -167,7 +167,7 @@
 				"set_property": {
 					"arx:screen": 6
 				},
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"tag @a add marchs_monitor_screen_control"
 					]
@@ -177,7 +177,7 @@
 				"set_property": {
 					"arx:screen": 10
 				},
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"tag @a add marchs_monitor_screen_control"
 					]
@@ -187,7 +187,7 @@
 				"set_property": {
 					"arx:screen": 11
 				},
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"tag @a add marchs_monitor_screen_control"
 					]
@@ -197,7 +197,7 @@
 				"set_property": {
 					"arx:screen": 12
 				},
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"tag @a add marchs_monitor_screen_control"
 					]
@@ -207,7 +207,7 @@
 				"set_property": {
 					"arx:screen": 13
 				},
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"tag @a add marchs_monitor_screen_control"
 					]
@@ -217,7 +217,7 @@
 				"set_property": {
 					"arx:screen": 14
 				},
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"tag @a add marchs_monitor_screen_control"
 					]
@@ -227,7 +227,7 @@
 				"set_property": {
 					"arx:screen": 15
 				},
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"tag @a add marchs_monitor_screen_control"
 					]
@@ -237,7 +237,7 @@
 				"set_property": {
 					"arx:screen": 16
 				},
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"tag @a add marchs_monitor_screen_control"
 					]
@@ -247,7 +247,7 @@
 				"set_property": {
 					"arx:screen": 17
 				},
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"tag @a add marchs_monitor_screen_control"
 					]
@@ -257,7 +257,7 @@
 				"set_property": {
 					"arx:screen": 18
 				},
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"tag @a add marchs_monitor_screen_control"
 					]

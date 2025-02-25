@@ -3,10 +3,6 @@
     execute @a ~ ~ ~ scoreboard players add @a[r=0.0001] check_one_point 1
     execute @a[scores={check_one_point=2..}] ~ ~ ~ function core_parts/debugtp
 
-#Обнаружение мёртвых
-    tag @a remove is_dead
-    event entity @a arx:test_is_dead
-
 #Просчёт тактов от лица хостера со счётом verify = 2
     execute @a[scores={verify=2}] ~ ~ ~ scoreboard players add @s tick 1
     execute @a[scores={verify=2, tick=21}] ~ ~ ~ scoreboard players set @s tick 1
@@ -24,13 +20,7 @@
 #Определение состояний игрока
     #Игрок один
         tag @a add alone
-        execute @a ~ ~ ~ tag @a[r=20, rm=0.0001] remove alone 
-    #День?
-        scoreboard players set @a is_day 0
-        event entity @a arx:test_is_day
-    #В аду?
-        tag @a remove in_nether
-        event entity @a arx:test_in_nether
+        execute @a ~ ~ ~ tag @a[r=20, rm=0.0001] remove alone
 
     #ОБНАРУЖЕНИЕ МЕСТОНАХОЖДЕНИЯ ПО ВЫСОТЕ
         tag @a remove in_hot_deep
@@ -50,24 +40,6 @@
 
         tag @a remove in_space
         execute @a ~ ~ ~ tag @s[y=320, dy=100000] add in_space
-
-    #Уровень освещения
-        tag @a remove low_bright
-        event entity @a arx:test_brightness_low
-
-        tag @a remove high_bright
-        event entity @a arx:test_brightness_high
-
-    #Уровень хп
-        tag @a remove low_hp
-        event entity @a arx:test_hp_low
-        tag @a remove very_low_hp
-        event entity @a arx:test_very_hp_low
-
-    #Шифтится?
-        tag @a remove is_sneaking
-        event entity @a arx:test_sneaking
-
 
 # Призрак - механики
     tag @a remove above_liquid_high
@@ -181,10 +153,6 @@
     scoreboard players add @a[scores={attack_weakness=1..}] attack_weakness -1
     scoreboard players add @a[scores={blocking=1..}] blocking -1
     scoreboard players add @a[scores={allow_block_buff=1..}] allow_block_buff -1
-
-#ОБНАРУЖЕНИЕ БЕЗДЕЙСТВИЯ
-    tag @a remove is_moving
-    event entity @a arx:test_standing 
 
 #Вычитание очков удара
     scoreboard players add @a[scores={on_hurt_delay=1..}] on_hurt_delay -1

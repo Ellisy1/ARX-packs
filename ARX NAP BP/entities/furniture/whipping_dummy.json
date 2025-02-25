@@ -94,7 +94,7 @@
 		},
 		"events": {
 			"suicide": {
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"function entities/loot_by_whipping_dummy"
 					]

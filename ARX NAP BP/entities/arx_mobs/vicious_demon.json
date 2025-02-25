@@ -309,7 +309,7 @@
 			},
 			// АВТО-ТРИГГЕР ПРИ СМЕРТИ
 			"on_death": {
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"scoreboard players add @a[r=15, has_property={arx:is_knocked=0}] xp_tray 3000",
 						"scoreboard players add @a[r=15, has_property={arx:is_knocked=0}] count_bss_kills 1",
@@ -331,7 +331,7 @@
 						"reset_scale"
 					]
 				},
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"tag @s remove rush",
 						"tag @s remove agressive_rush",
@@ -350,7 +350,7 @@
 				"add": {
 					"component_groups": "reset_knockback_resistance"
 				},
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"tag @s remove shield",
 						"playanimation @s animation.vicious_demon.circle_attack",
@@ -365,7 +365,7 @@
 			},
 			// ЕБАШИМ МАГИЕЙ
 			"cast_default_damage_spell": {
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"playanimation @s animation.vicious_demon.cast_default_damage_spell",
 						"particle arx:vicious_demon_spawn_flame_outward ~ ~ ~",
@@ -382,7 +382,7 @@
 			},
 			// ПОВЫШАЕМ СЧЕТЧИК ДАМАГА ПО ДЕМОНУ
 			"increase_hit_counter": {
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"scoreboard players add @s vic_dem_hit_cnt 2"
 					]
@@ -390,7 +390,7 @@
 			},
 			// СУИЦИД
 			"despawn": {
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"scoreboard players set @a[scores={verify=2}] vicious_demon 0",
 						"particle arx:vicious_demon_spawn_flame_outward ~ ~ ~",
@@ -410,7 +410,7 @@
 				"remove": {
 					"component_groups": "look_at_player"
 				},
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"event entity @s test_hp",
 						"tag @s add rested",
@@ -429,7 +429,7 @@
 						"reset_knockback_resistance"
 					]
 				},
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"event entity @s main_stage_redirect"
 					]
@@ -453,7 +453,7 @@
 			},
 			// I НАЧИНАЕМ ФАЗУ АТАКИ С ВРАЩЕНИЕМ
 			"start_spin": {
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"tag @s add spin"
 					]
@@ -472,7 +472,7 @@
 						"reset_scale"
 					]
 				},
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"tag @s remove spin",
 						"event entity @s main_stage_redirect"
@@ -484,7 +484,7 @@
 				"add": {
 					"component_groups": "rush"
 				},
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"tag @s add rush"
 					]
@@ -497,7 +497,7 @@
 						"rush"
 					]
 				},
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"tag @s remove rush",
 						"event entity @s main_stage_redirect"
@@ -509,7 +509,7 @@
 				"add": {
 					"component_groups": "agressive_rush"
 				},
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"tag @s add agressive_rush"
 					]
@@ -520,7 +520,7 @@
 				"remove": {
 					"component_groups": "agressive_rush"
 				},
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"tag @s remove agressive_rush",
 						"event entity @s main_stage_redirect"
@@ -530,7 +530,7 @@
 			// DRIVER
 			// ОПРЕДЕЛЯЕМ ХП
 			"test_hp": {
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"tag @s remove hp_0_to_25",
 						"tag @s remove hp_25_tp_50",
@@ -552,7 +552,7 @@
 							"operator": "<=",
 							"value": 500
 						},
-						"run_command": {
+						"queue_command": {
 							"command": [
 								"tag @s add hp_0_to_25"
 							]
@@ -577,7 +577,7 @@
 								}
 							]
 						},
-						"run_command": {
+						"queue_command": {
 							"command": [
 								"tag @s add hp_25_tp_50"
 							]
@@ -602,7 +602,7 @@
 								}
 							]
 						},
-						"run_command": {
+						"queue_command": {
 							"command": [
 								"tag @s add hp_50_to_75"
 							]
@@ -618,7 +618,7 @@
 							"operator": ">",
 							"value": 1500
 						},
-						"run_command": {
+						"queue_command": {
 							"command": [
 								"tag @s add hp_75_to_100"
 							]
@@ -628,7 +628,7 @@
 			},
 			// (ОСНОВНАЯ ЧАСТЬ ДРАЙВЕРА) ДРАЙВЕР СМЕНЫ ФАЗ АТАКИ
 			"main_stage_redirect": {
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"event entity @s test_hp",
 						"tag @s[tag=rested] add allow_launch_attack_phase",

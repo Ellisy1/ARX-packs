@@ -58,7 +58,7 @@
 
     "events": {
       "minecraft:entity_spawned": {
-        "run_command": {
+        "queue_command": {
           "command": [
             "playsound railgun_shoot @a ~ ~ ~",
             "playanimation @e[type=arx:march] animation.march.recoil",
@@ -72,14 +72,14 @@
         }
       },
       "on_death": {
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"particle arx:march_railgun_bullet ~ ~ ~"
 					]
 				}
 			},
       "emit_small_amount_of_particles": {
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"particle arx:march_railgun_bullet_less ~ ~ ~"
 					]

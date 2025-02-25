@@ -76,7 +76,7 @@
 		},
 		"events": {
 			"arx:despawn_as_ghost": {
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"execute as @s at @s if entity @a[r=20] run particle arx:rat_ghost_despawn ~ ~1.5 ~",
 						"execute as @s at @s if entity @a[r=20] run particle arx:rat_ghost_despawn ~ ~1.5 ~",
@@ -93,7 +93,7 @@
 				}
 			},
 			"arx:on_hurt_event": {
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"execute as @s[tag=!control] at @s run summon arx:gasgolder_istribitor ~ ~ ~ facing @p",
 						"execute as @s[tag=!control] at @s run effect @a[r=7] blindness 2 0 true",
@@ -108,7 +108,7 @@
 				}
 			},
 			"minecraft:entity_spawned": {
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"execute if entity @a[scores={verify=2}, tag=scarlet_night] run tag @s add force_to_despawn"
 					]

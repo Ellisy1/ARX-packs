@@ -40,7 +40,7 @@
 		},
 		"events": {
 			"arx:tick": {
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"effect @s levitation 999999 255 true"
 					]

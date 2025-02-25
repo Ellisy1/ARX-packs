@@ -119,7 +119,7 @@
 		},
 		"events": {
 			"on_death": {
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"scoreboard players add @a[r=10] xp_tray 50",
 						"scoreboard players add @a[r=10] count_mob_kills 1"

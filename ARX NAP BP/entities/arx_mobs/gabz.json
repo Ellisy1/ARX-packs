@@ -149,7 +149,7 @@
 				"add": {
 					"component_groups": "arx:agressive"
 				},
-				"run_command":{
+				"queue_command":{
 					"command":[
 						"event entity @e[type=arx:gabz, r=15, rm=0.01] povoke_by_hurting_friend"
 					]
@@ -166,7 +166,7 @@
 				}
 			},
 			"on_death": {
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"scoreboard players add @a[r=10] xp_tray 80",
 						"scoreboard players add @a[r=10] count_mob_kills 1"

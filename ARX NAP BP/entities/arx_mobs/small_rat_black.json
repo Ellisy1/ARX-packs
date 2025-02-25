@@ -140,7 +140,7 @@
 		},
 		"events": {
 			"damage_trigger": {
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"event entity @e[family=small_rat, r=10] become_agressive"
 					]
@@ -157,7 +157,7 @@
 				}
 			},
 			"on_death": {
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"scoreboard players add @a[r=10] xp_tray 10",
 						"scoreboard players add @a[r=10] count_mob_kills 1"

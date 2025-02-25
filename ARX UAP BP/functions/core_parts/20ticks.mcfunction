@@ -481,10 +481,6 @@
         tag @a[tag=BIOME_ocean] remove BIOME_beach
 
 #ДВИЖОК ПОГОДЫ:
-    #Идёт ли дождь?
-        tag @a remove is_raining
-        event entity @a arx:test_weather
-
     #Вычитаем поинты погоды
         execute @a[scores={verify=2, weather=1..}] ~ ~ ~ scoreboard players add @s weather -1
 

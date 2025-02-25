@@ -117,7 +117,7 @@
 		},
 		"events": {
 			"on_death": {
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"scoreboard players set @a[r=10, scores={ach_kill_sand_elemental=0}] ach_kill_sand_elemental 1",
 						"scoreboard players add @a[r=10] xp_tray 300",

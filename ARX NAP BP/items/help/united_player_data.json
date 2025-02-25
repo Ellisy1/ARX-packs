@@ -30,15 +30,14 @@
         "swing": {},
         "run_command": {
           "command": [
-            "execute @s[has_property={arx:is_knocked=0}, rx=-70] ~ ~ ~ function info/playerdata",
-            "execute @s[has_property={arx:is_knocked=0}, rx=-50, rxm=-70] ~ ~ ~ function info/playerskilldata",
-            "execute @s[has_property={arx:is_knocked=0}, rx=-30, rxm=-50] ~ ~ ~ function traits/traitdata", 
-            "execute @s[has_property={arx:is_knocked=0}, rx=-10, rxm=-30] ~ ~ ~ function food/taste_data",
-            "execute @s[has_property={arx:is_knocked=0}, rx=10, rxm=-10] ~ ~ ~ function info/full_effects_data",
-            "execute @s[has_property={arx:is_knocked=0}, rx=30, rxm=10] ~ ~ ~ function info/iconhelp",
-            "execute @s[has_property={arx:is_knocked=0}, rx=50, rxm=30] ~ ~ ~ function info/statistics",
-            "execute @s[has_property={arx:is_knocked=0}, rx=70, rxm=50] ~ ~ ~ function info/achievements",
-            "execute @s[has_property={arx:is_knocked=0}, rxm=70] ~ ~ ~ function info/authors"
+            "execute @s[has_property={arx:is_knocked=0}, rx=-67.5] ~ ~ ~ function info/playerdata",
+            "execute @s[has_property={arx:is_knocked=0}, rx=-45, rxm=-67.5] ~ ~ ~ function traits/traitdata", 
+            "execute @s[has_property={arx:is_knocked=0}, rx=-22.5, rxm=-45] ~ ~ ~ function food/taste_data",
+            "execute @s[has_property={arx:is_knocked=0}, rx=0, rxm=-22.5] ~ ~ ~ function info/full_effects_data",
+            "execute @s[has_property={arx:is_knocked=0}, rx=22.5, rxm=0] ~ ~ ~ function info/iconhelp",
+            "execute @s[has_property={arx:is_knocked=0}, rx=45, rxm=22.5] ~ ~ ~ function info/statistics",
+            "execute @s[has_property={arx:is_knocked=0}, rx=67.5, rxm=45] ~ ~ ~ function info/achievements",
+            "execute @s[has_property={arx:is_knocked=0}, rxm=67.5] ~ ~ ~ function info/authors"
           ]
         }
       }

@@ -150,7 +150,7 @@
 		},
 		"events": {
 			"on_death": {
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"scoreboard players add @a[r=10] xp_tray 90",
 						"scoreboard players add @a[r=10] count_mob_kills 1"
@@ -158,7 +158,7 @@
 				}
 			},
 			"arx:driver": {
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"scoreboard players random @s custom_random 0 6",
 						"execute as @s[scores={custom_random=2}] if entity @p[m=survival, has_property={arx:is_knocked=0}] run damage @p[r=15, m=survival] 7",

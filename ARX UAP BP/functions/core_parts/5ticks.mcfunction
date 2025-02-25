@@ -9,10 +9,10 @@ function core_parts_NAP/5ticks
     # Вычисление компенсации тяжести (= вместимости инвентаря по весу)
         # Навыки, статы
             scoreboard players set @a heavy_compens 5
-            execute @a[scores={religion=2..9}] ~ ~ ~ scoreboard players set @s heavy_compens 1
-            execute @a[scores={religion=12..29}] ~ ~ ~ scoreboard players set @s heavy_compens 1
-            execute @a[scores={religion=6..7}] ~ ~ ~ scoreboard players set @s heavy_compens 2
-            execute @a[scores={religion=16..17}] ~ ~ ~ scoreboard players set @s heavy_compens 2
+            execute @a[scores={religion=2..9}] ~ ~ ~ scoreboard players add @s heavy_compens 1
+            execute @a[scores={religion=12..29}] ~ ~ ~ scoreboard players add @s heavy_compens 1
+            execute @a[scores={religion=6..7}] ~ ~ ~ scoreboard players add @s heavy_compens 2
+            execute @a[scores={religion=16..17}] ~ ~ ~ scoreboard players add @s heavy_compens 2
             execute @a[scores={poit_heigth_a=1..}] ~ ~ ~ scoreboard players add @s heavy_compens 2
             execute @a[scores={poit_heigth_b=1..}] ~ ~ ~ scoreboard players add @s heavy_compens 5
             execute @a[scores={c_powerful=1..}] ~ ~ ~ scoreboard players add @s heavy_compens 1

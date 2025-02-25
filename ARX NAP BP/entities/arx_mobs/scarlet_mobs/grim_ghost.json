@@ -128,7 +128,7 @@
 		},
 		"events": {
 			"on_death": {
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"scoreboard players add @a[r=10] xp_tray 100",
 						"scoreboard players add @a[r=10] count_mob_kills 1"
@@ -144,7 +144,7 @@
 				}
 			},
 			"minecraft:entity_spawned": {
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"execute unless entity @a[scores={verify=2}, tag=scarlet_night] run tag @s add force_to_despawn"
 					]

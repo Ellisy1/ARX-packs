@@ -305,11 +305,662 @@
       },
       "minecraft:on_death": {
         "event": "arx:on_death"
+      },
+
+      "minecraft:timer": {
+        "time": 0.05,
+        "looping": true,
+        "time_down_event": {
+          "event": "arx:run_state_analysis",
+          "target": "self"
+        }
       }
     },
-    "events": {
+
+
+
+    // # === # ЭВЕНТЫ # === #
+    "events": { 
+
+      // # Проверка состояний - драйвер (Два эвента ниже. Верхний триггерит нижний) #
+      "arx:run_state_analysis": { 
+        "queue_command": {
+          "command": [
+            "event entity @s arx:state_analysis_tags_removing",
+
+            "event entity @s arx:test_is_riding",
+            "event entity @a arx:test_has_riders",
+
+            "event entity @s arx:test_in_water",
+            "event entity @s arx:test_in_block_water",
+            "event entity @s arx:test_weather",
+
+            "event entity @s arx:test_standing",
+
+            "event entity @s arx:test_underground",
+            "event entity @s arx:test_in_snow_biome",
+
+            "event entity @a arx:test_is_dead",
+
+            "event entity @a arx:test_brightness_low",
+            "event entity @a arx:test_brightness_high",
+           
+            "event entity @a arx:test_hp_low",
+            "event entity @a arx:test_very_hp_low",
+
+            "event entity @a arx:test_sneaking",
+
+            "event entity @a arx:test_is_day",
+
+            "event entity @a arx:test_in_nether"
+          ]
+        }
+      },
+      "arx:state_analysis_tags_removing": {
+        "queue_command": {
+          "command": [
+            "tag @s remove is_riding",
+            "tag @a remove has_riders",
+
+            "tag @s remove in_water",
+            "tag @s remove in_block_water",
+            "tag @s remove is_raining",
+
+            "tag @s remove is_moving",
+
+            "tag @s remove underground",
+            "tag @s remove in_snow_biome",
+
+            "tag @a remove is_dead",
+
+            "tag @a remove low_bright",
+            "tag @a remove high_bright",
+
+            "tag @a remove low_hp",
+            "tag @a remove very_low_hp",
+
+            "tag @a remove is_sneaking",
+
+            "scoreboard players set @a is_day 0",
+
+            "tag @a remove in_nether"
+          ]
+        }
+      },
+
+      // # Проверка состояний - эвенты проверки #
+      "arx:test_is_riding": {
+        "sequence": [
+          {
+            "filters": {
+              "test": "is_riding",
+              "operator": "equals",
+              "value": true
+            },
+            "queue_command": {
+              "command": [
+                "tag @s add is_riding"
+              ]
+            }
+          }
+        ]
+      },
+      "arx:test_has_riders": {
+        "sequence": [
+          {
+            "filters": {
+              "test": "rider_count",
+              "operator": "not",
+              "value": 0
+            },
+            "queue_command": {
+              "command": [
+                "tag @s add has_riders"
+              ]
+            }
+          }
+        ]
+      },
+      "arx:test_standing": {
+        "sequence": [
+          {
+            "filters": {
+              "test": "is_moving",
+              "subject": "self",
+              "operator": "equals",
+              "value": true
+            },
+            "queue_command": {
+              "command": [
+                "tag @s add is_moving"
+              ]
+            }
+          }
+        ]
+      },
+      "arx:test_in_water": {
+        "sequence": [
+          {
+            "filters": {
+              "test": "in_water_or_rain",
+              "subject": "self",
+              "operator": "equals",
+              "value": true
+            },
+            "queue_command": {
+              "command": [
+                "tag @s add in_water"
+              ]
+            }
+          }
+        ]
+      },
+      "arx:test_in_block_water": {
+        "sequence": [
+          {
+            "filters": {
+              "test": "in_water",
+              "subject": "self",
+              "operator": "equals",
+              "value": true
+            },
+            "queue_command": {
+              "command": [
+                "tag @s add in_block_water"
+              ]
+            }
+          }
+        ]
+      },
+      "arx:test_in_snow_biome": { // Эвент проверяет снежный биом через температуру
+        "sequence": [
+          {
+            "filters": {
+              "test": "is_temperature_type",
+              "subject": "self",
+              "operator": "equals",
+              "value": "cold"
+            },
+            "queue_command": {
+              "command": [
+                "tag @s add in_snow_biome"
+              ]
+            }
+          }
+        ]
+      },
+      "arx:test_underground": {
+        "sequence": [
+          {
+            "filters": {
+              "test": "is_underground",
+              "subject": "self",
+              "operator": "==",
+              "value": true
+            },
+            "queue_command": {
+              "command": [
+                "tag @s add underground"
+              ]
+            }
+          }
+        ]
+      },
+      "arx:test_brightness_low": {
+        "sequence": [
+          {
+            "filters": {
+              "test": "is_brightness",
+              "operator": "<=",
+              "value": 0.2
+            },
+            "queue_command": {
+              "command": [
+                "tag @s add low_bright"
+              ]
+            }
+          }
+        ]
+      },
+      "arx:test_brightness_high": {
+        "sequence": [
+          {
+            "filters": {
+              "test": "is_brightness",
+              "operator": ">=",
+              "value": 0.4
+            },
+            "queue_command": {
+              "command": [
+                "tag @s add high_bright"
+              ]
+            }
+          }
+        ]
+      },
+      "arx:test_hp_low": {
+        "sequence": [
+          {
+            "filters": {
+              "test": "actor_health",
+              "operator": "<=",
+              "value": 10
+            },
+            "queue_command": {
+              "command": [
+                "tag @s add low_hp"
+              ]
+            }
+          }
+        ]
+      },
+      "arx:test_very_hp_low": {
+        "sequence": [
+          {
+            "filters": {
+              "test": "actor_health",
+              "operator": "<=",
+              "value": 4
+            },
+            "queue_command": {
+              "command": [
+                "tag @s add very_low_hp",
+                "tag @s remove low_hp"
+              ]
+            }
+          }
+        ]
+      },
+      "arx:test_is_dead": {
+        "sequence": [
+          {
+            "filters": {
+              "test": "actor_health",
+              "operator": "<=",
+              "value": 0
+            },
+            "queue_command": {
+              "command": [
+                "tag @s add is_dead"
+              ]
+            }
+          }
+        ]
+      },
+      "arx:test_is_day": {
+        "sequence": [
+          {
+            "filters": {
+              "test": "is_daytime",
+              "operator": "equals",
+              "value": true
+            },
+            "queue_command": {
+              "command": [
+                "scoreboard players set @s is_day 1"
+              ]
+            }
+          }
+        ]
+      },
+      "arx:test_in_nether": {
+        "sequence": [
+          {
+            "filters": {
+              "test": "in_nether",
+              "operator": "equals",
+              "value": true
+            },
+            "queue_command": {
+              "command": [
+                "tag @s add in_nether"
+              ]
+            }
+          }
+        ]
+      },
+      "arx:test_biome_birch": {
+        "sequence": [
+          {
+            "filters": {
+              "test": "has_biome_tag",
+              "operator": "equals",
+              "value": "birch"
+            },
+            "queue_command": {
+              "command": [
+                "tag @s add BIOME_birch"
+              ]
+            }
+          }
+        ]
+      },
+      "arx:test_biome_jungle": {
+        "sequence": [
+          {
+            "filters": {
+              "test": "has_biome_tag",
+              "operator": "equals",
+              "value": "jungle"
+            },
+            "queue_command": {
+              "command": [
+                "tag @s add BIOME_jungle"
+              ]
+            }
+          }
+        ]
+      },
+      "arx:test_biome_ocean": {
+        "sequence": [
+          {
+            "filters": {
+              "test": "has_biome_tag",
+              "operator": "equals",
+              "value": "ocean"
+            },
+            "queue_command": {
+              "command": [
+                "tag @s add BIOME_ocean"
+              ]
+            }
+          }
+        ]
+      },
+      "arx:test_biome_forest": {
+        "sequence": [
+          {
+            "filters": {
+              "test": "has_biome_tag",
+              "operator": "equals",
+              "value": "forest"
+            },
+            "queue_command": {
+              "command": [
+                "tag @s add BIOME_forest"
+              ]
+            }
+          }
+        ]
+      },
+      "arx:test_biome_desert": {
+        "sequence": [
+          {
+            "filters": {
+              "test": "has_biome_tag",
+              "operator": "equals",
+              "value": "desert"
+            },
+            "queue_command": {
+              "command": [
+                "tag @s add BIOME_desert"
+              ]
+            }
+          }
+        ]
+      },
+      "arx:test_biome_mesa": {
+        "sequence": [
+          {
+            "filters": {
+              "test": "has_biome_tag",
+              "operator": "equals",
+              "value": "mesa"
+            },
+            "queue_command": {
+              "command": [
+                "tag @s add BIOME_mesa"
+              ]
+            }
+          }
+        ]
+      },
+      "arx:test_biome_plains": {
+        "sequence": [
+          {
+            "filters": {
+              "test": "has_biome_tag",
+              "operator": "equals",
+              "value": "plains"
+            },
+            "queue_command": {
+              "command": [
+                "tag @s add BIOME_plains"
+              ]
+            }
+          }
+        ]
+      },
+      "arx:test_biome_savanna": {
+        "sequence": [
+          {
+            "filters": {
+              "test": "has_biome_tag",
+              "operator": "equals",
+              "value": "savanna"
+            },
+            "queue_command": {
+              "command": [
+                "tag @s add BIOME_savanna"
+              ]
+            }
+          }
+        ]
+      },
+      "arx:test_biome_river": {
+        "sequence": [
+          {
+            "filters": {
+              "test": "has_biome_tag",
+              "operator": "equals",
+              "value": "river"
+            },
+            "queue_command": {
+              "command": [
+                "tag @s add BIOME_ocean"
+              ]
+            }
+          }
+        ]
+      },
+      "arx:test_biome_swamp": {
+        "sequence": [
+          {
+            "filters": {
+              "test": "has_biome_tag",
+              "operator": "equals",
+              "value": "swamp"
+            },
+            "queue_command": {
+              "command": [
+                "tag @s add BIOME_swamp"
+              ]
+            }
+          }
+        ]
+      },
+      "arx:test_biome_mangrove_swamp": {
+        "sequence": [
+          {
+            "filters": {
+              "test": "has_biome_tag",
+              "operator": "equals",
+              "value": "mangrove_swamp"
+            },
+            "queue_command": {
+              "command": [
+                "tag @s add BIOME_mangrove_swamp"
+              ]
+            }
+          }
+        ]
+      },
+      "arx:test_biome_beach": {
+        "sequence": [
+          {
+            "filters": {
+              "test": "has_biome_tag",
+              "operator": "equals",
+              "value": "beach"
+            },
+            "queue_command": {
+              "command": [
+                "tag @s add BIOME_beach"
+              ]
+            }
+          }
+        ]
+      },
+      "arx:test_biome_mountain": {
+        "sequence": [
+          {
+            "filters": {
+              "test": "has_biome_tag",
+              "operator": "equals",
+              "value": "mountain"
+            },
+            "queue_command": {
+              "command": [
+                "tag @s add BIOME_mountain"
+              ]
+            }
+          }
+        ]
+      },
+      "arx:test_biome_ice": {
+        "sequence": [
+          {
+            "filters": {
+              "test": "has_biome_tag",
+              "operator": "equals",
+              "value": "ice"
+            },
+            "queue_command": {
+              "command": [
+                "tag @s add BIOME_ice"
+              ]
+            }
+          }
+        ]
+      },
+      "arx:test_biome_roofed": {
+        "sequence": [
+          {
+            "filters": {
+              "test": "has_biome_tag",
+              "operator": "equals",
+              "value": "roofed"
+            },
+            "queue_command": {
+              "command": [
+                "tag @s add BIOME_roofed"
+              ]
+            }
+          }
+        ]
+      },
+      "arx:test_biome_taiga": {
+        "sequence": [
+          {
+            "filters": {
+              "test": "has_biome_tag",
+              "operator": "equals",
+              "value": "taiga"
+            },
+            "queue_command": {
+              "command": [
+                "tag @s add BIOME_taiga"
+              ]
+            }
+          }
+        ]
+      },
+      "arx:test_biome_flower_forest": {
+        "sequence": [
+          {
+            "filters": {
+              "test": "has_biome_tag",
+              "operator": "equals",
+              "value": "flower_forest"
+            },
+            "queue_command": {
+              "command": [
+                "tag @s add BIOME_forest"
+              ]
+            }
+          }
+        ]
+      },
+      "arx:test_biome_cold": {
+        "sequence": [
+          {
+            "filters": {
+              "test": "has_biome_tag",
+              "operator": "equals",
+              "value": "cold"
+            },
+            "queue_command": {
+              "command": [
+                "tag @s add BIOME_ice"
+              ]
+            }
+          }
+        ]
+      },
+      "arx:test_sneaking": {
+        "sequence": [
+          {
+            "filters": {
+              "test": "is_sneaking",
+              "operator": "equals",
+              "value": true
+            },
+            "queue_command": {
+              "command": [
+                "tag @s add is_sneaking"
+              ]
+            }
+          }
+        ]
+      },
+      "arx:test_weather": {
+        "sequence": [
+          {
+            "filters": {
+              "test": "weather",
+              "operator": "equals",
+              "value": "precipitation"
+            },
+            "queue_command": {
+              "command": [
+                "tag @s add is_raining"
+              ]
+            }
+          }
+        ]
+      },
+      // Фаза луны
+      "arx:test_moon_phase": {
+        "sequence": [
+          {
+            "filters": {
+              "test": "moon_phase",
+              "operator": "==",
+              "value": 1
+            },
+            "queue_command": {
+              "command": [
+                "tag @s add scarlet_night"
+              ]
+            }
+          }
+        ]
+      },
+
+
+      // # Урон #
       "arx:damaged_by_falling": {
-        "run_command": {
+        "queue_command": {
           "command": [
             "event entity @s arx:on_get_damage",
             "tag @s[hasitem={item=arx:amul_steel_bone, location=slot.armor.legs}] add has_amul_steel_bone",
@@ -319,7 +970,7 @@
         }
       },
       "arx:damaged_without_blood": {
-        "run_command": {
+        "queue_command": {
           "command": [
             "tag @s add damaged_without_blood",
             "event entity @s arx:on_get_damage"
@@ -327,13 +978,14 @@
         }
       },
       "arx:on_death": {
-        "run_command": {
+        "queue_command": {
           "command": [
             "summon arx:grave ^ ^ ^",
             "function knockout_system/on_knockout"
           ]
         }
       },
+      // Хп
       "arx:set_14_hp": {
         "add": {
           "component_groups": [
@@ -475,563 +1127,13 @@
         }
       },
       "arx:on_get_damage": {
-        "run_command": {
+        "queue_command": {
           "command": [
             "execute if entity @s[scores={on_hurt_delay=0}] run function on_get_damage"
           ]
         }
       },
-      "arx:test_standing": {
-        "sequence": [
-          {
-            "filters": {
-              "test": "is_moving",
-              "subject": "self",
-              "operator": "equals",
-              "value": true
-            },
-            "run_command": {
-              "command": [
-                "tag @s add is_moving"
-              ]
-            }
-          }
-        ]
-      },
-      "arx:test_in_water": {
-        "sequence": [
-          {
-            "filters": {
-              "test": "in_water_or_rain",
-              "subject": "self",
-              "operator": "equals",
-              "value": true
-            },
-            "run_command": {
-              "command": [
-                "tag @s add in_water"
-              ]
-            }
-          }
-        ]
-      },
-      "arx:test_in_block_water": {
-        "sequence": [
-          {
-            "filters": {
-              "test": "in_water",
-              "subject": "self",
-              "operator": "equals",
-              "value": true
-            },
-            "run_command": {
-              "command": [
-                "tag @s add in_block_water"
-              ]
-            }
-          }
-        ]
-      },
-      "arx:test_in_snow_biome": {
-        "sequence": [
-          {
-            "filters": {
-              "test": "is_temperature_type",
-              "subject": "self",
-              "operator": "equals",
-              "value": "cold"
-            },
-            "run_command": {
-              "command": [
-                "tag @s add in_snow_biome"
-              ]
-            }
-          }
-        ]
-      },
-      "arx:test_underground": {
-        "sequence": [
-          {
-            "filters": {
-              "test": "is_underground",
-              "subject": "self",
-              "operator": "==",
-              "value": true
-            },
-            "run_command": {
-              "command": [
-                "tag @s add underground"
-              ]
-            }
-          }
-        ]
-      },
-      "arx:test_brightness_low": {
-        "sequence": [
-          {
-            "filters": {
-              "test": "is_brightness",
-              "operator": "<=",
-              "value": 0.2
-            },
-            "run_command": {
-              "command": [
-                "tag @s add low_bright"
-              ]
-            }
-          }
-        ]
-      },
-      "arx:test_brightness_high": {
-        "sequence": [
-          {
-            "filters": {
-              "test": "is_brightness",
-              "operator": ">=",
-              "value": 0.4
-            },
-            "run_command": {
-              "command": [
-                "tag @s add high_bright"
-              ]
-            }
-          }
-        ]
-      },
-      "arx:test_hp_low": {
-        "sequence": [
-          {
-            "filters": {
-              "test": "actor_health",
-              "operator": "<=",
-              "value": 10
-            },
-            "run_command": {
-              "command": [
-                "tag @s add low_hp"
-              ]
-            }
-          }
-        ]
-      },
-      "arx:test_very_hp_low": {
-        "sequence": [
-          {
-            "filters": {
-              "test": "actor_health",
-              "operator": "<=",
-              "value": 4
-            },
-            "run_command": {
-              "command": [
-                "tag @s add very_low_hp",
-                "tag @s remove low_hp"
-              ]
-            }
-          }
-        ]
-      },
-      "arx:test_is_dead": {
-        "sequence": [
-          {
-            "filters": {
-              "test": "actor_health",
-              "operator": "<=",
-              "value": 0
-            },
-            "run_command": {
-              "command": [
-                "tag @s add is_dead"
-              ]
-            }
-          }
-        ]
-      },
-      "arx:test_is_day": {
-        "sequence": [
-          {
-            "filters": {
-              "test": "is_daytime",
-              "operator": "equals",
-              "value": true
-            },
-            "run_command": {
-              "command": [
-                "scoreboard players set @s is_day 1"
-              ]
-            }
-          }
-        ]
-      },
-      "arx:test_in_nether": {
-        "sequence": [
-          {
-            "filters": {
-              "test": "in_nether",
-              "operator": "equals",
-              "value": true
-            },
-            "run_command": {
-              "command": [
-                "tag @s add in_nether"
-              ]
-            }
-          }
-        ]
-      },
-      "arx:test_biome_birch": {
-        "sequence": [
-          {
-            "filters": {
-              "test": "has_biome_tag",
-              "operator": "equals",
-              "value": "birch"
-            },
-            "run_command": {
-              "command": [
-                "tag @s add BIOME_birch"
-              ]
-            }
-          }
-        ]
-      },
-      "arx:test_biome_jungle": {
-        "sequence": [
-          {
-            "filters": {
-              "test": "has_biome_tag",
-              "operator": "equals",
-              "value": "jungle"
-            },
-            "run_command": {
-              "command": [
-                "tag @s add BIOME_jungle"
-              ]
-            }
-          }
-        ]
-      },
-      "arx:test_biome_ocean": {
-        "sequence": [
-          {
-            "filters": {
-              "test": "has_biome_tag",
-              "operator": "equals",
-              "value": "ocean"
-            },
-            "run_command": {
-              "command": [
-                "tag @s add BIOME_ocean"
-              ]
-            }
-          }
-        ]
-      },
-      "arx:test_biome_forest": {
-        "sequence": [
-          {
-            "filters": {
-              "test": "has_biome_tag",
-              "operator": "equals",
-              "value": "forest"
-            },
-            "run_command": {
-              "command": [
-                "tag @s add BIOME_forest"
-              ]
-            }
-          }
-        ]
-      },
-      "arx:test_biome_desert": {
-        "sequence": [
-          {
-            "filters": {
-              "test": "has_biome_tag",
-              "operator": "equals",
-              "value": "desert"
-            },
-            "run_command": {
-              "command": [
-                "tag @s add BIOME_desert"
-              ]
-            }
-          }
-        ]
-      },
-      "arx:test_biome_mesa": {
-        "sequence": [
-          {
-            "filters": {
-              "test": "has_biome_tag",
-              "operator": "equals",
-              "value": "mesa"
-            },
-            "run_command": {
-              "command": [
-                "tag @s add BIOME_mesa"
-              ]
-            }
-          }
-        ]
-      },
-      "arx:test_biome_plains": {
-        "sequence": [
-          {
-            "filters": {
-              "test": "has_biome_tag",
-              "operator": "equals",
-              "value": "plains"
-            },
-            "run_command": {
-              "command": [
-                "tag @s add BIOME_plains"
-              ]
-            }
-          }
-        ]
-      },
-      "arx:test_biome_savanna": {
-        "sequence": [
-          {
-            "filters": {
-              "test": "has_biome_tag",
-              "operator": "equals",
-              "value": "savanna"
-            },
-            "run_command": {
-              "command": [
-                "tag @s add BIOME_savanna"
-              ]
-            }
-          }
-        ]
-      },
-      "arx:test_biome_river": {
-        "sequence": [
-          {
-            "filters": {
-              "test": "has_biome_tag",
-              "operator": "equals",
-              "value": "river"
-            },
-            "run_command": {
-              "command": [
-                "tag @s add BIOME_ocean"
-              ]
-            }
-          }
-        ]
-      },
-      "arx:test_biome_swamp": {
-        "sequence": [
-          {
-            "filters": {
-              "test": "has_biome_tag",
-              "operator": "equals",
-              "value": "swamp"
-            },
-            "run_command": {
-              "command": [
-                "tag @s add BIOME_swamp"
-              ]
-            }
-          }
-        ]
-      },
-      "arx:test_biome_mangrove_swamp": {
-        "sequence": [
-          {
-            "filters": {
-              "test": "has_biome_tag",
-              "operator": "equals",
-              "value": "mangrove_swamp"
-            },
-            "run_command": {
-              "command": [
-                "tag @s add BIOME_mangrove_swamp"
-              ]
-            }
-          }
-        ]
-      },
-      "arx:test_biome_beach": {
-        "sequence": [
-          {
-            "filters": {
-              "test": "has_biome_tag",
-              "operator": "equals",
-              "value": "beach"
-            },
-            "run_command": {
-              "command": [
-                "tag @s add BIOME_beach"
-              ]
-            }
-          }
-        ]
-      },
-      "arx:test_biome_mountain": {
-        "sequence": [
-          {
-            "filters": {
-              "test": "has_biome_tag",
-              "operator": "equals",
-              "value": "mountain"
-            },
-            "run_command": {
-              "command": [
-                "tag @s add BIOME_mountain"
-              ]
-            }
-          }
-        ]
-      },
-      "arx:test_biome_ice": {
-        "sequence": [
-          {
-            "filters": {
-              "test": "has_biome_tag",
-              "operator": "equals",
-              "value": "ice"
-            },
-            "run_command": {
-              "command": [
-                "tag @s add BIOME_ice"
-              ]
-            }
-          }
-        ]
-      },
-      "arx:test_biome_roofed": {
-        "sequence": [
-          {
-            "filters": {
-              "test": "has_biome_tag",
-              "operator": "equals",
-              "value": "roofed"
-            },
-            "run_command": {
-              "command": [
-                "tag @s add BIOME_roofed"
-              ]
-            }
-          }
-        ]
-      },
-      "arx:test_biome_taiga": {
-        "sequence": [
-          {
-            "filters": {
-              "test": "has_biome_tag",
-              "operator": "equals",
-              "value": "taiga"
-            },
-            "run_command": {
-              "command": [
-                "tag @s add BIOME_taiga"
-              ]
-            }
-          }
-        ]
-      },
-      "arx:test_biome_flower_forest": {
-        "sequence": [
-          {
-            "filters": {
-              "test": "has_biome_tag",
-              "operator": "equals",
-              "value": "flower_forest"
-            },
-            "run_command": {
-              "command": [
-                "tag @s add BIOME_forest"
-              ]
-            }
-          }
-        ]
-      },
-      "arx:test_biome_cold": {
-        "sequence": [
-          {
-            "filters": {
-              "test": "has_biome_tag",
-              "operator": "equals",
-              "value": "cold"
-            },
-            "run_command": {
-              "command": [
-                "tag @s add BIOME_ice"
-              ]
-            }
-          }
-        ]
-      },
-      "arx:test_sneaking": {
-        "sequence": [
-          {
-            "filters": {
-              "test": "is_sneaking",
-              "operator": "equals",
-              "value": true
-            },
-            "run_command": {
-              "command": [
-                "tag @s add is_sneaking"
-              ]
-            }
-          }
-        ]
-      },
-      "arx:test_weather": {
-        "sequence": [
-          {
-            "filters": {
-              "test": "weather",
-              "operator": "equals",
-              "value": "precipitation"
-            },
-            "run_command": {
-              "command": [
-                "tag @s add is_raining"
-              ]
-            }
-          }
-        ]
-      },
-      "arx:test_is_riding": {
-        "sequence": [
-          {
-            "filters": {
-              "test": "is_riding",
-              "operator": "equals",
-              "value": true
-            },
-            "run_command": {
-              "command": [
-                "tag @s add is_riding"
-              ]
-            }
-          }
-        ]
-      },
-      "arx:test_has_riders": {
-        "sequence": [
-          {
-            "filters": {
-              "test": "rider_count",
-              "operator": "not",
-              "value": 0
-            },
-            "run_command": {
-              "command": [
-                "tag @s add has_riders"
-              ]
-            }
-          }
-        ]
-      },
-      // PROPERTIES
+      // # PROPERTIES #
 
       // bust size
       "arx:property_bust_size_set_0": { // No bust (for all men and some women)
@@ -1087,26 +1189,9 @@
         }
       },
       
-      // Фаза луны
-      "arx:test_moon_phase": {
-        "sequence": [
-          {
-            "filters": {
-              "test": "moon_phase",
-              "operator": "==",
-              "value": 1
-            },
-            "run_command": {
-              "command": [
-                "tag @s add scarlet_night"
-              ]
-            }
-          }
-        ]
-      },
 
       "on_interact": {
-        "run_command": {
+        "queue_command": {
           "command": [
             // Поднимаем нокнутого игрока
             "execute as @s[has_property={arx:is_knocked=1..}] at @s if entity @p[r=1.5, rm=0.001, has_property={arx:is_knocked=0}, tag=!has_riders, tag=!is_sneaking] run ride @s start_riding @p[r=1.5, has_property={arx:is_knocked=0}, tag=!has_riders] teleport_rider",

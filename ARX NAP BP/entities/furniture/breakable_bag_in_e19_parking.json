@@ -80,7 +80,7 @@
 			"on_get_damage": {
 				"sequence": [
 					{
-						"run_command": {
+						"queue_command": {
 							"command": [
 								"effect @s regeneration 999999 255 true",
 								"event entity @s on_get_critical_damage"
@@ -100,7 +100,7 @@
 						"set_property": {
 							"arx:is_opened": 1
 						},
-						"run_command": {
+						"queue_command": {
 							"command": [
 								"playsound random.break @a ~ ~ ~"
 							]
@@ -114,14 +114,14 @@
 				]
 			},
 			"interact_opened": {
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"execute as @p run function high_tec/breakable_bag_in_e19_parking"
 					]
 				}
 			},
 			"interact_closed": {
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"execute as @p run w @s §eКейс выглядит довольно крепким и защищенным. Интересно, получится ли его открыть?"
 					]

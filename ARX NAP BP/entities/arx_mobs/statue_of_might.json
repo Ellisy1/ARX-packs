@@ -56,14 +56,14 @@
 		},
 		"events": {
 			"arx:interact": {
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"function crpg_items/statue_of_might"
 					]
 				}
 			},
 			"arx:clear": {
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"clear @a[rm=10] arx:might_up"
 					]

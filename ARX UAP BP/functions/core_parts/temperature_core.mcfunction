@@ -2,13 +2,6 @@
 
 # КОД СТОИТ ПЕРЕВЕСТИ НА ПОЛНЫЙ ТЕГОВЫЙ АНАЛИЗ!!!
 
-#ТЕГИ МЕСТОНАХОЖДЕНИЯ
-    tag @a remove underground
-    event entity @a[tag=!is_dead] arx:test_underground
-
-    tag @a remove in_snow_biome
-    event entity @a[tag=!is_dead] arx:test_in_snow_biome
-
 #АНАЛИЗ СТОЙКОСТЕЙ
     # sun_resistance - имеется стойкость к палящему солнцу
         tag @a remove sun_resistance

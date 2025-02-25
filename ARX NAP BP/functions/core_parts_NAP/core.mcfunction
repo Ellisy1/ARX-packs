@@ -44,13 +44,6 @@
     # Свет от ламп
         execute as @a[scores={max_light_range=!0, lamp_oil=1..}, m=!spectator] at @s run function core_parts_NAP/belt_lamps
 
-# Проверка едем ли мы на ком-то
-    tag @a remove is_riding
-    event entity @a arx:test_is_riding 
-
-    tag @a remove has_riders
-    event entity @a arx:test_has_riders 
-
 
 # Код для специального анимирования от предметов, на которых можно сидеть
     # Пуфик поджопник
@@ -62,12 +55,6 @@
 
 # НАМОКАНИЕ И ВЫСЫХАНИЕ
     # Анализ окружения и условий высыхания и намокания
-        tag @a remove in_water
-        event entity @a arx:test_in_water 
-
-        tag @a remove in_block_water
-        event entity @a arx:test_in_block_water
-
         tag @a remove in_rain
         tag @a[tag=in_water, tag=!in_block_water] add in_rain
 

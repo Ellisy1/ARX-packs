@@ -127,7 +127,7 @@
 		},
 		"events": {
 			"arx:despawn_as_ghost": {
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"execute as @s at @s if entity @a[r=20] run particle arx:rat_ghost_despawn ~ ~1.5 ~",
 						"execute as @s at @s if entity @a[r=20] run particle arx:rat_ghost_despawn ~ ~1.5 ~",
@@ -144,7 +144,7 @@
 				}
 			},
 			"arx:istrebitor_state": {
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"scoreboard players set @s mp_max 100",
 						"scoreboard players set @s mp 100",
@@ -164,7 +164,7 @@
 				}
 			},
 			"arx:tsugunder_istrebitor_analyse": {
-				"run_command": {
+				"queue_command": {
 					"command": [
 						// Необходимый анализ
 						"scoreboard players random @s custom_random 0 1000",
@@ -200,7 +200,7 @@
 			"arx:test_for_low_hp": {
 				"sequence": [
 					{
-						"run_command": {
+						"queue_command": {
 							"command": [
 								"tag @s remove low_hp"
 							]
@@ -210,7 +210,7 @@
 							"operator": "<=",
 							"value": 375
 						},
-						"run_command": {
+						"queue_command": {
 							"command": [
 								"tag @s add low_hp"
 							]
@@ -219,7 +219,7 @@
 				]
 			},
 			"minecraft:entity_spawned": {
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"execute if entity @a[scores={verify=2}, tag=scarlet_night] run tag @s add force_to_despawn"
 					]

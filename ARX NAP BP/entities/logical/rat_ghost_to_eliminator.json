@@ -33,7 +33,7 @@
 		},
 		"events": {
 			"arx:suicide": {
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"function summon_rat_eliminator",
 						"effect @a[r=15] blindness 3 0 true",

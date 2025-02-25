@@ -87,14 +87,14 @@
 				}
 			},
 			"arx:switch_control_to_core": {
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"tag @s add grave_cd_expired"
 					]
 				}
 			},
 			"minecraft:entity_spawned": {
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"tp @e[type=item, r=3] ~ ~0.3 ~",
 						"effect @s slow_falling 999999 0 true",
@@ -110,7 +110,7 @@
 							"operator": "equals",
 							"value": "inventory"
 						},
-						"run_command": {
+						"queue_command": {
 							"command": [
 								"event entity @s arx:suicide",
 								"playsound random.break @a ~ ~ ~"

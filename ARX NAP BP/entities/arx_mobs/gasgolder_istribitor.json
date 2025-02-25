@@ -116,7 +116,7 @@
 		},
 		"events": {
 			"on_death": {
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"scoreboard players add @a[r=10] xp_tray 750",
 						"scoreboard players add @a[r=10] count_mbs_kills 1"
@@ -124,7 +124,7 @@
 				}
 			},
 			"arx:despawn_as_ghost": {
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"execute as @s at @s if entity @a[r=20] run particle arx:rat_ghost_despawn ~ ~1.5 ~",
 						"execute as @s at @s if entity @a[r=20] run particle arx:rat_ghost_despawn ~ ~1.5 ~",

@@ -146,7 +146,7 @@
 		},
 		"events": {
 			"on_death": {
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"scoreboard players add @a[r=10] xp_tray 1500",
 						"scoreboard players add @a[r=10] count_mbs_kills 1"
@@ -154,7 +154,7 @@
 				}
 			},
 			"arx:summon_rat_monster": {
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"summon arx:rat_monstr ~ ~ ~ become_agressive",
 						"playsound mob.rat_eliminator.spawn @a ~ ~ ~",
@@ -163,7 +163,7 @@
 				}
 			},
 			"arx:despawn_as_ghost": {
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"particle arx:rat_ghost_despawn ~ ~1.5 ~",
 						"particle arx:rat_ghost_despawn ~ ~1.5 ~",
@@ -185,7 +185,7 @@
 						"arx:despawn_as_ghost"
 					]
 				},
-				"run_command": {
+				"queue_command": {
 					"command": [
 						"summon arx:gasgolder_istribitor"
 					]
