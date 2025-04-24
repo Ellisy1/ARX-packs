@@ -2,7 +2,7 @@
     scoreboard players set @s mp_req 45
 
     tag @p[tag=self, tag=staff_din] add drop_cost_with_staff
-    tag @p[tag=self, scores={religion=22}] add drop_cost_with_religion
+    tag @s[hasitem={item=arx:amul_magic_zoisite, location=slot.armor.legs}] add drop_cost_with_amulet
 
     function spells/operations/drop_spell_cost
     function spells/operations/check_mp_spell_availability
@@ -87,9 +87,6 @@
         execute @p[tag=self, tag=spell_available, scores={target=1}] ~ ~ ~ execute @s[hasitem={location=slot.hotbar, slot=0, item=arx:wire}] ~ ~ ~ scoreboard players set @s item_control 1
 
     # Хлам
-        execute @p[tag=self, tag=spell_available, scores={target=1}] ~ ~ ~ execute @s[hasitem={location=slot.hotbar, slot=0, item=arx:rune_multi}] ~ ~ ~ tellraw @s {"rawtext": [{"text": "Эта удивительная руна способна совмещать в себе сразу 4 другие - KON, SIN, SAN и DIN"}]}
-        execute @p[tag=self, tag=spell_available, scores={target=1}] ~ ~ ~ execute @s[hasitem={location=slot.hotbar, slot=0, item=arx:rune_multi}] ~ ~ ~ scoreboard players set @s item_control 1
-
         execute @p[tag=self, tag=spell_available, scores={target=1}] ~ ~ ~ execute @s[hasitem={location=slot.hotbar, slot=0, item=arx:hole_coin}] ~ ~ ~ tellraw @s {"rawtext": [{"text": "Монетка в ходу в Сансареа. Некоторые жители закапывают их на всякий случай. Возможно, вы когда-то повстречаете купца..."}]}
         execute @p[tag=self, tag=spell_available, scores={target=1}] ~ ~ ~ execute @s[hasitem={location=slot.hotbar, slot=0, item=arx:hole_coin}] ~ ~ ~ scoreboard players set @s item_control 1
 
@@ -130,42 +127,11 @@
         execute @p[tag=self, tag=spell_available, scores={target=1}] ~ ~ ~ execute @s[hasitem={location=slot.hotbar, slot=0, item=arx:coin_of_pires_silver}] ~ ~ ~ tellraw @s {"rawtext": [{"text": "Подлинный серебрянный Пирес."}]}
         execute @p[tag=self, tag=spell_available, scores={target=1}] ~ ~ ~ execute @s[hasitem={location=slot.hotbar, slot=0, item=arx:coin_of_pires_silver}] ~ ~ ~ scoreboard players set @s item_control 1
 
-    # Зелья
-        execute @p[tag=self, tag=spell_available, scores={target=1}] ~ ~ ~ execute @s[hasitem={location=slot.hotbar, slot=0, item=arx:square_bottle_spirt}] ~ ~ ~ tellraw @s {"rawtext": [{"text": "Это просто спирт в бутылке. Кто-то из этого приготовит водку, а кто-то - лечебное зелье."}]}
-        execute @p[tag=self, tag=spell_available, scores={target=1}] ~ ~ ~ execute @s[hasitem={location=slot.hotbar, slot=0, item=arx:square_bottle_spirt}] ~ ~ ~ scoreboard players set @s item_control 1
-
-        execute @p[tag=self, tag=spell_available, scores={target=1}] ~ ~ ~ execute @s[hasitem={location=slot.hotbar, slot=0, item=arx:square_bottle_spirt_golden_hay}] ~ ~ ~ tellraw @s {"rawtext": [{"text": "Заготовка для лечебных зелий. Попробуй добавить какой-то ингредиент!"}]}
-        execute @p[tag=self, tag=spell_available, scores={target=1}] ~ ~ ~ execute @s[hasitem={location=slot.hotbar, slot=0, item=arx:square_bottle_spirt_golden_hay}] ~ ~ ~ scoreboard players set @s item_control 1
-
-        execute @p[tag=self, tag=spell_available, scores={target=1}] ~ ~ ~ execute @s[hasitem={location=slot.hotbar, slot=0, item=arx:square_bottle_spirt_golden_hay_bone}] ~ ~ ~ tellraw @s {"rawtext": [{"text": "Зелье, способное исцелить сломаные кости. Осторожно, оно достаточно токсичное."}]}
-        execute @p[tag=self, tag=spell_available, scores={target=1}] ~ ~ ~ execute @s[hasitem={location=slot.hotbar, slot=0, item=arx:square_bottle_spirt_golden_hay_bone}] ~ ~ ~ scoreboard players set @s item_control 1
-
-        execute @p[tag=self, tag=spell_available, scores={target=1}] ~ ~ ~ execute @s[hasitem={location=slot.hotbar, slot=0, item=arx:square_bottle_spirt_golden_hay_day_kosk}] ~ ~ ~ tellraw @s {"rawtext": [{"text": "Лекарство для исцеления от легкой простуды. Простое в приготовлении и простое и эффективное в использовании."}]}
-        execute @p[tag=self, tag=spell_available, scores={target=1}] ~ ~ ~ execute @s[hasitem={location=slot.hotbar, slot=0, item=arx:square_bottle_spirt_golden_hay_day_kosk}] ~ ~ ~ scoreboard players set @s item_control 1
-
-        execute @p[tag=self, tag=spell_available, scores={target=1}] ~ ~ ~ execute @s[hasitem={location=slot.hotbar, slot=0, item=arx:square_bottle_spirt_golden_hay_fioletic}] ~ ~ ~ tellraw @s {"rawtext": [{"text": "Зелье, исцеляющее от наркозависимости. Осторожно, придется расплатиться вчерашним ужином..."}]}
-        execute @p[tag=self, tag=spell_available, scores={target=1}] ~ ~ ~ execute @s[hasitem={location=slot.hotbar, slot=0, item=arx:square_bottle_spirt_golden_hay_fioletic}] ~ ~ ~ scoreboard players set @s item_control 1
-
-        execute @p[tag=self, tag=spell_available, scores={target=1}] ~ ~ ~ execute @s[hasitem={location=slot.hotbar, slot=0, item=arx:square_bottle_spirt_golden_hay_fok}] ~ ~ ~ tellraw @s {"rawtext": [{"text": "Медикамент, позволяющий убрать симптомы острой фазы почти любой болезни. Крайне полезно, когда пациент уже просит оборвать его страдания навсегда, а вы случайно выпили его лекарство вместо чая и не знаете что делать."}]}
-        execute @p[tag=self, tag=spell_available, scores={target=1}] ~ ~ ~ execute @s[hasitem={location=slot.hotbar, slot=0, item=arx:square_bottle_spirt_golden_hay_fok}] ~ ~ ~ scoreboard players set @s item_control 1
-
-        execute @p[tag=self, tag=spell_available, scores={target=1}] ~ ~ ~ execute @s[hasitem={location=slot.hotbar, slot=0, item=arx:square_bottle_spirt_golden_hay_kaspora}] ~ ~ ~ tellraw @s {"rawtext": [{"text": "Полезное зелье, если вы поражены пневмонией. Просто выпейте его и ложитесь спать, чтобы скипнуть отравление. А, точно..."}]}
-        execute @p[tag=self, tag=spell_available, scores={target=1}] ~ ~ ~ execute @s[hasitem={location=slot.hotbar, slot=0, item=arx:square_bottle_spirt_golden_hay_kaspora}] ~ ~ ~ scoreboard players set @s item_control 1
-
-        execute @p[tag=self, tag=spell_available, scores={target=1}] ~ ~ ~ execute @s[hasitem={location=slot.hotbar, slot=0, item=arx:square_bottle_spirt_golden_hay_night_kosk}] ~ ~ ~ tellraw @s {"rawtext": [{"text": "Для лечения тяжёлой простуды требуется тяжелое лечение, которое, по всей видимости, у вас сейчас в руке."}]}
-        execute @p[tag=self, tag=spell_available, scores={target=1}] ~ ~ ~ execute @s[hasitem={location=slot.hotbar, slot=0, item=arx:square_bottle_spirt_golden_hay_night_kosk}] ~ ~ ~ scoreboard players set @s item_control 1
-
-        execute @p[tag=self, tag=spell_available, scores={target=1}] ~ ~ ~ execute @s[hasitem={location=slot.hotbar, slot=0, item=arx:square_bottle_spirt_golden_hay_poison}] ~ ~ ~ tellraw @s {"rawtext": [{"text": "Ужасный способ лечения для ужасной болезни. Грипп бывает настолько тяжёлым, что уж лучше его вытравить из себя этим ядом, чем терпаеть весь этот ад."}]}
-        execute @p[tag=self, tag=spell_available, scores={target=1}] ~ ~ ~ execute @s[hasitem={location=slot.hotbar, slot=0, item=arx:square_bottle_spirt_golden_hay_poison}] ~ ~ ~ scoreboard players set @s item_control 1
-
-
 
     execute @p[tag=self, tag=spell_available, scores={target=1}] ~ ~ ~ execute @s[scores={item_control=0}] ~ ~ ~ tellraw @s {"rawtext": [{"text": "В первом слоте ничего нет, или в этом предмете не заключено ничего интересного"}]}
     
-    execute @p[tag=self, tag=spell_available, scores={target=2}] ~ ~ ~ w @p Кажется, это заклинание невозможно применить на ближайшего
     tag @p[tag=self, tag=spell_available, scores={target=2}] add cant_be_casted_cus_of_target
 
-    execute @p[tag=self, tag=spell_available, scores={target=3}] ~ ~ ~ w @p Кажется, это заклинание невозможно применить на животных и монстров
     tag @p[tag=self, tag=spell_available, scores={target=3}] add cant_be_casted_cus_of_target
 
     function spells/operations/withdraw_mp

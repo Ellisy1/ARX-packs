@@ -8,7 +8,7 @@
     "tags": [ "brewing_stand" ],
 
     "input": "arx:rounded_bottle_water_golden_hay",
-    "reagent": "arx:mp_mushroom_item",
+    "reagent": "arx:mp_mushroom",
     "output": "arx:rounded_bottle_water_golden_hay_mp_flower"
   }
 

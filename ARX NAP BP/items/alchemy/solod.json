@@ -1,14 +1,14 @@
 {
-  "format_version": "1.16.100",
-  "minecraft:item": {
-    "description": {
-      "identifier": "arx:solod",
-      "category": "items"
-    },
-    "components": {
-      "minecraft:icon": {
-        "texture": "arx:solod"
-      }
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:icon": "arx:solod"
+        },
+        "description": {
+            "identifier": "arx:solod",
+            "menu_category": {
+                "category": "items"
+            }
+        }
     }
-  }
 }

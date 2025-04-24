@@ -1,17 +1,14 @@
 {
-  "format_version": "1.16.100",
-  "minecraft:item": {
-    "description": {
-      "identifier": "arx:demon_entity",
-      "category": "items"
-    },
-    "components": {
-      "minecraft:hand_equipped": false,
-      "minecraft:max_stack_size": 64,
-      "minecraft:foil": false,
-      "minecraft:icon": {
-        "texture": "arx:demon_entity"
-      }
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:icon": "arx:demon_entity"
+        },
+        "description": {
+            "identifier": "arx:demon_entity",
+            "menu_category": {
+                "category": "items"
+            }
+        }
     }
-  }
 }

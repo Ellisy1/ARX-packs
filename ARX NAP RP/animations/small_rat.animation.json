@@ -1,0 +1,20 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.small_rat.move": {
+			"loop": true,
+			"anim_time_update": "query.modified_distance_moved",
+			"bones": {
+				"tail": {
+					"rotation": [0, "math.cos(query.anim_time * 60) *  20.0", 0]
+				},
+				"tail2": {
+					"rotation": [0, "-math.cos(query.anim_time * 60) *  50.0", 0]
+				},
+				"head": {
+					"rotation": [0, "math.cos(query.anim_time * 60) *  20.0", 0]
+				}
+			}
+		}
+	}
+}

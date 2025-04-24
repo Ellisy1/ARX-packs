@@ -9,6 +9,7 @@
     "tags": [ "jewelry_crafting_table" ],
     "pattern": [
       "I",
+      "R",
       "R"
     ],
     "key": {
@@ -16,7 +17,7 @@
         "item": "arx:amul_string"
       },
       "R": {
-        "item": "arx:pires_3"
+        "item": "arx:steel_ingot"
       }
     },
     "result": {

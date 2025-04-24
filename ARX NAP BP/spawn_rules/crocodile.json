@@ -9,26 +9,6 @@
       {
         "minecraft:spawns_on_surface": {},
         "minecraft:weight": {
-          "default": 20
-        },
-        "minecraft:biome_filter": [
-          {"test": "has_biome_tag", "operator":"==", "value": "beach"},
-          {"test": "has_biome_tag", "operator":"!=", "value": "cold"}
-        ]
-      },
-      {
-        "minecraft:spawns_on_surface": {},
-        "minecraft:weight": {
-          "default": 60
-        },
-        "minecraft:biome_filter": [
-          {"test": "has_biome_tag", "operator":"==", "value": "ocean"},
-          {"test": "has_biome_tag", "operator":"!=", "value": "cold"}
-        ]
-      },
-      {
-        "minecraft:spawns_on_surface": {},
-        "minecraft:weight": {
           "default": 80
         },
         "minecraft:biome_filter": [
@@ -42,8 +22,7 @@
           "default": 500
         },
         "minecraft:biome_filter": [
-          {"test": "has_biome_tag", "operator":"==", "value": "mangrove_swamp"},
-          {"test": "has_biome_tag", "operator":"!=", "value": "cold"}
+          {"test": "has_biome_tag", "operator":"==", "value": "mangrove_swamp"}
         ]
       }
     ]

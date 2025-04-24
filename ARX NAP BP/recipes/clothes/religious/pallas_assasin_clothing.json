@@ -8,7 +8,7 @@
     
     "tags": [ "light_armor_crafting_table" ],
     "pattern": [
-      "#D#",
+      "# #",
       "XYZ",
       "B B"
     ],
@@ -27,9 +27,6 @@
       },
       "Z": {
         "item": "arx:snow_bars_skin"
-      },
-      "D": {
-        "item": "arx:drawing_relig_pa_a"
       }
     },
     "result": {

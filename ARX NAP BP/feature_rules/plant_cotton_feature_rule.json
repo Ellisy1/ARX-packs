@@ -1,0 +1,55 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:feature_rules": {
+		"description": {
+			"identifier": "arx:plant_cotton_feature_rule",
+			"places_feature": "arx:plant_cotton_feature"
+		},
+		"conditions": {
+			"placement_pass": "surface_pass",
+			"minecraft:biome_filter": [
+				{
+					"all_of": [
+						{
+							"test": "has_biome_tag",
+							"operator": "!=",
+							"value": "nether"
+						},
+						{
+							"test": "has_biome_tag",
+							"operator": "!=",
+							"value": "beach"
+						},
+						{
+							"test": "has_biome_tag",
+							"operator": "!=",
+							"value": "cold"
+						}
+					]
+				}
+			]
+		},
+		"distribution": {
+			"scatter_chance": {
+				"numerator": 1,
+				"denominator": 16
+			},
+			"iterations": 2,
+			"x": {
+				"distribution": "gaussian",
+				"extent": [
+					0,
+					8
+				]
+			},
+			"y": "query.heightmap(variable.worldx, variable.worldz)",
+			"z": {
+				"distribution": "gaussian",
+				"extent": [
+					0,
+					8
+				]
+			}
+		}
+	}
+}

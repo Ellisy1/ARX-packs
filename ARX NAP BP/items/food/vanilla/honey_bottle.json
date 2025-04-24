@@ -1,9 +1,0 @@
-{
-  "format_version": "1.14",
-  "minecraft:item": {
-    "description": {
-      "identifier": "minecraft:honey_bottle"
-    },
-    "components": {}
-  }
-}

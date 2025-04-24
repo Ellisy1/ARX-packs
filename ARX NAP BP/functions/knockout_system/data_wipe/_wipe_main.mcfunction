@@ -1,5 +1,4 @@
 function knockout_system/data_wipe/wipe_achievements
-function knockout_system/data_wipe/wipe_ready_spells
 
 # Экспа
     scoreboard players set @s xp 0
@@ -8,23 +7,6 @@ function knockout_system/data_wipe/wipe_ready_spells
     scoreboard players set @s speed_skill 0
     scoreboard players set @s strength_skill 0
     scoreboard players set @s magic_skill 0
-
-# Религия
-    scoreboard players set @s religion 0
-
-# Болезни
-    scoreboard players set @s ill_cancer 0
-    scoreboard players set @s ill_mild_cold 0
-    scoreboard players set @s ill_severe_cold 0
-    scoreboard players set @s ill_pneumonia 0
-    scoreboard players set @s ill_broken_leg 0
-    scoreboard players set @s ill_broken_arm 0
-    scoreboard players set @s ill_flu 0
-    scoreboard players set @s ill_helminth 0
-    scoreboard players set @s ill_appendicitis 0
-    scoreboard players set @s ill_anal_fissure 0
-    scoreboard players set @s ill_r_head 0
-    scoreboard players set @s ill_r_stomach 0
 
 #Статистика
     scoreboard players set @s count_death 0
@@ -98,3 +80,6 @@ function knockout_system/data_wipe/wipe_ready_spells
 
     scoreboard players set @s c_seen_death 0
     scoreboard players set @s c_demon 0
+
+# Удаляем историю рецептов
+    recipe take @s *

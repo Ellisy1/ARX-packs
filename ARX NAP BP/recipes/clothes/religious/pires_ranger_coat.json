@@ -8,7 +8,7 @@
     
     "tags": [ "light_armor_crafting_table" ],
     "pattern": [
-      "BDB",
+      "B B",
       "#B#",
       "B#B"
     ],
@@ -18,9 +18,6 @@
       },
       "B": {
         "item": "arx:pushnina"
-      },
-      "D": {
-        "item": "arx:drawing_relig_pi_a"
       }
     },
     "result": {

@@ -1,70 +1,34 @@
 {
-    "format_version": "1.16.100",
+    "format_version": "1.21.0",
     "minecraft:item": {
-        "description": {
-            "category": "equipment",
-            "identifier": "arx:adona_sword"
-        },
         "components": {
-            "minecraft:icon": {
-                "texture": "arx:adona_sword"
+            "minecraft:can_destroy_in_creative": false,
+            "minecraft:cooldown": {
+                "category": "weapon",
+                "duration": 1
             },
-            "minecraft:creative_category": {
-                "parent": "itemGroup.name.sword"
-            },
-            "minecraft:max_stack_size": 1,
-            "minecraft:hand_equipped": true,
-            "minecraft:allow_off_hand": true,
+            "minecraft:damage": 9,
             "minecraft:durability": {
                 "max_durability": 1908
             },
-            "minecraft:damage": 9,
             "minecraft:enchantable": {
-                "value": 15,
-                "slot": "sword"
+                "slot": "sword",
+                "value": 15
             },
-            "minecraft:can_destroy_in_creative": false,
-            "minecraft:weapon": {
-                "on_hurt_entity": {
-                    "event": "hurt"
-                }
+            "minecraft:icon": "arx:adona_sword",
+            "minecraft:max_stack_size": 1,
+            "minecraft:tags": {
+                "tags": [
+                    "is_default_sword"
+                ]
             },
-            "tag:minecraft:is_sword": {},
-            "tag:is_default_sword": {},
-            "tag:raw_cost:100000": {},
-            "minecraft:cooldown": {
-                "category": "blocking",
-                "duration": 2
-            },
-            "minecraft:on_use": {
-                "on_use": {
-                    "event": "blocking"
-                }
-            }
+            "tag:raw_cost:100000": {}
         },
-        "events": {
-            "hurt": {
-                "run_command": {
-                    "command": [
-                        "tag @s add is_default",
-                        "scoreboard players set @s uni_cool_down 2",
-                        "function attack/on_attack"
-                    ]
-                },
-                "damage": {
-                    "type": "none",
-                    "amount": 1,
-                    "target": "self"
-                }
-            },
-            "blocking": {
-                "run_command": {
-                    "command": [
-                        "tag @s add is_default",
-                        "scoreboard players set @s block_power 2",
-                        "function attack/on_block"
-                    ]
-                }
+        "description": {
+            "identifier": "arx:adona_sword",
+            "menu_category": {
+                "category": "equipment",
+                "group": "itemGroup.name.sword"
             }
         }
     }

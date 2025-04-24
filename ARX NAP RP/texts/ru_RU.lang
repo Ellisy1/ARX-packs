@@ -27,12 +27,10 @@ credits.skip=Абсолютно поебать
 
 commandBlockScreen.redstone.needs_redstone=Необходим сигнал редстоуна
 commandBlockScreen.hoverNote=Имя ком. блока
-commands.kick.not.yourself=Сижу охуел
 commands.kick.success=Игрок %1$s удалён из игры
 commands.kill.successful=%1$s был дезинтегрирован богами
-commands.message.display.incoming=Вы слышите шёпот: %2$s
-commands.message.display.outgoing=[Ваше сообщение успешно доставлено]
-commands.message.sameTarget=Блядь, так нельзя.
+commands.message.display.incoming=§f
+commands.message.display.outgoing=§cВ Арксе невозможно использование /w и подобных команд. Вместо этого подойдите к персонажу и скажите ему это лично
 
 connect.authorizing=Инициализация...
 connect.connecting=Ищем сервер...
@@ -42,7 +40,7 @@ container.brewing=Алхимическая стойка
 container.hopper=Воронка
 container.minecart=Вагонетка
 
-createWorldScreen.defaultName=Мир блят
+createWorldScreen.defaultName=Мир
 createWorldScreen.deleteWarningFormat=Точно удалить "%s"? Этот мир будет потерян навсегда! (Это пиздец как дохуя)
 createWorldScreen.progress.local=Генерируем мир...
 createWorldScreen.randomtickspeed=Коэфициент скорости тактов
@@ -170,7 +168,7 @@ item.boat.acacia.name=§r§fАкациевая лодка §7[Обычное]
 item.boat.big_oak.name=§r§fТёмно-дубовая лодка §7[Обычное]
 item.bow.name=§r§fЛук §7[Обычное]
 item.bowl.name=§r§fДеревянная тарелка §7[Обычное]
-item.bread.name=§r§fХлеб §7[Обычное]
+item.bread.name=§r§fХлеб §4[Отозвано]
 item.brick.name=§r§fКирпич §7[Обычное]
 item.carrotOnAStick.name=§r§fМорковь на палочке §7[Обычное]
 item.carrot.name=§r§fМорковь §7[Обычное]
@@ -220,16 +218,16 @@ item.leather.name=§r§fКожа §7[Обычное]
 item.leaves.name=§r§fЛиства §7[Обычное]
 item.map.name=§r§fКарта §7[Обычное]
 item.melon.name=§r§fАрбуз §7[Обычное]
-item.muttonCooked.name=§r§fЖареная баранина §7[Обычное]
+item.muttonCooked.name=§r§fЖареная баранина §4[Отозвано]
 item.muttonRaw.name=§r§fСырая баранина §a[Необычное]
 item.netherbrick.name=§r§fКирпич Нижнего мира §7[Обычное]
 item.painting.name=§r§fКартина §7[Обычное]
 item.paper.name=§r§fБумага §7[Обычное]
-item.porkchop_cooked.name=§r§fЖареная свинина §7[Обычное]
+item.porkchop_cooked.name=§r§fЖареная свинина §4[Отозвано]
 item.porkchop.name=§r§fСырая свинина §a[Необычное]
 item.potato.name=§r§fКартофель §7[Обычное]
 item.baked_potato.name=§r§fПеченый картофель §7[Обычное]
-item.cooked_rabbit.name=§r§fЖареная крольчатина §7[Обычное]
+item.cooked_rabbit.name=§r§fЖареная крольчатина §4[Отозвано]
 item.rabbit.name=§r§fСырая крольчатина §a[Необычное]
 item.redstone.name=§r§fПыль красного камня §7[Обычное]
 item.reeds.name=§r§fСахарный тростник §7[Обычное]
@@ -1326,7 +1324,7 @@ enchantment.tridentRiptide=Тягун [трезубец]	#
 enchantment.tridentImpaling=Пронзание [трезубец]	#
 
 item.itemLock.popupNotice.cantDrop=§d:hollow_star: невыбрасываемый предмет
-item.itemLock.keepOnDeath=§dЭтот предмет не утрачивается при гибели
+item.itemLock.keepOnDeath=§dЭтот предмет не выпадает при нокауте
 
 
 menu.settings=§l- Опции -
@@ -1342,3 +1340,8 @@ multiplayer.player.left=%s подло ливнул(а)
 permissions.title=Настройка прав
 
 disconnectionScreen.connectionLost=Соединение с Арксом потеряно
+
+item.bundle.empty.description=§f
+
+commands.me.description=§cНедоступно
+commands.tell.description=§cНедоступно

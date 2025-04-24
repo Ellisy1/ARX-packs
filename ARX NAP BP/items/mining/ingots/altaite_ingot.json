@@ -1,14 +1,14 @@
 {
-    "format_version": "1.16.100",
+    "format_version": "1.21.0",
     "minecraft:item": {
-      "description": {
-        "category": "items",
-        "identifier": "arx:altaite_ingot"
-      },
-      "components": {
-        "minecraft:icon": {
-          "texture": "arx:altaite_ingot"
+        "components": {
+            "minecraft:icon": "arx:altaite_ingot"
+        },
+        "description": {
+            "identifier": "arx:altaite_ingot",
+            "menu_category": {
+                "category": "items"
+            }
         }
-      }
     }
-  }
+}

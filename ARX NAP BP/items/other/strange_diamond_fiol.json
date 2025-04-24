@@ -1,0 +1,14 @@
+{
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:icon": "arx:strange_diamond_fiol"
+        },
+        "description": {
+            "identifier": "arx:strange_diamond_fiol",
+            "menu_category": {
+                "category": "items"
+            }
+        }
+    }
+}

@@ -10,7 +10,7 @@
         "minecraft:spawns_on_surface": {},
         "minecraft:spawns_underground": {},
         "minecraft:weight": {
-          "default": 1000
+          "default": 700
         },
 
         "minecraft:biome_filter": [

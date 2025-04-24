@@ -8,7 +8,7 @@
     
     "tags": [ "heavy_armor_crafting_table" ],
     "pattern": [
-      "#D#",
+      "# #",
       "#A#",
       "BAB"
     ],
@@ -21,9 +21,6 @@
       },
       "B": {
         "item": "minecraft:dye:16"
-      },
-      "D": {
-        "item": "arx:drawing_relig_pa_s"
       }
     },
     "result": {

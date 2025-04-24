@@ -1,97 +1,33 @@
 {
-    "format_version": "1.16.100",
+    "format_version": "1.21.0",
     "minecraft:item": {
-        "description": {
-            "category": "equipment",
-            "identifier": "arx:plumbum_saber"
-        },
         "components": {
-            "minecraft:icon": {
-                "texture": "arx:plumbum_saber"
+            "minecraft:can_destroy_in_creative": false,
+            "minecraft:cooldown": {
+                "category": "weapon",
+                "duration": 1
             },
-            "minecraft:creative_category": {
-                "parent": "itemGroup.name.sword"
-            },
-            "minecraft:max_stack_size": 1,
-            "minecraft:hand_equipped": true,
-            "minecraft:allow_off_hand": true,
+            "minecraft:damage": 4,
             "minecraft:durability": {
                 "max_durability": 620
             },
-            "minecraft:damage": 4,
             "minecraft:enchantable": {
-                "value": 15,
-                "slot": "sword"
+                "slot": "sword",
+                "value": 15
             },
-            "minecraft:can_destroy_in_creative": false,
-            "minecraft:weapon": {
-                "on_hurt_entity": {
-                    "event": "hurt"
-                }
-            },
-            "tag:minecraft:is_sword": {},
-            "tag:is_default_sword": {},
-            "minecraft:cooldown": {
-                "category": "blocking",
-                "duration": 2
-            },
-            "minecraft:on_use": {
-                "on_use": {
-                    "event": "blocking"
-                }
-            },
-            "minecraft:render_offsets": {
-                "main_hand": {
-                    "first_person": {
-                        "position": [
-                            0.23,
-                            -0.3,
-                            -1.1
-                        ],
-                        "scale": [
-                            0.035,
-                            0.035,
-                            0.035
-                        ]
-                    },
-                    "third_person": {
-                        "position": [
-                            0.35,
-                            1.2,
-                            -0.65
-                        ],
-                        "scale": [
-                            0.08,
-                            0.06,
-                            0.08
-                        ]
-                    }
-                }
+            "minecraft:icon": "arx:plumbum_saber",
+            "minecraft:max_stack_size": 1,
+            "minecraft:tags": {
+                "tags": [
+                    "is_default_sword"
+                ]
             }
         },
-        "events": {
-            "hurt": {
-                "run_command": {
-                    "command": [
-                        "tag @s add is_default",
-                        "scoreboard players set @s uni_cool_down 5",
-                        "function attack/on_attack"
-                    ]
-                },
-                "damage": {
-                    "type": "none",
-                    "amount": 1,
-                    "target": "self"
-                }
-            },
-            "blocking": {
-                "run_command": {
-                    "command": [
-                        "tag @s add is_default",
-                        "scoreboard players set @s block_power 3",
-                        "function attack/on_block"
-                    ]
-                }
+        "description": {
+            "identifier": "arx:plumbum_saber",
+            "menu_category": {
+                "category": "equipment",
+                "group": "itemGroup.name.sword"
             }
         }
     }

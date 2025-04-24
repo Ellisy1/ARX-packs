@@ -1,142 +1,105 @@
 {
-	"format_version": "1.19.40",
-	"minecraft:block": {
-		"description": {
-			"identifier": "arx:vicious_demon_sword",
-			"properties": {
-				"arx:facing_direction": [
-					2,
-					3,
-					4,
-					5
-				]
-			},
-			"menu_category": {
-				"category": "none"
-			}
-		},
-		"permutations": [
-			{
-				"condition": "query.block_property('arx:facing_direction') == 3",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							0,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "query.block_property('arx:facing_direction') == 5",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							90,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "query.block_property('arx:facing_direction') == 2",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							180,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "query.block_property('arx:facing_direction') == 4",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							270,
-							0
-						]
-					} 
-				}
-			}
-		],
-		"components": {
-			"minecraft:queued_ticking": {
-				"interval_range": [
-					10,
-					100
-				],
-				"on_tick": {
-					"event": "flame"
-				}
-			},
-			"minecraft:map_color": "#2e8926",
-			"minecraft:geometry": "geometry.vicious_demon_sword",
-			"minecraft:material_instances": {
-				"*": {
-					"texture": "arx_vicious_demon_sword",
-					"render_method": "alpha_test"
-				}
-			},
-			"minecraft:collision_box": {
-				"origin": [
-					-3.0,
-					0.0,
-					-3.0
-				],
-				"size": [
-					6.0,
-					16.0,
-					6.0
-				]
-			},
-			"minecraft:selection_box": {
-				"origin": [
-					-3.0,
-					0.0,
-					-3.0
-				],
-				"size": [
-					6.0,
-					16.0,
-					6.0
-				]
-			},
-			"minecraft:on_interact":{
-				"event" : "arx:interact"
-			},
-			"minecraft:on_player_placing": { 
-				"event": "set_facing_direction"
-			}
-		},
-		"events": {
-			"arx:interact": {
-				"run_command": {
-					"command": [
-						"tag @p add self",
-						"execute as @p[tag=self, scores={restrict_block_interact=0}] at @s run function scull_temple/start_battle",
-						"scoreboard players set @p[tag=self, scores={restrict_block_interact=0}] restrict_block_interact 20",
-						"tag @p remove self"
-					]
-				}
-			},
-			"set_facing_direction": {
-				"set_block_property": {
-					"arx:facing_direction": "query.cardinal_facing_2d"
-				}
-			},
-			"flame": {
-				"run_command": {
-					"command": [
-						"particle arx:grim_stonebricks ~ ~ ~"
-					]
-				}
-			}
-		}
-	}
+    "format_version": "1.21.30",
+    "minecraft:block": {
+        "components": {
+            "minecraft:collision_box": {
+                "origin": [
+                    -3.0,
+                    0.0,
+                    -3.0
+                ],
+                "size": [
+                    6.0,
+                    16.0,
+                    6.0
+                ]
+            },
+            "minecraft:geometry": "geometry.vicious_demon_sword",
+            "minecraft:material_instances": {
+                "*": {
+                    "render_method": "alpha_test",
+                    "texture": "arx_vicious_demon_sword"
+                }
+            },
+            "minecraft:selection_box": {
+                "origin": [
+                    -3.0,
+                    0.0,
+                    -3.0
+                ],
+                "size": [
+                    6.0,
+                    16.0,
+                    6.0
+                ]
+            },
+            "minecraft:custom_components": [
+                "arx:blockInteration"
+            ]
+        },
+        "description": {
+            "identifier": "arx:vicious_demon_sword",
+            "menu_category": {
+                "category": "none"
+            },
+            "traits": {
+                "minecraft:placement_direction": {
+                    "enabled_states": [
+                        "minecraft:cardinal_direction"
+                    ],
+                    "y_rotation_offset": 180.0
+                }
+            }
+        },
+        "permutations": [
+            {
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            0,
+                            0
+                        ]
+                    }
+                },
+                "condition": "q.block_state('minecraft:cardinal_direction') == 'north'"
+            },
+            {
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            90,
+                            0
+                        ]
+                    }
+                },
+                "condition": "q.block_state('minecraft:cardinal_direction') == 'west'"
+            },
+            {
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            180,
+                            0
+                        ]
+                    }
+                },
+                "condition": "q.block_state('minecraft:cardinal_direction') == 'south'"
+            },
+            {
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            -90,
+                            0
+                        ]
+                    }
+                },
+                "condition": "q.block_state('minecraft:cardinal_direction') == 'east'"
+            }
+        ]
+    }
 }

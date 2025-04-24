@@ -2,7 +2,7 @@
     scoreboard players set @s mp_req 16
 
     tag @s[tag=staff_sin] add drop_cost_with_staff
-    tag @s[scores={religion=15}] add drop_cost_with_religion
+    tag @s[hasitem={item=arx:amul_magic_titanite, location=slot.armor.legs}] add drop_cost_with_amulet
 
     function spells/operations/drop_spell_cost
     function spells/operations/check_mp_spell_availability

@@ -1,42 +1,18 @@
 {
-  "format_version": "1.16.100",
-  "minecraft:item": {
-    "description": {
-      "identifier": "arx:myterious_eye",
-      "category": "items"
-    },
-    "components": {
-      "minecraft:icon": {
-        "texture": "arx:myterious_eye"
-      },
-      "minecraft:cooldown": {
-        "category": "myterious_eye",
-        "duration": 360
-      },
-      "minecraft:on_use": {
-        "on_use": {
-          "event": "on_use_event"
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:icon": "arx:myterious_eye",
+            "minecraft:cooldown": {
+                "category": "myterious_eye",
+                "duration": 10
+            }
+        },
+        "description": {
+            "identifier": "arx:myterious_eye",
+            "menu_category": {
+                "category": "items"
+            }
         }
-      }
-    },
-    "events": {
-      "on_use_event": {
-        "swing": {},
-        "run_command": {
-          "command": [
-            "w @s[scores={custom_random=0..100}] §dМистическое око предсказывает вам хороший день для рыбалки",
-            "w @s[scores={custom_random=101..200}] §dМистическое око предсказывает вам хороший день для приключений",
-            "w @s[scores={custom_random=201..300}] §dМистическое око предсказывает вам плохой день",
-            "w @s[scores={custom_random=301..400}] §dМистическое око предсказывает вам ужасный день. Лучшим решением будет остаться дома",
-            "w @s[scores={custom_random=401..500}] §dМистическое око предсказывает вам хороший день для сделок",
-            "w @s[scores={custom_random=501..600}] §dМистическое око предсказывает вам хороший день для сражений",
-            "w @s[scores={custom_random=601..700}] §dМистическое око предсказывает вам хороший день для вызова вашей удаче",
-            "w @s[scores={custom_random=701..800}] §dМистическое око предсказывает вам хороший день для похода в шахту",
-            "w @s[scores={custom_random=801..900}] §dМистическое око предсказывает вам хороший день для путешествий",
-            "w @s[scores={custom_random=901..1000}] §dМистическое око предсказывает вам хороший день для пополнения своих коллекций. Займитесь созданием экипировки"
-          ]
-        }
-      }
     }
-  }
 }

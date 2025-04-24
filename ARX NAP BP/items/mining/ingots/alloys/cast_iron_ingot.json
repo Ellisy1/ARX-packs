@@ -1,14 +1,14 @@
 {
-    "format_version": "1.16.100",
+    "format_version": "1.21.0",
     "minecraft:item": {
-      "description": {
-        "category": "items",
-        "identifier": "arx:cast_iron_ingot"
-      },
-      "components": {
-        "minecraft:icon": {
-          "texture": "arx:cast_iron_ingot"
+        "components": {
+            "minecraft:icon": "arx:cast_iron_ingot"
+        },
+        "description": {
+            "identifier": "arx:cast_iron_ingot",
+            "menu_category": {
+                "category": "items"
+            }
         }
-      }
     }
-  }
+}

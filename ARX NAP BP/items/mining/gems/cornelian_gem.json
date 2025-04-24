@@ -1,14 +1,14 @@
 {
-    "format_version": "1.16.100",
+    "format_version": "1.21.0",
     "minecraft:item": {
-      "description": {
-        "category": "items",
-        "identifier": "arx:cornelian_gem"
-      },
-      "components": {
-        "minecraft:icon": {
-          "texture": "arx:cornelian_gem"
+        "components": {
+            "minecraft:icon": "arx:cornelian_gem"
+        },
+        "description": {
+            "identifier": "arx:cornelian_gem",
+            "menu_category": {
+                "category": "items"
+            }
         }
-      }
     }
-  }
+}

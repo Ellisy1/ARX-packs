@@ -1,0 +1,27 @@
+{
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:custom_components": [
+                "arx:onConsume"
+            ],
+            "minecraft:food": {
+                "can_always_eat": true,
+                "nutrition": 20,
+                "saturation_modifier": 0
+            },
+            "minecraft:icon": "arx:fioletic_dose",
+            "minecraft:use_animation": "eat",
+            "minecraft:use_modifiers": {
+                "movement_modifier": 0.5,
+                "use_duration": 2.0
+            }
+        },
+        "description": {
+            "identifier": "arx:fioletic_dose",
+            "menu_category": {
+                "category": "equipment"
+            }
+        }
+    }
+}

@@ -12,10 +12,6 @@
 # Успех
     execute as @s[tag=has_enough_charge, tag=descriptor_equipped] run tellraw @s { "rawtext": [ { "text": "§f[§bПереведено§f>>> §oРуна Affuono, она же - сердце проклятия. Она не принадлежит никому, и в то же время принадлежит всем. Сложнейшие заклинания, обрекающие неповинные души извечно страдать и мучаться - её предназначение. Только истинный некромант сможет воспрозоваться ей с умом.§r§f]" } ] }
     execute as @s[tag=has_enough_charge, tag=descriptor_equipped] run scoreboard players add @s[tag=has_enough_charge, tag=descriptor_equipped] battery_charge -200
-    execute as @s[tag=has_enough_charge, tag=descriptor_equipped] run tellraw @s[scores={book_oculus_primae_maledictionis=1}] { "rawtext": [ { "text": "§6Я это уже знаю" } ] }
-    execute as @s[tag=has_enough_charge, tag=descriptor_equipped] run tellraw @s[scores={book_oculus_primae_maledictionis=0}] { "rawtext": [ { "text": "§aИнтересная книга!" } ] }
-    execute as @s[tag=has_enough_charge, tag=descriptor_equipped] run scoreboard players add @s[scores={book_oculus_primae_maledictionis=0}] xp_tray 200
-    execute as @s[tag=has_enough_charge, tag=descriptor_equipped] run scoreboard players set @s book_oculus_primae_maledictionis 1
 
 # Чистка
     tag @s remove descriptor_equipped

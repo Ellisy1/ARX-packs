@@ -14,11 +14,14 @@
       },
       "animations": {
         "cloak": "animation.cloak.default",
-        "cloak_controller": "controller.animation.cloak"
+        "cloak_controller": "controller.animation.cloak",
+        "bust": "animation.player.bust",
+        "bust_controller": "controller.animation.bust"
       },
       "scripts": {
         "animate": [
-          "cloak_controller"
+          "cloak_controller",
+          "bust_controller"
         ],
         "parent_setup": "variable.chest_layer_visible = 0.0;"
       },

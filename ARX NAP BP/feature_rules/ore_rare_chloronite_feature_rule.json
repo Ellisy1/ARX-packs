@@ -46,7 +46,7 @@
 				"distribution": "uniform",
 				"extent": [
 					-60,
-					120
+					0
 				]
 			},
 			"z": {

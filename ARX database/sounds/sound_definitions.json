@@ -1,22 +1,4 @@
 {
-   "pallas_win_choice": {
-      "category": "neutral",
-      "sounds": [
-         "sounds/gods/pallas_win_choice"
-      ]
-   },
-   "pires_win_choice": {
-      "category": "neutral",
-      "sounds": [
-         "sounds/gods/pires_win_choice"
-      ]
-   },
-   "necro_win_choice": {
-      "category": "neutral",
-      "sounds": [
-         "sounds/gods/necro_win_choice"
-      ]
-   },
    "Adding_the_Sun": {
       "category": "music",
       "sounds": [
@@ -278,15 +260,6 @@
          }
       ]
    },
-   "Sad_Trio": {
-      "category": "music",
-      "sounds": [
-         {
-            "name": "sounds/music/Sad_Trio",
-            "stream": true
-         }
-      ]
-   },
    "Wretched_Destroyer": {
       "category": "music",
       "sounds": [
@@ -296,106 +269,29 @@
          }
       ]
    },
-   //Порочный демон
-   "Darkling": {
-      "category": "music",
-      "sounds": [
-         {
-            "name": "sounds/music/Darkling",
-            "stream": true
-         }
-      ]
-   },
-
-   //Храм черепа и рядом
-   "Medusa": {
-      "category": "music",
-      "sounds": [
-         {
-            "name": "sounds/music/Medusa",
-            "stream": true
-         }
-      ]
-   },
-
-   "SCP-x7x": {
-      "category": "music",
-      "sounds": [
-         {
-            "name": "sounds/music/SCP-x7x",
-            "stream": true
-         }
-      ]
-   },
-   // 2.4
-   "Hillbilly_Swing": {
-      "category": "music",
-      "sounds": [
-         {
-            "name": "sounds/music/Hillbilly_Swing",
-            "stream": true
-         }
-      ]
-   },
-   "Lightless_Dawn": {
-      "category": "music",
-      "sounds": [
-         {
-            "name": "sounds/music/Lightless_Dawn",
-            "stream": true
-         }
-      ]
-   },
-   "Music_for_Manatees": {
-      "category": "music",
-      "sounds": [
-         {
-            "name": "sounds/music/Music_for_Manatees",
-            "stream": true
-         }
-      ]
-   },
-   "Martian_Cowboy": {
-      "category": "music",
-      "sounds": [
-         {
-            "name": "sounds/music/Martian_Cowboy",
-            "stream": true
-         }
-      ]
-   },
-   "Easy_Lemon": {
-      "category": "music",
-      "sounds": [
-         {
-            "name": "sounds/music/Easy_Lemon",
-            "stream": true
-         }
-      ]
-   },
-   "Rhinoceros": {
-      "category": "music",
-      "sounds": [
-         {
-            "name": "sounds/music/Rhinoceros",
-            "stream": true
-         }
-      ]
-   },
-   "Bleeping_Demo": {
-      "category": "music",
-      "sounds": [
-         {
-            "name": "sounds/music/Bleeping_Demo",
-            "stream": true
-         }
-      ]
-   },
    "Hiding_Your_Reality": {
       "category": "music",
       "sounds": [
          {
             "name": "sounds/music/Hiding_Your_Reality",
+            "stream": true
+         }
+      ]
+   },
+   "Kalimba_Relaxation_Music": {
+      "category": "music",
+      "sounds": [
+         {
+            "name": "sounds/music/Kalimba_Relaxation_Music",
+            "stream": true
+         }
+      ]
+   },
+   "Silver_Flame": {
+      "category": "music",
+      "sounds": [
+         {
+            "name": "sounds/music/Silver_Flame",
             "stream": true
          }
       ]

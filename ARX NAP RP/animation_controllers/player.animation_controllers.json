@@ -6,6 +6,9 @@
 			"states": {
 				"first_person": {
 					"animations": [
+						{
+							"weapon_normalize": "q.equipped_item_any_tag('slot.weapon.mainhand', 'is_staff') || q.equipped_item_any_tag('slot.weapon.mainhand', 'is_default_sword') || q.equipped_item_any_tag('slot.weapon.mainhand', 'is_hheavy_sword') || q.equipped_item_any_tag('slot.weapon.mainhand', 'is_wand') || q.equipped_item_any_tag('slot.weapon.mainhand', 'is_long_sword')"
+						},
 						{"umbrella_rotations": "query.equipped_item_any_tag('slot.weapon.mainhand', 'is_umbrella')"},
 						{"first_person_swap_item": "!query.blocking"},
 						{"first_person_shield_block": "query.blocking"},
@@ -47,7 +50,7 @@
 						"cape",
 						{"riding.arms": "query.is_riding"},
 						{"riding.legs": "query.is_riding"},
-						{"holding": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_invisible')"},
+						"holding",
 						{"brandish_spear": "variable.is_brandishing_spear"},
 						{"holding_spyglass": "variable.is_holding_spyglass"},
 						{"charging": "query.is_charging"},
@@ -70,6 +73,7 @@
 						{"paperdoll": "variable.is_paperdoll"},
 						{"first_person": "variable.is_first_person"},
 						{"map_player": "variable.map_face_icon"},
+						{"knockout_tracer": "query.property('arx:is_knocked') > 0"},
 						{"third_person_heavy": "query.equipped_item_any_tag('slot.weapon.mainhand', 'is_heavy_sword')"},
 						{"third_person_veryheavy": "query.equipped_item_any_tag('slot.weapon.mainhand', 'is_hheavy_sword')"},
 						{"third_person_light_longsword": "query.equipped_item_any_tag('slot.weapon.mainhand', 'is_long_sword')"},
@@ -81,8 +85,7 @@
 						{"third_person_staff_moving": "query.equipped_item_any_tag('slot.weapon.mainhand', 'is_staff') && q.is_moving"},
 						{"third_person_gun": "query.is_item_name_any('slot.weapon.mainhand', 0, 'arx:moder_gun')"},
 						{"third_person_umbrella": "query.equipped_item_any_tag('slot.weapon.mainhand', 'is_umbrella')"},
-						{"third_person_torch": "query.is_item_name_any('slot.weapon.mainhand', 'minecraft:torch')"},
-						{"knockout_tracer": "query.property('arx:is_knocked') > 0"}
+						{"third_person_torch": "query.is_item_name_any('slot.weapon.mainhand', 'minecraft:torch')"}
 					],
 					"blend_transition": 0.1
 				},
@@ -92,6 +95,7 @@
 						{"look_at_target": "!query.is_sleeping && !query.is_emoting"},
 						"move.legs",
 						"cape",
+						"holding.onlyleft",
 						{"riding.arms": "query.is_riding"},
 						{"riding.legs": "query.is_riding"},
 						"holdingheavy",
@@ -115,7 +119,7 @@
 						{"paperdoll": "variable.is_paperdoll"},
 						{"first_person": "variable.is_first_person"},
 						{"map_player": "variable.map_face_icon"},
-						{"third_person": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_heavy_sword')"}
+						{"third_person": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_heavy_sword') || q.property('arx:is_knocked') > 0"}
 					],
 					"blend_transition": 0.1
 				},
@@ -126,6 +130,7 @@
 						"move.legs",
 						"move.only_left_arm",
 						"cape",
+						"holding.onlyleft",
 						{"riding.arms": "query.is_riding"},
 						{"riding.legs": "query.is_riding"},
 						"holdingveryheavy",
@@ -149,7 +154,7 @@
 						{"paperdoll": "variable.is_paperdoll"},
 						{"first_person": "variable.is_first_person"},
 						{"map_player": "variable.map_face_icon"},
-						{"third_person": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_hheavy_sword')"}
+						{"third_person": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_hheavy_sword') || q.property('arx:is_knocked') > 0"}
 					],
 					"blend_transition": 0.1
 				},
@@ -159,6 +164,7 @@
 						{"look_at_target": "!query.is_sleeping && !query.is_emoting"},
 						"move.legs",
 						"cape",
+						"holding.onlyleft",
 						{"riding.arms": "query.is_riding"},
 						{"riding.legs": "query.is_riding"},
 						"holding_light_longsword",
@@ -182,7 +188,7 @@
 						{"paperdoll": "variable.is_paperdoll"},
 						{"first_person": "variable.is_first_person"},
 						{"map_player": "variable.map_face_icon"},
-						{"third_person": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_long_sword')"}
+						{"third_person": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_long_sword') || q.property('arx:is_knocked') > 0"}
 					],
 					"blend_transition": 0.1
 				},
@@ -192,6 +198,7 @@
 						{"look_at_target": "!query.is_sleeping && !query.is_emoting"},
 						"move.legs",
 						"cape",
+						"holding.onlyleft",
 						{"riding.arms": "query.is_riding"},
 						{"riding.legs": "query.is_riding"},
 						"holding_dagger",
@@ -215,7 +222,7 @@
 						{"paperdoll": "variable.is_paperdoll"},
 						{"first_person": "variable.is_first_person"},
 						{"map_player": "variable.map_face_icon"},
-						{"third_person": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_dagger')"}
+						{"third_person": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_dagger') || q.property('arx:is_knocked') > 0"}
 					],
 					"blend_transition": 0.1
 				},
@@ -225,6 +232,7 @@
 						{"look_at_target": "!query.is_sleeping && !query.is_emoting"},
 						"move.legs",
 						"cape",
+						"holding.onlyleft",
 						{"riding.arms": "query.is_riding"},
 						{"riding.legs": "query.is_riding"},
 						"holding_lance",
@@ -248,7 +256,7 @@
 						{"paperdoll": "variable.is_paperdoll"},
 						{"first_person": "variable.is_first_person"},
 						{"map_player": "variable.map_face_icon"},
-						{"third_person": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_lance')"}
+						{"third_person": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_lance') || q.property('arx:is_knocked') > 0"}
 					],
 					"blend_transition": 0.1
 				},
@@ -259,6 +267,7 @@
 						"move.legs",
 						"move.arms",
 						"cape",
+						"holding.onlyleft",
 						{"riding.arms": "query.is_riding"},
 						{"riding.legs": "query.is_riding"},
 						"holding_default_sword",
@@ -282,7 +291,7 @@
 						{"paperdoll": "variable.is_paperdoll"},
 						{"first_person": "variable.is_first_person"},
 						{"map_player": "variable.map_face_icon"},
-						{"third_person": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_default_sword')"},
+						{"third_person": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_default_sword') || q.property('arx:is_knocked') > 0"},
 						{"third_person_default_sword_fast_move": "q.is_moving"}
 					],
 					"blend_transition": 0.5
@@ -294,6 +303,7 @@
 						"move.legs",
 						"move.arms",
 						"cape",
+						"holding.onlyleft",
 						{"riding.arms": "query.is_riding"},
 						{"riding.legs": "query.is_riding"},
 						"holding_default_sword_fast_moving",
@@ -317,7 +327,7 @@
 						{"paperdoll": "variable.is_paperdoll"},
 						{"first_person": "variable.is_first_person"},
 						{"map_player": "variable.map_face_icon"},
-						{"third_person": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_default_sword')"},
+						{"third_person": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_default_sword') || q.property('arx:is_knocked') > 0"},
 						{"third_person_default_sword": "!q.is_moving"}
 					],
 					"blend_transition": 0
@@ -328,6 +338,7 @@
 						{"look_at_target": "!query.is_sleeping && !query.is_emoting"},
 						"move.legs",
 						"cape",
+						"holding.onlyleft",
 						{"riding.arms": "query.is_riding"},
 						{"riding.legs": "query.is_riding"},
 						"holding_scythe",
@@ -351,7 +362,7 @@
 						{"paperdoll": "variable.is_paperdoll"},
 						{"first_person": "variable.is_first_person"},
 						{"map_player": "variable.map_face_icon"},
-						{"third_person": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_scythe')"}
+						{"third_person": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_scythe') || q.property('arx:is_knocked') > 0"}
 					],
 					"blend_transition": 0.1
 				},
@@ -361,6 +372,7 @@
 						{"look_at_target": "!query.is_sleeping && !query.is_emoting"},
 						"move.legs",
 						"cape",
+						"holding.onlyleft",
 						{"riding.arms": "query.is_riding"},
 						{"riding.legs": "query.is_riding"},
 						"holding_staff_standing",
@@ -384,7 +396,7 @@
 						{"paperdoll": "variable.is_paperdoll"},
 						{"first_person": "variable.is_first_person"},
 						{"map_player": "variable.map_face_icon"},
-						{"third_person": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_staff')"},
+						{"third_person": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_staff') || q.property('arx:is_knocked') > 0"},
 						{"third_person_staff_moving": "q.is_moving"}
 					],
 					"blend_transition": 0.3
@@ -396,9 +408,10 @@
 						"move.arms",
 						"move.legs",
 						"cape",
+						"holding.onlyleft",
+						"holding_staff_moving",
 						{"riding.arms": "query.is_riding"},
 						{"riding.legs": "query.is_riding"},
-						"holding",
 						{"brandish_spear": "variable.is_brandishing_spear"},
 						{"holding_spyglass": "variable.is_holding_spyglass"},
 						{"charging": "query.is_charging"},
@@ -419,7 +432,7 @@
 						{"paperdoll": "variable.is_paperdoll"},
 						{"first_person": "variable.is_first_person"},
 						{"map_player": "variable.map_face_icon"},
-						{"third_person": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_staff')"},
+						{"third_person": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_staff') || q.property('arx:is_knocked') > 0"},
 						{"third_person_staff_standing": "!q.is_moving"}
 					],
 					"blend_transition": 0.3
@@ -430,6 +443,7 @@
 						{"look_at_target": "!query.is_sleeping && !query.is_emoting"},
 						"move.legs",
 						"cape",
+						"holding.onlyleft",
 						{"riding.arms": "query.is_riding"},
 						{"riding.legs": "query.is_riding"},
 						"holding_gun",
@@ -453,7 +467,7 @@
 						{"paperdoll": "variable.is_paperdoll"},
 						{"first_person": "variable.is_first_person"},
 						{"map_player": "variable.map_face_icon"},
-						{"third_person": "!query.is_item_name_any('slot.weapon.mainhand', 0, 'arx:moder_gun')"}
+						{"third_person": "!query.is_item_name_any('slot.weapon.mainhand', 0, 'arx:moder_gun') || q.property('arx:is_knocked') > 0"}
 					],
 					"blend_transition": 0.1
 				},
@@ -464,6 +478,7 @@
 						"move.legs",
 						"move.only_left_arm",
 						"cape",
+						"holding.onlyleft",
 						{"riding.arms": "query.is_riding"},
 						{"riding.legs": "query.is_riding"},
 						"holding_umbrella",
@@ -487,7 +502,7 @@
 						{"paperdoll": "variable.is_paperdoll"},
 						{"first_person": "variable.is_first_person"},
 						{"map_player": "variable.map_face_icon"},
-						{"third_person": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_umbrella')"}
+						{"third_person": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_umbrella') || q.property('arx:is_knocked') > 0"}
 					],
 					"blend_transition": 0.1
 				},
@@ -498,6 +513,7 @@
 						"move.legs",
 						"move.only_left_arm",
 						"cape",
+						"holding.onlyleft",
 						{"riding.arms": "query.is_riding"},
 						{"riding.legs": "query.is_riding"},
 						"holding_torch",
@@ -521,7 +537,7 @@
 						{"paperdoll": "variable.is_paperdoll"},
 						{"first_person": "variable.is_first_person"},
 						{"map_player": "variable.map_face_icon"},
-						{"third_person": "!query.is_item_name_any('slot.weapon.mainhand', 'minecraft:torch')"}
+						{"third_person": "!query.is_item_name_any('slot.weapon.mainhand', 'minecraft:torch') || q.property('arx:is_knocked') > 0"}
 					],
 					"blend_transition": 0.1
 				},
@@ -545,6 +561,7 @@
 				"carried_by_someone_static": { // Если нас взяли и мы is_riding (СТАТИЧНАЯ)
 					"animations": [
 						"carried_by_someone_static",
+						"holding.onlyleft",
 						"knockout_basic"
 					],
 					"transitions": [
@@ -558,6 +575,7 @@
 					"animations": [
 						"carried_by_someone_static",
 						"carried_by_someone_moving",
+						"holding.onlyleft",
 						"knockout_basic"
 					],
 					"transitions": [
@@ -572,6 +590,7 @@
 					"animations": [
 						"bob",
 						"knockout_basic",
+						"holding.onlyleft",
 						"knockout_var_a"
 					],
 					"transitions": [
@@ -584,6 +603,7 @@
 					"animations": [
 						"bob",
 						"knockout_basic",
+						"holding.onlyleft",
 						"knockout_var_b"
 					],
 					"transitions": [

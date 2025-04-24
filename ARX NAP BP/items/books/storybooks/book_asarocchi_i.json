@@ -1,37 +1,16 @@
 {
-  "format_version": "1.16.100",
-  "minecraft:item": {
-    "description": {
-      "identifier": "arx:book_asarocchi_i",
-      "category": "items"
-    },
-    "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.enchantedBook"
-      },
-      "minecraft:max_stack_size": 16,
-      "minecraft:icon": {
-        "texture": "arx:book_asarocchi_i"
-      },
-      "minecraft:cooldown": {
-        "category": "storybook",
-        "duration": 2
-      },
-      "minecraft:on_use": {
-        "on_use": {
-          "event": "on_use_event"
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:icon": "arx:book_asarocchi_i",
+            "minecraft:max_stack_size": 16
+        },
+        "description": {
+            "identifier": "arx:book_asarocchi_i",
+            "menu_category": {
+                "category": "items",
+                "group": "itemGroup.name.enchantedBook"
+            }
         }
-      }
-    },
-    "events": {
-      "on_use_event": {
-        "swing": {},
-        "run_command": {
-          "command": [
-            "function books/storybooks/book_asarocchi_i"
-          ]
-        }
-      }
     }
-  }
 }

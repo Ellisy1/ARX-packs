@@ -1,14 +1,14 @@
 {
-  "format_version": "1.16.100",
-  "minecraft:item": {
-    "description": {
-      "identifier": "arx:desert_essence",
-      "category": "items"
-    },
-    "components": {
-      "minecraft:icon": {
-        "texture": "arx:desert_essence"
-      }
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:icon": "arx:desert_essence"
+        },
+        "description": {
+            "identifier": "arx:desert_essence",
+            "menu_category": {
+                "category": "items"
+            }
+        }
     }
-  }
 }

@@ -1,40 +1,30 @@
 {
-  "format_version": "1.16.100",
-  "minecraft:item": {
-    "description": {
-      "identifier": "arx:triangle_bottle_water_karelo",
-      "category": "equipment"
-    },
-    "components": {
-      "minecraft:max_stack_size": 1,
-      "minecraft:cooldown": {
-        "category": "food",
-        "duration": 1
-      },
-      "minecraft:on_use": {
-        "on_use": {
-          "event": "on_eat"
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:custom_components": [
+                "arx:onConsume"
+            ],
+            "minecraft:food": {
+                "can_always_eat": true,
+                "nutrition": 20,
+                "saturation_modifier": 0,
+                "using_converts_to": "arx:triangle_bottle"
+            },
+            "minecraft:icon": "arx:triangle_bottle_water_karelo",
+            "minecraft:max_stack_size": 1,
+            "minecraft:use_animation": "drink",
+            "minecraft:use_modifiers": {
+                "movement_modifier": 0.5,
+                "use_duration": 2.0
+            }
+        },
+        "description": {
+            "identifier": "arx:triangle_bottle_water_karelo",
+            "menu_category": {
+                "category": "equipment",
+                "group": "itemGroup.name.potion"
+            }
         }
-      },
-      "minecraft:icon": {
-        "texture": "arx:triangle_bottle_water_karelo"
-      }
-    },
-    "events": {
-      "on_eat": {
-        "run_command": {
-          "command": [
-            "w @p отвар цветка карело немного неприятен на вкус.",
-            "scoreboard players add @p xp_tray 5",
-            "scoreboard players add @p poisoning 30",
-            "scoreboard players add @p stress 100",
-            
-            "clear @s arx:triangle_bottle_water_karelo 0 1",
-            "give @s arx:triangle_bottle",
-            "function food/visual/potion"
-          ]
-        }
-      }
     }
-  }
 }

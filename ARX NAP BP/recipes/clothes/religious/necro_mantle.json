@@ -8,7 +8,7 @@
     
     "tags": [ "clothes_crafting_table" ],
     "pattern": [
-      "D#Z",
+      " #Z",
       "#C#",
       "ZAZ"
     ],
@@ -24,9 +24,6 @@
       },
       "C": {
         "item": "arx:sand_elemental_heart"
-      },
-      "D": {
-        "item": "arx:drawing_relig_ne_m"
       }
     },
     "result": {

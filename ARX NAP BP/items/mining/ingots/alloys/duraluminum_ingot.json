@@ -1,14 +1,14 @@
 {
-    "format_version": "1.16.100",
+    "format_version": "1.21.0",
     "minecraft:item": {
-      "description": {
-        "category": "items",
-        "identifier": "arx:duraluminum_ingot"
-      },
-      "components": {
-        "minecraft:icon": {
-          "texture": "arx:duralumin_ingot"
+        "components": {
+            "minecraft:icon": "arx:duralumin_ingot"
+        },
+        "description": {
+            "identifier": "arx:duraluminum_ingot",
+            "menu_category": {
+                "category": "items"
+            }
         }
-      }
     }
-  }
+}

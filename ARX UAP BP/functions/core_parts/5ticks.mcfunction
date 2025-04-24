@@ -1,18 +1,11 @@
 # old execute syntaxis
 
-# Запуск NAP функции
-function core_parts_NAP/5ticks
-
 #ТЯЖЕСТЬ ИНВЕНТАРЯ (вес)
     #Вычисление тяжести
         function core_parts_NAP/weigh
     # Вычисление компенсации тяжести (= вместимости инвентаря по весу)
         # Навыки, статы
             scoreboard players set @a heavy_compens 5
-            execute @a[scores={religion=2..9}] ~ ~ ~ scoreboard players add @s heavy_compens 1
-            execute @a[scores={religion=12..29}] ~ ~ ~ scoreboard players add @s heavy_compens 1
-            execute @a[scores={religion=6..7}] ~ ~ ~ scoreboard players add @s heavy_compens 2
-            execute @a[scores={religion=16..17}] ~ ~ ~ scoreboard players add @s heavy_compens 2
             execute @a[scores={poit_heigth_a=1..}] ~ ~ ~ scoreboard players add @s heavy_compens 2
             execute @a[scores={poit_heigth_b=1..}] ~ ~ ~ scoreboard players add @s heavy_compens 5
             execute @a[scores={c_powerful=1..}] ~ ~ ~ scoreboard players add @s heavy_compens 1
@@ -33,11 +26,11 @@ function core_parts_NAP/5ticks
 
         # Шмот
             execute @a ~ ~ ~ scoreboard players operation @s heavy_compens += @s backpack_volume
-            execute @a[hasitem={item=arx:ring_aluminum_cornelian, location=slot.armor.feet}] ~ ~ ~ scoreboard players add @s heavy_compens 1
-            execute @a[hasitem={item=arx:ring_durasteel_cornelian, location=slot.armor.feet}] ~ ~ ~ scoreboard players add @s heavy_compens 2
-            execute @a[hasitem={item=arx:ring_caryite_cornelian, location=slot.armor.feet}] ~ ~ ~ scoreboard players add @s heavy_compens 3
-            execute @a[hasitem={item=arx:ring_toliriite_cornelian, location=slot.armor.feet}] ~ ~ ~ scoreboard players add @s heavy_compens 4
-            execute @a[hasitem={item=arx:ring_lamenite_cornelian, location=slot.armor.feet}] ~ ~ ~ scoreboard players add @s heavy_compens 5
+            # execute @a[hasitem={item=arx:ring_aluminum_cornelian, location=slot.armor.feet}] ~ ~ ~ scoreboard players add @s heavy_compens 1
+            # execute @a[hasitem={item=arx:ring_durasteel_cornelian, location=slot.armor.feet}] ~ ~ ~ scoreboard players add @s heavy_compens 2
+            # execute @a[hasitem={item=arx:ring_caryite_cornelian, location=slot.armor.feet}] ~ ~ ~ scoreboard players add @s heavy_compens 3
+            # execute @a[hasitem={item=arx:ring_toliriite_cornelian, location=slot.armor.feet}] ~ ~ ~ scoreboard players add @s heavy_compens 4
+            # execute @a[hasitem={item=arx:ring_lamenite_cornelian, location=slot.armor.feet}] ~ ~ ~ scoreboard players add @s heavy_compens 5
 
     # Eсли компенсация меньше 1
         execute @a[scores={heavy_compens=..0}] ~ ~ ~ scoreboard players set @s heavy_compens 1
@@ -62,6 +55,3 @@ function core_parts_NAP/5ticks
 # Увеличиваем урон если надет амулет порочного демона
     event entity @a arx:set_0_base_dmg
     execute @a[hasitem={item=arx:amul_essence_of_vicious_demon, location=slot.armor.legs}] ~ ~ ~ event entity @s arx:set_5_base_dmg
-
-# Запуск функции анализа эффектов 
-    function core_parts_NAP/effects_analisys/5tick

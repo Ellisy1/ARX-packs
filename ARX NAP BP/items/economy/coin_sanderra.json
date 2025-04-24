@@ -1,15 +1,14 @@
 {
-  "format_version": "1.16.100",
-  "minecraft:item": {
-    "description": {
-      "identifier": "arx:coin_sanderra",
-      "category": "items"
-    },
-    "components": {
-      "minecraft:max_stack_size": 64,
-      "minecraft:icon": {
-        "texture": "arx:coin_sanderra"
-      }
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:icon": "arx:coin_sanderra"
+        },
+        "description": {
+            "identifier": "arx:coin_sanderra",
+            "menu_category": {
+                "category": "items"
+            }
+        }
     }
-  }
 }

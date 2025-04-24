@@ -76,14 +76,15 @@
 		"animation.player.bow_equipped": {
 			"loop": true,
 			"bones": {
-				"leftarm": {
+				"leftArm": {
 					"rotation": ["-90.0 + query.target_x_rotation - query.is_sneaking * 15.0 - this", "27.5 + query.target_y_rotation", 0]
 				},
-				"rightarm": {
+				"rightArm": {
 					"rotation": ["-90.0 + query.target_x_rotation - query.is_sneaking * 15.0 - this", "-5.0 + query.target_y_rotation", 0]
 				},
-				"rightitem": {
-					"rotation": [0, -10, 0]
+				"rightItem": {
+					"rotation": [0, "-10 + (q.property('arx:ranged_attack_accuracy') >= 10 ? -30 : 0)", 0],
+					"position": ["(q.property('arx:ranged_attack_accuracy') >= 10 ? 1 : 0)", 0, "(q.property('arx:ranged_attack_accuracy') >= 10 ? -3 : 0)"]
 				}
 			}
 		},
@@ -152,10 +153,40 @@
 			"loop": true,
 			"bones": {
 				"leftArm": {
-					"rotation": ["variable.is_holding_left ? (-this * 0.5 - 18.0) : 0.0", 0, 0]
+					"rotation": [
+						"variable.is_holding_left ? (-this * 0.5 - 18.0) * !query.equipped_item_any_tag('slot.weapon.offhand', 'is_invisible_in_offhand') : 0.0",
+						0,
+						0
+					]
+				},
+				"leftItem": {
+					"scale": "!query.equipped_item_any_tag('slot.weapon.offhand', 'is_invisible_in_offhand')"
 				},
 				"rightArm": {
-					"rotation": ["variable.is_holding_right ? (-this * 0.5 - 18.0) : 0.0", 0, 0]
+					"rotation": ["variable.is_holding_right ? (-this * 0.5 - 18.0) * !query.equipped_item_any_tag('slot.weapon.mainhand', 'is_invisible') : 0.0 ", 0, 0]
+				}
+			}
+		},
+		"animation.player.holding.onlyleft": {
+			"loop": true,
+			"bones": {
+				"leftArm": {
+					"rotation": [
+						"variable.is_holding_left ? (-this * 0.5 - 18.0) * !query.equipped_item_any_tag('slot.weapon.offhand', 'is_invisible_in_offhand') : 0.0",
+						0,
+						0
+					]
+				},
+				"leftItem": {
+					"scale": "!query.equipped_item_any_tag('slot.weapon.offhand', 'is_invisible_in_offhand')"
+				}
+			}
+		},
+		"animation.player.holding.ring.first_person": {
+			"loop": true,
+			"bones": {
+				"offhand_item": {
+					"scale": 0
 				}
 			}
 		},
@@ -636,7 +667,7 @@
 			"bones": {
 				"bust": {
 					"rotation": [
-						"-1 * ((query.property('arx:bust_size') == 1) * 25 + (query.property('arx:bust_size') == 2) * 32.5 + (query.property('arx:bust_size') == 3) * 40)",
+						"-1 * ((query.property('arx:bust_size') == 1) * 20 + (query.property('arx:bust_size') == 2) * 30 + (query.property('arx:bust_size') == 3) * 40)",
 						0,
 						0
 					],
@@ -644,6 +675,9 @@
 				},
 				"bust_related": {
 					"scale": "(query.property('arx:bust_size') != 0) && (query.equipped_item_any_tag('slot.armor.legs', 'is_bust_compressor') == 0)"
+				},
+				"bust_ban": {
+					"scale": "!(query.property('arx:bust_size') != 0) && (query.equipped_item_any_tag('slot.armor.legs', 'is_bust_compressor') == 0)"
 				}
 			}
 		},
@@ -727,7 +761,7 @@
 					"position": [0, -13.8, -12]
 				},
 				"head": {
-					"rotation": [37.5, 0, 0]
+					"rotation": ["37.5 + query.target_x_rotation * -0.32", "query.target_y_rotation * -0.5", 0]
 				},
 				"leftArm": {
 					"rotation": [-145, 0, 0]

@@ -1,5 +1,4 @@
 execute as @s[scores={custom_random=0..333}] run tellraw @s { "rawtext": [ { "text": "Вы прочитали §dполезную§f историю." } ] }
-execute as @s[scores={custom_random=0..333}] run scoreboard players add @s xp_tray 100
 execute as @s[scores={custom_random=0..333}] run xp 100 @s
 execute at @s[scores={custom_random=0..333}] run summon minecraft:xp_orb
 execute at @s[scores={custom_random=0..333}] run summon minecraft:xp_orb
@@ -19,3 +18,5 @@ execute as @s[scores={custom_random=800..932}] run function traits/get_neutral_t
 
 execute as @s[scores={custom_random=933..1000}] run tellraw @s { "rawtext": [ { "text": "Вы прочитали §aвоодушевляющую§f историю!" } ] }
 execute as @s[scores={custom_random=933..1000}] run function traits/get_positive_trait
+
+playsound item.book.page_turn @a ~ ~ ~

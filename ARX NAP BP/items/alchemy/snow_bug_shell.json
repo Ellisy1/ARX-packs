@@ -1,14 +1,14 @@
 {
-  "format_version": "1.16.100",
-  "minecraft:item": {
-    "description": {
-      "identifier": "arx:snow_bug_shell",
-      "category": "items"
-    },
-    "components": {
-      "minecraft:icon": {
-        "texture": "arx:snow_bug_shell"
-      }
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:icon": "arx:snow_bug_shell"
+        },
+        "description": {
+            "identifier": "arx:snow_bug_shell",
+            "menu_category": {
+                "category": "items"
+            }
+        }
     }
-  }
 }

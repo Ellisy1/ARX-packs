@@ -1,9 +1,9 @@
 {
-  "format_version": "1.8.0",
+  "format_version": "1.10.0",
   "minecraft:client_entity": {
     "description": {
       "identifier": "arx:small_rat_black",
-      "min_engine_version": "1.8.0",
+      "min_engine_version": "1.12.0",
       "materials": {
         "default": "entity_alphatest"
       },
@@ -14,15 +14,15 @@
         "default": "geometry.small_rat"
       },
       "animations": {
-        "look_at_target_default": "animation.humanoid.look_at_target.default",
-        "look_at_target_gliding": "animation.humanoid.look_at_target.gliding",
-        "look_at_target_swimming": "animation.humanoid.look_at_target.swimming"
-      },
-      "animation_controllers": [
-        {
-          "look_at_target": "controller.animation.humanoid.look_at_target"
-        }
-      ],
+				"move": "animation.small_rat.move"
+			},
+			"scripts": {
+				"animate": [
+					{
+						"move": "query.modified_move_speed"
+					}
+				]
+			},
       "render_controllers": [
         "controller.render.default"
       ],

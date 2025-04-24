@@ -1,14 +1,14 @@
 {
-  "format_version": "1.16.100",
-  "minecraft:item": {
-    "description": {
-      "identifier": "arx:fang",
-      "category": "items"
-    },
-    "components": {
-      "minecraft:icon": {
-        "texture": "arx:fang"
-      }
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:icon": "arx:fang"
+        },
+        "description": {
+            "identifier": "arx:fang",
+            "menu_category": {
+                "category": "items"
+            }
+        }
     }
-  }
 }

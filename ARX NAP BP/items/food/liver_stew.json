@@ -1,51 +1,30 @@
 {
-  "format_version": "1.16.100",
-  "minecraft:item": {
-    "description": {
-      "identifier": "arx:liver_stew",
-      "category": "equipment"
-    },
-    "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.cookedFood"
-      },
-      "minecraft:icon": {
-        "texture": "arx:liver_stew"
-      },
-      "minecraft:cooldown": {
-        "category": "food",
-        "duration": 1
-      },
-      "minecraft:on_use": {
-        "on_use": {
-          "event": "on_eat"
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:custom_components": [
+                "arx:onConsume"
+            ],
+            "minecraft:food": {
+                "can_always_eat": false,
+                "nutrition": 20,
+                "saturation_modifier": 0,
+                "using_converts_to": "minecraft:bowl"
+            },
+            "minecraft:icon": "arx:liver_stew",
+            "minecraft:max_stack_size": 1,
+            "minecraft:use_animation": "drink",
+            "minecraft:use_modifiers": {
+                "movement_modifier": 0.5,
+                "use_duration": 2.0
+            }
+        },
+        "description": {
+            "identifier": "arx:liver_stew",
+            "menu_category": {
+                "category": "equipment",
+                "group": "itemGroup.name.cookedFood"
+            }
         }
-      },
-      "minecraft:fuel": {
-        "duration": 3.0
-      },
-      "minecraft:max_stack_size": 1
-    },
-    "events": {
-      "on_eat": {
-        "run_command": {
-          "command": [
-            "tag @p add tt_f_meat",
-            "tag @p add is_soup",
-            "scoreboard players set @p t_f_deliciousness 15",
-
-            "scoreboard players set @p t_f_salty 25",
-            "scoreboard players set @p t_f_exotic 35",
-
-            "scoreboard players set @p t_f_poisoning 250",
-            "function food/food",
-
-            "clear @s[scores={saturation=0}] arx:liver_stew 0 1",
-            "give @s[scores={saturation=0}] bowl",
-            "function food/cooldown/set_default_cooldown"
-          ]
-        }
-      }
     }
-  }
 }

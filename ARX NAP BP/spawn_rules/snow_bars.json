@@ -9,7 +9,7 @@
       {
         "minecraft:spawns_on_surface": {},
         "minecraft:weight": {
-          "default": 800
+          "default": 300
         },
         "minecraft:herd": {
           "min_size":1,

@@ -1,50 +1,37 @@
 {
-  "format_version": "1.20.30",
-  "minecraft:block": {
-    "description": {
-      "identifier": "arx:wild_tea",
-      "menu_category": {
-        "category": "nature"
-      }
-    },
-    "components": {
-      "minecraft:flammable": true,
-      "minecraft:collision_box": false,
-      "minecraft:geometry": "geometry.basic_plant",
-      "minecraft:light_dampening": 0,
-      "minecraft:placement_filter": {
-        "conditions": [
-          {
-            "allowed_faces": ["up"],
-						"block_filter": [
-							"grass",
-							"dirt"
-						]
-          }
-        ]
-      },
-      "minecraft:material_instances": {
-				"*": {
-					"texture": "wild_tea",
-					"render_method": "alpha_test"
-				}
-			},
-      "minecraft:loot": "loot_tables/blocks/tea_crop_young.json",
-      "minecraft:queued_ticking": {
-        "interval_range": [10, 10],
-        "looping": true,
-        "on_tick": {
-          "event": "arx:destroy",
-          "condition": "q.block_neighbor_has_any_tag(1,0,0,'water') || q.block_neighbor_has_any_tag(-1,0,0,'water') || q.block_neighbor_has_any_tag(0,0,1,'water') || q.block_neighbor_has_any_tag(0,0,-1,'water') || q.block_neighbor_has_any_tag(0,1,0,'water')"
+    "format_version": "1.21.30",
+    "minecraft:block": {
+        "components": {
+            "minecraft:collision_box": false,
+            "minecraft:flammable": true,
+            "minecraft:geometry": "geometry.basic_plant",
+            "minecraft:light_dampening": 0,
+            "minecraft:loot": "loot_tables/blocks/tea_crop_young.json",
+            "minecraft:material_instances": {
+                "*": {
+                    "render_method": "alpha_test",
+                    "texture": "wild_tea"
+                }
+            },
+            "minecraft:placement_filter": {
+                "conditions": [
+                    {
+                        "allowed_faces": [
+                            "up"
+                        ],
+                        "block_filter": [
+                            "grass",
+                            "dirt"
+                        ]
+                    }
+                ]
+            }
+        },
+        "description": {
+            "identifier": "arx:wild_tea",
+            "menu_category": {
+                "category": "nature"
+            }
         }
-      }
-    },
-    "events": {
-      "arx:destroy": {
-        "run_command": {
-          "command": "setblock ~~~ air destroy"
-        }
-      }
     }
-  }
 }

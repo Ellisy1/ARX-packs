@@ -8,8 +8,8 @@
     
     "tags": [ "weapons_assembly_crafting_table" ],
     "pattern": [
-      " SS",
-      " AS",
+      "  S",
+      " A ",
       "A  "
     ],
     "key": {

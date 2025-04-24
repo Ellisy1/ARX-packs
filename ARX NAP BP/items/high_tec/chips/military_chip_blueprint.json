@@ -1,14 +1,14 @@
 {
-  "format_version": "1.16.100",
-  "minecraft:item": {
-    "description": {
-      "identifier": "arx:military_chip_blueprint",
-      "category": "items"
-    },
-    "components": {
-      "minecraft:icon": {
-        "texture": "arx:military_chip_blueprint"
-      }
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:icon": "arx:military_chip_blueprint"
+        },
+        "description": {
+            "identifier": "arx:military_chip_blueprint",
+            "menu_category": {
+                "category": "items"
+            }
+        }
     }
-  }
 }

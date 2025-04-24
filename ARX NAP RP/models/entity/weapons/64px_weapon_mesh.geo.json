@@ -1,0 +1,29 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.64px_weapon_mesh",
+				"texture_width": 16,
+				"texture_height": 16,
+				"visible_bounds_width": 1,
+				"visible_bounds_height": 1,
+				"visible_bounds_offset": [0, 0, 0]
+			},
+			"bones": [
+				{
+					"name": "rightItem",
+					"pivot": [0, 0, 0],
+					"texture_meshes": [
+						{
+							"texture": "default",
+							"position": [-0.5, 20.8, -22.2],
+							"rotation": [0, 37.5, -90],
+							"scale": [2, 0, 2]
+						}
+					]
+				}
+			]
+		}
+	]
+}

@@ -2,142 +2,139 @@
 tellraw @s { "rawtext": [ { "text": "§6=====§aДОСТИЖЕНИЯ§6=====" } ] }
     # Невыполненные достижения
         # Космоса
-            tellraw @s[scores={ach_in_space=0}] { "rawtext": [ { "text": "ę §fКосмоса §a[§f800 XP§a]§f: §o>>> §сПодняться в космос." } ] }
+            tellraw @s[scores={ach_in_space=0}] { "rawtext": [ { "text": "ę §fКосмоса§f: §o>>> §сПодняться в космос." } ] }
 
         # Камень кирка палладий
-            tellraw @s[scores={ach_in_hot_mines=0}] { "rawtext": [ { "text": "ę §fКамень кирка палладий §a[§f600 XP§a]§f: §o>>> §сСпуститься в нижние пещеры." } ] }
+            tellraw @s[scores={ach_in_hot_mines=0}] { "rawtext": [ { "text": "ę §fКамень кирка палладий§f: §o>>> §сСпуститься в нижние пещеры." } ] }
 
         # Отморозок
-            tellraw @s[scores={ach_coldy=0}] { "rawtext": [ { "text": "ę §fОтморозок §a[§f250 XP§a]§f: §o>>> §сОбморозиться до критического уровня." } ] }
+            tellraw @s[scores={ach_coldy=0}] { "rawtext": [ { "text": "ę §fОтморозок§f: §o>>> §сОбморозиться до критического уровня." } ] }
 
         # Самая горячая~
-            tellraw @s[scores={ach_warm=0}] { "rawtext": [ { "text": "ę §fСамая горячая~ §a[§f250 XP§a]§f: §o>>> §сПерегресться до критического уровня." } ] }
+            tellraw @s[scores={ach_warm=0}] { "rawtext": [ { "text": "ę §fСамая горячая~§f: §o>>> §сПерегресться до критического уровня." } ] }
 
         # Добро пожаловать в Аркс
-            tellraw @s[scores={ach_die=0}] { "rawtext": [ { "text": "ę §fДобро пожаловать в Аркс §a[§f100 XP§a]§f: §o>>> §сУмереть." } ] }
-
-        # Три дороги
-            tellraw @s[scores={ach_three_roads=0}] { "rawtext": [ { "text": "ę §fТри дороги §a[§f300 XP§a]§f: §o>>> §сВпервые потратить очко обучения." } ] }
-
-        # Начало пути
-            tellraw @s[scores={ach_1k_blocks_walked=0}] { "rawtext": [ { "text": "ę §fНачало пути §a[§f100 XP§a]§f: §o>>> §сПройти 1к блоков." } ] }
-
-        # Походник
-            tellraw @s[scores={ach_10k_blocks_walked=0}] { "rawtext": [ { "text": "ę §fПоходник §a[§f500 XP§a]§f: §o>>> §сПройти 10к блоков." } ] }
-
-        # Опытный путешественник
-            tellraw @s[scores={ach_100k_blocks_walked=0}] { "rawtext": [ { "text": "ę §fОпытный путешественник §a[§f1200 XP§a]§f: §o>>> §сПройти 100к блоков." } ] }
-
-        # Кругосветное путешествие
-            tellraw @s[scores={ach_1m_blocks_walked=0}] { "rawtext": [ { "text": "ę §fКругосветное путешествие §a[§f7000 XP§a]§f: §o>>> §сПройти 1 миллион блоков." } ] }
-
-        # А таксую я так, для души
-            tellraw @s[scores={ach_10m_blocks_walked=0}] { "rawtext": [ { "text": "ę §fА таксую я так, для души §a[§f15000 XP§a]§f: §o>>> §сПройти 10 миллионов блоков." } ] }
-
-        # Как в старые добрые
-            tellraw @s[scores={ach_has_diamond=0}] { "rawtext": [ { "text": "ę §fКак в старые добрые §a[§f100 XP§a]§f: §o>>> §сДобыть алмаз." } ] }
-
-        # Дурак
-            tellraw @s[scores={ach_has_fool_potion=0}] { "rawtext": [ { "text": "ę §fДурак §a[§f2500 XP§a]§f: §o>>> §сПолучить зелье дурака." } ] }
+            tellraw @s[scores={ach_die=0}] { "rawtext": [ { "text": "ę §fДобро пожаловать в Аркс§f: §o>>> §сОтправиться в нокаут." } ] }
 
         # Майнкрафт по-новому
-            tellraw @s[scores={ach_has_crafting_table=0}] { "rawtext": [ { "text": "ę §fМайнкрафт по-новому §a[§f20 XP§a]§f: §o>>> §сСоздать верстак." } ] }
+            tellraw @s[scores={ach_has_crafting_table=0}] { "rawtext": [ { "text": "ę §fМайнкрафт по-новому§f: §o>>> §сСоздать верстак." } ] }
+
+        # Путь мага
+            tellraw @s[scores={ach_has_rune_crafting_table=0}] { "rawtext": [ { "text": "ę §fПуть мага§f: §o>>> §сСоздать рунический верстак." } ] }
+
+        # Путь ведьмы
+            tellraw @s[scores={ach_has_boiler_crafting_table=0}] { "rawtext": [ { "text": "ę §fПуть ведьмы§f: §o>>> §сСоздать котёл." } ] }
+
+        # Отжарка по полной
+            tellraw @s[scores={ach_has_thermal_cooking_crafting_table=0}] { "rawtext": [ { "text": "ę §fОтжарка по полной§f: §o>>> §сСоздать мангал." } ] }
+
+        # Белиссимо
+            tellraw @s[scores={ach_has_cooking_crafting_table=0}] { "rawtext": [ { "text": "ę §fБелиссимо§f: §o>>> §сСоздать стол для готовки." } ] }
+
+        # Нахимичим?
+            tellraw @s[scores={ach_has_alchemy_crafting_table=0}] { "rawtext": [ { "text": "ę §fНахимичим?§f: §o>>> §сСоздать алхимический стол." } ] }
+
+        # Как в старые добрые
+            tellraw @s[scores={ach_has_diamond=0}] { "rawtext": [ { "text": "ę §fКак в старые добрые§f: §o>>> §сДобыть алмаз." } ] }
+
+        # Дурак
+            tellraw @s[scores={ach_has_fool_potion=0}] { "rawtext": [ { "text": "ę §fДурак§f: §o>>> §сПолучить зелье дурака." } ] }
 
         # Загадочный бутон
-            tellraw @s[scores={ach_has_evergreen_dream=0}] { "rawtext": [ { "text": "ę §fЗагадочный бутон §a[§f300 XP§a]§f: §o>>> §сНайти вечнозеленый сон." } ] }
+            tellraw @s[scores={ach_has_evergreen_dream=0}] { "rawtext": [ { "text": "ę §fЗагадочный бутон§f: §o>>> §сНайти вечнозеленый сон." } ] }
 
         # Царская находка
-            tellraw @s[scores={ach_has_royal_sorrel=0}] { "rawtext": [ { "text": "ę §fЦарская находка §a[§f300 XP§a]§f: §o>>> §сНайти царский щавель." } ] }
+            tellraw @s[scores={ach_has_royal_sorrel=0}] { "rawtext": [ { "text": "ę §fЦарская находка§f: §o>>> §сНайти царский щавель." } ] }
 
         # Блестящая метель
-            tellraw @s[scores={ach_has_ice_iris=0}] { "rawtext": [ { "text": "ę §fБлестящая метель §a[§f300 XP§a]§f: §o>>> §сНайти снежный ирис." } ] }
+            tellraw @s[scores={ach_has_ice_iris=0}] { "rawtext": [ { "text": "ę §fБлестящая метель§f: §o>>> §сНайти снежный ирис." } ] }
 
         # Воплощение пепла
-            tellraw @s[scores={ach_has_ash_lavaflower=0}] { "rawtext": [ { "text": "ę §fВоплощение пепла §a[§f300 XP§a]§f: §o>>> §сНайти пепельный лавоцвет." } ] }
+            tellraw @s[scores={ach_has_ash_lavaflower=0}] { "rawtext": [ { "text": "ę §fВоплощение пепла§f: §o>>> §сНайти пепельный лавоцвет." } ] }
 
         # Бледный блеск
-            tellraw @s[scores={ach_has_aluminum_ingot=0}] { "rawtext": [ { "text": "ę §fБледный блеск §a[§f50 XP§a]§f: §o>>> §сПолучить алюминиевый слиток." } ] }
+            tellraw @s[scores={ach_has_aluminum_ingot=0}] { "rawtext": [ { "text": "ę §fБледный блеск§f: §o>>> §сПолучить алюминиевый слиток." } ] }
 
         # Время обновить кирку!
-            tellraw @s[scores={ach_has_tin_ingot=0}] { "rawtext": [ { "text": "ę §fВремя обновить кирку! §a[§f75 XP§a]§f: §o>>> §сПолучить оловянный слиток." } ] }
+            tellraw @s[scores={ach_has_tin_ingot=0}] { "rawtext": [ { "text": "ę §fВремя обновить кирку!§f: §o>>> §сПолучить оловянный слиток." } ] }
 
         # Жесть...
-            tellraw @s[scores={ach_has_iron_ingot=0}] { "rawtext": [ { "text": "ę §fЖесть... §a[§f100 XP§a]§f: §o>>> §сПолучить железный слиток." } ] }
+            tellraw @s[scores={ach_has_iron_ingot=0}] { "rawtext": [ { "text": "ę §fЖесть...§f: §o>>> §сПолучить железный слиток." } ] }
 
         # Из чего оно делается!?
-            tellraw @s[scores={ach_has_riolik_ingot=0}] { "rawtext": [ { "text": "ę §fИз чего оно делается!? §a[§f150 XP§a]§f: §o>>> §сПолучить риоликовый слиток." } ] }
+            tellraw @s[scores={ach_has_riolik_ingot=0}] { "rawtext": [ { "text": "ę §fИз чего оно делается!?§f: §o>>> §сПолучить риоликовый слиток." } ] }
 
         # Ледяной блеск
-            tellraw @s[scores={ach_has_altaite_ingot=0}] { "rawtext": [ { "text": "ę §fЛедяной блеск §a[§f1200 XP§a]§f: §o>>> §сПолучить альтаитовый слиток." } ] }
+            tellraw @s[scores={ach_has_altaite_ingot=0}] { "rawtext": [ { "text": "ę §fЛедяной блеск§f: §o>>> §сПолучить альтаитовый слиток." } ] }
 
         # Синее сиянее
-            tellraw @s[scores={ach_has_caryite_ingot=0}] { "rawtext": [ { "text": "ę §fСинее сиянее §a[§f1000 XP§a]§f: §o>>> §сПолучить кариитовый слиток." } ] }
+            tellraw @s[scores={ach_has_caryite_ingot=0}] { "rawtext": [ { "text": "ę §fСинее сиянее§f: §o>>> §сПолучить кариитовый слиток." } ] }
 
         # Зелёная смерть
-            tellraw @s[scores={ach_has_chloronite_ingot=0}] { "rawtext": [ { "text": "ę §fЗелёная смерть §a[§f1200 XP§a]§f: §o>>> §сПолучить хлоронитовый слиток." } ] }
+            tellraw @s[scores={ach_has_chloronite_ingot=0}] { "rawtext": [ { "text": "ę §fЗелёная смерть§f: §o>>> §сПолучить хлоронитовый слиток." } ] }
 
         # Прочность солнца
-            tellraw @s[scores={ach_has_dorionite_ingot=0}] { "rawtext": [ { "text": "ę §fПрочность солнца §a[§f1200 XP§a]§f: §o>>> §сПолучить дорионитовый слиток." } ] }
+            tellraw @s[scores={ach_has_dorionite_ingot=0}] { "rawtext": [ { "text": "ę §fПрочность солнца§f: §o>>> §сПолучить дорионитовый слиток." } ] }
 
         # Загадочная мощь
-            tellraw @s[scores={ach_has_draphorite_ingot=0}] { "rawtext": [ { "text": "ę §fЗагадочная мощь §a[§f5000 XP§a]§f: §o>>> §сПолучить драфоритовый слиток." } ] }
+            tellraw @s[scores={ach_has_draphorite_ingot=0}] { "rawtext": [ { "text": "ę §fЗагадочная мощь§f: §o>>> §сПолучить драфоритовый слиток." } ] }
 
         # Звёздный слиток
-            tellraw @s[scores={ach_has_forfactorite_ingot=0}] { "rawtext": [ { "text": "ę §fЗвёздный слиток §a[§f1000 XP§a]§f: §o>>> §сПолучить форфакоритовый слиток." } ] }
+            tellraw @s[scores={ach_has_forfactorite_ingot=0}] { "rawtext": [ { "text": "ę §fЗвёздный слиток§f: §o>>> §сПолучить форфакоритовый слиток." } ] }
 
         # Фиолетовое сокровище
-            tellraw @s[scores={ach_has_lamenite_ingot=0}] { "rawtext": [ { "text": "ę §fФиолетовое сокровище §a[§f3000 XP§a]§f: §o>>> §сПолучить ламенитовый слиток." } ] }
+            tellraw @s[scores={ach_has_lamenite_ingot=0}] { "rawtext": [ { "text": "ę §fФиолетовое сокровище§f: §o>>> §сПолучить ламенитовый слиток." } ] }
 
         # Тёмный слиток
-            tellraw @s[scores={ach_has_naginitis_ingot=0}] { "rawtext": [ { "text": "ę §fТёмный слиток §a[§f800 XP§a]§f: §o>>> §сПолучить нагинитовый слиток." } ] }
+            tellraw @s[scores={ach_has_naginitis_ingot=0}] { "rawtext": [ { "text": "ę §fТёмный слиток§f: §o>>> §сПолучить нагинитовый слиток." } ] }
 
         # Адский блеск
-            tellraw @s[scores={ach_has_malafiotironite_ingot=0}] { "rawtext": [ { "text": "ę §fАдский блеск §a[§f1600 XP§a]§f: §o>>> §сПолучить малафиотиронитовый слиток." } ] }
+            tellraw @s[scores={ach_has_malafiotironite_ingot=0}] { "rawtext": [ { "text": "ę §fАдский блеск§f: §o>>> §сПолучить малафиотиронитовый слиток." } ] }
 
         # Адский арбитр
-            tellraw @s[scores={ach_has_toliriite_ingot=0}] { "rawtext": [ { "text": "ę §fАдский арбитр §a[§f3000 XP§a]§f: §o>>> §сПолучить толириитовый слиток." } ] }
+            tellraw @s[scores={ach_has_toliriite_ingot=0}] { "rawtext": [ { "text": "ę §fАдский арбитр§f: §o>>> §сПолучить толириитовый слиток." } ] }
 
         # Начало шахтёра
-            tellraw @s[scores={ach_has_wooden_pickaxe=0}] { "rawtext": [ { "text": "ę §fНачало шахтёра §a[§f50 XP§a]§f: §o>>> §сПолучить каменную кирку." } ] }
+            tellraw @s[scores={ach_has_wooden_pickaxe=0}] { "rawtext": [ { "text": "ę §fНачало шахтёра§f: §o>>> §сПолучить каменную кирку." } ] }
 
         # Металлический стук
-            tellraw @s[scores={ach_has_stone_pickaxe=0}] { "rawtext": [ { "text": "ę §fМеталлический стук §a[§f200 XP§a]§f: §o>>> §сПолучить оловянную кирку." } ] }
+            tellraw @s[scores={ach_has_stone_pickaxe=0}] { "rawtext": [ { "text": "ę §fМеталлический стук§f: §o>>> §сПолучить оловянную кирку." } ] }
 
         # Уровень профи
-            tellraw @s[scores={ach_has_iron_pickaxe=0}] { "rawtext": [ { "text": "ę §fУровень профи §a[§f800 XP§a]§f: §o>>> §сПолучить дюрастальную кирку." } ] }
+            tellraw @s[scores={ach_has_iron_pickaxe=0}] { "rawtext": [ { "text": "ę §fУровень профи§f: §o>>> §сПолучить дюрастальную кирку." } ] }
 
         # Синие искры
-            tellraw @s[scores={ach_has_diamond_pickaxe=0}] { "rawtext": [ { "text": "ę §fСиние искры §a[§f2000 XP§a]§f: §o>>> §сПолучить кариитовую кирку." } ] }
+            tellraw @s[scores={ach_has_diamond_pickaxe=0}] { "rawtext": [ { "text": "ę §fСиние искры§f: §o>>> §сПолучить кариитовую кирку." } ] }
 
         # Мощь, достойная богов
-            tellraw @s[scores={ach_has_netherite_pickaxe=0}] { "rawtext": [ { "text": "ę §fМощь, достойная богов §a[§f7500 XP§a]§f: §o>>> §сПолучить спектральную кирку." } ] }
+            tellraw @s[scores={ach_has_netherite_pickaxe=0}] { "rawtext": [ { "text": "ę §fМощь, достойная богов§f: §o>>> §сПолучить спектральную кирку." } ] }
 
         # Воплощение пустыни
-            tellraw @s[scores={ach_kill_sand_elemental=0}] { "rawtext": [ { "text": "ę §fВоплощение пустыни §a[§f400 XP§a]§f: §o>>> §сУбить песчанного элементаля." } ] }
+            tellraw @s[scores={ach_kill_sand_elemental=0}] { "rawtext": [ { "text": "ę §fВоплощение пустыни§f: §o>>> §сУбить песчанного элементаля." } ] }
 
         # Мир стал безопаснее
-            tellraw @s[scores={ach_kill_rat_monster=0}] { "rawtext": [ { "text": "ę §fМир стал безопаснее §a[§f120 XP§a]§f: §o>>> §сУбить крысомонстра." } ] }
+            tellraw @s[scores={ach_kill_rat_monster=0}] { "rawtext": [ { "text": "ę §fМир стал безопаснее§f: §o>>> §сУбить крысомонстра." } ] }
 
         # Прощай, дедуля
-            tellraw @s[scores={ach_kill_swamp_monster=0}] { "rawtext": [ { "text": "ę §fПрощай, дедуля §a[§f300 XP§a]§f: §o>>> §сУбить болотного монстра." } ] }
+            tellraw @s[scores={ach_kill_swamp_monster=0}] { "rawtext": [ { "text": "ę §fПрощай, дедуля§f: §o>>> §сУбить болотного монстра." } ] }
 
         # Оно умеет говорить?
-            tellraw @s[scores={ach_kill_snow_lady=0}] { "rawtext": [ { "text": "ę §fОно умеет говорить? §a[§f300 XP§a]§f: §o>>> §сУбить снежную деву." } ] }
+            tellraw @s[scores={ach_kill_snow_lady=0}] { "rawtext": [ { "text": "ę §fОно умеет говорить?§f: §o>>> §сУбить снежную деву." } ] }
 
         # Первая кровь
-            tellraw @s[scores={ach_1_kills=0}] { "rawtext": [ { "text": "ę §fПервая кровь §a[§f50 XP§a]§f: §o>>> §сУбить одного моба." } ] }
+            tellraw @s[scores={ach_1_kills=0}] { "rawtext": [ { "text": "ę §fПервая кровь§f: §o>>> §сУбить одного моба." } ] }
 
         # Охотник
-            tellraw @s[scores={ach_10_kills=0}] { "rawtext": [ { "text": "ę §fОхотник §a[§f200 XP§a]§f: §o>>> §сУбить десять мобов." } ] }
+            tellraw @s[scores={ach_10_kills=0}] { "rawtext": [ { "text": "ę §fОхотник§f: §o>>> §сУбить десять мобов." } ] }
 
         # Истребитель
-            tellraw @s[scores={ach_100_kills=0}] { "rawtext": [ { "text": "ę §fИстребитель §a[§f800 XP§a]§f: §o>>> §сУбить сто мобов." } ] }
+            tellraw @s[scores={ach_100_kills=0}] { "rawtext": [ { "text": "ę §fИстребитель§f: §o>>> §сУбить сто мобов." } ] }
 
         # Ху Тао
-            tellraw @s[scores={ach_1000_kills=0}] { "rawtext": [ { "text": "ę §fХу Тао §a[§f3200 XP§a]§f: §o>>> §сУбить тысячу мобов." } ] }
+            tellraw @s[scores={ach_1000_kills=0}] { "rawtext": [ { "text": "ę §fХу Тао§f: §o>>> §сУбить тысячу мобов." } ] }
 
         # Правая рука Смерти
-            tellraw @s[scores={ach_10000_kills=0}] { "rawtext": [ { "text": "ę §fПравая рука Смерти §a[§f10000 XP§a]§f: §o>>> §сУбить 10 тысяч мобов." } ] }
+            tellraw @s[scores={ach_10000_kills=0}] { "rawtext": [ { "text": "ę §fПравая рука Смерти§f: §o>>> §сУбить 10 тысяч мобов." } ] }
 
     # Выполненные достижения
         # Космоса
@@ -153,34 +150,31 @@ tellraw @s { "rawtext": [ { "text": "§6=====§aДОСТИЖЕНИЯ§6=====" } 
             tellraw @s[scores={ach_warm=99}] { "rawtext": [ { "text": "Ę Самая горячая~ (Перегресться до критического уровня)" } ] }
 
         # Добро пожаловать в Аркс
-            tellraw @s[scores={ach_die=99}] { "rawtext": [ { "text": "Ę Добро пожаловать в Аркс (Умереть)" } ] }
+            tellraw @s[scores={ach_die=99}] { "rawtext": [ { "text": "Ę Добро пожаловать в Аркс (Отправиться в нокаут)" } ] }
 
-        # Три дороги
-            tellraw @s[scores={ach_three_roads=99}] { "rawtext": [ { "text": "Ę Три дороги (Впервые потратить очко обучения)" } ] }
+        # Майнкрафт по-новому
+            tellraw @s[scores={ach_has_crafting_table=99}] { "rawtext": [ { "text": "Ę Майнкрафт по-новому (Создать верстак)" } ] }
 
-        # Начало пути
-            tellraw @s[scores={ach_1k_blocks_walked=99}] { "rawtext": [ { "text": "Ę Начало пути (Пройти 1к блоков)" } ] }
+        # Путь мага
+            tellraw @s[scores={ach_has_rune_crafting_table=99}] { "rawtext": [ { "text": "Ę Путь мага (Создать рунический верстак)" } ] }
 
-        # Походник
-            tellraw @s[scores={ach_10k_blocks_walked=99}] { "rawtext": [ { "text": "Ę Походник (Пройти 10к блоков)" } ] }
+        # Путь ведьмы
+            tellraw @s[scores={ach_has_boiler_crafting_table=99}] { "rawtext": [ { "text": "Ę Путь ведьмы (Создать котёл)" } ] }
 
-        # Опытный путешественник
-            tellraw @s[scores={ach_100k_blocks_walked=99}] { "rawtext": [ { "text": "Ę Опытный путешественник (Пройти 100к блоков)" } ] }
+        # Отжарка по полной
+            tellraw @s[scores={ach_has_thermal_cooking_crafting_table=99}] { "rawtext": [ { "text": "Ę Отжарка по полной (Создать мангал)" } ] }
 
-        # Кругосветное путешествие
-            tellraw @s[scores={ach_1m_blocks_walked=99}] { "rawtext": [ { "text": "Ę Кругосветное путешествие (Пройти 1 миллион блоков)" } ] }
+        # Белиссимо
+            tellraw @s[scores={ach_has_cooking_crafting_table=99}] { "rawtext": [ { "text": "Ę Белиссимо (Создать стол для готовки)" } ] }
 
-        # А таксую я так, для души
-            tellraw @s[scores={ach_10m_blocks_walked=99}] { "rawtext": [ { "text": "Ę А таксую я так, для души (Пройти 10 миллионов блоков)" } ] }
+        # Нахимичим?
+            tellraw @s[scores={ach_has_alchemy_crafting_table=99}] { "rawtext": [ { "text": "Ę Нахимичим? (Создать алхимический стол)" } ] }
 
         # Как в старые добрые
             tellraw @s[scores={ach_has_diamond=99}] { "rawtext": [ { "text": "Ę Как в старые добрые (Добыть алмаз)" } ] }
 
         # Дурак
             tellraw @s[scores={ach_has_fool_potion=99}] { "rawtext": [ { "text": "Ę Дурак (Получить зелье дурака)" } ] }
-
-        # Майнкрафт по-новому
-            tellraw @s[scores={ach_has_crafting_table=99}] { "rawtext": [ { "text": "Ę Майнкрафт по-новому (Создать верстак)" } ] }
 
         # Загадочный бутон
             tellraw @s[scores={ach_has_evergreen_dream=99}] { "rawtext": [ { "text": "Ę Загадочный бутон (Найти вечнозеленый сон)" } ] }

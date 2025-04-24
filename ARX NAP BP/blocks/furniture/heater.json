@@ -1,68 +1,114 @@
 {
-	"format_version": "1.19.40",
-	"minecraft:block": {
-		"description": {
-			"identifier": "arx:heater",
-			"menu_category": {
-				"category": "construction"
-			}
-		},
-		"components": {
-			"minecraft:geometry": "geometry.heater",
-			"minecraft:material_instances": {
-				"*": {
-					"texture": "heater",
-					"render_method": "alpha_test",
-					"face_dimming": false
-				}
-			},
-			"minecraft:collision_box": {
-				"origin": [
-					-5.0,
-					0.0,
-					-5.0
-				],
-				"size": [
-					10.0,
-					16.0,
-					10.0
-				]
-			},
-			"minecraft:selection_box": {
-				"origin": [
-					-5.0,
-					0.0,
-					-5.0
-				],
-				"size": [
-					10.0,
-					16.0,
-					10.0
-				]
-			},
-			"minecraft:destructible_by_mining": {
-				"seconds_to_destroy": 2
-			},
-			"minecraft:light_emission": 12,
-			"minecraft:queued_ticking": {
-				"interval_range": [
-					20,
-					20
-				],
-				"on_tick": {
-					"event": "heat"
-				}
-			}
-		},
-		"events": {
-			"heat": {
-				"run_command": {
-					"command": [
-						"tag @a[r=16] add heating_by_heater_block_activate",
-						"tag @a[r=16] add heating_by_heater_block_control"
-					]
-				}
-			}
-		}
-	}
+    "format_version": "1.21.30",
+    "minecraft:block": {
+        "components": {
+            "minecraft:collision_box": {
+                "origin": [
+                    -5.0,
+                    0.0,
+                    -5.0
+                ],
+                "size": [
+                    10.0,
+                    16.0,
+                    10.0
+                ]
+            },
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 2
+            },
+            "minecraft:geometry": "geometry.heater",
+            "minecraft:light_emission": 12,
+            "minecraft:material_instances": {
+                "*": {
+                    "face_dimming": false,
+                    "render_method": "alpha_test",
+                    "texture": "heater"
+                }
+            },
+            "minecraft:selection_box": {
+                "origin": [
+                    -5.0,
+                    0.0,
+                    -5.0
+                ],
+                "size": [
+                    10.0,
+                    16.0,
+                    10.0
+                ]
+            },
+            "minecraft:custom_components": [
+                "arx:onTick"
+            ],
+            "minecraft:tick": {
+                "interval_range": [20, 20],
+                "looping": true
+            }
+        },
+        "description": {
+            "identifier": "arx:heater",
+            "menu_category": {
+                "category": "construction"
+            },
+            "traits": {
+                "minecraft:placement_direction": {
+                    "enabled_states": [
+                        "minecraft:cardinal_direction"
+                    ],
+                    "y_rotation_offset": 180.0
+                }
+            }
+        },
+        "permutations": [
+            {
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            0,
+                            0
+                        ]
+                    }
+                },
+                "condition": "q.block_state('minecraft:cardinal_direction') == 'north'"
+            },
+            {
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            90,
+                            0
+                        ]
+                    }
+                },
+                "condition": "q.block_state('minecraft:cardinal_direction') == 'west'"
+            },
+            {
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            180,
+                            0
+                        ]
+                    }
+                },
+                "condition": "q.block_state('minecraft:cardinal_direction') == 'south'"
+            },
+            {
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            -90,
+                            0
+                        ]
+                    }
+                },
+                "condition": "q.block_state('minecraft:cardinal_direction') == 'east'"
+            }
+        ]
+    }
 }

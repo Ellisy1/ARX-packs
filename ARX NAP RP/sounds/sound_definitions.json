@@ -62,23 +62,6 @@
          "sounds/items/crystal"
       ]
    },
-   "strapon": {
-      "category": "neutral",
-      "sounds": [
-         "sounds/items/womanfucka",
-         "sounds/items/womanfuckb"
-      ]
-   },
-   "gachi": {
-      "category": "neutral",
-      "sounds": [
-         "sounds/items/gachia",
-         "sounds/items/gachib",
-         "sounds/items/gachic",
-         "sounds/items/gachid",
-         "sounds/items/gachie"
-      ]
-   },
    "pallada_beacon": {
       "category": "neutral",
       "sounds": [
@@ -176,25 +159,6 @@
          }
       ]
    },
-   "eat.solid": {
-      "category": "neutral",
-      "sounds": [
-         "sounds/eating/eat_solid"
-      ]
-   },
-   "eat.liquid": {
-      "category": "neutral",
-      "sounds": [
-         "sounds/eating/drink_a",
-         "sounds/eating/drink_b"
-      ]
-   },
-   "eat.soup": {
-      "category": "neutral",
-      "sounds": [
-         "sounds/eating/eat_soup"
-      ]
-   },
    "mob.rat_eliminator.spawn": {
       "category": "neutral",
       "sounds": [
@@ -260,12 +224,12 @@
          }
       ]
    },
-   "block.campfire.crackle" : {
-      "__use_legacy_max_distance" : "true",
-      "category" : "block",
-      "max_distance" : 8.0,
-      "min_distance" : null,
-      "sounds" : [
+   "block.campfire.crackle": {
+      "__use_legacy_max_distance": "true",
+      "category": "block",
+      "max_distance": 8.0,
+      "min_distance": null,
+      "sounds": [
          "sounds/block/campfire/crackle1",
          "sounds/block/campfire/crackle2",
          "sounds/block/campfire/crackle3",
@@ -382,6 +346,98 @@
       "sounds": [
          "sounds/demon/demon_fly",
          "sounds/demon/demon_fly_2"
+      ]
+   },
+   "tick": {
+      "category": "music",
+      "sounds": [
+         {
+            "name": "sounds/core/tick",
+            "stream": true
+         }
+      ]
+   },
+   "random.burp": {},
+   "on_block": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/swords/on_block"
+      ]
+   },
+   "whipping_dummy.take_hit": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/whipping_dummy/hit_whipping_dummy"
+      ]
+   },
+   "stop_being_ghost": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/items/stop_being_ghost"
+      ]
+   },
+   "player.skill.levelUp": {
+      "category": "music",
+      "sounds": [
+         {
+            "name": "sounds/skills/skillLevelUp",
+            "stream": true
+         }
+      ]
+   },
+
+   "random.eat" : {
+      "__use_legacy_max_distance" : "true",
+      "category" : "player",
+      "max_distance" : null,
+      "min_distance" : null,
+      "sounds" : [
+         "sounds/eating/eat_solid_1",
+         "sounds/eating/eat_solid_2",
+         "sounds/eating/eat_solid_3"
+      ]
+   },
+
+   "music.game": {},
+   "music.game.creative": {},
+   "music.game.credits": {},
+   "music.game.crimson_forest": {},
+   "music.game.deep_dark": {},
+   "music.game.dripstone_caves": {},
+   "music.game.end": {},
+   "music.game.endboss": {},
+   "music.game.frozen_peaks": {},
+   "music.game.grove": {},
+   "music.game.jagged_peaks": {},
+   "music.game.lush_caves": {},
+   "music.game.meadow": {},
+   "music.game.nether": {},
+   "music.game.nether_wastes": {},
+   "music.game.snowy_slopes": {},
+   "music.game.soul_sand_valley": {},
+   "music.game.soulsand_valley": {},
+   "music.game.stony_peaks": {},
+   "music.game.swamp_music": {},
+   "music.game.warped_forest": {},
+   "music.game.water": {},
+   "music.game_and_wild_equal_chance": {},
+   "music.game_and_wild_favor_game": {},
+   "music.menu": {},
+   "music.overworld.bamboo_jungle": {},
+   "music.overworld.cherry_grove": {},
+   "music.overworld.desert": {},
+   "music.overworld.flower_forest": {},
+   "music.overworld.jungle": {},
+   "music.overworld.jungle_edge": {},
+   "music.overworld.mesa": {},
+
+   "ai_music.deepDrumBass": {
+      "category": "music",
+      "sounds": [
+         {
+            "name": "sounds/ai_music/deepDrumBass",
+            "stream": true
+         }
       ]
    }
 }

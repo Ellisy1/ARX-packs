@@ -8,7 +8,7 @@
     "tags": [ "brewing_stand" ],
 
     "input": "arx:vodka",
-    "reagent": "arx:mushroom_item",
+    "reagent": "arx:mushroom",
     "output": "arx:vodka_mushroom"
   }
 

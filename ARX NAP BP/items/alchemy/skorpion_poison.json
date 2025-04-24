@@ -1,14 +1,14 @@
 {
-  "format_version": "1.16.100",
-  "minecraft:item": {
-    "description": {
-      "identifier": "arx:skorpion_poison",
-      "category": "items"
-    },
-    "components": {
-      "minecraft:icon": {
-        "texture": "arx:skorpion_poison"
-      }
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:icon": "arx:skorpion_poison"
+        },
+        "description": {
+            "identifier": "arx:skorpion_poison",
+            "menu_category": {
+                "category": "items"
+            }
+        }
     }
-  }
 }

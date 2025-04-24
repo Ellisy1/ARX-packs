@@ -1,10 +1,11 @@
 {
-  "format_version": "1.10",
-  "minecraft:item": {
-    "description": {
-      "identifier": "minecraft:porkchop"
-    },
-
-    "components": {}
-  }
+    "format_version": "1.10.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:icon": "porkchop"
+        },
+        "description": {
+            "identifier": "minecraft:porkchop"
+        }
+    }
 }

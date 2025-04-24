@@ -1,14 +1,14 @@
 {
-    "format_version": "1.16.100",
+    "format_version": "1.21.0",
     "minecraft:item": {
-      "description": {
-        "category": "items",
-        "identifier": "arx:chrome_nugget"
-      },
-      "components": {
-        "minecraft:icon": {
-          "texture": "arx:chrome_nugget"
+        "components": {
+            "minecraft:icon": "arx:chrome_nugget"
+        },
+        "description": {
+            "identifier": "arx:chrome_nugget",
+            "menu_category": {
+                "category": "items"
+            }
         }
-      }
     }
-  }
+}

@@ -1,4 +1,4 @@
-execute as @s[l=14] run tellraw @s { "rawtext": [ { "text": "§eВам не приходит в голову идей, что можно записать в книгу. §d15-й уровень майнкрафта освежит мою память." } ] }
+execute as @s[l=14] run tellraw @s { "rawtext": [ { "text": "§eВам не приходит в голову идей, что можно записать в книгу. §d15-й уровень майнкрафта освежит вашу память." } ] }
 execute as @s[l=50, lm=15, scores={custom_random=0..19}] run tellraw @s { "rawtext": [ { "text": "§aВы записываете в книжку свой опыт боёв" } ] }
 execute as @s[l=50, lm=15, scores={custom_random=20..39}] run tellraw @s { "rawtext": [ { "text": "§aВы записываете в книжку истории о ваших походах" } ] }
 execute as @s[l=50, lm=15, scores={custom_random=40..59}] run tellraw @s { "rawtext": [ { "text": "§aВы записываете в книжку историю из вашего прошлого" } ] }

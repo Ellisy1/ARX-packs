@@ -1,46 +1,20 @@
 {
-  "format_version": "1.16.100",
-  "minecraft:item": {
-    "description": {
-      "identifier": "arx:cigarette_fiolix",
-      "category": "items"
-    },
-    "components": {
-      "minecraft:hand_equipped": true,
-      "minecraft:max_stack_size": 16,
-      "minecraft:icon": {
-        "texture": "arx:cigarette_fiolix"
-      },
-      "minecraft:cooldown": {
-        "category": "cigarette",
-        "duration": 4
-      },
-      "minecraft:on_use": {
-        "on_use": {
-          "event": "on_use_event"
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:hand_equipped": true,
+            "minecraft:icon": "arx:cigarette_fiolix",
+            "minecraft:max_stack_size": 16,
+            "minecraft:cooldown": {
+                "category": "main",
+                "duration": 2
+            }
+        },
+        "description": {
+            "identifier": "arx:cigarette_fiolix",
+            "menu_category": {
+                "category": "items"
+            }
         }
-      }
-    },
-    "events": {
-      "on_use_event": {
-        "run_command": {
-          "command": [
-            "tag @p add self",
-            "function cigarette",
-            "playanimation @p animation.player.smoke",
-            "scoreboard players add @p xp_tray 20",
-            "scoreboard players add @p[tag=self, scores={drugs_delay=8000..}] stress 1500",
-            "w @p[tag=self, scores={drugs_delay=8000..}] Слишком много наркотиков. Отвратительные ощущения",
-            "scoreboard players add @p[tag=self, scores={drugs_delay=1..}] stress -500",
-            "scoreboard players add @p[tag=self, scores={drugs_delay=1..600}] stress -500",
-            "scoreboard players add @p[tag=self, scores={drugs_delay=0}] stress -3500",
-            "scoreboard players add @p[tag=self, scores={drugs_delay=0}] xp_tray 400",
-            "scoreboard players add @p drugs_delay 1100",
-            "clear @p arx:cigarette_fiolix 0 1",
-            "tag @p remove self"
-          ]
-        }
-      }
     }
-  }
 }

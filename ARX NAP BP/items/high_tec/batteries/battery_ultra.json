@@ -1,15 +1,15 @@
 {
-  "format_version": "1.16.100",
-  "minecraft:item": {
-    "description": {
-      "identifier": "arx:battery_ultra",
-      "category": "equipment"
-    },
-    "components": {
-      "minecraft:max_stack_size": 1,
-      "minecraft:icon": {
-        "texture": "arx:battery_ultra"
-      }
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:icon": "arx:battery_ultra",
+            "minecraft:max_stack_size": 1
+        },
+        "description": {
+            "identifier": "arx:battery_ultra",
+            "menu_category": {
+                "category": "equipment"
+            }
+        }
     }
-  }
 }

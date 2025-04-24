@@ -9,20 +9,16 @@
     "tags": [ "clothes_crafting_table" ],
     "pattern": [
       "# #",
-      "B#B",
+      " # ",
       "C#C"
     ],
     "key": {
       "#": {
         "item": "arx:cheap_cloth"
       },
-      "B": {
-        "item": "minecraft:dye",
-        "data": 10
-      },
       "C": {
         "item": "minecraft:dye",
-        "data": 17
+        "data": 2
       }
     },
     "result": {

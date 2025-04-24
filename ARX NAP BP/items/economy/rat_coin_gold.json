@@ -1,15 +1,14 @@
 {
-  "format_version": "1.16.100",
-  "minecraft:item": {
-    "description": {
-      "identifier": "arx:rat_coin_gold",
-      "category": "items"
-    },
-    "components": {
-      "minecraft:max_stack_size": 64,
-      "minecraft:icon": {
-        "texture": "arx:rat_coin_gold"
-      }
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:icon": "arx:rat_coin_gold"
+        },
+        "description": {
+            "identifier": "arx:rat_coin_gold",
+            "menu_category": {
+                "category": "items"
+            }
+        }
     }
-  }
 }

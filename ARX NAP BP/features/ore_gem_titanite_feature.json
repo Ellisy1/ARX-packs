@@ -1,0 +1,14 @@
+{
+    "format_version": "1.19.50",
+    "minecraft:single_block_feature": {
+        "description": {
+            "identifier": "arx:ore_gem_titanite_feature"
+        },
+        "places_block": "arx:titanite_deep_ore",
+        "enforce_placement_rules": false,
+        "enforce_survivability_rules": false,
+        "may_replace": [
+            "minecraft:deepslate"
+        ]
+    }
+}

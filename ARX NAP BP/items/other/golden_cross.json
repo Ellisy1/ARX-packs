@@ -1,0 +1,18 @@
+{
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:display_name": {
+                "value": "Золотой крест"
+            },
+            "minecraft:icon": "arx:golden_cross",
+            "minecraft:max_stack_size": 1
+        },
+        "description": {
+            "identifier": "arx:golden_cross",
+            "menu_category": {
+                "category": "items"
+            }
+        }
+    }
+}

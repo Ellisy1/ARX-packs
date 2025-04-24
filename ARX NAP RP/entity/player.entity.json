@@ -24,9 +24,11 @@
           "variable.is_blinking = 0.0;",
           "variable.last_blink_time = 0.0;",
           "variable.hand_bob = 0.0;",
-          "variable.is_moving_anyway = 0.0;"
+          "variable.is_moving_anyway = 0.0;",
+          "variable.dildo = 0.0;"
         ],
         "pre_animation": [
+          "variable.dildo = math.sin(q.anim_time * (9 * (q.target_x_rotation + 90))) * 2;",
           "variable.helmet_layer_visible = 1.0;",
           "variable.leg_layer_visible = 1.0;",
           "variable.boot_layer_visible = 1.0;",
@@ -55,6 +57,7 @@
         "holding_default_sword_fast_moving": "animation.weapon.hold.default.fast_moving",
         "holding_scythe": "animation.weapon.hold.scythe",
         "holding_staff_standing": "animation.weapon.hold.staff_standing",
+        "holding_staff_moving": "animation.weapon.hold.staff_moving",
         "holding_gun": "animation.weapon.hold.gun",
         "holding_umbrella": "animation.umbrella.hold",
         "umbrella_rotations": "animation.umbrella.rotations",
@@ -84,6 +87,8 @@
         "riding.arms": "animation.player.riding.arms",
         "riding.legs": "animation.player.riding.legs",
         "holding": "animation.player.holding",
+        "holding.onlyleft": "animation.player.holding.onlyleft",
+        "holding.ring.first_person": "animation.player.holding.ring.first_person",
         "brandish_spear": "animation.humanoid.brandish_spear",
         "charging": "animation.humanoid.charging",
         "attack.positions": "animation.player.attack.positions",
@@ -116,6 +121,7 @@
         "shield_block_off_hand": "animation.player.shield_block_off_hand",
         "blink": "controller.animation.persona.blink",
         "statue_of_liberty": "animation.player.move.arms.statue_of_liberty",
+        "weapon_normalize": "animation.weapon.normalize",
 
         "knockout_basic": "animation.player.knockout_basic",
         "carried_by_someone_static": "animation.player.carried_by_someone_static",

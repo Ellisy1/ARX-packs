@@ -987,23 +987,8 @@
 
 
     
-    "arx:adona_sword": {
-      "textures": "textures/items/weapons/swords/adona_sword"
-    },
-    "arx:kofata_sword": {
-      "textures": "textures/items/weapons/swords/kofata_sword"
-    },
-    "arx:tearing_flesh": {
-      "textures": "textures/items/weapons/swords/tearing_flesh"
-    },
-    "arx:podlik": {
-      "textures": "textures/items/weapons/swords/podlik"
-    },
-    "arx:blood_waiting": {
-      "textures": "textures/items/weapons/swords/blood_waiting"
-    },
     "arx:mod_sword": {
-      "textures": "textures/items/weapons/swords/mod_sword"
+      "textures": "textures/items/moder/mod_sword"
     },
     "arx:gold_feather": {
       "textures": "textures/items/crafting/gold_feather"
@@ -1026,8 +1011,8 @@
     "arx:strange_diamond_green": {
       "textures": "textures/items/crafting/strange_diamond_green"
     },
-    "arx:strapon": {
-      "textures": "textures/items/other/strapon"
+    "arx:dildo": {
+      "textures": "textures/items/other/dildo"
     },
     "arx:cup": {
       "textures": "textures/items/other/cup"
@@ -1079,18 +1064,6 @@
     },
     "arx:teleportation_rune": {
       "textures": "textures/items/runes/special/teleportation_rune"
-    },
-    "arx:kofatachip": {
-      "textures": "textures/items/high_tec/charater_chips/kofatachip"
-    },
-    "arx:palladachip": {
-      "textures": "textures/items/high_tec/charater_chips/palladachip"
-    },
-    "arx:adonachip": {
-      "textures": "textures/items/high_tec/charater_chips/adonachip"
-    },
-    "arx:piretachip": {
-      "textures": "textures/items/high_tec/charater_chips/piretachip"
     },
     //equipment
     "arx:elder_cross_rune": {
@@ -1244,89 +1217,11 @@
     "arx:golden_cross": {
       "textures": "textures/items/runes/special/golden_cross"
     },
-    "arx:infinity_apple": {
-      "textures": "textures/items/food/evergreen_apple/infinity_apple"
-    },
-    "arx:evergreen_apple_step_a": {
-      "textures": "textures/items/food/evergreen_apple/evergreen_apple_step_a"
-    },
-    "arx:evergreen_apple_step_b": {
-      "textures": "textures/items/food/evergreen_apple/evergreen_apple_step_b"
-    },
-    "arx:evergreen_apple_step_c": {
-      "textures": "textures/items/food/evergreen_apple/evergreen_apple_step_c"
-    },
-    "arx:necro_1": {
-      "textures": "textures/items/religious/necro_1"
-    },
-    "arx:necro_2": {
-      "textures": "textures/items/religious/necro_2"
-    },
-    "arx:pallas_1": {
-      "textures": "textures/items/religious/pallas_1"
-    },
-    "arx:pallas_2": {
-      "textures": "textures/items/religious/pallas_2"
-    },
-    "arx:pallas_3": {
-      "textures": "textures/items/religious/pallas_3"
-    },
-    "arx:pallas_4": {
-      "textures": "textures/items/religious/pallas_4"
-    },
-    "arx:pallas_5": {
-      "textures": "textures/items/religious/pallas_5"
-    },
-    "arx:pallas_6": {
-      "textures": "textures/items/religious/pallas_6"
-    },
-    "arx:pallas_7": {
-      "textures": "textures/items/religious/pallas_7"
-    },
-    "arx:pallas_8": {
-      "textures": "textures/items/religious/pallas_8"
-    },
-    "arx:pallas_9": {
-      "textures": "textures/items/religious/pallas_9"
-    },
-    "arx:pires_1": {
-      "textures": "textures/items/religious/pires_1"
-    },
-    "arx:pires_2": {
-      "textures": "textures/items/religious/pires_2"
-    },
-    "arx:pires_3": {
-      "textures": "textures/items/religious/pires_3"
-    },
-    "arx:pires_4": {
-      "textures": "textures/items/religious/pires_4"
-    },
-    "arx:pires_5": {
-      "textures": "textures/items/religious/pires_5"
-    },
-    "arx:pires_6": {
-      "textures": "textures/items/religious/pires_6"
-    },
-    "arx:pires_7": {
-      "textures": "textures/items/religious/pires_7"
-    },
-    "arx:pires_8": {
-      "textures": "textures/items/religious/pires_8"
-    },
-    "arx:pires_9": {
-      "textures": "textures/items/religious/pires_9"
-    },
-    "arx:wipe_religion": {
-      "textures": "textures/items/religious/wipe_religion"
-    },
     "arx:scientific_book_unused": {
       "textures": "textures/items/books/scientific_book_unused"
     },
     "arx:scientific_book": {
       "textures": "textures/items/books/scientific_book"
-    },
-    "arx:advice_book": {
-      "textures": "textures/items/books/advice_book"
     },
     "arx:jw_aluminum": {
       "textures": "textures/items/jewelry/jewelry_ingots/jw_aluminum"
@@ -1334,8 +1229,8 @@
     "arx:jw_caryite": {
       "textures": "textures/items/jewelry/jewelry_ingots/jw_caryite"
     },
-    "arx:jw_durasteel": {
-      "textures": "textures/items/jewelry/jewelry_ingots/jw_durasteel"
+    "arx:jw_naginitis": {
+      "textures": "textures/items/jewelry/jewelry_ingots/jw_naginitis"
     },
     "arx:jw_gold": {
       "textures": "textures/items/jewelry/jewelry_ingots/jw_gold"
@@ -1349,29 +1244,41 @@
     "arx:jw_toliriite": {
       "textures": "textures/items/jewelry/jewelry_ingots/jw_toliriite"
     },
+
+
     "arx:ring_aluminum__empty": {
       "textures": "textures/items/jewelry/rings/ring_aluminum__empty"
     },
-    "arx:ring_aluminum_sapphire": {
-      "textures": "textures/items/jewelry/rings/ring_aluminum_sapphire"
+    "arx:ring_aluminum_aquamarine": {
+      "textures": "textures/items/jewelry/rings/ring_aluminum_aquamarine"
+    },
+    "arx:ring_aluminum_beryl": {
+      "textures": "textures/items/jewelry/rings/ring_aluminum_beryl"
+    },
+    "arx:ring_aluminum_chrysolite": {
+      "textures": "textures/items/jewelry/rings/ring_aluminum_chrysolite"
     },
     "arx:ring_aluminum_cornelian": {
       "textures": "textures/items/jewelry/rings/ring_aluminum_cornelian"
     },
-    "arx:ring_aluminum_riolik": {
-      "textures": "textures/items/jewelry/rings/ring_aluminum_riolik"
+    "arx:ring_aluminum_sapphire": {
+      "textures": "textures/items/jewelry/rings/ring_aluminum_sapphire"
     },
+    "arx:ring_aluminum_topaz": {
+      "textures": "textures/items/jewelry/rings/ring_aluminum_topaz"
+    },
+    "arx:ring_aluminum_zircon": {
+      "textures": "textures/items/jewelry/rings/ring_aluminum_zircon"
+    },
+
     "arx:ring_caryite__empty": {
       "textures": "textures/items/jewelry/rings/ring_caryite__empty"
-    },
-    "arx:ring_caryite_amethyst": {
-      "textures": "textures/items/jewelry/rings/ring_caryite_amethyst"
     },
     "arx:ring_caryite_aquamarine": {
       "textures": "textures/items/jewelry/rings/ring_caryite_aquamarine"
     },
-    "arx:ring_caryite_bronze": {
-      "textures": "textures/items/jewelry/rings/ring_caryite_bronze"
+    "arx:ring_caryite_beryl": {
+      "textures": "textures/items/jewelry/rings/ring_caryite_beryl"
     },
     "arx:ring_caryite_chrysolite": {
       "textures": "textures/items/jewelry/rings/ring_caryite_chrysolite"
@@ -1379,14 +1286,8 @@
     "arx:ring_caryite_cornelian": {
       "textures": "textures/items/jewelry/rings/ring_caryite_cornelian"
     },
-    "arx:ring_caryite_emerald": {
-      "textures": "textures/items/jewelry/rings/ring_caryite_emerald"
-    },
-    "arx:ring_caryite_prismarine": {
-      "textures": "textures/items/jewelry/rings/ring_caryite_prismarine"
-    },
-    "arx:ring_caryite_riolik": {
-      "textures": "textures/items/jewelry/rings/ring_caryite_riolik"
+    "arx:ring_caryite_ruby": {
+      "textures": "textures/items/jewelry/rings/ring_caryite_ruby"
     },
     "arx:ring_caryite_sapphire": {
       "textures": "textures/items/jewelry/rings/ring_caryite_sapphire"
@@ -1394,50 +1295,46 @@
     "arx:ring_caryite_topaz": {
       "textures": "textures/items/jewelry/rings/ring_caryite_topaz"
     },
-    "arx:ring_durasteel__empty": {
-      "textures": "textures/items/jewelry/rings/ring_durasteel__empty"
+    "arx:ring_caryite_zircon": {
+      "textures": "textures/items/jewelry/rings/ring_caryite_zircon"
     },
-    "arx:ring_durasteel_amethyst": {
-      "textures": "textures/items/jewelry/rings/ring_durasteel_amethyst"
-    },
-    "arx:ring_durasteel_chrysolite": {
-      "textures": "textures/items/jewelry/rings/ring_durasteel_chrysolite"
-    },
-    "arx:ring_durasteel_cornelian": {
-      "textures": "textures/items/jewelry/rings/ring_durasteel_cornelian"
-    },
-    "arx:ring_durasteel_riolik": {
-      "textures": "textures/items/jewelry/rings/ring_durasteel_riolik"
-    },
-    "arx:ring_durasteel_sapphire": {
-      "textures": "textures/items/jewelry/rings/ring_durasteel_sapphire"
-    },
+
     "arx:ring_gold__empty": {
       "textures": "textures/items/jewelry/rings/ring_gold__empty"
     },
-    "arx:ring_gold_amethyst": {
-      "textures": "textures/items/jewelry/rings/ring_gold_amethyst"
+    "arx:ring_gold_aquamarine": {
+      "textures": "textures/items/jewelry/rings/ring_gold_aquamarine"
     },
-    "arx:ring_gold_riolik": {
-      "textures": "textures/items/jewelry/rings/ring_gold_riolik"
-    },
-    "arx:ring_gold_sapphire": {
-      "textures": "textures/items/jewelry/rings/ring_gold_sapphire"
+    "arx:ring_gold_beryl": {
+      "textures": "textures/items/jewelry/rings/ring_gold_beryl"
     },
     "arx:ring_gold_chrysolite": {
       "textures": "textures/items/jewelry/rings/ring_gold_chrysolite"
     },
+    "arx:ring_gold_cornelian": {
+      "textures": "textures/items/jewelry/rings/ring_gold_cornelian"
+    },
+    "arx:ring_gold_ruby": {
+      "textures": "textures/items/jewelry/rings/ring_gold_ruby"
+    },
+    "arx:ring_gold_sapphire": {
+      "textures": "textures/items/jewelry/rings/ring_gold_sapphire"
+    },
+    "arx:ring_gold_topaz": {
+      "textures": "textures/items/jewelry/rings/ring_gold_topaz"
+    },
+    "arx:ring_gold_zircon": {
+      "textures": "textures/items/jewelry/rings/ring_gold_zircon"
+    },
+
     "arx:ring_lamenite__empty": {
       "textures": "textures/items/jewelry/rings/ring_lamenite__empty"
-    },
-    "arx:ring_lamenite_amethyst": {
-      "textures": "textures/items/jewelry/rings/ring_lamenite_amethyst"
     },
     "arx:ring_lamenite_aquamarine": {
       "textures": "textures/items/jewelry/rings/ring_lamenite_aquamarine"
     },
-    "arx:ring_lamenite_bronze": {
-      "textures": "textures/items/jewelry/rings/ring_lamenite_bronze"
+    "arx:ring_lamenite_beryl": {
+      "textures": "textures/items/jewelry/rings/ring_lamenite_beryl"
     },
     "arx:ring_lamenite_chrysolite": {
       "textures": "textures/items/jewelry/rings/ring_lamenite_chrysolite"
@@ -1445,11 +1342,8 @@
     "arx:ring_lamenite_cornelian": {
       "textures": "textures/items/jewelry/rings/ring_lamenite_cornelian"
     },
-    "arx:ring_lamenite_diamond": {
-      "textures": "textures/items/jewelry/rings/ring_lamenite_diamond"
-    },
-    "arx:ring_lamenite_riolik": {
-      "textures": "textures/items/jewelry/rings/ring_lamenite_riolik"
+    "arx:ring_lamenite_olivine": {
+      "textures": "textures/items/jewelry/rings/ring_lamenite_olivine"
     },
     "arx:ring_lamenite_ruby": {
       "textures": "textures/items/jewelry/rings/ring_lamenite_ruby"
@@ -1457,35 +1351,63 @@
     "arx:ring_lamenite_sapphire": {
       "textures": "textures/items/jewelry/rings/ring_lamenite_sapphire"
     },
-    "arx:ring_lamenite_sphere_of_power": {
-      "textures": "textures/items/jewelry/rings/ring_lamenite_sphere_of_power"
-    },
     "arx:ring_lamenite_topaz": {
       "textures": "textures/items/jewelry/rings/ring_lamenite_topaz"
     },
+    "arx:ring_lamenite_zircon": {
+      "textures": "textures/items/jewelry/rings/ring_lamenite_zircon"
+    },
+
     "arx:ring_malafiotironite__empty": {
       "textures": "textures/items/jewelry/rings/ring_malafiotironite__empty"
-    },
-    "arx:ring_malafiotironite_amethyst": {
-      "textures": "textures/items/jewelry/rings/ring_malafiotironite_amethyst"
     },
     "arx:ring_malafiotironite_aquamarine": {
       "textures": "textures/items/jewelry/rings/ring_malafiotironite_aquamarine"
     },
-    "arx:ring_malafiotironite_chrysolite": {
-      "textures": "textures/items/jewelry/rings/ring_malafiotironite_chrysolite"
-    },
-    "arx:ring_malafiotironite_chrysolite_max": {
-      "textures": "textures/items/jewelry/rings/ring_malafiotironite_chrysolite_max"
+    "arx:ring_malafiotironite_beryl": {
+      "textures": "textures/items/jewelry/rings/ring_malafiotironite_beryl"
     },
     "arx:ring_malafiotironite_sapphire": {
       "textures": "textures/items/jewelry/rings/ring_malafiotironite_sapphire"
     },
+    "arx:ring_malafiotironite_zircon": {
+      "textures": "textures/items/jewelry/rings/ring_malafiotironite_zircon"
+    },
+
+    "arx:ring_naginitis__empty": {
+      "textures": "textures/items/jewelry/rings/ring_naginitis__empty"
+    },
+    "arx:ring_naginitis_aquamarine": {
+      "textures": "textures/items/jewelry/rings/ring_naginitis_aquamarine"
+    },
+    "arx:ring_naginitis_beryl": {
+      "textures": "textures/items/jewelry/rings/ring_naginitis_beryl"
+    },
+    "arx:ring_naginitis_chrysolite": {
+      "textures": "textures/items/jewelry/rings/ring_naginitis_chrysolite"
+    },
+    "arx:ring_naginitis_cornelian": {
+      "textures": "textures/items/jewelry/rings/ring_naginitis_cornelian"
+    },
+    "arx:ring_naginitis_olivine": {
+      "textures": "textures/items/jewelry/rings/ring_naginitis_olivine"
+    },
+    "arx:ring_naginitis_ruby": {
+      "textures": "textures/items/jewelry/rings/ring_naginitis_ruby"
+    },
+    "arx:ring_naginitis_sapphire": {
+      "textures": "textures/items/jewelry/rings/ring_naginitis_sapphire"
+    },
+    "arx:ring_naginitis_topaz": {
+      "textures": "textures/items/jewelry/rings/ring_naginitis_topaz"
+    },
+    "arx:ring_naginitis_zircon": {
+      "textures": "textures/items/jewelry/rings/ring_naginitis_zircon"
+    },
+
+
     "arx:ring_toliriite__empty": {
       "textures": "textures/items/jewelry/rings/ring_toliriite__empty"
-    },
-    "arx:ring_toliriite_bronze": {
-      "textures": "textures/items/jewelry/rings/ring_toliriite_bronze"
     },
     "arx:ring_toliriite_chrysolite": {
       "textures": "textures/items/jewelry/rings/ring_toliriite_chrysolite"
@@ -1493,18 +1415,25 @@
     "arx:ring_toliriite_cornelian": {
       "textures": "textures/items/jewelry/rings/ring_toliriite_cornelian"
     },
-    "arx:ring_toliriite_riolik": {
-      "textures": "textures/items/jewelry/rings/ring_toliriite_riolik"
+    "arx:ring_toliriite_olivine": {
+      "textures": "textures/items/jewelry/rings/ring_toliriite_olivine"
+    },
+    "arx:ring_toliriite_ruby": {
+      "textures": "textures/items/jewelry/rings/ring_toliriite_ruby"
     },
     "arx:ring_toliriite_topaz": {
       "textures": "textures/items/jewelry/rings/ring_toliriite_topaz"
     },
+
+
     "arx:bertold's_silver_ring": {
       "textures": "textures/items/jewelry/rings/bertold's_silver_ring"
     },
     "arx:ring_of_immortal_eagle": {
       "textures": "textures/items/jewelry/rings/ring_of_immortal_eagle"
     },
+
+
     //амулеты
     "arx:demon_chain": {
       "textures": "textures/items/jewelry/amulets/demon_chain"
@@ -1570,6 +1499,16 @@
       "textures": "textures/items/jewelry/amulets/amul_revive"
     },
 
+    "arx:amul_magic_zoisite": {
+      "textures": "textures/items/jewelry/amulets/amul_magic_zoisite"
+    },
+    "arx:amul_magic_titanite": {
+      "textures": "textures/items/jewelry/amulets/amul_magic_titanite"
+    },
+    "arx:amul_magic_painit": {
+      "textures": "textures/items/jewelry/amulets/amul_magic_painit"
+    },
+
     "arx:belt_lamp": {
       "textures": "textures/items/belt_lamps/belt_lamp"
     },
@@ -1587,6 +1526,10 @@
     },
     "arx:mechanic_belt_lamp": {
       "textures": "textures/items/belt_lamps/mechanic_belt_lamp"
+    },
+
+    "arx:snow_bars_scarf": {
+      "textures": "textures/items/scarfs/snow_bars_scarf"
     },
 
     "arx:shackles": {
@@ -1863,33 +1806,6 @@
     },
     "arx:wine": {
       "textures": "textures/items/alchemy/alcohol/wine"
-    },
-    "arx:square_bottle_spirt": {
-      "textures": "textures/items/alchemy/medicine/square_bottle_spirt"
-    },
-    "arx:square_bottle_spirt_golden_hay": {
-      "textures": "textures/items/alchemy/medicine/square_bottle_spirt_golden_hay"
-    },
-    "arx:square_bottle_spirt_golden_hay_bone": {
-      "textures": "textures/items/alchemy/medicine/square_bottle_spirt_golden_hay_bone"
-    },
-    "arx:square_bottle_spirt_golden_hay_day_kosk": {
-      "textures": "textures/items/alchemy/medicine/square_bottle_spirt_golden_hay_day_kosk"
-    },
-    "arx:square_bottle_spirt_golden_hay_fioletic": {
-      "textures": "textures/items/alchemy/medicine/square_bottle_spirt_golden_hay_fioletic"
-    },
-    "arx:square_bottle_spirt_golden_hay_fok": {
-      "textures": "textures/items/alchemy/medicine/square_bottle_spirt_golden_hay_fok"
-    },
-    "arx:square_bottle_spirt_golden_hay_kaspora": {
-      "textures": "textures/items/alchemy/medicine/square_bottle_spirt_golden_hay_kaspora"
-    },
-    "arx:square_bottle_spirt_golden_hay_night_kosk": {
-      "textures": "textures/items/alchemy/medicine/square_bottle_spirt_golden_hay_night_kosk"
-    },
-    "arx:square_bottle_spirt_golden_hay_poison": {
-      "textures": "textures/items/alchemy/medicine/square_bottle_spirt_golden_hay_poison"
     },
     "arx:cigarette_fiolix": {
       "textures": "textures/items/alchemy/cigarettes/cigarette_fiolix"
@@ -2189,36 +2105,10 @@
     },
 
 
-    "arx:world_registration": {
-      "textures": "textures/items/help/world_registration"
-    },
-    "arx:world_datawipe": {
-      "textures": "textures/items/help/world_datawipe"
-    },
-    "arx:icon_help": {
-      "textures": "textures/items/help/icon_help"
-    },
-    "arx:player_data": {
-      "textures": "textures/items/help/player_data"
-    },
-    "arx:player_skill_data": {
-      "textures": "textures/items/help/player_skill_data"
-    },
     "arx:united_player_data": {
       "textures": "textures/items/help/united_player_data"
     },
-    "arx:weapon_data": {
-      "textures": "textures/items/help/weapon_data"
-    },
-    "arx:food_data": {
-      "textures": "textures/items/help/food_data"
-    },
-    "arx:guide": {
-      "textures": "textures/items/help/guide"
-    },
-    "arx:pose_tuning": {
-      "textures": "textures/items/help/pose_tuning"
-    },
+
     "arx:rune_affuono_a": {
       "textures": "textures/items/runes/default/rune_affuono"
     },
@@ -2498,661 +2388,704 @@
     "arx:rune_yanamo_s": {
       "textures": "textures/items/runes/superior/rune_yanamo"
     },
-    "arx:rune_multi": {
-      "textures": "textures/items/runes/special/rune_multi"
-    },
-    "arx:rune_nakamata": {
+    "arx:rune_nakamata_b": {
       "textures": "textures/items/runes/special/rune_nakamata"
     },
-    "arx:rune_ratatao": {
+    "arx:rune_ratatao_b": {
       "textures": "textures/items/runes/special/rune_ratatao"
     },
 
     "arx:moder_gun": {
       "textures": "textures/items/moder/moder_gun"
     },
-    "arx:costorub": {
-      "textures": "textures/items/weapons/swords/costorub"
-    },
-    "arx:delimiter": {
-      "textures": "textures/items/weapons/swords/delimiter"
-    },
-    "arx:golden_longsword": {
-      "textures": "textures/items/weapons/swords/golden_longsword"
-    },
-    "arx:dorionite_dismantler": {
-      "textures": "textures/items/weapons/swords/dorionite_dismantler"
-    },
-    "arx:steel_heavy_crusher": {
-      "textures": "textures/items/weapons/swords/steel_heavy_crusher"
-    },
-    "arx:steel_light_sword": {
-      "textures": "textures/items/weapons/swords/steel_light_sword"
-    },
+    
     "arx:bone_dagger": {
-      "textures": "textures/items/weapons/swords/bone_dagger"
-    },
-    "arx:spear_with_gold_inlays": {
-      "textures": "textures/items/weapons/swords/spear_with_gold_inlays"
-    },
-    "arx:steel_wide_shortsword": {
-      "textures": "textures/items/weapons/swords/steel_wide_shortsword"
-    },
-    "arx:steel_wide_shortsword_with_special_guard": {
-      "textures": "textures/items/weapons/swords/steel_wide_shortsword_with_special_guard"
+      "textures": "textures/items/weapons/daggers/bone_dagger"
     },
     "arx:golden_ossified_dagger": {
-      "textures": "textures/items/weapons/swords/golden_ossified_dagger"
-    },
-    "arx:powered_steel_wide_shortsword": {
-      "textures": "textures/items/weapons/swords/powered_steel_wide_shortsword"
+      "textures": "textures/items/weapons/daggers/golden_ossified_dagger"
     },
     "arx:golden_dagger_fang": {
-      "textures": "textures/items/weapons/swords/golden_dagger_fang"
+      "textures": "textures/items/weapons/daggers/golden_dagger_fang"
     },
     "arx:hunting_cast_iron_knife": {
-      "textures": "textures/items/weapons/swords/hunting_cast_iron_knife"
-    },
-    "arx:steel_sharp_sword": {
-      "textures": "textures/items/weapons/swords/steel_sharp_sword"
+      "textures": "textures/items/weapons/daggers/hunting_cast_iron_knife"
     },
     "arx:simple_iron_dagger": {
-      "textures": "textures/items/weapons/swords/simple_iron_dagger"
+      "textures": "textures/items/weapons/daggers/simple_iron_dagger"
     },
     "arx:dagger_fang": {
-      "textures": "textures/items/weapons/swords/dagger_fang"
+      "textures": "textures/items/weapons/daggers/dagger_fang"
     },
     "arx:longed_cast_iron_dagger": {
-      "textures": "textures/items/weapons/swords/longed_cast_iron_dagger"
+      "textures": "textures/items/weapons/daggers/longed_cast_iron_dagger"
     },
     "arx:notched_durasteel_dagger": {
-      "textures": "textures/items/weapons/swords/notched_durasteel_dagger"
+      "textures": "textures/items/weapons/daggers/notched_durasteel_dagger"
     },
     "arx:simple_stone_dagger": {
-      "textures": "textures/items/weapons/swords/simple_stone_dagger"
+      "textures": "textures/items/weapons/daggers/simple_stone_dagger"
     },
     "arx:fish_knife": {
-      "textures": "textures/items/weapons/swords/fish_knife"
+      "textures": "textures/items/weapons/daggers/fish_knife"
     },
     "arx:chloronite_dagger": {
-      "textures": "textures/items/weapons/swords/chloronite_dagger"
+      "textures": "textures/items/weapons/daggers/chloronite_dagger"
     },
     "arx:steel_advanced_guard_dagger": {
-      "textures": "textures/items/weapons/swords/steel_advanced_guard_dagger"
+      "textures": "textures/items/weapons/daggers/steel_advanced_guard_dagger"
     },
     "arx:dagger_of_the_gap": {
-      "textures": "textures/items/weapons/swords/dagger_of_the_gap"
+      "textures": "textures/items/weapons/daggers/dagger_of_the_gap"
     },
     "arx:dagger_with_golden_blade": {
-      "textures": "textures/items/weapons/swords/dagger_with_golden_blade"
+      "textures": "textures/items/weapons/daggers/dagger_with_golden_blade"
     },
-    "arx:even": {
-      "textures": "textures/items/weapons/swords/even"
+    "arx:vicious_dagger_refined": {
+      "textures": "textures/items/weapons/daggers/vicious_dagger_refined"
     },
-    "arx:cast_iron_hammer_crusher": {
-      "textures": "textures/items/weapons/swords/cast_iron_hammer_crusher"
+    "arx:vicious_dagger": {
+      "textures": "textures/items/weapons/daggers/vicious_dagger"
     },
-    "arx:flesh_sword": {
-      "textures": "textures/items/weapons/swords/flesh_sword"
+    "arx:podlik": {
+      "textures": "textures/items/weapons/daggers/podlik"
     },
-    "arx:dorionite_hammer": {
-      "textures": "textures/items/weapons/swords/dorionite_hammer"
-    },
-    "arx:heavy_axe_with_chloronite_inlays": {
-      "textures": "textures/items/weapons/swords/heavy_axe_with_chloronite_inlays"
-    },
-    "arx:petrified_sword": {
-      "textures": "textures/items/weapons/swords/petrified_sword"
-    },
-    "arx:rose_crusher": {
-      "textures": "textures/items/weapons/swords/rose_crusher"
-    },
-    "arx:bronze_fang": {
-      "textures": "textures/items/weapons/swords/bronze_fang"
-    },
-    "arx:wooden_heavy_crusher": {
-      "textures": "textures/items/weapons/swords/wooden_heavy_crusher"
-    },
-    "arx:altaite_small_hammer": {
-      "textures": "textures/items/weapons/swords/altaite_small_hammer"
-    },
-    "arx:bronze_sword": {
-      "textures": "textures/items/weapons/swords/bronze_sword"
-    },
-    "arx:copper_heavy_battleaxe": {
-      "textures": "textures/items/weapons/swords/copper_heavy_battleaxe"
-    },
-    "arx:dorionite_battleaxe": {
-      "textures": "textures/items/weapons/swords/dorionite_battleaxe"
-    },
-    "arx:dorionite_powered_battleaxe": {
-      "textures": "textures/items/weapons/swords/dorionite_powered_battleaxe"
-    },
-    "arx:wooden_wide_sword": {
-      "textures": "textures/items/weapons/swords/wooden_wide_sword"
-    },
-    "arx:red_crystal_crusher": {
-      "textures": "textures/items/weapons/swords/red_crystal_crusher"
-    },
-    "arx:plumbum_small_hammer": {
-      "textures": "textures/items/weapons/swords/plumbum_small_hammer"
-    },
-    "arx:steel_chorper": {
-      "textures": "textures/items/weapons/swords/steel_chorper"
-    },
-    "arx:composite_toothed_sawsword": {
-      "textures": "textures/items/weapons/swords/composite_toothed_sawsword"
-    },
-    "arx:durasteel_sword_with_bronze_inlays": {
-      "textures": "textures/items/weapons/swords/durasteel_sword_with_bronze_inlays"
-    },
-    "arx:wooden_heavy_sword": {
-      "textures": "textures/items/weapons/swords/wooden_heavy_sword"
-    },
-    "arx:altaite_battlehammer": {
-      "textures": "textures/items/weapons/swords/altaite_battlehammer"
-    },
-    "arx:ideal_altaite_sword": {
-      "textures": "textures/items/weapons/swords/ideal_altaite_sword"
-    },
-    "arx:durasteel_longsword": {
-      "textures": "textures/items/weapons/swords/durasteel_longsword"
-    },
-    "arx:dorionite_secyra_with_sapphiers": {
-      "textures": "textures/items/weapons/swords/dorionite_secyra_with_sapphiers"
-    },
-    "arx:netherite_crusher": {
-      "textures": "textures/items/weapons/swords/netherite_crusher"
-    },
-    "arx:netherite_heavy_secyra": {
-      "textures": "textures/items/weapons/swords/netherite_heavy_secyra"
-    },
-    "arx:leave_axe": {
-      "textures": "textures/items/weapons/swords/leave_axe"
-    },
-    "arx:stone_heavy_crusher": {
-      "textures": "textures/items/weapons/swords/stone_heavy_crusher"
-    },
-    "arx:riolik_hammer": {
-      "textures": "textures/items/weapons/swords/riolik_hammer"
-    },
-    "arx:cast_iron_board": {
-      "textures": "textures/items/weapons/swords/cast_iron_board"
-    },
-    "arx:duraluminium_crusher": {
-      "textures": "textures/items/weapons/swords/duraluminium_crusher"
-    },
-    "arx:caryite_sword": {
-      "textures": "textures/items/weapons/swords/caryite_sword"
-    },
-    "arx:bronze_crusher": {
-      "textures": "textures/items/weapons/swords/bronze_crusher"
-    },
-    "arx:full_golden_longsword": {
-      "textures": "textures/items/weapons/swords/full_golden_longsword"
-    },
-    "arx:durasteel_ripper": {
-      "textures": "textures/items/weapons/swords/durasteel_ripper"
-    },
-    "arx:dorionite_small_battleaxe": {
-      "textures": "textures/items/weapons/swords/dorionite_small_battleaxe"
-    },
-    "arx:bronze_great_battleaxe": {
-      "textures": "textures/items/weapons/swords/bronze_great_battleaxe"
-    },
-    "arx:caryite_small_battleaxe": {
-      "textures": "textures/items/weapons/swords/caryite_small_battleaxe"
-    },
+
+
+
     "arx:stone_tomahawk": {
-      "textures": "textures/items/weapons/swords/stone_tomahawk"
+      "textures": "textures/items/weapons/heavy/stone_tomahawk"
     },
     "arx:iron_default_axe": {
-      "textures": "textures/items/weapons/swords/iron_default_axe"
+      "textures": "textures/items/weapons/heavy/iron_default_axe"
     },
-    "arx:wooden_very_heavy_crusher": {
-      "textures": "textures/items/weapons/swords/wooden_very_heavy_crusher"
+    "arx:costorub": {
+      "textures": "textures/items/weapons/heavy/costorub"
     },
-    "arx:naginitis_battleaxe": {
-      "textures": "textures/items/weapons/swords/naginitis_battleaxe"
+    "arx:riolik_hammer": {
+      "textures": "textures/items/weapons/heavy/riolik_hammer"
     },
-    "arx:elder_crusher": {
-      "textures": "textures/items/weapons/swords/elder_crusher"
+    "arx:cast_iron_board": {
+      "textures": "textures/items/weapons/heavy/cast_iron_board"
     },
-    "arx:caryite_and_toliriite_sword": {
-      "textures": "textures/items/weapons/swords/caryite_and_toliriite_sword"
+    "arx:altaite_battlehammer": {
+      "textures": "textures/items/weapons/heavy/altaite_battlehammer"
     },
-    "arx:naginits_and_forfacorite_sword": {
-      "textures": "textures/items/weapons/swords/naginits_and_forfacorite_sword"
+    "arx:stone_heavy_crusher": {
+      "textures": "textures/items/weapons/heavy/stone_heavy_crusher"
     },
-    "arx:netherite_secyra": {
-      "textures": "textures/items/weapons/swords/netherite_secyra"
-    },
-    "arx:riolik_heavy_sword": {
-      "textures": "textures/items/weapons/swords/riolik_heavy_sword"
-    },
-    "arx:duraluminium_short_sword": {
-      "textures": "textures/items/weapons/swords/duraluminium_short_sword"
+    "arx:bronze_great_battleaxe": {
+      "textures": "textures/items/weapons/heavy/bronze_great_battleaxe"
     },
     "arx:cast_iron_hammer": {
-      "textures": "textures/items/weapons/swords/cast_iron_hammer"
+      "textures": "textures/items/weapons/heavy/cast_iron_hammer"
     },
-    "arx:netherite_bonecrusher": {
-      "textures": "textures/items/weapons/swords/netherite_bonecrusher"
+    "arx:copper_heavy_battleaxe": {
+      "textures": "textures/items/weapons/heavy/copper_heavy_battleaxe"
     },
-    "arx:cast_netherite_crusher": {
-      "textures": "textures/items/weapons/swords/cast_netherite_crusher"
+    "arx:dorionite_small_battleaxe": {
+      "textures": "textures/items/weapons/heavy/dorionite_small_battleaxe"
     },
-    "arx:steel_heavy_sword": {
-      "textures": "textures/items/weapons/swords/steel_heavy_sword"
+    "arx:durasteel_ripper": {
+      "textures": "textures/items/weapons/heavy/durasteel_ripper"
     },
-    "arx:dorionite_ripper": {
-      "textures": "textures/items/weapons/swords/dorionite_ripper"
+    "arx:full_golden_longsword": {
+      "textures": "textures/items/weapons/heavy/full_golden_longsword"
     },
-    "arx:toliriite_ripper": {
-      "textures": "textures/items/weapons/swords/toliriite_ripper"
+    "arx:naginitis_battleaxe": {
+      "textures": "textures/items/weapons/heavy/naginitis_battleaxe"
     },
-    "arx:red_crystal_heavy_sword": {
-      "textures": "textures/items/weapons/swords/red_crystal_heavy_sword"
+    "arx:naginits_and_forfacorite_sword": {
+      "textures": "textures/items/weapons/heavy/naginits_and_forfacorite_sword"
     },
-    "arx:toliriite_cutter": {
-      "textures": "textures/items/weapons/swords/toliriite_cutter"
+    "arx:netherite_crusher": {
+      "textures": "textures/items/weapons/heavy/netherite_crusher"
     },
-    "arx:bronze_crusher_with_cornelian": {
-      "textures": "textures/items/weapons/swords/bronze_crusher_with_cornelian"
+    "arx:netherite_heavy_secyra": {
+      "textures": "textures/items/weapons/heavy/netherite_heavy_secyra"
     },
-    "arx:lamenite_megahammer": {
-      "textures": "textures/items/weapons/swords/lamenite_megahammer"
-    },
-    "arx:netherite_blade": {
-      "textures": "textures/items/weapons/swords/netherite_blade"
-    },
-    "arx:bronze_and_caryite_axe": {
-      "textures": "textures/items/weapons/swords/bronze_and_caryite_axe"
-    },
-    "arx:clear_dorionite_sword": {
-      "textures": "textures/items/weapons/swords/clear_dorionite_sword"
-    },
-    "arx:duraluminium_sword_with_draphorite_inlays": {
-      "textures": "textures/items/weapons/swords/duraluminium_sword_with_draphorite_inlays"
-    },
-    "arx:dorionite_megahammer": {
-      "textures": "textures/items/weapons/swords/dorionite_megahammer"
-    },
-    "arx:caryite_and_toliriite_wide_sword": {
-      "textures": "textures/items/weapons/swords/caryite_and_toliriite_wide_sword"
-    },
-    "arx:durasteel_extreme_long_sword": {
-      "textures": "textures/items/weapons/swords/durasteel_extreme_long_sword"
-    },
-    "arx:bronze_hammer": {
-      "textures": "textures/items/weapons/swords/bronze_hammer"
-    },
-    "arx:draphorite_sword": {
-      "textures": "textures/items/weapons/swords/draphorite_sword"
-    },
-    "arx:duraluminium_dismantler_with_draphorite_inlays": {
-      "textures": "textures/items/weapons/swords/duraluminium_dismantler_with_draphorite_inlays"
-    },
-    "arx:cast_iron_heavy_crusher": {
-      "textures": "textures/items/weapons/swords/cast_iron_heavy_crusher"
-    },
-    "arx:cast_iron_battleaxe_with_chloronite_inlays": {
-      "textures": "textures/items/weapons/swords/cast_iron_battleaxe_with_chloronite_inlays"
-    },
-    "arx:durasteel_wide_greatsword": {
-      "textures": "textures/items/weapons/swords/durasteel_wide_greatsword"
-    },
-    "arx:wide_cross_sword": {
-      "textures": "textures/items/weapons/swords/wide_cross_sword"
-    },
-    "arx:harbinger_of_dawn": {
-      "textures": "textures/items/weapons/swords/harbinger_of_dawn"
-    },
-    "arx:caryite_delimiter": {
-      "textures": "textures/items/weapons/swords/caryite_delimiter"
-    },
-    "arx:caryite_sword_with_sapphire": {
-      "textures": "textures/items/weapons/swords/caryite_sword_with_sapphire"
-    },
-    "arx:bronze_and_gold_alloy_battleaxe": {
-      "textures": "textures/items/weapons/swords/bronze_and_gold_alloy_battleaxe"
-    },
-    "arx:steel_big_longsword": {
-      "textures": "textures/items/weapons/swords/steel_big_longsword"
-    },
-    "arx:ravensword": {
-      "textures": "textures/items/weapons/swords/ravensword"
-    },
-    "arx:steel_longsword_with_altaite_inlays": {
-      "textures": "textures/items/weapons/swords/steel_longsword_with_altaite_inlays"
-    },
-    "arx:clear_caryite_crusher": {
-      "textures": "textures/items/weapons/swords/clear_caryite_crusher"
-    },
-    "arx:flesh_hell_sword": {
-      "textures": "textures/items/weapons/swords/flesh_hell_sword"
-    },
-    "arx:dorionite_long_sword": {
-      "textures": "textures/items/weapons/swords/dorionite_long_sword"
-    },
-    "arx:cast_iron_greatsword": {
-      "textures": "textures/items/weapons/swords/cast_iron_greatsword"
-    },
-    "arx:elder_battleboard": {
-      "textures": "textures/items/weapons/swords/elder_battleboard"
-    },
-    "arx:tin_heavy_sword": {
-      "textures": "textures/items/weapons/swords/tin_heavy_sword"
-    },
-    "arx:elder_white_crusher": {
-      "textures": "textures/items/weapons/swords/elder_white_crusher"
-    },
-    "arx:chloronite_big_sword": {
-      "textures": "textures/items/weapons/swords/chloronite_big_sword"
-    },
-    "arx:duraluminium_delimiter": {
-      "textures": "textures/items/weapons/swords/duraluminium_delimiter"
-    },
-    "arx:cast_iron_alebard": {
-      "textures": "textures/items/weapons/swords/cast_iron_alebard"
-    },
-    "arx:steel_lance": {
-      "textures": "textures/items/weapons/swords/steel_lance"
-    },
-    "arx:cast_iron_lance": {
-      "textures": "textures/items/weapons/swords/cast_iron_lance"
-    },
-    "arx:duraluminium_lance": {
-      "textures": "textures/items/weapons/swords/duraluminium_lance"
-    },
-    "arx:durasteel_lance": {
-      "textures": "textures/items/weapons/swords/durasteel_lance"
-    },
-    "arx:durasteel_spear": {
-      "textures": "textures/items/weapons/swords/durasteel_spear"
-    },
-    "arx:netherite_lance": {
-      "textures": "textures/items/weapons/swords/netherite_lance"
-    },
-    "arx:steel_spear": {
-      "textures": "textures/items/weapons/swords/steel_spear"
-    },
-    "arx:netherite_naginata": {
-      "textures": "textures/items/weapons/swords/netherite_naginata"
-    },
-    "arx:durasteel_lance_with_draphorite_inlays": {
-      "textures": "textures/items/weapons/swords/durasteel_lance_with_draphorite_inlays"
-    },
-    "arx:dorionite_lance": {
-      "textures": "textures/items/weapons/swords/dorionite_lance"
-    },
-    "arx:durasteel_and_aluminium_lance": {
-      "textures": "textures/items/weapons/swords/durasteel_and_aluminium_lance"
-    },
-    "arx:bronze_lance": {
-      "textures": "textures/items/weapons/swords/bronze_lance"
-    },
-    "arx:cast_iron_longsword": {
-      "textures": "textures/items/weapons/swords/cast_iron_longsword"
-    },
-    "arx:naginitis_longsword": {
-      "textures": "textures/items/weapons/swords/naginitis_longsword"
-    },
-    "arx:simple_iron_longsword": {
-      "textures": "textures/items/weapons/swords/simple_iron_longsword"
-    },
-    "arx:sacrificial_iron_sword": {
-      "textures": "textures/items/weapons/swords/sacrificial_iron_sword"
+    "arx:netherite_secyra": {
+      "textures": "textures/items/weapons/heavy/netherite_secyra"
     },
     "arx:plumbum_full_small_hammer": {
-      "textures": "textures/items/weapons/swords/plumbum_full_small_hammer"
+      "textures": "textures/items/weapons/heavy/plumbum_full_small_hammer"
     },
-    "arx:wooden_longsword": {
-      "textures": "textures/items/weapons/swords/wooden_longsword"
+    "arx:plumbum_small_hammer": {
+      "textures": "textures/items/weapons/heavy/plumbum_small_hammer"
     },
-    "arx:plumbum_sword": {
-      "textures": "textures/items/weapons/swords/plumbum_sword"
+    "arx:riolik_heavy_sword": {
+      "textures": "textures/items/weapons/heavy/riolik_heavy_sword"
     },
-    "arx:netherite_ripper": {
-      "textures": "textures/items/weapons/swords/netherite_ripper"
+    "arx:rose_crusher": {
+      "textures": "textures/items/weapons/heavy/rose_crusher"
     },
-    "arx:caryite_saber": {
-      "textures": "textures/items/weapons/swords/caryite_saber"
+    "arx:tin_heavy_sword": {
+      "textures": "textures/items/weapons/heavy/tin_heavy_sword"
     },
-    "arx:duraluminium_battleaxe_with_draphorite_inlays": {
-      "textures": "textures/items/weapons/swords/duraluminium_battleaxe_with_draphorite_inlays"
+    "arx:wooden_heavy_crusher": {
+      "textures": "textures/items/weapons/heavy/wooden_heavy_crusher"
     },
-    "arx:steel_simple_sword": {
-      "textures": "textures/items/weapons/swords/steel_simple_sword"
+
+
+
+    "arx:altaite_saber": {
+      "textures": "textures/items/weapons/long/altaite_saber"
     },
-    "arx:copper_sword_hook": {
-      "textures": "textures/items/weapons/swords/copper_sword_hook"
-    },
-    "arx:simple_iron_axe": {
-      "textures": "textures/items/weapons/swords/simple_iron_axe"
-    },
-    "arx:wooden_simple_sword": {
-      "textures": "textures/items/weapons/swords/wooden_simple_sword"
-    },
-    "arx:steel_saber": {
-      "textures": "textures/items/weapons/swords/steel_saber"
-    },
-    "arx:durasteel_simple_longsword": {
-      "textures": "textures/items/weapons/swords/durasteel_simple_longsword"
-    },
-    "arx:dorionite_battleaxe_with_caryite_inlays": {
-      "textures": "textures/items/weapons/swords/dorionite_battleaxe_with_caryite_inlays"
-    },
-    "arx:dorionite_double_edged_sword": {
-      "textures": "textures/items/weapons/swords/dorionite_double_edged_sword"
-    },
-    "arx:plumbum_longsword": {
-      "textures": "textures/items/weapons/swords/plumbum_longsword"
-    },
-    "arx:aluminium_sword": {
-      "textures": "textures/items/weapons/swords/aluminium_sword"
-    },
-    "arx:simple_iron_sword": {
-      "textures": "textures/items/weapons/swords/simple_iron_sword"
-    },
-    "arx:iron_wide_sword": {
-      "textures": "textures/items/weapons/swords/iron_wide_sword"
-    },
-    "arx:steel_weighted_sword": {
-      "textures": "textures/items/weapons/swords/steel_weighted_sword"
+    "arx:altaite_small_hammer": {
+      "textures": "textures/items/weapons/long/altaite_small_hammer"
     },
     "arx:aluminium_curved_sword": {
-      "textures": "textures/items/weapons/swords/aluminium_curved_sword"
+      "textures": "textures/items/weapons/long/aluminium_curved_sword"
     },
-    "arx:iron_wide_heavy_sword": {
-      "textures": "textures/items/weapons/swords/iron_wide_heavy_sword"
-    },
-    "arx:bronze_longed_sword": {
-      "textures": "textures/items/weapons/swords/bronze_longed_sword"
-    },
-    "arx:steel_sword_with_copper_guard": {
-      "textures": "textures/items/weapons/swords/steel_sword_with_copper_guard"
-    },
-    "arx:bronze_longsword": {
-      "textures": "textures/items/weapons/swords/bronze_longsword"
+    "arx:bronze_fang": {
+      "textures": "textures/items/weapons/long/bronze_fang"
     },
     "arx:bronze_heighted_battleaxe": {
-      "textures": "textures/items/weapons/swords/bronze_heighted_battleaxe"
+      "textures": "textures/items/weapons/long/bronze_heighted_battleaxe"
     },
-    "arx:steel_mace": {
-      "textures": "textures/items/weapons/swords/steel_mace"
+    "arx:bronze_longed_sword": {
+      "textures": "textures/items/weapons/long/bronze_longed_sword"
     },
-    "arx:plumbum_axe": {
-      "textures": "textures/items/weapons/swords/plumbum_axe"
+    "arx:bronze_longsword": {
+      "textures": "textures/items/weapons/long/bronze_longsword"
     },
-    "arx:steel_longsword_with_copper_guard": {
-      "textures": "textures/items/weapons/swords/steel_longsword_with_copper_guard"
-    },
-    "arx:steel_longsword": {
-      "textures": "textures/items/weapons/swords/steel_longsword"
-    },
-    "arx:tin_curved_saber": {
-      "textures": "textures/items/weapons/swords/tin_curved_saber"
-    },
-    "arx:steel_crossword": {
-      "textures": "textures/items/weapons/swords/steel_crossword"
+    "arx:bronze_sword": {
+      "textures": "textures/items/weapons/long/bronze_sword"
     },
     "arx:bronze_trident": {
-      "textures": "textures/items/weapons/swords/bronze_trident"
-    },
-    "arx:durasteel_streight_longsword": {
-      "textures": "textures/items/weapons/swords/durasteel_streight_longsword"
-    },
-    "arx:tin_small_battleaxe": {
-      "textures": "textures/items/weapons/swords/tin_small_battleaxe"
-    },
-    "arx:plumbum_small_longsword": {
-      "textures": "textures/items/weapons/swords/plumbum_small_longsword"
-    },
-    "arx:wooden_one_sided_sword": {
-      "textures": "textures/items/weapons/swords/wooden_one_sided_sword"
-    },
-    "arx:steel_sword_with_golden_guard": {
-      "textures": "textures/items/weapons/swords/steel_sword_with_golden_guard"
-    },
-    "arx:wooden_battleaxe": {
-      "textures": "textures/items/weapons/swords/wooden_battleaxe"
-    },
-    "arx:plumbum_heighted_longsword": {
-      "textures": "textures/items/weapons/swords/plumbum_heighted_longsword"
-    },
-    "arx:naginitis_weighted_battleaxe": {
-      "textures": "textures/items/weapons/swords/naginitis_weighted_battleaxe"
-    },
-    "arx:altaite_saber": {
-      "textures": "textures/items/weapons/swords/altaite_saber"
-    },
-    "arx:cast_iron_long_saber": {
-      "textures": "textures/items/weapons/swords/cast_iron_long_saber"
-    },
-    "arx:durasteel_small_longsword": {
-      "textures": "textures/items/weapons/swords/durasteel_small_longsword"
-    },
-    "arx:golden_trident": {
-      "textures": "textures/items/weapons/swords/golden_trident"
-    },
-    "arx:forfacorite_longsword": {
-      "textures": "textures/items/weapons/swords/forfacorite_longsword"
-    },
-    "arx:stone_longsword": {
-      "textures": "textures/items/weapons/swords/stone_longsword"
-    },
-    "arx:steel_battleaxe": {
-      "textures": "textures/items/weapons/swords/steel_battleaxe"
-    },
-    "arx:plumbum_lighted_small_longsword": {
-      "textures": "textures/items/weapons/swords/plumbum_lighted_small_longsword"
-    },
-    "arx:duraluminium_great_battleaxe": {
-      "textures": "textures/items/weapons/swords/duraluminium_great_battleaxe"
-    },
-    "arx:scythe_altaite": {
-      "textures": "textures/items/weapons/swords/scythe_altaite"
-    },
-    "arx:scythe_netherite": {
-      "textures": "textures/items/weapons/swords/scythe_netherite"
-    },
-    "arx:scythe_caryite": {
-      "textures": "textures/items/weapons/swords/scythe_caryite"
-    },
-    "arx:scythe_tin": {
-      "textures": "textures/items/weapons/swords/scythe_tin"
-    },
-    "arx:scythe_chloronite": {
-      "textures": "textures/items/weapons/swords/scythe_chloronite"
-    },
-    "arx:scythe_toliriite": {
-      "textures": "textures/items/weapons/swords/scythe_toliriite"
-    },
-    "arx:scythe_steel": {
-      "textures": "textures/items/weapons/swords/scythe_steel"
-    },
-    "arx:scythe_forfacorite": {
-      "textures": "textures/items/weapons/swords/scythe_forfacorite"
-    },
-    "arx:scythe_naginitis": {
-      "textures": "textures/items/weapons/swords/scythe_naginitis"
-    },
-    "arx:jagged_lance": {
-      "textures": "textures/items/weapons/swords/jagged_lance"
-    },
-    "arx:steel_alebard": {
-      "textures": "textures/items/weapons/swords/steel_alebard"
-    },
-    "arx:durasteel_sword_with_dorionite": {
-      "textures": "textures/items/weapons/swords/durasteel_sword_with_dorionite"
-    },
-    "arx:steel_heavy_longsword": {
-      "textures": "textures/items/weapons/swords/steel_heavy_longsword"
-    },
-    "arx:steel_tooth": {
-      "textures": "textures/items/weapons/swords/steel_tooth"
-    },
-    "arx:plumbum_dark_sword": {
-      "textures": "textures/items/weapons/swords/plumbum_dark_sword"
-    },
-    "arx:plumbum_simple_sword": {
-      "textures": "textures/items/weapons/swords/plumbum_simple_sword"
-    },
-    "arx:steel_classic_sword": {
-      "textures": "textures/items/weapons/swords/steel_classic_sword"
-    },
-    "arx:steel_sword_with_red_guard": {
-      "textures": "textures/items/weapons/swords/steel_sword_with_red_guard"
-    },
-    "arx:powered_steel_shortsword": {
-      "textures": "textures/items/weapons/swords/powered_steel_shortsword"
-    },
-    "arx:steel_shortsword": {
-      "textures": "textures/items/weapons/swords/steel_shortsword"
-    },
-    "arx:steel_dark_shortsword": {
-      "textures": "textures/items/weapons/swords/steel_dark_shortsword"
-    },
-    "arx:chloronite_shortsword": {
-      "textures": "textures/items/weapons/swords/chloronite_shortsword"
-    },
-    "arx:chloronite_shortsword_magik": {
-      "textures": "textures/items/weapons/swords/chloronite_shortsword_magik"
+      "textures": "textures/items/weapons/long/bronze_trident"
     },
     "arx:caryite_heavysword": {
-      "textures": "textures/items/weapons/swords/caryite_heavysword"
+      "textures": "textures/items/weapons/long/caryite_heavysword"
     },
-    "arx:cast_iron_tooth": {
-      "textures": "textures/items/weapons/swords/cast_iron_tooth"
+    "arx:caryite_saber": {
+      "textures": "textures/items/weapons/long/caryite_saber"
     },
-    "arx:steel_sword_with_gold_inlay": {
-      "textures": "textures/items/weapons/swords/steel_sword_with_gold_inlay"
+    "arx:caryite_small_battleaxe": {
+      "textures": "textures/items/weapons/long/caryite_small_battleaxe"
     },
-    "arx:holy_sword": {
-      "textures": "textures/items/weapons/swords/holy_sword"
+    "arx:caryite_sword": {
+      "textures": "textures/items/weapons/long/caryite_sword"
     },
-    "arx:aluminium_simple_sword": {
-      "textures": "textures/items/weapons/swords/aluminium_simple_sword"
+    "arx:cast_iron_long_saber": {
+      "textures": "textures/items/weapons/long/cast_iron_long_saber"
     },
-    "arx:steel_simple_blade": {
-      "textures": "textures/items/weapons/swords/steel_simple_blade"
+    "arx:cast_iron_longsword": {
+      "textures": "textures/items/weapons/long/cast_iron_longsword"
     },
-    "arx:steel_cleaver": {
-      "textures": "textures/items/weapons/swords/steel_cleaver"
+    "arx:copper_sword_hook": {
+      "textures": "textures/items/weapons/long/copper_sword_hook"
     },
-    "arx:plumbum_saber": {
-      "textures": "textures/items/weapons/swords/plumbum_saber"
+    "arx:dorionite_battleaxe_with_caryite_inlays": {
+      "textures": "textures/items/weapons/long/dorionite_battleaxe_with_caryite_inlays"
     },
-    "arx:wooden_carved_sword": {
-      "textures": "textures/items/weapons/swords/wooden_carved_sword"
+    "arx:dorionite_double_edged_sword": {
+      "textures": "textures/items/weapons/long/dorionite_double_edged_sword"
+    },
+    "arx:dorionite_hammer": {
+      "textures": "textures/items/weapons/long/dorionite_hammer"
+    },
+    "arx:dorionite_long_sword": {
+      "textures": "textures/items/weapons/long/dorionite_long_sword"
+    },
+    "arx:dorionite_secyra_with_sapphiers": {
+      "textures": "textures/items/weapons/long/dorionite_secyra_with_sapphiers"
+    },
+    "arx:duraluminium_battleaxe_with_draphorite_inlays": {
+      "textures": "textures/items/weapons/long/duraluminium_battleaxe_with_draphorite_inlays"
+    },
+    "arx:duraluminium_great_battleaxe": {
+      "textures": "textures/items/weapons/long/duraluminium_great_battleaxe"
+    },
+    "arx:duraluminium_short_sword": {
+      "textures": "textures/items/weapons/long/duraluminium_short_sword"
+    },
+    "arx:durasteel_longsword": {
+      "textures": "textures/items/weapons/long/durasteel_longsword"
+    },
+    "arx:durasteel_simple_longsword": {
+      "textures": "textures/items/weapons/long/durasteel_simple_longsword"
+    },
+    "arx:durasteel_small_longsword": {
+      "textures": "textures/items/weapons/long/durasteel_small_longsword"
+    },
+    "arx:durasteel_streight_longsword": {
+      "textures": "textures/items/weapons/long/durasteel_streight_longsword"
+    },
+    "arx:durasteel_sword_with_bronze_inlays": {
+      "textures": "textures/items/weapons/long/durasteel_sword_with_bronze_inlays"
+    },
+    "arx:durasteel_sword_with_dorionite": {
+      "textures": "textures/items/weapons/long/durasteel_sword_with_dorionite"
+    },
+    "arx:elder_crusher": {
+      "textures": "textures/items/weapons/long/elder_crusher"
+    },
+    "arx:even": {
+      "textures": "textures/items/weapons/long/even"
+    },
+    "arx:flesh_sword": {
+      "textures": "textures/items/weapons/long/flesh_sword"
+    },
+    "arx:forfacorite_longsword": {
+      "textures": "textures/items/weapons/long/forfacorite_longsword"
+    },
+    "arx:golden_longsword": {
+      "textures": "textures/items/weapons/long/golden_longsword"
+    },
+    "arx:golden_trident": {
+      "textures": "textures/items/weapons/long/golden_trident"
+    },
+    "arx:ideal_altaite_sword": {
+      "textures": "textures/items/weapons/long/ideal_altaite_sword"
+    },
+    "arx:iron_wide_heavy_sword": {
+      "textures": "textures/items/weapons/long/iron_wide_heavy_sword"
+    },
+    "arx:iron_wide_sword": {
+      "textures": "textures/items/weapons/long/iron_wide_sword"
     },
     "arx:long_steel_sword_with_draphorite_inlays": {
-      "textures": "textures/items/weapons/swords/long_steel_sword_with_draphorite_inlays"
+      "textures": "textures/items/weapons/long/long_steel_sword_with_draphorite_inlays"
+    },
+    "arx:naginitis_longsword": {
+      "textures": "textures/items/weapons/long/naginitis_longsword"
+    },
+    "arx:naginitis_weighted_battleaxe": {
+      "textures": "textures/items/weapons/long/naginitis_weighted_battleaxe"
+    },
+    "arx:netherite_ripper": {
+      "textures": "textures/items/weapons/long/netherite_ripper"
+    },
+    "arx:plumbum_axe": {
+      "textures": "textures/items/weapons/long/plumbum_axe"
+    },
+    "arx:plumbum_heighted_longsword": {
+      "textures": "textures/items/weapons/long/plumbum_heighted_longsword"
+    },
+    "arx:plumbum_lighted_small_longsword": {
+      "textures": "textures/items/weapons/long/plumbum_lighted_small_longsword"
+    },
+    "arx:plumbum_longsword": {
+      "textures": "textures/items/weapons/long/plumbum_longsword"
+    },
+    "arx:plumbum_small_longsword": {
+      "textures": "textures/items/weapons/long/plumbum_small_longsword"
+    },
+    "arx:plumbum_sword": {
+      "textures": "textures/items/weapons/long/plumbum_sword"
+    },
+    "arx:sacrificial_iron_sword": {
+      "textures": "textures/items/weapons/long/sacrificial_iron_sword"
+    },
+    "arx:simple_iron_axe": {
+      "textures": "textures/items/weapons/long/simple_iron_axe"
+    },
+    "arx:simple_iron_longsword": {
+      "textures": "textures/items/weapons/long/simple_iron_longsword"
+    },
+    "arx:simple_iron_sword": {
+      "textures": "textures/items/weapons/long/simple_iron_sword"
+    },
+    "arx:steel_battleaxe": {
+      "textures": "textures/items/weapons/long/steel_battleaxe"
+    },
+    "arx:steel_big_longsword": {
+      "textures": "textures/items/weapons/long/steel_big_longsword"
+    },
+    "arx:steel_crossword": {
+      "textures": "textures/items/weapons/long/steel_crossword"
+    },
+    "arx:steel_heavy_longsword": {
+      "textures": "textures/items/weapons/long/steel_heavy_longsword"
+    },
+    "arx:steel_light_sword": {
+      "textures": "textures/items/weapons/long/steel_light_sword"
+    },
+    "arx:steel_longsword_with_copper_guard": {
+      "textures": "textures/items/weapons/long/steel_longsword_with_copper_guard"
+    },
+    "arx:steel_mace": {
+      "textures": "textures/items/weapons/long/steel_mace"
+    },
+    "arx:steel_saber": {
+      "textures": "textures/items/weapons/long/steel_saber"
+    },
+    "arx:steel_simple_sword": {
+      "textures": "textures/items/weapons/long/steel_simple_sword"
+    },
+    "arx:steel_sword_with_copper_guard": {
+      "textures": "textures/items/weapons/long/steel_sword_with_copper_guard"
+    },
+    "arx:steel_sword_with_golden_guard": {
+      "textures": "textures/items/weapons/long/steel_sword_with_golden_guard"
+    },
+    "arx:steel_weighted_sword": {
+      "textures": "textures/items/weapons/long/steel_weighted_sword"
+    },
+    "arx:stone_longsword": {
+      "textures": "textures/items/weapons/long/stone_longsword"
+    },
+    "arx:tin_curved_saber": {
+      "textures": "textures/items/weapons/long/tin_curved_saber"
+    },
+    "arx:tin_small_battleaxe": {
+      "textures": "textures/items/weapons/long/tin_small_battleaxe"
+    },
+    "arx:wooden_battleaxe": {
+      "textures": "textures/items/weapons/long/wooden_battleaxe"
+    },
+    "arx:wooden_carved_sword": {
+      "textures": "textures/items/weapons/long/wooden_carved_sword"
+    },
+    "arx:wooden_longsword": {
+      "textures": "textures/items/weapons/long/wooden_longsword"
+    },
+    "arx:wooden_one_sided_sword": {
+      "textures": "textures/items/weapons/long/wooden_one_sided_sword"
+    },
+    "arx:wooden_simple_sword": {
+      "textures": "textures/items/weapons/long/wooden_simple_sword"
+    },
+    "arx:wooden_wide_sword": {
+      "textures": "textures/items/weapons/long/wooden_wide_sword"
+    },
+    "arx:aluminium_sword": {
+      "textures": "textures/items/weapons/long/aluminium_sword"
+    },
+    "arx:steel_longsword": {
+      "textures": "textures/items/weapons/long/steel_longsword"
+    },
+
+
+
+    "arx:cast_iron_hammer_crusher": {
+      "textures": "textures/items/weapons/very_heavy/cast_iron_hammer_crusher"
+    },
+    "arx:heavy_axe_with_chloronite_inlays": {
+      "textures": "textures/items/weapons/very_heavy/heavy_axe_with_chloronite_inlays"
+    },
+    "arx:petrified_sword": {
+      "textures": "textures/items/weapons/very_heavy/petrified_sword"
+    },
+    "arx:dorionite_battleaxe": {
+      "textures": "textures/items/weapons/very_heavy/dorionite_battleaxe"
+    },
+    "arx:dorionite_powered_battleaxe": {
+      "textures": "textures/items/weapons/very_heavy/dorionite_powered_battleaxe"
+    },
+    "arx:red_crystal_crusher": {
+      "textures": "textures/items/weapons/very_heavy/red_crystal_crusher"
+    },
+    "arx:steel_chorper": {
+      "textures": "textures/items/weapons/very_heavy/steel_chorper"
+    },
+    "arx:composite_toothed_sawsword": {
+      "textures": "textures/items/weapons/very_heavy/composite_toothed_sawsword"
+    },
+    "arx:leave_axe": {
+      "textures": "textures/items/weapons/very_heavy/leave_axe"
+    },
+    "arx:duraluminium_crusher": {
+      "textures": "textures/items/weapons/very_heavy/duraluminium_crusher"
+    },
+    "arx:bronze_crusher": {
+      "textures": "textures/items/weapons/very_heavy/bronze_crusher"
+    },
+    "arx:delimiter": {
+      "textures": "textures/items/weapons/very_heavy/delimiter"
+    },
+    "arx:dorionite_dismantler": {
+      "textures": "textures/items/weapons/very_heavy/dorionite_dismantler"
+    },
+    "arx:steel_heavy_crusher": {
+      "textures": "textures/items/weapons/very_heavy/steel_heavy_crusher"
+    },
+    "arx:wooden_very_heavy_crusher": {
+      "textures": "textures/items/weapons/very_heavy/wooden_very_heavy_crusher"
+    },
+    "arx:caryite_and_toliriite_sword": {
+      "textures": "textures/items/weapons/very_heavy/caryite_and_toliriite_sword"
+    },
+    "arx:netherite_bonecrusher": {
+      "textures": "textures/items/weapons/very_heavy/netherite_bonecrusher"
+    },
+    "arx:cast_netherite_crusher": {
+      "textures": "textures/items/weapons/very_heavy/cast_netherite_crusher"
+    },
+    "arx:steel_heavy_sword": {
+      "textures": "textures/items/weapons/very_heavy/steel_heavy_sword"
+    },
+    "arx:dorionite_ripper": {
+      "textures": "textures/items/weapons/very_heavy/dorionite_ripper"
+    },
+    "arx:toliriite_ripper": {
+      "textures": "textures/items/weapons/very_heavy/toliriite_ripper"
+    },
+    "arx:red_crystal_heavy_sword": {
+      "textures": "textures/items/weapons/very_heavy/red_crystal_heavy_sword"
+    },
+    "arx:toliriite_cutter": {
+      "textures": "textures/items/weapons/very_heavy/toliriite_cutter"
+    },
+    "arx:bronze_crusher_with_cornelian": {
+      "textures": "textures/items/weapons/very_heavy/bronze_crusher_with_cornelian"
+    },
+    "arx:lamenite_megahammer": {
+      "textures": "textures/items/weapons/very_heavy/lamenite_megahammer"
+    },
+    "arx:netherite_blade": {
+      "textures": "textures/items/weapons/very_heavy/netherite_blade"
+    },
+    "arx:bronze_and_caryite_axe": {
+      "textures": "textures/items/weapons/very_heavy/bronze_and_caryite_axe"
+    },
+    "arx:clear_dorionite_sword": {
+      "textures": "textures/items/weapons/very_heavy/clear_dorionite_sword"
+    },
+    "arx:dorionite_megahammer": {
+      "textures": "textures/items/weapons/very_heavy/dorionite_megahammer"
+    },
+    "arx:caryite_and_toliriite_wide_sword": {
+      "textures": "textures/items/weapons/very_heavy/caryite_and_toliriite_wide_sword"
+    },
+    "arx:durasteel_extreme_long_sword": {
+      "textures": "textures/items/weapons/very_heavy/durasteel_extreme_long_sword"
+    },
+    "arx:bronze_hammer": {
+      "textures": "textures/items/weapons/very_heavy/bronze_hammer"
+    },
+    "arx:draphorite_sword": {
+      "textures": "textures/items/weapons/very_heavy/draphorite_sword"
+    },
+    "arx:duraluminium_dismantler_with_draphorite_inlays": {
+      "textures": "textures/items/weapons/very_heavy/duraluminium_dismantler_with_draphorite_inlays"
+    },
+    "arx:cast_iron_heavy_crusher": {
+      "textures": "textures/items/weapons/very_heavy/cast_iron_heavy_crusher"
+    },
+    "arx:cast_iron_battleaxe_with_chloronite_inlays": {
+      "textures": "textures/items/weapons/very_heavy/cast_iron_battleaxe_with_chloronite_inlays"
+    },
+    "arx:durasteel_wide_greatsword": {
+      "textures": "textures/items/weapons/very_heavy/durasteel_wide_greatsword"
+    },
+    "arx:wide_cross_sword": {
+      "textures": "textures/items/weapons/very_heavy/wide_cross_sword"
+    },
+    "arx:harbinger_of_dawn": {
+      "textures": "textures/items/weapons/very_heavy/harbinger_of_dawn"
+    },
+    "arx:caryite_delimiter": {
+      "textures": "textures/items/weapons/very_heavy/caryite_delimiter"
+    },
+    "arx:caryite_sword_with_sapphire": {
+      "textures": "textures/items/weapons/very_heavy/caryite_sword_with_sapphire"
+    },
+    "arx:bronze_and_gold_alloy_battleaxe": {
+      "textures": "textures/items/weapons/very_heavy/bronze_and_gold_alloy_battleaxe"
+    },
+    "arx:ravensword": {
+      "textures": "textures/items/weapons/very_heavy/ravensword"
+    },
+    "arx:clear_caryite_crusher": {
+      "textures": "textures/items/weapons/very_heavy/clear_caryite_crusher"
+    },
+    "arx:flesh_hell_sword": {
+      "textures": "textures/items/weapons/very_heavy/flesh_hell_sword"
+    },
+    "arx:cast_iron_greatsword": {
+      "textures": "textures/items/weapons/very_heavy/cast_iron_greatsword"
+    },
+    "arx:elder_battleboard": {
+      "textures": "textures/items/weapons/very_heavy/elder_battleboard"
+    },
+    "arx:elder_white_crusher": {
+      "textures": "textures/items/weapons/very_heavy/elder_white_crusher"
+    },
+    "arx:chloronite_big_sword": {
+      "textures": "textures/items/weapons/very_heavy/chloronite_big_sword"
+    },
+    "arx:duraluminium_delimiter": {
+      "textures": "textures/items/weapons/very_heavy/duraluminium_delimiter"
+    },
+    "arx:duraluminium_sword_with_draphorite_inlays": {
+      "textures": "textures/items/weapons/very_heavy/duraluminium_sword_with_draphorite_inlays"
+    },
+    "arx:steel_longsword_with_altaite_inlays": {
+      "textures": "textures/items/weapons/very_heavy/steel_longsword_with_altaite_inlays"
+    },
+    "arx:wooden_heavy_sword": {
+      "textures": "textures/items/weapons/very_heavy/wooden_heavy_sword"
+    },
+
+
+
+    "arx:cast_iron_alebard": {
+      "textures": "textures/items/weapons/lances/cast_iron_alebard"
+    },
+    "arx:steel_lance": {
+      "textures": "textures/items/weapons/lances/steel_lance"
+    },
+    "arx:cast_iron_lance": {
+      "textures": "textures/items/weapons/lances/cast_iron_lance"
+    },
+    "arx:duraluminium_lance": {
+      "textures": "textures/items/weapons/lances/duraluminium_lance"
+    },
+    "arx:durasteel_lance": {
+      "textures": "textures/items/weapons/lances/durasteel_lance"
+    },
+    "arx:durasteel_spear": {
+      "textures": "textures/items/weapons/lances/durasteel_spear"
+    },
+    "arx:netherite_lance": {
+      "textures": "textures/items/weapons/lances/netherite_lance"
+    },
+    "arx:steel_spear": {
+      "textures": "textures/items/weapons/lances/steel_spear"
+    },
+    "arx:netherite_naginata": {
+      "textures": "textures/items/weapons/lances/netherite_naginata"
+    },
+    "arx:durasteel_lance_with_draphorite_inlays": {
+      "textures": "textures/items/weapons/lances/durasteel_lance_with_draphorite_inlays"
+    },
+    "arx:dorionite_lance": {
+      "textures": "textures/items/weapons/lances/dorionite_lance"
+    },
+    "arx:durasteel_and_aluminium_lance": {
+      "textures": "textures/items/weapons/lances/durasteel_and_aluminium_lance"
+    },
+    "arx:bronze_lance": {
+      "textures": "textures/items/weapons/lances/bronze_lance"
+    },
+    "arx:jagged_lance": {
+      "textures": "textures/items/weapons/lances/jagged_lance"
+    },
+    "arx:vicious_lance_refined": {
+      "textures": "textures/items/weapons/lances/vicious_lance_refined"
+    },
+    "arx:vicious_lance": {
+      "textures": "textures/items/weapons/lances/vicious_lance"
+    },
+    "arx:steel_alebard": {
+      "textures": "textures/items/weapons/lances/steel_alebard"
+    },
+    "arx:spear_with_gold_inlays": {
+      "textures": "textures/items/weapons/lances/spear_with_gold_inlays"
+    },
+
+
+
+    "arx:scythe_altaite": {
+      "textures": "textures/items/weapons/scythes/scythe_altaite"
+    },
+    "arx:scythe_netherite": {
+      "textures": "textures/items/weapons/scythes/scythe_netherite"
+    },
+    "arx:scythe_caryite": {
+      "textures": "textures/items/weapons/scythes/scythe_caryite"
+    },
+    "arx:scythe_tin": {
+      "textures": "textures/items/weapons/scythes/scythe_tin"
+    },
+    "arx:scythe_chloronite": {
+      "textures": "textures/items/weapons/scythes/scythe_chloronite"
+    },
+    "arx:scythe_toliriite": {
+      "textures": "textures/items/weapons/scythes/scythe_toliriite"
+    },
+    "arx:scythe_steel": {
+      "textures": "textures/items/weapons/scythes/scythe_steel"
+    },
+    "arx:scythe_forfacorite": {
+      "textures": "textures/items/weapons/scythes/scythe_forfacorite"
+    },
+    "arx:scythe_naginitis": {
+      "textures": "textures/items/weapons/scythes/scythe_naginitis"
+    },
+
+
+
+    "arx:adona_sword": {
+      "textures": "textures/items/weapons/default/adona_sword"
+    },
+    "arx:tearing_flesh": {
+      "textures": "textures/items/weapons/default/tearing_flesh"
+    },
+    "arx:blood_waiting": {
+      "textures": "textures/items/weapons/default/blood_waiting"
+    },
+    "arx:steel_tooth": {
+      "textures": "textures/items/weapons/default/steel_tooth"
+    },
+    "arx:plumbum_dark_sword": {
+      "textures": "textures/items/weapons/default/plumbum_dark_sword"
+    },
+    "arx:plumbum_simple_sword": {
+      "textures": "textures/items/weapons/default/plumbum_simple_sword"
+    },
+    "arx:steel_classic_sword": {
+      "textures": "textures/items/weapons/default/steel_classic_sword"
+    },
+    "arx:steel_sword_with_red_guard": {
+      "textures": "textures/items/weapons/default/steel_sword_with_red_guard"
+    },
+    "arx:powered_steel_shortsword": {
+      "textures": "textures/items/weapons/default/powered_steel_shortsword"
+    },
+    "arx:steel_shortsword": {
+      "textures": "textures/items/weapons/default/steel_shortsword"
+    },
+    "arx:steel_dark_shortsword": {
+      "textures": "textures/items/weapons/default/steel_dark_shortsword"
+    },
+    "arx:chloronite_shortsword": {
+      "textures": "textures/items/weapons/default/chloronite_shortsword"
+    },
+    "arx:chloronite_shortsword_magik": {
+      "textures": "textures/items/weapons/default/chloronite_shortsword_magik"
+    },
+    "arx:steel_sword_with_gold_inlay": {
+      "textures": "textures/items/weapons/default/steel_sword_with_gold_inlay"
+    },
+    "arx:holy_sword": {
+      "textures": "textures/items/weapons/default/holy_sword"
+    },
+    "arx:aluminium_simple_sword": {
+      "textures": "textures/items/weapons/default/aluminium_simple_sword"
+    },
+    "arx:steel_simple_blade": {
+      "textures": "textures/items/weapons/default/steel_simple_blade"
+    },
+    "arx:steel_cleaver": {
+      "textures": "textures/items/weapons/default/steel_cleaver"
+    },
+    "arx:plumbum_saber": {
+      "textures": "textures/items/weapons/default/plumbum_saber"
     },
     "arx:hacksaw": {
-      "textures": "textures/items/weapons/swords/hacksaw"
+      "textures": "textures/items/weapons/default/hacksaw"
     },
+    "arx:cast_iron_tooth": {
+      "textures": "textures/items/weapons/default/cast_iron_tooth"
+    },
+    "arx:steel_wide_shortsword": {
+      "textures": "textures/items/weapons/default/steel_wide_shortsword"
+    },
+    "arx:steel_wide_shortsword_with_special_guard": {
+      "textures": "textures/items/weapons/default/steel_wide_shortsword_with_special_guard"
+    },
+    "arx:powered_steel_wide_shortsword": {
+      "textures": "textures/items/weapons/default/powered_steel_wide_shortsword"
+    },
+    "arx:steel_sharp_sword": {
+      "textures": "textures/items/weapons/default/steel_sharp_sword"
+    },
+
+
+
     "arx:staff_san": {
       "textures": "textures/items/weapons/staffs/staff_san"
     },
@@ -3216,11 +3149,11 @@
     "arx:staff_dorionite_with_caryite": {
       "textures": "textures/items/weapons/staffs/staff_dorionite_with_caryite"
     },
-    "arx:staff_with_diamond": {
-      "textures": "textures/items/weapons/staffs/staff_with_diamond"
+    "arx:staff_with_beryl": {
+      "textures": "textures/items/weapons/staffs/staff_with_beryl"
     },
-    "arx:staff_wooden_with_riolik": {
-      "textures": "textures/items/weapons/staffs/staff_wooden_with_riolik"
+    "arx:staff_wooden_with_olivine": {
+      "textures": "textures/items/weapons/staffs/staff_wooden_with_olivine"
     },
     "arx:staff_tin_with_gold": {
       "textures": "textures/items/weapons/staffs/staff_tin_with_gold"
@@ -3282,18 +3215,10 @@
     "arx:vicious_staff": {
       "textures": "textures/items/weapons/staffs/vicious_staff"
     },
-    "arx:vicious_dagger_refined": {
-      "textures": "textures/items/weapons/swords/vicious_dagger_refined"
-    },
-    "arx:vicious_dagger": {
-      "textures": "textures/items/weapons/swords/vicious_dagger"
-    },
-    "arx:vicious_lance_refined": {
-      "textures": "textures/items/weapons/swords/vicious_lance_refined"
-    },
-    "arx:vicious_lance": {
-      "textures": "textures/items/weapons/swords/vicious_lance"
-    },
+
+
+
+
     "arx:altaite_billet": {
       "textures": "textures/items/blacksmith/altaite_billet"
     },
@@ -3651,24 +3576,6 @@
     "arx:water_textile": {
       "textures": "textures/items/crafting/water_textile"
     },
-    "arx:agility_up": {
-      "textures": "textures/items/crpg_items/agility_up"
-    },
-    "arx:magic_up": {
-      "textures": "textures/items/crpg_items/magic_up"
-    },
-    "arx:strength_up": {
-      "textures": "textures/items/crpg_items/strength_up"
-    },
-    "arx:might_up": {
-      "textures": "textures/items/crpg_items/might_up"
-    },
-    "arx:trailblazer_up": {
-      "textures": "textures/items/crpg_items/trailblazer_up"
-    },
-    "arx:wipe_skill_points": {
-      "textures": "textures/items/crpg_items/wipe_skill_points"
-    },
 
 
     "arx:mushroom_knife": {
@@ -3746,6 +3653,7 @@
     "arx:lamenit_ore": {
       "textures": "textures/items/mining/lamenit_ore"
     },
+
     "arx:aquamarine_gem": {
       "textures": "textures/items/mining/gems/aquamarine"
     },
@@ -3758,39 +3666,33 @@
     "arx:ruby_gem": {
       "textures": "textures/items/mining/gems/ruby"
     },
-    "arx:saphire_gem": {
-      "textures": "textures/items/mining/gems/saphire"
+    "arx:sapphire_gem": {
+      "textures": "textures/items/mining/gems/sapphire"
     },
     "arx:topaz_gem": {
       "textures": "textures/items/mining/gems/topaz"
     },
-    "arx:drawing_relig_ne_m": {
-      "textures": "textures/items/drawings/religious_clothes/drawing_relig_ne_m"
+
+    "arx:beryl_gem": {
+      "textures": "textures/items/mining/gems/beryl"
     },
-    "arx:drawing_relig_pa_a": {
-      "textures": "textures/items/drawings/religious_clothes/drawing_relig_pa_a"
+    "arx:olivine_gem": {
+      "textures": "textures/items/mining/gems/olivine"
     },
-    "arx:drawing_relig_pa_m": {
-      "textures": "textures/items/drawings/religious_clothes/drawing_relig_pa_m"
+    "arx:zircon_gem": {
+      "textures": "textures/items/mining/gems/zircon"
     },
-    "arx:drawing_relig_pa_s": {
-      "textures": "textures/items/drawings/religious_clothes/drawing_relig_pa_s"
+
+    "arx:painit_gem": {
+      "textures": "textures/items/mining/gems/painit"
     },
-    "arx:drawing_relig_pa_u": {
-      "textures": "textures/items/drawings/religious_clothes/drawing_relig_pa_u"
+    "arx:titanite_gem": {
+      "textures": "textures/items/mining/gems/titanite"
     },
-    "arx:drawing_relig_pi_a": {
-      "textures": "textures/items/drawings/religious_clothes/drawing_relig_pi_a"
+    "arx:zoisite_gem": {
+      "textures": "textures/items/mining/gems/zoisite"
     },
-    "arx:drawing_relig_pi_m": {
-      "textures": "textures/items/drawings/religious_clothes/drawing_relig_pi_m"
-    },
-    "arx:drawing_relig_pi_s": {
-      "textures": "textures/items/drawings/religious_clothes/drawing_relig_pi_s"
-    },
-    "arx:drawing_relig_pi_u": {
-      "textures": "textures/items/drawings/religious_clothes/drawing_relig_pi_u"
-    },
+
     //DEAD MOBS
     "arx:dead_allay": {
       "textures": "textures/items/dead_mobs/dead_allay"
@@ -4114,9 +4016,6 @@
     "arx:gnil_pie": {
       "textures": "textures/items/food/gnil_pie"
     },
-    "arx:god_fire": {
-      "textures": "textures/items/food/god_fire"
-    },
     "arx:grass_soup": {
       "textures": "textures/items/food/grass_soup"
     },
@@ -4125,9 +4024,6 @@
     },
     "arx:heart_stew": {
       "textures": "textures/items/food/heart_stew"
-    },
-    "arx:herbal_bunch": {
-      "textures": "textures/items/food/herbal_bunch"
     },
     "arx:hoof_bouillon": {
       "textures": "textures/items/food/hoof_bouillon"
@@ -4173,9 +4069,6 @@
     },
     "arx:meat_bug_bug": {
       "textures": "textures/items/food/meat_bug_bug"
-    },
-    "arx:meat_bunch": {
-      "textures": "textures/items/food/meat_bunch"
     },
     "arx:meat_hurricane": {
       "textures": "textures/items/food/meat_hurricane"
@@ -4246,12 +4139,6 @@
     "arx:storm_steak": {
       "textures": "textures/items/food/storm_steak"
     },
-    "arx:strange_bread": {
-      "textures": "textures/items/food/strange_bread"
-    },
-    "arx:strange_soup": {
-      "textures": "textures/items/food/strange_soup"
-    },
     "arx:sugar_donut": {
       "textures": "textures/items/food/sugar_donut"
     },
@@ -4260,9 +4147,6 @@
     },
     "arx:sweet_bun": {
       "textures": "textures/items/food/sweet_bun"
-    },
-    "arx:sweet_bunch": {
-      "textures": "textures/items/food/sweet_bunch"
     },
     "arx:sweet_pie": {
       "textures": "textures/items/food/sweet_pie"
@@ -4284,9 +4168,6 @@
     },
     "arx:wave_of_taste": {
       "textures": "textures/items/food/wave_of_taste"
-    },
-    "arx:weird_bunch": {
-      "textures": "textures/items/food/weird_bunch"
     },
     "arx:wooden_crust": {
       "textures": "textures/items/food/wooden_crust"
@@ -4544,7 +4425,7 @@
       "textures": "textures/items/books/storybooks/foreign/book_oculus_primae_maledictionis"
     },
     "arx:book_mage_notes": {
-      "textures": "textures/items/books/storybooks/foreign/book_mage_notes"
+      "textures": "textures/items/books/storybooks/book_mage_notes"
     },
     "arx:bundle_with_vinyl": {
       "textures": "textures/items/other/bundle_with_vinyl"
@@ -4554,9 +4435,6 @@
     },
     "arx:xp_megashard": {
       "textures": "textures/items/other/xp_megashard"
-    },
-    "arx:music_volume_tuner": {
-      "textures": "textures/items/other/music_volume_tuner"
     },
     "arx:battery_ultra": {
       "textures": "textures/items/high_tec/batteries/battery_ultra"
@@ -4589,7 +4467,7 @@
       "textures": "textures/items/high_tec/stream_accelerator"
     },
     "arx:fist_symbol": {
-      "textures": "textures/items/other/fist_symbol"
+      "textures": "textures/items/actions/fist_symbol"
     },
     "arx:essence_of_vicious_demon": {
       "textures": "textures/items/alchemy/essence_of_vicious_demon"
@@ -4677,9 +4555,6 @@
     "arx:tea_seeds": {
       "textures": "textures/items/tea_update/tea_seeds"
     },
-    "arx:ancient_diary_from_flooded_cave": {
-      "textures": "textures/items/books/storybooks/foreign/ancient_diary_from_flooded_cave"
-    },
 
     "arx:crystal_of_durability": {
       "textures": "textures/items/crystals/crystal_of_durability"
@@ -4692,13 +4567,6 @@
     },
     "arx:crystal_of_swift_respawn": {
       "textures": "textures/items/crystals/crystal_of_swift_respawn"
-    },
-
-    "arx:medical_leg_splint": {
-      "textures": "textures/items/splints/medical_leg_splint"
-    },
-    "arx:medical_arm_splint": {
-      "textures": "textures/items/splints/medical_arm_splint"
     },
 
     "arx:pouch_with_dyes": {
@@ -4746,14 +4614,12 @@
         "textures":"textures/items/vanilla_plants/potato_seeds"
     },
 
-    "arx:mushroom_item": {
-      "textures": "textures/items/nature/mushroom_items/mushroom_item"
+
+    "arx:cotton_boll": {
+      "textures": "textures/items/nature/cotton_boll"
     },
-    "arx:fly_agaric_item": {
-      "textures": "textures/items/nature/mushroom_items/fly_agaric_item"
-    },
-    "arx:mp_mushroom_item": {
-      "textures": "textures/items/nature/mushroom_items/mp_mushroom_item"
+    "arx:cotton_seeds": {
+      "textures": "textures/items/nature/cotton_seeds"
     },
 
     "arx:universal_radio_key": {

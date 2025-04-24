@@ -1,18 +1,15 @@
 {
-  "format_version": "1.16.100",
-  "minecraft:item": {
-    "description": {
-      "identifier": "arx:tea_bud",
-      "category": "equipment"
-    },
-    "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.cookedFood"
-      },
-      "minecraft:icon": {
-        "texture": "arx:tea_bud"
-      }
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:icon": "arx:tea_bud"
+        },
+        "description": {
+            "identifier": "arx:tea_bud",
+            "menu_category": {
+                "category": "equipment",
+                "group": "itemGroup.name.cookedFood"
+            }
+        }
     }
-
-  }
 }

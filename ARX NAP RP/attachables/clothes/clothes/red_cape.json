@@ -10,7 +10,7 @@
         "default": "textures/entity/clothes/clothes/red_cape_D"
       },
       "geometry": {
-        "default": "geometry.default_model"
+        "default": "geometry.default_model_v2"
       },
       "animations": {
         "bust": "animation.player.bust",

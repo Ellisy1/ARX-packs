@@ -1,40 +1,30 @@
 {
-  "format_version": "1.16.100",
-  "minecraft:item": {
-    "description": {
-      "identifier": "arx:hole_bottle_mp_potion",
-      "category": "equipment"
-    },
-    "components": {
-      "minecraft:max_stack_size": 1,
-      "minecraft:cooldown": {
-        "category": "food",
-        "duration": 1
-      },
-      "minecraft:on_use": {
-        "on_use": {
-          "event": "on_eat"
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:custom_components": [
+                "arx:onConsume"
+            ],
+            "minecraft:food": {
+                "can_always_eat": true,
+                "nutrition": 20,
+                "saturation_modifier": 0,
+                "using_converts_to": "arx:hole_bottle"
+            },
+            "minecraft:icon": "arx:hole_bottle_mp_potion",
+            "minecraft:max_stack_size": 1,
+            "minecraft:use_animation": "drink",
+            "minecraft:use_modifiers": {
+                "movement_modifier": 0.5,
+                "use_duration": 2.0
+            }
+        },
+        "description": {
+            "identifier": "arx:hole_bottle_mp_potion",
+            "menu_category": {
+                "category": "equipment",
+                "group": "itemGroup.name.potion"
+            }
         }
-      },
-      "minecraft:icon": {
-        "texture": "arx:hole_bottle_mp_potion"
-      },
-      "minecraft:use_animation": "drink"
-    },
-    "events": {
-      "on_eat": {
-        "run_command": {
-          "command": [
-            "scoreboard players add @p poisoning 200",
-            "scoreboard players add @p xp_tray 20",
-            "scoreboard players add @p mp_tray 10",
-            
-            "clear @s arx:hole_bottle_mp_potion 0 1",
-            "give @s arx:hole_bottle",
-            "function food/visual/potion"
-          ]
-        }
-      }
     }
-  }
 }

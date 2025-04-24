@@ -1,0 +1,21 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "arx:lobby_character_creation",
+      "min_engine_version": "1.8.0",
+      "materials": {
+        "default": "entity_emissive_alpha"
+      },
+      "textures": {
+        "default": "textures/entity/lobby/lobby_character_creation"
+      },
+      "geometry": {
+        "default": "geometry.lobby_character_creation"
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ]
+    }
+  }
+}

@@ -6,7 +6,7 @@
     },
 
     
-    "tags": [ "boiler_crafting_table" ],
+    "tags": [ "thermal_cooking_crafting_table" ],
     "pattern": [
       "C C",
       "ABA",

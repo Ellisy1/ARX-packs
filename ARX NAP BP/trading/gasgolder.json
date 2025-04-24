@@ -75,7 +75,7 @@
               "item": "arx:rat_coin",
               "quantity": {
                 "min": 10,
-                "max": 20
+                "max": 30
               }
             }
           ],
@@ -86,19 +86,28 @@
                   "item": "arx:aquamarine_gem"
                 },
                 {
+                  "item": "arx:beryl_gem"
+                },
+                {
                   "item": "arx:chrysolite_gem"
                 },
                 {
                   "item": "arx:cornelian_gem"
                 },
                 {
+                  "item": "arx:olivine_gem"
+                },
+                {
                   "item": "arx:ruby_gem"
                 },
                 {
-                  "item": "arx:saphire_gem"
+                  "item": "arx:sapphire_gem"
                 },
                 {
                   "item": "arx:topaz_gem"
+                },
+                {
+                  "item": "arx:zircon_gem"
                 },
                 {
                   "item": "arx:small_stone",
@@ -172,7 +181,82 @@
           ],
           "max_uses": 1
         },
-        //Кольца + ценовые аналоги
+        // Алюм кольца
+        {
+          "wants": [
+            {
+              "item": "arx:rat_coin",
+              "quantity": {
+                "min": 6,
+                "max": 12
+              }
+            }
+          ],
+          "gives": [
+            {
+              "choice": [
+                {
+                  "item": "arx:ring_gold_aquamarine:30",
+                  "functions": [
+                    {
+                      "function": "enchant_randomly"
+                    }
+                  ]
+                },
+                {
+                  "item": "arx:ring_aluminum_beryl:30",
+                  "functions": [
+                    {
+                      "function": "enchant_randomly"
+                    }
+                  ]
+                },
+                {
+                  "item": "arx:ring_aluminum_chrysolite:30",
+                  "functions": [
+                    {
+                      "function": "enchant_randomly"
+                    }
+                  ]
+                },
+                {
+                  "item": "arx:ring_aluminum_cornelian:30",
+                  "functions": [
+                    {
+                      "function": "enchant_randomly"
+                    }
+                  ]
+                },
+                {
+                  "item": "arx:ring_aluminum_sapphire:30",
+                  "functions": [
+                    {
+                      "function": "enchant_randomly"
+                    }
+                  ]
+                },
+                {
+                  "item": "arx:ring_aluminum_topaz:30",
+                  "functions": [
+                    {
+                      "function": "enchant_randomly"
+                    }
+                  ]
+                },
+                {
+                  "item": "arx:ring_aluminum_zircon:30",
+                  "functions": [
+                    {
+                      "function": "enchant_randomly"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "max_uses": 1
+        },
+        //Золотые кольца + ценовые аналоги
         {
           "wants": [
             {
@@ -193,7 +277,7 @@
                   "item": "arx:steampunk_pants:150"
                 },
                 {
-                  "item": "arx:ring_gold_amethyst:150",
+                  "item": "arx:ring_gold_aquamarine:30",
                   "functions": [
                     {
                       "function": "enchant_randomly"
@@ -201,7 +285,7 @@
                   ]
                 },
                 {
-                  "item": "arx:ring_gold_riolik:150",
+                  "item": "arx:ring_gold_beryl:30",
                   "functions": [
                     {
                       "function": "enchant_randomly"
@@ -209,7 +293,7 @@
                   ]
                 },
                 {
-                  "item": "arx:ring_gold_sapphire:150",
+                  "item": "arx:ring_gold_chrysolite:30",
                   "functions": [
                     {
                       "function": "enchant_randomly"
@@ -217,7 +301,7 @@
                   ]
                 },
                 {
-                  "item": "arx:ring_gold_chrysolite:150",
+                  "item": "arx:ring_gold_cornelian:30",
                   "functions": [
                     {
                       "function": "enchant_randomly"
@@ -225,7 +309,7 @@
                   ]
                 },
                 {
-                  "item": "arx:ring_aluminum_cornelian:150",
+                  "item": "arx:ring_gold_ruby:30",
                   "functions": [
                     {
                       "function": "enchant_randomly"
@@ -233,7 +317,7 @@
                   ]
                 },
                 {
-                  "item": "arx:ring_aluminum_riolik:150",
+                  "item": "arx:ring_gold_sapphire:30",
                   "functions": [
                     {
                       "function": "enchant_randomly"
@@ -241,7 +325,15 @@
                   ]
                 },
                 {
-                  "item": "arx:ring_aluminum_sapphire:150",
+                  "item": "arx:ring_gold_topaz:30",
+                  "functions": [
+                    {
+                      "function": "enchant_randomly"
+                    }
+                  ]
+                },
+                {
+                  "item": "arx:ring_gold_zircon:30",
                   "functions": [
                     {
                       "function": "enchant_randomly"

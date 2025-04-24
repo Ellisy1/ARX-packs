@@ -8,9 +8,9 @@
     
     "tags": [ "clothes_crafting_table" ],
     "pattern": [
-      "#A#",
+      "#C#",
       "A#A",
-      " B "
+      "DB "
     ],
     "key": {
       "#": {
@@ -20,8 +20,15 @@
         "item": "minecraft:dye",
         "data": 18
       },
+      "C": {
+        "item": "minecraft:dye",
+        "data": 16
+      },
       "B": {
-        "item": "arx:leather_super"
+        "item": "arx:pushnina"
+      },
+      "D": {
+        "item": "arx:golden_silk"
       }
     },
     "result": {

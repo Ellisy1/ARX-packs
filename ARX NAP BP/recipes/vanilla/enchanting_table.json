@@ -6,7 +6,7 @@
     },
 
     
-    "tags": [ "crafting_table" ],
+    "tags": [ "ban" ],
     "pattern": [
       " B ",
       "D#D",
@@ -25,7 +25,7 @@
     },
     "unlock": [
       {
-        "item": "minecraft:obsidian"
+        "item": "minecraft:bedrock"
       }
     ],
     "result": {

@@ -1,4 +1,4 @@
-# Ручная регистрация scores в мире. Допустимо использовать только создателю мира!
+# Автоматическая регистрация scores в мире
 
 # Прочие переменные
     function world_reg/magic
@@ -9,6 +9,9 @@
     gamerule naturalregeneration false
     gamerule tntexplodes false
     gamerule spawnradius 0
+    gamerule doimmediaterespawn true
+    gamerule doweathercycle false 
+    gamerule showdeathmessages false
 
 # Просчет стабильности
     scoreboard objectives add stability_core dummy stability_core
@@ -37,16 +40,11 @@ scoreboard objectives add time_m dummy Минуты-игры.
 scoreboard objectives add water_delay dummy Намокание
 scoreboard objectives add water_block dummy Намокание
 scoreboard objectives add class dummy is_ghost
-scoreboard objectives add religion dummy Религия
-scoreboard objectives add no_religion dummy отказ_религии
 scoreboard objectives add target dummy цель_мага
 
+scoreboard objectives add mp_current dummy Текущая_мана
+scoreboard objectives add mp_req dummy Треб_маны_для_закл
 scoreboard objectives add mp dummy Мана
-scoreboard objectives add mp_max dummy Макс_мана
-scoreboard objectives add mp_regeneration_amplification dummy Увеличение_получаемых_очков_мп
-scoreboard objectives add mp_delay dummy Откат_маны
-scoreboard objectives add mp_tray dummy Накоп_маны
-scoreboard objectives add mp_req dummy Треб_маны
 
 scoreboard objectives add poisoning dummy poisoning
 scoreboard objectives add pois_cond_delta dummy pois_cond_delta
@@ -59,7 +57,7 @@ scoreboard objectives add hot_hold dummy hot_hold
 scoreboard objectives add mark dummy Метка
 scoreboard objectives add regen_hp dummy Регенерация
 scoreboard objectives add regen_mp dummy Восст_маны
-scoreboard objectives add heavy dummy Загруж.
+scoreboard objectives add weighLoading dummy Загруж.
 scoreboard objectives add heavy_delta dummy Загруж_разн
 scoreboard objectives add heavy_log dummy Загруж_ист
 scoreboard objectives add heavy_compens dummy Загруж_компенс
@@ -77,7 +75,6 @@ scoreboard objectives add no_dark_fog dummy no_dark_fog
 scoreboard objectives add poit_mp_reg dummy poit_mp_reg
 
 scoreboard objectives add blocking dummy Блокировка
-scoreboard objectives add allow_block_buff dummy allow_block_buff
 
 scoreboard objectives add poit_speed_a dummy poit_speed_a
 scoreboard objectives add poit_speed_b dummy poit_speed_b
@@ -159,7 +156,7 @@ scoreboard objectives add demon_power dummy сила_демона
 
 scoreboard objectives add weather dummy Погода
 scoreboard objectives add weather_cond dummy Тип_погоды
-scoreboard players set @p weather_cond 0
+scoreboard players set @s weather_cond 0
 
 scoreboard objectives add is_day dummy День 
 scoreboard objectives add day_history dummy Лог_дня
@@ -186,9 +183,6 @@ scoreboard objectives add no_fog dummy no_fog
 scoreboard objectives add nightvis_saki dummy nightvis_saki
 
 scoreboard objectives add item_control dummy item_control
-
-scoreboard objectives add online dummy online
-scoreboard objectives add online_log dummy online_log
 
 
 
@@ -244,32 +238,6 @@ scoreboard objectives add online_log dummy online_log
     scoreboard objectives add const_1500 dummy Константа_1.5к
     scoreboard players set @s const_1500 1500
 
-# Система опыта
-    scoreboard objectives add xp_tray dummy Трей_опыта
-
-    scoreboard objectives add xp dummy Факт_ОП
-    scoreboard objectives add xp_lim_delta dummy До_след_ур
-    scoreboard objectives add xp_stage dummy Ур_ОП
-    scoreboard objectives add xp_lim dummy Ур_лимита_ОП
-    scoreboard objectives add skill_point dummy Очки_навыка
-    scoreboard objectives add xp_х1_5 dummy Буст_ОП_х1_5
-
-# Болезни
-    scoreboard objectives add ill_cancer dummy ill_cancer
-    scoreboard objectives add ill_mild_cold dummy ill_mild_cold
-    scoreboard objectives add ill_severe_cold dummy ill_severe_cold
-    scoreboard objectives add ill_pneumonia dummy ill_pneumonia
-    scoreboard objectives add ill_broken_leg dummy ill_broken_leg
-    scoreboard objectives add ill_broken_arm dummy ill_broken_arm
-    scoreboard objectives add ill_flu dummy ill_flu
-    scoreboard objectives add ill_helminth dummy ill_helminth
-    scoreboard objectives add ill_appendicitis dummy ill_appendicitis
-    scoreboard objectives add ill_anal_fissure dummy ill_anal_fissure
-
-    #Случайные боли
-        scoreboard objectives add ill_r_head dummy ill_r_head
-        scoreboard objectives add ill_r_stomach dummy ill_r_stomach
-
 #ТИКИ
 scoreboard objectives add tick_nosempra_a dummy sempra-25
 scoreboard objectives add tick_nosempra_b dummy sempra-50
@@ -278,8 +246,8 @@ scoreboard objectives add tick_sempra_dps dummy маг.ур.в.сек
 scoreboard objectives add tick dummy такт
 scoreboard objectives add sec dummy секунда
 
-scoreboard players set @p tick 0
-scoreboard players set @p sec 0
+scoreboard players set @s tick 0
+scoreboard players set @s sec 0
 
 scoreboard objectives setdisplay list time_h
 
@@ -412,12 +380,6 @@ scoreboard objectives add attack_weakness dummy attack_weakness
 
     scoreboard objectives add backpack_volume dummy backpack_volume
 
-# Музыка
-    scoreboard objectives add music_delay dummy music_delay
-    scoreboard objectives add music_volume dummy music_volume
-    scoreboard objectives add music_location dummy music_location
-    scoreboard objectives add music_loc_log dummy music_loc_log
-
 # Дебаг скиллпоинтов
     scoreboard objectives add skill_points_dbg dummy skill_points_dbg
 
@@ -445,13 +407,13 @@ scoreboard objectives add saturation dummy saturation
     # Удары (полученные)
         scoreboard objectives add count_hits dummy count_hits
 
-    # Пройденная дистанция
-        scoreboard objectives add count_distance dummy count_distance
-        scoreboard objectives add count_dist_x100 dummy count_dist_x100
-
     # Заклинания
         scoreboard objectives add count_spells dummy count_spells
         scoreboard objectives add count_spent_mp dummy count_mp
+    
+    # Блоки
+        scoreboard objectives add count_broken_blocks dummy count_broken_blocks
+        scoreboard objectives add count_placed_blocks dummy count_placed_blocks
 
 # Дебаг верификаций
     scoreboard objectives add debug_verify dummy debug_verify
@@ -467,13 +429,8 @@ scoreboard objectives add saturation dummy saturation
 scoreboard objectives add dwarf_cam_cd dummy dwarf_cam_cd
 scoreboard objectives add dwarf_curse dummy dwarf_curse
 
-scoreboard objectives add dummy_damage dummy dummy_damage
-
 scoreboard objectives add uni_cool_down dummy uni_cool_down
 
-scoreboard objectives add block_power dummy block_power
-
-scoreboard objectives add aoe_dmg dummy aoe_dmg
 
 # Кристаллы возрождения
     scoreboard objectives add crys_dur dummy crys_dur
@@ -504,57 +461,16 @@ scoreboard objectives add max_light_range dummy max_light_range
 # Фракции
     scoreboard objectives add faction dummy faction
 
-scoreboard objectives add restrict_block_interact dummy restrict_block_interact
-
 scoreboard objectives add mp_boost_by_amul_of_starpower dummy mp_boost_by_amul_of_starpower
-
-# Аппаратура в МЭ
-    scoreboard objectives add generator_in_electronics_shop_cd dummy generator_in_electronics_shop_cd
-    scoreboard objectives add printer_in_electrinics_shop_cycle dummy printer_in_electrinics_shop_cycle
 
 # Универсальный радиоключ
     # Просто тестовый ключ для теста алгоритма. Не используется функционально в игре.
         scoreboard objectives add urk_12343 dummy urk_12343
     # Используемые ключи в игре
-        scoreboard objectives add urk_19D837AB277 dummy urk_19D837AB277
-        scoreboard objectives add urk_D0782133229 dummy urk_D0782133229
-        scoreboard objectives add urk_ABC12345F dummy urk_ABC12345F
-        scoreboard objectives add urk_98221DA8124 dummy urk_98221DA8124
-        scoreboard objectives add urk_0001 dummy urk_0001
-        scoreboard objectives add urkm_AFB7125BF065 dummy urkm_AFB7125BF065
-        scoreboard objectives add urk_1398AACBC8 dummy urk_1398AACBC8
-        scoreboard objectives add urkm_5F8E7D827D2C10A1 dummy urkm_5F8E7D827D2C10A1
-        scoreboard objectives add urk_F48DC3DBC dummy urk_F48DC3DBC
 
 scoreboard objectives add e19_generator_enabled dummy e19_generator_enabled
 
-# Состояние монитора, траиирующего электричество из Э-19
-    scoreboard objectives add e19_tracer_condition dummy e19_tracer_condition 
-    # 0 - Отключен
-    # 1 - Включен, не залогинен
-    # 2 - Включен + залогинен
-    # 10 и далее - состояния активной трассировки 
-        # 10 - МЭ
-        # 11 - Оклик 6
-
-scoreboard objectives add hail6_enabled dummy hail6_enabled
-scoreboard objectives add hail6_second_moon_power dummy hail6_second_moon_power
-
-# Бой с Мартом
-    # Был ли хоть раз побежден?
-        scoreboard objectives add march_defeated dummy march_defeated
-    # Сколько секунд прошло с начала боя 
-        scoreboard objectives add march_battle_time dummy march_battle_time
-    # Сколько игроков за чертой (триггер начала боя)
-        scoreboard objectives add march_crossed_line_players_counter dummy march_crossed_line_players_counter
-
-    # КД
-        # Кд при стрельбе. Контроллирует саму стрельбу и то, чтобы она не повторялась слишком часто
-            scoreboard objectives add march_shoot_cd dummy march_shoot_cd
-
 scoreboard objectives add spell_of_small_head dummy spell_of_small_head
-
-tellraw @s { "rawtext": [ { "text": "§aПеременные успешно зарегистрированы в мире" } ] }
 
 # Нокаут
     scoreboard objectives add respawn_delay dummy Откат_респ
@@ -568,3 +484,6 @@ tellraw @s { "rawtext": [ { "text": "§aПеременные успешно за
 # Данные для отката в до-смертельное состояние
     scoreboard objectives add xp_roll_back dummy xp_roll_back
     scoreboard objectives add xp_stage_roll_back dummy xp_stage_roll_back
+
+# Динамический свет
+    scoreboard objectives add dynamic_light_power dummy dynamic_light_power

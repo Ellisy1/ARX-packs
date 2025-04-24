@@ -1,23 +1,18 @@
 {
-    "format_version": "1.20.60",
+    "format_version": "1.21.0",
     "minecraft:item": {
-      "description": {
-        "identifier": "arx:seeds_beetroot",
-        "menu_category": {
-          "category": "nature",
-          "group": "itemGroup.name.seed"
-        }
-      },
-      "components": {
-        "minecraft:icon":{ 
-          "textures": {
-            "default": "seeds_beetroot"
-          }
+        "components": {
+            "minecraft:block_placer": {
+                "block": "arx:beetroots"
+            },
+            "minecraft:icon": "seeds_beetroot"
         },
-        "minecraft:block_placer": {
-          "block": "arx:beetroots"
+        "description": {
+            "identifier": "arx:seeds_beetroot",
+            "menu_category": {
+                "category": "nature",
+                "group": "itemGroup.name.seed"
+            }
         }
-      }
     }
-  }
-  
+}

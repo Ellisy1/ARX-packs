@@ -28,6 +28,9 @@
 		"arx_chair": {
 			"textures": "textures/blocks/furniture/chair"
 		},
+		"arx_divine_altar": {
+			"textures": "textures/blocks/furniture/divine_altar"
+		},
 		"arx_chess_board": {
 			"textures": "textures/blocks/furniture/chess_board"
 		},
@@ -51,6 +54,9 @@
 		},
 		"arx_mp_mushroom": {
 			"textures": "textures/blocks/nature/mushrooms/mp_mushroom"
+		},
+		"blue_cave_mushrooms": {
+			"textures": "textures/blocks/nature/mushrooms/blue_cave_mushrooms"
 		},
 
 		"arx_cactus_flower": {
@@ -125,6 +131,32 @@
 		"arx_firebloom": {
 			"textures": "textures/blocks/nature/firebloom" 
 		},
+		"reed": {
+			"textures": "textures/blocks/nature/reed" 
+		},
+
+		"cotton_plant_stage_0": {
+			"textures": "textures/blocks/nature/cotton_plant/cotton_plant_stage_0" 
+		},
+		"cotton_plant_stage_1": {
+			"textures": "textures/blocks/nature/cotton_plant/cotton_plant_stage_1" 
+		},
+		"cotton_plant_stage_2": {
+			"textures": "textures/blocks/nature/cotton_plant/cotton_plant_stage_2" 
+		},
+		"cotton_plant_stage_3": {
+			"textures": "textures/blocks/nature/cotton_plant/cotton_plant_stage_3" 
+		},
+		"cotton_plant_stage_4": {
+			"textures": "textures/blocks/nature/cotton_plant/cotton_plant_stage_4" 
+		},
+		"cotton_plant_stage_5": {
+			"textures": "textures/blocks/nature/cotton_plant/cotton_plant_stage_5" 
+		},
+		"cotton_plant_stage_final": {
+			"textures": "textures/blocks/nature/cotton_plant/cotton_plant_stage_final" 
+		},
+
 		"arx_light_armor_crafting_table": {
 			"textures": "textures/blocks/furniture/light_armor_crafting_table"
 		},
@@ -330,17 +362,53 @@
 		"arx_ruby_stone_ore": {
 			"textures": "textures/blocks/mining/ores/ruby_stone_ore"
 		},
-		"arx_saphire_deep_ore": {
-			"textures": "textures/blocks/mining/ores/saphire_deep_ore"
+		"arx_sapphire_deep_ore": {
+			"textures": "textures/blocks/mining/ores/sapphire_deep_ore"
 		},
-		"arx_saphire_stone_ore": {
-			"textures": "textures/blocks/mining/ores/saphire_stone_ore"
+		"arx_sapphire_stone_ore": {
+			"textures": "textures/blocks/mining/ores/sapphire_stone_ore"
 		},
 		"arx_topaz_deep_ore": {
 			"textures": "textures/blocks/mining/ores/topaz_deep_ore"
 		},
 		"arx_topaz_stone_ore": {
 			"textures": "textures/blocks/mining/ores/topaz_stone_ore"
+		},
+		"arx_beryl_deep_ore": {
+			"textures": "textures/blocks/mining/ores/beryl_deep_ore"
+		},
+		"arx_beryl_stone_ore": {
+			"textures": "textures/blocks/mining/ores/beryl_stone_ore"
+		},
+		"arx_olivine_deep_ore": {
+			"textures": "textures/blocks/mining/ores/olivine_deep_ore"
+		},
+		"arx_olivine_stone_ore": {
+			"textures": "textures/blocks/mining/ores/olivine_stone_ore"
+		},
+		"arx_painit_deep_ore": {
+			"textures": "textures/blocks/mining/ores/painit_deep_ore"
+		},
+		"arx_painit_stone_ore": {
+			"textures": "textures/blocks/mining/ores/painit_stone_ore"
+		},
+		"arx_titanite_deep_ore": {
+			"textures": "textures/blocks/mining/ores/titanite_deep_ore"
+		},
+		"arx_titanite_stone_ore": {
+			"textures": "textures/blocks/mining/ores/titanite_stone_ore"
+		},
+		"arx_zircon_deep_ore": {
+			"textures": "textures/blocks/mining/ores/zircon_deep_ore"
+		},
+		"arx_zircon_stone_ore": {
+			"textures": "textures/blocks/mining/ores/zircon_stone_ore"
+		},
+		"arx_zoisite_deep_ore": {
+			"textures": "textures/blocks/mining/ores/zoisite_deep_ore"
+		},
+		"arx_zoisite_stone_ore": {
+			"textures": "textures/blocks/mining/ores/zoisite_stone_ore"
 		},
 
 		"arx_xp_deep_ore": {
@@ -462,6 +530,9 @@
 		"arx_plush_bunny": {
 			"textures": "textures/blocks/furniture/2.0.1/plush_bunny"
 		},
+		"plush_gigamouse": {
+			"textures": "textures/blocks/furniture/plush_gigamouse"
+		},
 		"arx_tea_set": {
 			"textures": "textures/blocks/furniture/2.0.1/tea_set"
 		},
@@ -538,14 +609,8 @@
 			"textures": "textures/blocks/furniture/bookshelf"
 		},
 
-		"arx_brick_hidden_button": {
-			"textures": "textures/blocks/hightec/brick_hidden_button"
-		},
 		"arx_fuel_distiller": {
 			"textures": "textures/blocks/hightec/fuel_distiller"
-		},
-		"arx_fuel_powered_generator": {
-			"textures": "textures/blocks/hightec/fuel_powered_generator"
 		},
 		"arx_smartphone_holder": {
 			"textures": "textures/blocks/hightec/smartphone_holder"
@@ -569,12 +634,6 @@
 
 		"arx_magic_lava_bridge": {
 			"textures": "textures/blocks/dungeons/magic_lava_bridge"
-		},
-		"arx_book_in_e_19_about_perpetual_mashine_shop": {
-			"textures": "textures/blocks/dungeons/book_in_e_19_about_perpetual_mashine_shop"
-		},
-		"arx_sheet_in_perpetual_machine_shop": {
-			"textures": "textures/blocks/dungeons/sheet_in_perpetual_machine_shop"
 		},
 		"arx_moss_block_blue": {
 			"textures": "textures/blocks/dungeons/moss_block_blue"
@@ -682,18 +741,6 @@
 			"textures": "textures/blocks/ancient_blocks/laptop"
 		},
 
-		"laptop_in_electronics_shop_disabled": {
-			"textures": "textures/blocks/ancient_blocks/laptop_in_electronics_shop_disabled"
-		},
-		"laptop_in_electronics_shop_enabled": {
-			"textures": "textures/blocks/ancient_blocks/laptop_in_electronics_shop_enabled"
-		},
-		"laptop_in_e19_military_department": {
-			"textures": "textures/blocks/ancient_blocks/laptop_in_e19_military_department"
-		},
-		"book_in_military_marchs_department": {
-			"textures": "textures/blocks/ancient_blocks/book_in_military_marchs_department"
-		},
 		"lever_arm": {
 			"textures": "textures/blocks/ancient_blocks/lever_arm"
 		},
@@ -713,55 +760,9 @@
 			"textures": "textures/blocks/ancient_blocks/very_mossy_brick"
 		},
 
-		"arx_ancient_nameplate_above_radar_door": {
-			"textures": "textures/blocks/ancient_blocks/ancient_nameplate_above_radar_door"
-		},
-		"arx_ancient_nameplate_in_electronics_shop": {
-			"textures": "textures/blocks/ancient_blocks/ancient_nameplate_in_electronics_shop"
-		},
-		"arx_ancient_nameplate_in_perpetual_machine_shop": {
-			"textures": "textures/blocks/ancient_blocks/ancient_nameplate_in_perpetual_machine_shop"
-		},
-		"arx_ancient_nameplate_above_military_gate_in_e19": {
-			"textures": "textures/blocks/ancient_blocks/ancient_nameplate_above_military_gate_in_e19"
-		},
-		"arx_ancient_nameplate_in_e19_parking_near_lifts": {
-			"textures": "textures/blocks/ancient_blocks/ancient_nameplate_in_e19_parking_near_lifts"
-		},
 
-		"paper_icon_in_electronics_shop": {
-			"textures": "textures/blocks/ancient_blocks/paper_icon_in_electronics_shop"
-		},
-
-
-		"printer_in_electronics_shop": {
-			"textures": "textures/blocks/ancient_blocks/printer_in_electronics_shop/printer_in_electronics_shop"
-		},
-		"printer_in_electronics_shop_with_paper": {
-			"textures": "textures/blocks/ancient_blocks/printer_in_electronics_shop/printer_in_electronics_shop_with_paper"
-		},
-		"printer_in_electronics_shop_printing": {
-			"textures": "textures/blocks/ancient_blocks/printer_in_electronics_shop/printer_in_electronics_shop_printing"
-		},
-
-
-		"nameplate_february": {
-			"textures": "textures/blocks/ancient_blocks/nameplate_february"
-		},
 		"rat_monstr_meca_head": {
 			"textures": "textures/entity/mobs/rat_monstr_meca"
-		},
-		"tsugunders_sheets_of_paper_about_february": {
-			"textures": "textures/blocks/ancient_blocks/tsugunders_sheets_of_paper_about_february"
-		},
-		"tablet_with_sheets_in_e19_offices": {
-			"textures": "textures/blocks/ancient_blocks/tablet_with_sheets_in_e19_offices"
-		},
-		"tablet_with_sheets_near_e19_generator": {
-			"textures": "textures/blocks/ancient_blocks/tablet_with_sheets_near_e19_generator"
-		},
-		"tablet_with_sheets_in_electronics_shop": {
-			"textures": "textures/blocks/ancient_blocks/tablet_with_sheets_in_electronics_shop"
 		},
 
 
@@ -816,25 +817,6 @@
 		},
 		"arx_big_wall_monitor_rotated_down": {
 			"textures": "textures/blocks/ancient_blocks/big_wall_monitor_rotated_down"
-		},
-		"arx_sheet_of_paper_near_power_station_in_e19": {
-			"textures": "textures/blocks/ancient_blocks/sheet_of_paper_near_power_station_in_e19"
-		},
-
-		"arx_tracer_monitor_disabled": {
-			"textures": "textures/blocks/ancient_blocks/tracer_monitor/tracer_monitor_disabled"
-		},
-		"arx_tracer_monitor_just_enabled": {
-			"textures": "textures/blocks/ancient_blocks/tracer_monitor/tracer_monitor_just_enabled"
-		},
-		"arx_tracer_monitor_awaiting_login": {
-			"textures": "textures/blocks/ancient_blocks/tracer_monitor/tracer_monitor_awaiting_login"
-		},
-		"arx_tracer_monitor_awaiting_adress": {
-			"textures": "textures/blocks/ancient_blocks/tracer_monitor/tracer_monitor_awaiting_adress"
-		},
-		"arx_tracer_monitor_active": {
-			"textures": "textures/blocks/ancient_blocks/tracer_monitor/tracer_monitor_active"
 		},
 
 
@@ -892,11 +874,12 @@
 			"textures": "textures/blocks/furniture/crynts"
 		},
 
-		"power_button_in_hail6": {
-			"textures": "textures/blocks/ancient_blocks/hail6/power_button_in_hail6"
-		},
 		"heater": {
 			"textures": "textures/blocks/furniture/heater"
+		},
+
+		"sunbed": {
+			"textures": "textures/blocks/furniture/sunbed"
 		},
 
 

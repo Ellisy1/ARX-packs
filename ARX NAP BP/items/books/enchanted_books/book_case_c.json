@@ -1,40 +1,14 @@
 {
-  "format_version": "1.16.100",
-  "minecraft:item": {
-    "description": {
-      "identifier": "arx:book_case_c",
-      "category": "items"
-    },
-    "components": {
-      "minecraft:hand_equipped": false,
-      "minecraft:max_stack_size": 64,
-      "minecraft:foil": false,
-      "minecraft:icon": {
-        "texture": "arx:book_case_c"
-      },
-      "minecraft:cooldown": {
-        "category": "book_case_c",
-        "duration": 1
-      },
-      "minecraft:on_use": {
-        "on_use": {
-          "event": "on_use_event"
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:icon": "arx:book_case_c"
+        },
+        "description": {
+            "identifier": "arx:book_case_c",
+            "menu_category": {
+                "category": "items"
+            }
         }
-      }
-    },
-    "events": {
-      "on_use_event": {
-        "swing": {},
-        "run_command": {
-          "command": [
-            "tag @p add self",
-            "function books/enchanted_books/book_case_c",
-            "scoreboard players add @p xp_tray 450",
-            "clear @p arx:book_case_c 0 1",
-            "tag @p remove self"
-          ]
-        }
-      }
     }
-  }
 }

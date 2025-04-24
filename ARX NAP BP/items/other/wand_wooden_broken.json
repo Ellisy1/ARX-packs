@@ -1,23 +1,21 @@
 {
-  "format_version": "1.16.100",
-  "minecraft:item": {
-    "description": {
-      "category": "equipment",
-      "identifier": "arx:wand_wooden_broken"
-    },
-    "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.sword"
-      },
-      "minecraft:icon": {
-        "texture": "arx:wand_wooden_broken"
-      },
-      "minecraft:hand_equipped": true,
-      "minecraft:allow_off_hand": true,
-      "minecraft:enchantable": {
-        "value": 15,
-        "slot": "sword"
-      }
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:allow_off_hand": true,
+            "minecraft:enchantable": {
+                "slot": "sword",
+                "value": 15
+            },
+            "minecraft:hand_equipped": true,
+            "minecraft:icon": "arx:wand_wooden_broken"
+        },
+        "description": {
+            "identifier": "arx:wand_wooden_broken",
+            "menu_category": {
+                "category": "equipment",
+                "group": "itemGroup.name.sword"
+            }
+        }
     }
-  }
 }

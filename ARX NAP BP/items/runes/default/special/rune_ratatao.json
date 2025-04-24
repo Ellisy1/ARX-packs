@@ -1,46 +1,22 @@
 {
-  "format_version": "1.16.100",
-  "minecraft:item": {
-    "description": {
-      "identifier": "arx:rune_ratatao",
-      "category": "items"
-    },
-    "components": {
-      "minecraft:enchantable": {
-        "value": 10,
-        "slot": "elytra"
-      },
-      "minecraft:max_stack_size": 1,
-      "minecraft:icon": {
-        "texture": "arx:rune_ratatao"
-      },
-      "minecraft:cooldown": {
-        "category": "rune_ratatao",
-        "duration": 1
-      },
-      "minecraft:on_use": {
-        "on_use": {
-          "event": "on_use_event"
-        }
-      },
-      "minecraft:durability": {
-        "max_durability": 500
-      }
-    },
-    "events": {
-      "on_use_event": {
-        "swing": {},
-        "run_command": {
-          "command": [ 
-            "function runes/rune_ratatao"
-          ]
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:durability": {
+                "max_durability": 500
+            },
+            "minecraft:enchantable": {
+                "slot": "elytra",
+                "value": 10
+            },
+            "minecraft:icon": "arx:rune_ratatao_b",
+            "minecraft:max_stack_size": 1
         },
-        "damage": {
-          "type": "none",
-          "amount": 1,
-          "target": "self"
+        "description": {
+            "identifier": "arx:rune_ratatao",
+            "menu_category": {
+                "category": "items"
+            }
         }
-      }
     }
-  }
 }

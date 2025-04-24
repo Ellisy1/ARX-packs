@@ -1,14 +1,14 @@
 {
-  "format_version": "1.16.100",
-  "minecraft:item": {
-    "description": {
-      "identifier": "arx:demon_essence",
-      "category": "items"
-    },
-    "components": {
-      "minecraft:icon": {
-        "texture": "arx:demon_essence"
-      }
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:icon": "arx:demon_essence"
+        },
+        "description": {
+            "identifier": "arx:demon_essence",
+            "menu_category": {
+                "category": "items"
+            }
+        }
     }
-  }
 }

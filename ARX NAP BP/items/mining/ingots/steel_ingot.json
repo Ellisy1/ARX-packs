@@ -1,17 +1,14 @@
 {
-  "format_version": "1.16.100",
-  "minecraft:item": {
-    "description": {
-      "identifier": "arx:steel_ingot",
-      "category": "items"
-    },
-    "components": {
-      "minecraft:hand_equipped": false,
-      "minecraft:max_stack_size": 64,
-      "minecraft:foil": false,
-      "minecraft:icon": {
-        "texture": "arx:steel_ingot"
-      }
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:icon": "arx:steel_ingot"
+        },
+        "description": {
+            "identifier": "arx:steel_ingot",
+            "menu_category": {
+                "category": "items"
+            }
+        }
     }
-  }
 }

@@ -1,0 +1,66 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:feature_rules": {
+		"description": {
+			"identifier": "arx:plant_reed_feature_rule",
+			"places_feature": "arx:plant_reed_feature"
+		},
+		"conditions": {
+			"placement_pass": "before_surface_pass",
+			"minecraft:biome_filter": [
+				{
+					"all_of": [
+						{
+							"test": "has_biome_tag",
+							"operator": "!=",
+							"value": "cold"
+						},
+						{
+							"test": "has_biome_tag",
+							"operator": "!=",
+							"value": "nether"
+						},
+						{
+							"any_of": [
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "river"
+								},
+								{
+									"test": "has_biome_tag",
+									"operator": "==",
+									"value": "ocean"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		"distribution": {
+			"iterations": 100,
+			"x": {
+				"distribution": "uniform",
+				"extent": [
+					0,
+					16
+				]
+			},
+			"y": {
+				"distribution": "uniform",
+				"extent": [
+					63,
+					64
+				]
+			},
+			"z": {
+				"distribution": "uniform",
+				"extent": [
+					0,
+					16
+				]
+			}
+		}
+	}
+}

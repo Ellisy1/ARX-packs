@@ -8,15 +8,15 @@
     
     "tags": [ "jewelry_crafting_table" ],
     "pattern": [
-      "I",
-      "R"
+      " I ",
+      "R R"
     ],
     "key": {
       "I": {
         "item": "arx:amul_string"
       },
       "R": {
-        "item": "arx:pallas_3"
+        "item": "arx:steel_ingot"
       }
     },
     "result": {

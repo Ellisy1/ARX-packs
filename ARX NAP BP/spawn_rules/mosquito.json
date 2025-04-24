@@ -9,7 +9,7 @@
       {
         "minecraft:spawns_on_surface": {},
         "minecraft:weight": {
-          "default": 500
+          "default": 200
         },
         "minecraft:biome_filter": [
           {
@@ -26,7 +26,7 @@
       {
         "minecraft:spawns_on_surface": {},
         "minecraft:weight": {
-          "default": 500
+          "default": 200
         },
         "minecraft:biome_filter": [
           {
@@ -43,7 +43,7 @@
       {
         "minecraft:spawns_on_surface": {},
         "minecraft:weight": {
-          "default": 500
+          "default": 200
         },
         "minecraft:biome_filter": [
           {
@@ -64,7 +64,7 @@
       {
         "minecraft:spawns_on_surface": {},
         "minecraft:weight": {
-          "default": 100
+          "default": 70
         },
         "minecraft:biome_filter": [
           {

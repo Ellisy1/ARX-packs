@@ -8,19 +8,16 @@
     
     "tags": [ "crafting_table" ],
     "pattern": [
-      "NAA",
+      "NN ",
       "RRR",
       "i i"
     ],
     "key": {
       "R": {
-        "item": "arx:default_bottle"
+        "item": "minecraft:stick"
       },
       "i": {
         "item": "minecraft:planks"
-      },
-      "A": {
-        "item": "minecraft:iron_ingot"
       },
       "N": {
         "item": "minecraft:bowl"

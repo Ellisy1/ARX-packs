@@ -1,33 +1,14 @@
 {
-  "format_version": "1.16.100",
-  "minecraft:item": {
-    "description": {
-      "identifier": "arx:xp_megashard",
-      "category": "items"
-    },
-    "components": {
-      "minecraft:icon": {
-        "texture": "arx:xp_megashard"
-      },
-      "minecraft:cooldown": {
-        "category": "xp_megashard",
-        "duration": 1
-      },
-      "minecraft:on_use": {
-        "on_use": {
-          "event": "on_use_event"
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:icon": "arx:xp_megashard"
+        },
+        "description": {
+            "identifier": "arx:xp_megashard",
+            "menu_category": {
+                "category": "items"
+            }
         }
-      }
-    },
-    "events": {
-      "on_use_event": {
-        "swing": {},
-        "run_command": {
-          "command": [
-            "function xp_megashard"
-          ]
-        }
-      }
     }
-  }
 }

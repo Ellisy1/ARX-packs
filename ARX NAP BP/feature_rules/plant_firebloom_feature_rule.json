@@ -6,7 +6,7 @@
 			"places_feature": "arx:plant_firebloom_feature"
 		},
 		"conditions": {
-			"placement_pass": "underground_pass",
+			"placement_pass": "after_underground_pass",
 			"minecraft:biome_filter": [
 				{
 					"any_of": [

@@ -1,64 +1,33 @@
 {
-    "format_version": "1.16.100",
+    "format_version": "1.21.0",
     "minecraft:item": {
-        "description": {
-            "category": "equipment",
-            "identifier": "arx:wand_sakura"
-        },
         "components": {
-            "minecraft:creative_category": {
-                "parent": "itemGroup.name.sword"
+            "minecraft:can_destroy_in_creative": false,
+            "minecraft:cooldown": {
+                "category": "weapon",
+                "duration": 3
             },
-            "minecraft:icon": {
-                "texture": "arx:wand_sakura"
-            },
-            "minecraft:max_stack_size": 1,
-            "minecraft:hand_equipped": true,
-            "minecraft:allow_off_hand": true,
             "minecraft:damage": 1,
-            "minecraft:enchantable": {
-                "value": 15,
-                "slot": "sword"
-            },
             "minecraft:durability": {
                 "max_durability": 605
             },
-            "minecraft:weapon": {
-                "on_hurt_entity": {
-                    "event": "hurt"
-                }
+            "minecraft:enchantable": {
+                "slot": "sword",
+                "value": 15
             },
-            "minecraft:cooldown": {
-                "category": "wand",
-                "duration": 6
-            },
-            "minecraft:on_use": {
-                "on_use": {
-                    "event": "on_use_event"
-                }
-            },
-            "tag:minecraft:is_sword": {},
-            "tag:is_wand": {}
+            "minecraft:icon": "arx:wand_sakura",
+            "minecraft:max_stack_size": 1,
+            "minecraft:tags": {
+                "tags": [
+                    "is_wand"
+                ]
+            }
         },
-        "events": {
-            "on_use_event": {
-                "run_command": {
-                    "command": [
-                        "function wands/wand_default"
-                    ]
-                },
-                "damage": {
-                    "type": "none",
-                    "amount": 1,
-                    "target": "self"
-                }
-            },
-            "hurt": {
-                "damage": {
-                    "type": "none",
-                    "amount": 10,
-                    "target": "self"
-                }
+        "description": {
+            "identifier": "arx:wand_sakura",
+            "menu_category": {
+                "category": "equipment",
+                "group": "itemGroup.name.sword"
             }
         }
     }

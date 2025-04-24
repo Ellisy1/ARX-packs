@@ -1,0 +1,31 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.goose.try_to_fly": {
+			"loop": true,
+			"bones": {
+				"wingR": {
+					"rotation": [0, 0, "90+math.sin(query.anim_time * 1000) * -50"]
+				},
+				"wingL": {
+					"rotation": [0, 0, "-90+math.sin(query.anim_time * 1000) * 50"]
+				}
+			}
+		},
+		"animation.goose.walk": {
+			"loop": true,
+			"bones": {
+				"body": {
+					"rotation": [0, "math.sin(query.anim_time * 600 + 180) * 2", "math.sin(query.anim_time * 600 + 90) * 2"],
+					"position": ["math.sin(query.anim_time * 600 - 90) * 0.1", "math.sin(query.anim_time * 1200 - 90) * 0.2", 0]
+				},
+				"leftLeg": {
+					"rotation": ["math.sin(query.anim_time * 600) * 45", 0, 0]
+				},
+				"rightLeg": {
+					"rotation": ["math.sin(query.anim_time * 600) * -45", 0, 0]
+				}
+			}
+		}
+	}
+}

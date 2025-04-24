@@ -1,31 +1,27 @@
 {
-  "format_version": "1.16.100",
-  "minecraft:item": {
-    "description": {
-      "identifier": "arx:blue_dawn_dress",
-      "category": "Equipment"
-    },
-    "components": {
-      "minecraft:icon": {
-        "texture": "arx:blue_dawn_dress_icon"
-      },
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.chestplate"
-      },
-      "minecraft:max_stack_size": 1,
-      "minecraft:enchantable": {
-        "value": 10,
-        "slot": "armor_torso"
-      },
-      "minecraft:durability": {
-        "max_durability": 400
-      },
-      "minecraft:wearable": {
-        "slot": "slot.armor.chest"
-      },
-      "minecraft:armor": {
-        "protection": 2
-      }
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:durability": {
+                "max_durability": 400
+            },
+            "minecraft:enchantable": {
+                "slot": "armor_torso",
+                "value": 10
+            },
+            "minecraft:icon": "arx:blue_dawn_dress_icon",
+            "minecraft:max_stack_size": 1,
+            "minecraft:wearable": {
+                "protection": 2,
+                "slot": "slot.armor.chest"
+            }
+        },
+        "description": {
+            "identifier": "arx:blue_dawn_dress",
+            "menu_category": {
+                "category": "equipment",
+                "group": "itemGroup.name.chestplate"
+            }
+        }
     }
-  }
 }

@@ -1,14 +1,14 @@
 {
-    "format_version": "1.16.100",
+    "format_version": "1.21.0",
     "minecraft:item": {
-      "description": {
-        "category": "items",
-        "identifier": "arx:chrysolite_gem"
-      },
-      "components": {
-        "minecraft:icon": {
-          "texture": "arx:chrysolite_gem"
+        "components": {
+            "minecraft:icon": "arx:chrysolite_gem"
+        },
+        "description": {
+            "identifier": "arx:chrysolite_gem",
+            "menu_category": {
+                "category": "items"
+            }
         }
-      }
     }
-  }
+}

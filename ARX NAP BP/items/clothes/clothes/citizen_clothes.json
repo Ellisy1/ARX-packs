@@ -1,31 +1,27 @@
 {
-  "format_version": "1.16.100",
-  "minecraft:item": {
-    "description": {
-      "identifier": "arx:citizen_clothes",
-      "category": "Equipment"
-    },
-    "components": {
-      "minecraft:icon": {
-        "texture": "arx:citizen_clothes"
-      },
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.chestplate"
-      },
-      "minecraft:max_stack_size": 1,
-      "minecraft:enchantable": {
-        "value": 10,
-        "slot": "armor_torso"
-      },
-      "minecraft:durability": {
-        "max_durability": 300
-      },
-      "minecraft:wearable": {
-        "slot": "slot.armor.chest"
-      },
-      "minecraft:armor": {
-        "protection": 3
-      }
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:durability": {
+                "max_durability": 300
+            },
+            "minecraft:enchantable": {
+                "slot": "armor_torso",
+                "value": 10
+            },
+            "minecraft:icon": "arx:citizen_clothes",
+            "minecraft:max_stack_size": 1,
+            "minecraft:wearable": {
+                "protection": 3,
+                "slot": "slot.armor.chest"
+            }
+        },
+        "description": {
+            "identifier": "arx:citizen_clothes",
+            "menu_category": {
+                "category": "equipment",
+                "group": "itemGroup.name.chestplate"
+            }
+        }
     }
-  }
 }

@@ -1,10 +1,11 @@
 {
-  "format_version": "1.10",
-  "minecraft:item": {
-    "description": {
-      "identifier": "minecraft:cooked_fish"
-    },
-
-    "components": {}
-  }
+    "format_version": "1.10.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:icon": "cooked_fish"
+        },
+        "description": {
+            "identifier": "minecraft:cooked_fish"
+        }
+    }
 }

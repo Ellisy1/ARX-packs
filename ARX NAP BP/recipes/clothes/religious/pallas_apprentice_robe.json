@@ -8,16 +8,13 @@
     
     "tags": [ "clothes_crafting_table" ],
     "pattern": [
-      "DZZ",
+      " ZZ",
       "AZA",
       "ZZZ"
     ],
     "key": {
       "Z": {
         "item": "arx:silk"
-      },
-      "D": {
-        "item": "arx:drawing_relig_pa_u"
       },
       "A": {
         "item": "minecraft:dye:16"

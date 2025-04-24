@@ -12,11 +12,11 @@
                 "may_replace": ["minecraft:dirt", "minecraft:grass"]
             },
             {
-                "places_block": "minecraft:ice",
+                "places_block": "minecraft:packed_ice",
                 "may_replace": ["minecraft:stone"]
             },
             {
-                "places_block": "minecraft:packed_ice",
+                "places_block": "minecraft:blue_ice",
                 "may_replace": ["minecraft:deepslate"]
             }
         ]

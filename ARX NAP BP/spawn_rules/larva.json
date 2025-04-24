@@ -12,7 +12,7 @@
           "default": 100
         },
         "minecraft:height_filter": {
-          "min": -63,
+          "min": 0,
           "max": 55
         },
         "minecraft:brightness_filter": {

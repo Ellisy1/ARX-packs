@@ -1,102 +1,34 @@
 {
-    "format_version": "1.16.100",
+    "format_version": "1.21.0",
     "minecraft:item": {
-        "description": {
-            "category": "equipment",
-            "identifier": "arx:staff_dorionite"
-        },
         "components": {
-            "minecraft:icon": {
-                "texture": "arx:staff_dorionite"
-            },
-            "minecraft:creative_category": {
-                "parent": "itemGroup.name.sword"
-            },
-            "minecraft:durability": {
-                "max_durability": 1931
-            },
-            "minecraft:max_stack_size": 1,
-            "minecraft:hand_equipped": true,
-            "minecraft:damage": 6,
-            "minecraft:enchantable": {
-                "value": 15,
-                "slot": "sword"
-            },
+            "minecraft:can_destroy_in_creative": false,
             "minecraft:cooldown": {
-                "category": "staff",
-                "duration": 3
+                "category": "weapon",
+                "duration": 1.5
             },
-            "minecraft:on_use": {
-                "on_use": {
-                    "event": "on_use_event"
-                }
+            "minecraft:damage": 5,
+            "minecraft:durability": {
+                "max_durability": 1806
             },
-            "minecraft:weapon": {
-                "on_hurt_entity": {
-                    "event": "hurt"
-                }
+            "minecraft:enchantable": {
+                "slot": "sword",
+                "value": 15
             },
-            "minecraft:render_offsets": {
-                "main_hand": {
-                    "first_person": {
-                        "position": [
-                            0.23,
-                            -0.3,
-                            -1.1
-                        ],
-                        "scale": [
-                            0.035,
-                            0.035,
-                            0.035
-                        ]
-                    },
-                    "third_person": {
-                        "position": [
-                            0.7,
-                            0.7,
-                            -1.1
-                        ],
-                        "scale": [
-                            0.1,
-                            0.0625,
-                            0.1
-                        ]
-                    }
-                }
-            },
-            "tag:minecraft:is_sword": {},
-            "tag:is_staff": {}
+            "minecraft:icon": "arx:staff_dorionite",
+            "minecraft:max_stack_size": 1,
+            "minecraft:tags": {
+                "tags": [
+                    "is_staff",
+                    "staff_channels_5"
+                ]
+            }
         },
-        "events": {
-            "on_use_event": {
-                "swing": {},
-                "run_command": {
-                    "command": [
-                        "tag @s add staffself",
-                        "tag @s add staff_quintu",
-                        "function staffs/staff_default",
-                        "tag @s remove staffself"
-                    ]
-                },
-                "damage": {
-                    "type": "none",
-                    "amount": 1,
-                    "target": "self"
-                }
-            },
-            "hurt": {
-                "run_command": {
-                    "command": [
-                        "tag @s add is_staff",
-                        "scoreboard players set @s uni_cool_down 3",
-                        "function attack/on_attack"
-                    ]
-                },
-                "damage": {
-                    "type": "none",
-                    "amount": 1,
-                    "target": "self"
-                }
+        "description": {
+            "identifier": "arx:staff_dorionite",
+            "menu_category": {
+                "category": "equipment",
+                "group": "itemGroup.name.sword"
             }
         }
     }

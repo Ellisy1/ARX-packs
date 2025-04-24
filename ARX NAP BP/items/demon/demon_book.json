@@ -1,139 +1,19 @@
 {
-  "format_version": "1.16.100",
-  "minecraft:item": {
-    "description": {
-      "identifier": "arx:demon_book",
-      "category": "items"
-    },
-    "components": {
-      "minecraft:hand_equipped": false,
-      "minecraft:max_stack_size": 1,
-      "minecraft:foil": false,
-      "minecraft:icon": {
-        "texture": "arx:demon_book"
-      },
-      "minecraft:cooldown": {
-        "category": "demon_book",
-        "duration": 60
-      },
-      "minecraft:on_use": {
-        "on_use": {
-          "event": "on_use_event"
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:icon": "arx:demon_book",
+            "minecraft:max_stack_size": 1,
+            "minecraft:cooldown": {
+                "category": "demon_book",
+                "duration": 15
+            }
+        },
+        "description": {
+            "identifier": "arx:demon_book",
+            "menu_category": {
+                "category": "items"
+            }
         }
-      }
-    },
-    "events": {
-      "on_use_event": {
-        "swing": {},
-        "randomize": [
-          {
-            "run_command": {
-              "command": [
-                "playsound demon.say @a ~ ~ ~",
-                "scoreboard players set @p demon_power 20",
-                "scoreboard players add @p stress -200",
-                "w @p демон дарует вам свою силу!"
-              ]
-            },
-            "weight": 150
-          },
-          {
-            "run_command": {
-              "command": [
-                "scoreboard players add @p stress 100",
-                "w @p кажется, демон чем-то занят и ему не до вас"
-                
-              ]
-            },
-            "weight": 50
-          },
-          {
-            "run_command": {
-              "command": [
-                "scoreboard players add @p stress 500",
-                "playsound getdemon @a ~0.1 ~2 ~0.1",
-                "clear @p arx:demon_book 0 1",
-                "effect @p darkness 16 0",
-                "effect @p nausea 18 0",
-                "effect @p levitation 5 0",
-                "effect @p slowness 16 10",
-                "camerashake add @p 1 16 rotational",
-                "scoreboard players set @p c_demon 1",
-                "w @p вы одержимы демоном! Если вас вырубят в таком состоянии, то вы погибнете навсегда!",
-                "title @p subtitle §4При смерти с демоном вы погибнете навсегда!",
-                "title @p title §сВЫ ОДЕРЖИМЫ ДЕМОНОМ"
-              ]
-            },
-            "weight": 10
-          },
-          {
-            "run_command": {
-              "command": [
-                "scoreboard players add @p stress -500",
-                "playsound demon.say @a ~ ~ ~",
-                "give @p arx:demon_mask",
-                "w @p Демон решил сделать вам подарок!"
-              ]
-            },
-            "weight": 10
-          },
-          {
-            "run_command": {
-              "command": [
-                "scoreboard players add @p stress -700",
-                "playsound demon.say @a ~ ~ ~",
-                "scoreboard players set @p demon_power 60",
-                "w @p Демон дарует вам мощную силу!"
-              ]
-            },
-            "weight": 1
-          },
-          {
-            "run_command": {
-              "command": [
-                "scoreboard players add @p stress 500",
-                "clear @p arx:demon_book 0 1",
-                "give @p book",
-                "w @p Демон решил покинуть вашу книгу"
-              ]
-            },
-            "weight": 1
-          },
-          {
-            "run_command": {
-              "command": [
-                "scoreboard players add @p stress 1000",
-                "playsound demon.say @a ~ ~ ~",
-                "effect @p poison 999999 0",
-                "w @p Демон решил поиздеваться над вами"
-              ]
-            },
-            "weight": 1
-          },
-          {
-            "run_command": {
-              "command": [
-                "scoreboard players add @p stress 1000",
-                "playsound demon.say @a ~ ~ ~",
-                "effect @p levitation 3 100",
-                "w @p Демон решил поиздеваться над вами"
-              ]
-            },
-            "weight": 1
-          },
-          {
-            "run_command": {
-              "command": [
-                "scoreboard players add @p stress -2000",
-                "playsound demon.say @a ~ ~ ~",
-                "give @p arx:undemon_book",
-                "w @p Демон, кажется, очень переживает за вашу сохранность и не желает вам зла, давая заклинание против себя самого"
-              ]
-            },
-            "weight": 1
-          }
-        ]
-      }
     }
-  }
 }

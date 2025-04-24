@@ -32,19 +32,7 @@
 
 # Движок рывка вперед
     execute if entity @a[scores={tp_cd=1..}] run function core_parts_NAP/tp_forward_by_magic_dash
-
-# Кровь при ранениях
-    execute at @a[tag=!is_dead, tag=low_hp, scores={class=!1, custom_random=550..570}] run particle arx:blood_one
-    execute at @a[tag=!is_dead, tag=very_low_hp, scores={class=!1, custom_random=550..650}] run particle arx:blood_one
-
-#Свет экипировки
-    execute at @a[hasitem={item=minecraft:torch, location=slot.weapon.mainhand}] if block ~ ~1.5 ~ air run fill ~ ~1.5 ~ ~ ~1.5 ~ arx:dynamic_light_block_14
-    execute at @a[hasitem={item=minecraft:redstone_torch, location=slot.weapon.mainhand}] if block ~ ~1.5 ~ air run fill ~ ~1.5 ~ ~ ~1.5 ~ arx:dynamic_light_block_7
-    execute at @a[hasitem={item=minecraft:lantern, location=slot.weapon.mainhand}] if block ~ ~1.5 ~ air run fill ~ ~1.5 ~ ~ ~1.5 ~ arx:dynamic_light_block_14
-    # Свет от ламп
-        execute as @a[scores={max_light_range=!0, lamp_oil=1..}, m=!spectator] at @s run function core_parts_NAP/belt_lamps
-
-
+    
 # Код для специального анимирования от предметов, на которых можно сидеть
     # Пуфик поджопник
         execute as @a[tag=is_riding] at @s if entity @e[r=1, type=arx:ottoman] run playanimation @s animation.player.ottoman
@@ -109,33 +97,20 @@
         title @a[scores={water_delay=401..2400, freezing=0}] actionbar ĢĢĢ §bВы промокли §fĢĢĢ
 
     # Партиклы
-        execute at @a[scores={water_delay=1..2400}, tag=!in_block_water, m=!spectator] run particle arx:arx_water_splash_particle ~.2 ~ ~.2
-        execute at @a[scores={water_delay=1..2400}, tag=!in_block_water, m=!spectator] run particle arx:arx_water_splash_particle ~-0.2 ~ ~.2
-        execute at @a[scores={water_delay=1..2400}, tag=!in_block_water, m=!spectator] run particle arx:arx_water_splash_particle ~.2 ~ ~-0.2
-        execute at @a[scores={water_delay=1..2400}, tag=!in_block_water, m=!spectator] run particle arx:arx_water_splash_particle ~-0.2 ~ ~-0.2
-        execute at @a[scores={water_delay=1..2400}, tag=!in_block_water, m=!spectator] run particle arx:arx_water_splash_particle ~ ~ ~
+        execute at @a[scores={water_delay=1..}, tag=!in_block_water, m=!spectator] run particle arx:arx_water_splash_particle ~.2 ~ ~.2
+        execute at @a[scores={water_delay=1..}, tag=!in_block_water, m=!spectator] run particle arx:arx_water_splash_particle ~-0.2 ~ ~.2
+        execute at @a[scores={water_delay=1..}, tag=!in_block_water, m=!spectator] run particle arx:arx_water_splash_particle ~.2 ~ ~-0.2
+        execute at @a[scores={water_delay=1..}, tag=!in_block_water, m=!spectator] run particle arx:arx_water_splash_particle ~-0.2 ~ ~-0.2
+        execute at @a[scores={water_delay=1..}, tag=!in_block_water, m=!spectator] run particle arx:arx_water_splash_particle ~ ~ ~
 
 # Камера на плече
 #    execute as @a[tag=shoulersurfing_camera] at @s run camera @s set minecraft:free ease 0.2 linear pos ^-1 ^2 ^-3.3 facing ^-0.8 ^2 ^0
     
-# Настройка позы
-    execute if entity @a[has_property={arx:is_knocked=0}, hasitem={item=arx:pose_tuning, location=slot.weapon.mainhand}] run function core_parts_NAP/pose_tuning_titles
-
-# Свет от огоньков
-    execute unless entity @a[tag=scarlet_night] at @e[type=arx:wandering_flame_of_night] if block ~ ~ ~ air run fill ~ ~ ~ ~ ~ ~ arx:dynamic_light_block_14
-    execute at @e[type=arx:march, has_property={arx:active_engines=true}] if block ~ ~ ~ air run fill ~ ~ ~ ~ ~ ~ arx:dynamic_light_block_14
-
 # Твикер нажатия на блоки
     scoreboard players add @a[scores={restrict_block_interact=1..}] restrict_block_interact -1
 
 # Деспавним всех приговоренных алой ночью / обычной ночью
     execute if entity @a[scores={is_day=0}] run event entity @e[tag=force_to_despawn] arx:despawn_forced
-
-# Комментарии при взятии книжки инфо
-    execute if entity @a[scores={respawn_delay=0}, m=!spectator, hasitem={item=arx:united_player_data, location=slot.weapon.mainhand}] run function core_parts_NAP/display_united_player_data
-
-# Анализ маны
-    function core_parts_NAP/mana
 
 # Нокаут
     # Темнеем камеру, если нокнуты
@@ -147,3 +122,9 @@
             execute as @a[tag=is_riding, has_property={arx:is_knocked=1..}] at @s if entity @p[r=2, has_property={arx:is_knocked=0}, tag=is_sneaking, tag=has_riders] run ride @s stop_riding
             execute as @a[has_property={arx:is_knocked=1..}, scores={respawn_delay=0}] at @s if entity @p[r=2, has_property={arx:is_knocked=0}, tag=is_sneaking, tag=has_riders] run inputpermission set @s movement enabled
             execute as @a[has_property={arx:is_knocked=1..}, scores={respawn_delay=0}] at @s if entity @p[r=2, has_property={arx:is_knocked=0}, tag=is_sneaking, tag=has_riders] run event entity @s arx:property_is_knockout_set_0
+
+# Выставляем спавнпоинт туда, где умерли. Мы сейчас же возродимся прямо здесь
+    execute as @a at @s run spawnpoint @s ~ ~ ~
+
+# Телепортируем невидимые щиты на игроков
+    execute as @e[type=arx:blocking_invisible_shield] at @s run tp @s @p[r=3]

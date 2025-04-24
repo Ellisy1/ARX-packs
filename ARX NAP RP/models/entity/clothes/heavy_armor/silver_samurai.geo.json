@@ -62,6 +62,15 @@
 					]
 				},
 				{
+					"name": "bust",
+					"parent": "body",
+					"pivot": [0, 23, -2.1],
+					"cubes": [
+						{"origin": [-4, 19, -2.1], "size": [8, 4, 4], "inflate": 0.24, "uv": [16, 48]},
+						{"origin": [-4, 19, -2.1], "size": [8, 4, 4], "inflate": 0.5, "uv": [16, 56]}
+					]
+				},
+				{
 					"name": "rightArm",
 					"parent": "Custom",
 					"pivot": [-5, 22, 0],

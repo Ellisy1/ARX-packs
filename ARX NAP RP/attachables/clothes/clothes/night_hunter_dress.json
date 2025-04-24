@@ -14,11 +14,14 @@
       },
       "animations": {
         "dress": "animation.dress.default",
-        "controller_dress": "controller.animation.dress"
+        "controller_dress": "controller.animation.dress",
+        "bust": "animation.player.bust",
+        "bust_controller": "controller.animation.bust"
       },
       "scripts": {
         "animate": [
-          "controller_dress"
+          "controller_dress",
+          "bust_controller"
         ],
         "parent_setup": "variable.chest_layer_visible = 0.0;"
       },

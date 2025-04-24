@@ -1,50 +1,14 @@
 {
-  "format_version": "1.16.100",
-  "minecraft:item": {
-    "description": {
-      "identifier": "arx:pouch_with_dyes",
-      "category": "items"
-    },
-    "components": {
-      "minecraft:icon": {
-        "texture": "arx:pouch_with_dyes"
-      },
-      "minecraft:cooldown": {
-        "category": "actions",
-        "duration": 1
-      },
-      "minecraft:on_use": {
-        "on_use": {
-          "event": "on_use_event"
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:icon": "arx:pouch_with_dyes"
+        },
+        "description": {
+            "identifier": "arx:pouch_with_dyes",
+            "menu_category": {
+                "category": "items"
+            }
         }
-      },
-      "tag:is_invisible": {}
-    },
-    "events": {
-      "on_use_event": {
-        "run_command": {
-          "command": [
-            "clear @s arx:pouch_with_dyes 0 1",
-            "scoreboard players add @s xp_tray 50",
-            "give @s[scores={custom_random=0..62}] dye 1 1",
-            "give @s[scores={custom_random=63..125}] dye 1 2",
-            "give @s[scores={custom_random=126..187}] dye 1 5",
-            "give @s[scores={custom_random=188..250}] dye 1 6",
-            "give @s[scores={custom_random=251..312}] dye 1 7",
-            "give @s[scores={custom_random=313..375}] dye 1 8",
-            "give @s[scores={custom_random=376..437}] dye 1 9",
-            "give @s[scores={custom_random=438..500}] dye 1 10",
-            "give @s[scores={custom_random=501..562}] dye 1 11",
-            "give @s[scores={custom_random=563..625}] dye 1 12",
-            "give @s[scores={custom_random=626..687}] dye 1 13",
-            "give @s[scores={custom_random=688..750}] dye 1 14",
-            "give @s[scores={custom_random=751..812}] dye 1 16",
-            "give @s[scores={custom_random=813..875}] dye 1 17",
-            "give @s[scores={custom_random=876..937}] dye 1 18",
-            "give @s[scores={custom_random=938..1000}] dye 1 19"
-          ]
-        }
-      }
     }
-  }
 }

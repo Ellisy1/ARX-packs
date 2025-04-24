@@ -1,0 +1,248 @@
+import { ModalFormData, MessageFormData, ActionFormData } from "@minecraft/server-ui"
+import { getScore, setScore } from "./scoresOperations"
+import { setRandomTastes } from './food/setRandomTastes'
+import { tasteBodyString } from "./core/core"
+
+// Функция регистрации персонажа
+export function registerCharacter(player) {
+    if (player.getDynamicProperty('hasRegisteredCharacter') === true) {
+        const formNo = new ActionFormData()
+            .title("Регистрация невозможна")
+            .body(`Вы уже имеете загрегитрованного персонажа ${player.getDynamicProperty('trueName')}`)
+            .show(player)
+    }
+    else if (player.getDynamicProperty('verify') === true) {
+        switch (player.getDynamicProperty('registerCharacterStage')) {
+            case undefined:
+            case 0: // Начало регистрации
+                const form0 = new MessageFormData()
+                    .title("Создание персонажа")
+                    .body('§lВы придумали своего персонажа?§r§f\n\n§cВНИМАНИЕ!§f Вы §cне сможете§f изменить персонажа позже, так что подумайте хорошо.\nНе торопитесь.')
+                    .button1("Нет, мне ещё нужно подумать")
+                    .button2("Да, начать создание персонажа")
+
+                    .show(player)
+                    .then((response) => {
+                        if (response.selection === 1) { // Игрок нажал "продолжитиь"
+                            player.setDynamicProperty('registerCharacterStage', 1)
+                            registerCharacter(player)
+                        }
+                    })
+                break
+
+            case 1: // Выбор пола
+                const form1 = new ActionFormData()
+                    .title("Пол персонажа")
+                    .body('§lВыберите пол вашего персонажа.\nПол §aне влияет§f на механики.')
+                    .button("Мужской", 'textures/ui/registration/gender_man')
+                    .button("Женский", 'textures/ui/registration/gender_woman')
+
+                    .show(player)
+                    .then((response) => {
+                        if (response.selection === 0) { // Муж
+                            player.setProperty('arx:gender', 1)
+                            setScore(player, "gender", 1)
+                            player.setProperty('arx:bust_size', 0)
+
+                            player.setDynamicProperty('registerCharacterStage', 3)
+                            registerCharacter(player)
+                        } else if (response.selection === 1) { // Жен
+                            player.setProperty('arx:gender', 2)
+                            setScore(player, "gender", 2)
+
+                            player.setDynamicProperty('registerCharacterStage', 2)
+                            registerCharacter(player)
+                        }
+                    })
+                break
+
+            case 2: // Выбор размера груди
+                const form2 = new ActionFormData()
+                    .title("Размер груди")
+                    .body('§lВыберите размер груди вашего персонажа.\nВлияет на отображение груди на одежде.')
+                    .button("Плоская. Абсолютно ровная доска", 'textures/ui/registration/bust_size_0')
+                    .button("Небольшая. Аккуратная и изящная", 'textures/ui/registration/bust_size_1')
+                    .button("Достойная. Объёмная, но не черезмерная", 'textures/ui/registration/bust_size_2')
+                    .button("Огромная. Большая, мягкая и грациозная", 'textures/ui/registration/bust_size_3')
+
+                    .show(player)
+                    .then((response) => {
+                        if (response.selection != undefined) { // Выбран размер
+                            player.setProperty('arx:bust_size', response.selection)
+
+                            player.setDynamicProperty('registerCharacterStage', 3)
+                            registerCharacter(player)
+                        }
+                    })
+                break
+
+            case 3: // Установка имени
+                const localNameSample = getScore(player, 'gender') === 1 ? "Таинственный незнакомец" : "Таинственная незнакомка"
+                const form3 = new ModalFormData()
+                    .title("Имя персонажа")
+                    .textField("Настоящее имя вашего персонажа.\n§7§oКроме вас его никто не увидит, даже модератор", "Настоящее имя персонажа")
+                    .textField(`Имя для локального чата. \n§7§oМожно в любой момент сменить командой §d!§asetname§7.\nЭто может быть имя, а может быть\nчто-то вроде <${localNameSample}>`, "Имя для локального чата")
+                    .submitButton('Установить имя')
+
+                    .show(player).then(response => {
+
+                        if (response.formValues) {
+
+                            const correctedTrueName = response.formValues[0].trim()
+                            const correctedName = response.formValues[1].trim()
+
+                            let wrongInput = false
+
+                            if (correctedTrueName == "") {
+                                player.runCommand(`tellraw @s { "rawtext": [ { "text": "§cНастоящее имя персонажа не может быть пустым." } ] }`)
+                                wrongInput = true
+                            } else if (correctedTrueName.length > 30) {
+                                player.runCommand(`tellraw @s { "rawtext": [ { "text": "§cНастоящее имя персонажа не может быть таким длинным." } ] }`)
+                                wrongInput = true
+                            }
+
+                            if (correctedName == "") {
+                                player.runCommand(`tellraw @s { "rawtext": [ { "text": "§cИмя для локального чата не может быть пустым." } ] }`)
+                                wrongInput = true
+                            } else if (correctedName.length > 30) {
+                                player.runCommand(`tellraw @s { "rawtext": [ { "text": "§cИмя для локального чата не может быть таким длинным." } ] }`)
+                                wrongInput = true
+                            }
+
+                            if (!wrongInput) {
+                                player.setDynamicProperty("trueName", correctedTrueName)
+                                player.setDynamicProperty("name", correctedName)
+
+                                player.setDynamicProperty('registerCharacterStage', 4)
+                                registerCharacter(player)
+                            }
+                        }
+                    })
+                break
+
+            case 4: // Установка вуксов
+                setRandomTastes(player)
+                const form4 = new MessageFormData()
+                    .title("Перебрасывайте вкусы, пока они вам не понравятся")
+                    .body(tasteBodyString(player))
+                    .button1("Перебросить вкусы")
+                    .button2("Принять и продолжить")
+
+                    .show(player)
+                    .then((response) => {
+                        if (response.selection === 0) { // Игрок перебросил
+                            registerCharacter(player)
+                        }
+                        else if (response.selection === 1) { // Игрок принял
+                            player.setDynamicProperty('registerCharacterStage', 5)
+                            registerCharacter(player)
+                        }
+                    })
+                break
+
+            case 5: // Установка формы рук
+                const form5 = new ActionFormData()
+                    .title("Форма рук")
+                    .body("Какова форма рук скина вашего персонажа?\nЭто скорректирует отображение некоторой одежды")
+                    .button("Широкие (как у Стива)", 'textures/ui/registration/arms_type_steve')
+                    .button("Тонкие (как у Алекс)", 'textures/ui/registration/arms_type_alex')
+                    .button("Мне надо рассмотреть скин\n(закрыть это меню)", 'textures/ui/registration/arms_type_check')
+
+                    .show(player).then(response => {
+
+                        if (response.selection != 2 && response.selection != undefined) {
+                            player.setProperty('arx:arms_type', response.selection)
+                            player.setDynamicProperty('registerCharacterStage', 6)
+                            registerCharacter(player)
+                        }
+                    })
+                break
+
+            case 6: // Установка роста
+                let defaultHeightValue
+                player.getDynamicProperty('height') === undefined ? defaultHeightValue = 175 : defaultHeightValue = player.getDynamicProperty('height')
+                const form6 = new ModalFormData()
+                    .title("Рост персонажа")
+                    .slider("У §aнизких§f персонажей §aменьше хитбокс§f\n\nУ §aвысоких§f персонажей §aбыстрее скорость бега (не более +5Ũ)§f\n\n§cЭти эффекты незначительны на практике! Выбирайте рост персонажа исходя из его лора, а не из бонусов\n\n§fРост вашего персонажа", 150, 195, 1, defaultHeightValue)
+                    .submitButton('Посмотреть, как это выглядит')
+
+                    .show(player).then(response => {
+
+                        if (response.formValues) {
+                            player.setDynamicProperty("height", response.formValues[0])
+                            player.setProperty("arx:height", response.formValues[0])
+                            player.runCommand(`event entity @s arx:setHeight_${response.formValues[0]}`)
+
+
+                            player.setDynamicProperty('registerCharacterStage', 7)
+                            player.runCommand(`tellraw @s { "rawtext": [ { "text": "Посмотрите на своего персонажа от третьего лица, §aвам нравится§f его §aрост§f? Возвращайтесь к <создать персонажа>, когда определитесь с ответом." } ] }`)
+                        }
+                    })
+                break
+
+            case 7: // Проверка роста
+                const form7 = new MessageFormData()
+                    .title("Рост персонажа")
+                    .body('Сохраняем рост?')
+                    .button1("Да, мне нравится")
+                    .button2("Нет, изменить рост")
+
+                    .show(player)
+                    .then((response) => {
+                        if (response.selection === 0) { // Игрок нажал "продолжитиь"
+                            player.setDynamicProperty('registerCharacterStage', 8)
+                            registerCharacter(player)
+                        } else if (response.selection === 1) {
+                            player.setDynamicProperty('registerCharacterStage', 6)
+                            registerCharacter(player)
+                        }
+                    })
+                break
+
+            case 8: // Проверка роста
+                let bodyText
+                getScore(player, "gender") === 1 ? bodyText = `${player.getDynamicProperty('trueName')} создан!` : bodyText = `${player.getDynamicProperty('trueName')} создана!`
+                const form8 = new ActionFormData()
+                    .title("Место появления")
+                    .body(bodyText + ' Где вы хотите появиться?\nМеста равноудалены друг от друга примерно на 1000 блоков')
+                    .button("Ровный солнечный пляж рядом с лесом саванны", 'textures/ui/registration/spawn_location_1')
+                    .button("Таёжно-ледяные горы и холодные долины", 'textures/ui/registration/spawn_location_2')
+                    .button("Тёплый высокий остров, окружённый океаном", 'textures/ui/registration/spawn_location_3')
+                    .button("Я пока позависаю в лобби", 'textures/ui/registration/spawn_location_pass_for_now')
+
+                    .show(player)
+                    .then((response) => {
+                        if (response.selection != undefined) { // Игрок нажал что-то
+                            if (response.selection === 0) {
+                                player.runCommand("tp -5749 68 -3828")
+                                finalizeCharacterRegistration(player)
+
+                            } else if (response.selection === 1) {
+                                player.runCommand("tp -4376 71 -3775")
+                                finalizeCharacterRegistration(player)
+
+                            } else if (response.selection === 2) {
+                                player.runCommand("tp -5125 72 -3020")
+                                finalizeCharacterRegistration(player)
+                            }
+                        }
+                    })
+                break
+        }
+    } else {
+        const form = new ActionFormData()
+            .title("Создание персонажа")
+            .body(`Добро пожаловать в Аркс, §a${player.name}§f!\n\nДождитесь, пока вас верифицируют! Верификация означает, что вы можете играть здесь. Обычно выдача верификации занимает §aне более 3 минут§f.\n\nВы получите сообщение, когда вас верифицируют.`)
+            .show(player)
+    }
+}
+
+// Завершение регистрации
+function finalizeCharacterRegistration(player) {
+    player.setDynamicProperty('registerCharacterStage', 0)
+    player.setDynamicProperty('hasRegisteredCharacter', true)
+
+    player.runCommand(`give @s arx:united_player_data 1 0 {"keep_on_death":{}}`)
+
+    player.runCommand(`tellraw @s { "rawtext": [ { "text": "Вы в игре!\nПервым делом, рекомендуется найти себе убежище..." } ] }`)
+}

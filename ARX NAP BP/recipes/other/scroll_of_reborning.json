@@ -8,7 +8,7 @@
     
     "tags": [ "rune_crafting_table" ],
     "pattern": [
-      "DCD",
+      "DED",
       "BAB",
       "DCD"
     ],
@@ -21,6 +21,9 @@
       },
       "C": {
         "item": "arx:scientific_book"
+      },
+      "E": {
+        "item": "arx:gold_feather"
       },
       "D": {
         "item": "arx:nagnium"

@@ -1,14 +1,14 @@
 {
-    "format_version": "1.16.100",
+    "format_version": "1.21.0",
     "minecraft:item": {
-      "description": {
-        "category": "items",
-        "identifier": "arx:toliriite_ingot"
-      },
-      "components": {
-        "minecraft:icon": {
-          "texture": "arx:toliriite_ingot"
+        "components": {
+            "minecraft:icon": "arx:toliriite_ingot"
+        },
+        "description": {
+            "identifier": "arx:toliriite_ingot",
+            "menu_category": {
+                "category": "items"
+            }
         }
-      }
     }
-  }
+}

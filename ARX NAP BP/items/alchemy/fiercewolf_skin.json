@@ -1,14 +1,14 @@
 {
-  "format_version": "1.16.100",
-  "minecraft:item": {
-    "description": {
-      "identifier": "arx:fiercewolf_skin",
-      "category": "items"
-    },
-    "components": {
-      "minecraft:icon": {
-        "texture": "arx:fiercewolf_skin"
-      }
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:icon": "arx:fiercewolf_skin"
+        },
+        "description": {
+            "identifier": "arx:fiercewolf_skin",
+            "menu_category": {
+                "category": "items"
+            }
+        }
     }
-  }
 }

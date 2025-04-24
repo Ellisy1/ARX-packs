@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:staff_wooden_with_olivine"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      "  B",
+      " A ",
+      "A  "
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:stick"
+      },
+      "B": {
+        "item": "arx:riolik_ingot"
+      }
+    },
+    "result": {
+      "item": "arx:staff_wooden_with_olivine"
+    }
+  }
+}

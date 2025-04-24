@@ -1,37 +1,14 @@
 {
-  "format_version": "1.16.100",
-  "minecraft:item": {
-    "description": {
-      "identifier": "arx:scroll_of_oblivion",
-      "category": "items"
-    },
-    "components": {
-      "minecraft:icon": {
-        "texture": "arx:scroll_of_oblivion"
-      },
-      "minecraft:cooldown": {
-        "category": "scroll_of_oblivion",
-        "duration": 1
-      },
-      "minecraft:on_use": {
-        "on_use": {
-          "event": "on_use_event"
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:icon": "arx:scroll_of_oblivion"
+        },
+        "description": {
+            "identifier": "arx:scroll_of_oblivion",
+            "menu_category": {
+                "category": "items"
+            }
         }
-      }
-    },
-    "events": {
-      "on_use_event": {
-        "swing": {},
-        "run_command": {
-          "command": [
-            "scoreboard players add @s xp_tray 250",
-            "scoreboard players set @s stress 0",
-            "clear @s arx:scroll_of_oblivion 0 1",
-            "w @s §aСвиток использован!",
-            "playsound elemental_use @a ~ ~ ~"
-          ]
-        }
-      }
     }
-  }
 }

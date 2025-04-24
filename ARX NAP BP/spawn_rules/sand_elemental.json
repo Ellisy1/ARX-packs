@@ -9,7 +9,7 @@
       {
         "minecraft:spawns_on_surface": {},
         "minecraft:weight": {
-          "default": 25
+          "default": 15
         },
         "minecraft:brightness_filter": {
           "min": 10,

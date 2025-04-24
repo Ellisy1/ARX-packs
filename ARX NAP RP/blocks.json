@@ -182,14 +182,63 @@
 		"textures": "arx_ruby_deep_ore",
 		"sound": "deepslate"
 	},
-	"arx:saphire_stone_ore": {
-		"textures": "arx_saphire_stone_ore",
+	"arx:sapphire_stone_ore": {
+		"textures": "arx_sapphire_stone_ore",
 		"sound": "stone"
 	},
-	"arx:saphire_deep_ore": {
-		"textures": "arx_saphire_deep_ore",
+	"arx:sapphire_deep_ore": {
+		"textures": "arx_sapphire_deep_ore",
 		"sound": "deepslate"
 	},
+	"arx:beryl_stone_ore": {
+		"textures": "arx_beryl_stone_ore",
+		"sound": "stone"
+	},
+	"arx:beryl_deep_ore": {
+		"textures": "arx_beryl_deep_ore",
+		"sound": "deepslate"
+	},
+	"arx:olivine_stone_ore": {
+		"textures": "arx_olivine_stone_ore",
+		"sound": "stone"
+	},
+	"arx:olivine_deep_ore": {
+		"textures": "arx_olivine_deep_ore",
+		"sound": "deepslate"
+	},
+	"arx:painit_stone_ore": {
+		"textures": "arx_painit_stone_ore",
+		"sound": "stone"
+	},
+	"arx:painit_deep_ore": {
+		"textures": "arx_painit_deep_ore",
+		"sound": "deepslate"
+	},
+	"arx:titanite_stone_ore": {
+		"textures": "arx_titanite_stone_ore",
+		"sound": "stone"
+	},
+	"arx:titanite_deep_ore": {
+		"textures": "arx_titanite_deep_ore",
+		"sound": "deepslate"
+	},
+	"arx:zircon_stone_ore": {
+		"textures": "arx_zircon_stone_ore",
+		"sound": "stone"
+	},
+	"arx:zircon_deep_ore": {
+		"textures": "arx_zircon_deep_ore",
+		"sound": "deepslate"
+	},
+	"arx:zoisite_stone_ore": {
+		"textures": "arx_zoisite_stone_ore",
+		"sound": "stone"
+	},
+	"arx:zoisite_deep_ore": {
+		"textures": "arx_zoisite_deep_ore",
+		"sound": "deepslate"
+	},
+
 	"arx:topaz_stone_ore": {
 		"textures": "arx_topaz_stone_ore",
 		"sound": "stone"
@@ -385,16 +434,11 @@
 	},
 
 
-	"arx:brick_hidden_button": {
-		"textures": "arx_brick_hidden_button"
-	},
-
 	"arx:grim_stonebricks": {
 		"textures": "arx_grim_stonebricks"
 	},
 
 	"arx:invisible_deepslate": {
-		"textures": "deepslate",
 		"sound": "deepslate"
 	},
 
@@ -468,16 +512,13 @@
 	},
 
 	"arx:dirt_slab": {
-		"sound" : "gravel",
-		"isotropic": true
+		"sound" : "gravel"
 	},
 	"arx:gravel_slab": {
-		"sound" : "gravel",
-		"isotropic": true
+		"sound" : "gravel"
 	},
 	"arx:grass_slab": {
-		"sound" : "grass",
-		"isotropic": true
+		"sound" : "grass"
 	},
 	"arx:dirt_with_rocks": {
 		"sound" : "gravel",

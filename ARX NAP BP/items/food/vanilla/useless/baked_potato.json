@@ -1,10 +1,11 @@
 {
-  "format_version": "1.10",
-  "minecraft:item": {
-    "description": {
-      "identifier": "minecraft:baked_potato"
-    },
-
-    "components": {}
-  }
+    "format_version": "1.10.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:icon": "baked_potato"
+        },
+        "description": {
+            "identifier": "minecraft:baked_potato"
+        }
+    }
 }

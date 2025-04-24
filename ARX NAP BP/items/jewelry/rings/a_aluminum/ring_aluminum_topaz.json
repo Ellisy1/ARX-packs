@@ -1,0 +1,45 @@
+{
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:durability": {
+                "max_durability": 100
+            },
+            "minecraft:enchantable": {
+                "slot": "armor_feet",
+                "value": 15
+            },
+            "minecraft:icon": "arx:ring_aluminum_topaz",
+            "minecraft:max_stack_size": 1,
+            "minecraft:repairable": {
+                "repair_items": [
+                    {
+                        "items": [
+                            "arx:jw_aluminum"
+                        ],
+                        "repair_amount": 50
+                    }
+                ]
+            },
+            "minecraft:wearable": {
+                "slot": "slot.armor.feet"
+            },
+            "minecraft:display_name": {
+                "value": "§r§fАлюминиевое кольцо с топазом §a[Необычное]\n§o§7Выстрелы чуть-чуть точнее и дальше"
+            },
+            "minecraft:allow_off_hand": true,
+            "minecraft:tags": {
+                "tags": [
+                    "is_invisible_in_offhand"
+                ]
+            }
+        },
+        "description": {
+            "identifier": "arx:ring_aluminum_topaz",
+            "menu_category": {
+                "category": "equipment",
+                "group": "itemGroup.name.boots"
+            }
+        }
+    }
+}

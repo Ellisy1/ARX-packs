@@ -1,0 +1,30 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:plush_gigamouse"
+    },
+
+    
+    "tags": [ "clothes_crafting_table" ],
+    "pattern": [
+      " I ",
+      "RAR",
+      "III"
+    ],
+    "key": {
+      "I": {
+        "item": "arx:cheap_cloth"
+      },
+      "F": {
+        "item": "minecraft:dye:16"
+      },
+      "R": {
+        "item": "minecraft:iron_nugget"
+      }
+    },
+    "result": {
+      "item": "arx:plush_gigamouse"
+    }
+  }
+}

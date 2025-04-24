@@ -1,14 +1,14 @@
 {
-  "format_version": "1.16.100",
-  "minecraft:item": {
-    "description": {
-      "identifier": "arx:salt",
-      "category": "items"
-    },
-    "components": {
-      "minecraft:icon": {
-        "texture": "arx:salt"
-      }
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:icon": "arx:salt"
+        },
+        "description": {
+            "identifier": "arx:salt",
+            "menu_category": {
+                "category": "items"
+            }
+        }
     }
-  }
 }

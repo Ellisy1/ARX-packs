@@ -8,7 +8,7 @@
     "tags": [ "brewing_stand" ],
 
     "input": "arx:rounded_bottle_water_fiuli",
-    "reagent": "arx:fly_agaric_item",
+    "reagent": "arx:fly_agaric",
     "output": "arx:rounded_bottle_water_fiuli_wolf_death"
   }
 

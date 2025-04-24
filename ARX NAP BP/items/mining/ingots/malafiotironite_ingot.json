@@ -1,14 +1,14 @@
 {
-    "format_version": "1.16.100",
+    "format_version": "1.21.0",
     "minecraft:item": {
-      "description": {
-        "category": "items",
-        "identifier": "arx:malafiotironite_ingot"
-      },
-      "components": {
-        "minecraft:icon": {
-          "texture": "arx:malafiotironite_ingot"
+        "components": {
+            "minecraft:icon": "arx:malafiotironite_ingot"
+        },
+        "description": {
+            "identifier": "arx:malafiotironite_ingot",
+            "menu_category": {
+                "category": "items"
+            }
         }
-      }
     }
-  }
+}

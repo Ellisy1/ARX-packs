@@ -11,17 +11,26 @@
 				"name": "body",
 				"pivot": [0, 24, 0],
 				"cubes": [
-					{"origin": [-4, 12, -2], "size": [8, 12, 4], "uv": [0, 0], "inflate": 0.55},
-					{"origin": [-4, 12, -2], "size": [8, 12, 4], "uv": [0, 16], "inflate": 0.675}
+					{"origin": [-4, 12, -2], "size": [8, 12, 4], "uv": [0, 0], "inflate": 0.3},
+					{"origin": [-4, 12, -2], "size": [8, 12, 4], "uv": [0, 16], "inflate": 0.45}
+				]
+			},
+			{
+				"name": "bust",
+				"parent": "body",
+				"pivot": [0, 23, -2.1],
+				"cubes": [
+					{"origin": [-4, 19, -2.1], "size": [8, 4, 4], "uv": [0, 48], "inflate": 0.24},
+					{"origin": [-4, 19, -2.1], "size": [8, 4, 4], "uv": [0, 56], "inflate": 0.5}
 				]
 			},
 			{
 				"name": "rightArm",
 				"pivot": [-5, 22, 0],
 				"cubes": [
-					{"origin": [-8, 12, -2], "size": [4, 12, 4], "uv": [24, 48], "inflate": 1.1},
-					{"origin": [-8, 12, -2], "size": [4, 12, 4], "uv": [24, 0], "inflate": 0.7},
-					{"origin": [-8, 12, -2], "size": [4, 12, 4], "uv": [24, 16], "inflate": 0.45},
+					{"origin": [-8, 12, -2], "size": [4, 12, 4], "uv": [24, 48], "inflate": 0.65},
+					{"origin": [-8, 12, -2], "size": [4, 12, 4], "uv": [24, 0], "inflate": 0.5},
+					{"origin": [-8, 12, -2], "size": [4, 12, 4], "uv": [24, 16], "inflate": 0.4},
 					{"origin": [-8, 12, -2], "size": [4, 12, 4], "uv": [24, 32], "inflate": 0.65}
 				]
 			},
@@ -30,9 +39,9 @@
 				"pivot": [5, 22, 0],
 				"mirror": true,
 				"cubes": [
-					{"origin": [4, 12, -2], "size": [4, 12, 4], "uv": [24, 48], "inflate": 1.1},
-					{"origin": [4, 12, -2], "size": [4, 12, 4], "uv": [24, 0], "inflate": 0.7},
-					{"origin": [4, 12, -2], "size": [4, 12, 4], "uv": [24, 16], "inflate": 0.45},
+					{"origin": [4, 12, -2], "size": [4, 12, 4], "uv": [24, 48], "inflate": 0.65},
+					{"origin": [4, 12, -2], "size": [4, 12, 4], "uv": [24, 0], "inflate": 0.5},
+					{"origin": [4, 12, -2], "size": [4, 12, 4], "uv": [24, 16], "inflate": 0.4},
 					{"origin": [4, 12, -2], "size": [4, 12, 4], "uv": [24, 32], "inflate": 0.65}
 				]
 			},

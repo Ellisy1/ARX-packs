@@ -4,7 +4,7 @@
         "description": {
             "identifier": "arx:ore_rare_lamenite_feature"
         },
-        "count": 8,
+        "count": 6,
         "discard_chance_on_air_exposure": 0,
         "replace_rules": [
             {

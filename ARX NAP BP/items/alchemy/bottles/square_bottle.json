@@ -1,14 +1,14 @@
 {
-  "format_version": "1.16.100",
-  "minecraft:item": {
-    "description": {
-      "identifier": "arx:square_bottle",
-      "category": "items"
-    },
-    "components": {
-      "minecraft:icon": {
-        "texture": "arx:square_bottle"
-      }
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:icon": "arx:square_bottle"
+        },
+        "description": {
+            "identifier": "arx:square_bottle",
+            "menu_category": {
+                "category": "items"
+            }
+        }
     }
-  }
 }

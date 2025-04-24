@@ -318,21 +318,6 @@
     ]
   },
 
-  "realms_stories_button@pause.pause_button_template": {
-    "ignored": "$is_secondary_client",
-    "$pressed_button_name": "button.menu_feed",
-    "$button_text": "pauseScreen.realmsStories",
-    "anchor_to": "top_middle",
-    "anchor_from": "top_middle",
-    "bindings": [
-      {
-        "binding_name": "#in_realm_with_stories",
-        "binding_name_override": "#visible",
-        "binding_type": "global"
-      }
-    ]
-  },
-
   "store_button_panel": {
     "type": "panel",
     "size": [ "100%", 28 ],
@@ -811,7 +796,6 @@
           "controls": [
             { "return_to_game_button@pause.return_to_game_button": {} },
             { "return@pause.vertical_padding": {} },
-            { "realms_stories_button@pause.realms_stories_button": {} },
             {
               "realms_stories@pause.vertical_padding": {
                 "bindings": [

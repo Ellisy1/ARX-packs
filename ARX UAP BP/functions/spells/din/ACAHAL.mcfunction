@@ -2,7 +2,7 @@
     scoreboard players set @p mp_req 1
 
     tag @p[tag=self, tag=staff_din] add drop_cost_with_staff
-    tag @p[tag=self, scores={religion=22}] add drop_cost_with_religion
+    tag @s[hasitem={item=arx:amul_magic_zoisite, location=slot.armor.legs}] add drop_cost_with_amulet
 
     function spells/operations/drop_spell_cost
     function spells/operations/check_mp_spell_availability
@@ -26,7 +26,6 @@
     execute @p[tag=self, tag=spell_available, scores={target=2}] ~ ~ ~ execute @p[tag=self2, scores={magic_skill=6}] ~ ~ ~ w @p[tag=self] Магия @p повышена до 6 уровня.
     execute @p[tag=self, tag=spell_available, scores={target=2}] ~ ~ ~ execute @p[tag=self2, scores={magic_skill=7..}] ~ ~ ~ w @p[tag=self] Магия @p повышена до 7 или более уровня.
 
-    execute @p[tag=self, tag=spell_available, scores={target=3}] ~ ~ ~ w @p Кажется, это заклинание невозможно применить на животных и монстров
     tag @p[tag=self, tag=spell_available, scores={target=3}] add cant_be_casted_cus_of_target
     
     function spells/operations/withdraw_mp

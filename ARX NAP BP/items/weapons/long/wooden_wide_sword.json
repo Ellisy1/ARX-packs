@@ -1,101 +1,33 @@
 {
-    "format_version": "1.16.100",
+    "format_version": "1.21.0",
     "minecraft:item": {
-        "description": {
-            "category": "equipment",
-            "identifier": "arx:wooden_wide_sword"
-        },
         "components": {
-            "minecraft:icon": {
-                "texture": "arx:wooden_wide_sword"
+            "minecraft:can_destroy_in_creative": false,
+            "minecraft:cooldown": {
+                "category": "weapon",
+                "duration": 1
             },
-            "minecraft:creative_category": {
-                "parent": "itemGroup.name.sword"
-            },
-            "minecraft:max_stack_size": 1,
-            "minecraft:hand_equipped": true,
+            "minecraft:damage": 3,
             "minecraft:durability": {
                 "max_durability": 301
             },
-            "minecraft:damage": 3,
             "minecraft:enchantable": {
-                "value": 15,
-                "slot": "sword"
+                "slot": "sword",
+                "value": 15
             },
-            "minecraft:can_destroy_in_creative": false,
-            "minecraft:weapon": {
-                "on_hurt_entity": {
-                    "event": "hurt"
-                }
-            },
-            "minecraft:render_offsets": {
-                "main_hand": {
-                    "first_person": {
-                        "position": [
-                            0.23,
-                            -0.3,
-                            -1.1
-                        ],
-                        "scale": [
-                            0.035,
-                            0.035,
-                            0.035
-                        ]
-                    },
-                    "third_person": {
-                        "position": [
-                            0.45,
-                            1.85,
-                            -0.75
-                        ],
-                        "scale": [
-                            0.08,
-                            0.0525,
-                            0.08
-                        ]
-                    }
-                }
-            },
-            "tag:minecraft:is_sword": {},
-            "tag:is_long_sword": {},
-            "minecraft:cooldown": {
-                "category": "blocking",
-                "duration": 2
-            },
-            "minecraft:on_use": {
-                "on_use": {
-                    "event": "blocking"
-                }
+            "minecraft:icon": "arx:wooden_wide_sword",
+            "minecraft:max_stack_size": 1,
+            "minecraft:tags": {
+                "tags": [
+                    "is_long_sword"
+                ]
             }
         },
-        "events": {
-            "hurt": {
-                "run_command": {
-                    "command": [
-                        "tag @s add is_longsword",
-                        "scoreboard players set @s uni_cool_down 5",
-                        "function attack/on_attack"
-                    ]
-                },
-                "damage": {
-                    "type": "none",
-                    "amount": 1,
-                    "target": "self"
-                }
-            },
-            "blocking": {
-                "run_command": {
-                    "command": [
-                        "tag @s add is_longsword",
-                        "scoreboard players set @s aoe_dmg 2",
-                        "function attack/on_block"
-                    ]
-                },
-                "damage": {
-                    "type": "none",
-                    "amount": 2,
-                    "target": "self"
-                }
+        "description": {
+            "identifier": "arx:wooden_wide_sword",
+            "menu_category": {
+                "category": "equipment",
+                "group": "itemGroup.name.sword"
             }
         }
     }

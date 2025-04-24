@@ -1,36 +1,18 @@
 {
-  "format_version": "1.16.100",
-  "minecraft:item": {
-    "description": {
-      "identifier": "arx:rounded_bottle",
-      "category": "items"
-    },
-    "components": {
-      "minecraft:icon": {
-        "texture": "arx:rounded_bottle"
-      },
-      "minecraft:cooldown": {
-        "category": "water_fill",
-        "duration": 1
-      },
-      "minecraft:on_use": {
-        "on_use": {
-          "event": "on_use_event"
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:icon": "arx:rounded_bottle",
+            "minecraft:cooldown": {
+                "category": "main",
+                "duration": 0.5
+            }
+        },
+        "description": {
+            "identifier": "arx:rounded_bottle",
+            "menu_category": {
+                "category": "items"
+            }
         }
-      }
-    },
-    "events": {
-      "on_use_event": {
-        "run_command": {
-          "command": [
-            "tag @p add self",
-            "w @p[tag=self, tag=!in_block_water] Чтобы наполнить бутылку, придется залезть в воду...",
-            "clear @p[tag=self, tag=in_block_water] arx:rounded_bottle 0 1",
-            "give @p[tag=self, tag=in_block_water] arx:rounded_bottle_water",
-            "tag @p remove self"
-          ]
-        }
-      }
     }
-  }
 }

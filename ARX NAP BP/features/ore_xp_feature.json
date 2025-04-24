@@ -4,7 +4,7 @@
         "description": {
             "identifier": "arx:ore_xp_feature"
         },
-        "count": 12,
+        "count": 7,
         "discard_chance_on_air_exposure": 0,
         "replace_rules": [
             {

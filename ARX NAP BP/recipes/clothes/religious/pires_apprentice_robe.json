@@ -8,7 +8,7 @@
     
     "tags": [ "clothes_crafting_table" ],
     "pattern": [
-      "DZZ",
+      " ZZ",
       " Z ",
       "ZCZ"
     ],
@@ -18,9 +18,6 @@
       },
       "C": {
         "item": "arx:leather_super"
-      },
-      "D": {
-        "item": "arx:drawing_relig_pi_u"
       }
     },
     "result": {

@@ -1,97 +1,34 @@
 {
-    "format_version": "1.16.100",
+    "format_version": "1.21.0",
     "minecraft:item": {
-        "description": {
-            "category": "equipment",
-            "identifier": "arx:durasteel_wide_greatsword"
-        },
         "components": {
-            "minecraft:icon": {
-                "texture": "arx:durasteel_wide_greatsword"
+            "minecraft:can_destroy_in_creative": false,
+            "minecraft:cooldown": {
+                "category": "weapon",
+                "duration": 1
             },
-            "minecraft:creative_category": {
-                "parent": "itemGroup.name.sword"
-            },
-            "minecraft:max_stack_size": 1,
-            "minecraft:hand_equipped": true,
+            "minecraft:damage": 16,
             "minecraft:durability": {
                 "max_durability": 2186
             },
-            "minecraft:damage": 16,
             "minecraft:enchantable": {
-                "value": 15,
-                "slot": "sword"
+                "slot": "sword",
+                "value": 15
             },
-            "minecraft:can_destroy_in_creative": false,
-            "minecraft:weapon": {
-                "on_hurt_entity": {
-                    "event": "hurt"
-                }
+            "minecraft:icon": "arx:durasteel_wide_greatsword",
+            "minecraft:max_stack_size": 1,
+            "minecraft:tags": {
+                "tags": [
+                    "is_hheavy_sword"
+                ]
             },
-            "minecraft:render_offsets": {
-                "main_hand": {
-                    "first_person": {
-                        "position": [
-                            0,
-                            0,
-                            0
-                        ],
-                        "scale": [
-                            0.035,
-                            0.035,
-                            0.035
-                        ]
-                    },
-                    "third_person": {
-                        "position": [
-                            1.7,
-                            4.7,
-                            -2.2
-                        ],
-                        "scale": [
-                            0.075,
-                            0.022,
-                            0.075
-                        ]
-                    }
-                }
-            },
-            "tag:minecraft:is_sword": {},
-            "tag:raw_cost:400000": {},
-            "tag:is_hheavy_sword": {},
-            "minecraft:cooldown": {
-                "category": "blocking",
-                "duration": 2
-            },
-            "minecraft:on_use": {
-                "on_use": {
-                    "event": "blocking"
-                }
-            }
+            "tag:raw_cost:400000": {}
         },
-        "events": {
-            "hurt": {
-                "run_command": {
-                    "command": [
-                        "tag @s add is_very_heavy",
-                        "scoreboard players set @s uni_cool_down 11",
-                        "function attack/on_attack"
-                    ]
-                },
-                "damage": {
-                    "type": "none",
-                    "amount": 1,
-                    "target": "self"
-                }
-            },
-            "blocking": {
-                "run_command": {
-                    "command": [
-                        "tag @s add is_very_heavy",
-                        "scoreboard players set @s block_power 4",
-                        "function attack/on_block"
-                    ]
-                }
+        "description": {
+            "identifier": "arx:durasteel_wide_greatsword",
+            "menu_category": {
+                "category": "equipment",
+                "group": "itemGroup.name.sword"
             }
         }
     }

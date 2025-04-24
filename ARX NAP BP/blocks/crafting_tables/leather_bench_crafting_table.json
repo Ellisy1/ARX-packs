@@ -1,129 +1,121 @@
 {
-	"format_version": "1.19.40",
-	"minecraft:block": {
-		"description": {
-			"identifier": "arx:leather_bench_crafting_table",
-			"properties": {
-				"arx:facing_direction": [
-					2,
-					3,
-					4,
-					5
-				]
-			},
-			"menu_category": {
-				"category": "construction"
-			}
-		},
-		"permutations": [
-			{
-				"condition": "query.block_property('arx:facing_direction') == 3",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							0,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "query.block_property('arx:facing_direction') == 5",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							90,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "query.block_property('arx:facing_direction') == 2",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							180,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "query.block_property('arx:facing_direction') == 4",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							270,
-							0
-						]
-					}
-				}
-			}
-		],
-		"components": {
-			"minecraft:map_color": "#e31b3c",
-			"minecraft:geometry": "geometry.leather_bench_crafting_table",
-			"minecraft:material_instances": {
-				"*": {
-					"texture": "arx_leather_bench_crafting_table",
-					"render_method": "alpha_test"
-				}
-			},
-			"minecraft:destructible_by_mining": {
-				"seconds_to_destroy": 2
-			},
-			"minecraft:on_player_placing": {
-				"event": "set_facing_direction"
-			},
-			"minecraft:crafting_table": {
-				"crafting_tags": [
-					"leather_bench_crafting_table"
-				],
-				"table_name": "Дубильный станок"
-			},
-			"minecraft:placement_filter": {
-				"conditions": [
-					{
-						"allowed_faces": ["up"]
-					}
-				]
-			},
-				"minecraft:collision_box": {
-				"origin": [
-					-7.0,
-					0.0,
-					-3.0
-				],
-				"size": [
-					14.0,
-					12.0,
-					6.0
-				]
-			},
-			"minecraft:selection_box": {
-				"origin": [
-					-7.0,
-					0.0,
-					-3.0
-				],
-				"size": [
-					14.0,
-					12.0,
-					6.0
-				]
-			}
-		},
-		"events": {
-			"set_facing_direction": {
-				"set_block_property": {
-					"arx:facing_direction": "query.cardinal_facing_2d"
-				}
-			}
-		}
-	}
+    "format_version": "1.21.30",
+    "minecraft:block": {
+        "components": {
+            "minecraft:collision_box": {
+                "origin": [
+                    -7.0,
+                    0.0,
+                    -3.0
+                ],
+                "size": [
+                    14.0,
+                    12.0,
+                    6.0
+                ]
+            },
+            "minecraft:crafting_table": {
+                "crafting_tags": [
+                    "leather_bench_crafting_table"
+                ],
+                "table_name": "Дубильный станок"
+            },
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 2
+            },
+            "minecraft:geometry": "geometry.leather_bench_crafting_table",
+            "minecraft:map_color": "#e31b3c",
+            "minecraft:material_instances": {
+                "*": {
+                    "render_method": "alpha_test",
+                    "texture": "arx_leather_bench_crafting_table"
+                }
+            },
+            "minecraft:placement_filter": {
+                "conditions": [
+                    {
+                        "allowed_faces": [
+                            "up"
+                        ]
+                    }
+                ]
+            },
+            "minecraft:selection_box": {
+                "origin": [
+                    -7.0,
+                    0.0,
+                    -3.0
+                ],
+                "size": [
+                    14.0,
+                    12.0,
+                    6.0
+                ]
+            }
+        },
+        "description": {
+            "identifier": "arx:leather_bench_crafting_table",
+            "menu_category": {
+                "category": "construction"
+            },
+            "traits": {
+                "minecraft:placement_direction": {
+                    "enabled_states": [
+                        "minecraft:cardinal_direction"
+                    ],
+                    "y_rotation_offset": 180.0
+                }
+            }
+        },
+        "permutations": [
+            {
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            0,
+                            0
+                        ]
+                    }
+                },
+                "condition": "q.block_state('minecraft:cardinal_direction') == 'north'"
+            },
+            {
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            90,
+                            0
+                        ]
+                    }
+                },
+                "condition": "q.block_state('minecraft:cardinal_direction') == 'west'"
+            },
+            {
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            180,
+                            0
+                        ]
+                    }
+                },
+                "condition": "q.block_state('minecraft:cardinal_direction') == 'south'"
+            },
+            {
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            -90,
+                            0
+                        ]
+                    }
+                },
+                "condition": "q.block_state('minecraft:cardinal_direction') == 'east'"
+            }
+        ]
+    }
 }

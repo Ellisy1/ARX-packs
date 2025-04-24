@@ -1,33 +1,14 @@
 {
-  "format_version": "1.16.100",
-  "minecraft:item": {
-    "description": {
-      "identifier": "arx:scroll_of_reborning",
-      "category": "items"
-    },
-    "components": {
-      "minecraft:icon": {
-        "texture": "arx:scroll_of_reborning"
-      },
-      "minecraft:cooldown": {
-        "category": "scroll_of_reborning",
-        "duration": 1
-      },
-      "minecraft:on_use": {
-        "on_use": {
-          "event": "on_use_event"
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:icon": "arx:scroll_of_reborning"
+        },
+        "description": {
+            "identifier": "arx:scroll_of_reborning",
+            "menu_category": {
+                "category": "items"
+            }
         }
-      }
-    },
-    "events": {
-      "on_use_event": {
-        "swing": {},
-        "run_command": {
-          "command": [
-            "function ghost_to_default_player"
-          ]
-        }
-      }
     }
-  }
 }

@@ -1,22 +1,18 @@
 {
-  "format_version": "1.20.60",
-  "minecraft:item": {
-    "description": {
-      "identifier": "arx:potato_seeds",
-      "menu_category": {
-        "category": "nature",
-        "group": "itemGroup.name.seed"
-      }
-    },
-    "components": {
-      "minecraft:icon": {
-        "textures": {
-          "default": "potato_seeds"
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:block_placer": {
+                "block": "arx:potatoes"
+            },
+            "minecraft:icon": "potato_seeds"
+        },
+        "description": {
+            "identifier": "arx:potato_seeds",
+            "menu_category": {
+                "category": "nature",
+                "group": "itemGroup.name.seed"
+            }
         }
-      },
-      "minecraft:block_placer": {
-        "block": "arx:potatoes"
-      }
     }
-  }
 }

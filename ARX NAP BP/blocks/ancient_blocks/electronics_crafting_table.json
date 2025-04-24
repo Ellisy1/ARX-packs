@@ -1,121 +1,111 @@
 {
-	"format_version": "1.19.40",
-	"minecraft:block": {
-		"description": {
-			"identifier": "arx:electronics_crafting_table",
-			"properties": {
-				"arx:facing_direction": [
-					2,
-					3,
-					4,
-					5
-				]
-			},
-			"menu_category": {
-				"category": "construction"
-			}
-		},
-		"permutations": [
-			{
-				"condition": "query.block_property('arx:facing_direction') == 3",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							0,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "query.block_property('arx:facing_direction') == 5",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							90,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "query.block_property('arx:facing_direction') == 2",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							180,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "query.block_property('arx:facing_direction') == 4",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							270,
-							0
-						]
-					} 
-				}
-			}
-		],
-		"components": {
-			"minecraft:geometry": "geometry.electronics_crafting_table",
-			"minecraft:material_instances": {
-				"*": {
-					"texture": "electronics_crafting_table",
-					"render_method": "alpha_test"
-				}
-			},
-			"minecraft:collision_box": {
-				"origin": [
-					-8.0,
-					0.0,
-					-8.0
-				],
-				"size": [
-					16.0,
-					14.0,
-					16.0
-				]
-			},
-			"minecraft:selection_box": {
-				"origin": [
-					-8.0,
-					0.0,
-					-8.0
-				],
-				"size": [
-					16.0,
-					14.0,
-					16.0
-				]
-			},
-			"minecraft:destructible_by_mining": {
-				"seconds_to_destroy": 2
-			},
-			"minecraft:on_player_placing": { 
-				"event": "set_facing_direction"
-			},
-			"minecraft:crafting_table": {
-				"crafting_tags": [
-					"electronics_crafting_table"
-				],
-				"table_name": "Электрографический верстак"
-			}
-		},
-		"events": {
-			"set_facing_direction": {
-				"set_block_property": {
-					"arx:facing_direction": "query.cardinal_facing_2d"
-				}
-			}
-		}
-	}
+    "format_version": "1.21.30",
+    "minecraft:block": {
+        "components": {
+            "minecraft:collision_box": {
+                "origin": [
+                    -8.0,
+                    0.0,
+                    -8.0
+                ],
+                "size": [
+                    16.0,
+                    14.0,
+                    16.0
+                ]
+            },
+            "minecraft:crafting_table": {
+                "crafting_tags": [
+                    "electronics_crafting_table"
+                ],
+                "table_name": "Электрографический верстак"
+            },
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 2
+            },
+            "minecraft:geometry": "geometry.electronics_crafting_table",
+            "minecraft:material_instances": {
+                "*": {
+                    "render_method": "alpha_test",
+                    "texture": "electronics_crafting_table"
+                }
+            },
+            "minecraft:selection_box": {
+                "origin": [
+                    -8.0,
+                    0.0,
+                    -8.0
+                ],
+                "size": [
+                    16.0,
+                    14.0,
+                    16.0
+                ]
+            }
+        },
+        "description": {
+            "identifier": "arx:electronics_crafting_table",
+            "menu_category": {
+                "category": "construction"
+            },
+            "traits": {
+                "minecraft:placement_direction": {
+                    "enabled_states": [
+                        "minecraft:cardinal_direction"
+                    ],
+                    "y_rotation_offset": 180.0
+                }
+            }
+        },
+        "permutations": [
+            {
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            0,
+                            0
+                        ]
+                    }
+                },
+                "condition": "q.block_state('minecraft:cardinal_direction') == 'north'"
+            },
+            {
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            90,
+                            0
+                        ]
+                    }
+                },
+                "condition": "q.block_state('minecraft:cardinal_direction') == 'west'"
+            },
+            {
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            180,
+                            0
+                        ]
+                    }
+                },
+                "condition": "q.block_state('minecraft:cardinal_direction') == 'south'"
+            },
+            {
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            -90,
+                            0
+                        ]
+                    }
+                },
+                "condition": "q.block_state('minecraft:cardinal_direction') == 'east'"
+            }
+        ]
+    }
 }

@@ -1,30 +1,26 @@
 {
-  "format_version": "1.16.100",
-  "minecraft:item": {
-    "description": {
-      "identifier": "arx:leg_bag",
-      "category": "Equipment"
-    },
-    "components": {
-      "minecraft:hand_equipped": false,
-      "minecraft:max_stack_size": 1,
-      "minecraft:foil": false,
-      "minecraft:icon": {
-        "texture": "arx:leg_bag"
-      },
-      "minecraft:wearable": {
-				"slot": "slot.armor.feet"
-			},
-      "minecraft:durability": {
-        "max_durability": 250
-      },
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.boots"
-      },
-      "minecraft:enchantable": {
-        "value": 15,
-        "slot": "armor_feet"
-      }
+    "format_version": "1.21.30",
+    "minecraft:item": {
+        "components": {
+            "minecraft:icon": {
+                "textures": {
+                    "default": "arx:leg_bag"
+                }
+            },
+            "minecraft:max_stack_size": 1,
+            "minecraft:durability": {
+              "max_durability": 250
+            },
+            "minecraft:wearable": {
+                "slot": "slot.armor.feet"
+            }
+        },
+        "description": {
+            "identifier": "arx:leg_bag",
+            "menu_category": {
+                "category": "equipment",
+                "group": "itemGroup.name.boots"
+            }
+        }
     }
-  }
 }

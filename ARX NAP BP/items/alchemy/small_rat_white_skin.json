@@ -1,14 +1,14 @@
 {
-  "format_version": "1.16.100",
-  "minecraft:item": {
-    "description": {
-      "identifier": "arx:small_rat_white_skin",
-      "category": "items"
-    },
-    "components": {
-      "minecraft:icon": {
-        "texture": "arx:small_rat_white_skin"
-      }
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:icon": "arx:small_rat_white_skin"
+        },
+        "description": {
+            "identifier": "arx:small_rat_white_skin",
+            "menu_category": {
+                "category": "items"
+            }
+        }
     }
-  }
 }

@@ -239,8 +239,8 @@
     tag @s[hasitem={item=arx:staff_chloronite, location=slot.weapon.mainhand}] add no_animate_killing_time
     tag @s[hasitem={item=arx:staff_wooden_with_chrysolite, location=slot.weapon.mainhand}] add no_animate_killing_time
     tag @s[hasitem={item=arx:staff_dorionite_with_caryite, location=slot.weapon.mainhand}] add no_animate_killing_time
-    tag @s[hasitem={item=arx:staff_with_diamond, location=slot.weapon.mainhand}] add no_animate_killing_time
-    tag @s[hasitem={item=arx:staff_wooden_with_riolik, location=slot.weapon.mainhand}] add no_animate_killing_time
+    tag @s[hasitem={item=arx:staff_with_beryl, location=slot.weapon.mainhand}] add no_animate_killing_time
+    tag @s[hasitem={item=arx:staff_wooden_with_olivine, location=slot.weapon.mainhand}] add no_animate_killing_time
     tag @s[hasitem={item=arx:staff_tin_with_gold, location=slot.weapon.mainhand}] add no_animate_killing_time
     tag @s[hasitem={item=arx:staff_dorionite, location=slot.weapon.mainhand}] add no_animate_killing_time
     tag @s[hasitem={item=arx:staff_steel_with_topaz, location=slot.weapon.mainhand}] add no_animate_killing_time
@@ -296,9 +296,15 @@
     tag @s[hasitem={item=minecraft:diamond_shovel, location=slot.weapon.mainhand}] add no_animate_killing_time
     tag @s[hasitem={item=minecraft:netherite_shovel, location=slot.weapon.mainhand}] add no_animate_killing_time
 
-    tag @s[hasitem={item=arx:pose_tuning, location=slot.weapon.mainhand}] add no_animate_killing_time
+    tag @s[hasitem={item=minecraft:bow, location=slot.weapon.mainhand}] add no_animate_killing_time
+    tag @s[hasitem={item=minecraft:crossbow, location=slot.weapon.mainhand}] add no_animate_killing_time
+    tag @s[hasitem={item=minecraft:trident, location=slot.weapon.mainhand}] add no_animate_killing_time
+
+    tag @s[hasitem={item=arx:dildo, location=slot.weapon.mainhand}] add no_animate_killing_time
 
     tag @s[has_property={arx:is_knocked=1..}] add no_animate_killing_time
+
+    tag @s[tag=block_animate_killing_time_during_emotion] add no_animate_killing_time
 
     execute as @a[tag=is_riding, has_property={arx:is_knocked=1..}] at @s run tag @p[r=0.8, tag=has_riders] add no_animate_killing_time
 

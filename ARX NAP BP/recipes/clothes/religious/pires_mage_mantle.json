@@ -8,7 +8,7 @@
     
     "tags": [ "clothes_crafting_table" ],
     "pattern": [
-      "CDC",
+      "C C",
       "#C#",
       "A#A"
     ],
@@ -21,9 +21,6 @@
       },
       "C": {
         "item": "minecraft:quartz"
-      },
-      "D": {
-        "item": "arx:drawing_relig_pi_m"
       }
     },
     "result": {

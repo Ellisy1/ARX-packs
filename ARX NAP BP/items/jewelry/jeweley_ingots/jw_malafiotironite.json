@@ -1,14 +1,14 @@
 {
-  "format_version": "1.16.100",
-  "minecraft:item": {
-    "description": {
-      "identifier": "arx:jw_malafiotironite",
-      "category": "items"
-    },
-    "components": {
-      "minecraft:icon": {
-        "texture": "arx:jw_malafiotironite"
-      }
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:icon": "arx:jw_malafiotironite"
+        },
+        "description": {
+            "identifier": "arx:jw_malafiotironite",
+            "menu_category": {
+                "category": "items"
+            }
+        }
     }
-  }
 }

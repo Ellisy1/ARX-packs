@@ -1,0 +1,14 @@
+{
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:icon": "arx:sapphire_gem"
+        },
+        "description": {
+            "identifier": "arx:sapphire_gem",
+            "menu_category": {
+                "category": "items"
+            }
+        }
+    }
+}

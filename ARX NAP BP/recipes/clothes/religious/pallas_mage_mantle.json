@@ -9,7 +9,7 @@
     "tags": [ "clothes_crafting_table" ],
     "pattern": [
       "#A#",
-      "#D#",
+      "# #",
       "CAC"
     ],
     "key": {
@@ -21,9 +21,6 @@
       },
       "C": {
         "item": "arx:tironium"
-      },
-      "D": {
-        "item": "arx:drawing_relig_pa_m"
       }
     },
     "result": {

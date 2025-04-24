@@ -1,49 +1,8 @@
 {
-	"format_version": "1.19.40",
-	"minecraft:block": {
-		"description": {
-			"identifier": "arx:grass_slab",
-			"menu_category": {
-				"category": "construction"
-			},
-			"properties": {
-				"arx:is_rotated": [
-					0,
-					1,
-					2,
-					3,
-					4,
-					5,
-					6
-				]
-			}
-		},
-		"permutations": [
-			{
-				"condition": "query.block_property('arx:is_rotated') == 0",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							180,
-							0,
-							0
-						]
-					}
-				}
-			}
-		],
-		"components": {
-			"minecraft:geometry": "geometry.slab",
-			"minecraft:destructible_by_mining": {
-				"seconds_to_destroy": 1.0
-			},
-			"minecraft:material_instances": {
-				"*": {
-					"texture": "grass_carried_top",
-					"render_method": "alpha_test"
-				}
-			},
-			"minecraft:collision_box": {
+    "format_version": "1.21.30",
+    "minecraft:block": {
+        "components": {
+            "minecraft:collision_box": {
                 "origin": [
                     -8.0,
                     0.0,
@@ -54,6 +13,16 @@
                     8.0,
                     16.0
                 ]
+            },
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 1.0
+            },
+            "minecraft:geometry": "geometry.slab",
+            "minecraft:material_instances": {
+                "*": {
+                    "render_method": "alpha_test",
+                    "texture": "grass_carried_top"
+                }
             },
             "minecraft:selection_box": {
                 "origin": [
@@ -66,17 +35,13 @@
                     8.0,
                     16.0
                 ]
-            },
-			"minecraft:on_player_placing": { 
-				"event": "set_facing_direction"
-			}
-		},
-		"events": {
-			"set_facing_direction": {
-				"set_block_property": {
-					"arx:is_rotated": "query.block_face"
-				}
-			}
-		}
-	}
+            }
+        },
+        "description": {
+            "identifier": "arx:grass_slab",
+            "menu_category": {
+                "category": "construction"
+            }
+        }
+    }
 }

@@ -41,32 +41,6 @@
         tag @a remove in_space
         execute @a ~ ~ ~ tag @s[y=320, dy=100000] add in_space
 
-# Призрак - механики
-    tag @a remove above_liquid_high
-    tag @a remove above_liquid_low
-
-    scoreboard players set @a[scores={class=1}] saturation 2
-
-    execute @a[tag=in_water, tag=!in_rain, scores={class=1}] ~ ~ ~ tag @s add above_liquid_low
-
-    execute @a[scores={class=1}] ~ ~ ~ detect ~ ~-2 ~ water 0 tag @s add above_liquid_high
-    execute @a[scores={class=1}] ~ ~ ~ detect ~ ~-2 ~ flowing_water 0 tag @s add above_liquid_high
-
-    execute @a[scores={class=1}] ~ ~ ~ detect ~ ~-2 ~ water 0 tag @s add above_liquid_low
-    execute @a[scores={class=1}] ~ ~ ~ detect ~ ~-2 ~ flowing_water 0 tag @s add above_liquid_low
-    execute @a[scores={class=1}] ~ ~ ~ detect ~ ~-1 ~ water 0 tag @s add above_liquid_low
-    execute @a[scores={class=1}] ~ ~ ~ detect ~ ~-1 ~ flowing_water 0 tag @s add above_liquid_low
-
-    execute @a[scores={class=1}] ~ ~ ~ detect ~ ~-2 ~ lava 0 tag @s add above_liquid_high
-    execute @a[scores={class=1}] ~ ~ ~ detect ~ ~-2 ~ flowing_lava 0 tag @s add above_liquid_high
-
-    execute @a[scores={class=1}] ~ ~ ~ detect ~ ~-1 ~ lava 0 tag @s add above_liquid_low
-    execute @a[scores={class=1}] ~ ~ ~ detect ~ ~-1 ~ flowing_lava 0 tag @s add above_liquid_low
-
-    effect @a[scores={class=1}, tag=above_liquid_high] slow_falling 2 0 true
-    effect @a[scores={class=1}, tag=above_liquid_low] levitation 1 0 true
-    #Ещё часть в 20ticks
-
 #Телепортация мага
     execute @a[tag=!is_dead, scores={teleport_def=20}] ~ ~ ~ tp @p ~-5 ~ ~
     execute @a[tag=!is_dead, scores={teleport_def=16}] ~ ~ ~ tp @p ~5 ~ ~5
@@ -96,63 +70,35 @@
     execute @a[scores={tp_backpoint=1}] ~ ~ ~ kill @e[type=armor_stand, tag=tp_backpoint, r = 0.1]
     execute @a[scores={tp_backpoint=1..}] ~ ~ ~ scoreboard players add @s tp_backpoint -1
 
-#Устойчивость лука
-    scoreboard players set @a[scores={speed_skill=0}] bow_result 0
-    scoreboard players set @a[scores={speed_skill=2..3}] bow_result 1
-    scoreboard players set @a[scores={speed_skill=4..5}] bow_result 2
-    scoreboard players set @a[scores={speed_skill=6}] bow_result 3
-    scoreboard players add @a[hasitem={item=arx:ring_lamenite_diamond, location=slot.armor.feet}] bow_result 1
-    scoreboard players add @a[scores={bow_spell_a=1..}] bow_result 1
-    scoreboard players add @a[scores={bow_spell_b=1..}] bow_result 2
-    scoreboard players add @a[scores={bow_spell_c=1..}] bow_result -1
-    scoreboard players add @a[scores={bow_spell_d=1..}] bow_result -2
 
-    #Проброс отсчёта времени
-        execute @a[hasitem={item=minecraft:bow, location=slot.weapon.mainhand}, scores={bow_tick=21..}] ~ ~ ~ scoreboard players set @p bow_tick 1
-        execute @a[hasitem={item=minecraft:crossbow, location=slot.weapon.mainhand}, scores={bow_tick=21..}] ~ ~ ~ scoreboard players set @p bow_tick 1
-        execute @a[hasitem={item=minecraft:trident, location=slot.weapon.mainhand}, scores={bow_tick=21..}] ~ ~ ~ scoreboard players set @p bow_tick 1
-        execute @a[tag=!is_dead] ~ ~ ~ scoreboard players add @p bow_tick 1
+# # Движок боёвки
+#     title @a[scores={attack_weakness=1, blocking = 0}] actionbar Ĥ 0
+#     title @a[scores={attack_weakness=2..20, blocking = 0}] actionbar Ĥ 1
+#     title @a[scores={attack_weakness=21..40, blocking = 0}] actionbar Ĥ 2
+#     title @a[scores={attack_weakness=41..60, blocking = 0}] actionbar Ĥ 3
+#     title @a[scores={attack_weakness=61..80, blocking = 0}] actionbar Ĥ 4
+#     title @a[scores={attack_weakness=81..100, blocking = 0}] actionbar Ĥ 5
+#     title @a[scores={attack_weakness=101..120, blocking = 0}] actionbar Ĥ 6
+#     title @a[scores={attack_weakness=121..140, blocking = 0}] actionbar Ĥ 7
+#     title @a[scores={attack_weakness=141..160, blocking = 0}] actionbar Ĥ 8
+#     title @a[scores={attack_weakness=161..180, blocking = 0}] actionbar Ĥ 9
+#     title @a[scores={attack_weakness=181.., blocking = 0}] actionbar Ĥ MAX
 
-    #Исполнение
-        execute @a[m=!spectator, hasitem={item=minecraft:bow, location=slot.weapon.mainhand}, scores={bow_tick=2, bow_result=..0}] ~ ~ ~ camerashake add @s 3 1.00 rotational
-        execute @a[m=!spectator, hasitem={item=minecraft:bow, location=slot.weapon.mainhand}, scores={bow_tick=2, bow_result=1}] ~ ~ ~ camerashake add @s 0.8 1.00 rotational
-        execute @a[m=!spectator, hasitem={item=minecraft:bow, location=slot.weapon.mainhand}, scores={bow_tick=2, bow_result=2}] ~ ~ ~ camerashake add @s 0.2 1.00 rotational
-        execute @a[m=!spectator, hasitem={item=minecraft:crossbow, location=slot.weapon.mainhand}, scores={bow_tick=2, bow_result=..0}] ~ ~ ~ camerashake add @s 3 1.00 rotational
-        execute @a[m=!spectator, hasitem={item=minecraft:crossbow, location=slot.weapon.mainhand}, scores={bow_tick=2, bow_result=1}] ~ ~ ~ camerashake add @s 0.8 1.00 rotational
-        execute @a[m=!spectator, hasitem={item=minecraft:crossbow, location=slot.weapon.mainhand}, scores={bow_tick=2, bow_result=2}] ~ ~ ~ camerashake add @s 0.2 1.00 rotational
-        execute @a[m=!spectator, hasitem={item=minecraft:trident, location=slot.weapon.mainhand}, scores={bow_tick=2, bow_result=..0}] ~ ~ ~ camerashake add @s 3 1.00 rotational
-        execute @a[m=!spectator, hasitem={item=minecraft:trident, location=slot.weapon.mainhand}, scores={bow_tick=2, bow_result=1}] ~ ~ ~ camerashake add @s 0.8 1.00 rotational
-        execute @a[m=!spectator, hasitem={item=minecraft:trident, location=slot.weapon.mainhand}, scores={bow_tick=2, bow_result=2}] ~ ~ ~ camerashake add @s 0.2 1.00 rotational
+#     title @a[scores={attack_weakness=1, blocking = 1..}] actionbar ĥ Ĥ 0
+#     title @a[scores={attack_weakness=2..20, blocking = 1..}] actionbar ĥ Ĥ 1
+#     title @a[scores={attack_weakness=21..40, blocking = 1..}] actionbar ĥ Ĥ 2
+#     title @a[scores={attack_weakness=41..60, blocking = 1..}] actionbar ĥ Ĥ 3
+#     title @a[scores={attack_weakness=61..80, blocking = 1..}] actionbar ĥ Ĥ 4
+#     title @a[scores={attack_weakness=81..100, blocking = 1..}] actionbar ĥ Ĥ 5
+#     title @a[scores={attack_weakness=101..120, blocking = 1..}] actionbar ĥ Ĥ 6
+#     title @a[scores={attack_weakness=121..140, blocking = 1..}] actionbar ĥ Ĥ 7
+#     title @a[scores={attack_weakness=141..160, blocking = 1..}] actionbar ĥ Ĥ 8
+#     title @a[scores={attack_weakness=161..180, blocking = 1..}] actionbar ĥ Ĥ 9
+#     title @a[scores={attack_weakness=181.., blocking = 1..}] actionbar ĥ Ĥ MAX
 
-
-# Движок боёвки
-    title @a[scores={attack_weakness=1, blocking = 0}] actionbar Ĥ 0
-    title @a[scores={attack_weakness=2..20, blocking = 0}] actionbar Ĥ 1
-    title @a[scores={attack_weakness=21..40, blocking = 0}] actionbar Ĥ 2
-    title @a[scores={attack_weakness=41..60, blocking = 0}] actionbar Ĥ 3
-    title @a[scores={attack_weakness=61..80, blocking = 0}] actionbar Ĥ 4
-    title @a[scores={attack_weakness=81..100, blocking = 0}] actionbar Ĥ 5
-    title @a[scores={attack_weakness=101..120, blocking = 0}] actionbar Ĥ 6
-    title @a[scores={attack_weakness=121..140, blocking = 0}] actionbar Ĥ 7
-    title @a[scores={attack_weakness=141..160, blocking = 0}] actionbar Ĥ 8
-    title @a[scores={attack_weakness=161..180, blocking = 0}] actionbar Ĥ 9
-    title @a[scores={attack_weakness=181.., blocking = 0}] actionbar Ĥ MAX
-
-    title @a[scores={attack_weakness=1, blocking = 1..}] actionbar ĥ Ĥ 0
-    title @a[scores={attack_weakness=2..20, blocking = 1..}] actionbar ĥ Ĥ 1
-    title @a[scores={attack_weakness=21..40, blocking = 1..}] actionbar ĥ Ĥ 2
-    title @a[scores={attack_weakness=41..60, blocking = 1..}] actionbar ĥ Ĥ 3
-    title @a[scores={attack_weakness=61..80, blocking = 1..}] actionbar ĥ Ĥ 4
-    title @a[scores={attack_weakness=81..100, blocking = 1..}] actionbar ĥ Ĥ 5
-    title @a[scores={attack_weakness=101..120, blocking = 1..}] actionbar ĥ Ĥ 6
-    title @a[scores={attack_weakness=121..140, blocking = 1..}] actionbar ĥ Ĥ 7
-    title @a[scores={attack_weakness=141..160, blocking = 1..}] actionbar ĥ Ĥ 8
-    title @a[scores={attack_weakness=161..180, blocking = 1..}] actionbar ĥ Ĥ 9
-    title @a[scores={attack_weakness=181.., blocking = 1..}] actionbar ĥ Ĥ MAX
-
-    scoreboard players add @a[scores={attack_weakness=1..}] attack_weakness -1
-    scoreboard players add @a[scores={blocking=1..}] blocking -1
-    scoreboard players add @a[scores={allow_block_buff=1..}] allow_block_buff -1
+#     scoreboard players add @a[scores={attack_weakness=1..}] attack_weakness -1
+#     scoreboard players add @a[scores={blocking=1..}] blocking -1
+#     scoreboard players add @a[scores={allow_block_buff=1..}] allow_block_buff -1
 
 #Вычитание очков удара
     scoreboard players add @a[scores={on_hurt_delay=1..}] on_hurt_delay -1
@@ -179,29 +125,3 @@
 
 # Медленное падение в храме черепа
     effect @a[x=-191, y=48, z=336, dy=5] slow_falling 1 0 true
-
-
-#Вызов функции 20ticks
-    execute @a[scores={verify=2, tick=20}] ~ ~ ~ function core_parts/20ticks
-
-#Вызов функции 10ticks
-    execute @a[scores={verify=2, tick=1}] ~ ~ ~ function core_parts_NAP/10ticks
-    execute @a[scores={verify=2, tick=11}] ~ ~ ~ function core_parts_NAP/10ticks
-
-#Вызов функции 5ticks
-    execute @a[scores={verify=2, tick=1}] ~ ~ ~ function core_parts/5ticks
-    execute @a[scores={verify=2, tick=6}] ~ ~ ~ function core_parts/5ticks
-    execute @a[scores={verify=2, tick=11}] ~ ~ ~ function core_parts/5ticks
-    execute @a[scores={verify=2, tick=16}] ~ ~ ~ function core_parts/5ticks
-
-# Вызов функции 2ticks
-    execute @a[scores={verify=2, tick=1}] ~ ~ ~ function core_parts_NAP/2ticks
-    execute @a[scores={verify=2, tick=3}] ~ ~ ~ function core_parts_NAP/2ticks
-    execute @a[scores={verify=2, tick=5}] ~ ~ ~ function core_parts_NAP/2ticks
-    execute @a[scores={verify=2, tick=7}] ~ ~ ~ function core_parts_NAP/2ticks
-    execute @a[scores={verify=2, tick=9}] ~ ~ ~ function core_parts_NAP/2ticks
-    execute @a[scores={verify=2, tick=11}] ~ ~ ~ function core_parts_NAP/2ticks
-    execute @a[scores={verify=2, tick=13}] ~ ~ ~ function core_parts_NAP/2ticks
-    execute @a[scores={verify=2, tick=15}] ~ ~ ~ function core_parts_NAP/2ticks
-    execute @a[scores={verify=2, tick=17}] ~ ~ ~ function core_parts_NAP/2ticks
-    execute @a[scores={verify=2, tick=19}] ~ ~ ~ function core_parts_NAP/2ticks

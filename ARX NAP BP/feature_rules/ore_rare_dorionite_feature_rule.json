@@ -9,7 +9,7 @@
 			"placement_pass": "before_underground_pass",
 			"minecraft:biome_filter": [
 				{
-					"all_of": [
+					"any_of": [
 						{
 							"test": "has_biome_tag",
 							"operator": "==",
@@ -17,7 +17,7 @@
 						},
 						{
 							"test": "has_biome_tag",
-							"operator": "!=",
+							"operator": "==",
 							"value": "mesa"
 						}
 					]
@@ -41,7 +41,7 @@
 				"distribution": "uniform",
 				"extent": [
 					-60,
-					60
+					0
 				]
 			},
 			"z": {

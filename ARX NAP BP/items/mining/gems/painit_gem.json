@@ -1,0 +1,14 @@
+{
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:icon": "arx:painit_gem"
+        },
+        "description": {
+            "identifier": "arx:painit_gem",
+            "menu_category": {
+                "category": "items"
+            }
+        }
+    }
+}

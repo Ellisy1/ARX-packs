@@ -1,46 +1,15 @@
 {
-  "format_version": "1.16.100",
-  "minecraft:item": {
-    "description": {
-      "identifier": "arx:united_player_data",
-      "category": "items"
-    },
-    "components": {
-      "minecraft:hand_equipped": false,
-      "minecraft:max_stack_size": 1,
-      "minecraft:foil": false,
-      "minecraft:icon": {
-        "texture": "arx:united_player_data"
-      },
-      "minecraft:cooldown": {
-        "category": "united_player_data",
-        "duration": 1
-      },
-      "minecraft:on_use": {
-        "on_use": {
-          "event": "on_use_event"
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:icon": "arx:united_player_data",
+            "minecraft:max_stack_size": 1
+        },
+        "description": {
+            "identifier": "arx:united_player_data",
+            "menu_category": {
+                "category": "items"
+            }
         }
-      },
-      "minecraft:display_name": {
-        "value": "§r§fИнфо §7[Обычное]"
-      }
-    },
-    "events": {
-      "on_use_event": {
-        "swing": {},
-        "run_command": {
-          "command": [
-            "execute @s[has_property={arx:is_knocked=0}, rx=-67.5] ~ ~ ~ function info/playerdata",
-            "execute @s[has_property={arx:is_knocked=0}, rx=-45, rxm=-67.5] ~ ~ ~ function traits/traitdata", 
-            "execute @s[has_property={arx:is_knocked=0}, rx=-22.5, rxm=-45] ~ ~ ~ function food/taste_data",
-            "execute @s[has_property={arx:is_knocked=0}, rx=0, rxm=-22.5] ~ ~ ~ function info/full_effects_data",
-            "execute @s[has_property={arx:is_knocked=0}, rx=22.5, rxm=0] ~ ~ ~ function info/iconhelp",
-            "execute @s[has_property={arx:is_knocked=0}, rx=45, rxm=22.5] ~ ~ ~ function info/statistics",
-            "execute @s[has_property={arx:is_knocked=0}, rx=67.5, rxm=45] ~ ~ ~ function info/achievements",
-            "execute @s[has_property={arx:is_knocked=0}, rxm=67.5] ~ ~ ~ function info/authors"
-          ]
-        }
-      }
     }
-  }
 }

@@ -9,7 +9,7 @@
       {
         "minecraft:spawns_on_surface": {},
         "minecraft:weight": {
-          "default": 500
+          "default": 250
         },
         "minecraft:brightness_filter": {
           "min": 7,
@@ -21,7 +21,8 @@
           {"test": "has_biome_tag", "operator":"!=", "value": "desert"},
           {"test": "has_biome_tag", "operator":"!=", "value": "mesa"},
           {"test": "has_biome_tag", "operator":"!=", "value": "swamp"},
-          {"test": "has_biome_tag", "operator":"!=", "value": "nether"}
+          {"test": "has_biome_tag", "operator":"!=", "value": "nether"},
+          {"test": "has_biome_tag", "operator":"==", "value": "forest"}
         ]
       }
     ]

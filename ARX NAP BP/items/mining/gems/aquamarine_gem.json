@@ -1,14 +1,14 @@
 {
-    "format_version": "1.16.100",
+    "format_version": "1.21.0",
     "minecraft:item": {
-      "description": {
-        "category": "items",
-        "identifier": "arx:aquamarine_gem"
-      },
-      "components": {
-        "minecraft:icon": {
-          "texture": "arx:aquamarine_gem"
+        "components": {
+            "minecraft:icon": "arx:aquamarine_gem"
+        },
+        "description": {
+            "identifier": "arx:aquamarine_gem",
+            "menu_category": {
+                "category": "items"
+            }
         }
-      }
     }
-  }
+}

@@ -11,7 +11,7 @@
 		"distribution": {
 			"scatter_chance": {
 				"numerator": 1,
-				"denominator": 23
+				"denominator": 16
 			},
 			"iterations": 1,
 			"x": {
@@ -25,7 +25,7 @@
 				"distribution": "uniform",
 				"extent": [
 					-60,
-					60
+					0
 				]
 			},
 			"z": {

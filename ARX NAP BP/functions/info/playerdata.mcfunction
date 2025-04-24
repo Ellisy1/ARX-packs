@@ -6,29 +6,6 @@
 
     tellraw @s[scores={class=1}] { "rawtext": [{ "text": "Вы - §4призрак" } ] } 
 
-    tellraw @s[scores={religion=1}] { "rawtext": [{ "text": "Ваша религия - §aУченик Палласа" } ] } 
-    tellraw @s[scores={religion=2}] { "rawtext": [{ "text": "Ваша религия - §bСлужитель Палласа" } ] } 
-    tellraw @s[scores={religion=3}] { "rawtext": [{ "text": "Ваша религия - §6Адепт Палласа" } ] } 
-    tellraw @s[scores={religion=4}] { "rawtext": [{ "text": "Ваша религия - §cМаг Палласа" } ] } 
-    tellraw @s[scores={religion=5}] { "rawtext": [{ "text": "Ваша религия - §dАрхимаг Палласа" } ] } 
-    tellraw @s[scores={religion=6}] { "rawtext": [{ "text": "Ваша религия - §cВоин Палласа" } ] } 
-    tellraw @s[scores={religion=7}] { "rawtext": [{ "text": "Ваша религия - §dЗавоеватель Палласа" } ] } 
-    tellraw @s[scores={religion=8}] { "rawtext": [{ "text": "Ваша религия - §cСтрелок Палласа" } ] } 
-    tellraw @s[scores={religion=9}] { "rawtext": [{ "text": "Ваша религия - §dАссасин Палласа" } ] } 
-
-    tellraw @s[scores={religion=11}] { "rawtext": [{ "text": "Ваша религия - §aУченик Пиреса" } ] } 
-    tellraw @s[scores={religion=12}] { "rawtext": [{ "text": "Ваша религия - §bСлужитель Пиреса" } ] } 
-    tellraw @s[scores={religion=13}] { "rawtext": [{ "text": "Ваша религия - §6Адепт Пиреса" } ] } 
-    tellraw @s[scores={religion=14}] { "rawtext": [{ "text": "Ваша религия - §cМаг Пиреса" } ] } 
-    tellraw @s[scores={religion=15}] { "rawtext": [{ "text": "Ваша религия - §dАрхимаг Пиреса" } ] } 
-    tellraw @s[scores={religion=16}] { "rawtext": [{ "text": "Ваша религия - §cРыцарь Пиреса" } ] } 
-    tellraw @s[scores={religion=17}] { "rawtext": [{ "text": "Ваша религия - §dПаладин Пиреса" } ] } 
-    tellraw @s[scores={religion=18}] { "rawtext": [{ "text": "Ваша религия - §cРейнджер Пиреса" } ] } 
-    tellraw @s[scores={religion=19}] { "rawtext": [{ "text": "Ваша религия - §dСтраж леса Пиреса" } ] } 
-
-    tellraw @s[scores={religion=21}] { "rawtext": [{ "text": "Ваша религия - §cНекромант" } ] } 
-    tellraw @s[scores={religion=22}] { "rawtext": [{ "text": "Ваша религия - §dАрхинекромант" } ] } 
-
     tellraw @s[scores={karma_pallas=1..}] { "rawtext": [{ "text": "§4Карма Палласа продлится ещё "}, { "score": {"name": "@s", "objective": "karma_pallas" } }, { "text": " минут." } ] }
     tellraw @s[scores={karma_pires=1..}] { "rawtext": [{ "text": "§4Карма Пиреса продлится ещё "}, { "score": {"name": "@s", "objective": "karma_pires" } }, { "text": " минут." } ] }
 

@@ -1,39 +1,30 @@
 {
-  "format_version": "1.16.100",
-  "minecraft:item": {
-    "description": {
-      "identifier": "arx:rounded_bottle_water_golden_hay_animal_eye",
-      "category": "equipment"
-    },
-    "components": {
-      "minecraft:max_stack_size": 1,
-      "minecraft:cooldown": {
-        "category": "food",
-        "duration": 1
-      },
-      "minecraft:on_use": {
-        "on_use": {
-          "event": "on_eat"
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:custom_components": [
+                "arx:onConsume"
+            ],
+            "minecraft:food": {
+                "can_always_eat": true,
+                "nutrition": 20,
+                "saturation_modifier": 0,
+                "using_converts_to": "arx:rounded_bottle"
+            },
+            "minecraft:icon": "arx:rounded_bottle_water_golden_hay_animal_eye",
+            "minecraft:max_stack_size": 1,
+            "minecraft:use_animation": "drink",
+            "minecraft:use_modifiers": {
+                "movement_modifier": 0.5,
+                "use_duration": 2.0
+            }
+        },
+        "description": {
+            "identifier": "arx:rounded_bottle_water_golden_hay_animal_eye",
+            "menu_category": {
+                "category": "equipment",
+                "group": "itemGroup.name.potion"
+            }
         }
-      },
-      "minecraft:icon": {
-        "texture": "arx:rounded_bottle_water_golden_hay_animal_eye"
-      }
-    },
-    "events": {
-      "on_eat": {
-        "run_command": {
-          "command": [
-            "effect @p night_vision 20 255 true",
-            "scoreboard players add @p poisoning 150",
-            "scoreboard players add @p xp_tray 20",
-            
-            "clear @s arx:rounded_bottle_water_golden_hay_animal_eye 0 1",
-            "give @s arx:rounded_bottle",
-            "function food/visual/potion"
-          ]
-        }
-      }
     }
-  }
 }

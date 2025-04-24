@@ -1,0 +1,18 @@
+{
+    "format_version": "1.21.30",
+    "minecraft:block": {
+        "components": {
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 1
+            },
+            "minecraft:loot": "loot_tables/blocks/ores/zoisite_ore.json",
+            "tag:stone": {}
+        },
+        "description": {
+            "identifier": "arx:zoisite_stone_ore",
+            "menu_category": {
+                "category": "nature"
+            }
+        }
+    }
+}

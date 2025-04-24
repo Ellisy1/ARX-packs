@@ -25,7 +25,7 @@
 			]
 		},
 		"distribution": {
-			"iterations": 5,
+			"iterations": 2,
 			"x": {
 				"distribution": "uniform",
 				"extent": [
@@ -37,7 +37,7 @@
 				"distribution": "uniform",
 				"extent": [
 					-60,
-					60
+					30
 				]
 			},
 			"z": {

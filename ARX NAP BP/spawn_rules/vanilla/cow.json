@@ -20,7 +20,9 @@
         "minecraft:biome_filter": [
           {"test": "has_biome_tag", "operator":"==", "value": "animal"},
           {"test": "has_biome_tag", "operator":"!=", "value": "forest"},
-          {"test": "has_biome_tag", "operator":"!=", "value": "taiga"}
+          {"test": "has_biome_tag", "operator":"!=", "value": "taiga"},
+          {"test": "has_biome_tag", "operator":"!=", "value": "swamp"},
+          {"test": "has_biome_tag", "operator":"!=", "value": "mangrove_swamp"}
         ]
       }
     ]

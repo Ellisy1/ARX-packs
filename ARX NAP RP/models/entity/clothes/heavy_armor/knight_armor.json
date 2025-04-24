@@ -77,6 +77,15 @@
 					}
 				},
 				{
+					"name": "bust",
+					"parent": "body",
+					"pivot": [0, 23, -2.1],
+					"cubes": [
+						{"origin": [-4, 19, -2.1], "size": [8, 4, 4], "inflate": 0.24, "uv": [64, 0]},
+						{"origin": [-4, 19, -2.1], "size": [8, 4, 4], "inflate": 0.5, "uv": [64, 8]}
+					]
+				},
+				{
 					"name": "leftLeg",
 					"pivot": [1.9, 12, 0],
 					"cubes": [
@@ -118,7 +127,7 @@
 					"parent": "head",
 					"pivot": [0, 24, 0],
 					"cubes": [
-						{"origin": [-4, 24.375, -4], "size": [8, 8, 8], "inflate": 1.175, "uv": [33, 48]}
+						{"origin": [-4, 24.375, -4], "size": [8, 8, 8], "inflate": 1.275, "uv": [33, 48]}
 					]
 				}
 			]

@@ -1,0 +1,14 @@
+{
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:icon": "arx:pult"
+        },
+        "description": {
+            "identifier": "arx:pult",
+            "menu_category": {
+                "category": "items"
+            }
+        }
+    }
+}

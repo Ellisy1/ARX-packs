@@ -1,0 +1,51 @@
+{
+    "format_version": "1.21.30",
+    "minecraft:block": {
+        "components": {
+            "minecraft:collision_box": 0,
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 0.2
+            },
+            "minecraft:geometry": "geometry.high_plant",
+            "minecraft:map_color": "#622304",
+            "minecraft:material_instances": {
+                "*": {
+                    "render_method": "alpha_test",
+                    "texture": "reed"
+                }
+            },
+            "minecraft:placement_filter": {
+                "conditions": [
+                    {
+                        "allowed_faces": [
+                            "up"
+                        ],
+                        "block_filter": [
+                            "grass",
+                            "dirt",
+                            "sand"
+                        ]
+                    }
+                ]
+            },
+            "minecraft:selection_box": {
+                "origin": [
+                    -6.0,
+                    0.0,
+                    -6.0
+                ],
+                "size": [
+                    12.0,
+                    16.0,
+                    12.0
+                ]
+            }
+        },
+        "description": {
+            "identifier": "arx:reed",
+            "menu_category": {
+                "category": "nature"
+            }
+        }
+    }
+}

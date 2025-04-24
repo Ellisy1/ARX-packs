@@ -1,42 +1,17 @@
 {
-  "format_version": "1.16.100",
-  "minecraft:item": {
-    "description": {
-      "identifier": "arx:scroll_of_healing",
-      "category": "items"
-    },
-    "components": {
-      "minecraft:icon": {
-        "texture": "arx:scroll_of_healing"
-      },
-      "minecraft:cooldown": {
-        "category": "scroll_of_healing",
-        "duration": 1
-      },
-      "minecraft:on_use": {
-        "on_use": {
-          "event": "on_use_event"
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:display_name": {
+                "value": "§r§fСвиток регенерации §g[Эпическое]\n§7§oОдноразовое заклинание для исцеления"
+            },
+            "minecraft:icon": "arx:scroll_of_healing"
+        },
+        "description": {
+            "identifier": "arx:scroll_of_healing",
+            "menu_category": {
+                "category": "items"
+            }
         }
-      },
-      "minecraft:display_name": {
-        "value": "§r§fСвиток регенерации §g[Эпическое]\n§7§oОдноразовое заклинание для исцеления"
-      }
-    },
-    "events": {
-      "on_use_event": {
-        "swing": {},
-        "run_command": {
-          "command": [
-            "w @s[scores={heal_scrl_durt=!0}] §cНевозможно использовать свиток регенерации так часто!",
-            "scoreboard players add @s[scores={heal_scrl_durt=0}] xp_tray 50",
-            "effect @s[scores={heal_scrl_durt=0}] regeneration 10 1 true",
-            "clear @s[scores={heal_scrl_durt=0}] arx:scroll_of_healing 0 1",
-            "w @s[scores={heal_scrl_durt=0}] §aСвиток использован!",
-            "execute @s[scores={heal_scrl_durt=0}] ~ ~ ~ playsound elemental_use @a ~ ~ ~",
-            "scoreboard players add @s[scores={heal_scrl_durt=0}] heal_scrl_durt 120"
-          ]
-        }
-      }
     }
-  }
 }
