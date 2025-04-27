@@ -199,31 +199,27 @@ export function registerCharacter(player) {
                     })
                 break
 
-            case 8: // Проверка роста
+            case 8: // Спавн в мире
                 let bodyText
                 getScore(player, "gender") === 1 ? bodyText = `${player.getDynamicProperty('trueName')} создан!` : bodyText = `${player.getDynamicProperty('trueName')} создана!`
                 const form8 = new ActionFormData()
-                    .title("Место появления")
-                    .body(bodyText + ' Где вы хотите появиться?\nМеста равноудалены друг от друга примерно на 1000 блоков')
-                    .button("Ровный солнечный пляж рядом с лесом саванны", 'textures/ui/registration/spawn_location_1')
-                    .button("Таёжно-ледяные горы и холодные долины", 'textures/ui/registration/spawn_location_2')
-                    .button("Тёплый высокий остров, окружённый океаном", 'textures/ui/registration/spawn_location_3')
-                    .button("Я пока позависаю в лобби", 'textures/ui/registration/spawn_location_pass_for_now')
+                    .title("Появление в мире")
+                    .body(bodyText)
+                    .button("Поехали!\n(рекомендуется помолиться)", 'textures/ui/registration/spawn')
+                    .button("Я пока позависаю в лобби", 'textures/ui/registration/spawn_pass_for_now')
 
                     .show(player)
                     .then((response) => {
                         if (response.selection != undefined) { // Игрок нажал что-то
                             if (response.selection === 0) {
-                                player.runCommand("tp -5749 68 -3828")
-                                finalizeCharacterRegistration(player)
+                                player.runCommand("function tp/2_spawn")
 
-                            } else if (response.selection === 1) {
-                                player.runCommand("tp -4376 71 -3775")
-                                finalizeCharacterRegistration(player)
+                                player.setDynamicProperty('registerCharacterStage', 0)
+                                player.setDynamicProperty('hasRegisteredCharacter', true)
 
-                            } else if (response.selection === 2) {
-                                player.runCommand("tp -5125 72 -3020")
-                                finalizeCharacterRegistration(player)
+                                player.runCommand(`give @s arx:united_player_data 1 0 {"keep_on_death":{}}`)
+
+                                player.runCommand(`tellraw @s { "rawtext": [ { "text": "Вы в игре!\nПервым делом, рекомендуется найти себе убежище..." } ] }`)
                             }
                         }
                     })
@@ -235,14 +231,4 @@ export function registerCharacter(player) {
             .body(`Добро пожаловать в Аркс, §a${player.name}§f!\n\nДождитесь, пока вас верифицируют! Верификация означает, что вы можете играть здесь. Обычно выдача верификации занимает §aне более 3 минут§f.\n\nВы получите сообщение, когда вас верифицируют.`)
             .show(player)
     }
-}
-
-// Завершение регистрации
-function finalizeCharacterRegistration(player) {
-    player.setDynamicProperty('registerCharacterStage', 0)
-    player.setDynamicProperty('hasRegisteredCharacter', true)
-
-    player.runCommand(`give @s arx:united_player_data 1 0 {"keep_on_death":{}}`)
-
-    player.runCommand(`tellraw @s { "rawtext": [ { "text": "Вы в игре!\nПервым делом, рекомендуется найти себе убежище..." } ] }`)
 }
