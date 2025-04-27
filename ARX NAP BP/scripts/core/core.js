@@ -639,7 +639,7 @@ system.runInterval(() => {
 
         // Прокачка выносливости
         if (player.hasTag("is_moving") && !player.hasTag('is_riding')) {
-            if (getScore(player, "heavy_result") > 0) {
+            if (player.getDynamicProperty('overLoading') > 0) {
                 increaseSkillProgress(player, "endurance", 1)
             }
             else {

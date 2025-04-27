@@ -128,15 +128,17 @@ function parceCommand(player, trimmedMessage) {
             if (isAdmin(player)) {
                 if (!command[1]) { queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cИспользуйте формат §f!§cverify §f<игрок>" } ] }`) }
                 else {
+                    const playerNickName = command.slice(1).join(' ')
+
                     const targetPlayer = world.getPlayers().find(p =>
-                        p.name.toLowerCase() === command[1].toLowerCase()
+                        p.name.toLowerCase() === playerNickName.trim().toLowerCase()
                     )
 
                     if (!targetPlayer) {
-                        queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cИгрок с ником §f${command[1]}§c не найден" } ] }`)
+                        queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cИгрок с ником §f${playerNickName}§c не найден" } ] }`)
                     } else {
                         if (targetPlayer.getDynamicProperty('verify') == true) { // Если уже верифицирован
-                            queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§eИгрок §f${command[1]}§e уже верифицирован" } ] }`)
+                            queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§eИгрок §f${playerNickName}§e уже верифицирован" } ] }`)
                         } else {
                             queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§aВыдана верификация§f игроку §a${targetPlayer.name}" } ] }`)
                             queueCommand(targetPlayer, `tellraw @s { "rawtext": [ { "text": "§aВам выдана верификация!§f Вы можете приступать к созданию персонажа." } ] }`)

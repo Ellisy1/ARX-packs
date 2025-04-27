@@ -265,7 +265,6 @@ system.beforeEvents.startup.subscribe(initEvent => {
 
     initEvent.itemComponentRegistry.registerCustomComponent('arx:onConsume', {
         onConsume(event) { // Юзание предмета на ПКМ
-            console.warn("Активация еды",)
             onFoodConsume(event.source, event.itemStack.typeId)
         }
     });
