@@ -999,18 +999,6 @@
     "arx:solve_crystal": {
       "textures": "textures/items/crafting/solve_crystal"
     },
-    "arx:strange_diamond_fiol": {
-      "textures": "textures/items/crafting/strange_diamond_fiol"
-    },
-    "arx:strange_diamond_red": {
-      "textures": "textures/items/crafting/strange_diamond_red"
-    },
-    "arx:strange_diamond_blue": {
-      "textures": "textures/items/crafting/strange_diamond_blue"
-    },
-    "arx:strange_diamond_green": {
-      "textures": "textures/items/crafting/strange_diamond_green"
-    },
     "arx:dildo": {
       "textures": "textures/items/other/dildo"
     },

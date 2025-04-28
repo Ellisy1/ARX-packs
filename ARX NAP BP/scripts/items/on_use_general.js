@@ -559,6 +559,7 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
 })
 
 function launchBlocking(player) {
+    player.runCommand('effect @s resistance 1 1 true')
     player.setDynamicProperty('prohibit_damage', 20)
     player.setDynamicProperty('attackCD', player.getDynamicProperty('attackCD') + 25)
     player.runCommand("summon arx:blocking_invisible_shield")
