@@ -71,6 +71,9 @@
             {
               "choice": [
                 {
+                  "item": "arx:book_mage_notes"
+                },
+                {
                   "item": "arx:book_about_ancients"
                 },
                 {

@@ -98,11 +98,6 @@
         },
         {
           "type": "item",
-          "name": "arx:advice_book",
-          "weight": 5
-        },
-        {
-          "type": "item",
           "name": "arx:straw_hat",
           "weight": 1,
           "functions": [

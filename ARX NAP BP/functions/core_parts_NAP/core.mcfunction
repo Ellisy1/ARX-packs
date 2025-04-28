@@ -68,33 +68,33 @@
 
     # ВЫСЫХАНИЕ
         # Основное высыхание
-            scoreboard players add @a[scores={water_delay=1..2400}, tag=!in_water] water_delay -1
+            scoreboard players add @a[scores={water_delay=1..}, tag=!in_water] water_delay -1
 
         # Высыхание в аду
-            scoreboard players add @a[scores={water_delay=1..2400}, tag=in_nether] water_delay -4
+            scoreboard players add @a[scores={water_delay=1..}, tag=in_nether] water_delay -4
 
         # Высыхание с зонтиком
-            scoreboard players add @a[scores={water_delay=1..2400}, tag=in_rain, tag=holding_umbrella] water_delay -1
+            scoreboard players add @a[scores={water_delay=1..}, tag=in_rain, tag=holding_umbrella] water_delay -1
 
         # Высыхание с амулетом-сапфиром
-            scoreboard players add @a[scores={water_delay=1..2400}, tag=in_rain, tag=amul_sapphire] water_delay -1
+            scoreboard players add @a[scores={water_delay=1..}, tag=in_rain, tag=amul_sapphire] water_delay -1
 
     # НАМОКАНИЕ
         # В воде
-            scoreboard players add @a[scores={water_delay=0..2389, water_block=..0}, tag=in_block_water, tag=!in_boat, tag=!blue_lake, m=!spectator] water_delay 10
+            scoreboard players add @a[scores={water_delay=..1200, water_block=..0}, tag=in_block_water, tag=!in_boat, tag=!blue_lake, m=!spectator] water_delay 10
 
         # Под дождем
-            scoreboard players add @a[scores={water_delay=0..2399, water_block=..0}, tag=in_rain, tag=!amul_sapphire, tag=!holding_umbrella, tag=!underground, m=!spectator] water_delay 1
+            scoreboard players add @a[scores={water_delay=..1200, water_block=..0}, tag=in_rain, tag=!amul_sapphire, tag=!holding_umbrella, tag=!underground, m=!spectator] water_delay 1
 
 
     # Дебаг отриц. значений
         scoreboard players set @a[scores={water_delay=..0}] water_delay 0
 
     # Сообщения
-        title @a[scores={water_delay=1, freezing=0}] actionbar §fВы высохли
-        title @a[scores={water_delay=2..200, freezing=0}] actionbar Ģ §bВы промокли §fĢ
-        title @a[scores={water_delay=201..400, freezing=0}] actionbar ĢĢ §bВы промокли §fĢĢ
-        title @a[scores={water_delay=401..2400, freezing=0}] actionbar ĢĢĢ §bВы промокли §fĢĢĢ
+        title @a[scores={water_delay=1}] actionbar §fВы высохли
+        title @a[scores={water_delay=2..200}] actionbar Ģ §bВы промокли §fĢ
+        title @a[scores={water_delay=201..400}] actionbar ĢĢ §bВы промокли §fĢĢ
+        title @a[scores={water_delay=401..}] actionbar ĢĢĢ §bВы промокли §fĢĢĢ
 
     # Партиклы
         execute at @a[scores={water_delay=1..}, tag=!in_block_water, m=!spectator] run particle arx:arx_water_splash_particle ~.2 ~ ~.2

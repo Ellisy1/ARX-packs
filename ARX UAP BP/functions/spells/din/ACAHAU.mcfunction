@@ -114,19 +114,6 @@
         execute @p[tag=self, tag=spell_available, scores={target=1}] ~ ~ ~ execute @s[hasitem={location=slot.hotbar, slot=0, item=arx:iron_pie}] ~ ~ ~ tellraw @s {"rawtext": [{"text": "Пирожок с подвохом. Не рекомендуется употреблять в пищу."}]}
         execute @p[tag=self, tag=spell_available, scores={target=1}] ~ ~ ~ execute @s[hasitem={location=slot.hotbar, slot=0, item=arx:iron_pie}] ~ ~ ~ scoreboard players set @s item_control 1
 
-    # Монеты
-        execute @p[tag=self, tag=spell_available, scores={target=1}] ~ ~ ~ execute @s[hasitem={location=slot.hotbar, slot=0, item=arx:coin_of_falcon}] ~ ~ ~ tellraw @s {"rawtext": [{"text": "Подлинный золотой Сокол."}]}
-        execute @p[tag=self, tag=spell_available, scores={target=1}] ~ ~ ~ execute @s[hasitem={location=slot.hotbar, slot=0, item=arx:coin_of_falcon}] ~ ~ ~ scoreboard players set @s item_control 1
-
-        execute @p[tag=self, tag=spell_available, scores={target=1}] ~ ~ ~ execute @s[hasitem={location=slot.hotbar, slot=0, item=arx:coin_of_falcon_silver}] ~ ~ ~ tellraw @s {"rawtext": [{"text": "Подлинный серебрянный Сокол."}]}
-        execute @p[tag=self, tag=spell_available, scores={target=1}] ~ ~ ~ execute @s[hasitem={location=slot.hotbar, slot=0, item=arx:coin_of_falcon_silver}] ~ ~ ~ scoreboard players set @s item_control 1
-
-        execute @p[tag=self, tag=spell_available, scores={target=1}] ~ ~ ~ execute @s[hasitem={location=slot.hotbar, slot=0, item=arx:coin_of_pires}] ~ ~ ~ tellraw @s {"rawtext": [{"text": "Подлинный золотой Пирес."}]}
-        execute @p[tag=self, tag=spell_available, scores={target=1}] ~ ~ ~ execute @s[hasitem={location=slot.hotbar, slot=0, item=arx:coin_of_pires}] ~ ~ ~ scoreboard players set @s item_control 1
-
-        execute @p[tag=self, tag=spell_available, scores={target=1}] ~ ~ ~ execute @s[hasitem={location=slot.hotbar, slot=0, item=arx:coin_of_pires_silver}] ~ ~ ~ tellraw @s {"rawtext": [{"text": "Подлинный серебрянный Пирес."}]}
-        execute @p[tag=self, tag=spell_available, scores={target=1}] ~ ~ ~ execute @s[hasitem={location=slot.hotbar, slot=0, item=arx:coin_of_pires_silver}] ~ ~ ~ scoreboard players set @s item_control 1
-
 
     execute @p[tag=self, tag=spell_available, scores={target=1}] ~ ~ ~ execute @s[scores={item_control=0}] ~ ~ ~ tellraw @s {"rawtext": [{"text": "В первом слоте ничего нет, или в этом предмете не заключено ничего интересного"}]}
     

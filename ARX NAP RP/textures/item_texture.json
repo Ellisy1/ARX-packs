@@ -1020,47 +1020,18 @@
     "arx:magic_goblet": {
       "textures": "textures/items/food/magic_goblet"
     },
-    "arx:coin_of_falcon": {
-      "textures": "textures/items/economy/coin_of_falcon"
-    },
-    "arx:coin_of_falcon_silver": {
-      "textures": "textures/items/economy/coin_of_falcon_silver"
-    },
-    "arx:coin_of_pires": {
-      "textures": "textures/items/economy/coin_of_pires"
-    },
-    "arx:coin_of_pires_silver": {
-      "textures": "textures/items/economy/coin_of_pires_silver"
-    },
+
     "arx:hole_coin": {
       "textures": "textures/items/economy/hole_coin"
     },
     "arx:simple_coin": {
       "textures": "textures/items/economy/simple_coin"
     },
-    "arx:coin_of_soul": {
-      "textures": "textures/items/economy/coin_of_soul"
-    },
-    "arx:coin_of_soul_silver": {
-      "textures": "textures/items/economy/coin_of_soul_silver"
-    },
     "arx:rat_coin": {
       "textures": "textures/items/economy/rat_coin"
     },
     "arx:rat_coin_gold": {
       "textures": "textures/items/economy/rat_coin_gold"
-    },
-    "arx:coin_irus": {
-      "textures": "textures/items/economy/coin_irus"
-    },
-    "arx:coin_irus_silver": {
-      "textures": "textures/items/economy/coin_irus_silver"
-    },
-    "arx:coin_sanderra": {
-      "textures": "textures/items/economy/coin_sanderra"
-    },
-    "arx:coin_sanderra_silver": {
-      "textures": "textures/items/economy/coin_sanderra_silver"
     },
     "arx:teleportation_rune": {
       "textures": "textures/items/runes/special/teleportation_rune"

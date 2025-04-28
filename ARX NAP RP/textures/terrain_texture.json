@@ -221,21 +221,6 @@
 		"arx_coin_crafting_table_default": {
 			"textures": "textures/blocks/furniture/coin_crafting_table_default"
 		},
-		"arx_coin_crafting_table_falcon": {
-			"textures": "textures/blocks/furniture/coin_crafting_table_falcon"
-		},
-		"arx_coin_crafting_table_pires": {
-			"textures": "textures/blocks/furniture/coin_crafting_table_pires"
-		},
-		"arx_coin_crafting_table_soul": {
-			"textures": "textures/blocks/furniture/coin_crafting_table_soul"
-		},
-		"arx_coin_crafting_table_irus": {
-			"textures": "textures/blocks/furniture/coin_crafting_table_irus"
-		},
-		"arx_coin_crafting_table_sanderra": {
-			"textures": "textures/blocks/furniture/coin_crafting_table_sanderra"
-		},
 
 		"arx_leather_bench_crafting_table": {
 			"textures": "textures/blocks/furniture/leather_bench_crafting_table"

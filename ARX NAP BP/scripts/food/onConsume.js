@@ -69,7 +69,7 @@ export function onFoodConsume(player, foodname) {
         "arx:fried_goat_meat": 10,
         "arx:fried_horse_meat": 10,
         "arx:fried_human_meat": 10,
-        "arx:fried_kaplbara_meat": 10,
+        "arx:fried_kapibara_meat": 10,
         "arx:fried_lama_meat": 10,
         "arx:fried_liver": 10,
         "arx:fried_meat_beatle_meat": 10,

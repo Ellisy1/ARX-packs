@@ -338,7 +338,7 @@ world.afterEvents.entityDie.subscribe((dieEvent) => {
 
 // Попадание сняряда по сущности
 world.afterEvents.projectileHitEntity.subscribe((hitEvent) => {
-    if (hitEvent.source.typeId === "minecraft:player") {
+    if (hitEvent.source.typeId === "minecraft:player" && hitEvent.projectile.typeId !== "minecraft:fishing_hook") {
         if (hitEvent.getEntityHit().entity.typeId != "arx:whipping_dummy" && hitEvent.getEntityHit().entity.typeId != "arx:grave" && hitEvent.source != hitEvent.getEntityHit().entity) {
             increaseSkillProgress(hitEvent.source, "shooting", 15)
         }
