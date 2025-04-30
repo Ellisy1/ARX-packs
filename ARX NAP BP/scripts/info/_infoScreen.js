@@ -5,6 +5,7 @@ import { infoAboutTastes } from "./infoAboutTastes"
 import { infoSkillsScreen } from "./infoSkillsScreen"
 import { infoAboutStats } from "./infoAboutStats"
 import { infoAboutStatistics } from "./infoAboutStatistics"
+import { infoAboutAchievements } from "./infoAboutAchievements"
 import { guide } from "./guide"
 
 // Выводим экранчик с книжки инфо
@@ -36,7 +37,7 @@ export function infoScreen(player) {
             } else if (response.selection === 5) {
                 infoAboutTastes(player)
             } else if (response.selection === 6) {
-                player.runCommand('function info/achievements')
+                infoAboutAchievements(player)
             } else if (response.selection === 7) {
                 infoAboutStatistics(player)
             } else if (response.selection === 8) {

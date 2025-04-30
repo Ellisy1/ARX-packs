@@ -10,6 +10,7 @@ import { setRandomTastes } from '../food/setRandomTastes'
 
 // Импорт - другие области движка
 import './music_core'
+import './achievements'
 import { getNearestPlayer } from "../getNearestPlayer"
 
 // 1 tick

@@ -284,7 +284,7 @@ world.afterEvents.entityDie.subscribe((dieEvent) => {
         player.runCommand("function knockout_system/on_knockout")
 
         // Проверяем сторонние причины умереть по рп
-        if (dieEvent.damageSource.cause === 'lava') {player.addTag('__force_to_rp_death__')}
+        if (dieEvent.damageSource.cause === 'lava') { player.addTag('__force_to_rp_death__') }
 
         // Если мы должны умереть по рп
         if (player.hasTag("__force_to_rp_death__")) {
@@ -339,7 +339,7 @@ world.afterEvents.entityDie.subscribe((dieEvent) => {
 // Попадание сняряда по сущности
 world.afterEvents.projectileHitEntity.subscribe((hitEvent) => {
     if (hitEvent.source.typeId === "minecraft:player" && hitEvent.projectile.typeId !== "minecraft:fishing_hook") {
-        if (hitEvent.getEntityHit().entity.typeId != "arx:whipping_dummy" && hitEvent.getEntityHit().entity.typeId != "arx:grave" && hitEvent.source != hitEvent.getEntityHit().entity) {
+        if (getEntityFamilies(hitEvent.getEntityHit().entity).includes('mob') && hitEvent.source != hitEvent.getEntityHit().entity) {
             increaseSkillProgress(hitEvent.source, "shooting", 15)
         }
     }
@@ -475,7 +475,7 @@ world.afterEvents.entityHurt.subscribe((hurtEvent) => {
             damager.runCommand("function attack/on_attack") // Запускаем функцию анализа атаки
 
             // Вкач. Проверяем, не бьем ли мы куклу для битья
-            if (damaged.typeId !== "arx:whipping_dummy" && damaged.typeId !== "arx:grave" && damaged != damager) {
+            if (damaged.typeId !== "arx:whipping_dummy" && getEntityFamilies(damaged).includes('mob') && damaged != damager) {
                 // Увеличиваем силу
                 increaseSkillProgress(damager, "strength", hurtEvent.damage * 2)
 
@@ -488,7 +488,14 @@ world.afterEvents.entityHurt.subscribe((hurtEvent) => {
     }
 })
 
-// // Игрок использует предмет на блок
-// world.afterEvents.entityHitBlock.subscribe((hitEvent) => {
-//     console.warn(hitEvent.hitBlock.typeId)
-// })
+// Функция для получения family сущности
+function getEntityFamilies(entity) {
+    const familyComponent = entity.getComponent(EntityComponentTypes.TypeFamily);
+
+    if (familyComponent) {
+        // Компонент 'minecraft:family' существует.
+        return familyComponent.getTypeFamilies(); // Возвращаем массив строк.
+    } else {
+        return []; // Возвращаем пустой массив.
+    }
+}

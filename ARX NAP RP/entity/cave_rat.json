@@ -1,5 +1,5 @@
 {
-  "format_version": "1.8.0",
+  "format_version": "1.10.0",
   "minecraft:client_entity": {
     "description": {
       "identifier": "arx:cave_rat",
@@ -15,20 +15,22 @@
       },
       "animations": {
         "look_at_target_default": "animation.humanoid.look_at_target.default",
-        "look_at_target_gliding": "animation.humanoid.look_at_target.gliding",
-        "look_at_target_swimming": "animation.humanoid.look_at_target.swimming",
         "move": "animation.cave_rat.move",
         "attack": "animation.cave_rat.attack",
         "stay": "animation.cave_rat.stay"
       },
-      "animation_controllers": [
-        {
-          "move": "controller.animation.cave_rat.basic"
-        },
-        {
-          "look_at_target": "controller.animation.humanoid.look_at_target"
-        }
-      ],
+      "scripts": {
+        "animate": [
+          {
+            "move": "query.modified_move_speed * 2"
+          },
+          "stay",
+          {
+            "attack": "variable.attack_time > 0.0"
+          },
+          "look_at_target_default"
+        ]
+      },
       "render_controllers": [
         "controller.render.default"
       ],

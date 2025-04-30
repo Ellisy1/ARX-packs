@@ -1,5 +1,3 @@
-function knockout_system/data_wipe/wipe_achievements
-
 # Экспа
     scoreboard players set @s xp 0
     scoreboard players set @s xp_stage 0

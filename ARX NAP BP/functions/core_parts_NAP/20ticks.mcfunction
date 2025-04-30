@@ -99,9 +99,6 @@
 # Технофоб
     execute as @a[scores={c_notecno=1..}] run function core_parts_NAP/technophobe
 
-# Запускаем функцию анализа достижений
-    function core_parts_NAP/achievements_core
-
 # Проверка на меч модератора
     execute as @a[hasitem={item=arx:mod_sword}, scores={verify=!2}] run w @p[scores={verify=2}] @s §cmod_sword
 

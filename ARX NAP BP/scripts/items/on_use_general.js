@@ -504,7 +504,6 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
                     player.runCommand(`tellraw @s { "rawtext": [ { "text": "§cИспользовать дилдо на ходу - плохая идея." } ] }`)
                 } else {
                     player.runCommand(`playanimation @s animation.humanoid.dildo.default a 0.1 "query.is_moving || q.property('arx:is_knocked') > 0 || !query.equipped_item_any_tag('slot.weapon.mainhand', 'is_dildo') || q.is_sneaking"`)
-                    player.setProperty("arx:cd", 40)
                 }
             } else if (player.getProperty("arx:gender") == 1) {
                 player.runCommand(`tellraw @s { "rawtext": [ { "text": "Вам не приходит в голову, каким образом это можно использовать" } ] }`)

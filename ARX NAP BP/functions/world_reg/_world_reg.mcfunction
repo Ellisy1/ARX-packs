@@ -1,9 +1,5 @@
 # Автоматическая регистрация scores в мире
 
-# Прочие переменные
-    function world_reg/magic
-    function world_reg/achievements
-
 # Установка некоторых важных gamerule
     gamerule mobgriefing false
     gamerule naturalregeneration false
