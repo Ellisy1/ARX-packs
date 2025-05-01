@@ -187,7 +187,7 @@ export const achievementsList = { // Список со всеми достиже
         }
     },
     "has_tin_ingot": {
-        name: "Время обновить кирку!",
+        name: "Блестяшка!",
         description: "Получить оловянный слиток",
         trigger: {
             type: "hasItem",

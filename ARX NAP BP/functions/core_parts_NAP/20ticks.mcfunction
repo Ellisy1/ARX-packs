@@ -177,44 +177,10 @@
 
 # Анализ алых ночей
     tag @a remove scarlet_night
-    event entity @a arx:test_moon_phase
+    execute as @a if entity @s[scores={is_day=0}] run event entity @a arx:test_moon_phase
 
-#Туманы
-    fog @a remove "a"
-    fog @a remove "b"
-    fog @a remove "c"
-    fog @a remove "default"
-    fog @a remove "night"
-    fog @a remove "nightbright"
-    fog @a remove "true_demon"
-    fog @a remove "mine"
-    fog @a remove "scarlet_night"
-
-    #Ванильный туман
-        fog @a[scores={no_fog=1..}] push minecraft:fog_default "default"
-    #Шахта
-        fog @a[tag=in_mines] push arx:mine_fog "mine"
-        fog @a[tag=in_safe_zone] push arx:mine_fog "mine"
-        fog @a[tag=in_hot_deep] push arx:mine_fog "mine"
-    #Ночь
-        # На поверхности
-            fog @a[tag=in_surface, tag=!in_tp_room, scores={is_day=0, no_dark_fog=0, class=!1}, tag=!scarlet_night, tag=low_bright] push arx:overworld_night_fog "night"
-            fog @a[tag=in_surface, tag=!in_tp_room, scores={is_day=0, no_dark_fog=0, class=!1}, tag=!scarlet_night, tag=!low_bright] push arx:overworld_night_bright_fog "nightbright"
-        # В небе
-            fog @a[tag=in_sky, tag=!in_tp_room, scores={is_day=0, no_dark_fog=0, class=!1}, tag=!scarlet_night, tag=low_bright] push arx:overworld_night_fog "night"
-            fog @a[tag=in_sky, tag=!in_tp_room, scores={is_day=0, no_dark_fog=0, class=!1}, tag=!scarlet_night, tag=!low_bright] push arx:overworld_night_bright_fog "nightbright"
-        # Алая ночь
-            fog @a[tag=in_surface, tag=!in_tp_room, scores={is_day=0}, tag=scarlet_night] push arx:scarlet_night_fog "scarlet_night"
-    #Одежда
-        effect @a[tag=electrical_engineering_available, hasitem={item=arx:night_vision_device, location=slot.armor.head}] night_vision 12 0 true
-        fog @a[tag=electrical_engineering_available, tag=is_sneaking, hasitem={item=arx:night_vision_device, location=slot.armor.head}] push arx:pnv_fog "b"
-        fog @a[hasitem={item=arx:glasses_red, location=slot.armor.head}] push arx:redglasses_fog "a"
-        
-    #Стресс
-        fog @a[scores={is_day=1, stress_cond=4, respawn_delay=..5}] push arx:overworld_stress_fog "c"
-
-    #Амулет истинного демона
-        fog @a[hasitem={item=arx:amul_demon_essence, location=slot.armor.legs}] push arx:true_demon_fog "true_demon"
+# Одежда
+    effect @a[tag=electrical_engineering_available, hasitem={item=arx:night_vision_device, location=slot.armor.head}] night_vision 12 0 true
 
 # СТРЕСС
     #Холод

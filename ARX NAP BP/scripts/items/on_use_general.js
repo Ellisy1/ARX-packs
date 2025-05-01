@@ -368,6 +368,13 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
             player.runCommand('clear @s arx:xp_shard 0 1')
             break
 
+        case "arx:pouch_with_dyes":
+            const dyeVar = Math.floor(Math.random() * 19) + 1
+            player.runCommand(`playsound bundle.insert @a ~ ~ ~`)
+            player.runCommand(`clear @s arx:pouch_with_dyes 0 1`)
+            player.runCommand(`give @s dye 1 ${dyeVar}`)
+            break
+
         case "arx:xp_megashard":
             player.runCommand('xp 270')
             player.runCommand('summon xp_orb')

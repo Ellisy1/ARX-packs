@@ -2,6 +2,7 @@
 
 // Импортируем
 import { system, world } from "@minecraft/server"
+import { getScore } from "../scoresOperations"
 
 const musicOptions = { fade: 2, loop: true }
 
@@ -12,7 +13,7 @@ system.runInterval(() => {
         // Анализируем, где мы находимся
         let music_location = 0
         // Биомы
-        if (player.location.y >= 55 || (player.hasTag("scarlet_night") && !isDay())) { // Надо ли нам проверять, в каком мы биоме?
+        if (player.location.y >= 55 || (player.hasTag("scarlet_night") && !isDay(player))) { // Надо ли нам проверять, в каком мы биоме?
             music_location += player.hasTag("in_snow_biome") ? 1 : 0
             music_location += player.hasTag("BIOME_birch") ? 2 : 0
             music_location += player.hasTag("BIOME_desert") ? 3 : 0
@@ -27,7 +28,7 @@ system.runInterval(() => {
             music_location += player.hasTag("BIOME_swamp") ? 12 : 0
             music_location += player.hasTag("BIOME_taiga") ? 13 : 0
             music_location += player.hasTag("BIOME_beach") ? 14 : 0
-            music_location += isDay() ? 777 : 0
+            music_location += isDay(player) ? 777 : 0
         }
         // Измерения
         music_location += player.hasTag("in_nether") ? 50 : 0
@@ -50,10 +51,6 @@ system.runInterval(() => {
             if (player.hasTag("in_nether")) {
                 player.playMusic(`Wretched_Destroyer`, musicOptions)
             }
-            // Комната регистрации
-            // else if (player.reg) {
-            //     player.playMusic(`Clean_Soul`, musicOptions)
-            // }
             // Шахты - низ
             else if (player.location.y < 0) {
                 player.playMusic(`Ossuary_2_Turn`, musicOptions)
@@ -63,42 +60,42 @@ system.runInterval(() => {
                 player.playMusic(`Ossuary_6_Air`, musicOptions)
             }
             // Алая ночь
-            else if (player.hasTag("scarlet_night") && !isDay()) {
+            else if (player.hasTag("scarlet_night") && !isDay(player)) {
                 player.playMusic(`Hiding_Your_Reality`, musicOptions)
             }
             // Снег
             else if (player.hasTag("in_snow_biome")) {
-                if (isDay()) { player.playMusic(`The_Snow_Queen`, musicOptions) }
+                if (isDay(player)) { player.playMusic(`The_Snow_Queen`, musicOptions) }
                 else { player.playMusic(`Hidden_Past`, musicOptions) }
             }
             // Береза
             else if (player.hasTag("BIOME_birch")) {
-                if (isDay()) { player.playMusic(`Morning`, musicOptions) }
+                if (isDay(player)) { player.playMusic(`Morning`, musicOptions) }
                 else { player.playMusic(`Silent_Night`, musicOptions) }
             }
             // Пляж
             else if (player.hasTag("BIOME_beach")) {
-                if (isDay()) { player.playMusic(`Kalimba_Relaxation_Music`, musicOptions) }
+                if (isDay(player)) { player.playMusic(`Kalimba_Relaxation_Music`, musicOptions) }
                 else { player.playMusic(`Silver_Flame`, musicOptions) }
             }
             // Пустыня
             else if (player.hasTag("BIOME_desert")) {
-                if (isDay()) { player.playMusic(`Adding_the_Sun`, musicOptions) }
+                if (isDay(player)) { player.playMusic(`Adding_the_Sun`, musicOptions) }
                 else { player.playMusic(`Comfortable_Mystery`, musicOptions) }
             }
             // Тайга
             else if (player.hasTag("BIOME_taiga")) {
-                if (isDay()) { player.playMusic(`Ossuary_5_Rest`, musicOptions) }
+                if (isDay(player)) { player.playMusic(`Ossuary_5_Rest`, musicOptions) }
                 else { player.playMusic(`Ossuary_1_A_Beginning`, musicOptions) }
             }
             // Обычный лес
             else if (player.hasTag("BIOME_forest")) {
-                if (isDay()) { player.playMusic(`Magic_Forest`, musicOptions) }
+                if (isDay(player)) { player.playMusic(`Magic_Forest`, musicOptions) }
                 else { player.playMusic(`Temple_of_the_Manes`, musicOptions) }
             }
             // Джунгли
             else if (player.hasTag("BIOME_jungle")) {
-                if (isDay()) { player.playMusic(`Energizing`, musicOptions) }
+                if (isDay(player)) { player.playMusic(`Energizing`, musicOptions) }
                 else { player.playMusic(`Ancient_Rite`, musicOptions) }
             }
             // Мангровые болота
@@ -107,27 +104,27 @@ system.runInterval(() => {
             }
             // Меза
             else if (player.hasTag("BIOME_mesa")) {
-                if (isDay()) { player.playMusic(`Ether_Vox`, musicOptions) }
+                if (isDay(player)) { player.playMusic(`Ether_Vox`, musicOptions) }
                 else { player.playMusic(`Immersed`, musicOptions) }
             }
             // Океан (ещё срабатывает на реки)
             else if (player.hasTag("BIOME_ocean")) {
-                if (isDay()) { player.playMusic(`Skye_Cuillin`, musicOptions) }
+                if (isDay(player)) { player.playMusic(`Skye_Cuillin`, musicOptions) }
                 else { player.playMusic(`Almost_New`, musicOptions) }
             }
             // Равнины
             else if (player.hasTag("BIOME_plains")) {
-                if (isDay()) { player.playMusic(`Evening`, musicOptions) }
+                if (isDay(player)) { player.playMusic(`Evening`, musicOptions) }
                 else { player.playMusic(`Canon_in_D_Major`, musicOptions) }
             }
             // Тёмный лес
             else if (player.hasTag("BIOME_roofed")) {
-                if (isDay()) { player.playMusic(`Man_Down`, musicOptions) }
+                if (isDay(player)) { player.playMusic(`Man_Down`, musicOptions) }
                 else { player.playMusic(`Moorland`, musicOptions) }
             }
             // Саванна
             else if (player.hasTag("BIOME_savanna")) {
-                if (isDay()) { player.playMusic(`Ascending_the_Vale`, musicOptions) }
+                if (isDay(player)) { player.playMusic(`Ascending_the_Vale`, musicOptions) }
                 else { player.playMusic(`With_the_Sea`, musicOptions) }
             }
             // Болото
@@ -137,7 +134,7 @@ system.runInterval(() => {
 
             // Если ни одно условие выше не сработало
             else {
-                if (isDay()) { player.playMusic(`Angel_Share`, musicOptions) }
+                if (isDay(player)) { player.playMusic(`Angel_Share`, musicOptions) }
                 else { player.playMusic(`Morgana_Rides`, musicOptions) }
             }
         }
@@ -148,6 +145,7 @@ system.runInterval(() => {
 
 
 // Функция для определения дня/ночи
-function isDay() {
-    return world.getTimeOfDay() >= 0 && world.getTimeOfDay() < 12000;
+function isDay(player) {
+    // return world.getTimeOfDay() >= 360 && world.getTimeOfDay() < 12360;
+    return getScore(player, "is_day") == 0 ? false : true
 }

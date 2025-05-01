@@ -2114,7 +2114,38 @@
           "width": 0.8,
           "height": 0.5
         }
+      },
+
+      "arx:return_default_damage_sensor": {
+        "minecraft:damage_sensor": {
+          "triggers": [
+            {
+              "cause": "fall",
+              "deals_damage": true,
+              "damage_multiplier": 2
+            },
+            {
+              "cause": "starve",
+              "deals_damage": true
+            }
+          ]
+        }
+      },
+      "arx:return_knocked_damage_sensor": {
+        "minecraft:damage_sensor": {
+          "triggers": [
+            {
+              "cause": "entity_attack",
+              "deals_damage": true
+            },
+            {
+              "cause": "all",
+              "deals_damage": false
+            }
+          ]
+        }
       }
+
     },
     "components": {
       "minecraft:health": {
@@ -4315,14 +4346,16 @@
         },
         "add": {
           "component_groups": [
-            "arx:return_default_family_data"
+            "arx:return_default_family_data",
+            "arx:return_default_damage_sensor"
           ]
         }
       },
       "arx:property_is_knockout_set_true": { // Игрока нокнули
         "add": {
           "component_groups": [
-            "arx:set_knocked_family_data"
+            "arx:set_knocked_family_data",
+            "arx:return_knocked_damage_sensor"
           ]
         },
         "set_property": {

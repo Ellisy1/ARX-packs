@@ -49,7 +49,13 @@ system.runInterval(() => {
 
             // Левитируем
             if ((isSneaking && view_down && allow_levitate) || force_to_levitate) {
-                player.addEffect("levitation", 2, { amplifier: 0, showParticles: false })
+
+                if (player.getDynamicProperty('ghostBoostByScarletMoon')) {
+                    player.addEffect("levitation", 2, { amplifier: 4, showParticles: false })
+                } else {
+                    player.addEffect("levitation", 2, { amplifier: 0, showParticles: false })
+                }
+
                 player.addEffect("slow_falling", 100, { amplifier: 0, showParticles: false })
             }
         }
@@ -118,6 +124,9 @@ system.runInterval(() => {
 
             // Нет перса
             if (player.getDynamicProperty('hasRegisteredCharacter') === false) { basicStrength -= 999 }
+
+            // Бонус для призака алой ночью
+            if (player.getDynamicProperty('ghostBoostByScarletMoon')) basicStrength += 3
 
             // Увеличение от бонуса фиоликса
             if (player.getDynamicProperty('statsBonusByFiolix') > 0) { basicStrength += 2 }
@@ -257,7 +266,7 @@ system.runInterval(() => {
                 player.setDynamicProperty("mp", 0)
             }
             // Регенерируем
-            else if (player.getDynamicProperty("mp") < maxMp) { 
+            else if (player.getDynamicProperty("mp") < maxMp) {
                 // Реген маны
                 if (mpRegenPower > 0) {
                     player.setDynamicProperty("mp", player.getDynamicProperty("mp") + mpRegenPower / 10)
@@ -308,6 +317,9 @@ system.runInterval(() => {
 
             // От экипировки
             if (checkForItem(player, "Feet", "arx:leg_bag_dual")) { speedPower -= 8 }
+
+            // Бонус для призака алой ночью
+            if (player.getDynamicProperty('ghostBoostByScarletMoon')) speedPower += 30
 
             // Увеличение от уровня
             speedPower += player.getDynamicProperty("skill:running_level") * 2
@@ -389,6 +401,9 @@ system.runInterval(() => {
         if (checkForItem(player, "OffHand", "arx:ring_lamenite_cornelian")) { weighLimit += 6 }
 
         if (player.getDynamicProperty('weighLimitBonusByPotion') > 0) { weighLimit += 2 }
+
+        // Увеличение от прокачки
+        weighLimit += player.getDynamicProperty('skill:endurance_level')
 
         // Увеличение от бонуса фиоликса
         if (player.getDynamicProperty('statsBonusByFiolix') > 0) { weighLimit += 2 }
@@ -514,6 +529,9 @@ system.runInterval(() => {
             // Увеличение от бонуса фиоликса
             if (player.getDynamicProperty('statsBonusByFiolix') > 0) { jumpPower += 1 }
 
+            // Бонус для призака алой ночью
+            if (player.getDynamicProperty('ghostBoostByScarletMoon')) jumpPower += 1
+
             // Воздействие стресса
             if (getScore(player, "stress_cond") == 4) { jumpPower -= 3 }
             if (getScore(player, "stress_cond") == 3) { jumpPower -= 1 }
@@ -544,6 +562,9 @@ system.runInterval(() => {
 
             // Штраф от увядания призрака
             maxHP -= player.getDynamicProperty("ghostWitheringLevel") * 2
+
+            // Бонус для призака алой ночью
+            if (player.getDynamicProperty('ghostBoostByScarletMoon')) maxHP += 10
 
             // Макс хп - запись в DP
             player.setDynamicProperty("maxHP", maxHP)
@@ -595,6 +616,83 @@ system.runInterval(() => {
         for (const dp of dynamicPropertiesToDecrease) {
             if (player.getDynamicProperty(dp) > 0) {
                 player.setDynamicProperty(dp, player.getDynamicProperty(dp) - 1)
+            }
+        }
+
+        // Определяем бонус призрака
+        {
+            if (player.getProperty('arx:is_ghost') && player.hasTag('scarlet_night') && !player.hasTag('underground')) {
+                player.setDynamicProperty('ghostBoostByScarletMoon', true)
+            } else {
+                player.setDynamicProperty('ghostBoostByScarletMoon', false)
+            }
+
+            if (player.getDynamicProperty('ghostBoostByScarletMoonLastPass') == false && player.getDynamicProperty('ghostBoostByScarletMoon') == true) {
+                player.runCommand(`tellraw @s { "rawtext": [ { "text": "§cВы чувствуете невероятную мощь..." } ] }`)
+                if (getScore(player, `stress`) > -1200) {
+                    setScore(player, 'stress', -1200)
+                }
+            }
+
+            if (player.getDynamicProperty('ghostBoostByScarletMoonLastPass') == true && player.getDynamicProperty('ghostBoostByScarletMoon') == false) {
+                player.runCommand(`tellraw @s { "rawtext": [ { "text": "§cМощь уходит..." } ] }`)
+            }
+
+            player.setDynamicProperty('ghostBoostByScarletMoonLastPass', player.getDynamicProperty('ghostBoostByScarletMoon'))
+        }
+
+        // Анализ туманов
+        {
+            // Снятие туманов
+            player.runCommand(`fog @a remove "redglasses_fog"`)
+            player.runCommand(`fog @a remove "night_vision_device_fog"`)
+            player.runCommand(`fog @a remove "stress_fog"`)
+            player.runCommand(`fog @a remove "default"`)
+            player.runCommand(`fog @a remove "night"`)
+            player.runCommand(`fog @a remove "nightbright"`)
+            player.runCommand(`fog @a remove "true_demon"`)
+            player.runCommand(`fog @a remove "mines"`)
+            player.runCommand(`fog @a remove "scarlet_night"`)
+
+            //Установка туманов
+            // Если у игрока бан туманов 
+            if (getScore(player, 'no_fog') > 0 || player.getDynamicProperty('ghostBoostByScarletMoon')) {
+                player.runCommand(`fog @s push minecraft:fog_default "default"`)
+            }
+            // Шахты
+            else if (player.location.y < 55) {
+                player.runCommand(`fog @s push arx:mine_fog "mines"`)
+            }
+            // Алая ночь
+            else if (player.hasTag('scarlet_night') && getScore(player, 'is_day') == 0) {
+                player.runCommand(`fog @s push arx:scarlet_night_fog "scarlet_night"`)
+            }
+
+            // Прибор ночного зрения
+            else if (player.hasTag('electrical_engineering_available') && checkForItem(player, 'Head', 'arx:night_vision_device')) {
+                player.runCommand(`fog @s push arx:pnv_fog "night_vision_device_fog"`)
+            }
+            // Очки
+            else if (checkForItem(player, 'Head', 'arx:glasses_red')) {
+                player.runCommand(`fog @s push arx:redglasses_fog "redglasses_fog"`)
+            }
+            // Амулет тера крысы
+            else if (checkForItem(player, 'Legs', 'arx:amul_demon_essence')) {
+                player.runCommand(`fog @s push arx:true_demon_fog "true_demon"`)
+            }
+
+            // Поверхность, ночь (рядом с источником света)
+            else if (player.hasTag('in_surface') && getScore(player, 'is_day') == 0 && getScore(player, 'no_dark_fog') == 0 && player.hasTag('low_bright') && !player.getProperty('arx:is_ghost')) {
+                player.runCommand(`fog @s push arx:overworld_night_fog "night"`)
+            }
+            // Поверхность, ночь (далеко от источника света)
+            else if (player.hasTag('in_surface') && getScore(player, 'is_day') == 0 && getScore(player, 'no_dark_fog') == 0 && !player.hasTag('low_bright') && !player.getProperty('arx:is_ghost')) {
+                player.runCommand(`fog @s push arx:overworld_night_bright_fog "nightbright"`)
+            }
+
+            // Стресс
+            else if (getScore(player, 'stress_cond') === 4) {
+                player.runCommand(`fog @s push arx:overworld_night_bright_fog "nightbright"`)
             }
         }
 
@@ -810,6 +908,9 @@ system.runInterval(() => {
             // Прибавка от уровня стрельбы
             rangedAttackAccuracy += player.getDynamicProperty("skill:shooting_level")
 
+            // Бонус для призака алой ночью
+            if (player.getDynamicProperty('ghostBoostByScarletMoon')) rangedAttackAccuracy += 3
+
             // Штраф от темноты
             if (player.hasTag("low_bright")) { rangedAttackAccuracy -= 3 }
 
@@ -859,6 +960,7 @@ system.runInterval(() => {
             if (checkForItem(player, "legs", "arx:snow_bars_scarf") && !checkForItem(player, "chest", undefined)) (blockFreezing = true)
             if (getScore(player, "respawn_delay") > 0) { blockFreezing = true }
             if (player.getProperty('arx:is_ghost') == true) { blockFreezing = true }
+            if (player.hasTag('heating_by_heater_block_activate')) { blockFreezing = true }
 
             // Увеличение холода
             //if (player.getTags().includes('BIOME_ice') && !blockFreezing) { freezing += 1 }

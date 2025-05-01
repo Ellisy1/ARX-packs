@@ -11,7 +11,7 @@ world.beforeEvents.chatSend.subscribe((eventData) => {
     const player = eventData.sender
     let trimmedMessage = eventData.message.trim()
 
-    const commandList = trimmedMessage.split(/\+\+/).filter(item => item !== "")
+    const commandList = trimmedMessage.split(" ++ ").filter(item => item !== "")
 
     for (let command of commandList) {
         parceCommand(player, command.trim())
@@ -39,6 +39,7 @@ function parceCommand(player, trimmedMessage) {
         }
 
         else if (command[0] == "!") { // Инфо о командах
+            player.setDynamicProperty('hasEverSeenArxCommandsHelp', true)
             queueCommand(player, `function javascript/arx_commands_help`);
         }
 
