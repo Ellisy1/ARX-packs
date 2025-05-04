@@ -74,12 +74,28 @@ export const achievementsList = { // Список со всеми достиже
             value: "arx:clothes_crafting_table"
         }
     },
+    "has_jewelry_crafting_table": {
+        name: "Юверлир",
+        description: "Создать ювелирный верстак",
+        trigger: {
+            type: "hasItem",
+            value: "arx:jewelry_crafting_table"
+        }
+    },
     "has_cast_iron_ingot": {
         name: "Чугунище",
         description: "Получить слиток чугуна",
         trigger: {
             type: "hasItem",
             value: "arx:cast_iron_ingot"
+        }
+    },
+    "has_gold_ingot": {
+        name: "Золушка",
+        description: "Получить слиток золота",
+        trigger: {
+            type: "hasItem",
+            value: "minecraft:gold_ingot"
         }
     },
     "has_steel_ingot": {
@@ -351,7 +367,7 @@ export function completeAchievement(player, achievementID) { // achievementID Б
 
     if (player.getDynamicProperty(`ach:${achievementID}`) !== true) { // Проверка, не выполнено ли это достижение уже
 
-        player.runCommand(`tellraw @s { "rawtext": [ { "text": "Ę §2Выполнено достижение: §r${achievementsList[achievementID].name} §7§o(${achievementsList[achievementID].description})" } ] }`)
+        player.runCommand(`tellraw @s { "rawtext": [ { "text": " §2Выполнено достижение: §r${achievementsList[achievementID].name} §7§o(${achievementsList[achievementID].description})" } ] }`)
         player.runCommand('playsound get_achievement @s ~ ~ ~')
         player.setDynamicProperty(`ach:${achievementID}`, true)
         return 0

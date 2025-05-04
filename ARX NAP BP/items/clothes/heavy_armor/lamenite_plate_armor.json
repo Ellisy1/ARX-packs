@@ -2,9 +2,6 @@
     "format_version": "1.21.0",
     "minecraft:item": {
         "components": {
-            "minecraft:display_name": {
-                "value": "§r§fЛаменитовый латный доспех [Ā13] [İ8] §c[Мифическое+++]\n§4§o?§fЗдоровье меньше 11 и нет крит. перегрева => огнестойкость, +1 сила§r\n§6Нагрев в аду вдвое медленнее"
-            },
             "minecraft:durability": {
                 "max_durability": 1800
             },

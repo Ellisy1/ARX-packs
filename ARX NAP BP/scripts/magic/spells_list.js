@@ -373,7 +373,7 @@ export const spellsList = {
 // Создание списка шифровки заклинаний
 import { runeCiphers } from './rune_cipher_list'
 
-export let spellsCiphers = []
+export let spellsCiphers = [] // spellsCiphers представляет собой подобие spellsList, только вместо объекта представлен массив с шифровкой каждого заклинания
 
 for (const spell in spellsList) {
     // Получаем список последовательности рун в заклинании в list_of_runes

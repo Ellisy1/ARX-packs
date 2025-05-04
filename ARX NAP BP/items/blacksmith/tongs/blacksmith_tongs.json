@@ -3,9 +3,6 @@
     "minecraft:item": {
         "components": {
             "minecraft:allow_off_hand": true,
-            "minecraft:display_name": {
-                "value": "§r§fПростые кузнечные клещи [İ1] §a[Необычное]\n§o§7Позволяют держать горячие [Ė] предметы\n§6Для левой руки"
-            },
             "minecraft:hand_equipped": true,
             "minecraft:icon": "arx:blacksmith_tongs",
             "minecraft:max_stack_size": 1

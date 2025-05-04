@@ -1,0 +1,32 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "arx:pallas_conqueror_armor",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/clothes/heavy_armor/pallas_conqueror_armor"
+      },
+      "geometry": {
+        "default": "geometry.pallas_conqueror_armor"
+      },
+      "animations": {
+        "bust": "animation.player.bust",
+        "bust_controller": "controller.animation.bust",
+        "correct_sleeves": "animation.player.correct_sleeves"
+      },
+      "scripts": {
+        "animate": [
+          "correct_sleeves",
+          "bust_controller"
+        ],
+        "parent_setup": "variable.chest_layer_visible = 0.0;"
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ]
+    }
+  }
+}

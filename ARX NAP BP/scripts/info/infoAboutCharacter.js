@@ -30,10 +30,13 @@ function getBodyText(player) {
         bodyText += `\nРазмер груди: §a${player.getProperty('arx:bust_size')}`
     }
 
-    if (player.getProperty("arx:is_ghost") == 1) {
-        bodyText += "\n\nВы - §cпризрак§f"
+    if (player.getProperty("arx:is_ghost") === true) {
+        bodyText += "\n\n§fВы - §cпризрак§f"
+    }
+    if (player.getDynamicProperty('ghostWitheringLevel') > 0 || player.getProperty("arx:is_ghost") === true) {
         bodyText += `\nУвядание: §4${player.getDynamicProperty('ghostWitheringLevel')}§f ур.`
     }
+
 
     if (player.getDynamicProperty('characterLore')) {
         bodyText += `\n\n§aИстория ${getGenitiveName(player.getDynamicProperty('trueName'), player.getProperty("arx:gender"))}§f: ${player.getDynamicProperty('characterLore')}`

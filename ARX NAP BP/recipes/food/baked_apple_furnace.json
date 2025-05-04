@@ -6,7 +6,7 @@
     },
 
     "tags": ["furnace", "smoker", "campfire", "soul_campfire"],
-    "input": "minecraft:apple",
+    "input": "arx:apple",
     "output": "arx:baked_apple"
   }
   

@@ -69,13 +69,13 @@ system.runInterval(() => {
 
             // Отображаем в тактах
             if (player.getDynamicProperty("myRule:showAttackCDMode") == 'ticks') {
-                if (player?.getDynamicProperty("prohibit_damage") > 0) { player.runCommand(`title @s actionbar ĥ §c${player.getDynamicProperty("attackCD")}`) }
-                else player.runCommand(`title @s actionbar Ĥ ${player.getDynamicProperty("attackCD")}`)
+                if (player?.getDynamicProperty("prohibit_damage") > 0) { player.runCommand(`title @s actionbar  §c${player.getDynamicProperty("attackCD")}`) }
+                else player.runCommand(`title @s actionbar  ${player.getDynamicProperty("attackCD")}`)
             }
             // Секундах
             else if (player.getDynamicProperty("myRule:showAttackCDMode") == 'seconds') {
-                if (player?.getDynamicProperty("prohibit_damage") > 0) { player.runCommand(`title @s actionbar ĥ §c${Math.ceil(player.getDynamicProperty("attackCD") / 20)}`) }
-                else { player.runCommand(`title @s actionbar Ĥ ${Math.ceil(player.getDynamicProperty("attackCD") / 20)}`) }
+                if (player?.getDynamicProperty("prohibit_damage") > 0) { player.runCommand(`title @s actionbar  §c${Math.ceil(player.getDynamicProperty("attackCD") / 20)}`) }
+                else { player.runCommand(`title @s actionbar  ${Math.ceil(player.getDynamicProperty("attackCD") / 20)}`) }
             }
             // Строкой
             else if (player.getDynamicProperty("myRule:showAttackCDMode") == 'line') {
@@ -83,13 +83,13 @@ system.runInterval(() => {
                     let damageString = '§c'
                     for (let i = 0; i < Math.ceil(player.getDynamicProperty("attackCD") / 20); i++) { damageString += '=' }
                     damageString += "§f"
-                    player.runCommand(`title @s actionbar ĥ ${damageString} ĥ`)
+                    player.runCommand(`title @s actionbar  ${damageString} `)
                 }
                 else {
                     let damageString = '§f'
                     for (let i = 0; i < Math.ceil(player.getDynamicProperty("attackCD") / 20); i++) { damageString += '-' }
                     damageString += "§f"
-                    player.runCommand(`title @s actionbar Ĥ ${damageString} Ĥ`)
+                    player.runCommand(`title @s actionbar  ${damageString} `)
                 }
             }
         }
@@ -115,6 +115,8 @@ system.runInterval(() => {
             if (checkForItem(player, "Offhand", "arx:ring_toliriite_ruby")) { basicStrength += 4 }
             if (checkForItem(player, "Feet", "arx:ring_lamenite_ruby")) { basicStrength += 5 }
             if (checkForItem(player, "Offhand", "arx:ring_lamenite_ruby")) { basicStrength += 5 }
+
+            if (checkForItem(player, "Legs", "arx:durasteel_bracers")) { basicStrength += 1 }
 
             // Прокач
             basicStrength += (player.getDynamicProperty('skill:strength_level') / 2)
@@ -148,7 +150,7 @@ system.runInterval(() => {
             if (getScore(player, "stress_cond") == -4) { basicStrength += 3 }
 
             // Штрафовое срезание от отката
-            basicStrength -= Math.ceil(player.getDynamicProperty("attackCD") / 20) * 3
+            basicStrength -= Math.ceil(player.getDynamicProperty("attackCD") / 20) * 4
 
             // Срезание от отравления
             if (player.getDynamicProperty('intoxicationLevel') >= 2) { basicStrength -= player.getDynamicProperty('intoxicationLevel') * 2 }
@@ -327,6 +329,11 @@ system.runInterval(() => {
             // Увеличение от роста
             speedPower += Math.round((player.getDynamicProperty("height") - 150) / 9)
 
+            // Увеличение от навыка плавания
+            if (player.hasTag('in_block_water')) {
+                speedPower += player.getDynamicProperty('skill:swimming_level') * 5
+            }
+
             // Увеличение от бонуса фиоликса
             if (player.getDynamicProperty('statsBonusByFiolix') > 0) { speedPower += 25 }
 
@@ -370,12 +377,55 @@ system.runInterval(() => {
 
             player.setDynamicProperty("speedPower", speedPower)
         }
+
+        // Контроль расстояния от места спавна
+        if (player.getDynamicProperty('hasRegisteredCharacter')) {
+            // Задаем двумерные векторы
+            const worldCenter = [-2066, 1733]
+            const playerLocation = [player.location.x, player.location.z];
+
+            // Рассчитываем дистанцию
+            const distance = Math.sqrt(Math.pow(playerLocation[0] - worldCenter[0], 2) + Math.pow(playerLocation[1] - worldCenter[1], 2));
+
+            // Обрабатываем максимальную дистанцию
+            const maxDistance = 2000
+            const warnDistance = maxDistance - 6
+
+            if (distance > maxDistance) {
+                // Вычисляем вектор от центра к игроку
+                const dx = playerLocation[0] - worldCenter[0];
+                const dz = playerLocation[1] - worldCenter[1];
+
+                // Нормализуем вектор (приводим к единичной длине)
+                const normalizedDx = dx / distance;
+                const normalizedDz = dz / distance;
+
+                // Вычисляем координаты на границе цилиндра
+                const teleportX = worldCenter[0] + normalizedDx * maxDistance;
+                const teleportZ = worldCenter[1] + normalizedDz * maxDistance;
+
+                // Телепортируем игрока на границу цилиндра
+                //  Замена знач1 и знач2 переменными телепорта
+                player.runCommand(`tp @s ${teleportX} ~ ${teleportZ} facing ${worldCenter[0]} ~ ${worldCenter[1]}`);
+                player.runCommand('damage @s 0 magic')
+            }
+            if (distance > warnDistance) {
+                player.runCommand(`tellraw @s { "rawtext": [ { "text": "§cВы дошли до границы мира. Пожалуйста, продолжайте своё путешествие в другом направлении." } ] }`)
+                player.runCommand('effect @s blindness 2 0 true')
+            }
+        }
     }
 }, 2);
 
 // 5 ticks
 system.runInterval(() => {
     for (const player of world.getPlayers()) {
+        // Подмена яблок
+        if (checkForItem(player, 'Inventory', 'minecraft:apple')) {
+            player.runCommand('clear @s minecraft:apple 0 1')
+            player.runCommand('give @s arx:apple')
+        }
+
         // Анализ поднимаемного игроком веса
         // weighLimit - ограничение переносимого веса, при переходе за который накладывается штраф
         let weighLimit = 4
@@ -500,10 +550,10 @@ system.runInterval(() => {
         // Механики призрака
         if (player.getProperty("arx:is_ghost") == true && player.getDynamicProperty('ghostUltimateResistance') === 0) {
             if (player.hasTag('in_block_water')) {
-                player.runCommand('damage @s 2 suicide')
+                player.runCommand('damage @s 2 fire')
             }
-            else if (player.hasTag('in_water')) {
-                player.runCommand('damage @s 1 suicide')
+            else if (player.hasTag('in_water') && !player.hasTag('holding_umbrella')) {
+                player.runCommand('damage @s 1 fire')
             }
             else if (!player.hasTag('holding_umbrella') && !player.hasTag('underground') && (world.getTimeOfDay() >= 0 && world.getTimeOfDay() < 12000)) {
                 player.runCommand('damage @s 1 fire')
@@ -612,6 +662,12 @@ function getBlockWithOffset(player, x, y, z) {
 // 20 ticks
 system.runInterval(() => {
     for (const player of world.getPlayers()) {
+
+        // Прокачка плавания
+        if (player.hasTag('is_moving') && player.hasTag('in_block_water')) {
+            increaseSkillProgress(player, 'swimming', 10)
+        }
+
         // Уменьшение DP из dynamicPropertiesToDecrease
         for (const dp of dynamicPropertiesToDecrease) {
             if (player.getDynamicProperty(dp) > 0) {
@@ -628,7 +684,7 @@ system.runInterval(() => {
             }
 
             if (player.getDynamicProperty('ghostBoostByScarletMoonLastPass') == false && player.getDynamicProperty('ghostBoostByScarletMoon') == true) {
-                player.runCommand(`tellraw @s { "rawtext": [ { "text": "§cВы чувствуете невероятную мощь..." } ] }`)
+                player.runCommand(`tellraw @s { "rawtext": [ { "text": "§cСвет луны наполняет вас невероятной мощью..." } ] }`)
                 if (getScore(player, `stress`) > -1200) {
                     setScore(player, 'stress', -1200)
                 }
@@ -644,15 +700,15 @@ system.runInterval(() => {
         // Анализ туманов
         {
             // Снятие туманов
-            player.runCommand(`fog @a remove "redglasses_fog"`)
-            player.runCommand(`fog @a remove "night_vision_device_fog"`)
-            player.runCommand(`fog @a remove "stress_fog"`)
-            player.runCommand(`fog @a remove "default"`)
-            player.runCommand(`fog @a remove "night"`)
-            player.runCommand(`fog @a remove "nightbright"`)
-            player.runCommand(`fog @a remove "true_demon"`)
-            player.runCommand(`fog @a remove "mines"`)
-            player.runCommand(`fog @a remove "scarlet_night"`)
+            player.runCommand(`fog @s remove "redglasses_fog"`)
+            player.runCommand(`fog @s remove "night_vision_device_fog"`)
+            player.runCommand(`fog @s remove "stress_fog"`)
+            player.runCommand(`fog @s remove "default"`)
+            player.runCommand(`fog @s remove "night"`)
+            player.runCommand(`fog @s remove "nightbright"`)
+            player.runCommand(`fog @s remove "true_demon"`)
+            player.runCommand(`fog @s remove "mines"`)
+            player.runCommand(`fog @s remove "scarlet_night"`)
 
             //Установка туманов
             // Если у игрока бан туманов 
@@ -980,7 +1036,7 @@ system.runInterval(() => {
 
                 let symbolType
                 let message
-                freezing > 0 ? symbolType = "Đ" : symbolType = "Ė"
+                freezing > 0 ? symbolType = "" : symbolType = ""
                 freezing > 0 ? message = " §bВы замерзаете§f " : message = " §cВам жарко§f "
 
                 let symbolLine = ''
@@ -1026,7 +1082,7 @@ system.runInterval(() => {
 function displayMP(player) {
     // Если мы отображаем целыми
     if (player.getDynamicProperty("myRule:manaDisplayMode") === 'integers')
-        player.runCommand(`title @s actionbar ${Math.round(player.getDynamicProperty("mp"))} §1MP`)
+        player.runCommand(`title @s actionbar ${Math.floor(player.getDynamicProperty("mp"))} §1MP`)
     // Если мы отображаем дробными
     else if (player.getDynamicProperty("myRule:manaDisplayMode") === 'decimals') {
         player.runCommand(`title @s actionbar ${player.getDynamicProperty("mp").toFixed(1)} §1MP`)

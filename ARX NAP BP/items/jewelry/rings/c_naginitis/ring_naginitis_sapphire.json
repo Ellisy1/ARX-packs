@@ -24,9 +24,6 @@
             "minecraft:wearable": {
                 "slot": "slot.armor.feet"
             },
-            "minecraft:display_name": {
-                "value": "§r§fНагинитовое кольцо с сапфиром §e[Легендарное]\n§o§7+20 к максимальной мане"
-            },
             "minecraft:allow_off_hand": true,
             "minecraft:tags": {
                 "tags": [

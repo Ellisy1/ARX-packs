@@ -219,7 +219,7 @@ export function registerCharacter(player) {
 
                                 player.runCommand(`give @s arx:united_player_data 1 0 {"keep_on_death":{}}`)
 
-                                player.runCommand(`tellraw @s { "rawtext": [ { "text": "Вы в игре!\nПервым делом, рекомендуется найти себе убежище..." } ] }`)
+                                player.runCommand(`tellraw @s { "rawtext": [ { "text": "§aВы в игре!§f\n§c!§f Используйте §aкнижку§f, которая у вас в инвентаре, и выберите в открывшемся меню самый верхний пункт §aГид§f. Обращайтесь к нему почаще!" } ] }`)
                             }
                         }
                     })

@@ -2,9 +2,6 @@
     "format_version": "1.21.0",
     "minecraft:item": {
         "components": {
-            "minecraft:display_name": {
-                "value": "§r§fВенок Марта [Ā2 §1MP§f8] §c[Мифическое+++]"
-            },
             "minecraft:durability": {
                 "max_durability": 4000
             },

@@ -24,9 +24,6 @@
             "minecraft:wearable": {
                 "slot": "slot.armor.feet"
             },
-            "minecraft:display_name": {
-                "value": "§r§fМалафиотиронитовое кольцо с сапфиром §c[Мифическое+]\n§o§7+40 к максимальной мане"
-            },
             "minecraft:allow_off_hand": true,
             "minecraft:tags": {
                 "tags": [

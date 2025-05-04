@@ -8,13 +8,16 @@
     
     "tags": [ "clothes_crafting_table" ],
     "pattern": [
-      "AAA",
+      "XAX",
       "BEB",
       "CAC"
     ],
     "key": {
       "A": {
         "item": "arx:silk"
+      },
+      "X": {
+        "item": "arx:cotton_fabric"
       },
       "B": {
         "item": "minecraft:dye",
@@ -23,9 +26,6 @@
       "C": {
         "item": "minecraft:dye",
         "data": 12
-      },
-      "D": {
-        "item": "arx:golden_silk"
       },
       "E": {
         "item": "arx:ruby_gem"

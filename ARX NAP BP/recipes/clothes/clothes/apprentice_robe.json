@@ -8,14 +8,11 @@
     
     "tags": [ "clothes_crafting_table" ],
     "pattern": [
-      "A#A",
+      "ADA",
       "BDB",
-      "C#C"
+      "CDC"
     ],
     "key": {
-      "#": {
-        "item": "arx:silk"
-      },
       "A": {
         "item": "minecraft:dye",
         "data": 1
@@ -28,7 +25,7 @@
         "item": "arx:cheap_cloth"
       },
       "D": {
-        "item": "arx:leather_super"
+        "item": "arx:cotton_fabric"
       }
     },
     "result": {

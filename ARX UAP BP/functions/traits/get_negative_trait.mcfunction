@@ -18,6 +18,6 @@ scoreboard players add @s[scores={trait_random=15}] c_impulsive_par 1
 scoreboard players add @s[scores={trait_random=16}] c_paranoid_mas 1
 scoreboard players add @s[scores={trait_random=17}] c_fastidious 1
 scoreboard players add @s[scores={trait_random=18}] c_aquaphobe 1
-title @s title Ć
-title @s subtitle Ć §cОтрицательная черта§f Ć
-tellraw @s { "rawtext": [ { "text": "Ć §cПолучена отрицательная черта" } ] }
+title @s title 
+title @s subtitle  §cОтрицательная черта§f 
+tellraw @s { "rawtext": [ { "text": " §cПолучена отрицательная черта" } ] }

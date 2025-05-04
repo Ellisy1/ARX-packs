@@ -2,9 +2,6 @@
     "format_version": "1.21.0",
     "minecraft:item": {
         "components": {
-            "minecraft:display_name": {
-                "value": "§r§fСветлячок §c[Мифическое]\n§eЭкономия масла 167Ũ\nЯркость 87Ũ"
-            },
             "minecraft:durability": {
                 "max_durability": 300
             },

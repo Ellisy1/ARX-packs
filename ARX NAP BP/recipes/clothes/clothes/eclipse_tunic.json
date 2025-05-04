@@ -14,14 +14,14 @@
     ],
     "key": {
       "A": {
-        "item": "arx:silk"
+        "item": "arx:cotton_fabric"
       },
       "B": {
         "item": "minecraft:dye",
         "data": 16
       },
       "D": {
-        "item": "arx:golden_silk"
+        "item": "minecraft:gold_ingot"
       }
     },
     "result": {

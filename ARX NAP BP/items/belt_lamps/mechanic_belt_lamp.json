@@ -2,9 +2,6 @@
     "format_version": "1.21.0",
     "minecraft:item": {
         "components": {
-            "minecraft:display_name": {
-                "value": "§r§fОгнёвка §g[Эпическое]\n§eЭкономия масла 58Ũ\nЯркость 60Ũ"
-            },
             "minecraft:durability": {
                 "max_durability": 90
             },

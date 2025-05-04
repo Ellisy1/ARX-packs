@@ -13,12 +13,15 @@
         "default": "geometry.heavy_plate_armor"
       },
       "animations": {
+        "bust": "animation.player.bust",
+        "bust_controller": "controller.animation.bust",
         "cloak": "animation.cloak.default",
         "cloak_controller": "controller.animation.cloak"
       },
       "scripts": {
         "animate": [
-          "cloak_controller"
+          "cloak_controller",
+          "bust_controller"
         ],
         "parent_setup": "variable.chest_layer_visible = 0.0;"
       },

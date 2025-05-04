@@ -2,9 +2,6 @@
     "format_version": "1.21.0",
     "minecraft:item": {
         "components": {
-            "minecraft:display_name": {
-                "value": "§r§fУсечённый зонтик §a[Необычное]\n§7§oЧтобы закрывать себя и друзей от дождя"
-            },
             "minecraft:durability": {
                 "max_durability": 100
             },

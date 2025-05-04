@@ -13,16 +13,6 @@
         },
         {
           "type": "item",
-          "name": "minecraft:golden_apple",
-          "weight": 75
-        },
-        {
-          "type": "item",
-          "name": "minecraft:appleEnchanted",
-          "weight": 10
-        },
-        {
-          "type": "item",
           "name": "minecraft:record_13",
           "weight": 75
         },

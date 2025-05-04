@@ -647,7 +647,7 @@
 			"bones": {
 				"rightItem": {
 					"rotation": [0, 67.5, "-20 + q.cape_flap_amount * 10"],
-					"position": [0, 5, -4]
+					"position": [0, 5, -8]
 				}
 			}
 		},

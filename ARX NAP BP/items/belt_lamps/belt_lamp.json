@@ -2,9 +2,6 @@
     "format_version": "1.21.0",
     "minecraft:item": {
         "components": {
-            "minecraft:display_name": {
-                "value": "§r§fМышесвет §e[Легендарное]\n§eЭкономия масла 33Ũ\nЯркость 67Ũ"
-            },
             "minecraft:durability": {
                 "max_durability": 150
             },

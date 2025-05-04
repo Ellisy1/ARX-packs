@@ -376,6 +376,34 @@
           ],
           "max_uses": 1
         },
+        //Очень дорогой товар
+        {
+          "wants": [
+            {
+              "item": "arx:rat_coin_gold",
+              "quantity": {
+                "min": 3,
+                "max": 5
+              }
+            }
+          ],
+          "gives": [
+            {
+              "choice": [
+                {
+                  "item": "arx:dildo"
+                },
+                {
+                  "item": "arx:caryite_ingot"
+                },
+                {
+                  "item": "arx:forfactorite_ingot"
+                }
+              ]
+            }
+          ],
+          "max_uses": 1
+        },
         //СКУПКА
         //Фарш
         {

@@ -10,7 +10,7 @@
     "pattern": [
       " D ",
       "EAB",
-      "BDE"
+      "BXE"
     ],
     "key": {
       "A": {
@@ -26,6 +26,9 @@
       },
       "D": {
         "item": "arx:silk"
+      },
+      "X": {
+        "item": "arx:cotton_fabric"
       }
     },
     "result": {

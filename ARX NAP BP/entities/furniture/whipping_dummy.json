@@ -15,7 +15,8 @@
 			},
 			"minecraft:type_family": {
 				"family": [
-					"whipping_dummy"
+					"whipping_dummy",
+					"furniture"
 				]
 			},
 			"minecraft:collision_box": {

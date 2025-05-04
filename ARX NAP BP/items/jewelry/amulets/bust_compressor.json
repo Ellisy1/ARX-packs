@@ -2,9 +2,6 @@
     "format_version": "1.21.0",
     "minecraft:item": {
         "components": {
-            "minecraft:display_name": {
-                "value": "§r§fКрепкая повязка на грудь [Ā1] §a[Необычное]\n§o§7Немножко усилий, и ваша грудь уже не так заметна"
-            },
             "minecraft:durability": {
                 "max_durability": 300
             },
@@ -18,7 +15,11 @@
                 "protection": 1,
                 "slot": "slot.armor.legs"
             },
-            "tag:is_bust_compressor": {}
+            "minecraft:tags": {
+                "tags": [
+                    "is_bust_compressor"
+                ]
+            }
         },
         "description": {
             "identifier": "arx:bust_compressor",

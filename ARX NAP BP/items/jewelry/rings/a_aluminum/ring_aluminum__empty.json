@@ -24,9 +24,6 @@
             "minecraft:wearable": {
                 "slot": "slot.armor.feet"
             },
-            "minecraft:display_name": {
-                "value": "§r§fАлюминиевая колечная оправа §a[Необычное]"
-            },
             "minecraft:allow_off_hand": true
         },
         "description": {

@@ -14,7 +14,7 @@
     ],
     "key": {
       "#": {
-        "item": "arx:silk"
+        "item": "arx:cotton_fabric"
       },
       "A": {
         "item": "minecraft:dye",
@@ -28,7 +28,7 @@
         "item": "arx:pushnina"
       },
       "D": {
-        "item": "arx:golden_silk"
+        "item": "minecraft:gold_nugget"
       }
     },
     "result": {

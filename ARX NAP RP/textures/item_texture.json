@@ -712,54 +712,57 @@
         "textures/items/clothes/heavy_armor/steeletherite_armor_icon"
       ]
     },
+
+
+
     "arx:necro_mantle": {
       "textures": [
-        "textures/items/clothes/religious/necro_mantle_icon"
+        "textures/items/clothes/clothes/necro_mantle_icon"
       ]
     },
     "arx:necro_mantle_zel": {
       "textures": [
-        "textures/items/clothes/religious/necro_mantle_zel_icon"
+        "textures/items/clothes/clothes/necro_mantle_zel_icon"
       ]
     },
     "arx:pallas_apprentice_robe": {
       "textures": [
-        "textures/items/clothes/religious/pallas_apprentice_robe_icon"
+        "textures/items/clothes/clothes/pallas_apprentice_robe_icon"
       ]
     },
     "arx:pallas_assasin_clothing": {
       "textures": [
-        "textures/items/clothes/religious/pallas_assasin_clothing_icon"
+        "textures/items/clothes/light_armor/pallas_assasin_clothing_icon"
       ]
     },
     "arx:pallas_conqueror_armor": {
       "textures": [
-        "textures/items/clothes/religious/pallas_conqueror_armor_icon"
+        "textures/items/clothes/heavy_armor/pallas_conqueror_armor_icon"
       ]
     },
     "arx:pallas_mage_mantle": {
       "textures": [
-        "textures/items/clothes/religious/pallas_mage_mantle_icon"
+        "textures/items/clothes/clothes/pallas_mage_mantle_icon"
       ]
     },
     "arx:pires_apprentice_robe": {
       "textures": [
-        "textures/items/clothes/religious/pires_apprentice_robe_icon"
+        "textures/items/clothes/clothes/pires_apprentice_robe_icon"
       ]
     },
     "arx:pires_mage_mantle": {
       "textures": [
-        "textures/items/clothes/religious/pires_mage_mantle_icon"
+        "textures/items/clothes/clothes/pires_mage_mantle_icon"
       ]
     },
     "arx:pires_paladin_armor": {
       "textures": [
-        "textures/items/clothes/religious/pires_paladin_armor_icon"
+        "textures/items/clothes/heavy_armor/pires_paladin_armor_icon"
       ]
     },
     "arx:pires_ranger_coat": {
       "textures": [
-        "textures/items/clothes/religious/pires_ranger_coat_icon"
+        "textures/items/clothes/light_armor/pires_ranger_coat_icon"
       ]
     },
 
@@ -1999,6 +2002,9 @@
     },
     "arx:cheap_cloth": {
       "textures": "textures/items/crafting/cheap_cloth"
+    },
+    "arx:cotton_fabric": {
+      "textures": "textures/items/crafting/cotton_fabric"
     },
     "arx:book_case_a": {
       "textures": "textures/items/books/book_case_a"

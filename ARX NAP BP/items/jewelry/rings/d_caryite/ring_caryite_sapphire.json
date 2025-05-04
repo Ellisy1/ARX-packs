@@ -24,9 +24,6 @@
             "minecraft:wearable": {
                 "slot": "slot.armor.feet"
             },
-            "minecraft:display_name": {
-                "value": "§r§fКариитовое кольцо с сапфиром §c[Мифическое]\n§o§7+30 к максимальной мане"
-            },
             "minecraft:allow_off_hand": true,
             "minecraft:tags": {
                 "tags": [

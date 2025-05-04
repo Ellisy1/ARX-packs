@@ -24,9 +24,6 @@
             "minecraft:wearable": {
                 "slot": "slot.armor.feet"
             },
-            "minecraft:display_name": {
-                "value": "§r§fЗолотое кольцо с цирконом §b[Редкое]\n§o§7+10Ũ к получаемому опыту"
-            },
             "minecraft:allow_off_hand": true,
             "minecraft:tags": {
                 "tags": [

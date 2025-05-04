@@ -24,9 +24,6 @@
             "minecraft:wearable": {
                 "slot": "slot.armor.feet"
             },
-            "minecraft:display_name": {
-                "value": "§r§fЛаменитовое кольцо с аквамарином §c[Мифическое++]\n§o§7+500Ũ к скорости снятия отравления"
-            },
             "minecraft:allow_off_hand": true,
             "minecraft:tags": {
                 "tags": [

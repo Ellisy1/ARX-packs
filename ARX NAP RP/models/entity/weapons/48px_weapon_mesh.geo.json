@@ -12,6 +12,15 @@
 			},
 			"bones": [
 				{
+					"name": "weapon_fix",
+					"parent": "rightItem",
+					"pivot": [0, 0, 0],
+					"rotation": [0, 0, 0],
+					"cubes": [
+						{"origin": [0, 0, 0], "size": [0, 0, 0], "uv": [0, 0]}
+					]
+				},
+				{
 					"name": "rightItem",
 					"pivot": [0, 0, 0],
 					"texture_meshes": [

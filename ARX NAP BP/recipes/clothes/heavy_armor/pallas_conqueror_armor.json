@@ -1,0 +1,33 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:pallas_conqueror_armor"
+    },
+
+    
+    "tags": [ "heavy_armor_crafting_table" ],
+    "pattern": [
+      "#A#",
+      "#D#",
+      "BAB"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:durasteel_protective_plate"
+      },
+      "A": {
+        "item": "arx:cotton_fabric"
+      },
+      "B": {
+        "item": "minecraft:dye:16"
+      },
+      "D": {
+        "item": "arx:toliriite_protective_plate"
+      }
+    },
+    "result": {
+      "item": "arx:pallas_conqueror_armor"
+    }
+  }
+}

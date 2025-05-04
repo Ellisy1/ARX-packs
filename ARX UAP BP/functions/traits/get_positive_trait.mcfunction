@@ -10,6 +10,6 @@ scoreboard players add @s[scores={trait_random=7}] c_tenacious 1
 scoreboard players add @s[scores={trait_random=8}] c_conscious 1
 scoreboard players add @s[scores={trait_random=9}] c_genious 1
 scoreboard players add @s[scores={trait_random=10}] c_water_lover 1
-title @s title Ċ
-title @s subtitle Ċ §eПоложительная черта§f Ċ
-tellraw @s { "rawtext": [ { "text": "Ċ §eПолучена §eположительная черта" } ] }
+title @s title 
+title @s subtitle  §eПоложительная черта§f 
+tellraw @s { "rawtext": [ { "text": " §eПолучена §eположительная черта" } ] }

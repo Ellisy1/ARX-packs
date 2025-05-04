@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:pires_apprentice_robe"
+    },
+
+    
+    "tags": [ "clothes_crafting_table" ],
+    "pattern": [
+      " ZZ",
+      " Z ",
+      "ZCZ"
+    ],
+    "key": {
+      "Z": {
+        "item": "arx:cotton_fabric"
+      },
+      "C": {
+        "item": "arx:leather_super"
+      }
+    },
+    "result": {
+      "item": "arx:pires_apprentice_robe"
+    }
+  }
+}

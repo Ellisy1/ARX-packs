@@ -4,10 +4,10 @@ execute at @s[scores={custom_random=0..333}] run summon minecraft:xp_orb
 execute at @s[scores={custom_random=0..333}] run summon minecraft:xp_orb
 execute at @s[scores={custom_random=0..333}] run summon minecraft:xp_orb
 
-execute as @s[scores={custom_random=334..500}] run tellraw @s { "rawtext": [ { "text": "Ē Вы прочитали §aинтересную§f историю!" } ] }
+execute as @s[scores={custom_random=334..500}] run tellraw @s { "rawtext": [ { "text": " Вы прочитали §aинтересную§f историю!" } ] }
 execute as @s[scores={custom_random=334..500}] run scoreboard players add @s stress -1000
 
-execute as @s[scores={custom_random=501..666}] run tellraw @s { "rawtext": [ { "text": "đ Вы прочитали §cгрустную§f историю." } ] }
+execute as @s[scores={custom_random=501..666}] run tellraw @s { "rawtext": [ { "text": " Вы прочитали §cгрустную§f историю." } ] }
 execute as @s[scores={custom_random=501..666}] run scoreboard players add @s stress 1500
 
 execute as @s[scores={custom_random=667..799}] run tellraw @s { "rawtext": [ { "text": "Вы прочитали §cстрашную§f историю!" } ] }

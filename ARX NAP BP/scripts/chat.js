@@ -226,19 +226,6 @@ function parceCommand(player, trimmedMessage) {
             queueCommand(player, `tellraw @s { "rawtext": [ { "text": "Стрельба: ${player.getProperty("arx:ranged_attack_accuracy")}." } ] }`)
         }
 
-        else if (command[0] == "!reset_recipes") { // Обнулить рецепты
-            queueCommand(player, `recipe take @s *`);
-            queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§a> Рецепты сброшены." } ] }`);
-        }
-
-        else if (command[0] == "!test") { // Обнулить рецепты
-            infoAboutCharacter(player)
-        }
-
-        else if (command[0] == "!updateDeathCoordinates") { // Обнулить рецепты
-            player.setDynamicProperty('deathCoordinates', (0, 0, 0))
-        }
-
         else if (command[0] == "!bug") { // Отчитаться о баге
             queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§aЗакройте чат и прыгните§f, чтобы составить отчёт об ошибке.\n§o§7(Не задавайте вопросов, так надо)" } ] }`);
             queueCommand(player, 'tag @s add bug')

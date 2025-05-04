@@ -7,8 +7,8 @@
             },
             "minecraft:icon": "arx:big_storybook",
             "minecraft:cooldown": {
-                "category": "main",
-                "duration": 5
+                "category": "big_storybook",
+                "duration": 30
             }
         },
         "description": {

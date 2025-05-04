@@ -9,11 +9,14 @@
     "tags": [ "clothes_crafting_table" ],
     "pattern": [
       "ABA",
-      "ABA"
+      "XBX"
     ],
     "key": {
       "A": {
         "item": "arx:silk"
+      },
+      "X": {
+        "item": "arx:cotton_fabric"
       },
       "B": {
         "item": "minecraft:dye",

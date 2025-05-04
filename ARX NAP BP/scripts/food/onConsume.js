@@ -164,7 +164,8 @@ export function onFoodConsume(player, foodname) {
         "arx:tea_cup_of_fioletic": 30,
         "arx:tea_cup_of_fok": 45,
         "arx:tea_cup_of_kavra": 37,
-        "arx:wooden_crust": -10,
+        "arx:wooden_crust": 0,
+        "arx:apple": 8,
 
         "arx:black_tea": 25,
         "arx:black_teamed": 50,

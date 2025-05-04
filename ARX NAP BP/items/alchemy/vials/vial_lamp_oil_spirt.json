@@ -2,9 +2,6 @@
     "format_version": "1.21.0",
     "minecraft:item": {
         "components": {
-            "minecraft:display_name": {
-                "value": "§r§fЛампадное масло на спиртовой основе §b[Редкое]\n§eОбъём 25Ũ"
-            },
             "minecraft:icon": "arx:vial_lamp_oil_spirt",
             "minecraft:max_stack_size": 4,
             "minecraft:cooldown": {

@@ -24,9 +24,6 @@
             "minecraft:wearable": {
                 "slot": "slot.armor.feet"
             },
-            "minecraft:display_name": {
-                "value": "§r§fМалафиотиронитовое кольцо с аквамарином §c[Мифическое+]\n§o§7+400Ũ к скорости снятия отравления"
-            },
             "minecraft:allow_off_hand": true,
             "minecraft:tags": {
                 "tags": [

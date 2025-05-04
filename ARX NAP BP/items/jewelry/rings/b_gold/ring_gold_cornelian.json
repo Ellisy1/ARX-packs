@@ -24,9 +24,6 @@
             "minecraft:wearable": {
                 "slot": "slot.armor.feet"
             },
-            "minecraft:display_name": {
-                "value": "§r§fЗолотое кольцо с сердоликом §b[Редкое]\n§o§7+2 переносимый вес"
-            },
             "minecraft:allow_off_hand": true,
             "minecraft:tags": {
                 "tags": [

@@ -21,11 +21,11 @@
     tag @a remove at_respawn_room
     tag @e[x=9990, y=-43, z=9990, dx=20, dy=20, dz=20] add at_respawn_room
 
-# Проверяем количество игроков с scores={verify=2} (Не может располагаться в другой области движка, так как на @a[scores={verify=2}] базируется запуск всех остальных областей движка)
+# Проверяем количество игроков с scores={verify=2}
     scoreboard players set @a debug_verify 0
     execute as @a[scores={verify=2}] run scoreboard players add @a debug_verify 1
-    execute as @r[scores={verify=2, debug_verify=2..}] run w @a[scores={verify=2}] §4Обнаржуена §cкритическая §4ошибка системы core>>>scores>>>too_many_players_with_verification_2
-    execute as @r[scores={debug_verify=..0}] run w @a §4Обнаржуена §cкритическая §4ошибка системы core>>>scores>>>no_players_with_verification_2
+    execute as @r[scores={verify=2, debug_verify=2..}] run tellraw @a[scores={verify=2}] { "rawtext": [ { "text": "§4Обнаржуена §cкритическая §4ошибка системы core>>>scores>>>too_many_players_with_verification_2" } ] }
+    execute as @r[scores={debug_verify=..0}] run tellraw @a { "rawtext": [ { "text": "§4Обнаржуена §cкритическая §4ошибка системы core>>>scores>>>no_players_with_verification_2" } ] }
 
 # Движок температур
     function core_parts/temperature_core
@@ -92,9 +92,9 @@
 
     # Сообщения
         title @a[scores={water_delay=1}] actionbar §fВы высохли
-        title @a[scores={water_delay=2..200}] actionbar Ģ §bВы промокли §fĢ
-        title @a[scores={water_delay=201..400}] actionbar ĢĢ §bВы промокли §fĢĢ
-        title @a[scores={water_delay=401..}] actionbar ĢĢĢ §bВы промокли §fĢĢĢ
+        title @a[scores={water_delay=2..200}] actionbar  §bВы промокли §f
+        title @a[scores={water_delay=201..400}] actionbar  §bВы промокли §f
+        title @a[scores={water_delay=401..}] actionbar  §bВы промокли §f
 
     # Партиклы
         execute at @a[scores={water_delay=1..}, tag=!in_block_water, m=!spectator] run particle arx:arx_water_splash_particle ~.2 ~ ~.2

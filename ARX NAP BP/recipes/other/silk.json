@@ -8,9 +8,9 @@
     "priority": 0,
     "tags": [ "loom_crafting_table" ],
     "pattern": [
-      "BBB",
-      "BAB",
-      "BBB"
+      "ABA",
+      "CAC",
+      "ABA"
     ],
     "key": {
       "A": {
@@ -18,6 +18,9 @@
       },
       "B": {
         "item": "minecraft:string"
+      },
+      "C": {
+        "item": "arx:cotton_fabric"
       }
     },
     "result": {

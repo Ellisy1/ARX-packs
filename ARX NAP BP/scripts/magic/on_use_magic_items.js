@@ -3,7 +3,7 @@ import { world, EntityComponentTypes, EquipmentSlot } from "@minecraft/server";
 
 import { runeCiphers } from './rune_cipher_list'
 
-import { castACAH } from './spells/ACAH'
+import { castJSSpell } from './spells/castJSSpell'
 import { findSpell } from "./findSpell";
 
 import { getScore, setScore } from "../scoresOperations";
@@ -568,7 +568,7 @@ function clearChannelsTags(player) {
     player.removeTag("channel_6")
 }
 
-// Шифруем последовательность данных по факту набора последовательности рун
+// Шифруем последовательность данных по факту набора последовательности рун (АКТИВИРУЕТСЯ ПРИ ЮЗАНИИ РУНЫ)
 function cipherRuneSequence(player, runeName) {
     // Определяем канал
     const channel = getMagicChannel(player, 6)
@@ -601,71 +601,61 @@ function cipherRuneSequence(player, runeName) {
     player.runCommand(`tellraw @s { "rawtext": [ { "text": "§6${runeNameCapitalized} §bзаписано в §6${channel} §bканал" } ] }`)
 }
 
+// Снимаем ману при использовании закла
 function withdrawMpOnCastingSpell(player) {
     player.setDynamicProperty("mp", player.getDynamicProperty("mp") - getScore(player, "mp_req"))
 }
 
-function castSpell(player, channel, item) {
-    // Получаем заклинание, корректно развернутое для использования
-    const correctSpellCipher = reversePairs(findSpell(player, channel))
+// Кастуем закл
+function castSpell(player, activeChannel, staff) {
+    // Получаем заклинание, корректно развернутое для запуска mcfunction заклинаний
+    const reverseSpellCipher = reversePairs(findSpell(player, activeChannel))
 
-    // Отчитываемся, какой исопльзуется канал
-    player.runCommand(`tellraw @s { "rawtext": [ { "text": "§b${channel} §fканал" } ] }`)
+    // Отчитываемся, какой используется канал
+    player.runCommand(`tellraw @s { "rawtext": [ { "text": "§b${activeChannel} §fканал" } ] }`)
+
     // Отчитываемся, какая используется цель
     {
         const magicTarget = player.getDynamicProperty('magicTarget')
-        if (magicTarget == 1) { player.runCommand(`tellraw @s { "rawtext": [ { "text": "Цель: §aна себя" } ] }`) }
-        if (magicTarget == 2) { player.runCommand(`tellraw @s { "rawtext": [ { "text": "Цель: §cна ближайшего" } ] }`) }
-        if (magicTarget == 3) { player.runCommand(`tellraw @s { "rawtext": [ { "text": "Цель: §eна животных и монстров" } ] }`) }
+        if (magicTarget === 1) { player.runCommand(`tellraw @s { "rawtext": [ { "text": "Цель: §aна себя" } ] }`) }
+        if (magicTarget === 2) { player.runCommand(`tellraw @s { "rawtext": [ { "text": "Цель: §cна ближайшего" } ] }`) }
+        if (magicTarget === 3) { player.runCommand(`tellraw @s { "rawtext": [ { "text": "Цель: §eна животных и монстров" } ] }`) }
     }
 
     // Если есть закл
-    if (correctSpellCipher) {
+    if (reverseSpellCipher) {
 
         player.addTag("self")
         player.runCommand("tag @p[tag=!self, r=15] add self2")
 
-        if (item?.getTags().includes("staff_kon")) { player.addTag('staff_kon') }
-        if (item?.getTags().includes("staff_sin")) { player.addTag('staff_sin') }
-        if (item?.getTags().includes("staff_san")) { player.addTag('staff_san') }
-        if (item?.getTags().includes("staff_din")) { player.addTag('staff_din') }
+        if (staff?.getTags().includes("staff_kon")) { player.addTag('staff_kon') }
+        if (staff?.getTags().includes("staff_sin")) { player.addTag('staff_sin') }
+        if (staff?.getTags().includes("staff_san")) { player.addTag('staff_san') }
+        if (staff?.getTags().includes("staff_din")) { player.addTag('staff_din') }
 
         // 
         // ИСПОЛНЕНИЕ ЗАКЛИНАНИЯ
         //
 
         // JS заклинания
-        if (correctSpellCipher === "ACAH") {
-            // Требуемая мана
-            setScore(player, "mp_req", 5)
-            // Если можно кастовать
-            if (player.getDynamicProperty('magicTarget') == 1) {
-                if (getScore(player, "mp_req") <= player.getDynamicProperty('mp')) {
-                    player.addTag("spell_available")
-                    castACAH(player)
-                }
-            }
-            else {
-                player.addTag('cant_be_casted_cus_of_target')
-            }
-        }
+        castJSSpell(player, findSpell(player, activeChannel, 'sequence'))
 
         // MCFunction заклинания
-        else {
+        if (!player.hasTag('spell_available')) {
             // Определяем направление заклинания
             let spellType
-            if (correctSpellCipher.startsWith("AC")) { spellType = 'din' }
-            else if (correctSpellCipher.startsWith("AK")) { spellType = 'kon' }
-            else if (correctSpellCipher.startsWith("AT")) { spellType = 'san' }
-            else if (correctSpellCipher.startsWith("AX")) { spellType = 'sin' }
-            else { console.warn(`Ошибка с определением направления KON/SIN/SAN/DIN заклинания ${correctSpellCipher}`) }
+            if (reverseSpellCipher.startsWith("AC")) { spellType = 'din' }
+            else if (reverseSpellCipher.startsWith("AK")) { spellType = 'kon' }
+            else if (reverseSpellCipher.startsWith("AT")) { spellType = 'san' }
+            else if (reverseSpellCipher.startsWith("AX")) { spellType = 'sin' }
+            else { console.warn(`Ошибка с определением направления KON/SIN/SAN/DIN заклинания ${reverseSpellCipher}`) }
 
             // Переводим коду необходимые данные
             setScore(player, 'mp', player.getDynamicProperty('mp'))
             setScore(player, 'target', player.getDynamicProperty('magicTarget'))
 
             // Запускаем заклинание
-            player.runCommand(`function spells/${spellType}/${correctSpellCipher}`)
+            player.runCommand(`function spells/${spellType}/${reverseSpellCipher}`)
         }
 
         //

@@ -32,7 +32,7 @@ function infoAboutCompletedAchievements(player) {
     let bodyText = ''
     for (const achievement in achievementsList) {
         if (player.getDynamicProperty(`ach:${achievement}`)) {
-            bodyText += `§fĘ ${achievementsList[achievement].name}: §7${achievementsList[achievement].description}\n§a-------------------------------\n`
+            bodyText += `§f ${achievementsList[achievement].name}: §7${achievementsList[achievement].description}\n§a-------------------------------\n`
         }
     }
 
@@ -49,7 +49,7 @@ function infoAboutIncompletedAchievements(player) {
     let bodyText = ''
     for (const achievement in achievementsList) {
         if (player.getDynamicProperty(`ach:${achievement}`) !== true) {
-            bodyText += `§fę ${achievementsList[achievement].name}: §7${achievementsList[achievement].description}\n§c-------------------------------\n`
+            bodyText += `§f ${achievementsList[achievement].name}: §7${achievementsList[achievement].description}\n§c-------------------------------\n`
         }
     }
 

@@ -2,9 +2,6 @@
     "format_version": "1.21.0",
     "minecraft:item": {
         "components": {
-            "minecraft:display_name": {
-                "value": "Кристалл стойкости §g[Эпическое]\n§7§oПри следующем нокауте вы не получите стресс"
-            },
             "minecraft:icon": "arx:crystal_of_durability",
             "minecraft:max_stack_size": 1
         },

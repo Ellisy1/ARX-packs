@@ -8,13 +8,7 @@ const commandQueue = []; // Очередь команд
  * @param {string} command Команда, которую нужно выполнить.
  */
 export function queueCommand(player, command) {
-  let allowCommand = !String.raw`${command}`.includes(String.raw`\ `)
-  if (allowCommand) {
-    commandQueue.push({ player: player, command: command })
-  }
-  else {
-    queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cИспользование обратного слеша в данном контексте недопустимо." } ] }`)
-  }
+  commandQueue.push({ player: player, command: command })
 }
 
 function processCommandQueue() {
@@ -23,7 +17,7 @@ function processCommandQueue() {
     try {
       commandData.player.runCommand(commandData.command);
     } catch (error) {
-      console.error(`Ошибка при выполнении команды "${commandData.command}":`, error);
+      commandData.player.runCommand(`tellraw @s { "rawtext": [ { "text": "§cИз-за технических особенностей невозможно отправить сообщение, содержащее двойную кавычку или обратный слеш." } ] }`);
     }
   }
 }

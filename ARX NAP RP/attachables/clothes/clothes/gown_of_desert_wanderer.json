@@ -11,13 +11,15 @@
       },
       "animations": {
         "bust": "animation.player.bust",
-        "bust_controller": "controller.animation.bust"
+        "bust_controller": "controller.animation.bust",
+        "correct_sleeves": "animation.player.correct_sleeves"
       },
       "geometry": {
         "default": "geometry.default_model_v2"
       },
       "scripts": {
         "animate": [
+          "correct_sleeves",
           "bust_controller"
         ],
         "parent_setup": "variable.chest_layer_visible = 0.0;"

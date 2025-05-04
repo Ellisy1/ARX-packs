@@ -283,9 +283,6 @@ world.afterEvents.entityDie.subscribe((dieEvent) => {
 
         player.runCommand("function knockout_system/on_knockout")
 
-        // Проверяем сторонние причины умереть по рп
-        if (dieEvent.damageSource.cause === 'lava') { player.addTag('__force_to_rp_death__') }
-
         // Если мы должны умереть по рп
         if (player.hasTag("__force_to_rp_death__")) {
             player.removeTag('__force_to_rp_death__')
@@ -323,7 +320,7 @@ world.afterEvents.entityDie.subscribe((dieEvent) => {
 
                 player.runCommand('title @s title §c= Вы обращены в призрака =')
                 executeCommandDelayed(player, 'effect @s invisibility 60 0 true')
-                executeCommandDelayed(player, 'spreadplayers ~ ~ 0 300 @s')
+                executeCommandDelayed(player, 'spreadplayers ~ ~ 0 100 @s')
                 executeCommandDelayed(player, 'clear @s arx:slot_blocker')
                 player.setDynamicProperty('ghostUltimateResistance', 180)
 
@@ -338,9 +335,15 @@ world.afterEvents.entityDie.subscribe((dieEvent) => {
 
 // Попадание сняряда по сущности
 world.afterEvents.projectileHitEntity.subscribe((hitEvent) => {
-    if (hitEvent.source.typeId === "minecraft:player" && hitEvent.projectile.typeId !== "minecraft:fishing_hook") {
-        if (getEntityFamilies(hitEvent.getEntityHit().entity).includes('mob') && hitEvent.source != hitEvent.getEntityHit().entity) {
-            increaseSkillProgress(hitEvent.source, "shooting", 15)
+    const damagedEntity = hitEvent.getEntityHit().entity
+    const damager = hitEvent.source
+
+    if (damager.typeId === "minecraft:player" && hitEvent.projectile.typeId === "minecraft:arrow") {
+
+        if ((getEntityFamilies(damagedEntity).includes('mob') || getEntityFamilies(damagedEntity).includes('animal') || getEntityFamilies(damagedEntity).includes('monster') || damagedEntity.typeId === 'player') &&
+            damager != damagedEntity) {
+
+            increaseSkillProgress(damager, "shooting", 15)
         }
     }
 })
@@ -398,7 +401,7 @@ world.afterEvents.entityHurt.subscribe((hurtEvent) => {
             let stressMultiplier
             getScore(player, "c_cowardly") == 1 ? stressMultiplier = 2 : stressMultiplier = 1
 
-            setScore(player, "stress", getScore(player, 'stress') + hurtEvent.damage * 150 * stressMultiplier)
+            setScore(player, "stress", getScore(player, 'stress') + hurtEvent.damage * 150 * stressMultiplier + 50)
         }
 
         player.runCommand('function javascript/on_get_damage')
@@ -475,13 +478,15 @@ world.afterEvents.entityHurt.subscribe((hurtEvent) => {
             damager.runCommand("function attack/on_attack") // Запускаем функцию анализа атаки
 
             // Вкач. Проверяем, не бьем ли мы куклу для битья
-            if (damaged.typeId !== "arx:whipping_dummy" && getEntityFamilies(damaged).includes('mob') && damaged != damager) {
+            if ((getEntityFamilies(damaged).includes('mob') || getEntityFamilies(damaged).includes('animal') || getEntityFamilies(damaged).includes('monster'))
+                && damaged != damager) {
+
                 // Увеличиваем силу
                 increaseSkillProgress(damager, "strength", hurtEvent.damage * 2)
 
                 // Увеличиваем выносливость, если мы с перегрузом
                 if (getScore(damager, "heavy_result") > 0) {
-                    increaseSkillProgress(damager, "endurance", hurtEvent.damage * 5)
+                    increaseSkillProgress(damager, "endurance", hurtEvent.damage * 4)
                 }
             }
         }

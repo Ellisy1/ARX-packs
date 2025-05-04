@@ -24,9 +24,6 @@
             "minecraft:wearable": {
                 "slot": "slot.armor.feet"
             },
-            "minecraft:display_name": {
-                "value": "§r§fЛаменитовое кольцо с сердоликом §c[Мифическое++]\n§o§7+6 переносимый вес"
-            },
             "minecraft:allow_off_hand": true,
             "minecraft:tags": {
                 "tags": [

@@ -24,9 +24,6 @@
             "minecraft:wearable": {
                 "slot": "slot.armor.feet"
             },
-            "minecraft:display_name": {
-                "value": "§r§fЛаменитовое кольцо с рубином §c[Мифическое++]\n§o§7+5 базовый урон"
-            },
             "minecraft:allow_off_hand": true,
             "minecraft:tags": {
                 "tags": [

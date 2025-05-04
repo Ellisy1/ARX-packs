@@ -9,12 +9,15 @@
     "tags": [ "clothes_crafting_table" ],
     "pattern": [
       "#C#",
-      "#C#",
-      "#C#"
+      "XCX",
+      "XCX"
     ],
     "key": {
       "#": {
         "item": "arx:silk"
+      },
+      "X": {
+        "item": "arx:cotton_fabric"
       },
       "C": {
         "item": "minecraft:dye",

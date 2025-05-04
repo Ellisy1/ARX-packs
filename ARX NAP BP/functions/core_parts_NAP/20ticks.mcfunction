@@ -55,19 +55,6 @@
     camera @a[scores={vicious_flame=1..}] fade time 0.5 0 0.5 color 0 150 0
     scoreboard players add @e[scores={vicious_flame=1..}] vicious_flame -1
 
-# Секвенция появления порочного демона. Она базирована на score vicious_demon
-    execute as @a[scores={verify=2, vicious_demon=1}] run w @a[scores={verify=2}] Бой с порочным демоном начат
-    execute as @a[scores={verify=2, vicious_demon=1}] run particle arx:vicious_demon_spawn_flame_inward -191 34 336
-    execute as @a[scores={verify=2, vicious_demon=4}] run particle arx:vicious_demon_spawn_flame_outward -191 34 336
-    execute as @a[scores={verify=2, vicious_demon=4}] run summon arx:vicious_demon -191 34 336 facing -181 35 336
-    execute as @a[scores={verify=2, vicious_demon=4}] run event entity @e[type=arx:vicious_demon] start_rush
-    execute if entity @a[scores={verify=2, vicious_demon=4}] as @a[x=-204, y=33, z=324, dx=25, dy=5, dz=25] at @s run playsound mob.rat_eliminator.spawn @s  
-    execute as @a[scores={verify=2, vicious_demon=1..}] run scoreboard players add @s vicious_demon 1
-
-
-# Партиклы и звуки порталов
-    # -
-
 #Насыщение
     #Даем титл если снова можно поесть
         tellraw @a[scores={saturation=1, gender=1, c_rude=0}] { "rawtext": [ { "text": "§aЯ был бы не против перекусить" } ] }
@@ -100,7 +87,7 @@
     execute as @a[scores={c_notecno=1..}] run function core_parts_NAP/technophobe
 
 # Проверка на меч модератора
-    execute as @a[hasitem={item=arx:mod_sword}, scores={verify=!2}] run w @p[scores={verify=2}] @s §cmod_sword
+    execute as @a[hasitem={item=arx:mod_sword}, scores={verify=!2}] run tellraw @p[scores={verify=2}] { "rawtext": [ { "selector": "@s" }, { "text": " §cmod_sword" } ] }
 
 # Анимирование бездействия
     scoreboard players set @a[tag=is_moving] move_delay 20
@@ -183,22 +170,6 @@
     effect @a[tag=electrical_engineering_available, hasitem={item=arx:night_vision_device, location=slot.armor.head}] night_vision 12 0 true
 
 # СТРЕСС
-    #Холод
-        scoreboard players add @a[scores={c_coldy=!1.., freezing=1..}] stress 3
-        scoreboard players add @a[scores={c_warmy=1.., freezing=1..}] stress 30
-
-    #Жара
-        scoreboard players add @a[scores={c_warmy=!1.., freezing=..-1}] stress 3
-        scoreboard players add @a[scores={c_coldy=1.., freezing=..-1}] stress 30
-
-    #Матершинник
-        #Мат на нематерящихся
-            execute as @a[scores={c_rude=1.., custom_random=410..430}] at @s run scoreboard players add @a[scores={c_rude=0}, rm=0.1, r=8] stress 150
-            execute as @a[scores={c_rude=1.., custom_random=410..430}] at @s run w @a[scores={c_rude=0}, rm=0.1, r=8] @p[scores={c_rude=1..}] много матерится. Мне это неприятно.
-        #Мат на матершинника
-            execute as @a[scores={c_rude=1.., custom_random=410..430}] at @s run scoreboard players add @a[scores={c_rude=1}, rm=0.1, r=8] stress -100
-            execute as @a[scores={c_rude=1.., custom_random=410..430}] at @s run w @a[scores={c_rude=1}, rm=0.1, r=8] @p[scores={c_rude=1..}] много матерится. Как же это охуенно!
-
     #Чилл в водичке
         scoreboard players add @a[scores={c_water_lover=0}, tag=in_block_water] stress -2
         scoreboard players add @a[scores={c_water_lover=1..}, tag=in_block_water] stress -4
@@ -213,10 +184,10 @@
         #Случайные события
             scoreboard players add @a[scores={custom_random=200, custom_random_b=0..100, c_indifference=0}] stress -2000
             scoreboard players add @a[scores={custom_random=200, custom_random_b=0..100, c_indifference=1..}] stress -1000
-            tellraw @a[scores={custom_random=200, custom_random_b=0..100}] { "rawtext": [ { "text": "Ē Вы вспомнили хорошие времена. Это подняло ваше настроение." } ] }
+            tellraw @a[scores={custom_random=200, custom_random_b=0..100}] { "rawtext": [ { "text": " Вы вспомнили хорошие времена. Это подняло ваше настроение." } ] }
             scoreboard players add @a[scores={custom_random=201, custom_random_b=0..100, c_indifference=0, c_inflexible=0}] stress 2000
             scoreboard players add @a[scores={custom_random=201, custom_random_b=0..100, c_indifference=1.., c_inflexible=0}] stress 1000
-            tellraw @a[scores={custom_random=201, custom_random_b=0..100, c_inflexible=0, xp_stage=2..}] { "rawtext": [ { "text": "đ Вы вспомнили плохие времена. Это испортило ваше настроение." } ] }
+            tellraw @a[scores={custom_random=201, custom_random_b=0..100, c_inflexible=0, xp_stage=2..}] { "rawtext": [ { "text": " Вы вспомнили плохие времена. Это испортило ваше настроение." } ] }
 
     # Корректирующая динамика. Этот код не позволяет оставаться игроку очень долго на стрессе или счастье, приближая его к нейтральным значениям
 
@@ -314,25 +285,25 @@
         execute as @a run scoreboard players operation @s stress_co_hist = @s stress_cond
 
     #Вывод
-        tellraw @a[scores={stress_co_delta=..-1, stress_cond=-4}] {"rawtext": [{"text": "[Стало лучше] ĒĒĒĒ (§aМакс.§f ур. счастья)"}]}
-        tellraw @a[scores={stress_co_delta=..-1, stress_cond=-3}] {"rawtext": [{"text": "[Стало лучше] ĒĒĒ (§a3§f ур. счастья)"}]}
-        tellraw @a[scores={stress_co_delta=..-1, stress_cond=-2}] {"rawtext": [{"text": "[Стало лучше] ĒĒ (§a2§f ур. счастья)"}]}
-        tellraw @a[scores={stress_co_delta=..-1, stress_cond=-1}] {"rawtext": [{"text": "[Стало лучше] Ē (1 ур. счастья)"}]}
-        tellraw @a[scores={stress_co_delta=..-1, stress_cond=0}] {"rawtext": [{"text": "[Стало лучше] ē (0 ур. счастья)"}]}
-        tellraw @a[scores={stress_co_delta=..-1, stress_cond=1}] {"rawtext": [{"text": "[Стало лучше] đ (1 ур. стресса)"}]}
-        tellraw @a[scores={stress_co_delta=..-1, stress_cond=2}] {"rawtext": [{"text": "[Стало лучше] đđ (§c2§f ур. стресса)"}]}
-        tellraw @a[scores={stress_co_delta=..-1, stress_cond=3}] {"rawtext": [{"text": "[Стало лучше] đđđ (§c3§f ур. стресса)"}]}
-        tellraw @a[scores={stress_co_delta=..-1, stress_cond=4}] {"rawtext": [{"text": "[Стало лучше] đđđđ (§cМакс.§f ур. стресса)"}]}
+        tellraw @a[scores={stress_co_delta=..-1, stress_cond=-4}] {"rawtext": [{"text": "[Стало лучше]  (§aМакс.§f ур. счастья)"}]}
+        tellraw @a[scores={stress_co_delta=..-1, stress_cond=-3}] {"rawtext": [{"text": "[Стало лучше]  (§a3§f ур. счастья)"}]}
+        tellraw @a[scores={stress_co_delta=..-1, stress_cond=-2}] {"rawtext": [{"text": "[Стало лучше]  (§a2§f ур. счастья)"}]}
+        tellraw @a[scores={stress_co_delta=..-1, stress_cond=-1}] {"rawtext": [{"text": "[Стало лучше]  (1 ур. счастья)"}]}
+        tellraw @a[scores={stress_co_delta=..-1, stress_cond=0}] {"rawtext": [{"text": "[Стало лучше]  (0 ур. счастья)"}]}
+        tellraw @a[scores={stress_co_delta=..-1, stress_cond=1}] {"rawtext": [{"text": "[Стало лучше]  (1 ур. стресса)"}]}
+        tellraw @a[scores={stress_co_delta=..-1, stress_cond=2}] {"rawtext": [{"text": "[Стало лучше]  (§c2§f ур. стресса)"}]}
+        tellraw @a[scores={stress_co_delta=..-1, stress_cond=3}] {"rawtext": [{"text": "[Стало лучше]  (§c3§f ур. стресса)"}]}
+        tellraw @a[scores={stress_co_delta=..-1, stress_cond=4}] {"rawtext": [{"text": "[Стало лучше]  (§cМакс.§f ур. стресса)"}]}
 
-        tellraw @a[scores={stress_co_delta=1.., stress_cond=-4}] {"rawtext": [{"text": "[Стало хуже] ĒĒĒĒ (§aМакс.§f ур. счастья)"}]}
-        tellraw @a[scores={stress_co_delta=1.., stress_cond=-3}] {"rawtext": [{"text": "[Стало хуже] ĒĒĒ (§a3§f ур. счастья)"}]}
-        tellraw @a[scores={stress_co_delta=1.., stress_cond=-2}] {"rawtext": [{"text": "[Стало хуже] ĒĒ (§a2§f ур. счастья)"}]}
-        tellraw @a[scores={stress_co_delta=1.., stress_cond=-1}] {"rawtext": [{"text": "[Стало хуже] Ē (1 ур. счастья)"}]}
-        tellraw @a[scores={stress_co_delta=1.., stress_cond=0}] {"rawtext": [{"text": "[Стало хуже] ē (0 ур. счастья)"}]}
-        tellraw @a[scores={stress_co_delta=1.., stress_cond=1}] {"rawtext": [{"text": "[Стало хуже] đ (1 ур. стресса)"}]}
-        tellraw @a[scores={stress_co_delta=1.., stress_cond=2}] {"rawtext": [{"text": "[Стало хуже] đđ (§c2§f ур. стресса)"}]}
-        tellraw @a[scores={stress_co_delta=1.., stress_cond=3}] {"rawtext": [{"text": "[Стало хуже] đđđ (§c3§f ур. стресса)"}]}
-        tellraw @a[scores={stress_co_delta=1.., stress_cond=4}] {"rawtext": [{"text": "[Стало хуже] đđđđ (§cМакс.§f ур. стресса)"}]}
+        tellraw @a[scores={stress_co_delta=1.., stress_cond=-4}] {"rawtext": [{"text": "[Стало хуже]  (§aМакс.§f ур. счастья)"}]}
+        tellraw @a[scores={stress_co_delta=1.., stress_cond=-3}] {"rawtext": [{"text": "[Стало хуже]  (§a3§f ур. счастья)"}]}
+        tellraw @a[scores={stress_co_delta=1.., stress_cond=-2}] {"rawtext": [{"text": "[Стало хуже]  (§a2§f ур. счастья)"}]}
+        tellraw @a[scores={stress_co_delta=1.., stress_cond=-1}] {"rawtext": [{"text": "[Стало хуже]  (1 ур. счастья)"}]}
+        tellraw @a[scores={stress_co_delta=1.., stress_cond=0}] {"rawtext": [{"text": "[Стало хуже]  (0 ур. счастья)"}]}
+        tellraw @a[scores={stress_co_delta=1.., stress_cond=1}] {"rawtext": [{"text": "[Стало хуже]  (1 ур. стресса)"}]}
+        tellraw @a[scores={stress_co_delta=1.., stress_cond=2}] {"rawtext": [{"text": "[Стало хуже]  (§c2§f ур. стресса)"}]}
+        tellraw @a[scores={stress_co_delta=1.., stress_cond=3}] {"rawtext": [{"text": "[Стало хуже]  (§c3§f ур. стресса)"}]}
+        tellraw @a[scores={stress_co_delta=1.., stress_cond=4}] {"rawtext": [{"text": "[Стало хуже]  (§cМакс.§f ур. стресса)"}]}
         
     #Получение-снятие черт характера 
         execute as @a[scores={stress_cond=4, custom_random=700, custom_random_b=0..500}] run function traits/get_negative_trait
@@ -357,11 +328,11 @@
     effect @a[hasitem={item=arx:amul_ruby, location=slot.armor.legs}, scores={freezing=!..-1001}] fire_resistance 1 0 true
 
 # Обнаружение и автофикс некоторых ошибок
-    execute as @a[tag=self] run w @a[scores={verify=2}] §4Обнаружена ошибка у @s core>>tags>>self
+    execute as @a[tag=self] run tellraw @a[scores={verify=2}] { "rawtext": [ { "text": "§4Обнаружена ошибка у @s core>>tags>>self" } ] }
     tag @a remove self
-    execute as @a[tag=staffself] run w @a[scores={verify=2}] §4Обнаружена ошибка у @s core>>tags>>staffself
+    execute as @a[tag=staffself] run tellraw @a[scores={verify=2}] { "rawtext": [ { "text": "§4Обнаружена ошибка у @s core>>tags>>staffself" } ] }
     tag @a remove staffself
-    execute as @a[tag=success] run w @a[scores={verify=2}] §4Обнаружена ошибка у @s core>>tags>>success 
+    execute as @a[tag=success] run tellraw @a[scores={verify=2}] { "rawtext": [ { "text": "§4Обнаружена ошибка у @s core>>tags>>success" } ] }
     tag @a remove success
 
 # Обжигание об горячие предметы

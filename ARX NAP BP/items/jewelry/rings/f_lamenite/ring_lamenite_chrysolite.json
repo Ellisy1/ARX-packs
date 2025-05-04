@@ -24,9 +24,6 @@
             "minecraft:wearable": {
                 "slot": "slot.armor.feet"
             },
-            "minecraft:display_name": {
-                "value": "§r§fЛаменитовое кольцо с хризолитом §c[Мифическое++]\n§o§7+50Ũ скорость бега"
-            },
             "minecraft:allow_off_hand": true,
             "minecraft:tags": {
                 "tags": [

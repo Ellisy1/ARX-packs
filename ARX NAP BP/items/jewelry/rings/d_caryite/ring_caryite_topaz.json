@@ -24,9 +24,6 @@
             "minecraft:wearable": {
                 "slot": "slot.armor.feet"
             },
-            "minecraft:display_name": {
-                "value": "§r§fКариитовое кольцо с топазом §c[Мифическое]\n§o§7Выстрелы ощутимо точнее и дальше"
-            },
             "minecraft:allow_off_hand": true,
             "minecraft:tags": {
                 "tags": [

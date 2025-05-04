@@ -24,9 +24,6 @@
             "minecraft:wearable": {
                 "slot": "slot.armor.feet"
             },
-            "minecraft:display_name": {
-                "value": "§r§fЗолотое кольцо с топазом §b[Редкое]\n§o§7Выстрелы немного точнее и дальше"
-            },
             "minecraft:allow_off_hand": true,
             "minecraft:tags": {
                 "tags": [

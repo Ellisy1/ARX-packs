@@ -70,36 +70,6 @@
     execute @a[scores={tp_backpoint=1}] ~ ~ ~ kill @e[type=armor_stand, tag=tp_backpoint, r = 0.1]
     execute @a[scores={tp_backpoint=1..}] ~ ~ ~ scoreboard players add @s tp_backpoint -1
 
-
-# # Движок боёвки
-#     title @a[scores={attack_weakness=1, blocking = 0}] actionbar Ĥ 0
-#     title @a[scores={attack_weakness=2..20, blocking = 0}] actionbar Ĥ 1
-#     title @a[scores={attack_weakness=21..40, blocking = 0}] actionbar Ĥ 2
-#     title @a[scores={attack_weakness=41..60, blocking = 0}] actionbar Ĥ 3
-#     title @a[scores={attack_weakness=61..80, blocking = 0}] actionbar Ĥ 4
-#     title @a[scores={attack_weakness=81..100, blocking = 0}] actionbar Ĥ 5
-#     title @a[scores={attack_weakness=101..120, blocking = 0}] actionbar Ĥ 6
-#     title @a[scores={attack_weakness=121..140, blocking = 0}] actionbar Ĥ 7
-#     title @a[scores={attack_weakness=141..160, blocking = 0}] actionbar Ĥ 8
-#     title @a[scores={attack_weakness=161..180, blocking = 0}] actionbar Ĥ 9
-#     title @a[scores={attack_weakness=181.., blocking = 0}] actionbar Ĥ MAX
-
-#     title @a[scores={attack_weakness=1, blocking = 1..}] actionbar ĥ Ĥ 0
-#     title @a[scores={attack_weakness=2..20, blocking = 1..}] actionbar ĥ Ĥ 1
-#     title @a[scores={attack_weakness=21..40, blocking = 1..}] actionbar ĥ Ĥ 2
-#     title @a[scores={attack_weakness=41..60, blocking = 1..}] actionbar ĥ Ĥ 3
-#     title @a[scores={attack_weakness=61..80, blocking = 1..}] actionbar ĥ Ĥ 4
-#     title @a[scores={attack_weakness=81..100, blocking = 1..}] actionbar ĥ Ĥ 5
-#     title @a[scores={attack_weakness=101..120, blocking = 1..}] actionbar ĥ Ĥ 6
-#     title @a[scores={attack_weakness=121..140, blocking = 1..}] actionbar ĥ Ĥ 7
-#     title @a[scores={attack_weakness=141..160, blocking = 1..}] actionbar ĥ Ĥ 8
-#     title @a[scores={attack_weakness=161..180, blocking = 1..}] actionbar ĥ Ĥ 9
-#     title @a[scores={attack_weakness=181.., blocking = 1..}] actionbar ĥ Ĥ MAX
-
-#     scoreboard players add @a[scores={attack_weakness=1..}] attack_weakness -1
-#     scoreboard players add @a[scores={blocking=1..}] blocking -1
-#     scoreboard players add @a[scores={allow_block_buff=1..}] allow_block_buff -1
-
 #Вычитание очков удара
     scoreboard players add @a[scores={on_hurt_delay=1..}] on_hurt_delay -1
 

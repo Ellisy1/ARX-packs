@@ -1,5 +1,5 @@
 // Imports - Minecraft
-import { world, EntityComponentTypes, EquipmentSlot, system } from "@minecraft/server";
+import { world, EntityComponentTypes, ItemComponentTypes, EquipmentSlot, system } from "@minecraft/server";
 import { setScore } from "../scoresOperations";
 import { getNearestPlayer } from "../getNearestPlayer"
 import { checkForItem } from "../checkForItem"
@@ -179,6 +179,10 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
         case "arx:big_storybook":
             if (manageCD(player)) {
                 player.runCommand("function books/big_storybook")
+                if (Math.random() < 0.15) {
+                    player.runCommand('clear @s arx:big_storybook 0 1')
+                    player.runCommand('playsound random.break @a ~ ~ ~')
+                }
             }
             break
 
@@ -450,7 +454,10 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
         case "arx:scroll_of_reborning":
             if (player.getProperty('arx:is_ghost') == true) {
 
+                player.runCommand('effect @s clear')
+
                 player.setDynamicProperty('ghostWithering', 0)
+                player.setDynamicProperty('ghostWitheringLevel', 0)
 
                 player.setProperty('arx:is_ghost', false)
                 player.runCommand('clear @s arx:scroll_of_reborning 0 1')

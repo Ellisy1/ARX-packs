@@ -8,13 +8,16 @@
     
     "tags": [ "clothes_crafting_table" ],
     "pattern": [
-      "DAD",
+      "DXD",
       "BAB",
-      "AAA"
+      "AXA"
     ],
     "key": {
       "A": {
         "item": "arx:silk"
+      },
+      "X": {
+        "item": "arx:cotton_fabric"
       },
       "B": {
         "item": "minecraft:dye",
