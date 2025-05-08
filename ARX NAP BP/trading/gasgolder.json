@@ -404,13 +404,188 @@
           ],
           "max_uses": 1
         },
-        //СКУПКА
-        //Фарш
+        // СКУПКА
+        // Мясо
         {
           "wants": [
             {
-              "item": "arx:forcemeat",
-              "quantity": 5
+              "choice": [
+                {
+                  "item": "arx:allay_meat",
+                  "quantity": {
+                    "min": 10,
+                    "max": 30
+                  }
+                },
+                {
+                  "item": "arx:animal_heart",
+                  "quantity": {
+                    "min": 10,
+                    "max": 30
+                  }
+                },
+                {
+                  "item": "arx:bat_meat",
+                  "quantity": {
+                    "min": 10,
+                    "max": 30
+                  }
+                },
+                {
+                  "item": "arx:beast_heart",
+                  "quantity": {
+                    "min": 10,
+                    "max": 30
+                  }
+                },
+                {
+                  "item": "arx:camel_meat",
+                  "quantity": {
+                    "min": 10,
+                    "max": 30
+                  }
+                },
+                {
+                  "item": "arx:cat_meat",
+                  "quantity": {
+                    "min": 10,
+                    "max": 30
+                  }
+                },
+                {
+                  "item": "arx:dolphin_meat",
+                  "quantity": {
+                    "min": 10,
+                    "max": 30
+                  }
+                },
+                {
+                  "item": "arx:duckling_fowl",
+                  "quantity": {
+                    "min": 10,
+                    "max": 30
+                  }
+                },
+                {
+                  "item": "arx:fiercewolf_meat",
+                  "quantity": {
+                    "min": 10,
+                    "max": 30
+                  }
+                },
+                {
+                  "item": "arx:fox_meat",
+                  "quantity": {
+                    "min": 10,
+                    "max": 30
+                  }
+                },
+                {
+                  "item": "arx:raw_venison",
+                  "quantity": {
+                    "min": 10,
+                    "max": 30
+                  }
+                },
+                {
+                  "item": "arx:frog_legs",
+                  "quantity": {
+                    "min": 10,
+                    "max": 30
+                  }
+                },
+                {
+                  "item": "arx:goat_meat",
+                  "quantity": {
+                    "min": 10,
+                    "max": 30
+                  }
+                },
+                {
+                  "item": "arx:horse_meat",
+                  "quantity": {
+                    "min": 10,
+                    "max": 30
+                  }
+                },
+                {
+                  "item": "arx:kapibara_meat",
+                  "quantity": {
+                    "min": 10,
+                    "max": 30
+                  }
+                },
+                {
+                  "item": "arx:lama_meat",
+                  "quantity": {
+                    "min": 10,
+                    "max": 30
+                  }
+                },
+                {
+                  "item": "arx:liver",
+                  "quantity": {
+                    "min": 10,
+                    "max": 30
+                  }
+                },
+                {
+                  "item": "arx:meat_beatle_meat",
+                  "quantity": {
+                    "min": 10,
+                    "max": 30
+                  }
+                },
+                {
+                  "item": "arx:parrot_fowl",
+                  "quantity": {
+                    "min": 10,
+                    "max": 30
+                  }
+                },
+                {
+                  "item": "arx:polar_bear_meat",
+                  "quantity": {
+                    "min": 10,
+                    "max": 30
+                  }
+                },
+                {
+                  "item": "arx:rabbit_meat",
+                  "quantity": {
+                    "min": 10,
+                    "max": 30
+                  }
+                },
+                {
+                  "item": "arx:rat_monstr_meat",
+                  "quantity": {
+                    "min": 10,
+                    "max": 30
+                  }
+                },
+                {
+                  "item": "arx:sea_turtle_meat",
+                  "quantity": {
+                    "min": 10,
+                    "max": 30
+                  }
+                },
+                {
+                  "item": "arx:snow_bars_meat",
+                  "quantity": {
+                    "min": 10,
+                    "max": 30
+                  }
+                },
+                {
+                  "item": "arx:wolf_meat",
+                  "quantity": {
+                    "min": 10,
+                    "max": 30
+                  }
+                }
+              ]
             }
           ],
           "gives": [

@@ -22,7 +22,12 @@
           {"test": "has_biome_tag", "operator":"!=", "value": "taiga"},
           {"test": "has_biome_tag", "operator":"!=", "value": "desert"},
           {"test": "has_biome_tag", "operator":"!=", "value": "swamp"},
-          {"test": "has_biome_tag", "operator":"!=", "value": "mangrove_swamp"}
+          {"test": "has_biome_tag", "operator":"!=", "value": "mangrove_swamp"},
+          {
+            "test": "has_biome_tag",
+            "operator": "!=",
+            "value": "ice"
+          }
         ]
       },
       {
@@ -40,7 +45,12 @@
           {"test": "has_biome_tag", "operator":"!=", "value": "frozen"},
           {"test": "has_biome_tag", "operator":"!=", "value": "desert"},
           {"test": "has_biome_tag", "operator":"!=", "value": "swamp"},
-          {"test": "has_biome_tag", "operator":"!=", "value": "mangrove_swamp"}
+          {"test": "has_biome_tag", "operator":"!=", "value": "mangrove_swamp"},
+          {
+            "test": "has_biome_tag",
+            "operator": "!=",
+            "value": "ice"
+          }
         ]
       },
       {
@@ -58,7 +68,12 @@
           {"test": "has_biome_tag", "operator":"!=", "value": "frozen"},
           {"test": "has_biome_tag", "operator":"!=", "value": "desert"},
           {"test": "has_biome_tag", "operator":"!=", "value": "swamp"},
-          {"test": "has_biome_tag", "operator":"!=", "value": "mangrove_swamp"}
+          {"test": "has_biome_tag", "operator":"!=", "value": "mangrove_swamp"},
+          {
+            "test": "has_biome_tag",
+            "operator": "!=",
+            "value": "ice"
+          }
         ]
       },
       {
@@ -76,7 +91,12 @@
           {"test": "has_biome_tag", "operator":"!=", "value": "frozen"},
           {"test": "has_biome_tag", "operator":"!=", "value": "desert"},
           {"test": "has_biome_tag", "operator":"!=", "value": "swamp"},
-          {"test": "has_biome_tag", "operator":"!=", "value": "mangrove_swamp"}
+          {"test": "has_biome_tag", "operator":"!=", "value": "mangrove_swamp"},
+          {
+            "test": "has_biome_tag",
+            "operator": "!=",
+            "value": "ice"
+          }
         ]
       }
     ]

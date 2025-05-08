@@ -5,6 +5,7 @@ import { getScore } from './scoresOperations'
 import { getSkillsData } from './skillsOperations'
 import { queueCommand } from './commandQueue'
 import { increaseSkillProgress } from "./skillsOperations"
+import { getMoscowTime } from './date'
 
 // Обработка чата before
 world.beforeEvents.chatSend.subscribe((eventData) => {
@@ -25,8 +26,14 @@ function parceCommand(player, trimmedMessage) {
         // command содержит в себе список из последовательности введенных слов в команде
         const command = trimmedMessage.split(/\s+/)
 
-        if (command[0] == "!get_cd") { // Получить инфо о кд
-            queueCommand(player, `w @s Кд: ${player.getProperty("arx:cd") / 20} сек.`);
+        if (command[0] == "!test") { // Тест функция
+            if (isAdmin(player)) {
+                // Получаем внеигровое время
+                console.warn(getMoscowTime())
+            }
+            else {
+                queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cНевозможно использовать команду ${command[0]} без прав модератора." } ] }`)
+            }
         }
 
         else if (command[0] == "!get_bust_size") { // Получить инфо о груди
@@ -51,7 +58,7 @@ function parceCommand(player, trimmedMessage) {
             }
             else {
                 if (newName.length < 30) {
-                    queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§aИмя персонажа изменено на §f${newName}§a." } ] }`)
+                    queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§aИмя персонажа для локального чата изменено на §f${newName}§a." } ] }`)
                     player.setDynamicProperty("name", newName)
                 }
                 else {
@@ -93,7 +100,7 @@ function parceCommand(player, trimmedMessage) {
                         // Установка свойства
                         targetPlayer.setDynamicProperty(command[1], value);
 
-                        queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§dDP§f ${command[1]} игрока §f${targetPlayer.name}§d изменено на §f${value}" } ] }`);
+                        queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§dDP§f ${command[1]} §dигрока §f${targetPlayer.name}§d изменено на §f${value}" } ] }`);
                     }
                 }
             } else {
@@ -176,56 +183,6 @@ function parceCommand(player, trimmedMessage) {
             }
         }
 
-
-        else if (command[0] == "!skillsdata") {
-            queueCommand(player, `tellraw @s { "rawtext": [ { "text": "" } ] }`)
-            queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cСила §7" } ] }`)
-            queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§6Выносливость §f" } ] }`)
-            queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§6Выносливость §7." } ] }`)
-            queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§2Бег §f." } ] }`)
-            queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§2Бег §7." } ] }`)
-            queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§aСтрельба §f." } ] }`)
-            queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§aСтрельба §7." } ] }`)
-            queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§bМана §f" } ] }`)
-            queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§bМана §7." } ] }`)
-            queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§dМагическая мощь §f" } ] }`)
-            queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§dМагическая мощь §7." } ] }`)
-            queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§eСтойкость §f" } ] }`)
-            queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§eСтойкость §7." } ] }`)
-        }
-
-        else if (command[0] == "!mytastes") {
-            queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§fМясное ${player.getDynamicProperty("playerTaste_meat")}." } ] }`)
-            queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§fРыбное ${player.getDynamicProperty("playerTaste_fish")}." } ] }`)
-            queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§fХлебное ${player.getDynamicProperty("playerTaste_bread")}." } ] }`)
-            queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§fМолочное ${player.getDynamicProperty("playerTaste_dairy")}." } ] }`)
-            queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§fРастительное ${player.getDynamicProperty("playerTaste_herbal")}." } ] }`)
-            queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§fСладкое ${player.getDynamicProperty("playerTaste_sweet")}." } ] }`)
-        }
-
-        else if (command[0] == "!mystats") {
-            queueCommand(player, `tellraw @s { "rawtext": [ { "text": " " } ] }`)
-
-            queueCommand(player, `tellraw @s { "rawtext": [ { "text": "Мана: ${player.getDynamicProperty("mp")}." } ] }`)
-            queueCommand(player, `tellraw @s { "rawtext": [ { "text": "Мана макс: ${player.getDynamicProperty("maxMp")}." } ] }`)
-            queueCommand(player, `tellraw @s { "rawtext": [ { "text": "Мана реген: ${player.getDynamicProperty("mpRegenPower")}." } ] }`)
-
-            queueCommand(player, `tellraw @s { "rawtext": [ { "text": "Прыжок: ${player.getDynamicProperty("jumpPower")}." } ] }`)
-            queueCommand(player, `tellraw @s { "rawtext": [ { "text": "Бонус Скорости: ${player.getDynamicProperty("speedPower")}." } ] }`)
-            queueCommand(player, `tellraw @s { "rawtext": [ { "text": "Бонус силы: ${player.getDynamicProperty("basicStrength")}." } ] }`)
-
-            queueCommand(player, `tellraw @s { "rawtext": [ { "text": "Лимит веса: ${player.getDynamicProperty("weighLimit")}." } ] }`)
-            queueCommand(player, `tellraw @s { "rawtext": [ { "text": "Загруженность: ${player.getDynamicProperty("weighLoading")}." } ] }`)
-            queueCommand(player, `tellraw @s { "rawtext": [ { "text": "Перегруз: ${player.getDynamicProperty("overLoading")}." } ] }`)
-
-            queueCommand(player, `tellraw @s { "rawtext": [ { "text": "Множ. XP: ${player.getDynamicProperty("xpMultiplier")}." } ] }`)
-
-            queueCommand(player, `tellraw @s { "rawtext": [ { "text": "Снятие отравл: ${player.getDynamicProperty("intoxicationDecreasePower")}." } ] }`)
-            queueCommand(player, `tellraw @s { "rawtext": [ { "text": "Ур отравл: ${player.getDynamicProperty("intoxicationLevel")}." } ] }`)
-
-            queueCommand(player, `tellraw @s { "rawtext": [ { "text": "Стрельба: ${player.getProperty("arx:ranged_attack_accuracy")}." } ] }`)
-        }
-
         else if (command[0] == "!bug") { // Отчитаться о баге
             queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§aЗакройте чат и прыгните§f, чтобы составить отчёт об ошибке.\n§o§7(Не задавайте вопросов, так надо)" } ] }`);
             queueCommand(player, 'tag @s add bug')
@@ -292,73 +249,197 @@ function parceCommand(player, trimmedMessage) {
             }
         }
 
-        else if (command[0] == "!myrule") {
-            const rules = {
-                showAttackCDMode: {
-                    args: ["ticks", "seconds", "line", "none"],
-                    ruleName: "myRule:showAttackCDMode",
-                    description: "Формат отображения КД атак"
-                },
-                manaDisplayMode: {
-                    args: ["integers", "decimals", "none"],
-                    ruleName: "myRule:manaDisplayMode",
-                    description: "Формат отображения маны"
-                }
-            };
-
-            const ruleName = command[1]
-            const rule = rules[ruleName]
-            const arg = command[2] // добавляем переменную, и используем оператор безопасной навигации, чтобы скрипт не крашился
-
-            // Используем ли мы !myrule help?
-            if (!command[1]) {
-                const ruleList = Object.keys(rules)
-                    .join("§f, §a");
-                queueCommand(player, `tellraw @s { "rawtext": [ { "text": "Доступные правила: §a${ruleList}§f." } ] }`);
-            }
-            // Если мы указали что-то в виде правила, но оно не является правилом
-            else if (!rule) {
-                queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cПравила §f<${command[1]}>§c не существует. Используйте §f<!myrule help>§c, чтобы посмотреть доступные." } ] }`);
-            }
-            // Нет аргумента
-            else if (!command[2]) {
-                const argsList = rule.args.join("§c, §f");
-                queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cОжидается аргумент после §f<${command[1]}>§c. Допустимые аргументы: §f${argsList}§c." } ] }`);
-            }
-            // Недопустимый аргумет
-            else if (!rule.args.includes(arg)) {
-                const argsList = rule.args.join("§c, §f");
-                queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cНедопустимый аргумент §f<${command[2]}>§c. Допустимые: §f${argsList}§c." } ] }`);
-            }
-            // Всё хорошо
-            else {
-                player.setDynamicProperty(rule.ruleName, arg);
-                queueCommand(player, `tellraw @s { "rawtext": [ { "text": "Правило §a<${ruleName}>§f изменено на §a<${arg}>§f." } ] }`);
-            }
-        }
-
         else {
             queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cТакой команды Аркса не существует.\nВведите §f!§c, чтобы посмотреть доступные." } ] }`)
         }
     }
     else { // Сообщение - не команда Аркса. Обработать и отправить
+        // Недопуск 1
         if (getScore(player, "respawn_delay") > 0) {
             queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cВы не можете разговаривать, пока вы без сознания." } ] }`)
         }
+        // Недопуск 2
         else if (player.getDynamicProperty("name") == undefined) {
             queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cУстановите имя персонажа, чтобы общаться в локальном чате. Это можно сделать командой §a!setname имя§c." } ] }`)
         }
+        // Успешно
         else {
-            if (player.getDynamicProperty("is_whispering") == false) { // Если мы говорим в полный голос
-                queueCommand(player, `tellraw @a[r=10, scores={respawn_delay=0}] {"rawtext":[{"text": "[§aLocal§f] <${player.getDynamicProperty("name")}§f> ${trimmedMessage}"}]}`)
-            }
-            else { // Если мы шепчем
-                queueCommand(player, `tellraw @a[r=4, scores={respawn_delay=0}] {"rawtext":[{"text": "[§6Whisper§f] <${player.getDynamicProperty("name")}§f> ${trimmedMessage}"}]}`)
+            speechEmote(player, trimmedMessage)
+
+            // Определяем дистанцию для каждого игрока
+            for (const speechListener of world.getPlayers()) {
+                if (getScore(speechListener, 'respawn_delay') === 0) { // Если тот, кто получает сообщение не нокнут
+                    const distance = Math.sqrt(Math.pow(speechListener.location.x - player.location.x, 2) + Math.pow(speechListener.location.y - player.location.y, 2) + Math.pow(speechListener.location.z - player.location.z, 2))
+
+                    if (player.getDynamicProperty("is_whispering") == false) { // Если мы говорим в полный голос
+                        let speech = spoilSpeechByDistance(trimmedMessage, distance, 8)
+                        if (speech !== undefined) {
+                            queueCommand(speechListener, `tellraw @s {"rawtext":[{"text": "[§aLocal§f] <${player.getDynamicProperty("name")}§f> ${speech}"}]}`)
+                        }
+                    }
+                    else { // Если мы шепчем
+                        let speech = spoilSpeechByDistance(trimmedMessage, distance, 2)
+                        if (speech !== undefined) {
+                            queueCommand(speechListener, `tellraw @s {"rawtext":[{"text": "[§6Whisper§f] <${player.getDynamicProperty("name")}§f> ${speech}"}]}`)
+                        }
+                    }
+                }
             }
         }
     }
 }
 
+function spoilSpeechByDistance(text, defactoDistance, allrightDistance) {
+    // Приемлемое расстояние
+    if (defactoDistance <= allrightDistance) {
+        return text;
+    }
+    // Слишком большое расстояние
+    else if (defactoDistance > allrightDistance * 2) {
+        return undefined;
+    }
+    else { // Надо сшакалить качество
+
+        const russianAlphabetLowercase = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя"
+
+        let result = ''
+        const spoilFactor = (defactoDistance - allrightDistance) / allrightDistance; // Значение от 0 до 1
+
+        for (let i = 0; i < text.length; i++) {
+            let char = text[i]
+
+            if (char !== ' ') {
+
+                if (Math.random() < spoilFactor) { // Вероятность "испортить" символ
+                    // Портим
+                    if (Math.random() < 0.125) { char = '.' }
+                    else if (Math.random() < 0.250) { char = '..' }
+                    else if (Math.random() < 0.375) { char = '...' }
+                    else if (Math.random() < 0.5) { char = '■' }
+                    else {
+                        const randomIndex = Math.floor(Math.random() * russianAlphabetLowercase.length)
+                        char = russianAlphabetLowercase[randomIndex]
+                    }
+                }
+            }
+
+            result += char;
+        }
+
+        return result;
+    }
+}
+
+function speechEmote(player, phrase) {
+    phrase = phrase.toLowerCase();
+
+    let phraseStats = {
+        negativeMeaning: 0,
+        positiveMeaning: 0,
+        anger: 0,
+        fear: 0,
+        sadness: 0,
+        excitement: 0,
+        request: 0,
+        informationSeeking: 0,
+        threat: 0,
+        greet: 0
+    };
+
+    const negativeWords = ['нет', 'плохо', 'ненавижу', 'откаж', 'отказыва', 'не хочу', 'не буду', 'хуйня', 'не пойд', 'прекрат', 'заеба', 'хуёво', 'отвратительн', 'не могу', 'не надо', 'неудачн', 'не повезло', 'не везёт', 'зря', 'класс', 'бесполез']
+    const positiveWords = ['ага', 'хорош', 'отличн', 'любл', 'люби', 'прекрас', 'здорово', 'соглас', 'лучш', 'заебись', 'заебок', 'пиздато', 'восхитительн', 'удовольств', 'спасибо', 'благодарю', 'ценю', 'красив', 'рад', 'окей']
+    const angerWords = ['зло', 'беси', 'ненави', 'достало', 'чёрт', 'гад', 'блядь', 'блять', 'сук', 'гнид', 'уёб', 'уеб', 'пидор', 'завали ебальник', 'идиот', 'дебил', 'даун', 'долбаёб', 'долбаеб']
+    const fearWords = ['страшн', 'боюсь', 'тревож', 'опаса', 'жуть', 'ужас', 'потеря', 'проеба', 'темно']
+    const sadnessWords = ['груст', 'печаль', 'тоскливо', 'одиноко', 'тяжело', 'опять эти', 'да сука']
+    const excitementWords = ['ура', 'отлично', 'супер', 'круто', 'потрясающ', 'восторг', 'вау', 'идеальн']
+    const requestWords = ['пожалуйста', 'могу ли я', 'не могли бы вы', 'прошу', 'умоляю', 'можно', 'не мог бы', 'не могла бы', 'мне нужна помощь']
+    const questionWords = ['кто', 'где', 'когда', 'почему', 'как', 'сколько', '?', "дума"]
+    const threatWords = ['убью', 'убить', 'конец тебе', 'тебе конец', 'прощайся с жизнью', 'зареж', 'предупрежда', 'умри', 'пожалеешь', 'убирайся', 'иди нахуй', 'отвали', 'заткнись', 'дуэль']
+    const greetWords = ['привет', 'здравствуй', 'добрый день', 'доброе утро', 'доброй ночи', 'добро пожаловать', 'пока', 'прощай', 'до свидания', 'досвидания', 'до встречи', 'увидимся']
+
+    // Функция для подсчета совпадений слов
+    function countWordMatches(phrase, wordList) {
+        let count = 0;
+        wordList.forEach(word => {
+            if (phrase.includes(word)) {
+                count++;
+            }
+        });
+        return count;
+    }
+
+    // Функция для поиска ключа с макс. значением
+    function processPhraseStats(obj) {
+
+        let statsSum = 0;
+        for (const key in obj) {
+            statsSum += obj[key]
+        }
+        if (statsSum === 0) {
+            return ('noStats')
+        }
+
+        const [maxKey, maxValue] = Object.entries(obj).reduce((acc, [key, value]) => {
+            return value > acc[1] ? [key, value] : acc;
+        }, [Object.keys(obj)[0], obj[Object.keys(obj)[0]]]);
+
+        return maxKey;
+    }
+
+    phraseStats.negativeMeaning = countWordMatches(phrase, negativeWords);
+    phraseStats.positiveMeaning = countWordMatches(phrase, positiveWords);
+    phraseStats.anger = countWordMatches(phrase, angerWords);
+    phraseStats.fear = countWordMatches(phrase, fearWords);
+    phraseStats.sadness = countWordMatches(phrase, sadnessWords);
+    phraseStats.excitement = countWordMatches(phrase, excitementWords);
+    phraseStats.request = countWordMatches(phrase, requestWords);
+    phraseStats.informationSeeking = countWordMatches(phrase, questionWords);
+    phraseStats.threat = countWordMatches(phrase, threatWords);
+    phraseStats.greet = countWordMatches(phrase, greetWords);
+
+    // Пример: вывод статистики в консоль
+    // console.warn('Phrase Stats:', JSON.stringify(phraseStats), "Высшее значение:", processPhraseStats(phraseStats));
+
+    // Дальнейшая обработка phraseStats для выбора эмоции и воспроизведения её
+    switch (processPhraseStats(phraseStats)) {
+        case 'negativeMeaning':
+            queueCommand(player, "playanimation @s animation.player.speechemote.negativemeaning")
+            break
+        case 'positiveMeaning':
+            queueCommand(player, "playanimation @s animation.player.speechemote.positivemeaning")
+            break
+        case 'anger':
+            queueCommand(player, "playanimation @s animation.player.speechemote.anger")
+            break
+        case 'fear':
+            queueCommand(player, "playanimation @s animation.player.speechemote.fear")
+            break
+        case 'sadness':
+            queueCommand(player, "playanimation @s animation.player.speechemote.sadness")
+            break
+        case 'excitement':
+            queueCommand(player, "playanimation @s animation.player.speechemote.excitement")
+            break
+        case 'request':
+            queueCommand(player, "playanimation @s animation.player.speechemote.request")
+            break
+        case 'informationSeeking':
+            queueCommand(player, "playanimation @s animation.player.speechemote.informationseeking")
+            break
+        case 'threat':
+            queueCommand(player, "playanimation @s animation.player.speechemote.threat")
+            break
+        case 'greet':
+            queueCommand(player, "playanimation @s animation.player.speechemote.greet")
+            break
+
+        case 'noStats':
+            queueCommand(player, "playanimation @s animation.player.speechemote.nostats")
+            break
+    }
+
+    return phraseStats; // Возвращаем статистику для дальнейшего использования
+}
 
 function isAdmin(player) {
     return getScore(player, "verify") == 2 ? true : false

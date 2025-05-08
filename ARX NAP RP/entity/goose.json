@@ -24,7 +24,7 @@
 						"walk": "query.modified_move_speed"
 					},
           {
-						"try_to_fly": "query.is_avoiding_mobs"
+						"try_to_fly": "query.is_avoiding_mobs || !query.is_on_ground"
 					},
           "look_at_target_default"
 				]

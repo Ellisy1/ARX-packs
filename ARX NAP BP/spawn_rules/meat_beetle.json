@@ -20,7 +20,12 @@
           {"test": "has_biome_tag", "operator":"!=", "value": "meadow"},
           {"test": "has_biome_tag", "operator":"!=", "value": "frozen"},
           {"test": "has_biome_tag", "operator":"!=", "value": "desert"},
-          {"test": "has_biome_tag", "operator":"!=", "value": "nether"}
+          {"test": "has_biome_tag", "operator":"!=", "value": "nether"},
+          {
+            "test": "has_biome_tag",
+            "operator": "!=",
+            "value": "ice"
+          }
         ]
       }
     ]

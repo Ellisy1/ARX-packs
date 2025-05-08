@@ -150,9 +150,6 @@
             execute @a[scores={verify=2, weather=0, custom_random=310, custom_random_b=0..50}] ~ ~ ~ scoreboard players random @s weather 200 800
             execute @a[scores={verify=2, weather=0, custom_random=310, custom_random_b=51..250}] ~ ~ ~ scoreboard players random @s weather 10 200
 
-#Деспавним крыс днём
-    execute @a[scores={verify=2, is_day=1}] ~ ~ ~ event entity @e[family=despawn_as_ghost] arx:despawn_as_ghost
-
 # Партиклы опыта (когда бонус 1.5)
     execute @a[scores={xp_х1_5=1..}] ~ ~ ~ particle arx:xp_upgrade ~ ~2 ~ 
 

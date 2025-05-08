@@ -30,7 +30,7 @@
 				"priority": 2
 			},
 			"minecraft:loot": {
-				"table": "loot_tables/entities/hungry_rat.json"
+				"table": "loot_tables/entities/small_rat_black.json"
 			},
 			"minecraft:is_hidden_when_invisible": {},
 			"minecraft:type_family": {

@@ -2,9 +2,6 @@
     "format_version": "1.21.0",
     "minecraft:item": {
         "components": {
-            "minecraft:display_name": {
-                "value": "§r§fСверхсинергичный кристалл §c[Мифическое+]\n§o§7Вместо того, чтобы использовать руны, вы можете их просто проговаривать"
-            },
             "minecraft:durability": {
                 "max_durability": 500
             },

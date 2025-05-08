@@ -1,43 +1,43 @@
-scoreboard players set @s[tag=traitself, scores={c_inflexible = 1}] c_inflexible 0
-scoreboard players set @s[tag=traitself, scores={c_powerful = 1}] c_powerful 0
-scoreboard players set @s[tag=traitself, scores={c_indeclinable = 1}] c_indeclinable 0
-scoreboard players set @s[tag=traitself, scores={c_enlightened = 1}] c_enlightened 0
-scoreboard players set @s[tag=traitself, scores={c_bright_look = 1}] c_bright_look 0
-scoreboard players set @s[tag=traitself, scores={c_wise = 1}] c_wise 0
-scoreboard players set @s[tag=traitself, scores={c_persistent = 1}] c_persistent 0
-scoreboard players set @s[tag=traitself, scores={c_tenacious = 1}] c_tenacious 0
-scoreboard players set @s[tag=traitself, scores={c_conscious = 1}] c_conscious 0
-scoreboard players set @s[tag=traitself, scores={c_genious = 1}] c_genious 0
-scoreboard players set @s[tag=traitself, scores={c_water_lover = 1}] c_water_lover 0
+scoreboard players set @s[scores={c_inflexible = 1}] c_inflexible 0
+scoreboard players set @s[scores={c_powerful = 1}] c_powerful 0
+scoreboard players set @s[scores={c_indeclinable = 1}] c_indeclinable 0
+scoreboard players set @s[scores={c_enlightened = 1}] c_enlightened 0
+scoreboard players set @s[scores={c_bright_look = 1}] c_bright_look 0
+scoreboard players set @s[scores={c_wise = 1}] c_wise 0
+scoreboard players set @s[scores={c_persistent = 1}] c_persistent 0
+scoreboard players set @s[scores={c_tenacious = 1}] c_tenacious 0
+scoreboard players set @s[scores={c_conscious = 1}] c_conscious 0
+scoreboard players set @s[scores={c_genious = 1}] c_genious 0
+scoreboard players set @s[scores={c_water_lover = 1}] c_water_lover 0
 
-scoreboard players set @s[tag=traitself, scores={c_indifference = 1}] c_indifference 0
-scoreboard players set @s[tag=traitself, scores={c_angry = 1}] c_angry 0
-scoreboard players set @s[tag=traitself, scores={c_loner = 1}] c_loner 0
-scoreboard players set @s[tag=traitself, scores={c_rude = 1}] c_rude 0
-scoreboard players set @s[tag=traitself, scores={c_warmy = 1}] c_warmy 0
-scoreboard players set @s[tag=traitself, scores={c_coldy = 1}] c_coldy 0
-scoreboard players set @s[tag=traitself, scores={c_manipulator = 1}] c_manipulator 0
-scoreboard players set @s[tag=traitself, scores={c_charismatic = 1}] c_charismatic 0
-scoreboard players set @s[tag=traitself, scores={c_communicative = 1}] c_communicative 0
-scoreboard players set @s[tag=traitself, scores={c_unstable = 1}] c_unstable 0
-scoreboard players set @s[tag=traitself, scores={c_miner = 1}] c_miner 0
+scoreboard players set @s[scores={c_indifference = 1}] c_indifference 0
+scoreboard players set @s[scores={c_angry = 1}] c_angry 0
+scoreboard players set @s[scores={c_loner = 1}] c_loner 0
+scoreboard players set @s[scores={c_rude = 1}] c_rude 0
+scoreboard players set @s[scores={c_warmy = 1}] c_warmy 0
+scoreboard players set @s[scores={c_coldy = 1}] c_coldy 0
+scoreboard players set @s[scores={c_manipulator = 1}] c_manipulator 0
+scoreboard players set @s[scores={c_charismatic = 1}] c_charismatic 0
+scoreboard players set @s[scores={c_communicative = 1}] c_communicative 0
+scoreboard players set @s[scores={c_unstable = 1}] c_unstable 0
+scoreboard players set @s[scores={c_miner = 1}] c_miner 0
 
-scoreboard players set @s[tag=traitself, scores={c_cowardly = 1}] c_cowardly 0
-scoreboard players set @s[tag=traitself, scores={c_schizophrenic = 1}] c_schizophrenic 0
-scoreboard players set @s[tag=traitself, scores={c_stupid = 1}] c_stupid 0
-scoreboard players set @s[tag=traitself, scores={c_paranoid = 1}] c_paranoid 0
-scoreboard players set @s[tag=traitself, scores={c_nospider = 1}] c_nospider 0
-scoreboard players set @s[tag=traitself, scores={c_nonecro = 1}] c_nonecro 0
-scoreboard players set @s[tag=traitself, scores={c_nosocio = 1}] c_nosocio 0
-scoreboard players set @s[tag=traitself, scores={c_notecno = 1}] c_notecno 0
-scoreboard players set @s[tag=traitself, scores={c_nodarkness = 1}] c_nodarkness 0
-scoreboard players set @s[tag=traitself, scores={c_nomines = 1}] c_nomines 0
-scoreboard players set @s[tag=traitself, scores={c_religious = 1}] c_religious 0
-scoreboard players set @s[tag=traitself, scores={c_nolight = 1}] c_nolight 0
-scoreboard players set @s[tag=traitself, scores={c_nocold = 1}] c_nocold 0
-scoreboard players set @s[tag=traitself, scores={c_nowarm = 1}] c_nowarm 0
-scoreboard players set @s[tag=traitself, scores={c_lazy = 1}] c_lazy 0
-scoreboard players set @s[tag=traitself, scores={c_impulsive_par = 1}] c_impulsive_par 0
-scoreboard players set @s[tag=traitself, scores={c_paranoid_mas = 1}] c_paranoid_mas 0
-scoreboard players set @s[tag=traitself, scores={c_fastidious = 1}] c_fastidious 0
-scoreboard players set @s[tag=traitself, scores={c_aquaphobe = 1}] c_aquaphobe 0
+scoreboard players set @s[scores={c_cowardly = 1}] c_cowardly 0
+scoreboard players set @s[scores={c_schizophrenic = 1}] c_schizophrenic 0
+scoreboard players set @s[scores={c_stupid = 1}] c_stupid 0
+scoreboard players set @s[scores={c_paranoid = 1}] c_paranoid 0
+scoreboard players set @s[scores={c_nospider = 1}] c_nospider 0
+scoreboard players set @s[scores={c_nonecro = 1}] c_nonecro 0
+scoreboard players set @s[scores={c_nosocio = 1}] c_nosocio 0
+scoreboard players set @s[scores={c_notecno = 1}] c_notecno 0
+scoreboard players set @s[scores={c_nodarkness = 1}] c_nodarkness 0
+scoreboard players set @s[scores={c_nomines = 1}] c_nomines 0
+scoreboard players set @s[scores={c_religious = 1}] c_religious 0
+scoreboard players set @s[scores={c_nolight = 1}] c_nolight 0
+scoreboard players set @s[scores={c_nocold = 1}] c_nocold 0
+scoreboard players set @s[scores={c_nowarm = 1}] c_nowarm 0
+scoreboard players set @s[scores={c_lazy = 1}] c_lazy 0
+scoreboard players set @s[scores={c_impulsive_par = 1}] c_impulsive_par 0
+scoreboard players set @s[scores={c_paranoid_mas = 1}] c_paranoid_mas 0
+scoreboard players set @s[scores={c_fastidious = 1}] c_fastidious 0
+scoreboard players set @s[scores={c_aquaphobe = 1}] c_aquaphobe 0

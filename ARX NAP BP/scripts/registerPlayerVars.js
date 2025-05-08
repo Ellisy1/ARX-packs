@@ -20,8 +20,8 @@ export function registerPlayerVars(player) {
     if (player.getDynamicProperty("myRule:manaDisplayMode") === undefined) {
         player.setDynamicProperty("myRule:manaDisplayMode", "integers")
     }
-    if (player.getDynamicProperty("myRule:CDNotification") === undefined) {
-        player.setDynamicProperty("myRule:CDNotification", "sound")
+    if (player.getDynamicProperty("myRule:canSeeServerSpeedInInfoBook") === undefined) {
+        player.setDynamicProperty("myRule:canSeeServerSpeedInInfoBook", false)
     }
     if (player.getDynamicProperty("attackCD") === undefined) {
         player.setDynamicProperty("attackCD", 0)

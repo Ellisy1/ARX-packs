@@ -163,7 +163,7 @@ export function registerCharacter(player) {
                 player.getDynamicProperty('height') === undefined ? defaultHeightValue = 175 : defaultHeightValue = player.getDynamicProperty('height')
                 const form6 = new ModalFormData()
                     .title("Рост персонажа")
-                    .slider("У §aнизких§f персонажей §aменьше хитбокс§f\n\nУ §aвысоких§f персонажей §aбыстрее скорость бега (не более +5Ũ)§f\n\n§cЭти эффекты незначительны на практике! Выбирайте рост персонажа исходя из его лора, а не из бонусов\n\n§fРост вашего персонажа", 150, 195, 1, defaultHeightValue)
+                    .slider("У §aнизких§f персонажей §aменьше хитбокс§f\n\nУ §aвысоких§f персонажей §aбыстрее скорость бега (не более +5Ũ)§f\n\n§cЭти эффекты незначительны на практике! Выбирайте рост персонажа исходя из его лора, а не из бонусов\n\n§fРост вашего персонажа", 150, 195, { defaultValue: defaultHeightValue })
                     .submitButton('Посмотреть, как это выглядит')
 
                     .show(player).then(response => {
@@ -199,10 +199,40 @@ export function registerCharacter(player) {
                     })
                 break
 
-            case 8: // Спавн в мире
+            case 8: // Установка типа глаз
+
+                const form8 = new ActionFormData()
+                    .title("Позиция глаз")
+                    .body('§aВыберите позицию глаз§f вашего персонажа. Это нужно для более точного отображения некоторых аксессуаров.\n\n§7Если у вас возникнут сложности, обратитесь к модератору.')
+                    .button("Отступ от низа головы в 4 пикселя", 'textures/ui/registration/eyes_position_man_high')
+                    .button("Отступ от низа головы в 3 пикселя", 'textures/ui/registration/eyes_position_man_default')
+                    .button("Отступ от низа головы в 2 пикселя", 'textures/ui/registration/eyes_position_woman_high')
+                    .button("Отступ от низа головы в 1 пиксель,\nДвойной размер глаз", 'textures/ui/registration/eyes_position_woman_default')
+                    .button("Отступ от низа головы в 1 пиксель,\nОбычный размер глаз", 'textures/ui/registration/eyes_position_woman_low')
+                    .button("Мне нужно рассмотреть скин", 'textures/ui/registration/eyes_position_check')
+
+                    .show(player)
+                    .then((response) => {
+                        if (response.selection != undefined) { // Игрок нажал хоть что-то
+                            // Устанавливаем высоту глаз, зависимо от выбранно опции
+                            if (response.selection === 0) { player.setProperty('arx:eyes_position', 2) }
+                            if (response.selection === 1) { player.setProperty('arx:eyes_position', 1) }
+                            if (response.selection === 2) { player.setProperty('arx:eyes_position', 0) }
+                            if (response.selection === 3) { player.setProperty('arx:eyes_position', 0) }
+                            if (response.selection === 4) { player.setProperty('arx:eyes_position', 0) }
+                            // Перекидываем на след этап регистрации
+                            if (response.selection !== 5) {
+                                player.setDynamicProperty('registerCharacterStage', 9)
+                                registerCharacter(player)
+                            }
+                        }
+                    })
+                break
+
+            case 9: // Спавн в мире
                 let bodyText
                 getScore(player, "gender") === 1 ? bodyText = `${player.getDynamicProperty('trueName')} создан!` : bodyText = `${player.getDynamicProperty('trueName')} создана!`
-                const form8 = new ActionFormData()
+                const form9 = new ActionFormData()
                     .title("Появление в мире")
                     .body(bodyText)
                     .button("Поехали!\n(рекомендуется помолиться)", 'textures/ui/registration/spawn')
@@ -210,7 +240,7 @@ export function registerCharacter(player) {
 
                     .show(player)
                     .then((response) => {
-                        if (response.selection != undefined) { // Игрок нажал что-то
+                        if (response.selection != undefined) { // Игрок нажал хоть что-то
                             if (response.selection === 0) {
                                 player.runCommand("function tp/2_spawn")
 

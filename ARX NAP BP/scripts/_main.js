@@ -1,21 +1,24 @@
 // ARX javascript
 
-// Imports
+// Imports - Minecraft
 import { system, world, EntityComponentTypes, EquipmentSlot, Player } from "@minecraft/server"
+
+// Imports - Arx functions 
 import { getScore, setScore } from './scoresOperations'
 import { increaseSkillProgress, wipeSkillsProgress } from './skillsOperations'
 import { onFoodConsume } from './food/onConsume'
 import { registerCharacter } from "./registerCharacter"
 import { executeCommandDelayed } from "./executeCommandDelayed"
 
-// Imports - Local
+// Imports - Local scripts
 import './chat'
 import './core/core'
 import './items/on_use_general'
-
 import './magic/on_use_magic_items'
+import './stabilityTesting'
 
 import { registerPlayerVars } from "./registerPlayerVars"
+import { checkForItem } from "./checkForItem"
 
 // Игрок зашёл в мир
 world.afterEvents.playerSpawn.subscribe((event) => {
@@ -29,6 +32,7 @@ world.afterEvents.playerSpawn.subscribe((event) => {
 
     if (world.getPlayers().length === 1) { // Если только один игрок в мире, т.е. только хостер
         player.runCommand("function world_reg/_world_reg") // Регистрируем переменные
+        player.runCommand('setmaxplayers 40')
     }
 });
 
@@ -376,10 +380,16 @@ world.afterEvents.entityHurt.subscribe((hurtEvent) => {
     // Если ранили игрока
     if (damaged.typeId === "minecraft:player") {
         const player = damaged
+
+        // Проверяем тип урона
         if (damaged != damager && damageCause != 'campfire' && damageCause != 'contact' && damageCause != 'drowning' && damageCause != 'fall' && damageCause != 'magma' &&
             damageCause != 'soulCampfire' && damageCause != 'starve' && damageCause != 'suffocation' && damageCause != 'fire' && damageCause != 'fireTick' && damageCause != 'freezing') {
 
-            increaseSkillProgress(damaged, "hp", hurtEvent.damage * 2)
+            increaseSkillProgress(damaged, "hp", hurtEvent.damage * 6)
+
+            if (checkForItem(player, 'Legs', 'arx:amul_dash')) {
+                player.applyKnockback({x: (Math.random() - 0.5) * 6, z: (Math.random() - 0.5) * 6}, 0.3)
+            }
         }
 
         // Кровь игрока

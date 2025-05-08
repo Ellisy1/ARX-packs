@@ -30,6 +30,11 @@
             "test": "has_biome_tag",
             "operator": "!=",
             "value": "cold"
+          },
+          {
+            "test": "has_biome_tag",
+            "operator": "!=",
+            "value": "ice"
           }
         ],
         "minecraft:brightness_filter": {

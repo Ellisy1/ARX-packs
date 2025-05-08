@@ -29,7 +29,7 @@
                 "conditions": [
                     {
                         "block_filter": [
-                            "grass",
+                            "minecraft:grass",
                             "dirt"
                         ],
                         "allowed_faces": [

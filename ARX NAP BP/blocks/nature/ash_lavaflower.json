@@ -24,7 +24,7 @@
                         "block_filter": [
                             "stone",
                             "dirt",
-                            "grass",
+                            "minecraft:grass",
                             "deepslate"
                         ]
                     }

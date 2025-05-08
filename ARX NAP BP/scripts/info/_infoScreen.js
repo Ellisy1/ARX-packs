@@ -6,11 +6,25 @@ import { infoSkillsScreen } from "./infoSkillsScreen"
 import { infoAboutStats } from "./infoAboutStats"
 import { infoAboutStatistics } from "./infoAboutStatistics"
 import { infoAboutAchievements } from "./infoAboutAchievements"
+import { arxSettings } from "./arxSettings"
 import { guide } from "./guide"
+
+import { getStabilityTestResult } from '../stabilityTesting'
 
 // Выводим экранчик с книжки инфо
 export function infoScreen(player) {
-    const form = new ActionFormData()
+    let form = new ActionFormData()
+
+    if (player.getDynamicProperty("myRule:canSeeServerSpeedInInfoBook") === true) {
+        const serverSpeed = getStabilityTestResult()
+        if (serverSpeed) {
+            form = form.body(`Производительность сервера: ${serverSpeed}`); // Добавляем .body() если serverSpeed есть
+        } else {
+            form = form.body('Измерения стабильности на этом хосте ещё не происходило. Подождите немного.'); // Добавляем .body() если serverSpeed нет
+        }
+    }
+
+    form = form
         .title("Информация")
         .button("Гид", 'textures/ui/info/guide')
         .button("О персонаже", 'textures/ui/info/about_character')
@@ -19,6 +33,7 @@ export function infoScreen(player) {
         .button("Черты характера", 'textures/ui/info/about_traits')
         .button("Вкусы", 'textures/ui/info/about_tastes')
         .button("Достижения", 'textures/ui/info/about_achievements')
+        .button("Настройки Аркса", 'textures/ui/info/options')
         .button("Статистика", 'textures/ui/info/about_statistics')
         .button("Авторы и разработчики", 'textures/ui/info/about_authors')
 
@@ -39,8 +54,10 @@ export function infoScreen(player) {
             } else if (response.selection === 6) {
                 infoAboutAchievements(player)
             } else if (response.selection === 7) {
-                infoAboutStatistics(player)
+                arxSettings(player)
             } else if (response.selection === 8) {
+                infoAboutStatistics(player)
+            } else if (response.selection === 9) {
                 player.runCommand('function info/authors')
             }
         })

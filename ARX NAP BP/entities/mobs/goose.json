@@ -14,7 +14,7 @@
 				"on_death": "query.last_hit_by_player ? 5 : 0"
 			},
 			"minecraft:behavior.float": {
-				"priority": 2
+				"priority": 3
 			},
 			"minecraft:loot": {
 				"table": "loot_tables/entities/goose.json"
@@ -75,7 +75,7 @@
 				"is_pushable_by_piston": true
 			},
 			"minecraft:behavior.avoid_mob_type": {
-				"priority": 1,
+				"priority": 2,
 				"entity_types": [
 					{
 						"filters": {
@@ -102,6 +102,10 @@
 			"minecraft:on_death": {
 				"event": "on_death",
 				"target": "self"
+			},
+			"minecraft:behavior.panic": {
+				"priority": 1,
+				"speed_multiplier": 1.5
 			}
 		},
 		"events": {

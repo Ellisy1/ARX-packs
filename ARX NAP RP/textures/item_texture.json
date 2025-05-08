@@ -1403,6 +1403,9 @@
     "arx:amul_antighost": {
       "textures": "textures/items/jewelry/amulets/amul_antighost"
     },
+    "arx:amul_dash": {
+      "textures": "textures/items/jewelry/amulets/amul_dash"
+    },
     "arx:amul_of_concealment": {
       "textures": "textures/items/jewelry/amulets/amul_of_concealment"
     },
@@ -1469,6 +1472,16 @@
     },
     "arx:amul_magic_painit": {
       "textures": "textures/items/jewelry/amulets/amul_magic_painit"
+    },
+
+    "arx:amul_hypersynergy": {
+      "textures": "textures/items/jewelry/amulets/amul_hypersynergy"
+    },
+    "arx:amul_hypersynergy_improved": {
+      "textures": "textures/items/jewelry/amulets/amul_hypersynergy_improved"
+    },
+    "arx:amul_hypersynergy_superior": {
+      "textures": "textures/items/jewelry/amulets/amul_hypersynergy_superior"
     },
 
     "arx:belt_lamp": {
@@ -4599,6 +4612,10 @@
     },
     "arx:blueprint_paper": {
       "textures": "textures/items/high_tec/blueprint_paper"
+    },
+
+    "arx:slot_blocker": {
+      "textures": "textures/items/other/slot_blocker"
     }
   }
 }

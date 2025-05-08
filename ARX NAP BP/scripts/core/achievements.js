@@ -42,6 +42,22 @@ export const achievementsList = { // Список со всеми достиже
             value: "minecraft:string"
         }
     },
+    "has_shears": {
+        name: "ВРЕМЯ ОТРЕЗАТЬ...",
+        description: "Получить ножницы",
+        trigger: {
+            type: "hasItem",
+            value: "minecraft:shears"
+        }
+    },
+    "has_cheap_cloth": {
+        name: "Тряпочка",
+        description: "Получить дешёвую ткань",
+        trigger: {
+            type: "hasItem",
+            value: "arx:cheap_cloth"
+        }
+    },
     "has_loom_crafting_table": {
         name: "Свяжем шапочку",
         description: "Создать прядильный станок",
@@ -74,6 +90,14 @@ export const achievementsList = { // Список со всеми достиже
             value: "arx:clothes_crafting_table"
         }
     },
+    "has_bow": {
+        name: "Стрелок",
+        description: "Получить свой первый лук",
+        trigger: {
+            type: "hasItem",
+            value: "minecraft:bow"
+        }
+    },
     "has_jewelry_crafting_table": {
         name: "Юверлир",
         description: "Создать ювелирный верстак",
@@ -82,12 +106,28 @@ export const achievementsList = { // Список со всеми достиже
             value: "arx:jewelry_crafting_table"
         }
     },
+    "has_whipping_dummy_item": {
+        name: "Испытание силы",
+        description: "Создать манекен для битья",
+        trigger: {
+            type: "hasItem",
+            value: "arx:whipping_dummy_spawn_egg"
+        }
+    },
     "has_cast_iron_ingot": {
         name: "Чугунище",
         description: "Получить слиток чугуна",
         trigger: {
             type: "hasItem",
             value: "arx:cast_iron_ingot"
+        }
+    },
+    "has_light_armor_crafting_table": {
+        name: "Время надёжной экипировки",
+        description: "Получить верстак для лёгкой брони",
+        trigger: {
+            type: "hasItem",
+            value: "arx:light_armor_crafting_table"
         }
     },
     "has_gold_ingot": {

@@ -422,3 +422,12 @@
     scoreboard players add @a[scores={lamp_oil=1..}, hasitem={item=arx:archilight, location=slot.armor.legs}] lamp_oil -43
     scoreboard players add @a[scores={lamp_oil=1..}, hasitem={item=arx:firefly_belt_lamp, location=slot.armor.legs}] lamp_oil -30
     scoreboard players add @a[scores={lamp_oil=1..}, hasitem={item=arx:mechanic_belt_lamp, location=slot.armor.legs}] lamp_oil -85
+
+#Деспавним крыс днём
+    execute if entity @a[scores={verify=2, is_day=1}] at @e[family=despawn_as_ghost] run particle arx:rat_ghost_despawn ~ ~1.5 ~
+    execute if entity @a[scores={verify=2, is_day=1}] at @e[family=despawn_as_ghost] run particle arx:rat_ghost_despawn ~ ~1.5 ~
+    execute if entity @a[scores={verify=2, is_day=1}] at @e[family=despawn_as_ghost] run particle arx:rat_ghost_despawn ~ ~1.5 ~
+
+    execute if entity @a[scores={verify=2, is_day=1}] at @e[family=despawn_as_ghost] run playsound undemon @a ~ ~ ~
+
+    execute if entity @a[scores={verify=2, is_day=1}] run event entity @e[family=despawn_as_ghost] arx:despawn_as_ghost

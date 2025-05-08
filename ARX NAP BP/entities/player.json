@@ -37,6 +37,16 @@
           "default": 0,
           "client_sync": true
         },
+        // Позиция глаз (значение равно поднятию акссесуаров по пикселям)
+        "arx:eyes_position": {
+          "type": "int",
+          "range": [
+            0,
+            2
+          ],
+          "default": 0,
+          "client_sync": true
+        },
         // Пол игрока. 1 = муж, 2 = жен
         "arx:gender": {
           "type": "int",
@@ -4345,6 +4355,24 @@
           "arx:bust_size": 3
         }
       },
+
+      // Eyes offset
+      "arx:property_eyeys_position_set_0": {
+        "set_property": {
+          "arx:eyes_position": 0
+        }
+      },
+      "arx:property_eyeys_position_set_1": {
+        "set_property": {
+          "arx:eyes_position": 1
+        }
+      },
+      "arx:property_eyeys_position_set_2": {
+        "set_property": {
+          "arx:eyes_position": 2
+        }
+      },
+
       // Knockout
       "arx:property_is_knockout_set_0": { // Выход из нокаута
         "set_property": {

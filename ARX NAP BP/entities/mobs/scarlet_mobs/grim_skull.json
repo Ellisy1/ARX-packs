@@ -146,16 +146,6 @@
 				}
 			},
 			"arx:despawn_as_ghost": {
-				"queue_command": {
-					"command": [
-						"execute as @s at @s if entity @a[r=20] run particle arx:rat_ghost_despawn ~ ~1.5 ~",
-						"execute as @s at @s if entity @a[r=20] run particle arx:rat_ghost_despawn ~ ~1.5 ~",
-						"execute as @s at @s if entity @a[r=20] run particle arx:rat_ghost_despawn ~ ~1.5 ~",
-						"execute as @s at @s if entity @a[r=20] run particle arx:rat_ghost_despawn ~ ~1.5 ~",
-						"execute as @s at @s if entity @a[r=20] run particle arx:rat_ghost_despawn ~ ~1.5 ~",
-						"playsound undemon @a ~ ~ ~"
-					]
-				},
 				"add": {
 					"component_groups": [
 						"arx:despawn_as_ghost"

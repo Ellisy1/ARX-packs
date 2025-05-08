@@ -20,6 +20,7 @@ system.runInterval(() => {
     world.getDimension("minecraft:overworld").runCommand("function core_parts_NAP/dynamic_light_execution")
 
     for (const player of world.getPlayers()) {
+
         // Призрак и его механики
         if (player.getProperty("arx:is_ghost") == true) {
             const isSneaking = player.getTags().includes("is_sneaking")
@@ -102,7 +103,7 @@ system.runInterval(() => {
     for (const player of world.getPlayers()) {
         // Базовая сила
         {
-            let basicStrength = 0
+            let basicStrength = 0.5
 
             // Кольца
             if (checkForItem(player, "Feet", "arx:ring_gold_ruby")) { basicStrength += 1 }
@@ -353,7 +354,10 @@ system.runInterval(() => {
             speedPower -= player.getDynamicProperty("ghostWitheringLevel") * 4
 
             // Срезние от перегруза
-            if (player?.getDynamicProperty('overLoading') > 1) { speedPower -= player.getDynamicProperty("overLoading") * 10 }
+            if (player?.getDynamicProperty('overLoading') > 1) { speedPower -= player.getDynamicProperty("overLoading") * 12 }
+
+            // Безусловное срезание от загруженности
+            speedPower -= player.getDynamicProperty('weighLoading') * 2
 
             // Срезание от охлаждения
             speedPower -= (Math.abs(player.getDynamicProperty('freezing')) / 2)
@@ -379,7 +383,7 @@ system.runInterval(() => {
         }
 
         // Контроль расстояния от места спавна
-        if (player.getDynamicProperty('hasRegisteredCharacter')) {
+        if (player.getDynamicProperty('hasRegisteredCharacter') && player.getGameMode() !== 'creative' && player.getGameMode() !== 'spectator') {
             // Задаем двумерные векторы
             const worldCenter = [-2066, 1733]
             const playerLocation = [player.location.x, player.location.z];
@@ -453,7 +457,7 @@ system.runInterval(() => {
         if (player.getDynamicProperty('weighLimitBonusByPotion') > 0) { weighLimit += 2 }
 
         // Увеличение от прокачки
-        weighLimit += player.getDynamicProperty('skill:endurance_level')
+        weighLimit += player.getDynamicProperty('skill:endurance_level') / 2
 
         // Увеличение от бонуса фиоликса
         if (player.getDynamicProperty('statsBonusByFiolix') > 0) { weighLimit += 2 }
@@ -494,7 +498,7 @@ system.runInterval(() => {
 
             const form = new ModalFormData()
                 .title("Отчет об ошибке")
-                .slider("Насколько этот баг серьёзен", 1, 5, 1, 2)
+                .slider("Насколько этот баг серьёзен", 1, 5, {defaultValue: 2})
                 .textField("Опишите баг", "Описание")
                 .toggle("Приложить к отчёту моё местоположение")
                 .toggle("Приложить к отчёту данные о предмете в правой руке")
@@ -519,7 +523,7 @@ system.runInterval(() => {
                         }
 
                         // Отправляем отчет в консоль
-                        console.warn(report)
+                        console.error(report)
 
                         player.runCommand(`tellraw @s { "rawtext": [ { "text": "Спасибо за отчёт, §a${player.name}§f! Модератор уже получил его." } ] }`)
                     }
@@ -663,11 +667,6 @@ function getBlockWithOffset(player, x, y, z) {
 system.runInterval(() => {
     for (const player of world.getPlayers()) {
 
-        // Прокачка плавания
-        if (player.hasTag('is_moving') && player.hasTag('in_block_water')) {
-            increaseSkillProgress(player, 'swimming', 10)
-        }
-
         // Уменьшение DP из dynamicPropertiesToDecrease
         for (const dp of dynamicPropertiesToDecrease) {
             if (player.getDynamicProperty(dp) > 0) {
@@ -792,10 +791,13 @@ system.runInterval(() => {
             player.setDynamicProperty('saturation', 2)
         }
 
-        // Прокачка выносливости
+        // Прокачка навыков, связанных с движением
         if (player.hasTag("is_moving") && !player.hasTag('is_riding')) {
             if (player.getDynamicProperty('overLoading') > 0) {
                 increaseSkillProgress(player, "endurance", 1)
+            }
+            else if (player.hasTag('in_block_water')) {
+                increaseSkillProgress(player, 'swimming', 10)
             }
             else {
                 increaseSkillProgress(player, "running", 0.5)

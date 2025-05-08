@@ -164,6 +164,9 @@
 				},
 				"rightArm": {
 					"rotation": ["variable.is_holding_right ? (-this * 0.5 - 18.0) * !query.equipped_item_any_tag('slot.weapon.mainhand', 'is_invisible') : 0.0 ", 0, 0]
+				},
+				"rightItem": {
+					"scale": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_invisible')"
 				}
 			}
 		},

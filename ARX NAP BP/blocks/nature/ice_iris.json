@@ -21,7 +21,7 @@
                             "up"
                         ],
                         "block_filter": [
-                            "grass",
+                            "minecraft:grass",
                             "dirt",
                             "snow"
                         ]
