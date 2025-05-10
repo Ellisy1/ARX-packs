@@ -18,7 +18,7 @@
     execute as @s[has_property={arx:active_engines=true}] at @s positioned ~ ~1.2 ~ rotated as @s run particle arx:march_jet_stream ^-0.42 ^ ^
 
 # Определяем, стоит ли доочередно закончить бой, если на поле боя нет игроков 
-    execute unless entity @a[x=43, y=18, z=-200, dx=17, dy=10, dz=17, m=!spectator, has_property={arx:is_knocked=0}] run function march/finalize_battle_march_won
+    execute unless entity @a[x=43, y=18, z=-200, dx=17, dy=10, dz=17, m=!spectator, has_property={arx:is_knocked=false}] run function march/finalize_battle_march_won
 
 # Определяем фазу
     event entity @s test_hp

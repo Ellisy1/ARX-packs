@@ -311,8 +311,8 @@
 			"on_death": {
 				"queue_command": {
 					"command": [
-						"scoreboard players add @a[r=15, has_property={arx:is_knocked=0}] xp_tray 3000",
-						"scoreboard players add @a[r=15, has_property={arx:is_knocked=0}] count_bss_kills 1",
+						"scoreboard players add @a[r=15, has_property={arx:is_knocked=false}] xp_tray 3000",
+						"scoreboard players add @a[r=15, has_property={arx:is_knocked=false}] count_bss_kills 1",
 						"function entities/vicious_demon"
 					]
 				}
@@ -356,8 +356,8 @@
 						"playanimation @s animation.vicious_demon.circle_attack",
 						"particle arx:vicious_flame ~ ~ ~",
 						"particle arx:vicious_demon_spawn_flame_outward ~ ~ ~",
-						"damage @a[r=5, has_property={arx:is_knocked=0}] 20 entity_attack",
-						"scoreboard players add @a[r=5, has_property={arx:is_knocked=0}] vicious_flame 5",
+						"damage @a[r=5, has_property={arx:is_knocked=false}] 20 entity_attack",
+						"scoreboard players add @a[r=5, has_property={arx:is_knocked=false}] vicious_flame 5",
 						"tag @s add rested",
 						"event entity @s main_stage_redirect"
 					]
@@ -369,12 +369,12 @@
 					"command": [
 						"playanimation @s animation.vicious_demon.cast_default_damage_spell",
 						"particle arx:vicious_demon_spawn_flame_outward ~ ~ ~",
-						"execute at @p[r=15, has_property={arx:is_knocked=0}] run particle arx:sempra_a ~ ~1 ~",
-						"damage @p[r=15, scores={tick_nosempra_a=0, tick_nosempra_b=0, tick_nosempra_c=0}, has_property={arx:is_knocked=0}] 8 entity_attack entity @s",
-						"damage @p[r=15, scores={tick_nosempra_a=!0}, has_property={arx:is_knocked=0}] 6 entity_attack entity @s",
-						"damage @p[r=15, scores={tick_nosempra_b=!0}, has_property={arx:is_knocked=0}] 4 entity_attack entity @s",
-						"damage @p[r=15, scores={tick_nosempra_c=!0}, has_property={arx:is_knocked=0}] 0 entity_attack entity @s",
-						"execute if entity @s[tag=hp_0_to_25] run effect @p[r=15, has_property={arx:is_knocked=0}] levitation 1 1 true",
+						"execute at @p[r=15, has_property={arx:is_knocked=false}] run particle arx:sempra_a ~ ~1 ~",
+						"damage @p[r=15, scores={tick_nosempra_a=0, tick_nosempra_b=0, tick_nosempra_c=0}, has_property={arx:is_knocked=false}] 8 entity_attack entity @s",
+						"damage @p[r=15, scores={tick_nosempra_a=!0}, has_property={arx:is_knocked=false}] 6 entity_attack entity @s",
+						"damage @p[r=15, scores={tick_nosempra_b=!0}, has_property={arx:is_knocked=false}] 4 entity_attack entity @s",
+						"damage @p[r=15, scores={tick_nosempra_c=!0}, has_property={arx:is_knocked=false}] 0 entity_attack entity @s",
+						"execute if entity @s[tag=hp_0_to_25] run effect @p[r=15, has_property={arx:is_knocked=false}] levitation 1 1 true",
 						"effect @s slowness 1 3 true",
 						"playsound dissecting_fog @a ~ ~ ~"
 					]

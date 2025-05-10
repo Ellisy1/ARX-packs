@@ -10,5 +10,5 @@
 
     # Игроки близко
         execute if entity @s[tag=allow_melee_attack] if entity @a[scores={verify=2, custom_random=0..100}] run playanimation @s animation.march.strike_with_leg_0_phase
-        execute if entity @s[tag=allow_melee_attack] if entity @a[scores={verify=2, custom_random=0..100}] run damage @p[r=3, m=!spectator, has_property={arx:is_knocked=0}] 12
+        execute if entity @s[tag=allow_melee_attack] if entity @a[scores={verify=2, custom_random=0..100}] run damage @p[r=3, m=!spectator, has_property={arx:is_knocked=false}] 12
         execute if entity @s[tag=allow_melee_attack] if entity @a[scores={verify=2, custom_random=0..100}] run playsound axe_use @a ~ ~ ~

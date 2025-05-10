@@ -21,4 +21,4 @@
     execute at @s[hasitem={item=arx:amul_of_splash, location=slot.armor.legs}] run particle arx:amul_of_splash ~ ~1.5 ~ 
 
 # Встаем, если притворялись мертвым
-    event entity @s[has_property={arx:is_knocked=1..}, scores={respawn_delay=0}, tag=!is_riding] arx:property_is_knockout_set_0
+    event entity @s[has_property={arx:is_knocked=true}, scores={respawn_delay=0}, tag=!is_riding] arx:property_is_knockout_set_0

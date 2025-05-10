@@ -7,6 +7,7 @@ import { increaseSkillLevel, increaseSkillProgress, wipeSkills } from '../skills
 import { checkForItem } from "../checkForItem"
 import { ModalFormData, MessageFormData, MessageFormResponse } from "@minecraft/server-ui"
 import { setRandomTastes } from '../food/setRandomTastes'
+import { getPlayersInRadius } from '../getPlayersInRadius'
 
 // Импорт - другие области движка
 import './music_core'
@@ -94,6 +95,24 @@ system.runInterval(() => {
                 }
             }
         }
+
+        // Система нокаута
+        {
+            // Если мы притворяемся нокнутыми, но начали двигаться
+            if (player.getProperty('arx:is_knocked') === true && player.getDynamicProperty('respawnDelay') === 0 && player.hasTag('is_moving') && !player.hasTag('is_riding')) {
+                
+            }
+
+            // Если игрока тащат, и скидывают
+            if (player.hasTag('has_riders') && player.hasTag('is_sneaking')) {
+                const carriedPlayer = getNearestPlayer(player)
+                if (carriedPlayer.hasTag('is_riding') && carriedPlayer.getProperty('arx:is_knocked') === true && carriedPlayer.getDynamicProperty('respawnDelay') === 0) {
+                    carriedPlayer.setProperty('arx:is_knocked', false)
+                }
+                player.runCommand('execute as @p[tag=is_riding, has_property={arx:is_knocked=false}] run inputpermission set @s movement enabled')
+                player.runCommand('ride @s evict_riders')
+            }
+        }
     }
 }, 1);
 
@@ -123,7 +142,7 @@ system.runInterval(() => {
             basicStrength += (player.getDynamicProperty('skill:strength_level') / 2)
 
             // Нокаут
-            if (player.getProperty('arx:is_knocked') != 0) { basicStrength -= 999 }
+            if (player.getProperty('arx:is_knocked') == true) { basicStrength -= 999 }
 
             // Нет перса
             if (player.getDynamicProperty('hasRegisteredCharacter') === false) { basicStrength -= 999 }
@@ -498,7 +517,7 @@ system.runInterval(() => {
 
             const form = new ModalFormData()
                 .title("Отчет об ошибке")
-                .slider("Насколько этот баг серьёзен", 1, 5, {defaultValue: 2})
+                .slider("Насколько этот баг серьёзен", 1, 5, { defaultValue: 2 })
                 .textField("Опишите баг", "Описание")
                 .toggle("Приложить к отчёту моё местоположение")
                 .toggle("Приложить к отчёту данные о предмете в правой руке")
@@ -674,6 +693,13 @@ system.runInterval(() => {
             }
         }
 
+        // Прокачиваем силу духа (навык)
+        if (player.hasTag('very_low_hp')) {
+            increaseSkillProgress(player, 'fortitude', 20)
+        } else if (player.hasTag('low_hp')) {
+            increaseSkillProgress(player, 'fortitude', 10)
+        }
+
         // Определяем бонус призрака
         {
             if (player.getProperty('arx:is_ghost') && player.hasTag('scarlet_night') && !player.hasTag('underground')) {
@@ -823,7 +849,7 @@ system.runInterval(() => {
         // Впустую прозваниваем навык. Это делается для перерасчета бонусов увеличения опыта, следственно актуального их отображения
         increaseSkillProgress(player, "strength", 0)
 
-        // ИНТОКСИКАЦИЯ
+        // Интоксикация
         {
             // Расчёт снятия интоксикации
             let intoxicationDecreasePower = 100 // По умолчанию
@@ -871,7 +897,8 @@ system.runInterval(() => {
 
             player.setDynamicProperty("intoxicationLevel", intoxicationLevel)
         }
-        // НАРКОТИКИ
+
+        // Наркотики
         {
             // СЪЕДАНИЕ
             let FiolixNarcoticPower = player.getDynamicProperty('FiolixNarcoticPower')
@@ -941,7 +968,8 @@ system.runInterval(() => {
             if (FiolixNarcoticPower > 0 && FiolixNarcoticPower < 150) { player.runCommand(`effect @s darkness 10 0 true`) }
             if (FiolixNarcoticPower > 0 && FiolixNarcoticPower < 150) { player.runCommand(`effect @s fatal_poison 10 0 true`) }
         }
-        // ТОЧНОСТЬ СТРЕЛКОВЫХ
+
+        // Точность стрелковых
         {
             let rangedAttackAccuracy = 0
 
@@ -989,12 +1017,13 @@ system.runInterval(() => {
 
             player.setProperty("arx:ranged_attack_accuracy", rangedAttackAccuracy)
         }
+
         // Копание
         {
             let diggingSpeed = 0
 
             // Определяем значение
-            if (player.getProperty('arx:is_knocked') != 0) { diggingSpeed -= 255 }
+            if (player.getProperty('arx:is_knocked') == true) { diggingSpeed -= 255 }
 
             // Штраф от намокания
             if (getScore(player, "water_delay") > 200) { diggingSpeed -= 1 }
@@ -1008,6 +1037,7 @@ system.runInterval(() => {
             if (diggingSpeed < 0) { player.runCommand(`effect @s mining_fatigue 2 ${Math.abs(diggingSpeed)} true`) }
             if (diggingSpeed > 0) { player.runCommand(`effect @s haste 2 ${diggingSpeed} true`) }
         }
+
         // Холод - жара
         {
             let freezing = player.getDynamicProperty('freezing')
@@ -1064,6 +1094,7 @@ system.runInterval(() => {
 
             player.setDynamicProperty('freezing', freezing)
         }
+
         // Кровотечение при низком хп
         if (player.getProperty('arx:is_ghost') == false) {
             if (player.getTags().includes('low_hp') && Math.random() > 0.6) {
@@ -1071,6 +1102,142 @@ system.runInterval(() => {
             }
             if (player.getTags().includes('very_low_hp')) {
                 player.runCommand('particle arx:blood_drop_bright')
+            }
+        }
+
+        // Система нокаута игрока
+        {
+            // respawnDelay - задержка до момента, когда игрок встанет естественным образом
+            // reviveDelay - время, пока игрока поднимают. Хранится на нокнутом поднимаемом игроке
+
+            // Обнаржуение входа в нокаут
+            if (player.getDynamicProperty('respawnDelay') > player.getDynamicProperty('respawnDelayLastPass')) {
+                player.runCommand('inputpermission set @s camera disabled')
+                player.runCommand('inputpermission set @s movement disabled')
+            }
+
+            // Выход из нокаута (именно не вставание, а выход из нокаута. Игрок может продолжить лежать и притворяться мертвым)
+            if (player.getDynamicProperty('respawnDelay') < player.getDynamicProperty('respawnDelayLastPass') && player.getDynamicProperty('respawnDelay') === 0) {
+                // Разблокировываем движение
+                player.runCommand('inputpermission set @s camera enabled')
+                if (!player.hasTag('is_riding')) { player.runCommand('inputpermission set @s movement enabled') }
+
+                // Говорим фразу
+                {
+                    const rand = Math.floor(Math.random() * 3)
+                    let text
+                    switch (rand) {
+                        case 0:
+                            text = 'Где я...?'
+                            break
+                        case 1:
+                            text = 'Сколько прошло времени...?'
+                            break
+                        case 2:
+                            text = 'Как больно...'
+                            break
+                    }
+
+                    player.runCommand(`tellraw @s { "rawtext": [ { "text": "§o§e${text}" } ] }`)
+                }
+
+                // Если есть кристалл быстрого возрождения
+                {
+                    if (player.hasTag('crystal_of_shield_activate')) {
+                        player.runCommand(`tellraw @s { "rawtext": [ { "text": "§aВас защищает магическая сила (кристалл щита активен)" } ] }`)
+                        player.runCommand('effect @s resistance 60 0 true')
+                        player.removeTag('crystal_of_shield_activate')
+                    }
+                }
+
+                // Снимаем кристалл второй жизни
+                player.removeTag('crystal_of_second_life_activate')
+
+                // Очищаем блокировщики слота
+                player.runCommand('clear @s arx:slot_blocker')
+
+                // Выставляем счетчик ряда смертей
+                setScore(player, 'knockout_row_sounter', 0)
+            }
+
+            // Обработка ресанья от лица игрока, который сам ресает игрока
+            if (player.getProperty('arx:is_knocked') === false, player.hasTag('is_sneaking')) {
+
+                // Определяем скорость ресанья
+                let reviveSpeedValue = 1
+                if (checkForItem(player, 'Legs', 'arx:amul_revive')) { // Увеличиваем, если есть амуль быстрого воскрешения
+                    reviveSpeedValue += 2
+                }
+
+                // Получаем всех игроков поблизости
+                const nearbyPlayers = getPlayersInRadius(player, 1.5)
+
+                // Ресаем
+                for (const nearbyPlayer of nearbyPlayers) {
+                    if (nearbyPlayer.getProperty('arx:is_knocked') === true && !nearbyPlayer.hasTag('is_riding')) {
+                        nearbyPlayer.setDynamicProperty('reviveDelay', nearbyPlayer.getDynamicProperty('reviveDelay') + reviveSpeedValue)
+                        displayRespawnLine(nearbyPlayer, player) // Отображаем линию воскрешения ресающему
+                        displayRespawnLine(nearbyPlayer, nearbyPlayer) // Отображаем линию воскрешения тому кого ресают
+
+                        // Мы воскресили до нужного reviveDelay (reviveDelay === 10)
+                        if (nearbyPlayer.getDynamicProperty('reviveDelay') === 10) {
+                            // Отправляем сообщение поднимаемому
+                            if (nearbyPlayer.getDynamicProperty("respawnDelay") === 0) {
+                                nearbyPlayer.runCommand(`tellraw @s { "rawtext": [ { "text": "${player.getDynamicProperty('name')} §aпомогает мне. Притворяться вырубленным сейчас не выйдет" } ] }`)
+                            } else {
+                                nearbyPlayer.runCommand(`tellraw @s { "rawtext": [ { "text": "${player.getDynamicProperty('name')} §aпомогает мне" } ] }`)
+                            }
+                            // Отправляем сообщение поднимающему
+                            player.runCommand(`tellraw @s { "rawtext": [ { "text": "${nearbyPlayer.getDynamicProperty('name')} §aчувствует себя лучше" } ] }`)
+
+                            // Выставляем данные
+                            nearbyPlayer.setDynamicProperty('respawnDelay', 0)
+                            nearbyPlayer.setProperty("arx:is_knocked", false)
+                            nearbyPlayer.runCommand('event entity @s arx:property_is_knockout_set_0')
+                        }
+                    }
+                }
+            }
+
+            // Обработка нокнутого игрока
+            if (player.getProperty('arx:is_knocked') === true) {
+                // Если нас перестали ресать, то сбрасываем прогресс ресанья
+                {
+                    // Получаем всех игроков поблизости
+                    const nearbyPlayers = getPlayersInRadius(player, 1.5)
+                    // Проверяем, есть ли хотя бы один тот, кто ресает
+                    let someoneWhoIsHelpingMe = false
+                    for (const nearbyPlayer of nearbyPlayers) {
+                        if (nearbyPlayer.getProperty('arx:is_knocked') === false, nearbyPlayer.hasTag('is_sneaking')) {
+                            someoneWhoIsHelpingMe = true
+                        }
+                    }
+                    if (!someoneWhoIsHelpingMe) {
+                        player.setDynamicProperty('reviveDelay', 0)
+                    }
+                }
+                // Темнеем камеру
+                if (player.getDynamicProperty('respawnDelay') == 6) {
+                    player.runCommand('camera @s fade time 0 0 10 color 20 3 3')
+                } else if (player.getDynamicProperty('respawnDelay') > 6) {
+                    player.runCommand('camera @s fade time 0 2 0 color 20 3 3')
+                }
+            }
+
+            // Обработка переменных
+            player.setDynamicProperty('respawnDelayLastPass', player.getDynamicProperty('respawnDelay'))
+            if (player.getDynamicProperty('respawnDelay') > 0) {
+                player.setDynamicProperty('respawnDelay', player.getDynamicProperty('respawnDelay') - 1)
+            }
+
+            // Функия рисования линии респавна
+            function displayRespawnLine(playerWhoIsKnocked, playerToDisplay) {
+                const reviveValue = playerWhoIsKnocked.getDynamicProperty('reviveDelay')
+                let resultLine = ''
+                for (let i = 0; i < reviveValue; i++) {
+                    resultLine += '█ '
+                }
+                playerToDisplay.runCommand(`title @s actionbar §a${resultLine.slice(0, -1)}`) // Выводим, срезая пробел сзади строки
             }
         }
     }

@@ -15,6 +15,7 @@ export function arxSettings(player) {
     if (player.getDynamicProperty('myRule:showAttackCDMode') === 'none') {showAttackCDModeDefaultSliderPos = 3}
 
     const canSeeServerSpeedInInfoBookDefaultTogglePos = player.getDynamicProperty('myRule:canSeeServerSpeedInInfoBook')
+    const cinematographicModeDefaultTogglePos = player.getDynamicProperty('myRule:cinematographicMode')
 
     const form = new ModalFormData()
         .title("Настройки Аркса")
@@ -22,6 +23,7 @@ export function arxSettings(player) {
         .dropdown('Отображение §bманы', ['Натуральные числа', 'Десятичные дроби', '§cНе отображать'], {defaultValueIndex: manaDisplayModeDefaultDropdownPos})
         .dropdown('Отображение §cотката атаки', ['Секунды', 'Такты (сек/20)', 'Линия', '§cНе отображать'], {defaultValueIndex: showAttackCDModeDefaultSliderPos})
         .toggle("Отображение производительности в <Инфо>", {defaultValue: canSeeServerSpeedInInfoBookDefaultTogglePos})
+        .toggle("Кинематографический режим", {defaultValue: cinematographicModeDefaultTogglePos, tooltip: 'Вы сможете вызывать меню управления камерой, использовав предмет <Инфо> на присяде.'})
 
 
         .submitButton('Сохранить')
@@ -40,6 +42,8 @@ export function arxSettings(player) {
                 else if (response.formValues[1] === 3) {player.setDynamicProperty('myRule:showAttackCDMode', 'none')}
 
                 player.setDynamicProperty('myRule:canSeeServerSpeedInInfoBook', response.formValues[2])
+
+                player.setDynamicProperty('myRule:cinematographicMode', response.formValues[3])
             }
         })
 }

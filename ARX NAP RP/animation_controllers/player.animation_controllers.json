@@ -119,7 +119,7 @@
 						{"paperdoll": "variable.is_paperdoll"},
 						{"first_person": "variable.is_first_person"},
 						{"map_player": "variable.map_face_icon"},
-						{"third_person": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_heavy_sword') || q.property('arx:is_knocked') > 0"}
+						{"third_person": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_heavy_sword') || q.property('arx:is_knocked') == true"}
 					],
 					"blend_transition": 0.1
 				},
@@ -154,7 +154,7 @@
 						{"paperdoll": "variable.is_paperdoll"},
 						{"first_person": "variable.is_first_person"},
 						{"map_player": "variable.map_face_icon"},
-						{"third_person": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_hheavy_sword') || q.property('arx:is_knocked') > 0"}
+						{"third_person": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_hheavy_sword') || q.property('arx:is_knocked') == true"}
 					],
 					"blend_transition": 0.1
 				},
@@ -188,7 +188,7 @@
 						{"paperdoll": "variable.is_paperdoll"},
 						{"first_person": "variable.is_first_person"},
 						{"map_player": "variable.map_face_icon"},
-						{"third_person": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_long_sword') || q.property('arx:is_knocked') > 0"}
+						{"third_person": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_long_sword') || q.property('arx:is_knocked') == true"}
 					],
 					"blend_transition": 0.1
 				},
@@ -222,7 +222,7 @@
 						{"paperdoll": "variable.is_paperdoll"},
 						{"first_person": "variable.is_first_person"},
 						{"map_player": "variable.map_face_icon"},
-						{"third_person": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_dagger') || q.property('arx:is_knocked') > 0"}
+						{"third_person": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_dagger') || q.property('arx:is_knocked') == true"}
 					],
 					"blend_transition": 0.1
 				},
@@ -256,7 +256,7 @@
 						{"paperdoll": "variable.is_paperdoll"},
 						{"first_person": "variable.is_first_person"},
 						{"map_player": "variable.map_face_icon"},
-						{"third_person": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_lance') || q.property('arx:is_knocked') > 0"}
+						{"third_person": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_lance') || q.property('arx:is_knocked') == true"}
 					],
 					"blend_transition": 0.1
 				},
@@ -291,7 +291,7 @@
 						{"paperdoll": "variable.is_paperdoll"},
 						{"first_person": "variable.is_first_person"},
 						{"map_player": "variable.map_face_icon"},
-						{"third_person": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_default_sword') || q.property('arx:is_knocked') > 0"},
+						{"third_person": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_default_sword') || q.property('arx:is_knocked') == true"},
 						{"third_person_default_sword_fast_move": "q.is_moving"}
 					],
 					"blend_transition": 0.5
@@ -327,7 +327,7 @@
 						{"paperdoll": "variable.is_paperdoll"},
 						{"first_person": "variable.is_first_person"},
 						{"map_player": "variable.map_face_icon"},
-						{"third_person": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_default_sword') || q.property('arx:is_knocked') > 0"},
+						{"third_person": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_default_sword') || q.property('arx:is_knocked') == true"},
 						{"third_person_default_sword": "!q.is_moving"}
 					],
 					"blend_transition": 0
@@ -362,7 +362,7 @@
 						{"paperdoll": "variable.is_paperdoll"},
 						{"first_person": "variable.is_first_person"},
 						{"map_player": "variable.map_face_icon"},
-						{"third_person": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_scythe') || q.property('arx:is_knocked') > 0"}
+						{"third_person": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_scythe') || q.property('arx:is_knocked') == true"}
 					],
 					"blend_transition": 0.1
 				},
@@ -396,7 +396,7 @@
 						{"paperdoll": "variable.is_paperdoll"},
 						{"first_person": "variable.is_first_person"},
 						{"map_player": "variable.map_face_icon"},
-						{"third_person": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_staff') || q.property('arx:is_knocked') > 0"},
+						{"third_person": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_staff') || q.property('arx:is_knocked') == true"},
 						{"third_person_staff_moving": "q.is_moving"}
 					],
 					"blend_transition": 0.3
@@ -432,7 +432,7 @@
 						{"paperdoll": "variable.is_paperdoll"},
 						{"first_person": "variable.is_first_person"},
 						{"map_player": "variable.map_face_icon"},
-						{"third_person": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_staff') || q.property('arx:is_knocked') > 0"},
+						{"third_person": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_staff') || q.property('arx:is_knocked') == true"},
 						{"third_person_staff_standing": "!q.is_moving"}
 					],
 					"blend_transition": 0.3
@@ -467,7 +467,7 @@
 						{"paperdoll": "variable.is_paperdoll"},
 						{"first_person": "variable.is_first_person"},
 						{"map_player": "variable.map_face_icon"},
-						{"third_person": "!query.is_item_name_any('slot.weapon.mainhand', 0, 'arx:moder_gun') || q.property('arx:is_knocked') > 0"}
+						{"third_person": "!query.is_item_name_any('slot.weapon.mainhand', 0, 'arx:moder_gun') || q.property('arx:is_knocked') == true"}
 					],
 					"blend_transition": 0.1
 				},
@@ -502,7 +502,7 @@
 						{"paperdoll": "variable.is_paperdoll"},
 						{"first_person": "variable.is_first_person"},
 						{"map_player": "variable.map_face_icon"},
-						{"third_person": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_umbrella') || q.property('arx:is_knocked') > 0"}
+						{"third_person": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_umbrella') || q.property('arx:is_knocked') == true"}
 					],
 					"blend_transition": 0.1
 				},
@@ -537,7 +537,7 @@
 						{"paperdoll": "variable.is_paperdoll"},
 						{"first_person": "variable.is_first_person"},
 						{"map_player": "variable.map_face_icon"},
-						{"third_person": "!query.is_item_name_any('slot.weapon.mainhand', 'minecraft:torch') || q.property('arx:is_knocked') > 0"}
+						{"third_person": "!query.is_item_name_any('slot.weapon.mainhand', 'minecraft:torch') || q.property('arx:is_knocked') == true"}
 					],
 					"blend_transition": 0.1
 				},
@@ -550,10 +550,10 @@
 						"none"
 					],
 					"transitions": [
-						{"carried_by_someone_static": "query.property('arx:is_knocked') > 0 && q.is_riding"},
-						{"knockout_var_a": "query.property('arx:is_knocked') == 1"},
-						{"knockout_var_b": "query.property('arx:is_knocked') == 2"},
-						{"third_person": "query.property('arx:is_knocked') == 0"}
+						{"carried_by_someone_static": "query.property('arx:is_knocked') == true && q.is_riding"},
+						{"knockout_var_a": "query.property('arx:is_knocked_anim_var') == 0"},
+						{"knockout_var_b": "query.property('arx:is_knocked_anim_var') == 1"},
+						{"third_person": "query.property('arx:is_knocked') == false"}
 					],
 					"blend_transition": 0.1
 				},
@@ -566,7 +566,7 @@
 					],
 					"transitions": [
 						{"carried_by_someone_moving": "query.cape_flap_amount > 0.2"},
-						{"third_person": "query.property('arx:is_knocked') == 0"},
+						{"third_person": "query.property('arx:is_knocked') == false"},
 						{"knockout_tracer": "!q.is_riding"}
 					],
 					"blend_transition": 0.3
@@ -580,7 +580,7 @@
 					],
 					"transitions": [
 						{"carried_by_someone_static": "query.cape_flap_amount < 0.15"},
-						{"third_person": "query.property('arx:is_knocked') == 0"},
+						{"third_person": "query.property('arx:is_knocked') == false"},
 						{"knockout_tracer": "!q.is_riding"}
 					],
 					"blend_transition": 0.3
@@ -595,7 +595,7 @@
 					],
 					"transitions": [
 						{"knockout_tracer": "q.is_riding"},
-						{"third_person": "query.property('arx:is_knocked') == 0"}
+						{"third_person": "query.property('arx:is_knocked') == false"}
 					],
 					"blend_transition": 0.1
 				},
@@ -608,7 +608,7 @@
 					],
 					"transitions": [
 						{"knockout_tracer": "q.is_riding"},
-						{"third_person": "query.property('arx:is_knocked') == 0"}
+						{"third_person": "query.property('arx:is_knocked') == false"}
 					],
 					"blend_transition": 0.1
 				}

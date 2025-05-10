@@ -55,23 +55,8 @@
     camera @a[scores={vicious_flame=1..}] fade time 0.5 0 0.5 color 0 150 0
     scoreboard players add @e[scores={vicious_flame=1..}] vicious_flame -1
 
-#Насыщение
-    #Даем титл если снова можно поесть
-        tellraw @a[scores={saturation=1, gender=1, c_rude=0}] { "rawtext": [ { "text": "§aЯ был бы не против перекусить" } ] }
-        tellraw @a[scores={saturation=1, gender=2, c_rude=0}] { "rawtext": [ { "text": "§aЯ была бы не против перекусить" } ] }
-        tellraw @a[scores={saturation=1, c_rude=1.., custom_random=0..333}] { "rawtext": [ { "text": "§aЕбать, сейчас бы пожрать чё-нить" } ] }
-        tellraw @a[scores={saturation=1, c_rude=1.., custom_random=334..666}] { "rawtext": [ { "text": "§aБляяя, жрать хочу" } ] }
-        tellraw @a[scores={saturation=1, c_rude=1.., custom_random=667..1000}] { "rawtext": [ { "text": "§aСука, сожрал бы коня блядь" } ] }
-    #Снимаем поинт
-        scoreboard players add @a[scores={saturation=1..}] saturation -1
-    #Выдаем насыщение
-        effect @a[scores={saturation=1..}] saturation 1 0 true
-
 # Звуки от Газгольдера Истрибитора
     execute as @e[type=arx:gasgolder_istribitor] at @s run playsound gasgolder_istribitor_saw @a ~ ~ ~ 
-
-# Снижение переменной свитка хила
-    scoreboard players add @a[scores={heal_scrl_durt=1..}] heal_scrl_durt -1
 
 # Маги-фонари (анализ исчезновения)
     scoreboard players add @a[scores={allow_magilight=1..}] allow_magilight -1
@@ -154,14 +139,7 @@
     # Нагреватели
         tag @a[tag=!heating_by_heater_block_control] remove heating_by_heater_block_activate
         tag @a remove heating_by_heater_block_control
-
-# Партиклы в голубом озере
-    particle arx:blue_bliss 21 2 -83
-
-# Активируем или выключаем свет в МЭ зависимо от трассировки
-    execute if entity @a[scores={verify=2, e19_tracer_condition=10, e19_generator_enabled=1}] run fill -159 67 135 -159 67 135 minecraft:redstone_block
-    execute unless entity @a[scores={verify=2, e19_tracer_condition=10, e19_generator_enabled=1}] run fill -159 67 135 -159 67 135 minecraft:air
-
+        
 # Анализ алых ночей
     tag @a remove scarlet_night
     execute as @a if entity @s[scores={is_day=0}] run event entity @a arx:test_moon_phase
@@ -353,67 +331,6 @@
     # Чистка
         tag @a remove tongs
         tag @a remove tongs_super
-
-# Нокаут
-    # Вход в нокаут
-        execute as @a if score @s respawn_delay > @s respawn_delay_history run inputpermission set @s camera disabled
-        execute as @a if score @s respawn_delay > @s respawn_delay_history run inputpermission set @s movement disabled
-        
-    # Выход из нокаута (именно не вставание, а выход из нокаута. Игрок может продолжить лежать и притворяться мертвым)
-        execute as @a[scores={respawn_delay=0}] if score @s respawn_delay < @s respawn_delay_history run inputpermission set @s camera enabled
-        execute as @a[scores={respawn_delay=0}] if score @s respawn_delay < @s respawn_delay_history run inputpermission set @s[tag=!is_riding] movement enabled
-        execute as @a[scores={respawn_delay=0}] if score @s respawn_delay < @s respawn_delay_history run tellraw @s[scores={custom_random=0..333}] { "rawtext": [ { "text": "§o§eГде я...?" } ] }
-        execute as @a[scores={respawn_delay=0}] if score @s respawn_delay < @s respawn_delay_history run tellraw @s[scores={custom_random=334..666}] { "rawtext": [ { "text": "§o§eСколько прошло времени...?" } ] }
-        execute as @a[scores={respawn_delay=0}] if score @s respawn_delay < @s respawn_delay_history run tellraw @s[scores={custom_random=667..1000}] { "rawtext": [ { "text": "§o§eКак больно..." } ] }
-        execute as @a[scores={respawn_delay=0}] if score @s respawn_delay < @s respawn_delay_history if entity @s[tag=crystal_of_shield_activate] run tellraw @s { "rawtext": [ { "text": "§aВас защищает магическая сила (кристалл щита активен)" } ] }
-        execute as @a[scores={respawn_delay=0}] if score @s respawn_delay < @s respawn_delay_history if entity @s[tag=crystal_of_shield_activate] run effect @s resistance 60 0 true
-        execute as @a[scores={respawn_delay=0}] if score @s respawn_delay < @s respawn_delay_history run scoreboard players set @s knockout_row_sounter 0
-        execute as @a[scores={respawn_delay=0}] if score @s respawn_delay < @s respawn_delay_history run tag @s remove crystal_of_shield_activate
-        execute as @a[scores={respawn_delay=0}] if score @s respawn_delay < @s respawn_delay_history run tag @s remove crystal_of_second_life_activate
-        execute as @a[scores={respawn_delay=0}] if score @s respawn_delay < @s respawn_delay_history run clear @s arx:slot_blocker
-
-    # Темнеем камеру, если нокнуты
-        execute as @a[scores={respawn_delay=6}] run camera @s fade time 0 0 10 color 20 3 3
-
-    # Ресанье игрока
-        execute as @a[has_property={arx:is_knocked=1..}, tag=!is_riding] at @s if entity @a[has_property={arx:is_knocked=0}, tag=is_sneaking, r=2.2, rm=0.001] run scoreboard players add @s revive_delay 1
-        execute as @a[has_property={arx:is_knocked=1..}, tag=!is_riding] at @s if entity @a[has_property={arx:is_knocked=0}, tag=is_sneaking, r=2.2, rm=0.001, hasitem={item=arx:amul_revive, location=slot.armor.legs}] run scoreboard players add @s revive_delay 2
-
-        execute as @a[has_property={arx:is_knocked=1..}] at @s unless entity @a[has_property={arx:is_knocked=0}, tag=is_sneaking, r=2.2, rm=0.001] run scoreboard players set @s revive_delay 0
-
-        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=1}] at @s run title @a[tag=is_sneaking, r=2.2, rm=0.001] actionbar §a█
-        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=1}] run title @s actionbar §a█
-        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=2}] at @s run title @a[tag=is_sneaking, r=2.2, rm=0.001] actionbar §a█ █
-        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=2}] run title @s actionbar §a█ █
-        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=3}] at @s run title @a[tag=is_sneaking, r=2.2, rm=0.001] actionbar §a█ █ █
-        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=3}] run title @s actionbar §a█ █ █
-        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=4}] at @s run title @a[tag=is_sneaking, r=2.2, rm=0.001] actionbar §a█ █ █ █
-        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=4}] run title @s actionbar §a█ █ █ █
-        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=5}] at @s run title @a[tag=is_sneaking, r=2.2, rm=0.001] actionbar §a█ █ █ █ █
-        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=5}] run title @s actionbar §a█ █ █ █ █
-        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=6}] at @s run title @a[tag=is_sneaking, r=2.2, rm=0.001] actionbar §a█ █ █ █ █ █
-        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=6}] run title @s actionbar §a█ █ █ █ █ █
-        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=7}] at @s run title @a[tag=is_sneaking, r=2.2, rm=0.001] actionbar §a█ █ █ █ █ █ █
-        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=7}] run title @s actionbar §a█ █ █ █ █ █ █
-        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=8}] at @s run title @a[tag=is_sneaking, r=2.2, rm=0.001] actionbar §a█ █ █ █ █ █ █ █
-        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=8}] run title @s actionbar §a█ █ █ █ █ █ █ █
-        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=9}] at @s run title @a[tag=is_sneaking, r=2.2, rm=0.001] actionbar §a█ █ █ █ █ █ █ █ █
-        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=9}] run title @s actionbar §a█ █ █ █ █ █ █ █ █
-        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=10..}] at @s run title @a[tag=is_sneaking, r=2.2, rm=0.001] actionbar §a█ █ █ █ █ █ █ █ █ █
-        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=10..}] run title @s actionbar §a█ █ █ █ █ █ █ █ █ █
-        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=10.., respawn_delay=1..}] at @s run tellraw @s { "rawtext": [ { "selector": "@a[has_property={arx:is_knocked=0}, tag=is_sneaking, r=2.2, rm=0.001]" }, { "text": " §aпомогает мне" } ] }
-        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=10.., respawn_delay=1..}] at @s run scoreboard players add @s stress -1500
-        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=10.., respawn_delay=0}] at @s run tellraw @s { "rawtext": [ { "selector": "@a[has_property={arx:is_knocked=0}, tag=is_sneaking, r=2.2, rm=0.001]" }, { "text": " §aпомогает мне. Притворяться вырубленным сейчас не выйдет" } ] }
-        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=10..}] at @s run tellraw @a[tag=is_sneaking, r=2.2, rm=0.001] { "rawtext": [ { "selector": "@s" }, { "text": " §aстановится лучше" } ] }
-        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=10..}] run camera @s fade time 0 0 5 color 20 3 3
-        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=10..}] run clear @s arx:slot_blocker
-        execute as @a[has_property={arx:is_knocked=1..}, scores={revive_delay=10..}] run event entity @s arx:property_is_knockout_set_0
-
-    # Обработка переменных (Должно быть последним в блоке "Нокаут")
-        execute as @a run scoreboard players operation @s respawn_delay_history = @s respawn_delay
-        scoreboard players add @a[scores={respawn_delay=1..}] respawn_delay -1
-
-        tag @s remove __died_last_second__
 
 # Снятие масла при активных лампах
     scoreboard players add @a[scores={lamp_oil=1..}, hasitem={item=arx:belt_lamp, location=slot.armor.legs}] lamp_oil -150

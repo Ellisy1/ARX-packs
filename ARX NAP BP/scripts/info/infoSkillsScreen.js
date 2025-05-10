@@ -27,7 +27,7 @@ export function infoSkillsScreen(player) {
             } else if (response.selection === 2) {
                 const form3 = new ActionFormData()
                     .title("Бонусы от навыков")
-                    .body("За каждый уровень навыка:\n\n" + getInfoAboutSkillsBuffs(player))
+                    .body(`За §a1 уровень§f навыка:\n\n${getInfoAboutSkillsBuffs(player)}`)
                     .show(player)
             }
         })

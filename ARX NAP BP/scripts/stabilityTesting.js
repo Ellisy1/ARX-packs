@@ -1,4 +1,4 @@
-import { system, world } from "@minecraft/server"
+import { system } from "@minecraft/server"
 
 // Этот код отвечает за проведение тестов стабильности Аркса
 import { getMoscowTime } from './date'

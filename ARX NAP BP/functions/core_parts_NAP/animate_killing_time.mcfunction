@@ -302,20 +302,20 @@
 
     tag @s[hasitem={item=arx:dildo, location=slot.weapon.mainhand}] add no_animate_killing_time
 
-    tag @s[has_property={arx:is_knocked=1..}] add no_animate_killing_time
+    tag @s[has_property={arx:is_knocked=true}] add no_animate_killing_time
 
     tag @s[tag=block_animate_killing_time_during_emotion] add no_animate_killing_time
 
-    execute as @a[tag=is_riding, has_property={arx:is_knocked=1..}] at @s run tag @p[r=0.8, tag=has_riders] add no_animate_killing_time
+    execute as @a[tag=is_riding, has_property={arx:is_knocked=true}] at @s run tag @p[r=0.8, tag=has_riders] add no_animate_killing_time
 
 # Нельзя анимировать если мы лежим/сидим
     tag @s[tag=is_riding] add no_animate_killing_time
 
 
 # Запуск анимации
-    playanimation @s[tag=!no_animate_killing_time, scores={custom_random=0..333}] animation.killing_time.a a 0.1 "query.is_moving || q.property('arx:is_knocked') > 0"
-    playanimation @s[tag=!no_animate_killing_time, scores={custom_random=333..666}] animation.killing_time.b a 0.1 "query.is_moving || q.property('arx:is_knocked') > 0"
-    playanimation @s[tag=!no_animate_killing_time, scores={custom_random=666..1000}] animation.killing_time.c a 0.1 "query.is_moving || q.property('arx:is_knocked') > 0"
+    playanimation @s[tag=!no_animate_killing_time, scores={custom_random=0..333}] animation.killing_time.a a 0.1 "query.is_moving || q.property('arx:is_knocked') == true"
+    playanimation @s[tag=!no_animate_killing_time, scores={custom_random=333..666}] animation.killing_time.b a 0.1 "query.is_moving || q.property('arx:is_knocked') == true"
+    playanimation @s[tag=!no_animate_killing_time, scores={custom_random=666..1000}] animation.killing_time.c a 0.1 "query.is_moving || q.property('arx:is_knocked') == true"
 
 # Чистка тегов
     tag @s remove no_animate_killing_time

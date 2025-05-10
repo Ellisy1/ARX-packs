@@ -16,6 +16,7 @@ import './core/core'
 import './items/on_use_general'
 import './magic/on_use_magic_items'
 import './stabilityTesting'
+import './camera/processCamera'
 
 import { registerPlayerVars } from "./registerPlayerVars"
 import { checkForItem } from "./checkForItem"
@@ -27,6 +28,10 @@ world.afterEvents.playerSpawn.subscribe((event) => {
     player.runCommand("function javascript/on_player_spawn")
     player.runCommand("function javascript/scores_autoreg")
     player.addTag("just_entered_arx")
+
+    player.setDynamicProperty('camera:activeCamera', false)
+    player.setDynamicProperty('camera:tickCountdownToNextTimecode', 0)
+    player.setDynamicProperty('camera:numOfProcessedTimecodes', 0)
 
     registerPlayerVars(player)
 
@@ -76,9 +81,9 @@ world.afterEvents.playerInteractWithEntity.subscribe((interactEvent) => {
             const allow_carrying_by_cam_angle = taken.getTags().includes('allow_carrying_by_cam_angle')
             taken.removeTag('allow_carrying_by_cam_angle')
 
-            if (self.getProperty("arx:is_knocked") == 0 && getDistanceBetweenPlayers(taken, self) < 1.5 && !self.getTags().includes('has_riders') && !self.getTags().includes('is_sneaking')) { // Базовая проверка, можем ли мы вообще кого-то нести
+            if (self.getProperty("arx:is_knocked") == false && getDistanceBetweenPlayers(taken, self) < 1.5 && !self.getTags().includes('has_riders') && !self.getTags().includes('is_sneaking')) { // Базовая проверка, можем ли мы вообще кого-то нести
 
-                if ((taken.getProperty("arx:is_knocked") != 0) || (taken.getTags().includes('is_sneaking') && allow_carrying_by_cam_angle && !taken.getTags().includes('is_moving'))) { // Если поднимаемый нокнут ИЛИ если поднимаемый НЕ нокнут, НО его можно взять
+                if ((taken.getProperty("arx:is_knocked") != false) || (taken.getTags().includes('is_sneaking') && allow_carrying_by_cam_angle && !taken.getTags().includes('is_moving'))) { // Если поднимаемый нокнут ИЛИ если поднимаемый НЕ нокнут, НО его можно взять
                     taken.runCommand(`ride @s start_riding ${self?.name} teleport_rider`)
                     taken.runCommand('event entity @s arx:property_is_knockout_set_true')
                     self.runCommand('playanimation @s animation.player.pick_up_knocked_player')
@@ -276,16 +281,28 @@ system.beforeEvents.startup.subscribe(initEvent => {
 
 // Смерти сущностей
 world.afterEvents.entityDie.subscribe((dieEvent) => {
+    // Если умер игрок
     if (dieEvent.deadEntity.typeId === "minecraft:player") {
         const player = dieEvent.deadEntity
+
+        // Спавним гроб
         player.runCommand("summon arx:grave ^ ^ ^")
+
+        // Очищаем прогресс навыков
         wipeSkillsProgress(player)
 
         if (player.getProperty('arx:is_ghost') == true) {
             player.setDynamicProperty('ghostWithering', player.getDynamicProperty('ghostWithering') + 3000)
         }
 
+        // Выставляем вариант анимации нокаута
+        player.setProperty('arx:is_knocked_anim_var', Math.floor(Math.random() * 2))
+
+        // Запускаем MCFunction анализ
         player.runCommand("function knockout_system/on_knockout")
+
+        // Выставляем откат нокаута
+        player.setDynamicProperty('respawnDelay', 60 - player.getDynamicProperty('skill:fortitude_level') * 2)
 
         // Если мы должны умереть по рп
         if (player.hasTag("__force_to_rp_death__")) {

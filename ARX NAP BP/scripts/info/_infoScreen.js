@@ -24,41 +24,39 @@ export function infoScreen(player) {
         }
     }
 
-    form = form
-        .title("Информация")
-        .button("Гид", 'textures/ui/info/guide')
-        .button("О персонаже", 'textures/ui/info/about_character')
-        .button("Навыки", 'textures/ui/info/about_skills')
-        .button("Характеристики", 'textures/ui/info/about_stats')
-        .button("Черты характера", 'textures/ui/info/about_traits')
-        .button("Вкусы", 'textures/ui/info/about_tastes')
-        .button("Достижения", 'textures/ui/info/about_achievements')
-        .button("Настройки Аркса", 'textures/ui/info/options')
-        .button("Статистика", 'textures/ui/info/about_statistics')
-        .button("Авторы и разработчики", 'textures/ui/info/about_authors')
+    form.title("Информация")
+    form.button("Гид", 'textures/ui/info/guide')
+    form.button("О персонаже", 'textures/ui/info/about_character')
+    form.button("Навыки", 'textures/ui/info/about_skills')
+    form.button("Характеристики", 'textures/ui/info/about_stats')
+    form.button("Черты характера", 'textures/ui/info/about_traits')
+    form.button("Вкусы", 'textures/ui/info/about_tastes')
+    form.button("Достижения", 'textures/ui/info/about_achievements')
+    form.button("Настройки Аркса", 'textures/ui/info/options')
+    form.button("Статистика", 'textures/ui/info/about_statistics')
+    form.button("Авторы и разработчики", 'textures/ui/info/about_authors')
 
-        .show(player)
-        .then((response) => {
-            if (response.selection === 0) {
-                guide(player)
-            } else if (response.selection === 1) {
-                infoAboutCharacter(player)
-            } else if (response.selection === 2) {
-                infoSkillsScreen(player)
-            } else if (response.selection === 3) {
-                infoAboutStats(player)
-            } else if (response.selection === 4) {
-                player.runCommand('function traits/traitdata')
-            } else if (response.selection === 5) {
-                infoAboutTastes(player)
-            } else if (response.selection === 6) {
-                infoAboutAchievements(player)
-            } else if (response.selection === 7) {
-                arxSettings(player)
-            } else if (response.selection === 8) {
-                infoAboutStatistics(player)
-            } else if (response.selection === 9) {
-                player.runCommand('function info/authors')
-            }
-        })
+    form.show(player).then((response) => {
+        if (response.selection === 0) {
+            guide(player)
+        } else if (response.selection === 1) {
+            infoAboutCharacter(player)
+        } else if (response.selection === 2) {
+            infoSkillsScreen(player)
+        } else if (response.selection === 3) {
+            infoAboutStats(player)
+        } else if (response.selection === 4) {
+            player.runCommand('function traits/traitdata')
+        } else if (response.selection === 5) {
+            infoAboutTastes(player)
+        } else if (response.selection === 6) {
+            infoAboutAchievements(player)
+        } else if (response.selection === 7) {
+            arxSettings(player)
+        } else if (response.selection === 8) {
+            infoAboutStatistics(player)
+        } else if (response.selection === 9) {
+            player.runCommand('function info/authors')
+        }
+    })
 }

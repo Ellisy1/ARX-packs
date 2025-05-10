@@ -88,7 +88,7 @@ export function getInfoAboutHowToIncreaseSkills(player) {
 
     for (let skill in registeredSkills) {
 
-        resultString += `${registeredSkills[skill].nameRU} §f${registeredSkills[skill].howToIncrease}\n`
+        resultString += `${registeredSkills[skill].nameRU} §f${registeredSkills[skill].howToIncrease}\n${registeredSkills[skill].nameRU.slice(0, 2)}-----\n`
     }
 
     return resultString
@@ -100,7 +100,7 @@ export function getInfoAboutSkillsBuffs(player) {
 
     for (let skill in registeredSkills) {
 
-        resultString += `${registeredSkills[skill].nameRU} §f${registeredSkills[skill].buff}\n`
+        resultString += `${registeredSkills[skill].nameRU} §f${registeredSkills[skill].buff}\n${registeredSkills[skill].nameRU.slice(0, 2)}-----\n`
     }
 
     return resultString
@@ -164,5 +164,10 @@ export const registeredSkills = {
         nameRU: "§bПлавание",
         howToIncrease: "повышается, когда вы плаваете.",
         buff: "увеличивает скорость плавания."
+    },
+    'fortitude': {
+        nameRU: "§9Сила духа",
+        howToIncrease: "повышается, когда у вас низкий уровень здоровья.",
+        buff: "уменьшает время, которое вы пребываете в нокауте на 2 сек."
     }
 }

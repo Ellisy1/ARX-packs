@@ -562,7 +562,7 @@ export function onFoodConsume(player, foodname) {
         if (player.getProperty('arx:is_ghost') == false) {
             // Обрабатываем подсказку
             if (player.getDynamicProperty('hasEverAteSomething') !== true) {
-                player.runCommand(`tellraw @s { "rawtext": [ { "text": "[§aГид§f] > §aЕда восстанавливает§f вам §dвсю сытость§f примерно на 5 минут.\n[§aГид§f] > §aЧем вкуснее еда§f, §aтем болше счастья§f и §aболее сильную регенерацию§f вы получите при съедании.\n" } ] }`)
+                player.runCommand(`tellraw @s { "rawtext": [ { "text": "[§aГид§f] > §aЕда восстанавливает§f вам §dвсю сытость§f примерно на 5 минут.\n[§aГид§f] > §aЧем вкуснее еда§f, §aтем больше счастья§f и §aболее сильную регенерацию§f вы получите при съедании.\n" } ] }`)
             }
             player.setDynamicProperty('hasEverAteSomething', true)
 

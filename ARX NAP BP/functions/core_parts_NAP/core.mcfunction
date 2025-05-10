@@ -103,27 +103,13 @@
         execute at @a[scores={water_delay=1..}, tag=!in_block_water, m=!spectator] run particle arx:arx_water_splash_particle ~-0.2 ~ ~-0.2
         execute at @a[scores={water_delay=1..}, tag=!in_block_water, m=!spectator] run particle arx:arx_water_splash_particle ~ ~ ~
 
-# Камера на плече
-#    execute as @a[tag=shoulersurfing_camera] at @s run camera @s set minecraft:free ease 0.2 linear pos ^-1 ^2 ^-3.3 facing ^-0.8 ^2 ^0
-    
 # Твикер нажатия на блоки
     scoreboard players add @a[scores={restrict_block_interact=1..}] restrict_block_interact -1
 
 # Деспавним всех приговоренных алой ночью / обычной ночью
     execute if entity @a[scores={is_day=0}] run event entity @e[tag=force_to_despawn] arx:despawn_forced
 
-# Нокаут
-    # Темнеем камеру, если нокнуты
-        execute as @a[scores={respawn_delay=7..}] run camera @s fade time 0.1 2 0 color 20 3 3
-    # Выход из состояния нокаута
-        execute as @a[scores={respawn_delay=0}, has_property={arx:is_knocked=1..}, tag=is_moving, tag=!is_riding] run event entity @s arx:property_is_knockout_set_0
-
-        # Сбрасываем игрока, если тащим его, присев и разблокируем ему управление, если это нужно
-            execute as @a[tag=is_riding, has_property={arx:is_knocked=1..}] at @s if entity @p[r=2, has_property={arx:is_knocked=0}, tag=is_sneaking, tag=has_riders] run ride @s stop_riding
-            execute as @a[has_property={arx:is_knocked=1..}, scores={respawn_delay=0}] at @s if entity @p[r=2, has_property={arx:is_knocked=0}, tag=is_sneaking, tag=has_riders] run inputpermission set @s movement enabled
-            execute as @a[has_property={arx:is_knocked=1..}, scores={respawn_delay=0}] at @s if entity @p[r=2, has_property={arx:is_knocked=0}, tag=is_sneaking, tag=has_riders] run event entity @s arx:property_is_knockout_set_0
-
-# Выставляем спавнпоинт туда, где умерли. Мы сейчас же возродимся прямо здесь
+# Выставляем респу
     execute as @a at @s run spawnpoint @s ~ ~ ~
 
 # Телепортируем невидимые щиты на игроков

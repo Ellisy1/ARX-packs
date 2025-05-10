@@ -6,11 +6,6 @@
 # Плюсуем счётчик нокаутов
     scoreboard players add @s count_death 1
 
-# Задаём откат респавна
-    tellraw @s[scores={crys_sw_respawn=1}] { "rawtext": [ { "text": "§aВы возродитесь быстрее (кристалл быстрого возрождения использован)" } ] }
-    scoreboard players random @s[scores={crys_sw_respawn=0}] respawn_delay 60 90
-    scoreboard players random @s[scores={crys_sw_respawn=1}] respawn_delay 30 45
-
 # Сбрасываем камеру
     camera @s clear
 
@@ -34,7 +29,7 @@
 # Выдаем блокировщики слота
     give @s arx:slot_blocker 100 0 {"item_lock": { "mode": "lock_in_slot" } }
     # Удаляем дропнутые рядом блокировщики
-        kill @e[type=item, name="§r§cСлот заблокирован", r=4]
+        kill @e[type=item, name="§r§cВы в нокауте, ваш инвентарь заблокирован", r=4]
 
 # Чистим данные о кристаллах
     scoreboard players set @s crys_dur 0

@@ -5,6 +5,7 @@ import { getNearestPlayer } from "../getNearestPlayer"
 import { checkForItem } from "../checkForItem"
 import { infoScreen } from '../info/_infoScreen'
 import { manageCD } from "../manageCD";
+import { launchCameraUI } from '../camera/launchCameraUI'
 
 // Использование предметов
 world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юзание предмета на ПКМ
@@ -16,7 +17,7 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
         case "arx:mod_sword":
             if (manageCD(player)) {
                 const viewDirection = player.getViewDirection()
-                player.applyKnockback({x: viewDirection.x * 5, z: viewDirection.z * 5}, viewDirection.y)
+                player.applyKnockback({ x: viewDirection.x * 5, z: viewDirection.z * 5 }, viewDirection.y)
                 player.runCommand('effect @s slow_falling 1 0 true')
             }
             break
@@ -487,7 +488,11 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
 
         // ИНФО
         case "arx:united_player_data":
-            infoScreen(player)
+            if (player.getDynamicProperty('myRule:cinematographicMode') === true && player.hasTag('is_sneaking')) {
+                launchCameraUI(player)
+            } else {
+                infoScreen(player)
+            }
             break
 
         // Хай-тек
@@ -519,7 +524,7 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
                 } else if (player.hasTag('is_moving')) {
                     player.runCommand(`tellraw @s { "rawtext": [ { "text": "§cИспользовать дилдо на ходу - плохая идея." } ] }`)
                 } else {
-                    player.runCommand(`playanimation @s animation.humanoid.dildo.default a 0.1 "query.is_moving || q.property('arx:is_knocked') > 0 || !query.equipped_item_any_tag('slot.weapon.mainhand', 'is_dildo') || q.is_sneaking"`)
+                    player.runCommand(`playanimation @s animation.humanoid.dildo.default a 0.1 "query.is_moving || q.property('arx:is_knocked') == true || !query.equipped_item_any_tag('slot.weapon.mainhand', 'is_dildo') || q.is_sneaking"`)
                 }
             } else {
                 player.runCommand(`tellraw @s { "rawtext": [ { "text": "Вам не приходит в голову, каким образом это можно использовать" } ] }`)
