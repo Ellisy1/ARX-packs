@@ -134,7 +134,7 @@ system.beforeEvents.startup.subscribe(initEvent => {
 
                 // Алтарь
                 case "arx:divine_altar":
-                    event.player.runCommand(`say 1`)
+                    event.player.runCommand(`tellraw @s { "rawtext": [ { "text": "§fНанесите удар по непризрачному разумному вырубленному существу на этом алтаре, чтобы уничтожить его и получить перо Бога." } ] }`)
                     break
 
                 // Растение хлопка
@@ -317,10 +317,10 @@ world.afterEvents.entityDie.subscribe((dieEvent) => {
 
             player.setDynamicProperty('FiolixNarcoticPower', 0)
             player.setDynamicProperty('freezing', 0)
+            player.setDynamicProperty('respawnDelay', 0)
 
             setScore(player, "stress", 0)
             setScore(player, "knockout_row_sounter", 0)
-            setScore(player, "respawn_delay", 0)
             setScore(player, "water_delay", 0)
 
             if (player.getProperty('arx:is_ghost')) { // Если призрак
@@ -386,13 +386,26 @@ function bleed(entity, intencity) {
     }
 }
 
-const bleedingMobs = ['minecraft:cow', 'minecraft:sheep', "arx:cave_rat"]
+const bleedingMobs = [
+    'minecraft:cow', 'minecraft:sheep', 'minecraft:chicken', 'minecraft:pig', 'minecraft:bat', 'minecraft:wolf', 'minecraft:polar_bear', 'minecraft:ocelot', 'minecraft:cat',
+    'minecraft:parrot', 'minecraft:rabbit', 'minecraft:lama', 'minecraft:horse', 'minecraft:donkey', 'minecraft:mule', 'minecraft:turtle', 'minecraft:panda', 'minecraft:fox', 'minecraft:cave_spider',
+    'minecraft:piglin', 'minecraft:hoglin', 'minecraft:goat', 'minecraft:axolotl', 'minecraft:frog', 'minecraft:camel', 'minecraft:sniffer', 'minecraft:armadillo',
+
+    "arx:cave_rat", "arx:fat_larva", "arx:deer", "arx:tsugunder", "arx:snow_lady", "arx:snow_bars", "arx:small_rat_white", "arx:small_rat_black", "arx:rat_monstr_white", "arx:rat_monstr",
+    "arx:rat_eliminator", "arx:leech", "arx:larva", "arx:kapibara", "arx:hungry_rat", "arx:goose", "arx:gasgolder_istribitor", "arx:gasgolder", "arx:gabz", "arx:frintser", "arx:fiercewolf", "arx:crocodile",
+    "arx:buffalo", "arx:big_leech", "arx:bear", "arx:baguk"
+]
 
 // Ранение сущности
 world.afterEvents.entityHurt.subscribe((hurtEvent) => {
     const damager = hurtEvent.damageSource.damagingEntity
     const damaged = hurtEvent.hurtEntity
     const damageCause = hurtEvent.damageSource.cause
+
+    // Если нам надо кровоточить за моба
+    if (bleedingMobs.includes(damaged.typeId)) {
+        bleed(damaged, hurtEvent.damage - 2)
+    }
 
     // Если ранили игрока
     if (damaged.typeId === "minecraft:player") {
@@ -405,7 +418,7 @@ world.afterEvents.entityHurt.subscribe((hurtEvent) => {
             increaseSkillProgress(damaged, "hp", hurtEvent.damage * 6)
 
             if (checkForItem(player, 'Legs', 'arx:amul_dash')) {
-                player.applyKnockback({x: (Math.random() - 0.5) * 6, z: (Math.random() - 0.5) * 6}, 0.3)
+                player.applyKnockback({ x: (Math.random() - 0.5) * 6, z: (Math.random() - 0.5) * 6 }, 0.3)
             }
         }
 
@@ -430,6 +443,27 @@ world.afterEvents.entityHurt.subscribe((hurtEvent) => {
 
             setScore(player, "stress", getScore(player, 'stress') + hurtEvent.damage * 150 * stressMultiplier + 50)
         }
+        // Если мы на алтаре
+        {
+            // Проверяем допуск по типу урона
+            if (damager.typeId === 'minecraft:player' && damageCause === 'entityAttack') {
+                // Проверяем допуск по тому, не призрак ли игрок
+                if (damaged.getProperty('arx:is_ghost') === false) {
+                    // Проверяем допуск по тому, нокнут ли игрок
+                    if (damaged.getProperty('arx:is_knocked') === true) {
+                        // Проверям допуск по наличию алтаря
+                        if (world.getDimension(damaged.dimension.id).getBlock({ x: damaged.location.x, y: damaged.location.y - 1, z: damaged.location.z }).typeId === 'arx:divine_altar') {
+                            setScore(player, 'knockout_row_sounter', 99)
+                            player.runCommand('loot spawn ~ ~1 ~ loot "custom/gold_feather"')
+
+                            player.runCommand('kill @s')
+                            console.warn('Разрешен дроп пера')
+                        }
+                    }
+                }
+            }
+
+        }
 
         player.runCommand('function javascript/on_get_damage')
     }
@@ -445,8 +479,13 @@ world.afterEvents.entityHurt.subscribe((hurtEvent) => {
                 damaged?.runCommand('particle arx:whipping_dummy_filing ~ ~ ~')
             }
         }
-    } else if (bleedingMobs.includes(damaged.typeId)) {
-        bleed(damaged, hurtEvent.damage - 2)
+    }
+    else if (damaged.typeId === "arx:gasgolder") {
+        damaged.runCommand('summon arx:gasgolder_istribitor ~ ~ ~ facing @p')
+        damaged.runCommand('effect @a[r=7] blindness 2 0 true')
+        damaged.runCommand('playsound mob.rat_eliminator.spawn @a ~ ~ ~')
+
+        damaged.runCommand('event entity @s arx:on_hurt_event')
     }
 
     // Если атакует игрок

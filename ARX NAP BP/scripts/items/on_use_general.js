@@ -375,13 +375,6 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
             player.runCommand('clear @s arx:xp_shard 0 1')
             break
 
-        case "arx:pouch_with_dyes":
-            const dyeVar = Math.floor(Math.random() * 19) + 1
-            player.runCommand(`playsound bundle.insert @a ~ ~ ~`)
-            player.runCommand(`clear @s arx:pouch_with_dyes 0 1`)
-            player.runCommand(`give @s dye 1 ${dyeVar}`)
-            break
-
         case "arx:xp_megashard":
             player.runCommand('xp 270')
             player.runCommand('summon xp_orb')
@@ -395,6 +388,48 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
             player.runCommand('summon xp_orb')
             player.runCommand('clear @s arx:xp_megashard 0 1')
             break
+
+        case "arx:pouch_with_dyes":
+            const dyeVar = Math.floor(Math.random() * 19) + 1
+            player.runCommand(`playsound bundle.insert @a ~ ~ ~`)
+            player.runCommand(`clear @s arx:pouch_with_dyes 0 1`)
+            player.runCommand(`give @s dye 1 ${dyeVar}`)
+            break
+
+        case "arx:bundle_with_vinyl":
+            const vinylVar = Math.floor(Math.random() * 14)
+            switch (vinylVar) {
+                case 0: player.runCommand('give @s minecraft:music_disc_11')
+                    break
+                case 1: player.runCommand('give @s minecraft:music_disc_13')
+                    break
+                case 2: player.runCommand('give @s minecraft:music_disc_5')
+                    break
+                case 3: player.runCommand('give @s minecraft:music_disc_blocks')
+                    break
+                case 4: player.runCommand('give @s minecraft:music_disc_cat')
+                    break
+                case 5: player.runCommand('give @s minecraft:music_disc_chirp')
+                    break
+                case 6: player.runCommand('give @s minecraft:music_disc_far')
+                    break
+                case 7: player.runCommand('give @s minecraft:music_disc_mall')
+                    break
+                case 8: player.runCommand('give @s minecraft:music_disc_mellohi')
+                    break
+                case 9: player.runCommand('give @s minecraft:music_disc_otherside')
+                    break
+                case 10: player.runCommand('give @s minecraft:music_disc_stal')
+                    break
+                case 11: player.runCommand('give @s minecraft:music_disc_strad')
+                    break
+                case 12: player.runCommand('give @s minecraft:music_disc_wait')
+                    break
+                case 13: player.runCommand('give @s minecraft:music_disc_ward')
+                    break
+            }
+            break
+
 
         case "arx:myterious_eye":
             if (manageCD(player)) {

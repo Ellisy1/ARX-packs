@@ -12,4 +12,4 @@ scoreboard players add @s[scores={trait_random=9}] c_genious 1
 scoreboard players add @s[scores={trait_random=10}] c_water_lover 1
 title @s title 
 title @s subtitle  §eПоложительная черта§f 
-tellraw @s { "rawtext": [ { "text": " §eПолучена §eположительная черта" } ] }
+tellraw @s { "rawtext": [ { "text": " §eПолучена §eположительная черта характера" } ] }

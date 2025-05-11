@@ -20,4 +20,4 @@ scoreboard players add @s[scores={trait_random=17}] c_fastidious 1
 scoreboard players add @s[scores={trait_random=18}] c_aquaphobe 1
 title @s title 
 title @s subtitle  §cОтрицательная черта§f 
-tellraw @s { "rawtext": [ { "text": " §cПолучена отрицательная черта" } ] }
+tellraw @s { "rawtext": [ { "text": " §cПолучена отрицательная черта характера" } ] }

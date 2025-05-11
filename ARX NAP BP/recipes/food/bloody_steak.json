@@ -22,8 +22,9 @@
         "item": "arx:salt"
       }
     },
-    "result": {
-      "item": "arx:bloody_steak"
-    }
+    "result": [
+      {"item": "arx:bloody_steak"},
+      {"item": "arx:bottle_for_blood", "count": 3}
+    ]
   }
 }

@@ -317,6 +317,20 @@
 					"goal_radius": 0.75,
 					"search_count": 10
 				}
+			},
+			"arx:despawn_as_ghost": {
+				"minecraft:instant_despawn": {}
+			},
+			"despawn_as_ghost_family_data": {
+				"minecraft:type_family": {
+					"family": [
+						"despawn_as_ghost",
+						"monstr",
+						"mob",
+						"dangerous",
+						"boat_destroyer"
+					]
+				}
 			}
 		},
 		"events": {
@@ -345,6 +359,18 @@
 			"stop_dodge": {
 				"remove": {
 					"component_groups": "arx:dodge"
+				}
+			},
+			"spawned_by_rat_eliminator": {
+				"queue_command": {
+					"command": [
+						"event entity @s become_agressive"
+					]
+				},
+				"add": {
+					"component_groups": [
+						"despawn_as_ghost_family_data"
+					]
 				}
 			},
 			"become_agressive": {
@@ -410,6 +436,23 @@
 						}
 					}
 				]
+			},
+			"arx:despawn_as_ghost": {
+				"queue_command": {
+					"command": [
+						"particle arx:rat_ghost_despawn ~ ~1.5 ~",
+						"particle arx:rat_ghost_despawn ~ ~1.5 ~",
+						"particle arx:rat_ghost_despawn ~ ~1.5 ~",
+						"particle arx:rat_ghost_despawn ~ ~1.5 ~",
+						"particle arx:rat_ghost_despawn ~ ~1.5 ~",
+						"playsound undemon @a ~ ~ ~"
+					]
+				},
+				"add": {
+					"component_groups": [
+						"arx:despawn_as_ghost"
+					]
+				}
 			}
 		}
 	}

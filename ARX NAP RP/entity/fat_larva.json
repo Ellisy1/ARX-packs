@@ -19,7 +19,7 @@
 			"scripts": {
 				"animate": [
 					{
-						"crawl": "query.modified_move_speed"
+						"crawl": "query.modified_move_speed * 4"
 					}
 				]
 			},

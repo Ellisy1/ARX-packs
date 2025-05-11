@@ -169,6 +169,4 @@ scoreboard players add @a restrict_block_interact 0
 scoreboard players add @a count_broken_blocks 0
 scoreboard players add @a count_placed_blocks 0
 
-scoreboard players add @a respawn_delay 0
-
 scoreboard players add @a stress 0

@@ -87,6 +87,7 @@
     tp @e[type=skeleton_horse] -10000 -100 -10000
     tp @e[type=zombie_villager] -10000 -100 -10000
     tp @e[type=spider] -10000 -100 -10000
+    tp @e[type=witch] -10000 -100 -10000
 
 # Партиклы
     execute @a ~ ~ ~ execute @s[m=!spectator, tag=BIOME_forest, y=55, dy=200, scores={custom_random=0..600}] ~ ~ ~ particle arx:forest_ambient_leaf

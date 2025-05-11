@@ -19,6 +19,3 @@
 # Действие амулета брызг
     execute as @s[hasitem={item=arx:amul_of_splash, location=slot.armor.legs}, scores={custom_random=0..500}] run effect @s fire_resistance 2 0 true
     execute at @s[hasitem={item=arx:amul_of_splash, location=slot.armor.legs}] run particle arx:amul_of_splash ~ ~1.5 ~ 
-
-# Встаем, если притворялись мертвым
-    event entity @s[has_property={arx:is_knocked=true}, scores={respawn_delay=0}, tag=!is_riding] arx:property_is_knockout_set_0

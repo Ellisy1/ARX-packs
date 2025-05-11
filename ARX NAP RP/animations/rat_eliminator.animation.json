@@ -49,10 +49,10 @@
 					"rotation": [0, 0, "- math.cos(q.anim_time * 360) * 20"]
 				},
 				"tail": {
-					"rotation": [0, 0, 0]
+					"rotation": [0, 0, "math.cos(q.anim_time * 720) * 4"]
 				},
 				"tail_end": {
-					"rotation": [0, 0, -22.5]
+					"rotation": [0, 0, "-22.5+math.cos(q.anim_time * 720) * 4"]
 				},
 				"leg_r": {
 					"rotation": [0, 0, "20- math.cos(q.anim_time * 360) * 30"]
@@ -61,10 +61,17 @@
 					"rotation": [0, 0, "20+math.cos(q.anim_time * 360) * 30"]
 				},
 				"body": {
-					"rotation": [0, 0, -27.5]
+					"rotation": [0, 0, -27.5],
+					"position": [0, "math.cos(q.anim_time * 720)", 0]
 				},
 				"head": {
-					"rotation": [0, 0, 27.5]
+					"rotation": [0, 0, "27.5 + math.cos(q.anim_time * 720) * 2"]
+				},
+				"r2": {
+					"rotation": ["-50+math.cos(q.anim_time * 720) * 10", 0, 0]
+				},
+				"l2": {
+					"rotation": ["50-math.cos(q.anim_time * 720) * 10", 0, 0]
 				}
 			}
 		},

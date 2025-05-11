@@ -63,10 +63,6 @@
 				"new_screen": false,
 				"persist_trades": false,
 				"table": "trading/gasgolder.json"
-			},
-			"minecraft:on_hurt_by_player": {
-				"event": "arx:on_hurt_event",
-				"target": "self"
 			}
 		},
 		"component_groups": {
@@ -83,14 +79,6 @@
 				}
 			},
 			"arx:on_hurt_event": {
-				"queue_command": {
-					"command": [
-						"execute as @s[tag=!control] at @s run summon arx:gasgolder_istribitor ~ ~ ~ facing @p",
-						"execute as @s[tag=!control] at @s run effect @a[r=7] blindness 2 0 true",
-						"execute as @s[tag=!control] at @s run playsound mob.rat_eliminator.spawn @a ~ ~ ~",
-						"tag @s add control"
-					]
-				},
 				"add": {
 					"component_groups": [
 						"arx:despawn_as_ghost"

@@ -100,7 +100,7 @@ system.runInterval(() => {
         {
             // Если мы притворяемся нокнутыми, но начали двигаться
             if (player.getProperty('arx:is_knocked') === true && player.getDynamicProperty('respawnDelay') === 0 && player.hasTag('is_moving') && !player.hasTag('is_riding')) {
-                
+                player.runCommand('event entity @s arx:property_is_knockout_set_0')
             }
 
             // Если игрока тащат, и скидывают
@@ -372,6 +372,9 @@ system.runInterval(() => {
             // Штраф от увядания призрака
             speedPower -= player.getDynamicProperty("ghostWitheringLevel") * 4
 
+            // Бонус после нокаута
+            speedPower += player.getDynamicProperty('speedBoostAfterKnockout')
+
             // Срезние от перегруза
             if (player?.getDynamicProperty('overLoading') > 1) { speedPower -= player.getDynamicProperty("overLoading") * 12 }
 
@@ -395,7 +398,7 @@ system.runInterval(() => {
             // Скорость - реализация
             if (player.getDynamicProperty("speedPower") != speedPower) {
                 const movementComponent = player.getComponent("minecraft:movement")
-                movementComponent.setCurrentValue(speedPower / 1000)
+                movementComponent?.setCurrentValue(speedPower / 1000)
             }
 
             player.setDynamicProperty("speedPower", speedPower)
@@ -550,6 +553,33 @@ system.runInterval(() => {
 
         }
 
+        // Интерфейс преложения
+        if (player.hasTag("idea") && player.hasTag("is_moving")) {
+            player.removeTag("idea")
+
+            const form = new ModalFormData()
+                .title("Преложение по улучшению Аркса")
+                .textField("Что вы хотите предложить?", "Ваша потрясающая мысль", {tooltip: 'Пожалуйста, пишите понятно и конкретно'})
+                .submitButton("Отправить")
+
+                .show(player)
+                .then(response => {
+                    if (response.formValues) {
+                        let report = ''
+
+                        report += `\n§aПользовательское предложение\n`
+                        report += `§fСоставитель: §d${player.name}\n`
+                        report += `§fСодержание: ${response.formValues[0]}\n`
+
+                        // Отправляем отчет в консоль
+                        console.warn(report)
+
+                        player.runCommand(`tellraw @s { "rawtext": [ { "text": "Спасибо за предложение, §a${player.name}§f! Модератор уже получил его." } ] }`)
+                    }
+                })
+
+        }
+
         // Счётчик пройденного расстояния
         {
             if (player.hasTag('is_moving') && player.getGameMode() !== 'creative' && player.getGameMode() !== 'spectator') {
@@ -661,7 +691,7 @@ system.runInterval(() => {
 const dynamicPropertiesToDecrease = [
     'saturation', 'noRainFog', 'noNightFog', 'jumpBoostByPotion', 'mpRegenBoostByPotion', 'weighLimitBonusByPotion', 'speedBonusByPotion',
     'antitoxicationBonusByPotion100', 'antitoxicationBonusByPotion200', 'freezingBlockByPotion', 'heatingBlockByPotion', 'statsBonusByFiolix',
-    'heatingBlockByScroll', "scrollOfHealingCD", 'autoHPRegenCD', 'ghostUltimateResistance'
+    'heatingBlockByScroll', "scrollOfHealingCD", 'autoHPRegenCD', 'ghostUltimateResistance', 'speedBoostAfterKnockout'
 ]
 
 function getBlockWithOffset(player, x, y, z) {
@@ -770,15 +800,7 @@ system.runInterval(() => {
             else if (player.hasTag('in_surface') && getScore(player, 'is_day') == 0 && getScore(player, 'no_dark_fog') == 0 && !player.hasTag('low_bright') && !player.getProperty('arx:is_ghost')) {
                 player.runCommand(`fog @s push arx:overworld_night_bright_fog "nightbright"`)
             }
-
-            // Стресс
-            else if (getScore(player, 'stress_cond') === 4) {
-                player.runCommand(`fog @s push arx:overworld_night_bright_fog "nightbright"`)
-            }
         }
-
-        // AI music
-        // player.runCommand(`playsound ai_music.deepDrumBass @s ~ ~ ~`)
 
         // Насыщаем не призрака, если надо
         if (player.getDynamicProperty('saturation') > 0) {
@@ -1046,7 +1068,7 @@ system.runInterval(() => {
             let blockFreezing = false
             if (player.getDynamicProperty('freezingBlockByPotion') > 0) (blockFreezing = true)
             if (checkForItem(player, "legs", "arx:snow_bars_scarf") && !checkForItem(player, "chest", undefined)) (blockFreezing = true)
-            if (getScore(player, "respawn_delay") > 0) { blockFreezing = true }
+            if (player.getDynamicProperty('respawnDelay') > 0) { blockFreezing = true }
             if (player.getProperty('arx:is_ghost') == true) { blockFreezing = true }
             if (player.hasTag('heating_by_heater_block_activate')) { blockFreezing = true }
 
@@ -1138,7 +1160,8 @@ system.runInterval(() => {
                             break
                     }
 
-                    player.runCommand(`tellraw @s { "rawtext": [ { "text": "§o§e${text}" } ] }`)
+                    player.runCommand(`tellraw @s { "rawtext": [ { "text": "§o§e${text}\n§7Вы ещё не до конца поняли, что к чему, но уже готовы бежать. (Получен временный бонус скорости)" } ] }`)
+                    player.setDynamicProperty("speedBoostAfterKnockout", 40)
                 }
 
                 // Если есть кристалл быстрого возрождения

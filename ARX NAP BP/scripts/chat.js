@@ -188,8 +188,13 @@ function parceCommand(player, trimmedMessage) {
             queueCommand(player, 'tag @s add bug')
         }
 
+        else if (command[0] == "!idea") { // Предложить идею
+            queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§aЗакройте чат и прыгните§f, чтобы написать идею или предложение.\n§o§7(Не задавайте вопросов, так надо)" } ] }`);
+            queueCommand(player, 'tag @s add idea')
+        }
+
         else if (command[0] == "!w" || command[0] == "!ш") { // Переключение шёпот-локал
-            if (getScore(player, "respawn_delay") == 0) {
+            if (player.getDynamicProperty('respawnDelay') === 0) {
                 if (player.getDynamicProperty("is_whispering") === false) {
                     queueCommand(player, `tellraw @s { "rawtext": [ { "text": "Переключено на §6шёпот§f." } ] }`);
                     player.setDynamicProperty("is_whispering", true)
@@ -205,7 +210,7 @@ function parceCommand(player, trimmedMessage) {
         }
 
         else if (command[0] == "!global" || command[0] == "!г" || command[0] == "!g") {
-            if (getScore(player, "respawn_delay") == 0) {
+            if (player.getDynamicProperty('respawnDelay') === 0) {
                 if (!command[1]) {
                     queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cНельзя отправить пустое глобальное сообщение." } ] }`)
                 }
@@ -218,7 +223,7 @@ function parceCommand(player, trimmedMessage) {
             }
         }
         else if (command[0] == "!camset") {
-            if (getScore(player, "respawn_delay") == 0) {
+            if (player.getDynamicProperty('respawnDelay') === 0) {
                 queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§aКамера установлена.\n§eИспользование камеры с любой целью, кроме эстетического улучшения ракурса, является тяжёлым нарушением правил Аркса по части РП." } ] }`)
                 queueCommand(player, `tellraw @a[rm=0.01, r=10] { "rawtext": [ { "text": "§d[SYSTEM]§f "}, {"selector": "@s"}, { "text": " установил(а) камеру поблизости." } ] }`)
                 queueCommand(player, `tellraw @a[scores={verify=2}] { "rawtext": [ { "text": "§d[SYSTEM]§f "}, {"selector": "@s"}, { "text": " установил(а) камеру на ${Math.round(player.location.x)} ${Math.round(player.location.y)} ${Math.round(player.location.z)}." } ] }`)
@@ -229,7 +234,7 @@ function parceCommand(player, trimmedMessage) {
             }
         }
         else if (command[0] == "!camclr") {
-            if (getScore(player, "respawn_delay") == 0) {
+            if (getScplayer.getDynamicProperty('respawnDelay') === 0) {
                 queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§aКамера сброшена." } ] }`)
                 queueCommand(player, `tellraw @a[rm=0.01, r=10] { "rawtext": [ { "text": "§d[SYSTEM]§f "}, {"selector": "@s"}, { "text": " сбросил(а) камеру поблизости." } ] }`)
                 queueCommand(player, `tellraw @a[scores={verify=2}] { "rawtext": [ { "text": "§d[SYSTEM]§f "}, {"selector": "@s"}, { "text": " сбросил(а) камеру." } ] }`)
@@ -241,7 +246,7 @@ function parceCommand(player, trimmedMessage) {
         }
 
         else if (trimmedMessage.startsWith("!!")) {
-            if (getScore(player, "respawn_delay") == 0) {
+            if (player.getDynamicProperty('respawnDelay') === 0) {
                 emote(player, trimmedMessage)
             }
             else {
@@ -255,7 +260,7 @@ function parceCommand(player, trimmedMessage) {
     }
     else { // Сообщение - не команда Аркса. Обработать и отправить
         // Недопуск 1
-        if (getScore(player, "respawn_delay") > 0) {
+        if (player.getDynamicProperty('respawnDelay') > 0) {
             queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cВы не можете разговаривать, пока вы без сознания." } ] }`)
         }
         // Недопуск 2
@@ -268,7 +273,7 @@ function parceCommand(player, trimmedMessage) {
 
             // Определяем дистанцию для каждого игрока
             for (const speechListener of world.getPlayers()) {
-                if (getScore(speechListener, 'respawn_delay') === 0) { // Если тот, кто получает сообщение не нокнут
+                if (player.getDynamicProperty('respawnDelay') === 0) { // Если тот, кто получает сообщение не нокнут
                     const distance = Math.sqrt(Math.pow(speechListener.location.x - player.location.x, 2) + Math.pow(speechListener.location.y - player.location.y, 2) + Math.pow(speechListener.location.z - player.location.z, 2))
 
                     if (player.getDynamicProperty("is_whispering") == false) { // Если мы говорим в полный голос

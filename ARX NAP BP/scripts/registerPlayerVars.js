@@ -126,4 +126,7 @@ export function registerPlayerVars(player) {
     if (player.getDynamicProperty('camera:numOfProcessedTimecodes') === undefined) {
         player.setDynamicProperty('camera:numOfProcessedTimecodes', 0)
     }
+    if (player.getDynamicProperty('speedBoostAfterKnockout') === undefined) {
+        player.setDynamicProperty('speedBoostAfterKnockout', 0)
+    }
 }

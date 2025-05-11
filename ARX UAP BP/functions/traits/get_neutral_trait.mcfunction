@@ -12,4 +12,4 @@ scoreboard players add @s[scores={trait_random=9}] c_unstable 1
 scoreboard players add @s[scores={trait_random=10}] c_miner 1
 title @s title 
 title @s subtitle  Нейтральная черта 
-tellraw @s { "rawtext": [ { "text": " Получена нейтральная черта" } ] }
+tellraw @s { "rawtext": [ { "text": " Получена нейтральная черта характера" } ] }

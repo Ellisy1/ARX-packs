@@ -11,7 +11,7 @@ export function guide(player) {
 
 function getBodyText(player) {
 
-    if (getScore(player, "respawn_delay") > 1) {
+    if (player.getDynamicProperty('respawnDelay') > 1) {
         return '§cВы в нокауте. Ничего страшного, это не смерть. Вы встанете через минуту - полторы после нока, но вам могут помочь ваши друзья, если они присядут (встанут на шифт) рядом с вами.'
     }
 

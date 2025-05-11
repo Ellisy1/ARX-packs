@@ -45,5 +45,5 @@
     event entity @s arx:property_is_knockout_set_true
 
 # Убиваем по рп, если это требуется
-    execute if entity @s[scores={knockout_row_sounter=2}, tag=!crystal_of_second_life_activate] run tag @s add __force_to_rp_death__
+    execute if entity @s[scores={knockout_row_sounter=2..}, tag=!crystal_of_second_life_activate] run tag @s add __force_to_rp_death__
     execute if entity @s[scores={knockout_row_sounter=3..}, tag=crystal_of_second_life_activate] run tag @s add __force_to_rp_death__

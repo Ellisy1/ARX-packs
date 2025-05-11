@@ -4384,11 +4384,6 @@
         "set_property": {
           "arx:is_knocked": 0
         },
-        "queue_command": {
-          "command": [
-            "scoreboard players set @s respawn_delay 0"
-          ]
-        },
         "add": {
           "component_groups": [
             "arx:return_default_family_data",
