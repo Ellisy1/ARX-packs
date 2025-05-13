@@ -23,6 +23,9 @@ export function registerPlayerVars(player) {
     if (player.getDynamicProperty("myRule:canSeeServerSpeedInInfoBook") === undefined) {
         player.setDynamicProperty("myRule:canSeeServerSpeedInInfoBook", false)
     }
+    if (player.getDynamicProperty("myRule:chatPrefixes") === undefined) {
+        player.setDynamicProperty("myRule:chatPrefixes", 'fullEN')
+    }
     if (player.getDynamicProperty("attackCD") === undefined) {
         player.setDynamicProperty("attackCD", 0)
     }

@@ -8,9 +8,8 @@
     
     "tags": [ "boiler_crafting_table" ],
     "pattern": [
-      "###",
-      "###",
-      " A "
+      "#",
+      "A"
     ],
     "key": {
       "#": {

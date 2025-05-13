@@ -106,8 +106,9 @@ system.runInterval(() => {
             // Если игрока тащат, и скидывают
             if (player.hasTag('has_riders') && player.hasTag('is_sneaking')) {
                 const carriedPlayer = getNearestPlayer(player)
+                // Если игрок не нокнут, а просто поднят
                 if (carriedPlayer.hasTag('is_riding') && carriedPlayer.getProperty('arx:is_knocked') === true && carriedPlayer.getDynamicProperty('respawnDelay') === 0) {
-                    carriedPlayer.setProperty('arx:is_knocked', false)
+                    carriedPlayer.runCommand('event entity @s arx:property_is_knockout_set_0')
                 }
                 player.runCommand('execute as @p[tag=is_riding, has_property={arx:is_knocked=false}] run inputpermission set @s movement enabled')
                 player.runCommand('ride @s evict_riders')
@@ -176,7 +177,7 @@ system.runInterval(() => {
             if (player.getDynamicProperty('intoxicationLevel') >= 2) { basicStrength -= player.getDynamicProperty('intoxicationLevel') * 2 }
 
             // Штрафовое срезание от перегруза
-            if (player?.getDynamicProperty('overLoading') > 1) { basicStrength -= (player?.getDynamicProperty('overLoading') * 3) }
+            if (player?.getDynamicProperty('overLoading') > 0) { basicStrength -= (player?.getDynamicProperty('overLoading') * 3) }
 
             // Штраф от запрета атаки
             if (player?.getDynamicProperty("prohibit_damage") > 0) { basicStrength -= 999 }
@@ -376,7 +377,7 @@ system.runInterval(() => {
             speedPower += player.getDynamicProperty('speedBoostAfterKnockout')
 
             // Срезние от перегруза
-            if (player?.getDynamicProperty('overLoading') > 1) { speedPower -= player.getDynamicProperty("overLoading") * 12 }
+            if (player?.getDynamicProperty('overLoading') > 0) { speedPower -= player.getDynamicProperty("overLoading") * 12 }
 
             // Безусловное срезание от загруженности
             speedPower -= player.getDynamicProperty('weighLoading') * 2
@@ -405,7 +406,7 @@ system.runInterval(() => {
         }
 
         // Контроль расстояния от места спавна
-        if (player.getDynamicProperty('hasRegisteredCharacter') && player.getGameMode() !== 'creative' && player.getGameMode() !== 'spectator') {
+        if (player.getDynamicProperty('hasRegisteredCharacter') && player.getGameMode() !== 'creative' && player.getGameMode() !== 'spectator' && player.dimension.id === 'minecraft:overworld') {
             // Задаем двумерные векторы
             const worldCenter = [-2066, 1733]
             const playerLocation = [player.location.x, player.location.z];
@@ -446,6 +447,7 @@ system.runInterval(() => {
 // 5 ticks
 system.runInterval(() => {
     for (const player of world.getPlayers()) {
+
         // Подмена яблок
         if (checkForItem(player, 'Inventory', 'minecraft:apple')) {
             player.runCommand('clear @s minecraft:apple 0 1')
@@ -453,66 +455,68 @@ system.runInterval(() => {
         }
 
         // Анализ поднимаемного игроком веса
-        // weighLimit - ограничение переносимого веса, при переходе за который накладывается штраф
-        let weighLimit = 4
-        // Сумки
-        if (checkForItem(player, "Legs", "arx:belt_bag")) { weighLimit += 1 }
-        if (checkForItem(player, "Legs", "arx:big_bag")) { weighLimit += 8 }
-        if (checkForItem(player, "Legs", "arx:default_bag")) { weighLimit += 4 }
-        if (checkForItem(player, "Feet", "arx:leg_bag")) { weighLimit += 1 }
-        if (checkForItem(player, "Feet", "arx:leg_bag_dual")) { weighLimit += 2 }
-        if (checkForItem(player, "Legs", "arx:mini_bag")) { weighLimit += 2 }
-        // Кольца
-        if (checkForItem(player, "Feet", "arx:ring_aluminum_cornelian")) { weighLimit += 1 }
-        if (checkForItem(player, "OffHand", "arx:ring_aluminum_cornelian")) { weighLimit += 1 }
-        if (checkForItem(player, "Feet", "arx:ring_gold_cornelian")) { weighLimit += 2 }
-        if (checkForItem(player, "OffHand", "arx:ring_gold_cornelian")) { weighLimit += 2 }
-        if (checkForItem(player, "Feet", "arx:ring_naginitis_cornelian")) { weighLimit += 3 }
-        if (checkForItem(player, "OffHand", "arx:ring_naginitis_cornelian")) { weighLimit += 3 }
-        if (checkForItem(player, "Feet", "arx:ring_caryite_cornelian")) { weighLimit += 4 }
-        if (checkForItem(player, "OffHand", "arx:ring_caryite_cornelian")) { weighLimit += 4 }
-        if (checkForItem(player, "Feet", "arx:ring_toliriite_cornelian")) { weighLimit += 5 }
-        if (checkForItem(player, "OffHand", "arx:ring_toliriite_cornelian")) { weighLimit += 5 }
-        if (checkForItem(player, "Feet", "arx:ring_lamenite_cornelian")) { weighLimit += 6 }
-        if (checkForItem(player, "OffHand", "arx:ring_lamenite_cornelian")) { weighLimit += 6 }
+        {
+            // weighLimit - ограничение переносимого веса, при переходе за который накладывается штраф
+            let weighLimit = 4
+            // Сумки
+            if (checkForItem(player, "Legs", "arx:belt_bag")) { weighLimit += 1 }
+            if (checkForItem(player, "Legs", "arx:big_bag")) { weighLimit += 8 }
+            if (checkForItem(player, "Legs", "arx:default_bag")) { weighLimit += 4 }
+            if (checkForItem(player, "Feet", "arx:leg_bag")) { weighLimit += 1 }
+            if (checkForItem(player, "Feet", "arx:leg_bag_dual")) { weighLimit += 2 }
+            if (checkForItem(player, "Legs", "arx:mini_bag")) { weighLimit += 2 }
+            // Кольца
+            if (checkForItem(player, "Feet", "arx:ring_aluminum_cornelian")) { weighLimit += 1 }
+            if (checkForItem(player, "OffHand", "arx:ring_aluminum_cornelian")) { weighLimit += 1 }
+            if (checkForItem(player, "Feet", "arx:ring_gold_cornelian")) { weighLimit += 2 }
+            if (checkForItem(player, "OffHand", "arx:ring_gold_cornelian")) { weighLimit += 2 }
+            if (checkForItem(player, "Feet", "arx:ring_naginitis_cornelian")) { weighLimit += 3 }
+            if (checkForItem(player, "OffHand", "arx:ring_naginitis_cornelian")) { weighLimit += 3 }
+            if (checkForItem(player, "Feet", "arx:ring_caryite_cornelian")) { weighLimit += 4 }
+            if (checkForItem(player, "OffHand", "arx:ring_caryite_cornelian")) { weighLimit += 4 }
+            if (checkForItem(player, "Feet", "arx:ring_toliriite_cornelian")) { weighLimit += 5 }
+            if (checkForItem(player, "OffHand", "arx:ring_toliriite_cornelian")) { weighLimit += 5 }
+            if (checkForItem(player, "Feet", "arx:ring_lamenite_cornelian")) { weighLimit += 6 }
+            if (checkForItem(player, "OffHand", "arx:ring_lamenite_cornelian")) { weighLimit += 6 }
 
-        if (player.getDynamicProperty('weighLimitBonusByPotion') > 0) { weighLimit += 2 }
+            if (player.getDynamicProperty('weighLimitBonusByPotion') > 0) { weighLimit += 2 }
 
-        // Увеличение от прокачки
-        weighLimit += player.getDynamicProperty('skill:endurance_level') / 2
+            // Увеличение от прокачки
+            weighLimit += player.getDynamicProperty('skill:endurance_level') / 2
 
-        // Увеличение от бонуса фиоликса
-        if (player.getDynamicProperty('statsBonusByFiolix') > 0) { weighLimit += 2 }
+            // Увеличение от бонуса фиоликса
+            if (player.getDynamicProperty('statsBonusByFiolix') > 0) { weighLimit += 2 }
 
-        // Срезание от отравления
-        if (player.getDynamicProperty('intoxicationLevel') >= 2) { weighLimit -= player.getDynamicProperty('intoxicationLevel') }
+            // Срезание от отравления
+            if (player.getDynamicProperty('intoxicationLevel') >= 2) { weighLimit -= player.getDynamicProperty('intoxicationLevel') }
 
-        // Воздействие стресса
-        if (getScore(player, "stress_cond") == 4) { weighLimit -= 4 }
-        if (getScore(player, "stress_cond") == 3) { weighLimit -= 2 }
-        if (getScore(player, "stress_cond") == 2) { weighLimit -= 1 }
-        if (getScore(player, "stress_cond") == -2) { weighLimit += 1 }
-        if (getScore(player, "stress_cond") == -3) { weighLimit += 2 }
-        if (getScore(player, "stress_cond") == -4) { weighLimit += 3 }
+            // Воздействие стресса
+            if (getScore(player, "stress_cond") == 4) { weighLimit -= 4 }
+            if (getScore(player, "stress_cond") == 3) { weighLimit -= 2 }
+            if (getScore(player, "stress_cond") == 2) { weighLimit -= 1 }
+            if (getScore(player, "stress_cond") == -2) { weighLimit += 1 }
+            if (getScore(player, "stress_cond") == -3) { weighLimit += 2 }
+            if (getScore(player, "stress_cond") == -4) { weighLimit += 3 }
 
-        // weighLoading - фактическая загруженность игрока
-        player.runCommand('function javascript/weigh')
+            // weighLoading - фактическая загруженность игрока
+            player.runCommand('function javascript/weigh')
 
-        let weighLoading = getScore(player, 'weighLoading')
-        // От переносимого игрока
-        if (player.hasTag('has_riders')) {
-            weighLoading += 3
-            // Передаем вес от носимого игрока
-            const carriedPlayer = getNearestPlayer(player)
-            if (carriedPlayer?.hasTag('is_riding')) {
-                weighLoading += getScore(carriedPlayer, "weighLoading")
+            let weighLoading = getScore(player, 'weighLoading')
+            // От переносимого игрока
+            if (player.hasTag('has_riders')) {
+                weighLoading += 3
+                // Передаем вес от носимого игрока
+                const carriedPlayer = getNearestPlayer(player)
+                if (carriedPlayer?.hasTag('is_riding')) {
+                    weighLoading += getScore(carriedPlayer, "weighLoading")
+                }
             }
-        }
 
-        // Отправляем значения в dynamicProperty
-        player.setDynamicProperty('weighLimit', weighLimit)
-        player.setDynamicProperty('weighLoading', weighLoading)
-        player.setDynamicProperty('overLoading', weighLoading - weighLimit)
+            // Отправляем значения в dynamicProperty
+            player.setDynamicProperty('weighLimit', weighLimit)
+            player.setDynamicProperty('weighLoading', weighLoading)
+            player.setDynamicProperty('overLoading', weighLoading - weighLimit)
+        }
 
         // Интерфейс отчета о баге
         if (player.hasTag("bug") && player.hasTag("is_moving")) {
@@ -559,7 +563,7 @@ system.runInterval(() => {
 
             const form = new ModalFormData()
                 .title("Преложение по улучшению Аркса")
-                .textField("Что вы хотите предложить?", "Ваша потрясающая мысль", {tooltip: 'Пожалуйста, пишите понятно и конкретно'})
+                .textField("Что вы хотите предложить?", "Ваша потрясающая мысль", { tooltip: 'Пожалуйста, пишите понятно и конкретно' })
                 .submitButton("Отправить")
 
                 .show(player)
@@ -591,7 +595,6 @@ system.runInterval(() => {
 
     world.getDimension("minecraft:overworld").runCommand("function core_parts_NAP/dynamic_light_analysis")
     world.getDimension("minecraft:overworld").runCommand("function core_parts/5ticks")
-    world.getDimension("minecraft:overworld").runCommand("function core_parts_NAP/5ticks")
 }, 5);
 
 // 10 ticks
@@ -646,7 +649,7 @@ system.runInterval(() => {
             if (getScore(player, "water_delay") > 400) { jumpPower -= 1 }
 
             // Срезание от перегруза
-            if (player?.getDynamicProperty('overLoading') > 1) { jumpPower -= player.getDynamicProperty("overLoading") * 10 }
+            if (player?.getDynamicProperty('overLoading') > 0) { jumpPower -= player.getDynamicProperty("overLoading")}
 
             // Отправка в DP
             player.setDynamicProperty("jumpPower", jumpPower)
@@ -1203,7 +1206,7 @@ system.runInterval(() => {
                         displayRespawnLine(nearbyPlayer, nearbyPlayer) // Отображаем линию воскрешения тому кого ресают
 
                         // Мы воскресили до нужного reviveDelay (reviveDelay === 10)
-                        if (nearbyPlayer.getDynamicProperty('reviveDelay') === 10) {
+                        if (nearbyPlayer.getDynamicProperty('reviveDelay') >= 10) {
                             // Отправляем сообщение поднимаемому
                             if (nearbyPlayer.getDynamicProperty("respawnDelay") === 0) {
                                 nearbyPlayer.runCommand(`tellraw @s { "rawtext": [ { "text": "${player.getDynamicProperty('name')} §aпомогает мне. Притворяться вырубленным сейчас не выйдет" } ] }`)

@@ -523,7 +523,7 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
 
         // ИНФО
         case "arx:united_player_data":
-            if (player.getDynamicProperty('myRule:cinematographicMode') === true && player.hasTag('is_sneaking')) {
+            if (player.getDynamicProperty('myRule:cinematographicMode') === true && player.hasTag('is_sneaking') && player.getDynamicProperty('respawnDelay') === 0) {
                 launchCameraUI(player)
             } else {
                 infoScreen(player)
@@ -564,6 +564,10 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
             } else {
                 player.runCommand(`tellraw @s { "rawtext": [ { "text": "Вам не приходит в голову, каким образом это можно использовать" } ] }`)
             }
+            break
+
+        case "arx:wipe_traits":
+            player.runCommand("function traits/clear_all_traits")
             break
 
         // Сравнение НЕ через ID предмета

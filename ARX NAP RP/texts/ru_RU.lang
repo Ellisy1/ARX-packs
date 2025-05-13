@@ -1345,3 +1345,6 @@ item.bundle.empty.description=§f
 
 commands.me.description=§cНедоступно
 commands.tell.description=§cНедоступно
+
+item.itemLock.popupNotice.cantMove=§fПредмет заблокирован
+item.itemLock.cantMove=Неперемещаемые эл. нельзя:

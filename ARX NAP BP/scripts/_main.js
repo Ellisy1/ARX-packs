@@ -17,6 +17,7 @@ import './items/on_use_general'
 import './magic/on_use_magic_items'
 import './stabilityTesting'
 import './camera/processCamera'
+import './blocksHistory'
 
 import { registerPlayerVars } from "./registerPlayerVars"
 import { checkForItem } from "./checkForItem"
@@ -41,14 +42,16 @@ world.afterEvents.playerSpawn.subscribe((event) => {
     }
 });
 
-// Ломание блоков
-world.afterEvents.playerBreakBlock.subscribe((breakEvent) => {
-    breakEvent.player.runCommand("scoreboard players add @s count_broken_blocks 1")
-})
-
 // Постановка блоков
 world.afterEvents.playerPlaceBlock.subscribe((placeEvent) => {
+    // Увеличиваем счетчик поставленных блоков
     placeEvent.player.runCommand("scoreboard players add @s count_placed_blocks 1")
+})
+
+// Ломание блоков
+world.afterEvents.playerBreakBlock.subscribe((breakEvent) => {
+    // Увеличиваем счетчик сломаных блоков
+    breakEvent.player.runCommand("scoreboard players add @s count_broken_blocks 1")
 })
 
 // Получаем дистанцию между игроками
@@ -285,6 +288,12 @@ world.afterEvents.entityDie.subscribe((dieEvent) => {
     if (dieEvent.deadEntity.typeId === "minecraft:player") {
         const player = dieEvent.deadEntity
 
+        // Сообщаем о том, что произошло с игроком, если это его первый нокаут
+        if (player.getDynamicProperty('hasEverBeenKnocked') !== true) {
+            player.setDynamicProperty('hasEverBeenKnocked', true)
+            player.runCommand(`tellraw @s { "rawtext": [ { "text": "[§aГид§f] > §cВы в нокауте§f. Ничего страшного, это не смерть. Вы полежите около минуты и снова очнётесь. §aВаши вещи§f лежат рядом с вами в деревянном ящике (если они у вас вообще были)." } ] }`)
+        }
+
         // Спавним гроб
         player.runCommand("summon arx:grave ^ ^ ^")
 
@@ -446,7 +455,7 @@ world.afterEvents.entityHurt.subscribe((hurtEvent) => {
         // Если мы на алтаре
         {
             // Проверяем допуск по типу урона
-            if (damager.typeId === 'minecraft:player' && damageCause === 'entityAttack') {
+            if (damager?.typeId === 'minecraft:player' && damageCause === 'entityAttack') {
                 // Проверяем допуск по тому, не призрак ли игрок
                 if (damaged.getProperty('arx:is_ghost') === false) {
                     // Проверяем допуск по тому, нокнут ли игрок
@@ -551,7 +560,7 @@ world.afterEvents.entityHurt.subscribe((hurtEvent) => {
                 increaseSkillProgress(damager, "strength", hurtEvent.damage * 2)
 
                 // Увеличиваем выносливость, если мы с перегрузом
-                if (getScore(damager, "heavy_result") > 0) {
+                if (damager.getDynamicProperty("overLoading") > 0) {
                     increaseSkillProgress(damager, "endurance", hurtEvent.damage * 4)
                 }
             }

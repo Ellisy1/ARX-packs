@@ -17,7 +17,7 @@ function processCommandQueue() {
     try {
       commandData.player.runCommand(commandData.command);
     } catch (error) {
-      commandData.player.runCommand(`tellraw @s { "rawtext": [ { "text": "§cИз-за технических особенностей невозможно отправить сообщение, содержащее двойную кавычку или обратный слеш." } ] }`);
+      commandData.player.runCommand(`tellraw @s { "rawtext": [ { "text": "§cИз-за технических особенностей невозможно получить сообщение, содержащее двойную кавычку или обратный слеш." } ] }`);
     }
   }
 }

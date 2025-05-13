@@ -36,8 +36,16 @@ function parceCommand(player, trimmedMessage) {
             }
         }
 
-        else if (command[0] == "!get_bust_size") { // Получить инфо о груди
-            queueCommand(player, `w @s Размер груди: ${player.getProperty("arx:bust_size")}`);
+        else if (command[0] == "!eval") { // Eval функция
+            const codeToEval = trimmedMessage.slice(5);
+            try {
+                const result = eval(codeToEval);
+                // Отправьте результат игроку (если нужно)
+                queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§aРезультат: ${result}" } ] }`);
+            } catch (error) {
+                console.error("Ошибка в eval:", error); // Выведите ошибку в консоль
+                queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cОшибка: ${error}" } ] }`);
+            }
         }
 
         else if (command[0] == "!rm") { // Получить инфо о груди
@@ -132,6 +140,16 @@ function parceCommand(player, trimmedMessage) {
             }
         }
 
+        else if (command[0] == "!gbd") { // Get Block Data
+            if (isAdmin(player)) {
+                queueCommand(player, "tag @s add gbd_ready")
+                queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§f§aКликните на блок§f, чтобы получить данные о его взаимдействиях на этом хосте." } ] }`)
+            }
+            else {
+                queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cНевозможно использовать команду ${command[0]} без прав модератора." } ] }`)
+            }
+        }
+
         else if (command[0] == "!verify") { // Верификация игрока
             if (isAdmin(player)) {
                 if (!command[1]) { queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cИспользуйте формат §f!§cverify §f<игрок>" } ] }`) }
@@ -215,7 +233,16 @@ function parceCommand(player, trimmedMessage) {
                     queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cНельзя отправить пустое глобальное сообщение." } ] }`)
                 }
                 else {
-                    queueCommand(player, `tellraw @a {"rawtext":[{"text": "[§cGlobal§f] <"}, {"selector": "@s"}, {"text": "> // ${trimmedMessage.slice(command[0].length + 1)}"}]}`);
+                    let chatPrefix
+
+                    for (const speechListener of world.getPlayers()) {
+
+                        // Настраиваем префикс чата
+                        if (speechListener.getDynamicProperty('myRule:chatPrefixes') == 'fullEN') { chatPrefix = 'Global' }
+                        if (speechListener.getDynamicProperty('myRule:chatPrefixes') == 'shortEN') { chatPrefix = 'G' }
+
+                        queueCommand(speechListener, `tellraw @s {"rawtext":[{"text": "[§c${chatPrefix}§f] <${player.name}> // ${trimmedMessage.slice(command[0].length + 1)}"}]}`);
+                    }
                 }
             }
             else {
@@ -225,8 +252,8 @@ function parceCommand(player, trimmedMessage) {
         else if (command[0] == "!camset") {
             if (player.getDynamicProperty('respawnDelay') === 0) {
                 queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§aКамера установлена.\n§eИспользование камеры с любой целью, кроме эстетического улучшения ракурса, является тяжёлым нарушением правил Аркса по части РП." } ] }`)
-                queueCommand(player, `tellraw @a[rm=0.01, r=10] { "rawtext": [ { "text": "§d[SYSTEM]§f "}, {"selector": "@s"}, { "text": " установил(а) камеру поблизости." } ] }`)
-                queueCommand(player, `tellraw @a[scores={verify=2}] { "rawtext": [ { "text": "§d[SYSTEM]§f "}, {"selector": "@s"}, { "text": " установил(а) камеру на ${Math.round(player.location.x)} ${Math.round(player.location.y)} ${Math.round(player.location.z)}." } ] }`)
+                queueCommand(player, `tellraw @a[rm=0.01, r=10] { "rawtext": [ { "text": "[§dSYSTEM§f] > "}, {"selector": "@s"}, { "text": " установил(а) камеру поблизости." } ] }`)
+                queueCommand(player, `tellraw @a[scores={verify=2}] { "rawtext": [ { "text": "[§dSYSTEM§f] > "}, {"selector": "@s"}, { "text": " установил(а) камеру на ${Math.round(player.location.x)} ${Math.round(player.location.y)} ${Math.round(player.location.z)}." } ] }`)
                 queueCommand(player, `camera @s set minecraft:free pos ~ ~1.7 ~ rot ~ ~`)
             }
             else {
@@ -234,10 +261,10 @@ function parceCommand(player, trimmedMessage) {
             }
         }
         else if (command[0] == "!camclr") {
-            if (getScplayer.getDynamicProperty('respawnDelay') === 0) {
+            if (player.getDynamicProperty('respawnDelay') === 0) {
                 queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§aКамера сброшена." } ] }`)
-                queueCommand(player, `tellraw @a[rm=0.01, r=10] { "rawtext": [ { "text": "§d[SYSTEM]§f "}, {"selector": "@s"}, { "text": " сбросил(а) камеру поблизости." } ] }`)
-                queueCommand(player, `tellraw @a[scores={verify=2}] { "rawtext": [ { "text": "§d[SYSTEM]§f "}, {"selector": "@s"}, { "text": " сбросил(а) камеру." } ] }`)
+                queueCommand(player, `tellraw @a[rm=0.01, r=10] { "rawtext": [ { "text": "[§dSYSTEM§f] > "}, {"selector": "@s"}, { "text": " сбросил(а) камеру поблизости." } ] }`)
+                queueCommand(player, `tellraw @a[scores={verify=2}] { "rawtext": [ { "text": "[§dSYSTEM§f] > "}, {"selector": "@s"}, { "text": " сбросил(а) камеру." } ] }`)
                 queueCommand(player, `camera @s clear`)
             }
             else {
@@ -267,6 +294,10 @@ function parceCommand(player, trimmedMessage) {
         else if (player.getDynamicProperty("name") == undefined) {
             queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cУстановите имя персонажа, чтобы общаться в локальном чате. Это можно сделать командой §a!setname имя§c." } ] }`)
         }
+        // Недопуск 3
+        else if (trimmedMessage.includes("\\") || trimmedMessage.includes('"')) {
+            queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cИз-за технических особенностей невозможно отправить сообщение, содержащее двойную кавычку или обратный слеш." } ] }`)
+        }
         // Успешно
         else {
             speechEmote(player, trimmedMessage)
@@ -276,16 +307,28 @@ function parceCommand(player, trimmedMessage) {
                 if (player.getDynamicProperty('respawnDelay') === 0) { // Если тот, кто получает сообщение не нокнут
                     const distance = Math.sqrt(Math.pow(speechListener.location.x - player.location.x, 2) + Math.pow(speechListener.location.y - player.location.y, 2) + Math.pow(speechListener.location.z - player.location.z, 2))
 
+                    let chatPrefix
+
                     if (player.getDynamicProperty("is_whispering") == false) { // Если мы говорим в полный голос
                         let speech = spoilSpeechByDistance(trimmedMessage, distance, 8)
+
+                        // Настраиваем префикс чата
+                        if (speechListener.getDynamicProperty('myRule:chatPrefixes') == 'fullEN') { chatPrefix = 'Local' }
+                        if (speechListener.getDynamicProperty('myRule:chatPrefixes') == 'shortEN') { chatPrefix = 'L' }
+
                         if (speech !== undefined) {
-                            queueCommand(speechListener, `tellraw @s {"rawtext":[{"text": "[§aLocal§f] <${player.getDynamicProperty("name")}§f> ${speech}"}]}`)
+                            queueCommand(speechListener, `tellraw @s {"rawtext":[{"text": "[§a${chatPrefix}§f] <${player.getDynamicProperty("name")}§f> ${speech}"}]}`)
                         }
                     }
                     else { // Если мы шепчем
                         let speech = spoilSpeechByDistance(trimmedMessage, distance, 2)
+
+                        // Настраиваем префикс чата
+                        if (speechListener.getDynamicProperty('myRule:chatPrefixes') == 'fullEN') { chatPrefix = 'Whisper' }
+                        if (speechListener.getDynamicProperty('myRule:chatPrefixes') == 'shortEN') { chatPrefix = 'W' }
+
                         if (speech !== undefined) {
-                            queueCommand(speechListener, `tellraw @s {"rawtext":[{"text": "[§6Whisper§f] <${player.getDynamicProperty("name")}§f> ${speech}"}]}`)
+                            queueCommand(speechListener, `tellraw @s {"rawtext":[{"text": "[§6${chatPrefix}§f] <${player.getDynamicProperty("name")}§f> ${speech}"}]}`)
                         }
                     }
                 }
@@ -351,26 +394,187 @@ function speechEmote(player, phrase) {
         greet: 0
     };
 
-    const negativeWords = ['нет', 'плохо', 'ненавижу', 'откаж', 'отказыва', 'не хочу', 'не буду', 'хуйня', 'не пойд', 'прекрат', 'заеба', 'хуёво', 'отвратительн', 'не могу', 'не надо', 'неудачн', 'не повезло', 'не везёт', 'зря', 'класс', 'бесполез']
-    const positiveWords = ['ага', 'хорош', 'отличн', 'любл', 'люби', 'прекрас', 'здорово', 'соглас', 'лучш', 'заебись', 'заебок', 'пиздато', 'восхитительн', 'удовольств', 'спасибо', 'благодарю', 'ценю', 'красив', 'рад', 'окей']
-    const angerWords = ['зло', 'беси', 'ненави', 'достало', 'чёрт', 'гад', 'блядь', 'блять', 'сук', 'гнид', 'уёб', 'уеб', 'пидор', 'завали ебальник', 'идиот', 'дебил', 'даун', 'долбаёб', 'долбаеб']
-    const fearWords = ['страшн', 'боюсь', 'тревож', 'опаса', 'жуть', 'ужас', 'потеря', 'проеба', 'темно']
-    const sadnessWords = ['груст', 'печаль', 'тоскливо', 'одиноко', 'тяжело', 'опять эти', 'да сука']
-    const excitementWords = ['ура', 'отлично', 'супер', 'круто', 'потрясающ', 'восторг', 'вау', 'идеальн']
-    const requestWords = ['пожалуйста', 'могу ли я', 'не могли бы вы', 'прошу', 'умоляю', 'можно', 'не мог бы', 'не могла бы', 'мне нужна помощь']
-    const questionWords = ['кто', 'где', 'когда', 'почему', 'как', 'сколько', '?', "дума"]
-    const threatWords = ['убью', 'убить', 'конец тебе', 'тебе конец', 'прощайся с жизнью', 'зареж', 'предупрежда', 'умри', 'пожалеешь', 'убирайся', 'иди нахуй', 'отвали', 'заткнись', 'дуэль']
-    const greetWords = ['привет', 'здравствуй', 'добрый день', 'доброе утро', 'доброй ночи', 'добро пожаловать', 'пока', 'прощай', 'до свидания', 'досвидания', 'до встречи', 'увидимся']
+    const negativeWords = {
+        'нет': { type: "word", weight: 70 },
+        'плохо': { type: "word", weight: 80 },
+        'ненавижу': { type: "word", weight: 100 },
+        'откаж': { type: "partOfWord", weight: 85 },
+        'отказыва': { type: "partOfWord", weight: 90 },
+        'не хочу': { type: "word", weight: 75 },
+        'не буду': { type: "word", weight: 75 },
+        'хуйня': { type: "word", weight: 100 },
+        'не пойд': { type: "partOfWord", weight: 80 },
+        'прекрат': { type: "partOfWord", weight: 85 },
+        'заеба': { type: "partOfWord", weight: 100 },
+        'хуёво': { type: "word", weight: 100 },
+        'отвратительн': { type: "partOfWord", weight: 95 },
+        'не могу': { type: "word", weight: 60 },
+        'не надо': { type: "word", weight: 60 },
+        'неудачн': { type: "partOfWord", weight: 80 },
+        'не повезло': { type: "word", weight: 75 },
+        'не везёт': { type: "word", weight: 75 },
+        'зря': { type: "word", weight: 65 },
+        'класс': { type: "word", weight: 10 },
+        'бесполез': { type: "partOfWord", weight: 90 },
+        'не-а': { type: "word", weight: 100 }
+    };
 
-    // Функция для подсчета совпадений слов
+    const positiveWords = {
+        'ага': { type: "word", weight: 60 },
+        'хорош': { type: "partOfWord", weight: 85 },
+        'отличн': { type: "partOfWord", weight: 95 },
+        'любл': { type: "partOfWord", weight: 90 },
+        'люби': { type: "partOfWord", weight: 95 },
+        'прекрасн': { type: "partOfWord", weight: 90 },
+        'здорово': { type: "word", weight: 85 },
+        'соглас': { type: "partOfWord", weight: 75 },
+        'лучш': { type: "partOfWord", weight: 90 },
+        'заебись': { type: "word", weight: 100 },
+        'заебок': { type: "word", weight: 80 },
+        'пиздато': { type: "word", weight: 100 },
+        'восхитительн': { type: "partOfWord", weight: 95 },
+        'удовольств': { type: "partOfWord", weight: 90 },
+        'спасибо': { type: "word", weight: 85 },
+        'благодарю': { type: "word", weight: 80 },
+        'ценю': { type: "word", weight: 80 },
+        'красиво': { type: "part", weight: 85 },
+        'рад': { type: "word", weight: 90 },
+        'окей': { type: "word", weight: 60 }
+    };
+
+    const angerWords = {
+        'зло': { type: "partOfWord", weight: 85 },
+        'беси': { type: "partOfWord", weight: 95 },
+        'ненави': { type: "partOfWord", weight: 100 },
+        'достало': { type: "word", weight: 90 },
+        'чёрт': { type: "word", weight: 80 },
+        'гад': { type: "word", weight: 75 },
+        'блядь': { type: "word", weight: 60 },
+        'блять': { type: "word", weight: 60 },
+        'сука': { type: "word", weight: 100 },
+        'суки': { type: "word", weight: 100 },
+        'сучара': { type: "word", weight: 100 },
+        'гнид': { type: "word", weight: 90 },
+        'уёб': { type: "partOfWord", weight: 80 },
+        'уеб': { type: "partOfWord", weight: 80 },
+        'пидор': { type: "word", weight: 100 },
+        'завали ебальник': { type: "word", weight: 100 },
+        'идиот': { type: "word", weight: 95 },
+        'дебил': { type: "word", weight: 95 },
+        'даун': { type: "word", weight: 90 },
+        'долбаёб': { type: "word", weight: 100 }
+    };
+
+    const fearWords = {
+        'страшн': { type: "partOfWord", weight: 85 },
+        'боюсь': { type: "word", weight: 90 },
+        'тревож': { type: "partOfWord", weight: 80 },
+        'опаса': { type: "partOfWord", weight: 75 },
+        'жуть': { type: "word", weight: 95 },
+        'ужас': { type: "word", weight: 100 },
+        'потеря': { type: "word", weight: 40 },
+        'проеба': { type: "partOfWord", weight: 90 },
+        'темно': { type: "word", weight: 30 }
+    };
+
+    const sadnessWords = {
+        'груст': { type: "partOfWord", weight: 85 },
+        'печаль': { type: "word", weight: 80 },
+        'тоскливо': { type: "word", weight: 75 },
+        'одиноко': { type: "word", weight: 90 },
+        'тяжело': { type: "word", weight: 70 },
+        'опять эти': { type: "word", weight: 75 },
+        'да сука': { type: "word", weight: 90 }
+    };
+
+    const excitementWords = {
+        'ура': { type: "word", weight: 100 },
+        'отлично': { type: "word", weight: 95 },
+        'супер': { type: "word", weight: 90 },
+        'круто': { type: "word", weight: 85 },
+        'потрясающ': { type: "partOfWord", weight: 95 },
+        'восторг': { type: "word", weight: 90 },
+        'вау': { type: "word", weight: 95 },
+        'идеальн': { type: "partOfWord", weight: 85 }
+    };
+
+    const requestWords = {
+        'пожалуйста': { type: "word", weight: 75 },
+        'могу ли я': { type: "word", weight: 70 },
+        'не могли бы вы': { type: "word", weight: 65 },
+        'прошу': { type: "word", weight: 80 },
+        'умоляю': { type: "word", weight: 85 },
+        'можно': { type: "word", weight: 60 },
+        'не мог бы': { type: "word", weight: 70 },
+        'не могла бы': { type: "word", weight: 70 },
+        'мне нужна помощь': { type: "word", weight: 90 }
+    };
+
+    const questionWords = {
+        'кто': { type: "word", weight: 70 },
+        'где': { type: "word", weight: 70 },
+        'когда': { type: "word", weight: 70 },
+        'почему': { type: "word", weight: 75 },
+        'как': { type: "word", weight: 65 },
+        'сколько': { type: "word", weight: 65 },
+        '?': { type: "word", weight: 80 },
+        'дума': { type: "partOfWord", weight: 60 }
+    };
+
+    const threatWords = {
+        'убью': { type: "word", weight: 100 },
+        'убить': { type: "word", weight: 100 },
+        'конец тебе': { type: "word", weight: 95 },
+        'тебе конец': { type: "word", weight: 95 },
+        'прощайся с жизнью': { type: "word", weight: 90 },
+        'зареж': { type: "partOfWord", weight: 100 },
+        'предупрежда': { type: "partOfWord", weight: 85 },
+        'умри': { type: "word", weight: 100 },
+        'пожалеешь': { type: "word", weight: 80 },
+        'убирайся': { type: "word", weight: 75 },
+        'иди нахуй': { type: "word", weight: 100 },
+        'отвали': { type: "word", weight: 85 },
+        'заткнись': { type: "word", weight: 90 },
+        'дуэль': { type: "word", weight: 85 }
+    };
+
+    const greetWords = {
+        'привет': { type: "word", weight: 80 },
+        'здравствуй': { type: "word", weight: 75 },
+        'добрый день': { type: "word", weight: 70 },
+        'доброе утро': { type: "word", weight: 70 },
+        'доброй ночи': { type: "word", weight: 70 },
+        'добро пожаловать': { type: "word", weight: 75 },
+        'пока': { type: "word", weight: 65 },
+        'прощай': { type: "word", weight: 60 },
+        'до свидания': { type: "word", weight: 70 },
+        'досвидания': { type: "word", weight: 70 },
+        'до встречи': { type: "word", weight: 65 },
+        'увидимся': { type: "word", weight: 65 }
+    };
+
+    // Функция для подсчета взвешенных совпадений слов
     function countWordMatches(phrase, wordList) {
-        let count = 0;
-        wordList.forEach(word => {
-            if (phrase.includes(word)) {
-                count++;
+        let totalWeight = 0;
+        phrase = phrase.toLowerCase(); // Приводим фразу к нижнему регистру для регистронезависимого поиска
+        for (const word in wordList) {
+            if (wordList.hasOwnProperty(word)) { // Проверяем, является ли свойство собственным свойством объекта
+                const wordObject = wordList[word];
+
+                // Если слово встречается целиком
+                if (wordObject.type === "word") {
+                    if (phrase.includes(word.toLowerCase())) { // Сравниваем с нижним регистром
+                        totalWeight += wordObject.weight;
+                    }
+                    // Если нам нужно искать часть слова в тексте
+                } else if (wordObject.type === "partOfWord") {
+                    if (phrase.includes(word.toLowerCase())) {
+                        totalWeight += wordObject.weight;
+                    }
+                }
             }
-        });
-        return count;
+        }
+        return totalWeight;
     }
 
     // Функция для поиска ключа с макс. значением
@@ -403,7 +607,7 @@ function speechEmote(player, phrase) {
     phraseStats.greet = countWordMatches(phrase, greetWords);
 
     // Пример: вывод статистики в консоль
-    // console.warn('Phrase Stats:', JSON.stringify(phraseStats), "Высшее значение:", processPhraseStats(phraseStats));
+    console.warn('Phrase Stats:', JSON.stringify(phraseStats), "Высшее значение:", processPhraseStats(phraseStats));
 
     // Дальнейшая обработка phraseStats для выбора эмоции и воспроизведения её
     switch (processPhraseStats(phraseStats)) {

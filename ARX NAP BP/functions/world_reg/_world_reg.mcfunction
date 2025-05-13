@@ -54,10 +54,6 @@ scoreboard objectives add mark dummy Метка
 scoreboard objectives add regen_hp dummy Регенерация
 scoreboard objectives add regen_mp dummy Восст_маны
 scoreboard objectives add weighLoading dummy Загруж.
-scoreboard objectives add heavy_delta dummy Загруж_разн
-scoreboard objectives add heavy_log dummy Загруж_ист
-scoreboard objectives add heavy_compens dummy Загруж_компенс
-scoreboard objectives add heavy_result dummy Загруж_конечная
 
 scoreboard objectives add final_mining dummy final_mining
 
