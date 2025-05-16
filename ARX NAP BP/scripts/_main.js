@@ -294,8 +294,24 @@ world.afterEvents.entityDie.subscribe((dieEvent) => {
             player.runCommand(`tellraw @s { "rawtext": [ { "text": "[§aГид§f] > §cВы в нокауте§f. Ничего страшного, это не смерть. Вы полежите около минуты и снова очнётесь. §aВаши вещи§f лежат рядом с вами в деревянном ящике (если они у вас вообще были)." } ] }`)
         }
 
+        // Уменьшаем интоксикацию, если надо
+        if (player.getDynamicProperty('intoxication') > 1200) {
+            player.setDynamicProperty('intoxication', 1200)
+        }
+
         // Спавним гроб
         player.runCommand("summon arx:grave ^ ^ ^")
+
+        // Выдаем блокировщики слота
+        player.runCommand(`give @s arx:slot_blocker 100 0 {"item_lock": { "mode": "lock_in_slot" } }`)
+        player.runCommand(`kill @e[type=item, name="§r§cВы в нокауте, ваш инвентарь заблокирован", r=4]`)
+
+        // Чистим данные о маги-фонарях
+        player.runCommand('scoreboard players set @s allow_magilight 0')
+        player.runCommand('scoreboard players set @s allow_archlight 0')
+
+        // Выставляем данные о ноке
+        player.runCommand('event entity @s arx:property_is_knockout_set_true')
 
         // Очищаем прогресс навыков
         wipeSkillsProgress(player)
@@ -307,15 +323,23 @@ world.afterEvents.entityDie.subscribe((dieEvent) => {
         // Выставляем вариант анимации нокаута
         player.setProperty('arx:is_knocked_anim_var', Math.floor(Math.random() * 2))
 
-        // Запускаем MCFunction анализ
-        player.runCommand("function knockout_system/on_knockout")
+        // Увеличиваем счетчик ряда беспрерывных нокаутов (2 = смерть по рп, и 3 если есть кристалл второй жизни)
+        player.runCommand('scoreboard players add @s knockout_row_sounter 1')
+
+        // Сбрасываем камеру
+        player.runCommand('camera @s clear')
+
+        // Плюсуем счётчик нокаутов
+        player.runCommand('scoreboard players add @s count_death 1')
+
+        // Стрессуем
+        player.runCommand('scoreboard players add @s stress 4000')
 
         // Выставляем откат нокаута
         player.setDynamicProperty('respawnDelay', 60 - player.getDynamicProperty('skill:fortitude_level') * 2)
 
         // Если мы должны умереть по рп
-        if (player.hasTag("__force_to_rp_death__")) {
-            player.removeTag('__force_to_rp_death__')
+        if (getScore(player, 'knockout_row_sounter') >= 2) {
 
             player.runCommand('effect @s clear')
             player.runCommand('playsound mob.rat_eliminator.spawn @s ~ ~ ~')
@@ -332,7 +356,9 @@ world.afterEvents.entityDie.subscribe((dieEvent) => {
             setScore(player, "knockout_row_sounter", 0)
             setScore(player, "water_delay", 0)
 
-            if (player.getProperty('arx:is_ghost')) { // Если призрак
+            if (player.getProperty('arx:is_ghost') === true) { // Если призрак
+
+                console.warn('Смерть призрака')
 
                 player.runCommand('title @s title §c= Вы окончательно погибли =')
                 player.runCommand(`tellraw @s { "rawtext": [ { "text": "§cТак и закончилась эта история. Вы погибли навсегда." } ] }`)
@@ -348,13 +374,15 @@ world.afterEvents.entityDie.subscribe((dieEvent) => {
 
             } else { // Если не призрак
 
+                console.warn('Смерть обычного')
+
                 player.runCommand('title @s title §c= Вы обращены в призрака =')
                 executeCommandDelayed(player, 'effect @s invisibility 60 0 true')
-                executeCommandDelayed(player, 'spreadplayers ~ ~ 0 100 @s')
+                executeCommandDelayed(player, 'spreadplayers ~ ~ 0 60 @s')
                 executeCommandDelayed(player, 'clear @s arx:slot_blocker')
                 player.setDynamicProperty('ghostUltimateResistance', 180)
 
-                player.runCommand(`tellraw @s { "rawtext": [ { "text": "§c! §f§сВы былы убиты и обращены в §cПРИЗРАКА!§f. \n§c! §fВы §cСОВСЕМ НЕДОЛГО§f неуязвимы к солнцу и воде!\n§c! §fВы невидимы на протяжении минуты." } ] }`)
+                player.runCommand(`tellraw @s { "rawtext": [ { "text": "§c! §f§сВы былы убиты и обращены в §cПРИЗРАКА!§f.\n§c! §fВы §cСОВСЕМ НЕДОЛГО§f неуязвимы к солнцу и воде!\n§c! §fВы невидимы на протяжении минуты." } ] }`)
                 player.setProperty('arx:is_ghost', true)
 
             }
@@ -459,7 +487,7 @@ world.afterEvents.entityHurt.subscribe((hurtEvent) => {
                 // Проверяем допуск по тому, не призрак ли игрок
                 if (damaged.getProperty('arx:is_ghost') === false) {
                     // Проверяем допуск по тому, нокнут ли игрок
-                    if (damaged.getProperty('arx:is_knocked') === true) {
+                    if (damaged.getDynamicProperty('respawnDelay') > 0) {
                         // Проверям допуск по наличию алтаря
                         if (world.getDimension(damaged.dimension.id).getBlock({ x: damaged.location.x, y: damaged.location.y - 1, z: damaged.location.z }).typeId === 'arx:divine_altar') {
                             setScore(player, 'knockout_row_sounter', 99)

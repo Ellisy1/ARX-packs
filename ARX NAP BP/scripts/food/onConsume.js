@@ -590,10 +590,15 @@ export function onFoodConsume(player, foodname) {
             else {
                 // Добавляем случайное значение к получаемому счастью
                 // happinessBonus += (Math.random() - 0.5) * 500
-                
+
                 // Регенерируем
                 const regenLevel = Math.floor(happinessBonus / 1000)
-                player.runCommand(`effect @s regeneration 10 ${regenLevel} true`)
+
+                if (regenLevel === NaN) {
+                    console.warn(`Получено NaN значение для regenLevel при съедании еды. Еда ${foodname}, игрок ${player.name}`)
+                } else {
+                    player.runCommand(`effect @s regeneration 10 ${regenLevel} true`)
+                }
             }
 
             // Сообщаем пользователю о вкусах

@@ -92,5 +92,5 @@ effect @a[hasitem={item=arx:lamenite_plate_armor, location=slot.armor.chest}, ta
 # Титлы универсального ключа
     execute if entity @a[m=!spectator, hasitem={item=arx:universal_radio_key, location=slot.weapon.mainhand}, tag=!urk_remote_controller_mode] run function core_parts_NAP/display_universal_radio_key
 
-# Снятие тега block_animate_killing_time_during_emotion
-    tag @a[tag=is_moving] remove block_animate_killing_time_during_emotion
+# Снятие тега is_emoting_via_arx_command
+    tag @a[tag=is_moving] remove is_emoting_via_arx_command

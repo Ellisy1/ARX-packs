@@ -73,7 +73,7 @@
 				"priority": 2,
 				"must_see": true,
 				"reselect_targets": true,
-				"within_radius": 25.0,
+				"within_radius": 6.0,
 				"must_see_forget_duration": 25.0,
 				"entity_types": [
 					{

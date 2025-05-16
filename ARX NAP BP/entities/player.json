@@ -33,6 +33,12 @@
           "default": false,
           "client_sync": true
         },
+        // Переменная для замера пинга
+        "arx:ping_test": {
+          "type": "bool",
+          "default": false,
+          "client_sync": true
+        },
         // Вариант анимации нокаута
         "arx:is_knocked_anim_var": {
           "type": "int",

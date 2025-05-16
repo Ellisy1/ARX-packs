@@ -125,16 +125,16 @@ export function registerCharacter(player) {
                 const form4 = new MessageFormData()
                     .title("Перебрасывайте вкусы, пока они вам не понравятся")
                     .body(tasteBodyString(player))
-                    .button1("Перебросить вкусы")
-                    .button2("Принять и продолжить")
+                    .button1("Принять и продолжить")
+                    .button2("Перебросить вкусы")
 
                     .show(player)
                     .then((response) => {
-                        if (response.selection === 0) { // Игрок перебросил
+                        if (response.selection === 0) { // Игрок принял
+                            player.setDynamicProperty('registerCharacterStage', 5)
                             registerCharacter(player)
                         }
-                        else if (response.selection === 1) { // Игрок принял
-                            player.setDynamicProperty('registerCharacterStage', 5)
+                        else if (response.selection === 1) { // Игрок перебросил
                             registerCharacter(player)
                         }
                     })
@@ -163,7 +163,7 @@ export function registerCharacter(player) {
                 player.getDynamicProperty('height') === undefined ? defaultHeightValue = 175 : defaultHeightValue = player.getDynamicProperty('height')
                 const form6 = new ModalFormData()
                     .title("Рост персонажа")
-                    .slider("У §aнизких§f персонажей §aменьше хитбокс§f\n\nУ §aвысоких§f персонажей §aбыстрее скорость бега (не более +5Ũ)§f\n\n§cЭти эффекты незначительны на практике! Выбирайте рост персонажа исходя из его лора, а не из бонусов\n\n§fРост вашего персонажа", 150, 195, { defaultValue: defaultHeightValue })
+                    .slider("У §aнизких§f персонажей §aменьше хитбокс§f\n\nУ §aвысоких§f персонажей §aвыше скорость бега (не более +5Ũ)§f\n\n§cЭти эффекты незначительны на практике! Выбирайте рост персонажа исходя из его лора, а не из бонусов\n\n§fРост вашего персонажа", 150, 195, { defaultValue: defaultHeightValue })
                     .submitButton('Посмотреть, как это выглядит')
 
                     .show(player).then(response => {

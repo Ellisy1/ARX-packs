@@ -36,7 +36,7 @@ system.runInterval(() => {
             let allow_levitate = false
             // В i < num, num отвечает за высоту полёта призрака
             for (let i = 0; i < 4; i++) {
-                if (getBlockWithOffset(player, 0, -0.5 - i, 0).typeId != "minecraft:air") {
+                if (getBlockWithOffset(player, 0, -0.5 - i, 0)?.typeId != "minecraft:air") {
                     allow_levitate = true
                 }
             }
@@ -112,6 +112,16 @@ system.runInterval(() => {
                 }
                 player.runCommand('execute as @p[tag=is_riding, has_property={arx:is_knocked=false}] run inputpermission set @s movement enabled')
                 player.runCommand('ride @s evict_riders')
+            }
+        }
+
+        // Респавн игроков
+        {
+            if (player.getDynamicProperty('respawnDelay') > 0 && player.getProperty('arx:is_ghost') === true) {
+                player.runCommand('spawnpoint @s -10000 28 -10000')
+            }
+            else {
+                player.runCommand('spawnpoint @s ~ ~ ~')
             }
         }
     }
@@ -397,9 +407,9 @@ system.runInterval(() => {
             if (player.getTags().includes('is_sprinting')) { speedPower += 25 }
 
             // Скорость - реализация
-            if (player.getDynamicProperty("speedPower") != speedPower) {
+            if (player.getDynamicProperty("speedPower") != speedPower && speedPower != NaN) {
                 const movementComponent = player.getComponent("minecraft:movement")
-                movementComponent?.setCurrentValue(speedPower / 1000)
+                movementComponent.setCurrentValue(speedPower / 1000)
             }
 
             player.setDynamicProperty("speedPower", speedPower)
@@ -649,7 +659,7 @@ system.runInterval(() => {
             if (getScore(player, "water_delay") > 400) { jumpPower -= 1 }
 
             // Срезание от перегруза
-            if (player?.getDynamicProperty('overLoading') > 0) { jumpPower -= player.getDynamicProperty("overLoading")}
+            if (player?.getDynamicProperty('overLoading') > 0) { jumpPower -= player.getDynamicProperty("overLoading") }
 
             // Отправка в DP
             player.setDynamicProperty("jumpPower", jumpPower)
@@ -760,7 +770,6 @@ system.runInterval(() => {
             // Снятие туманов
             player.runCommand(`fog @s remove "redglasses_fog"`)
             player.runCommand(`fog @s remove "night_vision_device_fog"`)
-            player.runCommand(`fog @s remove "stress_fog"`)
             player.runCommand(`fog @s remove "default"`)
             player.runCommand(`fog @s remove "night"`)
             player.runCommand(`fog @s remove "nightbright"`)

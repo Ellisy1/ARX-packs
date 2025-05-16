@@ -1,4 +1,4 @@
-import { system } from "@minecraft/server"
+import { system, world } from "@minecraft/server"
 
 // Этот код отвечает за проведение тестов стабильности Аркса
 import { getMoscowTime } from './date'
@@ -44,9 +44,15 @@ function performStabilityTest() {
     moscowTimeLastTest = moscowTimeCurrent
 }
 
-// Интервальный запуск тестов стабильности
+// Интервальный запуск
 system.runInterval(() => {
 
+    // Запуск тестов стабильности
     performStabilityTest()
+
+    // Запуск тестов пинга
+    for (const player of world.getPlayers()) {
+        player.setProperty('arx:ping_test', true)
+    }
 
 }, testIntervalSec * 20);

@@ -2,7 +2,7 @@
   "format_version": "1.12",
   "minecraft:recipe_shaped": {
     "description": {
-    "identifier": "arx:bugle_crafting_table"
+    "identifier": "arx:bugle_crafting_table_b"
     },
 
     
@@ -23,7 +23,7 @@
         "item": "arx:cast_iron_ingot"
       },
       "i": {
-        "item": "minecraft:coal"
+        "item": "minecraft:charcoal"
       }
     },
     "result": [

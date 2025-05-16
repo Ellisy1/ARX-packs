@@ -373,10 +373,10 @@
     # Религиозная одежда
         scoreboard players add @s[hasitem={item=arx:pallas_apprentice_robe}] weighLoading 1
         scoreboard players add @s[hasitem={item=arx:pires_apprentice_robe}] weighLoading 1
-        scoreboard players add @s[hasitem={item=arx:necro_mantle}] weighLoading 1
-        scoreboard players add @s[hasitem={item=arx:necro_mantle_zel}] weighLoading 1
-        scoreboard players add @s[hasitem={item=arx:pallas_mage_mantle}] weighLoading 1
-        scoreboard players add @s[hasitem={item=arx:pires_mage_mantle}] weighLoading 1
+        scoreboard players add @s[hasitem={item=arx:necro_mantle}] weighLoading 2
+        scoreboard players add @s[hasitem={item=arx:necro_mantle_zel}] weighLoading 2
+        scoreboard players add @s[hasitem={item=arx:pallas_mage_mantle}] weighLoading 2
+        scoreboard players add @s[hasitem={item=arx:pires_mage_mantle}] weighLoading 2
 
     #Лёгкая броня
         scoreboard players add @s[hasitem={item=arx:armored_blue_clothes}] weighLoading 3

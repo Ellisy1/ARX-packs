@@ -496,6 +496,8 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
 
                 player.setDynamicProperty('ghostWithering', 0)
                 player.setDynamicProperty('ghostWitheringLevel', 0)
+                player.setDynamicProperty('ghostUltimateResistance', 0)
+                player.setDynamicProperty('ghostBoostByScarletMoon', false)
 
                 player.setProperty('arx:is_ghost', false)
                 player.runCommand('clear @s arx:scroll_of_reborning 0 1')

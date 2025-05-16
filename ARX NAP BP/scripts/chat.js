@@ -84,8 +84,11 @@ function parceCommand(player, trimmedMessage) {
 
                     // Поиск игрока, если указан
                     if (command[3]) {
+
+                        const playerName = command.slice(3).join(' ').trim()
+
                         targetPlayer = world.getPlayers().find(p =>
-                            p.name.toLowerCase() === command[3].toLowerCase()
+                            p.name.toLowerCase() === playerName.toLowerCase()
                         );
                     }
 
@@ -286,21 +289,28 @@ function parceCommand(player, trimmedMessage) {
         }
     }
     else { // Сообщение - не команда Аркса. Обработать и отправить
-        // Недопуск 1
+        // Недопуск из-за нока
         if (player.getDynamicProperty('respawnDelay') > 0) {
             queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cВы не можете разговаривать, пока вы без сознания." } ] }`)
         }
-        // Недопуск 2
-        else if (player.getDynamicProperty("name") == undefined) {
-            queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cУстановите имя персонажа, чтобы общаться в локальном чате. Это можно сделать командой §a!setname имя§c." } ] }`)
-        }
-        // Недопуск 3
+        // Недопуск из-за \ и "
         else if (trimmedMessage.includes("\\") || trimmedMessage.includes('"')) {
             queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cИз-за технических особенностей невозможно отправить сообщение, содержащее двойную кавычку или обратный слеш." } ] }`)
         }
+        // Недопуск из-за отсутствия регистрации
+        else if (player.getDynamicProperty('hasRegisteredCharacter') !== true) {
+            queueCommand(player, `tellraw @s { "rawtext": [ { "text": "Наверное, вы хотели написать в §cглобальный чат§f?\nДля этого отправьте §d!§aг <сообщение>" } ] }`)
+        }
+        // Недопуск из-за отсутствия локального ника
+        else if (player.getDynamicProperty("name") === undefined) {
+            queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cУстановите имя персонажа, чтобы общаться в локальном чате. Это можно сделать командой §a!setname имя§c." } ] }`)
+        }
         // Успешно
         else {
-            speechEmote(player, trimmedMessage)
+            // Делаем речевую эмоцию, если это нужно
+            if (!player.hasTag('is_emoting_via_arx_command')) {
+                speechEmote(player, trimmedMessage)
+            }
 
             // Определяем дистанцию для каждого игрока
             for (const speechListener of world.getPlayers()) {
@@ -607,7 +617,7 @@ function speechEmote(player, phrase) {
     phraseStats.greet = countWordMatches(phrase, greetWords);
 
     // Пример: вывод статистики в консоль
-    console.warn('Phrase Stats:', JSON.stringify(phraseStats), "Высшее значение:", processPhraseStats(phraseStats));
+    // console.warn('Phrase Stats:', JSON.stringify(phraseStats), "Высшее значение:", processPhraseStats(phraseStats));
 
     // Дальнейшая обработка phraseStats для выбора эмоции и воспроизведения её
     switch (processPhraseStats(phraseStats)) {

@@ -32,7 +32,7 @@ export function emote(player, message) {
                 player.setDynamicProperty('hasEverEmoted', true)
 
                 queueCommand(player, `playanimation @s animation.emote.${emotion_list[parseInt(emotion) - 1]} a 0.1 "query.is_moving || query.is_sneaking || q.property('arx:is_knocked') == true"`)
-                queueCommand(player, "tag @s add block_animate_killing_time_during_emotion")
+                queueCommand(player, "tag @s add is_emoting_via_arx_command")
             }
             else {
                 queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cНет эмоции с таким номером." } ] }`)

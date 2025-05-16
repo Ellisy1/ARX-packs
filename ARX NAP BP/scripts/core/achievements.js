@@ -34,12 +34,28 @@ export const achievementsList = { // Список со всеми достиже
             value: "minecraft:furnace"
         }
     },
+    "has_blast_furnace": {
+        name: "Самая горячая~",
+        description: "Создать плавильню",
+        trigger: {
+            type: "hasItem",
+            value: "minecraft:blast_furnace"
+        }
+    },
     "has_string": {
         name: "Верёвочка",
         description: "Получить нить",
         trigger: {
             type: "hasItem",
             value: "minecraft:string"
+        }
+    },
+    "has_torch": {
+        name: "Да будет свет!",
+        description: "Получить факел",
+        trigger: {
+            type: "hasItem",
+            value: "minecraft:torch"
         }
     },
     "has_shears": {
@@ -58,12 +74,87 @@ export const achievementsList = { // Список со всеми достиже
             value: "arx:cheap_cloth"
         }
     },
+
+    "has_blacksmith_tongs": {
+        name: "Кузнец",
+        description: "Получить простые кузнечные клещи",
+        trigger: {
+            type: "hasItem",
+            value: "arx:blacksmith_tongs"
+        }
+    },
+    "has_blacksmith_tongs_super": {
+        name: "Кузнец-профи",
+        description: "Получить усиленные кузнечные клещи",
+        trigger: {
+            type: "hasItem",
+            value: "arx:blacksmith_tongs_super"
+        }
+    },
+
+    "has_barrel_of_water_crafting_table": {
+        name: "Охлаждение",
+        description: "Получить кузнечное ведро с водой",
+        trigger: {
+            type: "hasItem",
+            value: "arx:barrel_of_water_crafting_table"
+        }
+    },
+    "has_anvil_crafting_table": {
+        name: "Наковален много не бывает",
+        description: "Получить расковочную наковальню",
+        trigger: {
+            type: "hasItem",
+            value: "arx:anvil_crafting_table"
+        }
+    },
+    "has_bugle_crafting_table": {
+        name: "Задайте жару!",
+        description: "Получить горн",
+        trigger: {
+            type: "hasItem",
+            value: "arx:bugle_crafting_table"
+        }
+    },
+    "has_aluminum_billet": {
+        name: "Оружейный блеск",
+        description: "Получить алюминиевую оружейную болванку",
+        trigger: {
+            type: "hasItem",
+            value: "arx:aluminum_billet"
+        }
+    },
+    "has_aluminium_simple_sword": {
+        name: "Зубочистка",
+        description: "Получить алюминиевый одноручный меч",
+        trigger: {
+            type: "hasItem",
+            value: "arx:aluminium_simple_sword"
+        }
+    },
+    
+    "has_ring_aluminum__empty": {
+        name: "Алюминиевая мода",
+        description: "Создать алюминиевую колечную оправу",
+        trigger: {
+            type: "hasItem",
+            value: "arx:ring_aluminum__empty"
+        }
+    },
     "has_loom_crafting_table": {
         name: "Свяжем шапочку",
         description: "Создать прядильный станок",
         trigger: {
             type: "hasItem",
             value: "arx:loom_crafting_table"
+        }
+    },
+    "has_pounder_crafting_table": {
+        name: "Пестик и чашка",
+        description: "Создать ступку",
+        trigger: {
+            type: "hasItem",
+            value: "arx:pounder_crafting_table"
         }
     },
     "has_leather_bench_crafting_table": {
@@ -88,6 +179,14 @@ export const achievementsList = { // Список со всеми достиже
         trigger: {
             type: "hasItem",
             value: "arx:clothes_crafting_table"
+        }
+    },
+    "has_heavy_armor_crafting_table": {
+        name: "Путь титана",
+        description: "Создать верстак для тяжёлых доспехов",
+        trigger: {
+            type: "hasItem",
+            value: "arx:heavy_armor_crafting_table"
         }
     },
     "has_bow": {
@@ -144,6 +243,14 @@ export const achievementsList = { // Список со всеми достиже
         trigger: {
             type: "hasItem",
             value: "arx:steel_ingot"
+        }
+    },
+    "has_plumbum_ingot": {
+        name: "При чём тут свиньи?",
+        description: "Получить слиток свинца",
+        trigger: {
+            type: "hasItem",
+            value: "arx:plumbum_ingot"
         }
     },
     "has_rune_crafting_table": {
@@ -384,6 +491,23 @@ export const achievementsList = { // Список со всеми достиже
         trigger: {
             type: "hasItem",
             value: "minecraft:netherite_pickaxe"
+        }
+    },
+
+    "has_staff_wooden": {
+        name: "Карманная магия",
+        description: "Получить деревянный посох",
+        trigger: {
+            type: "hasItem",
+            value: "arx:staff_wooden"
+        }
+    },
+    "has_wand_wooden": {
+        name: "Цель изменена!",
+        description: "Получить деревянную волшебную палочку",
+        trigger: {
+            type: "hasItem",
+            value: "arx:wand_wooden"
         }
     },
 

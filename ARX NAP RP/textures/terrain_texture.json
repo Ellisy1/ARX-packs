@@ -518,6 +518,9 @@
 		"plush_gigamouse": {
 			"textures": "textures/blocks/furniture/plush_gigamouse"
 		},
+		"plush_gasgolder": {
+			"textures": "textures/blocks/furniture/plush_gasgolder"
+		},
 		"arx_tea_set": {
 			"textures": "textures/blocks/furniture/2.0.1/tea_set"
 		},

@@ -5,8 +5,15 @@ import { checkForItem } from './checkForItem'
 
 // Увеличиваем прогресс навыка на inputValue, учитывая срезание прогресса от уровня
 export function increaseSkillProgress(player, skill, inputValue) {
+
+    // Если улучшаемого навыка не существует
     if (!(skill in registeredSkills)) {
         console.warn(`Попыка увеличить прогресс незарегистрированного навыка ${skill}`)
+        return undefined
+    }
+
+    // Если мы в креативе или наблюдателе
+    if (player.getGameMode() === 'creative' || player.getGameMode() === 'spectator') {
         return undefined
     }
 

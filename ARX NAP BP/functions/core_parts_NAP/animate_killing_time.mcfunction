@@ -304,7 +304,7 @@
 
     tag @s[has_property={arx:is_knocked=true}] add no_animate_killing_time
 
-    tag @s[tag=block_animate_killing_time_during_emotion] add no_animate_killing_time
+    tag @s[tag=is_emoting_via_arx_command] add no_animate_killing_time
 
     execute as @a[tag=is_riding, has_property={arx:is_knocked=true}] at @s run tag @p[r=0.8, tag=has_riders] add no_animate_killing_time
 
