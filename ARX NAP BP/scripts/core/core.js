@@ -963,7 +963,6 @@ system.runInterval(() => {
                 }
 
                 // Выдаем бонусы
-                console.warn(bonusByEatenFiolix)
                 player.runCommand(`scoreboard players add @s stress ${bonusByEatenFiolix * happinessMultiplier * -1}`)
             }
 
@@ -971,7 +970,6 @@ system.runInterval(() => {
             if (FiolixNarcoticPowerLastPass == 0 && FiolixNarcoticPower > 0) {
                 statsBonusByFiolix = 120
                 if (Math.random() > 0.15) {
-                    console.warn('Обнуляем зависимость')
                     FiolixNarcoticPower = 0
                 }
                 else {

@@ -341,5 +341,11 @@
 		"atlas_tile": "connection_controller_green_flip_h",
 		"ticks_per_frame": 28,
 		"blend_frames": false
-	}
+	},
+  {
+    "flipbook_texture": "textures/blocks/dungeons/arx_magic_barrier",
+    "atlas_tile": "arx_magic_barrier",
+    "ticks_per_frame": 2,
+		"blend_frames": false
+  }
 ]

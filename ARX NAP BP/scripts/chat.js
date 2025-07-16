@@ -307,40 +307,45 @@ function parceCommand(player, trimmedMessage) {
         }
         // Успешно
         else {
-            // Делаем речевую эмоцию, если это нужно
-            if (!player.hasTag('is_emoting_via_arx_command')) {
-                speechEmote(player, trimmedMessage)
+            sendChatMessage(player, trimmedMessage, "Local")
+        }
+    }
+}
+
+// Функция отправка сообщения в локальный чат
+function sendChatMessage(player, trimmedMessage, type) {
+    // Делаем речевую эмоцию, если это нужно
+    if (!player.hasTag('is_emoting_via_arx_command')) {
+        speechEmote(player, trimmedMessage)
+    }
+
+    // Определяем дистанцию для каждого игрока
+    for (const speechListener of world.getPlayers()) {
+        if (player.getDynamicProperty('respawnDelay') === 0) { // Если тот, кто получает сообщение не нокнут
+            const distance = Math.sqrt(Math.pow(speechListener.location.x - player.location.x, 2) + Math.pow(speechListener.location.y - player.location.y, 2) + Math.pow(speechListener.location.z - player.location.z, 2))
+
+            let chatPrefix
+
+            if (player.getDynamicProperty("is_whispering") == false) { // Если мы говорим в полный голос
+                let speech = spoilSpeechByDistance(trimmedMessage, distance, 8)
+
+                // Настраиваем префикс чата
+                if (speechListener.getDynamicProperty('myRule:chatPrefixes') == 'fullEN') { chatPrefix = 'Local' }
+                if (speechListener.getDynamicProperty('myRule:chatPrefixes') == 'shortEN') { chatPrefix = 'L' }
+
+                if (speech !== undefined) {
+                    queueCommand(speechListener, `tellraw @s {"rawtext":[{"text": "[§a${chatPrefix}§f] <${player.getDynamicProperty("name")}§f> ${speech}"}]}`)
+                }
             }
+            else { // Если мы шепчем
+                let speech = spoilSpeechByDistance(trimmedMessage, distance, 2)
 
-            // Определяем дистанцию для каждого игрока
-            for (const speechListener of world.getPlayers()) {
-                if (player.getDynamicProperty('respawnDelay') === 0) { // Если тот, кто получает сообщение не нокнут
-                    const distance = Math.sqrt(Math.pow(speechListener.location.x - player.location.x, 2) + Math.pow(speechListener.location.y - player.location.y, 2) + Math.pow(speechListener.location.z - player.location.z, 2))
+                // Настраиваем префикс чата
+                if (speechListener.getDynamicProperty('myRule:chatPrefixes') == 'fullEN') { chatPrefix = 'Whisper' }
+                if (speechListener.getDynamicProperty('myRule:chatPrefixes') == 'shortEN') { chatPrefix = 'W' }
 
-                    let chatPrefix
-
-                    if (player.getDynamicProperty("is_whispering") == false) { // Если мы говорим в полный голос
-                        let speech = spoilSpeechByDistance(trimmedMessage, distance, 8)
-
-                        // Настраиваем префикс чата
-                        if (speechListener.getDynamicProperty('myRule:chatPrefixes') == 'fullEN') { chatPrefix = 'Local' }
-                        if (speechListener.getDynamicProperty('myRule:chatPrefixes') == 'shortEN') { chatPrefix = 'L' }
-
-                        if (speech !== undefined) {
-                            queueCommand(speechListener, `tellraw @s {"rawtext":[{"text": "[§a${chatPrefix}§f] <${player.getDynamicProperty("name")}§f> ${speech}"}]}`)
-                        }
-                    }
-                    else { // Если мы шепчем
-                        let speech = spoilSpeechByDistance(trimmedMessage, distance, 2)
-
-                        // Настраиваем префикс чата
-                        if (speechListener.getDynamicProperty('myRule:chatPrefixes') == 'fullEN') { chatPrefix = 'Whisper' }
-                        if (speechListener.getDynamicProperty('myRule:chatPrefixes') == 'shortEN') { chatPrefix = 'W' }
-
-                        if (speech !== undefined) {
-                            queueCommand(speechListener, `tellraw @s {"rawtext":[{"text": "[§6${chatPrefix}§f] <${player.getDynamicProperty("name")}§f> ${speech}"}]}`)
-                        }
-                    }
+                if (speech !== undefined) {
+                    queueCommand(speechListener, `tellraw @s {"rawtext":[{"text": "[§6${chatPrefix}§f] <${player.getDynamicProperty("name")}§f> ${speech}"}]}`)
                 }
             }
         }

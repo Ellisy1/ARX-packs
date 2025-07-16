@@ -702,6 +702,11 @@
         "textures/items/clothes/heavy_armor/purple_plate_helmet_icon"
       ]
     },
+    "arx:purple_plate_helmet_magik": {
+      "textures": [
+        "textures/items/clothes/heavy_armor/purple_plate_helmet_magik_icon"
+      ]
+    },
     "arx:purple_plates": {
       "textures": [
         "textures/items/clothes/heavy_armor/purple_plates_icon"
@@ -4405,6 +4410,9 @@
     "arx:book_mage_notes": {
       "textures": "textures/items/books/storybooks/book_mage_notes"
     },
+    "arx:cultists_letter": {
+      "textures": "textures/items/books/cultists_letter"
+    },
     "arx:bundle_with_vinyl": {
       "textures": "textures/items/other/bundle_with_vinyl"
     },
@@ -4616,6 +4624,13 @@
 
     "arx:slot_blocker": {
       "textures": "textures/items/other/slot_blocker"
+    },
+
+    "arx:ancient_banknote": {
+      "textures": "textures/items/ancient/ancient_banknote"
+    },
+    "arx:bunker_access_card": {
+      "textures": "textures/items/ancient/bunker_access_card"
     }
   }
 }

@@ -98,6 +98,9 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
             break
 
         // Читаемые
+        case "arx:cultists_letter":
+            player.runCommand("function books/cultists_letter")
+            break
         case "arx:book_about_ancients":
             player.runCommand("function books/storybooks/book_about_ancients")
             break

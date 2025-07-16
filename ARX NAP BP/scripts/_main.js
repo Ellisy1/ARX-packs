@@ -98,6 +98,10 @@ world.afterEvents.playerInteractWithEntity.subscribe((interactEvent) => {
     else if (interactEvent.target?.typeId == "arx:lobby_character_creation") {
         registerCharacter(interactEvent.player)
     }
+    // Статуя Синриады у Порочных Садов
+    else if (interactEvent.target?.typeId == "arx:statue_of_sinriada") {
+        interactEvent.player.runCommand('function statues/statue_of_sinriada')
+    }
 })
 
 // При запуске мира

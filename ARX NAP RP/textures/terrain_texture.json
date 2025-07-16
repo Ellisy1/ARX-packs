@@ -623,6 +623,9 @@
 		"arx_magic_lava_bridge": {
 			"textures": "textures/blocks/dungeons/magic_lava_bridge"
 		},
+		"arx_magic_barrier": {
+			"textures": "textures/blocks/dungeons/arx_magic_barrier"
+		},
 		"arx_moss_block_blue": {
 			"textures": "textures/blocks/dungeons/moss_block_blue"
 		},

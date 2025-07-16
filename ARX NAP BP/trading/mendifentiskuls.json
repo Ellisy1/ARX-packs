@@ -1,0 +1,56 @@
+{
+  "tiers": [
+    {
+      "trades": [
+        // ПРОДАЖА
+        // КАМЕНЬ АААА
+        {
+          "wants": [
+            {
+              "item": "arx:rat_coin"
+            }
+          ],
+          "gives": [
+            {
+              "item": "minecraft:stone",
+              "quantity": 16
+            }
+          ]
+        },
+        // Волшебный камень
+        {
+          "wants": [
+            {
+              "item": "arx:rat_coin",
+              "quantity": 5
+            }
+          ],
+          "gives": [
+            {
+              "item": "arx:small_stone",
+              "functions": [
+                {
+                  "function": "set_name",
+                  "name": "§r§fВолшебный камень"
+                }
+              ]
+            }
+          ]
+        },
+        // Карта доступа в бункер
+        {
+          "wants": [
+            {
+              "item": "arx:ancient_banknote"
+            }
+          ],
+          "gives": [
+            {
+              "item": "arx:bunker_access_card"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
