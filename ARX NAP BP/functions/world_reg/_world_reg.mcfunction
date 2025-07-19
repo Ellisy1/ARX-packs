@@ -432,9 +432,6 @@ scoreboard objectives add uni_cool_down dummy uni_cool_down
 
 scoreboard objectives add heal_scrl_durt dummy heal_scrl_durt
 
-scoreboard objectives add lamp_oil dummy lamp_oil
-scoreboard objectives add lamp_oil_prc dummy lamp_oil_prc
-scoreboard objectives add max_light_range dummy max_light_range
 # Магические светильники
     scoreboard objectives add allow_magilight dummy allow_magilight
     scoreboard objectives add allow_archlight dummy allow_archlight

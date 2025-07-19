@@ -36,28 +36,6 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
             }
             break
 
-        // Флаконы с маслом для лампы
-        case "arx:vial_lamp_oil_fire":
-            if (manageCD(player)) {
-                player.runCommand("function alchemy/vials/vial_lamp_oil_fire")
-            }
-            break
-        case "arx:vial_lamp_oil_grease":
-            if (manageCD(player)) {
-                player.runCommand("function alchemy/vials/vial_lamp_oil_grease")
-            }
-            break
-        case "arx:vial_lamp_oil_plumbum":
-            if (manageCD(player)) {
-                player.runCommand("function alchemy/vials/vial_lamp_oil_plumbum")
-            }
-            break
-        case "arx:vial_lamp_oil_spirt":
-            if (manageCD(player)) {
-                player.runCommand("function alchemy/vials/vial_lamp_oil_spirt")
-            }
-            break
-
         // Бутылки
         case "arx:beer_bottle":
             if (manageCD(player)) {

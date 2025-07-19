@@ -440,6 +440,7 @@
         scoreboard players add @s[hasitem={item=arx:precursor_armor}] weighLoading 6
         scoreboard players add @s[hasitem={item=arx:precursor_helmet}] weighLoading 6
         scoreboard players add @s[hasitem={item=arx:purple_plate_helmet}] weighLoading 5
+        scoreboard players add @s[hasitem={item=arx:purple_plate_helmet_magik}] weighLoading 5
         scoreboard players add @s[hasitem={item=arx:purple_plates}] weighLoading 6
         scoreboard players add @s[hasitem={item=arx:steeletherite_armor}] weighLoading 8
         scoreboard players add @s[hasitem={item=arx:lamenite_plate_armor}] weighLoading 8

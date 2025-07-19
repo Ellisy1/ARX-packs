@@ -736,6 +736,11 @@ system.runInterval(() => {
             }
         }
 
+        // Регаем на все сущности tick_nosempra_*
+        world.getDimension("minecraft:overworld").runCommand("scoreboard players add @e[type=!item] tick_nosempra_a 0")
+        world.getDimension("minecraft:overworld").runCommand("scoreboard players add @e[type=!item] tick_nosempra_b 0")
+        world.getDimension("minecraft:overworld").runCommand("scoreboard players add @e[type=!item] tick_nosempra_c 0")
+
         // Прокачиваем силу духа (навык)
         if (player.hasTag('very_low_hp')) {
             increaseSkillProgress(player, 'fortitude', 20)

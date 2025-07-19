@@ -54,10 +54,10 @@ effect @a[hasitem={item=arx:lamenite_plate_armor, location=slot.armor.chest}, ta
             tag @a[hasitem={item=arx:staff_steel_with_topaz, location=slot.weapon.mainhand}] add holds_staff_trio
             tag @a[hasitem={item=arx:staff_with_beryl, location=slot.weapon.mainhand}] add holds_staff_trio
             tag @a[hasitem={item=arx:staff_simple_with_ruby, location=slot.weapon.mainhand}] add holds_staff_trio
+            tag @a[hasitem={item=arx:staff_tin_with_gold, location=slot.weapon.mainhand}] add holds_staff_trio
             
         # duo
             tag @a[hasitem={item=arx:staff_gold, location=slot.weapon.mainhand}] add holds_staff_duo
-            tag @a[hasitem={item=arx:staff_tin_with_gold, location=slot.weapon.mainhand}] add holds_staff_duo
             tag @a[hasitem={item=arx:staff_wooden_with_chrysolite, location=slot.weapon.mainhand}] add holds_staff_duo
             tag @a[hasitem={item=arx:staff_wooden_with_olivine, location=slot.weapon.mainhand}] add holds_staff_duo
 

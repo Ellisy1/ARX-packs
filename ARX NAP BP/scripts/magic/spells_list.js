@@ -20,7 +20,7 @@ export const spellsList = {
 
     "kon inoffo sempra low mega": "боевое заклинание, наносящее урон, игнорирущий броню",
 
-    "kon inoffo sempra marra mega mega mega": "наисложнейшее заклинание уничтожения сущности, находящейся под меткой",
+    "kon inoffo sempra marra mega mega mega": "заклинание дезинтеграции сущности, находящейся под меткой",
 
 
     "kon inoffo recuro": "заклинание вампиризма, наносящее урон жертве, и лечащее самого мага",
@@ -247,7 +247,7 @@ export const spellsList = {
 
     "din yanamo trafantana transkursio": "заклятие икс-телепортации",
 
-    "din yanamo trafantana transkursio sempra": "заклятие икс-телепортации с синергией DIN - KON",
+    "din yanamo trafantana transkursio sempra": "заклятие икс-телепортации с уроном",
 
     "din yanamo transkursio laffaeti": "слабое заклинание отхода из измерения",
 

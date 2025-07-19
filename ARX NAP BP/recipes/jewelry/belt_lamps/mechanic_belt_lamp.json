@@ -8,19 +8,16 @@
     
     "tags": [ "jewelry_crafting_table" ],
     "pattern": [
-      "ARA",
+      "A A",
       "BIB",
       " B "
     ],
     "key": {
       "I": {
-        "item": "arx:bronze_block"
-      },
-      "R": {
         "item": "minecraft:string"
       },
       "A": {
-        "item": "arx:steel_ingot"
+        "item": "minecraft:iron_ingot"
       },
       "B": {
         "item": "arx:bronze_ingot"

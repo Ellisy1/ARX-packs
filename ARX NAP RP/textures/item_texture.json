@@ -1543,19 +1543,6 @@
       "textures": "textures/items/alchemy/bottles/vial"
     },
 
-    "arx:vial_lamp_oil_grease": {
-      "textures": "textures/items/alchemy/vials/vial_lamp_oil_grease"
-    },
-    "arx:vial_lamp_oil_spirt": {
-      "textures": "textures/items/alchemy/vials/vial_lamp_oil_spirt"
-    },
-    "arx:vial_lamp_oil_plumbum": {
-      "textures": "textures/items/alchemy/vials/vial_lamp_oil_plumbum"
-    },
-    "arx:vial_lamp_oil_fire": {
-      "textures": "textures/items/alchemy/vials/vial_lamp_oil_fire"
-    },
-
     "arx:hole_bottle": {
       "textures": "textures/items/alchemy/bottles/hole_bottle"
     },

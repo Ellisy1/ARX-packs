@@ -35,7 +35,7 @@
 				"value": 10000
 			},
 			"minecraft:movement": {
-				"value": 0.23
+				"value": 0.21
 			},
 			"minecraft:behavior.random_stroll": {
 				"priority": 6,
@@ -103,7 +103,7 @@
 			"check_for_players": {
 				"queue_command": {
 					"command": [
-						"execute if entity @a[r=5] run event entity @s despawn_and_drop_letter"
+						"execute if entity @a[r=3] run event entity @s despawn_and_drop_letter"
 					]
 				}
 			},
