@@ -17,6 +17,9 @@ import './achievements'
 import { getNearestPlayer } from "../getNearestPlayer"
 import { queueCommand } from "../commandQueue"
 
+// Пременная для редактирования ARX Gate
+export let ARXGate = "ARXGate:awaitingInputIdlexxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
 // 1 tick
 system.runInterval(() => {
     world.getDimension("minecraft:overworld").runCommand("function core_parts/core")

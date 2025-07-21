@@ -6,6 +6,7 @@ import { infoSkillsScreen } from "./infoSkillsScreen"
 import { infoAboutStats } from "./infoAboutStats"
 import { infoAboutStatistics } from "./infoAboutStatistics"
 import { infoAboutAchievements } from "./infoAboutAchievements"
+import { infoAboutTraits } from "./infoAboutTraits"
 import { arxSettings } from "./arxSettings"
 import { guide } from "./guide"
 
@@ -47,7 +48,7 @@ export function infoScreen(player) {
             } else if (response.selection === 3) {
                 infoAboutStats(player)
             } else if (response.selection === 4) {
-                player.runCommand('function traits/traitdata')
+                infoAboutTraits(player)
             } else if (response.selection === 5) {
                 infoAboutTastes(player)
             } else if (response.selection === 6) {
