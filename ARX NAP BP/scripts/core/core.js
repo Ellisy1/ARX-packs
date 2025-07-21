@@ -8,11 +8,14 @@ import { checkForItem } from "../checkForItem"
 import { ModalFormData, MessageFormData, MessageFormResponse } from "@minecraft/server-ui"
 import { setRandomTastes } from '../food/setRandomTastes'
 import { getPlayersInRadius } from '../getPlayersInRadius'
+import { getActiveStaffChannel } from '../magic/getActiveStaffChannel'
+import { channelRomanNums } from '../magic/channelRomanNums'
 
 // Импорт - другие области движка
 import './music_core'
 import './achievements'
 import { getNearestPlayer } from "../getNearestPlayer"
+import { queueCommand } from "../commandQueue"
 
 // 1 tick
 system.runInterval(() => {
@@ -131,6 +134,14 @@ system.runInterval(() => {
 system.runInterval(() => {
     world.getDimension("minecraft:overworld").runCommand("function core_parts_NAP/2ticks")
     for (const player of world.getPlayers()) {
+        // Откат амулета гиперсинергии
+        if (player.getDynamicProperty('amul_hypersynergyCD') > 0) {
+            if (player.getDynamicProperty('amul_hypersynergyCD') === 1) {
+                queueCommand(player, 'playsound tick @s ~ ~ ~')
+            }
+            player.setDynamicProperty('amul_hypersynergyCD', player.getDynamicProperty('amul_hypersynergyCD') - 1)
+        }
+
         // Базовая сила
         {
             let basicStrength = 0.5
@@ -232,12 +243,12 @@ system.runInterval(() => {
             mpRegenPower -= player.getDynamicProperty("ghostWitheringLevel") * 0.2
 
             // Воздействие стресса
-            if (getScore(player, "stress_cond") == 4) { mpRegenPower -= 1 }
-            if (getScore(player, "stress_cond") == 3) { mpRegenPower -= 0.5 }
-            if (getScore(player, "stress_cond") == 2) { mpRegenPower -= 0.2 }
-            if (getScore(player, "stress_cond") == -2) { mpRegenPower += 0.2 }
-            if (getScore(player, "stress_cond") == -3) { mpRegenPower += 0.5 }
-            if (getScore(player, "stress_cond") == -4) { mpRegenPower += 0.7 }
+            if (getScore(player, "stress_cond") == 4) { mpRegenPower -= 0.4 }
+            if (getScore(player, "stress_cond") == 3) { mpRegenPower -= 0.2 }
+            if (getScore(player, "stress_cond") == 2) { mpRegenPower -= 0.1 }
+            if (getScore(player, "stress_cond") == -2) { mpRegenPower += 0.1 }
+            if (getScore(player, "stress_cond") == -3) { mpRegenPower += 0.2 }
+            if (getScore(player, "stress_cond") == -4) { mpRegenPower += 0.4 }
 
             // Срезание от отравления
             if (player.getDynamicProperty('intoxicationLevel') >= 2) { mpRegenPower -= player.getDynamicProperty('intoxicationLevel') }
@@ -309,17 +320,35 @@ system.runInterval(() => {
                     player.setDynamicProperty("mp", player.getDynamicProperty("mp") + 1)
                     player.setDynamicProperty('MPSmoothAccrue', player.getDynamicProperty('MPSmoothAccrue') - 1)
                 }
-                displayMP(player)
+                displayMPAndAdjacent(player)
             }
             // Мана больше макс маны
             else if (player.getDynamicProperty("mp") > maxMp) { // Маны больше чем надо
                 player.setDynamicProperty("mp", maxMp)
                 player.setDynamicProperty('MPSmoothAccrue', 0)
-                displayMP(player)
+                displayMPAndAdjacent(player)
             }
             // Мана равна макс мане
             else {
                 player.setDynamicProperty('MPSmoothAccrue', 0)
+
+                // Определяем, что у нас за предмет
+                const item = player.getComponent(EntityComponentTypes.Equippable).getEquipment(EquipmentSlot.Mainhand)
+
+                // Если мы держим посох
+                if (item?.getTags().includes('is_staff')) {
+                    displayMPAndAdjacent(player)
+                }
+
+                // Если мы держим руну
+                else if (item?.getTags().includes('is_rune')) {
+                    displayMPAndAdjacent(player)
+                }
+
+                // Если у нас гиперсинергия
+                else if (checkForItem(player, "Legs", 'arx:amul_hypersynergy') || checkForItem(player, "Legs", 'arx:amul_hypersynergy_improved') || checkForItem(player, "Legs", 'arx:amul_hypersynergy_superior')) {
+                    displayMPAndAdjacent(player)
+                }
             }
         }
 
@@ -416,7 +445,7 @@ system.runInterval(() => {
         }
 
         // Контроль расстояния от места спавна
-        if (player.getDynamicProperty('hasRegisteredCharacter') && player.getGameMode() !== 'creative' && player.getGameMode() !== 'spectator' && player.dimension.id === 'minecraft:overworld') {
+        if (player.getDynamicProperty('hasRegisteredCharacter') && player.getGameMode() !== 'Creative' && player.getGameMode() !== 'Spectator' && player.dimension.id === 'minecraft:overworld') {
             // Задаем двумерные векторы
             const worldCenter = [-2066, 1733]
             const playerLocation = [player.location.x, player.location.z];
@@ -596,7 +625,7 @@ system.runInterval(() => {
 
         // Счётчик пройденного расстояния
         {
-            if (player.hasTag('is_moving') && player.getGameMode() !== 'creative' && player.getGameMode() !== 'spectator') {
+            if (player.hasTag('is_moving') && player.getGameMode() !== 'Creative' && player.getGameMode() !== 'Spectator') {
                 player.setDynamicProperty("statistics:distance", player.getDynamicProperty('statistics:distance') + 1.04 * (player.getDynamicProperty('speedPower') / 100))
             }
         }
@@ -1286,13 +1315,61 @@ system.runInterval(() => {
 }, 20);
 
 // Отображение маны
-function displayMP(player) {
-    // Если мы отображаем целыми
-    if (player.getDynamicProperty("myRule:manaDisplayMode") === 'integers')
-        player.runCommand(`title @s actionbar ${Math.floor(player.getDynamicProperty("mp"))} §1MP`)
-    // Если мы отображаем дробными
-    else if (player.getDynamicProperty("myRule:manaDisplayMode") === 'decimals') {
-        player.runCommand(`title @s actionbar ${player.getDynamicProperty("mp").toFixed(1)} §1MP`)
+function displayMPAndAdjacent(player) {
+
+    // Определяем, как нам показать ману
+    let manaStr = ''
+
+    if (player.getDynamicProperty("myRule:manaDisplayMode") === 'integers') {
+        manaStr = Math.floor(player.getDynamicProperty("mp"))
+    }
+    else {
+        manaStr = player.getDynamicProperty("mp").toFixed(1)
+    }
+
+    // Определяем, что у нас за предмет
+    const item = player.getComponent(EntityComponentTypes.Equippable).getEquipment(EquipmentSlot.Mainhand)
+
+    // Объявляем переменную, где будем хранить число каналов посоха
+    let staffChannelNum
+
+    const itemTags = item?.getTags()
+
+    // Мы держим посох
+    if (itemTags?.includes('is_staff')) {
+
+        for (const tag of itemTags) {
+            if (tag.includes('staff_channels_')) {
+                staffChannelNum = parseInt(tag.slice(15))
+            }
+        }
+
+        const targets = ['§aНа себя', '§cНа ближайшего', '§eНа животных и монстров']
+
+        const activeChannel = getActiveStaffChannel(player, staffChannelNum)
+        const activeTarget = player.getDynamicProperty('magicTarget')
+
+        player.runCommand(`title @s actionbar §d${channelRomanNums[activeChannel - 1]} канал §7| §c${targets[activeTarget - 1]} §7| §f${manaStr} §1MP`)
+    }
+    // Мы держим руну
+    else if (itemTags?.includes('is_rune')) {
+        const channels = 6
+        const activeChannel = getActiveStaffChannel(player, channels)
+
+        player.runCommand(`title @s actionbar §b${channelRomanNums[activeChannel - 1]} канал §7| §f${manaStr} §1MP`)
+    }
+    // У нас амулет гиперсинергии
+    else if (checkForItem(player, "Legs", 'arx:amul_hypersynergy') || checkForItem(player, "Legs", 'arx:amul_hypersynergy_improved') || checkForItem(player, "Legs", 'arx:amul_hypersynergy_superior')) {
+        const channels = 6
+        const activeChannel = getActiveStaffChannel(player, channels)
+
+        player.runCommand(`title @s actionbar §7${channelRomanNums[activeChannel - 1]} канал §7| §f${manaStr} §1MP`)
+    }
+
+
+    // Мы не держим ничего
+    else {
+        player.runCommand(`title @s actionbar ${manaStr} §1MP`)
     }
 }
 

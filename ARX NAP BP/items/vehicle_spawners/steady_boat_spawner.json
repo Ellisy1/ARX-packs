@@ -1,0 +1,17 @@
+{
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:icon": "arx:steady_boat_icon",
+            "minecraft:entity_placer": {
+                "entity": "arx:steady_boat"
+            }
+        },
+        "description": {
+            "identifier": "arx:steady_boat_spawner",
+            "menu_category": {
+                "category": "items"
+            }
+        }
+    }
+}

@@ -17,6 +17,7 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
         case "arx:mod_sword":
             if (manageCD(player)) {
                 const viewDirection = player.getViewDirection()
+                console.warn(viewDirection.y)
                 player.applyKnockback({ x: viewDirection.x * 5, z: viewDirection.z * 5 }, viewDirection.y)
                 player.runCommand('effect @s slow_falling 1 0 true')
             }

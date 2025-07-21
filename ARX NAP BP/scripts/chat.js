@@ -4,8 +4,11 @@ import { emote } from './emote'
 import { getScore } from './scoresOperations'
 import { getSkillsData } from './skillsOperations'
 import { queueCommand } from './commandQueue'
-import { increaseSkillProgress } from "./skillsOperations"
 import { getMoscowTime } from './date'
+import { checkForItem } from "./checkForItem"
+
+import { runeCiphers } from './magic/rune_cipher_list'
+import { cipherRuneSequence } from './magic/on_use_magic_items'
 
 // Обработка чата before
 world.beforeEvents.chatSend.subscribe((eventData) => {
@@ -214,38 +217,53 @@ function parceCommand(player, trimmedMessage) {
             queueCommand(player, 'tag @s add idea')
         }
 
-        else if (command[0] == "!w" || command[0] == "!ш") { // Переключение шёпот-локал
+        else if (command[0] == "!w" || command[0] == "!ш") { // Использование шёпота
             if (player.getDynamicProperty('respawnDelay') === 0) {
-                if (player.getDynamicProperty("is_whispering") === false) {
-                    queueCommand(player, `tellraw @s { "rawtext": [ { "text": "Переключено на §6шёпот§f." } ] }`);
-                    player.setDynamicProperty("is_whispering", true)
-                }
-                else {
-                    queueCommand(player, `tellraw @s { "rawtext": [ { "text": "Переключено на §aобычную речь§f." } ] }`);
-                    player.setDynamicProperty("is_whispering", false)
-                }
+                sendChatMessage(player, `§7§o${trimmedMessage.slice(3).trim()}`, "§6Шёпот", 2, player.getDynamicProperty('name'))
             }
             else {
-                queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cВы не можете настраивать свою речь, пока вы без сознания." } ] }`)
+                queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cВы не можете шептать, пока вы без сознания." } ] }`)
             }
         }
 
-        else if (command[0] == "!global" || command[0] == "!г" || command[0] == "!g") {
+        else if (command[0].startsWith("!к") && command[0].length - ((command[0].match(/к/g) || []).length) === 1) { // Использование крика
+            if (player.getDynamicProperty('respawnDelay') === 0) {
+                if (!command[1]) {
+                    queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cНельзя крикнуть без слов, чел." } ] }`)
+                }
+                else {
+                    // Трясём камеру
+                    queueCommand(player, "camerashake add @s 0.2 0.1")
+
+                    // Громкость крика без обработки
+                    const basicShoutPower = command[0].length - 1
+
+                    // Громкость крика с обработкой (сигмоида)
+                    const L = 9
+                    const k = 0.75
+                    const x0 = 5.5
+                    const offset = 10
+
+                    const modifiedShoutPower = L / (1 + Math.exp(-k * (basicShoutPower - x0))) + offset
+
+                    // Восклиц знаки
+                    let additionalExcalmations = "!".repeat(Math.ceil(modifiedShoutPower / 12))
+
+                    sendChatMessage(player, `§l${command.slice(1).join(" ").toUpperCase()}${additionalExcalmations}`, "§vКрик", modifiedShoutPower, player.getDynamicProperty('name'))
+                }
+            }
+            else {
+                queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cВы не можете общаться, пока вы без сознания." } ] }`)
+            }
+        }
+
+        else if (command[0] == "!г" || command[0] == "!g") {
             if (player.getDynamicProperty('respawnDelay') === 0) {
                 if (!command[1]) {
                     queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cНельзя отправить пустое глобальное сообщение." } ] }`)
                 }
                 else {
-                    let chatPrefix
-
-                    for (const speechListener of world.getPlayers()) {
-
-                        // Настраиваем префикс чата
-                        if (speechListener.getDynamicProperty('myRule:chatPrefixes') == 'fullEN') { chatPrefix = 'Global' }
-                        if (speechListener.getDynamicProperty('myRule:chatPrefixes') == 'shortEN') { chatPrefix = 'G' }
-
-                        queueCommand(speechListener, `tellraw @s {"rawtext":[{"text": "[§c${chatPrefix}§f] <${player.name}> // ${trimmedMessage.slice(command[0].length + 1)}"}]}`);
-                    }
+                    sendChatMessage(player, trimmedMessage.slice(3).trim(), "§cГлобал.", 0, player.name)
                 }
             }
             else {
@@ -293,75 +311,147 @@ function parceCommand(player, trimmedMessage) {
         if (player.getDynamicProperty('respawnDelay') > 0) {
             queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cВы не можете разговаривать, пока вы без сознания." } ] }`)
         }
-        // Недопуск из-за \ и "
-        else if (trimmedMessage.includes("\\") || trimmedMessage.includes('"')) {
-            queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cИз-за технических особенностей невозможно отправить сообщение, содержащее двойную кавычку или обратный слеш." } ] }`)
-        }
         // Недопуск из-за отсутствия регистрации
         else if (player.getDynamicProperty('hasRegisteredCharacter') !== true) {
             queueCommand(player, `tellraw @s { "rawtext": [ { "text": "Наверное, вы хотели написать в §cглобальный чат§f?\nДля этого отправьте §d!§aг <сообщение>" } ] }`)
         }
-        // Недопуск из-за отсутствия локального ника
-        else if (player.getDynamicProperty("name") === undefined) {
-            queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cУстановите имя персонажа, чтобы общаться в локальном чате. Это можно сделать командой §a!setname имя§c." } ] }`)
-        }
         // Успешно
         else {
-            sendChatMessage(player, trimmedMessage, "Local")
+            sendChatMessage(player, trimmedMessage, "§aЛокал.", 8, player.getDynamicProperty('name'))
         }
     }
 }
 
 // Функция отправка сообщения в локальный чат
-function sendChatMessage(player, trimmedMessage, type) {
-    // Делаем речевую эмоцию, если это нужно
-    if (!player.hasTag('is_emoting_via_arx_command')) {
-        speechEmote(player, trimmedMessage)
+function sendChatMessage(player, speech, prefix, clearDistance = 0, senderName = "???") {
+
+    /*
+    АРГУМЕНТЫ:
+    speech: текстовое сообщение
+    clearDistance: дистанция, на которой речь слышно идеально. 0 - дистаниция бесконечная
+    prefix: префикс речи, например §aLocal
+    senderName - имя отправителя сообщения, которое отобразится в чате
+    */
+
+    // Есть ли сообщение
+    if (!speech || (speech.split("§").length - 1) * 2 == speech.length) {
+        queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cНевозможно отправить пустое сообщение." } ] }`)
+        return undefined
     }
 
-    // Определяем дистанцию для каждого игрока
-    for (const speechListener of world.getPlayers()) {
-        if (player.getDynamicProperty('respawnDelay') === 0) { // Если тот, кто получает сообщение не нокнут
-            const distance = Math.sqrt(Math.pow(speechListener.location.x - player.location.x, 2) + Math.pow(speechListener.location.y - player.location.y, 2) + Math.pow(speechListener.location.z - player.location.z, 2))
+    // Запрет на отправку сообщения из-за содержания \ или "
+    if (speech.includes("\\") || speech.includes('"')) {
+        queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cИз-за технических особенностей невозможно отправить сообщение, содержащее двойную кавычку или обратный слеш." } ] }`)
+        return undefined
+    }
 
-            let chatPrefix
+    // Недопуск из-за отсутствия локального ника
+    if (senderName === undefined) {
+        queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cУстановите имя персонажа, чтобы общаться. Это можно сделать командой §a!setname имя§c." } ] }`)
+        return undefined
+    }
 
-            if (player.getDynamicProperty("is_whispering") == false) { // Если мы говорим в полный голос
-                let speech = spoilSpeechByDistance(trimmedMessage, distance, 8)
+    // Делаем речевую эмоцию, если это нужно
+    if (!player.hasTag('is_emoting_via_arx_command') && (prefix === "§aЛокал." || prefix === "§vКрик")) {
+        speechEmote(player, speech)
+    }
 
-                // Настраиваем префикс чата
-                if (speechListener.getDynamicProperty('myRule:chatPrefixes') == 'fullEN') { chatPrefix = 'Local' }
-                if (speechListener.getDynamicProperty('myRule:chatPrefixes') == 'shortEN') { chatPrefix = 'L' }
+    // Записываем руну, если надо, используя кристалл синергии
+    if (checkForItem(player, "Legs", 'arx:amul_hypersynergy') || checkForItem(player, "Legs", 'arx:amul_hypersynergy_improved') || checkForItem(player, "Legs", 'arx:amul_hypersynergy_superior')) {
+        if (prefix !== "§cГлобал.") {
+            const words = speech.split(' ')
 
-                if (speech !== undefined) {
-                    queueCommand(speechListener, `tellraw @s {"rawtext":[{"text": "[§a${chatPrefix}§f] <${player.getDynamicProperty("name")}§f> ${speech}"}]}`)
+            let rune = words[0]
+
+            rune = rune.toLowerCase()
+            rune = rune.replace(/[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]+/g, "")
+
+            // Обрабатываем форматирование
+            while (true) {
+                if (rune.startsWith('§')) {
+                    rune = rune.slice(2)
+                } else {
+                    break
                 }
             }
-            else { // Если мы шепчем
-                let speech = spoilSpeechByDistance(trimmedMessage, distance, 2)
 
-                // Настраиваем префикс чата
-                if (speechListener.getDynamicProperty('myRule:chatPrefixes') == 'fullEN') { chatPrefix = 'Whisper' }
-                if (speechListener.getDynamicProperty('myRule:chatPrefixes') == 'shortEN') { chatPrefix = 'W' }
+            console.warn(rune)
 
-                if (speech !== undefined) {
-                    queueCommand(speechListener, `tellraw @s {"rawtext":[{"text": "[§6${chatPrefix}§f] <${player.getDynamicProperty("name")}§f> ${speech}"}]}`)
+            if (rune in runeCiphers) {
+                if (!player.getDynamicProperty('amul_hypersynergyCD') > 0) {
+                    cipherRuneSequence(player, rune)
+                    // Выдаем КД
+                    if (checkForItem(player, "Legs", 'arx:amul_hypersynergy')) { player.setDynamicProperty('amul_hypersynergyCD', 100) }
+                    if (checkForItem(player, "Legs", 'arx:amul_hypersynergy_improved')) { player.setDynamicProperty('amul_hypersynergyCD', 35) }
+                    if (checkForItem(player, "Legs", 'arx:amul_hypersynergy_superior')) { player.setDynamicProperty('amul_hypersynergyCD', 5) }
                 }
+                else {
+                    queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cОткат амулета гиперсинергии ещё не закончился." } ] }`)
+                }
+            }
+        }
+    }
+
+    // Проходимся по каждому игроку
+    for (const speechListener of world.getPlayers()) {
+
+        // Если тот, кто получает сообщение не нокнут
+        if (speechListener.getDynamicProperty('respawnDelay') === 0) {
+
+            // Определяем дистанцию между говорящим и слушающим
+            const dx = speechListener.location.x - player.location.x
+            const dy = speechListener.location.y - player.location.y
+            const dz = speechListener.location.z - player.location.z
+            const distanceToListener = Math.sqrt(dx * dx + dy * dy + dz * dz)
+
+            // Путаем речь зависимо от дистанции между говорящим и слущающим
+            const speechReadyToSend = messSpeechByDistance(speech, distanceToListener, clearDistance)
+
+            // Путаем никнейм
+            const readySenderName = messSpeechByDistance(senderName, distanceToListener, clearDistance)
+
+            // Если игрок должен получить какое-то сообщение
+            if (speechReadyToSend) {
+                // Настраиваем префикс чата
+                let finalPrefix = prefix // значение по умолчанию
+                if (speechListener.getDynamicProperty('myRule:chatPrefixes') == 'shortEN') {
+                    finalPrefix = prefix.slice(0, 3)
+                }
+
+                // Отправляем сообщение
+                queueCommand(speechListener, `tellraw @s {"rawtext":[{"text": "[${finalPrefix}§f] <${readySenderName}§f> ${speechReadyToSend}"}]}`)
             }
         }
     }
 }
 
-function spoilSpeechByDistance(text, defactoDistance, allrightDistance) {
-    // Приемлемое расстояние
+function messSpeechByDistance(text, defactoDistance, allrightDistance) {
+    // Задано, что дистанция бесконечная
+    if (allrightDistance == 0) {
+        return text
+    }
+    // Слышно идеально
     if (defactoDistance <= allrightDistance) {
-        return text;
+        return text
     }
     // Слишком большое расстояние
     else if (defactoDistance > allrightDistance * 2) {
-        return undefined;
+        return undefined
     }
     else { // Надо сшакалить качество
+
+        let formatting = ''
+
+        // Отеляем префикс
+        while (true) {
+            if (text.startsWith('§')) {
+                formatting += text.slice(0, 2)
+                text = text.slice(2)
+            }
+            else {
+                break
+            }
+        }
 
         const russianAlphabetLowercase = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя"
 
@@ -389,7 +479,7 @@ function spoilSpeechByDistance(text, defactoDistance, allrightDistance) {
             result += char;
         }
 
-        return result;
+        return formatting + result;
     }
 }
 

@@ -26,7 +26,7 @@ export function arxSettings(player) {
 
         .dropdown('Отображение §bманы', ['Натуральные числа', 'Десятичные дроби', '§cНе отображать'], {defaultValueIndex: manaDisplayModeDefaultDropdownPos})
         .dropdown('Отображение §cотката атаки', ['Секунды', 'Такты (сек/20)', 'Линия', '§cНе отображать'], {defaultValueIndex: showAttackCDModeDefaultDropdownPos})
-        .dropdown('Префиксы §aчатов', ['Полные §f[§aLocal§f]', 'Сокращённые §f[§aL§f]'], {defaultValueIndex: chatPrefixesDefaultDropdownPos})
+        .dropdown('Префиксы §aчатов', ['Полные §f[§aЛокал.§f]', 'Сокращённые §f[§aЛ§f]'], {defaultValueIndex: chatPrefixesDefaultDropdownPos})
         .toggle("Отображение производительности в <Инфо>", {defaultValue: canSeeServerSpeedInInfoBookDefaultTogglePos})
         .toggle("Кинематографический режим", {defaultValue: cinematographicModeDefaultTogglePos, tooltip: 'Вы сможете вызывать меню управления камерой, использовав предмет <Инфо> на присяде.'})
 

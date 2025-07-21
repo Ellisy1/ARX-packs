@@ -277,6 +277,7 @@
         scoreboard players add @s[hasitem={item=arx:blacksmith_tongs}] weighLoading 1
         scoreboard players add @s[hasitem={item=arx:blacksmith_tongs_super}] weighLoading 2
         scoreboard players add @s[hasitem={item=arx:heater}] weighLoading 3
+        scoreboard players add @s[hasitem={item=arx:steady_boat_spawner}] weighLoading 5
 
     #Одежда
         scoreboard players add @s[hasitem={item=arx:adona_jacket}] weighLoading 2

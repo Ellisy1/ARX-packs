@@ -3,7 +3,6 @@ import { getScore, setScore } from "../scoresOperations"
 export function onFoodConsume(player, foodname) {
     // Тип пищи у конкретной съеденной еды
     let foodType
-    let foodTaste
 
     const playerTaste_meat = player.getDynamicProperty('playerTaste_meat')
     const playerTaste_fish = player.getDynamicProperty('playerTaste_fish')
@@ -618,6 +617,16 @@ export function onFoodConsume(player, foodname) {
             player.runCommand(`tellraw @s { "rawtext": [ { "text": "§cВам безразлична еда." } ] }`)
         }
     }
+    // Мы выпили зелье. Надо накинуть отравление
+    else if (foodType === "potion") {
+        if (foodname in potions) {
+            player.setDynamicProperty('intoxication', player.getDynamicProperty('intoxication') + potions[foodname])
+        }
+        else {
+            console.warn(`Съета еда ${foodname}, подразумевается, что это зелье, но оно не найдено в списке зелий в onConsume`)
+        }
+    }
+    // Проблема с едой
     else if (foodType === undefined) {
         console.warn(`Съедена еда ${foodname}, которая не идентефицирована в списке еды.`)
     }

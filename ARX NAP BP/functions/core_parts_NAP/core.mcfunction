@@ -47,7 +47,7 @@
         tag @a[tag=in_water, tag=!in_block_water] add in_rain
 
         tag @a remove in_boat
-        execute at @e[family=boat] run tag @a[r=0.5] add in_boat
+        execute at @e[family=boat] run tag @a[r=2, tag=is_riding] add in_boat
 
         # Если зонт или сапф. амулет (дополнительное вычитание намокания)
             # Чистка тегов

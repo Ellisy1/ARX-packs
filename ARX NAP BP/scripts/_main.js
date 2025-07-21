@@ -42,6 +42,20 @@ world.afterEvents.playerSpawn.subscribe((event) => {
     }
 });
 
+// Спавн сущностей
+world.afterEvents.entitySpawn.subscribe((spawnEvent) => {
+    if (spawnEvent.entity.typeId === 'arx:grave') {
+        spawnEvent.entity.nameTag = 'Ударьте, чтобы\nполучить все вещи'
+    }
+})
+
+// Удары сущностей
+world.afterEvents.entityHitEntity.subscribe((hitEvent) => {
+    if (hitEvent.hitEntity.typeId === 'arx:grave') {
+        hitEvent.hitEntity.runCommand('damage @s 1000')
+    }
+})
+
 // Постановка блоков
 world.afterEvents.playerPlaceBlock.subscribe((placeEvent) => {
     // Увеличиваем счетчик поставленных блоков

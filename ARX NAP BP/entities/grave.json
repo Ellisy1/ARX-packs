@@ -38,7 +38,7 @@
 			"minecraft:conditional_bandwidth_optimization": {},
 			"minecraft:inventory": {
 				"can_be_siphoned_from": false,
-				"container_type": "inventory",
+				"container_type": "minecart_chest",
 				"inventory_size": 100,
 				"private": false,
 				"restrict_to_owner": false
@@ -61,6 +61,10 @@
 					"cause": "freezing",
 					"deals_damage": false
 				}
+			},
+			"minecraft:nameable": {
+				"allow_name_tag_renaming": false,
+				"always_show": false
 			}
 		},
 		"component_groups": {

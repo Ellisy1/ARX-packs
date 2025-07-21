@@ -68,7 +68,7 @@
 				]
 			},
 			"minecraft:movement": {
-				"value": 0.4
+				"value": 0.22
 			},
 			"minecraft:behavior.random_stroll": {
 				"priority": 6,

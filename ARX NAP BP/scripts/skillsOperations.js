@@ -13,7 +13,7 @@ export function increaseSkillProgress(player, skill, inputValue) {
     }
 
     // Если мы в креативе или наблюдателе
-    if (player.getGameMode() === 'creative' || player.getGameMode() === 'spectator') {
+    if (player.getGameMode() === 'Creative' || player.getGameMode() === 'Spectator') {
         return undefined
     }
 

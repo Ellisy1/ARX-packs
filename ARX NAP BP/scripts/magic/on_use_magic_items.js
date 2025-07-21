@@ -4,12 +4,14 @@ import { world, EntityComponentTypes, EquipmentSlot } from "@minecraft/server";
 import { runeCiphers } from './rune_cipher_list'
 
 import { castJSSpell } from './spells/castJSSpell'
-import { findSpell } from "./findSpell";
+import { findSpell } from "./findSpell"
+import { getActiveStaffChannel } from './getActiveStaffChannel'
 
 import { getScore, setScore } from "../scoresOperations";
 import { increaseSkillProgress } from "../skillsOperations";
 
 import { manageCD } from "../manageCD";
+import { queueCommand } from "../commandQueue";
 
 // Использование предметов
 world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юзание предмета на ПКМ
@@ -445,7 +447,7 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
             if (item?.getTags().includes("is_staff")) {
                 if (manageCD(player)) {
                     // Получаем количество каналов посоха
-                    let staffChannels = 0
+                    let staffChannels = 1
 
                     if (item.getTags().includes("staff_channels_1")) { staffChannels = 1 }
                     else if (item.getTags().includes("staff_channels_2")) { staffChannels = 2 }
@@ -456,8 +458,7 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
                     else { console.warn(`Нет данных о каналах посоха ${event.itemStack.typeId}`) }
 
                     // Получаем текущий канал
-                    const activeChannel = getMagicChannel(player, staffChannels)
-                    clearChannelsTags(player)
+                    const activeChannel = getActiveStaffChannel(player, staffChannels)
 
                     // Кастуем
                     castSpell(player, activeChannel, item)
@@ -510,69 +511,10 @@ function reportAboutMagicTarget(player) {
     if (magicTarget == 3) { player.runCommand(`tellraw @s { "rawtext": [ { "text": "Установлена цель: §eна животных и монстров" } ] }`) }
 }
 
-// Получаем данные о канале
-function getMagicChannel(player, numOfChannels) {
-    // Функция вычисляет доступный канал магии. numOfChannels - число доступных каналов.
-    if (numOfChannels == 6) {
-        player.runCommand(`tag @s[rx=-60] add channel_1`)
-        player.runCommand(`tag @s[rxm=-60, rx=-30] add channel_2`)
-        player.runCommand(`tag @s[rxm=-30, rx=0] add channel_3`)
-        player.runCommand(`tag @s[rxm=0.001, rx=30] add channel_4`)
-        player.runCommand(`tag @s[rxm=30, rx=60] add channel_5`)
-        player.runCommand(`tag @s[rxm=60] add channel_6`)
-    }
-    else if (numOfChannels == 5) {
-        player.runCommand(`tag @s[rx=-45] add channel_1`)
-        player.runCommand(`tag @s[rxm=-45, rx=-20] add channel_2`)
-        player.runCommand(`tag @s[rxm=-20, rx=20] add channel_3`)
-        player.runCommand(`tag @s[rxm=20, rx=45] add channel_4`)
-        player.runCommand(`tag @s[rxm=45] add channel_5`)
-    }
-    else if (numOfChannels == 4) {
-        player.runCommand(`tag @s[rx=-40] add channel_1`)
-        player.runCommand(`tag @s[rxm=-40, rx=0] add channel_2`)
-        player.runCommand(`tag @s[rxm=0.001, rx=40] add channel_3`)
-        player.runCommand(`tag @s[rxm=40] add channel_4`)
-    }
-    else if (numOfChannels == 3) {
-        player.runCommand(`tag @s[rx=-25] add channel_1`)
-        player.runCommand(`tag @s[rx=25, rxm=-25] add channel_2`)
-        player.runCommand(`tag @s[rxm=25] add channel_3`)
-    }
-    else if (numOfChannels == 2) {
-        player.runCommand(`tag @s[rx=0] add channel_1`)
-        player.runCommand(`tag @s[rxm=0.001] add channel_2`)
-    }
-    else if (numOfChannels == 1) {
-        player.runCommand(`tag @s add channel_1`)
-    }
-    else {
-        player.runCommand(`tellraw @s { "rawtext": [ { "text": "§cОшибка при определении активного канала. Вы в этом не виноваты, это системная ошибка" } ] }`)
-    }
-
-    if (player.hasTag("channel_1")) { return 1 }
-    if (player.hasTag("channel_2")) { return 2 }
-    if (player.hasTag("channel_3")) { return 3 }
-    if (player.hasTag("channel_4")) { return 4 }
-    if (player.hasTag("channel_5")) { return 5 }
-    if (player.hasTag("channel_6")) { return 6 }
-}
-
-// Подчищаем данные после анализа каналов
-function clearChannelsTags(player) {
-    player.removeTag("channel_1")
-    player.removeTag("channel_2")
-    player.removeTag("channel_3")
-    player.removeTag("channel_4")
-    player.removeTag("channel_5")
-    player.removeTag("channel_6")
-}
-
 // Шифруем последовательность данных по факту набора последовательности рун (АКТИВИРУЕТСЯ ПРИ ЮЗАНИИ РУНЫ)
-function cipherRuneSequence(player, runeName) {
+export function cipherRuneSequence(player, runeName) {
     // Определяем канал
-    const channel = getMagicChannel(player, 6)
-    clearChannelsTags(player)
+    const channel = getActiveStaffChannel(player, 6)
 
     if (!channel) {
         console.warn(`Не удалось определить канал`)
@@ -598,7 +540,7 @@ function cipherRuneSequence(player, runeName) {
 
     // Сообщаем игроку о введенной руне
     const runeNameCapitalized = runeName[0].toUpperCase() + runeName.slice(1)
-    player.runCommand(`tellraw @s { "rawtext": [ { "text": "§6${runeNameCapitalized} §bзаписано в §6${channel} §bканал" } ] }`)
+    queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§6${runeNameCapitalized} §bзаписано в §6${channel} §bканал" } ] }`)
 }
 
 // Снимаем ману при использовании закла

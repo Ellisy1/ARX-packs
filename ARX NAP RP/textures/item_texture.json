@@ -4618,6 +4618,11 @@
     },
     "arx:bunker_access_card": {
       "textures": "textures/items/ancient/bunker_access_card"
+    },
+
+
+    "arx:steady_boat_icon": {
+      "textures": "textures/items/vehicles/steady_boat_icon"
     }
   }
 }
