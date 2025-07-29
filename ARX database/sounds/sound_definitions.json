@@ -295,5 +295,41 @@
             "stream": true
          }
       ]
+   },
+   "le_fishe_au_chocolat": {
+      "category": "music",
+      "sounds": [
+         {
+            "name": "sounds/music/le_fishe_au_chocolat",
+            "stream": true
+         }
+      ]
+   },
+   "Music_for_Manatees": {
+      "category": "music",
+      "sounds": [
+         {
+            "name": "sounds/music/Music_for_Manatees",
+            "stream": true
+         }
+      ]
+   },
+   "Darkling": {
+      "category": "music",
+      "sounds": [
+         {
+            "name": "sounds/music/Darkling",
+            "stream": true
+         }
+      ]
+   },
+   "Silence": {
+      "category": "music",
+      "sounds": [
+         {
+            "name": "sounds/music/Silence",
+            "stream": true
+         }
+      ]
    }
 }

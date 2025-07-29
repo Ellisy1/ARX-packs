@@ -1,43 +1,52 @@
 import { world, Player } from "@minecraft/server";
 
 /**
- * Возвращает ближайшего игрока к заданному игроку.
+ * Возвращает ближайшего игрока к заданному игроку в пределах заданного расстояния.
  * @param {Player} self Игрок, относительно которого ищется ближайший.
- * @returns {Player | undefined} Ближайший игрок, или undefined, если игроков нет.
+ * @param {number} [limitDistance=Infinity] Максимальное расстояние (в блоках). По умолчанию — Infinity (без ограничений).
+ * @returns {Player | undefined} Ближайший игрок в пределах limitDistance, или undefined.
  */
-export function getNearestPlayer(self) {
-  if (!(self instanceof Player)) {
-    console.warn("getNearestPlayer: self должен быть объектом Player!");
-    return undefined; // Или выбросить ошибку, если это более уместно
-  }
-
-  const allPlayers = Array.from(world.getPlayers()); // Преобразуем итератор в массив
-  if (allPlayers.length === 0) {
-    return undefined; // Нет игроков на сервере
-  }
-
-  let nearestPlayer = undefined;
-  let nearestDistanceSquared = Infinity; // Инициализируем бесконечностью
-
-  const selfLocation = self.location;
-
-  for (const player of allPlayers) {
-    if (player === self) {
-      continue; // Не сравниваем игрока с самим собой
+export function getNearestPlayer(self, limitDistance = Infinity) {
+    if (!(self instanceof Player)) {
+        console.warn("getNearestPlayer: self должен быть объектом Player!");
+        return undefined;
     }
 
-    const playerLocation = player.location;
-    const dx = playerLocation.x - selfLocation.x;
-    const dy = playerLocation.y - selfLocation.y;
-    const dz = playerLocation.z - selfLocation.z;
-
-    const distanceSquared = dx * dx + dy * dy + dz * dz; // Квадрат расстояния (оптимизация)
-
-    if (distanceSquared < nearestDistanceSquared) {
-      nearestDistanceSquared = distanceSquared;
-      nearestPlayer = player;
+    if (typeof limitDistance !== 'number' || limitDistance < 0) {
+        console.warn("getNearestPlayer: limitDistance должен быть неотрицательным числом!");
+        return undefined;
     }
-  }
 
-  return nearestPlayer;
+    const allPlayers = Array.from(world.getPlayers());
+    if (allPlayers.length <= 1) {
+        return undefined; // Нет других игроков
+    }
+
+    let nearestPlayer = undefined;
+    let nearestDistanceSquared = Infinity;
+
+    const selfLocation = self.location;
+    const limitDistanceSquared = limitDistance * limitDistance; // Квадрат для сравнения
+
+    for (const player of allPlayers) {
+        if (player === self) continue;
+
+        const loc = player.location;
+        const dx = loc.x - selfLocation.x;
+        const dy = loc.y - selfLocation.y;
+        const dz = loc.z - selfLocation.z;
+
+        const distanceSquared = dx * dx + dy * dy + dz * dz;
+
+        // Пропускаем игроков за пределами лимита
+        if (distanceSquared > limitDistanceSquared) continue;
+
+        // Ищем минимальное расстояние
+        if (distanceSquared < nearestDistanceSquared) {
+            nearestDistanceSquared = distanceSquared;
+            nearestPlayer = player;
+        }
+    }
+
+    return nearestPlayer;
 }

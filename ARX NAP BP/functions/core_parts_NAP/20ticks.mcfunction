@@ -100,11 +100,6 @@
     # Записываем журнальное значение gamemode_data_log для определения динамики
         execute as @a run scoreboard players operation @s gamemode_data_log = @s gamemode_data
 
-# Определяем, что игрок сражался с боссом
-    tag @a remove is_fighting_with_boss
-    execute at @e[type=arx:vicious_demon] run tag @a[r=15] add is_fighting_with_boss
-    execute at @e[type=arx:march] run tag @a[r=15] add is_fighting_with_boss
-
 # Если я (админ) в выживании, отключаем показ координат
     execute if entity @a[scores={verify=2}, m=survival] run gamerule showcoordinates false
 

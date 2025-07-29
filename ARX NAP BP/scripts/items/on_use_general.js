@@ -1,11 +1,16 @@
 // Imports - Minecraft
 import { world, EntityComponentTypes, ItemComponentTypes, EquipmentSlot, system } from "@minecraft/server";
+import { ActionFormData } from "@minecraft/server-ui";
+
 import { setScore } from "../scoresOperations";
 import { getNearestPlayer } from "../getNearestPlayer"
 import { checkForItem } from "../checkForItem"
 import { infoScreen } from '../info/_infoScreen'
 import { manageCD } from "../manageCD";
 import { launchCameraUI } from '../camera/launchCameraUI'
+import { TPWithNoxenessionPortal } from '../portals'
+
+import { showDialog } from '../dialogues'
 
 // Использование предметов
 world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юзание предмета на ПКМ
@@ -17,9 +22,8 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
         case "arx:mod_sword":
             if (manageCD(player)) {
                 const viewDirection = player.getViewDirection()
-                console.warn(viewDirection.y)
-                player.applyKnockback({ x: viewDirection.x * 5, z: viewDirection.z * 5 }, viewDirection.y)
-                player.runCommand('effect @s slow_falling 1 0 true')
+                // player.applyKnockback({ x: viewDirection.x * 5, z: viewDirection.z * 5 }, viewDirection.y)
+                showDialog(player, 'asi', 'start')
             }
             break
 
@@ -494,7 +498,52 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
             }
             break
 
+        case "arx:scroll_of_teleportation":
+            if (manageCD(player)) {
+                TPWithNoxenessionPortal(player, player, 'scroll')
+            }
+            break
 
+        case "arx:scroll_of_barrier_breaking":
+            let cubeSize = 10;
+            // Получаем координаты игрока
+            let playerPos = player.location;
+
+            // Вычисляем начальную точку куба (левый нижний ближний угол), 
+            // чтобы центр куба совпадал с позицией игрока.
+            let origin = {
+                x: Math.floor(playerPos.x - cubeSize / 2),
+                y: Math.floor(playerPos.y - cubeSize / 2),
+                z: Math.floor(playerPos.z - cubeSize / 2)
+            };
+
+            // Получаем измерение
+            const dimension = world.getDimension("minecraft:overworld");
+
+            // Итерируемся по каждому блоку в кубе
+            for (let x = 0; x < cubeSize; x++) {
+                for (let y = 0; y < cubeSize; y++) {
+                    for (let z = 0; z < cubeSize; z++) {
+                        // Вычисляем абсолютные координаты блока
+                        let blockX = origin.x + x;
+                        let blockY = origin.y + y;
+                        let blockZ = origin.z + z;
+
+                        // Строим команду fill для замены конкретного блока, если он arx:magic_barrier
+                        let fillCommand = `fill ${blockX} ${blockY} ${blockZ} ${blockX} ${blockY} ${blockZ} minecraft:air replace arx:magic_barrier`;
+
+                        // Выполняем команду fill для этого блока
+                        dimension.runCommand(fillCommand);
+                    }
+                }
+            }
+
+            player.runCommand('playsound elemental_use @a ~ ~ ~')
+            
+            // Убираем использованный свиток у игрока
+            player.runCommand('clear @s arx:scroll_of_barrier_breaking 0 1');
+
+            break;
         // ДЕМОНСКОЕ
         case "arx:demon_book":
             if (manageCD(player)) {

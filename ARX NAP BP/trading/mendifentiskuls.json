@@ -49,6 +49,19 @@
               "item": "arx:bunker_access_card"
             }
           ]
+        },
+        // Свиток ломания барьера
+        {
+          "wants": [
+            {
+              "item": "arx:rat_coin"
+            }
+          ],
+          "gives": [
+            {
+              "item": "arx:scroll_of_barrier_breaking"
+            }
+          ]
         }
       ]
     }

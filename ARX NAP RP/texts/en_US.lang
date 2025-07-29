@@ -896,6 +896,7 @@ item.arx:wave_of_taste=§r§fВолна вкуса §g[Эпическое]
 item.arx:wooden_crust=§r§fДревесная кора §7[Обычное]
 item.arx:brainbread=§r§fБутерброд с мозгами §b[Редкое]
 item.arx:apple=§r§fСочное яблоко §a[Необычное]
+item.arx:le_fishe_au_chocolat=§r§fLe Fishe Au Chocolat §b[Редкое]
 
 
 
@@ -923,9 +924,9 @@ item.arx:amul_steel_bone=§r§fАмулет стальной кости [2] �
 
 item.arx:bust_compressor=§r§fКрепкая повязка на грудь [1] §a[Необычное]\n§o§7Немножко усилий, и ваша грудь уже не так заметна
 
-item.arx:amul_hypersynergy=§r§fКристалл гиперсинергии §c[Мифическое]\n§7§oПозволяет составлять заклинания, проговаривая руны\nОткат 10с
-item.arx:amul_hypersynergy_improved=§r§fУлучшенный кристалл гиперсинергии §c[Мифическое++]\n§7§oПозволяет составлять заклинания, проговаривая руны\nОткат 3.5с
-item.arx:amul_hypersynergy_superior=§r§fВысший кристалл гиперсинергии §d[Божественное]\n§7§oПозволяет составлять заклинания, проговаривая руны\nОткат 0.5с
+item.arx:amul_hypersynergy=§r§fКристалл гиперсинергии §c[Мифическое]\n§7§oПозволяет составлять заклинания, проговаривая руны\nIV канала, откат 10с
+item.arx:amul_hypersynergy_improved=§r§fУлучшенный кристалл гиперсинергии §c[Мифическое++]\n§7§oПозволяет составлять заклинания, проговаривая руны\nVI каналов, откат 3.5с
+item.arx:amul_hypersynergy_superior=§r§fВысший кристалл гиперсинергии §d[Божественное]\n§7§oПозволяет составлять заклинания, проговаривая руны\nVIII каналов, откат 0.5с
 
 
 item.arx:jw_aluminum=§r§fЮвелирный алюминиевый слиток §a[Необычное]
@@ -1011,102 +1012,133 @@ item.arx:cup=§r§fЧашка §7[Обычное]
 item.arx:small_stone=§r§fНебольшой камень §7[Обычное]
 
 
+item.arx:rune_affuono_a=§r§faffuono §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_arrako_a=§r§farrako §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_din_a=§r§fdin §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_disortari_a=§r§fdisortari §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_elletera_a=§r§felletera §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_floruum_a=§r§ffloruum §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_flurri_a=§r§fflurri §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_hijo_a=§r§fhijo §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_horo_a=§r§fhoro §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_inoffo_a=§r§finoffo §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_kon_a=§r§fkon §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_kotoka_a=§r§fkotoka §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_laffaeti_a=§r§flaffaeti §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_low_a=§r§flow §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_marra_a=§r§fmarra §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_mega_a=§r§fmega §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_orduino_a=§r§forduino §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_recuro_a=§r§frecuro §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_sakiifori_a=§r§fsakiifori §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_san_a=§r§fsan §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_sartagana_a=§r§fsartagana §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_sempra_a=§r§fsempra §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_shumi_a=§r§fshumi §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_sin_a=§r§fsin §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_sofiso_a=§r§fsofiso §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_subversa_a=§r§fsubversa §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_sukimo_a=§r§fsukimo §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_trafantana_a=§r§ftrafantana §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_transkursio_a=§r§ftranskursio §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_watashi_a=§r§fwatashi §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_yanamo_a=§r§fyanamo §b[Редкое]\n§o§7IV канала, 3с откат
 
-item.arx:rune_affuono_b=§r§faffuono §e[Легендарное]
-item.arx:rune_arrako_b=§r§farrako §e[Легендарное]
-item.arx:rune_din_b=§r§fdin §e[Легендарное]
-item.arx:rune_disortari_b=§r§fdisortari §e[Легендарное]
-item.arx:rune_elletera_b=§r§felletera §e[Легендарное]
-item.arx:rune_floruum_b=§r§ffloruum §e[Легендарное]
-item.arx:rune_flurri_b=§r§fflurri §e[Легендарное]
-item.arx:rune_hijo_b=§r§fhijo §e[Легендарное]
-item.arx:rune_horo_b=§r§fhoro §e[Легендарное]
-item.arx:rune_inoffo_b=§r§finoffo §e[Легендарное]
-item.arx:rune_kon_b=§r§fkon §e[Легендарное]
-item.arx:rune_kotoka_b=§r§fkotoka §e[Легендарное]
-item.arx:rune_laffaeti_b=§r§flaffaeti §e[Легендарное]
-item.arx:rune_low_b=§r§flow §e[Легендарное]
-item.arx:rune_marra_b=§r§fmarra §e[Легендарное]
-item.arx:rune_mega_b=§r§fmega §e[Легендарное]
-item.arx:rune_orduino_b=§r§forduino §e[Легендарное]
-item.arx:rune_recuro_b=§r§frecuro §e[Легендарное]
-item.arx:rune_sakiifori_b=§r§fsakiifori §e[Легендарное]
-item.arx:rune_san_b=§r§fsan §e[Легендарное]
-item.arx:rune_sartagana_b=§r§fsartagana §e[Легендарное]
-item.arx:rune_sempra_b=§r§fsempra §e[Легендарное]
-item.arx:rune_shumi_b=§r§fshumi §e[Легендарное]
-item.arx:rune_sin_b=§r§fsin §e[Легендарное]
-item.arx:rune_sofiso_b=§r§fsofiso §e[Легендарное]
-item.arx:rune_subversa_b=§r§fsubversa §e[Легендарное]
-item.arx:rune_sukimo_b=§r§fsukimo §e[Легендарное]
-item.arx:rune_trafantana_b=§r§ftrafantana §e[Легендарное]
-item.arx:rune_transkursio_b=§r§ftranskursio §e[Легендарное]
-item.arx:rune_watashi_b=§r§fwatashi §e[Легендарное]
-item.arx:rune_yanamo_b=§r§fyanamo §e[Легендарное]
+item.arx:rune_affuono_b=§r§faffuono §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_arrako_b=§r§farrako §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_din_b=§r§fdin §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_disortari_b=§r§fdisortari §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_elletera_b=§r§felletera §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_floruum_b=§r§ffloruum §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_flurri_b=§r§fflurri §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_hijo_b=§r§fhijo §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_horo_b=§r§fhoro §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_inoffo_b=§r§finoffo §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_kon_b=§r§fkon §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_kotoka_b=§r§fkotoka §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_laffaeti_b=§r§flaffaeti §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_low_b=§r§flow §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_marra_b=§r§fmarra §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_mega_b=§r§fmega §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_orduino_b=§r§forduino §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_recuro_b=§r§frecuro §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_sakiifori_b=§r§fsakiifori §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_san_b=§r§fsan §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_sartagana_b=§r§fsartagana §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_sempra_b=§r§fsempra §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_shumi_b=§r§fshumi §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_sin_b=§r§fsin §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_sofiso_b=§r§fsofiso §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_subversa_b=§r§fsubversa §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_sukimo_b=§r§fsukimo §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_trafantana_b=§r§ftrafantana §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_transkursio_b=§r§ftranskursio §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_watashi_b=§r§fwatashi §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_yanamo_b=§r§fyanamo §e[Легендарное]\n§o§7VI каналов, 1с откат
 
-item.arx:rune_affuono_a=§r§faffuono §b[Редкое]
-item.arx:rune_arrako_a=§r§farrako §b[Редкое]
-item.arx:rune_din_a=§r§fdin §b[Редкое]
-item.arx:rune_disortari_a=§r§fdisortari §b[Редкое]
-item.arx:rune_elletera_a=§r§felletera §b[Редкое]
-item.arx:rune_floruum_a=§r§ffloruum §b[Редкое]
-item.arx:rune_flurri_a=§r§fflurri §b[Редкое]
-item.arx:rune_hijo_a=§r§fhijo §b[Редкое]
-item.arx:rune_horo_a=§r§fhoro §b[Редкое]
-item.arx:rune_inoffo_a=§r§finoffo §b[Редкое]
-item.arx:rune_kon_a=§r§fkon §b[Редкое]
-item.arx:rune_kotoka_a=§r§fkotoka §b[Редкое]
-item.arx:rune_laffaeti_a=§r§flaffaeti §b[Редкое]
-item.arx:rune_low_a=§r§flow §b[Редкое]
-item.arx:rune_marra_a=§r§fmarra §b[Редкое]
-item.arx:rune_mega_a=§r§fmega §b[Редкое]
-item.arx:rune_orduino_a=§r§forduino §b[Редкое]
-item.arx:rune_recuro_a=§r§frecuro §b[Редкое]
-item.arx:rune_sakiifori_a=§r§fsakiifori §b[Редкое]
-item.arx:rune_san_a=§r§fsan §b[Редкое]
-item.arx:rune_sartagana_a=§r§fsartagana §b[Редкое]
-item.arx:rune_sempra_a=§r§fsempra §b[Редкое]
-item.arx:rune_shumi_a=§r§fshumi §b[Редкое]
-item.arx:rune_sin_a=§r§fsin §b[Редкое]
-item.arx:rune_sofiso_a=§r§fsofiso §b[Редкое]
-item.arx:rune_subversa_a=§r§fsubversa §b[Редкое]
-item.arx:rune_sukimo_a=§r§fsukimo §b[Редкое]
-item.arx:rune_trafantana_a=§r§ftrafantana §b[Редкое]
-item.arx:rune_transkursio_a=§r§ftranskursio §b[Редкое]
-item.arx:rune_watashi_a=§r§fwatashi §b[Редкое]
-item.arx:rune_yanamo_a=§r§fyanamo §b[Редкое]
+item.arx:rune_affuono_f=§r§faffuono §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_arrako_f=§r§farrako §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_din_f=§r§fdin §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_disortari_f=§r§fdisortari §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_elletera_f=§r§felletera §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_floruum_f=§r§ffloruum §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_flurri_f=§r§fflurri §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_hijo_f=§r§fhijo §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_horo_f=§r§fhoro §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_inoffo_f=§r§finoffo §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_kon_f=§r§fkon §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_kotoka_f=§r§fkotoka §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_laffaeti_f=§r§flaffaeti §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_low_f=§r§flow §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_marra_f=§r§fmarra §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_mega_f=§r§fmega §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_orduino_f=§r§forduino §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_recuro_f=§r§frecuro §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_sakiifori_f=§r§fsakiifori §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_san_f=§r§fsan §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_sartagana_f=§r§fsartagana §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_sempra_f=§r§fsempra §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_shumi_f=§r§fshumi §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_sin_f=§r§fsin §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_sofiso_f=§r§fsofiso §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_subversa_f=§r§fsubversa §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_sukimo_f=§r§fsukimo §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_trafantana_f=§r§ftrafantana §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_transkursio_f=§r§ftranskursio §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_watashi_f=§r§fwatashi §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_yanamo_f=§r§fyanamo §c[Мифическое]\n§o§7X каналов, 1с откат
 
-item.arx:rune_affuono_s=§r§faffuono §c[Мифическое+]
-item.arx:rune_arrako_s=§r§farrako §c[Мифическое+]
-item.arx:rune_din_s=§r§fdin §c[Мифическое+]
-item.arx:rune_disortari_s=§r§fdisortari §c[Мифическое+]
-item.arx:rune_elletera_s=§r§felletera §c[Мифическое+]
-item.arx:rune_floruum_s=§r§ffloruum §c[Мифическое+]
-item.arx:rune_flurri_s=§r§fflurri §c[Мифическое+]
-item.arx:rune_hijo_s=§r§fhijo §c[Мифическое+]
-item.arx:rune_horo_s=§r§fhoro §c[Мифическое+]
-item.arx:rune_inoffo_s=§r§finoffo §c[Мифическое+]
-item.arx:rune_kon_s=§r§fkon §c[Мифическое+]
-item.arx:rune_kotoka_s=§r§fkotoka §c[Мифическое+]
-item.arx:rune_laffaeti_s=§r§flaffaeti §c[Мифическое+]
-item.arx:rune_low_s=§r§flow §c[Мифическое+]
-item.arx:rune_marra_s=§r§fmarra §c[Мифическое+]
-item.arx:rune_mega_s=§r§fmega §c[Мифическое+]
-item.arx:rune_orduino_s=§r§forduino §c[Мифическое+]
-item.arx:rune_recuro_s=§r§frecuro §c[Мифическое+]
-item.arx:rune_sakiifori_s=§r§fsakiifori §c[Мифическое+]
-item.arx:rune_san_s=§r§fsan §c[Мифическое+]
-item.arx:rune_sartagana_s=§r§fsartagana §c[Мифическое+]
-item.arx:rune_sempra_s=§r§fsempra §c[Мифическое+]
-item.arx:rune_shumi_s=§r§fshumi §c[Мифическое+]
-item.arx:rune_sin_s=§r§fsin §c[Мифическое+]
-item.arx:rune_sofiso_s=§r§fsofiso §c[Мифическое+]
-item.arx:rune_subversa_s=§r§fsubversa §c[Мифическое+]
-item.arx:rune_sukimo_s=§r§fsukimo §c[Мифическое+]
-item.arx:rune_trafantana_s=§r§ftrafantana §c[Мифическое+]
-item.arx:rune_transkursio_s=§r§ftranskursio §c[Мифическое+]
-item.arx:rune_watashi_s=§r§fwatashi §c[Мифическое+]
-item.arx:rune_yanamo_s=§r§fyanamo §c[Мифическое+]
+item.arx:rune_affuono_s=§r§faffuono §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_arrako_s=§r§farrako §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_din_s=§r§fdin §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_disortari_s=§r§fdisortari §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_elletera_s=§r§felletera §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_floruum_s=§r§ffloruum §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_flurri_s=§r§fflurri §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_hijo_s=§r§fhijo §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_horo_s=§r§fhoro §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_inoffo_s=§r§finoffo §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_kon_s=§r§fkon §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_kotoka_s=§r§fkotoka §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_laffaeti_s=§r§flaffaeti §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_low_s=§r§flow §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_marra_s=§r§fmarra §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_mega_s=§r§fmega §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_orduino_s=§r§forduino §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_recuro_s=§r§frecuro §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_sakiifori_s=§r§fsakiifori §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_san_s=§r§fsan §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_sartagana_s=§r§fsartagana §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_sempra_s=§r§fsempra §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_shumi_s=§r§fshumi §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_sin_s=§r§fsin §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_sofiso_s=§r§fsofiso §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_subversa_s=§r§fsubversa §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_sukimo_s=§r§fsukimo §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_trafantana_s=§r§ftrafantana §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_transkursio_s=§r§ftranskursio §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_watashi_s=§r§fwatashi §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_yanamo_s=§r§fyanamo §c[Мифическое+]\n§o§7VIII каналов, без отката
 
 item.arx:rune_nakamata=§r§fnakamata §c[Мифическое++]
 item.arx:rune_ratatao=§r§fratatao §e[Легендарное]
@@ -1121,6 +1153,7 @@ item.arx:scroll_of_bane_removing=§r§fСвиток исцеления от пр
 item.arx:scroll_of_water_blocking=§r§fСвиток ненамокания §e[Легендарное]\n§o§7Вы моментально высыхаете, а так же становитесь ненамокаемым на 30 секунд
 item.arx:scroll_of_fire_resistance=§r§fСвиток несгорания §e[Легендарное]\n§o§7Вы получаете сопротивление к любому нагреванию на 30 секунд
 item.arx:scroll_of_oblivion=§r§fСвиток забвения §e[Легендарное]\n§o§7Ваше настроение моментально вернется в норму
+item.arx:scroll_of_barrier_breaking=§r§fСвиток сокрушения фиолетового магического барьера §e[Легендарное]\n§o§7Подойдите близко к барьеру и используйте
 
 
 
@@ -1360,14 +1393,11 @@ item.arx:vicious_lance=§r§fПорочная пика [3] §c[Мифичес
 item.arx:vicious_lance_refined=§r§fИстинное порочное копье [4] §c[Мифическое+++]
 
 
-
-##channels=6
+## staffs
 item.arx:staff_san=§r§fПосох Солнца VI [1] §c[Мифическое++]
 item.arx:staff_din=§r§fПосох Искажения VI [1] §c[Мифическое++]
 item.arx:staff_sin=§r§fПосох Энергии VI [1] §c[Мифическое++]
 item.arx:staff_kon=§r§fПосох Хаоса VI [1] §c[Мифическое++]
-
-##channels=5
 item.arx:staff_battle=§r§fБоевой посох V [3] §c[Мифическое++]
 item.arx:staff_battle_custom_magik=§r§fПосох Бедствий V [3] §c[Мифическое++]
 item.arx:staff_fulminant=§r§fМолниеносный посох V [1] §c[Мифическое++]
@@ -1380,12 +1410,8 @@ item.arx:staff_netherite_with_ruby=§r§fНезеритовый посох с р
 item.arx:staff_of_snowlands=§r§fПосох снежных земель V [1] §c[Мифическое]
 item.arx:staff_of_twilight=§r§fСумеречный посох V [1] §c[Мифическое+]
 item.arx:vicious_staff_refined=§r§fИстинный порочный посох V §bMPR§f3 §1MP§f8 [1] §c[Мифическое+++]
-
-##channels=4
 item.arx:staff_naginitis=§r§fНагинитовый посох IV [1] §e[Легендарное]
 item.arx:vicious_staff=§r§fПорочный посох IV [1] §c[Мифическое+]
-
-##channels=3
 item.arx:staff_cast_iron_with_chrysolite=§r§fЧугунный посох с хризолитом III [1] §e[Легендарное]
 item.arx:staff_chrysolite=§r§fХризолитовый посох III [1] §e[Легендарное]
 item.arx:staff_golden_with_chrysolite=§r§fЗолотой посох с хризолитом III [1] §e[Легендарное]
@@ -1398,18 +1424,17 @@ item.arx:staff_steel_with_topaz=§r§fСтальной посох с топаз�
 item.arx:staff_with_beryl=§r§fПосох с бериллом III [1] §e[Легендарное]
 item.arx:staff_simple_with_ruby=§r§fПосох с рубином III [1] §e[Легендарное]
 item.arx:staff_tin_with_gold=§r§fЗолотой посох с цирконом III [1] §e[Легендарное]
-
-##channels=2
 item.arx:staff_gold=§r§fЗолотой посох II [1] §b[Редкое]
 item.arx:staff_wooden_with_chrysolite=§r§fДеревянный посох с хризолитом II [1] §e[Легендарное]
 item.arx:staff_wooden_with_olivine=§r§fДеревянный посох с оливином II [1] §b[Редкое]
-
-##channels=1
 item.arx:staff_wooden=§r§fДеревянный посох I [1] §7[Обычное]
 item.arx:staff_golden_with_violet_handle=§r§fСкоростной золотой посох I [1] §b[Редкое]
 item.arx:staff_of_scarlet_moon=§r§fПосох алой луны I [1] §c[Мифическое]
 
-##type=unique
+item.arx:golden_moon_radiance=§r§fСияние золотой луны X [1] §c[Мифическое]
+item.arx:master_of_fates=§r§fПовелитель судеб VIII [1] §c[Мифическое]
+item.arx:sturdy_staff=§r§fКрепкий посох II [3] §a[Необычное]
+
 item.arx:staff_dragon=§r§fПосох дракона VI [1] §c[Мифическое+++]
 item.arx:staff_with_skull=§r§fПосох-череп IV [1] §e[Легендарное]
 item.arx:staff_of_hell=§r§fАдский посох V [1] §c[Мифическое+]
@@ -1754,7 +1779,7 @@ item.arx:essence_of_vicious_demon=§r§fСущность порочного де
 tile.arx:grim_stonebricks.name=§r§fПорочный кирпич §e[Легендарное]\n§7§oЧто сделаешь дальше? Унитаз из ламенита?
 
 
-item.spawn_egg.entity.arx:whipping_dummy.name=§r§fМаникен для битья §b[Редкое]\n§7§oОтображает полученный урон
+item.spawn_egg.entity.arx:whipping_dummy.name=§r§fМанекен для битья §b[Редкое]\n§7§oОтображает полученный урон
 
 
 
@@ -1871,6 +1896,7 @@ item.arx:umbrella_silk=§r§fШёлковый зонтик §a[Необычно�
 
 item.arx:nagnium=§r§fНагниум §e[Легендарное]\n§7§oИзмельчённый в ступке нагинит
 item.arx:tironium=§r§fТирониум §c[Мифическое+]\n§7§oИзмельчённый в ступке малафиотиронит
+item.arx:forium=§r§fФориум §c[Мифическое]\n§7§oИзмельчённый в ступке форфакорит
 item.arx:plumbium=§r§fСвинцовиум §b[Редкое]\n§7§oИзмельчённый в ступке свинец
 
 
@@ -1963,3 +1989,7 @@ item.arx:bunker_access_card=§r§fКарта допуска в бункер §e[
 item.arx:cultists_letter=§r§fПисьмо крыс-культистов §b[Редкое]\n§o§7Одно из самых необычных писем, что вы получали
 
 item.arx:steady_boat_spawner=§r§fУстойчивая лодка [5] §b[Редкое]\n§o§73 места\nВместительность 8 слотов
+
+
+item.arx:chrupie_flake=§r§fОсколок хрупи §e[Легендарное]\n§o§7Осколок панция монстра, живущего в подземельях.\nОн холодный наощупть, будто состоит из металла
+item.arx:demonic_staff_fragment=§r§fФрагмент демонического посоха §e[Легендарное]\n§o§7Посоха демона из ада,\nкоторый вы безжалостно разломали

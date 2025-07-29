@@ -3,7 +3,8 @@ import { getScore, setScore } from "../scoresOperations"
 export function onFoodConsume(player, foodname) {
     // Тип пищи у конкретной съеденной еды
     let foodType
-
+    let foodTaste
+    
     const playerTaste_meat = player.getDynamicProperty('playerTaste_meat')
     const playerTaste_fish = player.getDynamicProperty('playerTaste_fish')
     const playerTaste_bread = player.getDynamicProperty('playerTaste_bread')
@@ -109,6 +110,8 @@ export function onFoodConsume(player, foodname) {
         "arx:salmon_fillet_fried": 20,
         "arx:sun_fish_meat_fried": 33,
         "arx:wave_fish_meat_fried": 30,
+
+        "arx:le_fishe_au_chocolat": 42,
     }
     const breadFood = {
         "arx:allaybread": 40,
@@ -288,6 +291,10 @@ export function onFoodConsume(player, foodname) {
         case "arx:fiolix": {
             player.setDynamicProperty('FiolixNarcoticPower', player.getDynamicProperty('FiolixNarcoticPower') + 1800)
             player.runCommand(`effect @s fatal_poison infinite 255 true`)
+            break
+        }
+        case "arx:le_fishe_au_chocolat": {
+            player.runCommand(`playsound le_fishe_au_chocolat @s ~ ~ ~ 0.5`)
             break
         }
 

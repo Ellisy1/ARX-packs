@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:sturdy_staff"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      " AB",
+      "AAA",
+      "AA "
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:log"
+      },
+      "B": {
+        "item": "arx:small_stone"
+      }
+    },
+    "result": {
+      "item": "arx:sturdy_staff"
+    }
+  }
+}

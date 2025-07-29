@@ -22,7 +22,8 @@
         "spin": "animation.vicious_demon.spin",
         "basic": "animation.vicious_demon.basic",
         "rest": "animation.vicious_demon.rest",
-        "attack": "animation.vicious_demon.attack"
+        "attack": "animation.vicious_demon.attack",
+        "block": "animation.vicious_demon.block"
       },
       "animation_controllers": [
         {

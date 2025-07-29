@@ -11,6 +11,13 @@ export function registerPlayerVars(player) {
         }
     }
 
+    // Каналы магии
+    for (let i = 1; i < 11; i++) {
+        if (player.getDynamicProperty(`channel_${i}_rune_sequence`) === undefined) {
+            player.setDynamicProperty(`channel_${i}_rune_sequence`, '')
+        }
+    }
+
     if (player.getDynamicProperty("mp") === undefined) {
         player.setDynamicProperty("mp", 1000)
     }
@@ -46,24 +53,6 @@ export function registerPlayerVars(player) {
     }
     if (player.getDynamicProperty("magicTarget") === undefined) {
         player.setDynamicProperty("magicTarget", 1)
-    }
-    if (player.getDynamicProperty("channel_1_rune_sequence") === undefined) {
-        player.setDynamicProperty("channel_1_rune_sequence", '')
-    }
-    if (player.getDynamicProperty("channel_2_rune_sequence") === undefined) {
-        player.setDynamicProperty("channel_2_rune_sequence", '')
-    }
-    if (player.getDynamicProperty("channel_3_rune_sequence") === undefined) {
-        player.setDynamicProperty("channel_3_rune_sequence", '')
-    }
-    if (player.getDynamicProperty("channel_4_rune_sequence") === undefined) {
-        player.setDynamicProperty("channel_4_rune_sequence", '')
-    }
-    if (player.getDynamicProperty("channel_5_rune_sequence") === undefined) {
-        player.setDynamicProperty("channel_5_rune_sequence", '')
-    }
-    if (player.getDynamicProperty("channel_6_rune_sequence") === undefined) {
-        player.setDynamicProperty("channel_6_rune_sequence", '')
     }
     if (player.getDynamicProperty("freezing") === undefined) {
         player.setDynamicProperty("freezing", 0)

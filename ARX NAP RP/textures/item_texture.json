@@ -2358,6 +2358,100 @@
     "arx:rune_yanamo_s": {
       "textures": "textures/items/runes/superior/rune_yanamo"
     },
+    "arx:rune_affuono_f": {
+      "textures": "textures/items/runes/forfacorite/rune_affuono"
+    },
+    "arx:rune_arrako_f": {
+      "textures": "textures/items/runes/forfacorite/rune_arrako"
+    },
+    "arx:rune_din_f": {
+      "textures": "textures/items/runes/forfacorite/rune_din"
+    },
+    "arx:rune_disortari_f": {
+      "textures": "textures/items/runes/forfacorite/rune_disortari"
+    },
+    "arx:rune_elletera_f": {
+      "textures": "textures/items/runes/forfacorite/rune_elletera"
+    },
+    "arx:rune_floruum_f": {
+      "textures": "textures/items/runes/forfacorite/rune_floruum"
+    },
+    "arx:rune_flurri_f": {
+      "textures": "textures/items/runes/forfacorite/rune_flurri"
+    },
+    "arx:rune_hijo_f": {
+      "textures": "textures/items/runes/forfacorite/rune_hijo"
+    },
+    "arx:rune_horo_f": {
+      "textures": "textures/items/runes/forfacorite/rune_horo"
+    },
+    "arx:rune_inoffo_f": {
+      "textures": "textures/items/runes/forfacorite/rune_inoffo"
+    },
+    "arx:rune_kon_f": {
+      "textures": "textures/items/runes/forfacorite/rune_kon"
+    },
+    "arx:rune_kotoka_f": {
+      "textures": "textures/items/runes/forfacorite/rune_kotoka"
+    },
+    "arx:rune_laffaeti_f": {
+      "textures": "textures/items/runes/forfacorite/rune_laffaeti"
+    },
+    "arx:rune_low_f": {
+      "textures": "textures/items/runes/forfacorite/rune_low"
+    },
+    "arx:rune_marra_f": {
+      "textures": "textures/items/runes/forfacorite/rune_marra"
+    },
+    "arx:rune_mega_f": {
+      "textures": "textures/items/runes/forfacorite/rune_mega"
+    },
+    "arx:rune_orduino_f": {
+      "textures": "textures/items/runes/forfacorite/rune_orduino"
+    },
+    "arx:rune_recuro_f": {
+      "textures": "textures/items/runes/forfacorite/rune_recuro"
+    },
+    "arx:rune_sakiifori_f": {
+      "textures": "textures/items/runes/forfacorite/rune_sakiifori"
+    },
+    "arx:rune_san_f": {
+      "textures": "textures/items/runes/forfacorite/rune_san"
+    },
+    "arx:rune_sartagana_f": {
+      "textures": "textures/items/runes/forfacorite/rune_sartagana"
+    },
+    "arx:rune_sempra_f": {
+      "textures": "textures/items/runes/forfacorite/rune_sempra"
+    },
+    "arx:rune_shumi_f": {
+      "textures": "textures/items/runes/forfacorite/rune_shumi"
+    },
+    "arx:rune_sin_f": {
+      "textures": "textures/items/runes/forfacorite/rune_sin"
+    },
+    "arx:rune_sofiso_f": {
+      "textures": "textures/items/runes/forfacorite/rune_sofiso"
+    },
+    "arx:rune_subversa_f": {
+      "textures": "textures/items/runes/forfacorite/rune_subversa"
+    },
+    "arx:rune_sukimo_f": {
+      "textures": "textures/items/runes/forfacorite/rune_sukimo"
+    },
+    "arx:rune_trafantana_f": {
+      "textures": "textures/items/runes/forfacorite/rune_trafantana"
+    },
+    "arx:rune_transkursio_f": {
+      "textures": "textures/items/runes/forfacorite/rune_transkursio"
+    },
+    "arx:rune_watashi_f": {
+      "textures": "textures/items/runes/forfacorite/rune_watashi"
+    },
+    "arx:rune_yanamo_f": {
+      "textures": "textures/items/runes/forfacorite/rune_yanamo"
+    },
+
     "arx:rune_nakamata_b": {
       "textures": "textures/items/runes/special/rune_nakamata"
     },
@@ -3185,6 +3279,15 @@
     "arx:vicious_staff": {
       "textures": "textures/items/weapons/staffs/vicious_staff"
     },
+    "arx:master_of_fates": {
+      "textures": "textures/items/weapons/staffs/master_of_fates"
+    },
+    "arx:sturdy_staff": {
+      "textures": "textures/items/weapons/staffs/sturdy_staff"
+    },
+    "arx:golden_moon_radiance": {
+      "textures": "textures/items/weapons/staffs/golden_moon_radiance"
+    },
 
 
 
@@ -3841,6 +3944,9 @@
     "arx:tironium": {
       "textures": "textures/items/alchemy/components/tironium"
     },
+    "arx:forium": {
+      "textures": "textures/items/alchemy/components/forium"
+    },
     //FOOD
     "arx:allaybread": {
       "textures": "textures/items/food/allaybread"
@@ -4310,6 +4416,9 @@
     "arx:custom_cookie": {
       "textures": "textures/items/food/custom_cookie"
     },
+    "arx:le_fishe_au_chocolat": {
+      "textures": "textures/items/food/le_fishe_au_chocolat"
+    },
     "arx:umbrella_golden_silk": {
       "textures": "textures/items/umbrellas/umbrella_golden_silk"
     },
@@ -4465,6 +4574,9 @@
     },
     "arx:scroll_of_healing": {
       "textures": "textures/items/other/scroll_of_healing"
+    },
+    "arx:scroll_of_barrier_breaking": {
+      "textures": "textures/items/other/scroll_of_barrier_breaking"
     },
     "arx:whipping_dummy": {
       "textures": "textures/items/other/whipping_dummy"
@@ -4623,6 +4735,13 @@
 
     "arx:steady_boat_icon": {
       "textures": "textures/items/vehicles/steady_boat_icon"
+    },
+
+    "arx:chrupie_flake": {
+      "textures": "textures/items/other/chrupie_flake"
+    },
+    "arx:demonic_staff_fragment": {
+      "textures": "textures/items/other/demonic_staff_fragment"
     }
   }
 }

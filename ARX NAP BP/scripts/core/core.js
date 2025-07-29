@@ -2,6 +2,7 @@
 
 // Импорт - основа
 import { system, world, EntityComponentTypes, EquipmentSlot } from "@minecraft/server"
+
 import { getScore, setScore } from '../scoresOperations'
 import { increaseSkillLevel, increaseSkillProgress, wipeSkills } from '../skillsOperations'
 import { checkForItem } from "../checkForItem"
@@ -10,6 +11,10 @@ import { setRandomTastes } from '../food/setRandomTastes'
 import { getPlayersInRadius } from '../getPlayersInRadius'
 import { getActiveStaffChannel } from '../magic/getActiveStaffChannel'
 import { channelRomanNums } from '../magic/channelRomanNums'
+import { isEntityInCube } from "./music_core"
+
+import { portals } from '../portals'
+import { getPlayersInRadiusFromCoords } from '../portals'
 
 // Импорт - другие области движка
 import './music_core'
@@ -17,14 +22,25 @@ import './achievements'
 import { getNearestPlayer } from "../getNearestPlayer"
 import { queueCommand } from "../commandQueue"
 
-// Пременная для редактирования ARX Gate
-export let ARXGate = "ARXGate:awaitingInputIdlexxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+// Переменная-вход ARX Gate
+export let ARXGateIn = "ARXGate:рус:awaitingInput000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+// Переменная-выход ARX Gate
+export let ARXGateOut = 'ARXGate:рус:awaitingOutput'
 
 // 1 tick
 system.runInterval(() => {
     world.getDimension("minecraft:overworld").runCommand("function core_parts/core")
     world.getDimension("minecraft:overworld").runCommand("function core_parts_NAP/core")
     world.getDimension("minecraft:overworld").runCommand("function core_parts_NAP/dynamic_light_execution")
+
+    // Анализируем ARX Gate
+    if (!ARXGateIn.startsWith('ARXGate:рус:awaitingInput')) {
+        console.warn(ARXGateIn)
+
+        let text1 = "ARXGate"
+        let text2 = ":рус:awaitingInput000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ARXGateIn = text1 + text2
+    }
 
     for (const player of world.getPlayers()) {
 
@@ -300,7 +316,7 @@ system.runInterval(() => {
             if (player.getDynamicProperty('intoxicationLevel') >= 2) { maxMp -= player.getDynamicProperty('intoxicationLevel') * 4 }
 
             // Увеличение от прокачки
-            mpRegenPower += player.getDynamicProperty('skill:mana_level') * 3
+            maxMp += player.getDynamicProperty('skill:mana_level') * 4
 
             // От пермабонуса
             maxMp += player.getDynamicProperty('MPPermanentBonus')
@@ -488,6 +504,39 @@ system.runInterval(() => {
 
 // 5 ticks
 system.runInterval(() => {
+
+    // Порталы
+    {
+        // Люменессионные
+        for (const portal of Object.values(portals.lumenession)) {
+            world.getDimension('minecraft:overworld').runCommand(`particle arx:portal_lumen_fog ${portal.location[0]} ${portal.location[1] + 1} ${portal.location[2]}`)
+            const players = getPlayersInRadiusFromCoords(portal.location, 1.9)
+            if (players) {
+                for (const player of players) {
+
+                    player.runCommand('playsound portal.embark @a ~ ~ ~')
+                    player.runCommand('camera @s fade time 0 1 2 color 200 180 0 ')
+
+                    const TPVector = { x: portal.destination[0] + 0.5, y: portal.destination[1], z: portal.destination[2] + 0.5 }
+                    player.teleport(TPVector)
+
+                    queueCommand(player, 'playsound portal.arrive @a ~ ~ ~')
+                    player.runCommand('effect @s slowness 2 255 true')
+
+                    player.runCommand('tellraw @s { "rawtext": [ { "text": "§eВы проваливаетесь в неосязаемое пространство..." } ] }')
+
+                }
+            }
+        }
+        // Ноксинессионные
+        for (const chain of portals.noxenession) {
+            for (const portal of chain) {
+                world.getDimension('minecraft:overworld').runCommand(`particle arx:portal_fog ${portal[0]} ${portal[1]} ${portal[2]}`)
+                world.getDimension('minecraft:overworld').runCommand(`playsound portal.passive @a ${portal[0]} ${portal[1]} ${portal[2]}`)
+            }
+        }
+    }
+
     for (const player of world.getPlayers()) {
 
         // Подмена яблок
@@ -693,6 +742,9 @@ system.runInterval(() => {
             // Срезание от перегруза
             if (player?.getDynamicProperty('overLoading') > 0) { jumpPower -= player.getDynamicProperty("overLoading") }
 
+            // Адаптация для выдачи эффектом
+            jumpPower = Math.round(jumpPower)
+
             // Отправка в DP
             player.setDynamicProperty("jumpPower", jumpPower)
 
@@ -759,6 +811,10 @@ function getBlockWithOffset(player, x, y, z) {
 
 // 20 ticks
 system.runInterval(() => {
+
+    // Партиклы в порочных садах
+    world.getDimension('minecraft:overworld').runCommand('particle arx:vicious_gardens_ambiance -2238 15 1806')
+
     for (const player of world.getPlayers()) {
 
         // Уменьшение DP из dynamicPropertiesToDecrease
@@ -804,6 +860,11 @@ system.runInterval(() => {
 
         // Анализ туманов
         {
+            // Порочные сады
+            if (isEntityInCube(player, [-2274, 13, 1773], [-2205, 45, 1839])) {
+                player.runCommand('scoreboard players add @s no_fog 1')
+            }
+
             // Снятие туманов
             player.runCommand(`fog @s remove "redglasses_fog"`)
             player.runCommand(`fog @s remove "night_vision_device_fog"`)
@@ -907,7 +968,7 @@ system.runInterval(() => {
             player.runCommand(`tellraw @s { "rawtext": [ { "text": "§aНавыки сброшены." } ] }`)
         }
         if (player.hasTag("just_entered_arx")) {
-            player.setDynamicProperty("music_location_previous", -1)
+            player.setDynamicProperty("music_location_previous", 0)
             player.removeTag("just_entered_arx")
         }
 
@@ -1356,14 +1417,34 @@ function displayMPAndAdjacent(player) {
     }
     // Мы держим руну
     else if (itemTags?.includes('is_rune')) {
-        const channels = 6
+
+        // Определяем каналы
+        let channels = undefined
+        if (itemTags?.includes('plumbum_rune')) { channels = 4 }
+        else if (itemTags?.includes('naginitis_rune')) { channels = 6 }
+        else if (itemTags?.includes('forfacorite_rune')) { channels = 10 }
+        else if (itemTags?.includes('special_rune')) { channels = 10 }
+        else if (itemTags?.includes('malafiotironite_rune')) { channels = 8 }
+
+        // Не удалось определить каналы
+        if (channels === undefined) {
+            console.warn(`Не удалось считать количество каналов на руне. Игрок ${player}, предмет ${item.typeId}`)
+            return undefined
+        }
+
         const activeChannel = getActiveStaffChannel(player, channels)
 
         player.runCommand(`title @s actionbar §b${channelRomanNums[activeChannel - 1]} канал §7| §f${manaStr} §1MP`)
     }
     // У нас амулет гиперсинергии
     else if (checkForItem(player, "Legs", 'arx:amul_hypersynergy') || checkForItem(player, "Legs", 'arx:amul_hypersynergy_improved') || checkForItem(player, "Legs", 'arx:amul_hypersynergy_superior')) {
-        const channels = 6
+
+        let channels = undefined
+
+        if (checkForItem(player, "Legs", 'arx:amul_hypersynergy')) { channels = 4 }
+        else if (checkForItem(player, "Legs", 'arx:amul_hypersynergy_improved')) { channels = 6 }
+        else if (checkForItem(player, "Legs", 'arx:amul_hypersynergy_superior')) { channels = 8 }
+
         const activeChannel = getActiveStaffChannel(player, channels)
 
         player.runCommand(`title @s actionbar §7${channelRomanNums[activeChannel - 1]} канал §7| §f${manaStr} §1MP`)

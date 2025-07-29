@@ -16,7 +16,8 @@
       }
     },
     "result": {
-      "item": "arx:tironium"
+      "item": "arx:tironium",
+      "count": 2
     }
   }
 }

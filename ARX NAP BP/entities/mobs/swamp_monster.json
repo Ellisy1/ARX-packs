@@ -55,7 +55,7 @@
 			},
 			"minecraft:nameable": {},
 			"minecraft:health": {
-				"value": 150
+				"value": 80
 			},
 			"minecraft:hurt_on_condition": {
 				"damage_conditions": [
@@ -72,7 +72,7 @@
 				]
 			},
 			"minecraft:movement": {
-				"value": 0.4
+				"value": 0.35
 			},
 			"minecraft:behavior.random_stroll": {
 				"priority": 6,
@@ -98,7 +98,7 @@
 				"priority": 1
 			},
 			"minecraft:attack": {
-				"damage": 14
+				"damage": 9
 			},
 			"minecraft:behavior.nearest_attackable_target": {
 				"priority": 2,

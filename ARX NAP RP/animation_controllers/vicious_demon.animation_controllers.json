@@ -12,8 +12,9 @@
 					],
 					"transitions": [
 						{"move_state": "q.ground_speed > 1.0"},
-						{"spin_state": "query.model_scale >= 0.063"},
-						{"rest_state": "query.model_scale < 0.061"}
+						{"spin_state": "q.property('arx:spin')"},
+						{"shield_state": "q.property('arx:shield')"},
+						{"rest_state": "q.property('arx:is_resting') && !q.property('arx:hp') == 0"}
 					],
 					"blend_transition": 0.2
 				},
@@ -25,30 +26,33 @@
 					],
 					"transitions": [
 						{"stay_state": "q.ground_speed < 0.5"},
-						{"spin_state": "query.model_scale >= 0.063"}
+						{"shield_state": "q.property('arx:shield')"},
+						{"spin_state": "q.property('arx:spin')"}
 					],
 					"blend_transition": 0.2
 				},
 				"spin_state": {
 					"animations": ["spin", "basic"],
 					"transitions": [
-						{"stay_state": "query.model_scale < 0.063"}
+						{"stay_state": "!q.property('arx:spin')"},
+						{"shield_state": "q.property('arx:shield')"}
 					],
 					"blend_transition": 0.2
 				},
 				"rest_state": {
 					"animations": ["rest", "basic"],
 					"transitions": [
-						{"stay_state": "query.model_scale > 0.061"}
+						{"shield_state": "q.property('arx:shield')"},
+						{"stay_state": "!q.property('arx:is_resting') || q.property('arx:hp') == 0"}
 					],
 					"blend_transition": 0.3
-				}
-			}
-		},
-		"controller.animation.vicious_demon.sit": {
-			"states": {
-				"default": {
-					"animations": ["sit"]
+				},
+				"shield_state": {
+					"animations": ["block", "basic", "stay"],
+					"transitions": [
+						{"stay_state": "!q.property('arx:shield')"}
+					],
+					"blend_transition": 0.3
 				}
 			}
 		}

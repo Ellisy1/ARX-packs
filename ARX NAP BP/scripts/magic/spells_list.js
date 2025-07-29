@@ -256,7 +256,7 @@ export const spellsList = {
     "din yanamo transkursio laffaeti mega mega mega": "мощное заклинание отхода из измерения",
 
 
-    "din yanamo trafantana": "заклинание телепортации при помощи портала",
+    "din yanamo trafantana": "заклинание телепортации при помощи ноксинессионного портала",
 
     "din yanamo trafantana marra": "заклинание телепортации к игроку с меткой",
 
@@ -336,7 +336,9 @@ export const spellsList = {
     "din hijo kotoka mega": "заклинание запроса навыков",
 
 
-    "din hijo": "заклинание запроса заклинания",
+    "din hijo": "заклинание запроса заклинания (4 канала)",
+    "din hijo mega": "заклинание запроса заклинания (7 каналов)",
+    "din hijo mega mega mega": "заклинание запроса заклинания (10 каналов)",
 
 
     "din hijo sartagana": "заклинание разоблачения тайн предмета",
@@ -392,7 +394,7 @@ for (const spell in spellsList) {
 
     // Проверяем корреткность заклинания
     if (currentSpellCipher.length < 4) {
-        console.warn(`Заклинание <${spell}> слишком короткое`)
+        console.warn(`Заклинание <${spell}> слишком короткое, что недопустимо по теории магии`)
     }
     if (!(currentSpellCipher.endsWith("AC") || currentSpellCipher.endsWith("AK") || currentSpellCipher.endsWith("AT") || currentSpellCipher.endsWith("AX"))) {
         console.warn(`Заклинание <${spell}> имеет ошибку составления в первой руне`)

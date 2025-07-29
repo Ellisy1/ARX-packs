@@ -1,5 +1,5 @@
 // Imports
-import { world } from "@minecraft/server"
+import { world, EntityComponentTypes, EquipmentSlot } from "@minecraft/server"
 import { emote } from './emote'
 import { getScore } from './scoresOperations'
 import { getSkillsData } from './skillsOperations'
@@ -9,7 +9,7 @@ import { checkForItem } from "./checkForItem"
 
 import { runeCiphers } from './magic/rune_cipher_list'
 import { cipherRuneSequence } from './magic/on_use_magic_items'
-import { ARXGate } from './core/core'
+import { ARXGateIn } from './core/core'
 
 // Обработка чата before
 world.beforeEvents.chatSend.subscribe((eventData) => {
@@ -33,7 +33,7 @@ function parceCommand(player, trimmedMessage) {
         if (command[0] == "!test") { // Тест функция
             if (isAdmin(player)) {
                 // Получаем внеигровое время
-                console.warn(ARXGate)
+                console.warn(ARXGateIn)
             }
             else {
                 queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cНевозможно использовать команду ${command[0]} без прав модератора." } ] }`)
@@ -54,7 +54,7 @@ function parceCommand(player, trimmedMessage) {
 
         else if (command[0] == "!rm") { // Получить инфо о груди
             queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§fМузыка перезапущена. §eЕсли вы не её слышите, то убедитесь, что у вас громкость музыки не установлена в 0 (Меню -> Опции -> Звук -> Музыка)" } ] }`)
-            player.setDynamicProperty("music_location_previous", -1)
+            player.setDynamicProperty("music_location_previous", 0)
         }
 
         else if (command[0] == "!") { // Инфо о командах
@@ -364,30 +364,31 @@ function sendChatMessage(player, speech, prefix, clearDistance = 0, senderName =
 
             let rune = words[0]
 
-            rune = rune.toLowerCase()
-            rune = rune.replace(/[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]+/g, "")
+            if (!words[1]) {
+                rune = rune.toLowerCase()
+                rune = rune.replace(/[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]+/g, "")
 
-            // Обрабатываем форматирование
-            while (true) {
-                if (rune.startsWith('§')) {
-                    rune = rune.slice(2)
-                } else {
-                    break
+                // Обрабатываем форматирование
+                while (true) {
+                    if (rune.startsWith('§')) {
+                        rune = rune.slice(2)
+                    } else {
+                        break
+                    }
                 }
-            }
 
-            console.warn(rune)
-
-            if (rune in runeCiphers) {
-                if (!player.getDynamicProperty('amul_hypersynergyCD') > 0) {
-                    cipherRuneSequence(player, rune)
-                    // Выдаем КД
-                    if (checkForItem(player, "Legs", 'arx:amul_hypersynergy')) { player.setDynamicProperty('amul_hypersynergyCD', 100) }
-                    if (checkForItem(player, "Legs", 'arx:amul_hypersynergy_improved')) { player.setDynamicProperty('amul_hypersynergyCD', 35) }
-                    if (checkForItem(player, "Legs", 'arx:amul_hypersynergy_superior')) { player.setDynamicProperty('amul_hypersynergyCD', 5) }
-                }
-                else {
-                    queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cОткат амулета гиперсинергии ещё не закончился." } ] }`)
+                if (rune in runeCiphers) {
+                    if (!player.getDynamicProperty('amul_hypersynergyCD') > 0) {
+                        const item = player.getComponent(EntityComponentTypes.Equippable).getEquipment(EquipmentSlot.Legs)
+                        cipherRuneSequence(player, rune, item?.getTags())
+                        // Выдаем КД
+                        if (checkForItem(player, "Legs", 'arx:amul_hypersynergy')) { player.setDynamicProperty('amul_hypersynergyCD', 100) }
+                        if (checkForItem(player, "Legs", 'arx:amul_hypersynergy_improved')) { player.setDynamicProperty('amul_hypersynergyCD', 35) }
+                        if (checkForItem(player, "Legs", 'arx:amul_hypersynergy_superior')) { player.setDynamicProperty('amul_hypersynergyCD', 5) }
+                    }
+                    else {
+                        queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cОткат амулета гиперсинергии ещё не закончился." } ] }`)
+                    }
                 }
             }
         }

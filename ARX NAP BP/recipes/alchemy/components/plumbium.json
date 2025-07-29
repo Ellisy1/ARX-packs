@@ -16,7 +16,8 @@
       }
     },
     "result": {
-      "item": "arx:plumbium"
+      "item": "arx:plumbium",
+      "count": 2
     }
   }
 }

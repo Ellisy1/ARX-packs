@@ -269,6 +269,9 @@
         scoreboard players add @s[hasitem={item=arx:staff_of_heaven}] weighLoading 1
         scoreboard players add @s[hasitem={item=arx:vicious_staff}] weighLoading 1
         scoreboard players add @s[hasitem={item=arx:vicious_staff_refined}] weighLoading 1
+        scoreboard players add @s[hasitem={item=arx:sturdy_staff}] weighLoading 3
+        scoreboard players add @s[hasitem={item=arx:golden_moon_radiance}] weighLoading 1
+        scoreboard players add @s[hasitem={item=arx:master_of_fates}] weighLoading 1
         scoreboard players add @s[hasitem={item=arx:hacksaw}] weighLoading 1
         scoreboard players add @s[hasitem={item=arx:composite_toothed_sawsword}] weighLoading 5
 

@@ -9,6 +9,9 @@ import { increaseSkillProgress, wipeSkillsProgress } from './skillsOperations'
 import { onFoodConsume } from './food/onConsume'
 import { registerCharacter } from "./registerCharacter"
 import { executeCommandDelayed } from "./executeCommandDelayed"
+import { showDialog } from './dialogues'
+import { isEntityInCube } from './core/music_core'
+import { interactWithViciousDemonSpawner } from './bosses/vicious_demon'
 
 // Imports - Local scripts
 import './chat'
@@ -47,12 +50,26 @@ world.afterEvents.entitySpawn.subscribe((spawnEvent) => {
     if (spawnEvent.entity.typeId === 'arx:grave') {
         spawnEvent.entity.nameTag = 'Ударьте, чтобы\nполучить все вещи'
     }
+    if (spawnEvent.entity.typeId === 'arx:hungry_rat' || spawnEvent.entity.typeId === 'arx:larva') {
+        if (isEntityInCube(spawnEvent.entity, [-2274, 13, 1773], [-2205, 45, 1839]) || isEntityInCube(spawnEvent.entity, [-2225, 24, 1839], [-2255, 30, 1868])) {
+            spawnEvent.entity.remove()
+        }
+    }
 })
 
 // Удары сущностей
 world.afterEvents.entityHitEntity.subscribe((hitEvent) => {
     if (hitEvent.hitEntity.typeId === 'arx:grave') {
         hitEvent.hitEntity.runCommand('damage @s 1000')
+    }
+    if (hitEvent.damagingEntity.typeId == 'minecraft:player') {
+        if (checkForItem(hitEvent.damagingEntity, "Mainhand", "arx:mod_sword")) {
+            if (hitEvent.damagingEntity.hasTag('is_sneaking')) {
+                hitEvent.hitEntity.remove()
+            } else {
+                hitEvent.hitEntity.kill()
+            }
+        }
     }
 })
 
@@ -116,6 +133,10 @@ world.afterEvents.playerInteractWithEntity.subscribe((interactEvent) => {
     else if (interactEvent.target?.typeId == "arx:statue_of_sinriada") {
         interactEvent.player.runCommand('function statues/statue_of_sinriada')
     }
+    // Аси
+    else if (interactEvent.target?.typeId == "arx:asi") {
+        showDialog(interactEvent.player, 'asi', 'start')
+    }
 })
 
 // При запуске мира
@@ -140,7 +161,7 @@ system.beforeEvents.startup.subscribe(initEvent => {
 
                 // Меч порочного демона
                 case "arx:vicious_demon_sword":
-                    event.player.runCommand(executeOnBlockPosition + "function scull_temple/start_battle")
+                    interactWithViciousDemonSpawner(event.player)
                     break
 
                 // Мусорка

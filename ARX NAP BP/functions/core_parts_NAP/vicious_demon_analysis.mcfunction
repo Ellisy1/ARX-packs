@@ -15,14 +15,14 @@
         execute as @e[type=arx:vicious_demon, scores={vic_dem_hit_cnt=1..}] run scoreboard players add @s vic_dem_hit_cnt -1
 
     # Анализ порочного демона
-        tag @a remove players_inside_scull_temple
-        tag @a remove demon_inside_scull_temple
+        tag @a remove players_on_battlefield
+        tag @a remove demon_on_battlefield
 
-        execute if entity @a[has_property={arx:is_knocked=false}, x=-204, y=33, z=324, dx=25, dy=5, dz=25] as @a[scores={verify=2}] run tag @s add players_inside_scull_temple
-        execute if entity @e[type=arx:vicious_demon, x=-204, y=33, z=324, dx=25, dy=5, dz=25] as @a[scores={verify=2}] run tag @s add demon_inside_scull_temple
+        execute if entity @a[has_property={arx:is_knocked=false}, x=-204, y=33, z=324, dx=25, dy=5, dz=25] as @a[scores={verify=2}] run tag @s add players_on_battlefield
+        execute if entity @e[type=arx:vicious_demon, x=-204, y=33, z=324, dx=25, dy=5, dz=25] as @a[scores={verify=2}] run tag @s add demon_on_battlefield
 
     # Если никого нет в локации порочного демона
-        execute if entity @a[scores={verify=2}, tag=demon_inside_scull_temple, tag=!players_inside_scull_temple] run event entity @e[type=arx:vicious_demon] despawn
+        execute if entity @a[scores={verify=2}, tag=demon_on_battlefield, tag=!players_on_battlefield] run event entity @e[type=arx:vicious_demon] despawn
 
     # Частицы когда мало хп
         execute at @e[type=arx:vicious_demon, tag=hp_0_to_25, tag=spin] run particle arx:vicious_flame ~ ~1.4 ~

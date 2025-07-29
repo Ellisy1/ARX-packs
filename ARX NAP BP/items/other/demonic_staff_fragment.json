@@ -1,0 +1,14 @@
+{
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:icon": "arx:demonic_staff_fragment"
+        },
+        "description": {
+            "identifier": "arx:demonic_staff_fragment",
+            "menu_category": {
+                "category": "items"
+            }
+        }
+    }
+}

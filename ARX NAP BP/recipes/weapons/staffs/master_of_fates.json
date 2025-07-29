@@ -1,0 +1,30 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:master_of_fates"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      "ABW",
+      " AB",
+      "A A"
+    ],
+    "key": {
+      "A": {
+        "item": "arx:forfactorite_billet"
+      },
+      "B": {
+        "item": "arx:durasteel_billet"
+      },
+      "W": {
+        "item": "arx:gold_feather"
+      }
+    },
+    "result": {
+      "item": "arx:master_of_fates"
+    }
+  }
+}

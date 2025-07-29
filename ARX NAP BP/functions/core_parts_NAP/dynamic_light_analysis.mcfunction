@@ -17,5 +17,5 @@
         execute as @a[hasitem={item=arx:mechanic_belt_lamp, location=slot.armor.legs}] run scoreboard players add @s dynamic_light_power 9
 
     # Сущности
-        execute as @e[type=arx:wandering_flame_of_night] run scoreboard players add @s dynamic_light_power 12
-        execute as @e[type=arx:wandering_flame_of_mines] run scoreboard players add @s dynamic_light_power 9
+        execute as @e[type=arx:wandering_flame_of_night] run scoreboard players set @s dynamic_light_power 12
+        execute as @e[type=arx:wandering_flame_of_mines] run scoreboard players set @s dynamic_light_power 9

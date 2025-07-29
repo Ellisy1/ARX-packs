@@ -40,5 +40,9 @@ function getBodyText(player) {
 
     bodyText += `Маны потрачено: §d${getScore(player, 'count_spent_mp')} MP\n§f`
 
+    bodyText += '§6===\n§f'
+
+    bodyText += `Ваш профиль занимает места: §d${(player.getDynamicPropertyTotalByteCount() / 1024).toFixed(1)} КБ\n§f`
+
     return bodyText
 }

@@ -15,488 +15,92 @@ import { queueCommand } from "../commandQueue";
 
 // Использование предметов
 world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юзание предмета на ПКМ
+
     const player = event.source; // Получаем объект игрока
-
     const item = player.getComponent(EntityComponentTypes.Equippable).getEquipment(EquipmentSlot.Mainhand)
-    switch (event.itemStack.typeId) {
-        // Руны
-        // Свинец
-        case "arx:rune_affuono_a":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "affuono")
-            }
-            break
-        case "arx:rune_arrako_a":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "arrako")
-            }
-            break
-        case "arx:rune_din_a":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "din")
-            }
-            break
-        case "arx:rune_disortari_a":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "disortari")
-            }
-            break
-        case "arx:rune_elletera_a":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "elletera")
-            }
-            break
-        case "arx:rune_floruum_a":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "floruum")
-            }
-            break
-        case "arx:rune_flurri_a":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "flurri")
-            }
-            break
-        case "arx:rune_hijo_a":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "hijo")
-            }
-            break
-        case "arx:rune_horo_a":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "horo")
-            }
-            break
-        case "arx:rune_inoffo_a":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "inoffo")
-            }
-            break
-        case "arx:rune_kon_a":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "kon")
-            }
-            break
-        case "arx:rune_kotoka_a":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "kotoka")
-            }
-            break
-        case "arx:rune_laffaeti_a":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "laffaeti")
-            }
-            break
-        case "arx:rune_low_a":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "low")
-            }
-            break
-        case "arx:rune_marra_a":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "marra")
-            }
-            break
-        case "arx:rune_mega_a":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "mega")
-            }
-            break
-        case "arx:rune_orduino_a":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "orduino")
-            }
-            break
-        case "arx:rune_recuro_a":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "recuro")
-            }
-            break
-        case "arx:rune_sakiifori_a":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "sakiifori")
-            }
-            break
-        case "arx:rune_san_a":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "san")
-            }
-            break
-        case "arx:rune_sartagana_a":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "sartagana")
-            }
-            break
-        case "arx:rune_sempra_a":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "sempra")
-            }
-            break
-        case "arx:rune_shumi_a":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "shumi")
-            }
-            break
-        case "arx:rune_sin_a":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "sin")
-            }
-            break
-        case "arx:rune_sofiso_a":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "sofiso")
-            }
-            break
-        case "arx:rune_subversa_a":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "subversa")
-            }
-            break
-        case "arx:rune_sukimo_a":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "sukimo")
-            }
-            break
-        case "arx:rune_trafantana_a":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "trafantana")
-            }
-            break
-        case "arx:rune_transkursio_a":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "transkursio")
-            }
-            break
-        case "arx:rune_watashi_a":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "watashi")
-            }
-            break
-        case "arx:rune_yanamo_a":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "yanamo")
-            }
-            break
 
-        // Нагинит
-        case "arx:rune_affuono_b":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "affuono")
-            }
-            break
-        case "arx:rune_arrako_b":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "arrako")
-            }
-            break
-        case "arx:rune_din_b":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "din")
-            }
-            break
-        case "arx:rune_disortari_b":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "disortari")
-            }
-            break
-        case "arx:rune_elletera_b":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "elletera")
-            }
-            break
-        case "arx:rune_floruum_b":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "floruum")
-            }
-            break
-        case "arx:rune_flurri_b":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "flurri")
-            }
-            break
-        case "arx:rune_hijo_b":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "hijo")
-            }
-            break
-        case "arx:rune_horo_b":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "horo")
-            }
-            break
-        case "arx:rune_inoffo_b":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "inoffo")
-            }
-            break
-        case "arx:rune_kon_b":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "kon")
-            }
-            break
-        case "arx:rune_kotoka_b":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "kotoka")
-            }
-            break
-        case "arx:rune_laffaeti_b":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "laffaeti")
-            }
-            break
-        case "arx:rune_low_b":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "low")
-            }
-            break
-        case "arx:rune_marra_b":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "marra")
-            }
-            break
-        case "arx:rune_mega_b":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "mega")
-            }
-            break
-        case "arx:rune_orduino_b":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "orduino")
-            }
-            break
-        case "arx:rune_recuro_b":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "recuro")
-            }
-            break
-        case "arx:rune_sakiifori_b":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "sakiifori")
-            }
-            break
-        case "arx:rune_san_b":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "san")
-            }
-            break
-        case "arx:rune_sartagana_b":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "sartagana")
-            }
-            break
-        case "arx:rune_sempra_b":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "sempra")
-            }
-            break
-        case "arx:rune_shumi_b":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "shumi")
-            }
-            break
-        case "arx:rune_sin_b":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "sin")
-            }
-            break
-        case "arx:rune_sofiso_b":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "sofiso")
-            }
-            break
-        case "arx:rune_subversa_b":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "subversa")
-            }
-            break
-        case "arx:rune_sukimo_b":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "sukimo")
-            }
-            break
-        case "arx:rune_trafantana_b":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "trafantana")
-            }
-            break
-        case "arx:rune_transkursio_b":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "transkursio")
-            }
-            break
-        case "arx:rune_watashi_b":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "watashi")
-            }
-            break
-        case "arx:rune_yanamo_b":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "yanamo")
-            }
-            break
+    if (!item) {
+        return undefined
+    }
 
-        // М - тиронит
-        case "arx:rune_affuono_s":
-            cipherRuneSequence(player, "affuono")
-            break
-        case "arx:rune_arrako_s":
-            cipherRuneSequence(player, "arrako")
-            break
-        case "arx:rune_din_s":
-            cipherRuneSequence(player, "din")
-            break
-        case "arx:rune_disortari_s":
-            cipherRuneSequence(player, "disortari")
-            break
-        case "arx:rune_elletera_s":
-            cipherRuneSequence(player, "elletera")
-            break
-        case "arx:rune_floruum_s":
-            cipherRuneSequence(player, "floruum")
-            break
-        case "arx:rune_flurri_s":
-            cipherRuneSequence(player, "flurri")
-            break
-        case "arx:rune_hijo_s":
-            cipherRuneSequence(player, "hijo")
-            break
-        case "arx:rune_horo_s":
-            cipherRuneSequence(player, "horo")
-            break
-        case "arx:rune_inoffo_s":
-            cipherRuneSequence(player, "inoffo")
-            break
-        case "arx:rune_kon_s":
-            cipherRuneSequence(player, "kon")
-            break
-        case "arx:rune_kotoka_s":
-            cipherRuneSequence(player, "kotoka")
-            break
-        case "arx:rune_laffaeti_s":
-            cipherRuneSequence(player, "laffaeti")
-            break
-        case "arx:rune_low_s":
-            cipherRuneSequence(player, "low")
-            break
-        case "arx:rune_marra_s":
-            cipherRuneSequence(player, "marra")
-            break
-        case "arx:rune_mega_s":
-            cipherRuneSequence(player, "mega")
-            break
-        case "arx:rune_orduino_s":
-            cipherRuneSequence(player, "orduino")
-            break
-        case "arx:rune_recuro_s":
-            cipherRuneSequence(player, "recuro")
-            break
-        case "arx:rune_sakiifori_s":
-            cipherRuneSequence(player, "sakiifori")
-            break
-        case "arx:rune_san_s":
-            cipherRuneSequence(player, "san")
-            break
-        case "arx:rune_sartagana_s":
-            cipherRuneSequence(player, "sartagana")
-            break
-        case "arx:rune_sempra_s":
-            cipherRuneSequence(player, "sempra")
-            break
-        case "arx:rune_shumi_s":
-            cipherRuneSequence(player, "shumi")
-            break
-        case "arx:rune_sin_s":
-            cipherRuneSequence(player, "sin")
-            break
-        case "arx:rune_sofiso_s":
-            cipherRuneSequence(player, "sofiso")
-            break
-        case "arx:rune_subversa_s":
-            cipherRuneSequence(player, "subversa")
-            break
-        case "arx:rune_sukimo_s":
-            cipherRuneSequence(player, "sukimo")
-            break
-        case "arx:rune_trafantana_s":
-            cipherRuneSequence(player, "trafantana")
-            break
-        case "arx:rune_transkursio_s":
-            cipherRuneSequence(player, "transkursio")
-            break
-        case "arx:rune_watashi_s":
-            cipherRuneSequence(player, "watashi")
-            break
-        case "arx:rune_yanamo_s":
-            cipherRuneSequence(player, "yanamo")
-            break
-
-        // Спец
-        case "arx:rune_ratatao":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "ratatao")
-            }
-            break
-        case "arx:rune_nakamata":
-            if (manageCD(player)) {
-                cipherRuneSequence(player, "nakamata")
-            }
-            break
-
-        // Сравнение использованного предмета НЕ через ID предмета
-        default:
-            // Посох
-            if (item?.getTags().includes("is_staff")) {
+    // Руна 
+    for (const itemTag of item?.getTags()) {
+        // Нашли тег вида rune:runeName
+        if (itemTag.includes('rune:')) {
+            // Получили runeName
+            const rune = itemTag.split(':')[1]
+            // Если у руны есть кд
+            if (!item?.getTags().includes('malafiotironite_rune')) {
                 if (manageCD(player)) {
-                    // Получаем количество каналов посоха
-                    let staffChannels = 1
+                    cipherRuneSequence(player, rune, item?.getTags())
+                }
+            } else { // Если руна без кд
+                cipherRuneSequence(player, rune, item?.getTags())
+            }
+        }
+    }
+    // Посох
+    if (item?.getTags().includes("is_staff")) {
+        if (manageCD(player)) {
+            // Получаем количество каналов посоха
+            let staffChannels = null;
+            const tagPrefix = "staff_channels_";
 
-                    if (item.getTags().includes("staff_channels_1")) { staffChannels = 1 }
-                    else if (item.getTags().includes("staff_channels_2")) { staffChannels = 2 }
-                    else if (item.getTags().includes("staff_channels_3")) { staffChannels = 3 }
-                    else if (item.getTags().includes("staff_channels_4")) { staffChannels = 4 }
-                    else if (item.getTags().includes("staff_channels_5")) { staffChannels = 5 }
-                    else if (item.getTags().includes("staff_channels_6")) { staffChannels = 6 }
-                    else { console.warn(`Нет данных о каналах посоха ${event.itemStack.typeId}`) }
+            for (const tag of item.getTags()) {
+                if (tag.startsWith(tagPrefix)) {
+                    const numStr = tag.substring(tagPrefix.length);
+                    const num = parseInt(numStr, 10);
 
-                    // Получаем текущий канал
-                    const activeChannel = getActiveStaffChannel(player, staffChannels)
-
-                    // Кастуем
-                    castSpell(player, activeChannel, item)
+                    if (!isNaN(num) && num > 0) {
+                        staffChannels = num;
+                        break; // нашли — выходим
+                    }
                 }
             }
-            // Палочка
-            else if (item?.getTags().includes("is_wand")) {
-                if (manageCD(player)) {
-                    // Радиал
-                    if (item?.getTags().includes("is_wand_radial")) {
 
-                        player.runCommand("tag @s[rxm=20] add t1")
-                        player.runCommand("tag @s[rx=20, rxm=-20] add t2")
-                        player.runCommand("tag @s[rx=-20] add t3")
-
-                        if (player.hasTag('t1')) { player.runCommand("tag @s remove t1"); player.setDynamicProperty('magicTarget', 1) }
-                        else if (player.hasTag('t2')) { player.runCommand("tag @s remove t2"); player.setDynamicProperty('magicTarget', 2) }
-                        else if (player.hasTag('t3')) { player.runCommand("tag @s remove t3"); player.setDynamicProperty('magicTarget', 3) }
-                        reportAboutMagicTarget(player)
-                    }
-                    // Стардарт
-                    else {
-                        if (player.getDynamicProperty('magicTarget') == 1) { player.setDynamicProperty('magicTarget', 2) }
-                        else if (player.getDynamicProperty('magicTarget') == 2) { player.setDynamicProperty('magicTarget', 3) }
-                        else if (player.getDynamicProperty('magicTarget') == 3) { player.setDynamicProperty('magicTarget', 1) }
-                        reportAboutMagicTarget(player)
-                    }
-
-                    // Анимируем
-                    const animVar = getRandomInt(4)
-                    if (animVar == 0) { player.runCommand("playanimation @s animation.arx.wand_a_a") }
-                    else if (animVar == 1) { player.runCommand("playanimation @s animation.arx.wand_a_b") }
-                    else if (animVar == 2) { player.runCommand("playanimation @s animation.arx.wand_a_b") }
-                    else if (animVar == 3) { player.runCommand("playanimation @s animation.arx.wand_b_a") }
-
-                    setScore(player, "target", player.getDynamicProperty('magicTarget'))
-                }
+            if (staffChannels === null) {
+                console.warn(`Нет данных о каналах посоха ${event.itemStack.typeId}`);
             }
+
+            // Получаем текущий канал
+            const activeChannel = getActiveStaffChannel(player, staffChannels)
+
+            // Кастуем
+            castSpell(player, activeChannel, item)
+        }
+    }
+    // Палочка
+    else if (item?.getTags().includes("is_wand")) {
+        if (manageCD(player)) {
+            // Радиал
+            if (item?.getTags().includes("is_wand_radial")) {
+
+                player.runCommand("tag @s[rxm=20] add t1")
+                player.runCommand("tag @s[rx=20, rxm=-20] add t2")
+                player.runCommand("tag @s[rx=-20] add t3")
+
+                if (player.hasTag('t1')) { player.runCommand("tag @s remove t1"); player.setDynamicProperty('magicTarget', 1) }
+                else if (player.hasTag('t2')) { player.runCommand("tag @s remove t2"); player.setDynamicProperty('magicTarget', 2) }
+                else if (player.hasTag('t3')) { player.runCommand("tag @s remove t3"); player.setDynamicProperty('magicTarget', 3) }
+                reportAboutMagicTarget(player)
+            }
+            // Стардарт
+            else {
+                if (player.getDynamicProperty('magicTarget') == 1) { player.setDynamicProperty('magicTarget', 2) }
+                else if (player.getDynamicProperty('magicTarget') == 2) { player.setDynamicProperty('magicTarget', 3) }
+                else if (player.getDynamicProperty('magicTarget') == 3) { player.setDynamicProperty('magicTarget', 1) }
+                reportAboutMagicTarget(player)
+            }
+
+            // Анимируем
+            const animVar = getRandomInt(4)
+            if (animVar == 0) { player.runCommand("playanimation @s animation.arx.wand_a_a") }
+            else if (animVar == 1) { player.runCommand("playanimation @s animation.arx.wand_a_b") }
+            else if (animVar == 2) { player.runCommand("playanimation @s animation.arx.wand_a_b") }
+            else if (animVar == 3) { player.runCommand("playanimation @s animation.arx.wand_b_a") }
+
+            setScore(player, "target", player.getDynamicProperty('magicTarget'))
+        }
     }
 })
 
@@ -512,14 +116,25 @@ function reportAboutMagicTarget(player) {
 }
 
 // Шифруем последовательность данных по факту набора последовательности рун (АКТИВИРУЕТСЯ ПРИ ЮЗАНИИ РУНЫ)
-export function cipherRuneSequence(player, runeName) {
-    // Определяем канал
-    const channel = getActiveStaffChannel(player, 6)
+export function cipherRuneSequence(player, runeName, runeTags) {
 
-    if (!channel) {
-        console.warn(`Не удалось определить канал`)
-        return
+    // Определяем каналы
+    let channel = undefined
+    if (runeTags?.includes('plumbum_rune')) { channel = 4 }
+    else if (runeTags?.includes('naginitis_rune')) { channel = 6 }
+    else if (runeTags?.includes('forfacorite_rune')) { channel = 10 }
+    else if (runeTags?.includes('special_rune')) { channel = 10 }
+    else if (runeTags?.includes('malafiotironite_rune')) { channel = 8 }
+    else if (runeTags?.includes('amul_hypersynergy')) { channel = 4 }
+    else if (runeTags?.includes('amul_hypersynergy_improved')) { channel = 6 }
+    else if (runeTags?.includes('amul_hypersynergy_superior')) { channel = 8 }
+
+    if (channel === undefined) {
+        console.warn(`Не удалось определить канал при записи руны в шифр (функция cipherRuneSequence)`)
+        return undefined
     }
+
+    channel = getActiveStaffChannel(player, channel)
 
     // Сохраняем некоторые данные
     const dynamicPropertyName = `channel_${channel}_rune_sequence`
@@ -617,11 +232,11 @@ function castSpell(player, activeChannel, staff) {
             {
                 const mpReq = getScore(player, "mp_req")
 
-                // manaSkillIncreaseValue: Низкое значение до 30, резкий рост после.
-                const manaSkillIncreaseValue = mpReq <= 30 ? mpReq / 30 : mpReq;
+                // РЕГЕН mpRegenSkillIncreaseValue: Низкое значение до 30, резкий рост после.
+                const mpRegenSkillIncreaseValue = mpReq <= 30 ? mpReq / 6 : mpReq;
 
-                // mpRegenSkillIncreaseValue: Высокое значение до 30, низкое после.
-                const mpRegenSkillIncreaseValue = mpReq <= 30 ? mpReq / 2 : mpReq / 60;
+                // МАКС МП manaSkillIncreaseValue: Высокое значение до 30, низкое после.
+                const manaSkillIncreaseValue = mpReq <= 30 ? mpReq * 3 : mpReq / 2;
 
                 increaseSkillProgress(player, "mana", manaSkillIncreaseValue)
                 increaseSkillProgress(player, "mp_regen", mpRegenSkillIncreaseValue)
