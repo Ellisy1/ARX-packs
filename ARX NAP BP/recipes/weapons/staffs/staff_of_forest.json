@@ -10,7 +10,7 @@
     "pattern": [
       " B ",
       " AB",
-      "A  "
+      "D  "
     ],
     "key": {
       "A": {
@@ -18,6 +18,9 @@
       },
       "B": {
         "item": "arx:cornelian_gem"
+      },
+      "D": {
+        "item": "minecraft:stick"
       }
     },
     "result": {

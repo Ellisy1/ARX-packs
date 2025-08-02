@@ -19,7 +19,8 @@
             "minecraft:max_stack_size": 1,
             "minecraft:tags": {
                 "tags": [
-                    "is_hheavy_sword"
+                    "is_hheavy_sword",
+                    "is_weapon"
                 ]
             },
             "tag:raw_cost:400000": {}

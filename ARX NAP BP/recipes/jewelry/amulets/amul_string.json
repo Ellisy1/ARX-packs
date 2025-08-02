@@ -8,11 +8,11 @@
     
     "tags": [ "loom_crafting_table" ],
     "pattern": [
-      "I"
+      "II"
     ],
     "key": {
       "I": {
-        "item": "arx:cotton_fabric"
+        "item": "minecraft:string"
       }
     },
     "result": {

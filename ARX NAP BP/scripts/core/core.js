@@ -12,9 +12,11 @@ import { getPlayersInRadius } from '../getPlayersInRadius'
 import { getActiveStaffChannel } from '../magic/getActiveStaffChannel'
 import { channelRomanNums } from '../magic/channelRomanNums'
 import { isEntityInCube } from "./music_core"
+import { weighAnalysis } from '../weighAnalysis'
 
 import { portals } from '../portals'
 import { getPlayersInRadiusFromCoords } from '../portals'
+import { killingTimeAnimDelay, animate_killing_time } from './animate_killing_time'
 
 // Импорт - другие области движка
 import './music_core'
@@ -22,10 +24,13 @@ import './achievements'
 import { getNearestPlayer } from "../getNearestPlayer"
 import { queueCommand } from "../commandQueue"
 
-// Переменная-вход ARX Gate
-export let ARXGateIn = "ARXGate:рус:awaitingInput000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
-// Переменная-выход ARX Gate
-export let ARXGateOut = 'ARXGate:рус:awaitingOutput'
+
+// ARXGate
+export let ARXGate = {
+    index: "ARXGate:рус:INDEX",
+    out: "ARXGate:рус:awaitingOutput",
+    in: `ARXGate:рус:awaitingInput000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000`
+}
 
 // 1 tick
 system.runInterval(() => {
@@ -33,14 +38,12 @@ system.runInterval(() => {
     world.getDimension("minecraft:overworld").runCommand("function core_parts_NAP/core")
     world.getDimension("minecraft:overworld").runCommand("function core_parts_NAP/dynamic_light_execution")
 
-    // Анализируем ARX Gate
-    if (!ARXGateIn.startsWith('ARXGate:рус:awaitingInput')) {
-        console.warn(ARXGateIn)
+    // // Анализируем ARX Gate
+    // if (!ARXGate.in.startsWith('ARXGate:рус:awaitingInput')) {
+    //     console.warn(ARXGate.in)
 
-        let text1 = "ARXGate"
-        let text2 = ":рус:awaitingInput000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
-        ARXGateIn = text1 + text2
-    }
+    //     ARXGate.in = `ARXGate:рус:awaitingInput_${Math.random()}`
+    // }
 
     for (const player of world.getPlayers()) {
 
@@ -178,6 +181,9 @@ system.runInterval(() => {
             if (checkForItem(player, "Offhand", "arx:ring_lamenite_ruby")) { basicStrength += 5 }
 
             if (checkForItem(player, "Legs", "arx:durasteel_bracers")) { basicStrength += 1 }
+
+            if (checkForItem(player, "Legs", "arx:amul_bloody_circle")) { basicStrength += 0.5 }
+            if (checkForItem(player, "Legs", "arx:amul_essence_of_vicious_demon")) { basicStrength += 3 }
 
             // Прокач
             basicStrength += (player.getDynamicProperty('skill:strength_level') / 2)
@@ -428,6 +434,12 @@ system.runInterval(() => {
             if (getScore(player, "water_delay") > 200) { speedPower -= 10 }
             if (getScore(player, "water_delay") > 400) { speedPower -= 10 }
 
+            // Бонус от закла
+            if (player.getDynamicProperty('speedBoost:level0') > 0) { speedPower += 10 }
+            if (player.getDynamicProperty('speedBoost:level1') > 0) { speedPower += 20 }
+            if (player.getDynamicProperty('speedBoost:level2') > 0) { speedPower += 40 }
+            if (player.getDynamicProperty('speedBoost:level3') > 0) { speedPower += 80 }
+
             // Штраф от увядания призрака
             speedPower -= player.getDynamicProperty("ghostWitheringLevel") * 4
 
@@ -538,76 +550,6 @@ system.runInterval(() => {
     }
 
     for (const player of world.getPlayers()) {
-
-        // Подмена яблок
-        if (checkForItem(player, 'Inventory', 'minecraft:apple')) {
-            player.runCommand('clear @s minecraft:apple 0 1')
-            player.runCommand('give @s arx:apple')
-        }
-
-        // Анализ поднимаемного игроком веса
-        {
-            // weighLimit - ограничение переносимого веса, при переходе за который накладывается штраф
-            let weighLimit = 4
-            // Сумки
-            if (checkForItem(player, "Legs", "arx:belt_bag")) { weighLimit += 1 }
-            if (checkForItem(player, "Legs", "arx:big_bag")) { weighLimit += 8 }
-            if (checkForItem(player, "Legs", "arx:default_bag")) { weighLimit += 4 }
-            if (checkForItem(player, "Feet", "arx:leg_bag")) { weighLimit += 1 }
-            if (checkForItem(player, "Feet", "arx:leg_bag_dual")) { weighLimit += 2 }
-            if (checkForItem(player, "Legs", "arx:mini_bag")) { weighLimit += 2 }
-            // Кольца
-            if (checkForItem(player, "Feet", "arx:ring_aluminum_cornelian")) { weighLimit += 1 }
-            if (checkForItem(player, "OffHand", "arx:ring_aluminum_cornelian")) { weighLimit += 1 }
-            if (checkForItem(player, "Feet", "arx:ring_gold_cornelian")) { weighLimit += 2 }
-            if (checkForItem(player, "OffHand", "arx:ring_gold_cornelian")) { weighLimit += 2 }
-            if (checkForItem(player, "Feet", "arx:ring_naginitis_cornelian")) { weighLimit += 3 }
-            if (checkForItem(player, "OffHand", "arx:ring_naginitis_cornelian")) { weighLimit += 3 }
-            if (checkForItem(player, "Feet", "arx:ring_caryite_cornelian")) { weighLimit += 4 }
-            if (checkForItem(player, "OffHand", "arx:ring_caryite_cornelian")) { weighLimit += 4 }
-            if (checkForItem(player, "Feet", "arx:ring_toliriite_cornelian")) { weighLimit += 5 }
-            if (checkForItem(player, "OffHand", "arx:ring_toliriite_cornelian")) { weighLimit += 5 }
-            if (checkForItem(player, "Feet", "arx:ring_lamenite_cornelian")) { weighLimit += 6 }
-            if (checkForItem(player, "OffHand", "arx:ring_lamenite_cornelian")) { weighLimit += 6 }
-
-            if (player.getDynamicProperty('weighLimitBonusByPotion') > 0) { weighLimit += 2 }
-
-            // Увеличение от прокачки
-            weighLimit += player.getDynamicProperty('skill:endurance_level') / 2
-
-            // Увеличение от бонуса фиоликса
-            if (player.getDynamicProperty('statsBonusByFiolix') > 0) { weighLimit += 2 }
-
-            // Срезание от отравления
-            if (player.getDynamicProperty('intoxicationLevel') >= 2) { weighLimit -= player.getDynamicProperty('intoxicationLevel') }
-
-            // Воздействие стресса
-            if (getScore(player, "stress_cond") == 4) { weighLimit -= 4 }
-            if (getScore(player, "stress_cond") == 3) { weighLimit -= 2 }
-            if (getScore(player, "stress_cond") == 2) { weighLimit -= 1 }
-            if (getScore(player, "stress_cond") == -2) { weighLimit += 1 }
-            if (getScore(player, "stress_cond") == -3) { weighLimit += 2 }
-            if (getScore(player, "stress_cond") == -4) { weighLimit += 3 }
-
-            // weighLoading - фактическая загруженность игрока
-            player.runCommand('function javascript/weigh')
-
-            let weighLoading = getScore(player, 'weighLoading')
-            // От переносимого игрока
-            if (player.hasTag('has_riders')) {
-                weighLoading += 3
-                // Передаем вес от носимого игрока
-                const carriedPlayer = getNearestPlayer(player)
-                if (carriedPlayer?.hasTag('is_riding')) {
-                    weighLoading += getScore(carriedPlayer, "weighLoading")
-                }
-            }
-
-            // Отправляем значения в dynamicProperty
-            player.setDynamicProperty('weighLimit', weighLimit)
-            player.setDynamicProperty('weighLoading', weighLoading)
-            player.setDynamicProperty('overLoading', weighLoading - weighLimit)
-        }
 
         // Интерфейс отчета о баге
         if (player.hasTag("bug") && player.hasTag("is_moving")) {
@@ -788,7 +730,9 @@ system.runInterval(() => {
 const dynamicPropertiesToDecrease = [
     'saturation', 'noRainFog', 'noNightFog', 'jumpBoostByPotion', 'mpRegenBoostByPotion', 'weighLimitBonusByPotion', 'speedBonusByPotion',
     'antitoxicationBonusByPotion100', 'antitoxicationBonusByPotion200', 'freezingBlockByPotion', 'heatingBlockByPotion', 'statsBonusByFiolix',
-    'heatingBlockByScroll', "scrollOfHealingCD", 'autoHPRegenCD', 'ghostUltimateResistance', 'speedBoostAfterKnockout'
+    'heatingBlockByScroll', "scrollOfHealingCD", 'autoHPRegenCD', 'ghostUltimateResistance', 'speedBoostAfterKnockout',
+
+    'speedBoost:level0', 'speedBoost:level1', 'speedBoost:level2', 'speedBoost:level3'
 ]
 
 function getBlockWithOffset(player, x, y, z) {
@@ -816,6 +760,23 @@ system.runInterval(() => {
     world.getDimension('minecraft:overworld').runCommand('particle arx:vicious_gardens_ambiance -2238 15 1806')
 
     for (const player of world.getPlayers()) {
+
+        // Анимации бездействия
+        {
+            // Анализируем, когда надо анимировать
+            if (player.hasTag('is_moving')) { setScore(player, "move_delay", killingTimeAnimDelay) }
+            else { setScore(player, "move_delay", getScore(player, "move_delay") - 1) }
+
+            if (getScore(player, "move_delay") <= 0) {
+                animate_killing_time(player)
+                setScore(player, 'move_delay', 20)
+            }
+        }
+
+        // Уменьшение no_fog
+        if (getScore(player, "no_fog") > 1) {
+            player.runCommand('scoreboard players add @s no_fog -1')
+        }
 
         // Уменьшение DP из dynamicPropertiesToDecrease
         for (const dp of dynamicPropertiesToDecrease) {
@@ -1377,6 +1338,13 @@ system.runInterval(() => {
     world.getDimension("minecraft:overworld").runCommand("function core_parts/20ticks")
     world.getDimension("minecraft:overworld").runCommand("function core_parts_NAP/20ticks")
 }, 20);
+
+// 3s
+system.runInterval(() => {
+    for (const player of world.getPlayers()) {
+        weighAnalysis(player)
+    }
+}, 60)
 
 // Отображение маны
 function displayMPAndAdjacent(player) {

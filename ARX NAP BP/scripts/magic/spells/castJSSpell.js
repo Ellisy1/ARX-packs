@@ -1,139 +1,181 @@
-import { spellsCiphers, spellsList } from '../spells_list'
-import { findSpell } from '../findSpell'
-import { setScore, getScore } from '../../scoresOperations'
+import { setScore, getScore } from '../../scoresOperations';
+import { TPWithNoxenessionPortal } from '../../portals';
+import { getNearestPlayer } from '../../getNearestPlayer';
+import { dinHijo } from './SPELLDinHijo'
+import { magicDash } from './SPELLMagicDash'
+import { speedBoost } from './SPELLSpeedBoost'
 
-import { TPWithNoxenessionPortal } from '../../portals'
-import { getNearestPlayer } from '../../getNearestPlayer'
+/**
+ * Реестр заклинаний
+ * Каждое заклинание указывает:
+ * - mpCost: стоимость маны
+ * - validTargets: массив поддерживаемых целей ['self', 'nearest', 'entities']
+ * - handler: функция, принимающая player, targetData (с информацией о цели)
+ */
+const spellRegistry = {
+    'din hijo': {
+        mpCost: 5,
+        validTargets: ['self'],
+        handler: (player) => { dinHijo(player, 4) }
+    },
 
-export function castJSSpell(player, runeSequence) {
+    'din hijo mega': {
+        mpCost: 10,
+        validTargets: ['self'],
+        handler: (player) => { dinHijo(player, 7) }
+    },
 
-    const magicTarget = player.getDynamicProperty('magicTarget')
-    const nearestPlayer = getNearestPlayer(player, 10)
+    'din hijo mega mega mega': {
+        mpCost: 20,
+        validTargets: ['self'],
+        handler: (player) => { dinHijo(player, 10) }
+    },
 
-    switch (runeSequence) {
-
-        case 'din hijo':
-            setScore(player, "mp_req", 5)
-
-            if (magicTarget == 1) {
-                if (getScore(player, "mp_req") <= player.getDynamicProperty('mp')) {
-                    player.addTag("spell_available")
-
-                    for (let i = 1; i <= 4; i++) {
-                        const spellIndex = findSpell(player, i, 'index')
-                        if (spellIndex !== undefined) {
-                            player.runCommand(`tellraw @s { "rawtext": [ { "text": "У меня в §d${i}§f канале заготовлено §6${getValueByIndex(spellsList, spellIndex)}" } ] }`)
-                        }
-                        else {
-                            player.runCommand(`tellraw @s { "rawtext": [ { "text": "У меня в §d${i}§f канале не заготовлено заклинаний" } ] }`)
-                        }
-                    }
-
-                    // Переменная для гида
-                    player.setDynamicProperty('hasEverCastedDinHijo', true)
-                }
-            } else {
-                player.addTag('cant_be_casted_cus_of_target')
+    'san yanamo horo': {
+        mpCost: 5,
+        validTargets: ['self', 'nearest', 'entities'], // Поддерживает все цели
+        handler: (player, targetData) => {
+            switch (targetData.type) {
+                case 'self':
+                    player.runCommand('effect @s regeneration 10 0');
+                    break;
+                case 'nearest':
+                    player.runCommand('effect @p[tag=self2] regeneration 10 0');
+                    break;
+                case 'entities':
+                    player.runCommand('effect @e[r=15, type=!player, type=!item] regeneration 10 0');
+                    break;
             }
+            player.setDynamicProperty('hasEverCastedSanYanamoHoro', true);
+        }
+    },
 
-            break
-
-        case 'din hijo mega':
-            setScore(player, "mp_req", 10)
-
-            if (magicTarget == 1) {
-                if (getScore(player, "mp_req") <= player.getDynamicProperty('mp')) {
-                    player.addTag("spell_available")
-
-                    for (let i = 1; i <= 7; i++) {
-                        const spellIndex = findSpell(player, i, 'index')
-                        if (spellIndex !== undefined) {
-                            player.runCommand(`tellraw @s { "rawtext": [ { "text": "У меня в §d${i}§f канале заготовлено §6${getValueByIndex(spellsList, spellIndex)}" } ] }`)
-                        }
-                        else {
-                            player.runCommand(`tellraw @s { "rawtext": [ { "text": "У меня в §d${i}§f канале не заготовлено заклинаний" } ] }`)
-                        }
-                    }
-
-                    // Переменная для гида
-                    player.setDynamicProperty('hasEverCastedDinHijo', true)
-                }
-            } else {
-                player.addTag('cant_be_casted_cus_of_target')
+    'din yanamo trafantana': {
+        mpCost: 15,
+        validTargets: ['self', 'nearest'], // Только на себя и на ближайшего
+        handler: (player, targetData) => {
+            if (targetData.type === 'self') {
+                TPWithNoxenessionPortal(player, player, 'spell');
+            } else if (targetData.type === 'nearest' && targetData.player) {
+                TPWithNoxenessionPortal(targetData.player, player, 'spell');
             }
+        }
+    },
 
-            break
+    "sin yanamo trafantana": {
+        mpCost: 8,
+        validTargets: ['self'],
+        handler: (player) => { magicDash(player, 7) }
+    },
+    "sin yanamo trafantana mega": {
+        mpCost: 15,
+        validTargets: ['self'],
+        handler: (player) => { magicDash(player, 14) }
+    },
+    "sin yanamo trafantana mega mega mega": {
+        mpCost: 35,
+        validTargets: ['self'],
+        handler: (player) => { magicDash(player, 30) }
+    },
 
-        case 'din hijo mega mega mega':
-            setScore(player, "mp_req", 20)
+    "sin yanamo sartagana trafantana": {
+        mpCost: 16,
+        validTargets: ['self'],
+        handler: (player) => { magicDash(player, 7, true) }
+    },
+    "sin yanamo sartagana trafantana mega": {
+        mpCost: 30,
+        validTargets: ['self'],
+        handler: (player) => { magicDash(player, 14, true) }
+    },
+    "sin yanamo sartagana trafantana mega mega mega": {
+        mpCost: 70,
+        validTargets: ['self'],
+        handler: (player) => { magicDash(player, 30, true) }
+    },
 
-            if (magicTarget == 1) {
-                if (getScore(player, "mp_req") <= player.getDynamicProperty('mp')) {
-                    player.addTag("spell_available")
+    "sin yanamo sofiso": {
+        mpCost: 10,
+        validTargets: ['self', 'nearest', 'entities'],
+        handler: (player, targetData) => { speedBoost(player, targetData, 30, 0) }
+    },
+    "sin yanamo sofiso disortari": {
+        mpCost: 30,
+        validTargets: ['self', 'nearest', 'entities'],
+        handler: (player, targetData) => { speedBoost(player, targetData, 30, 0, true) }
+    },
+    "sin yanamo sofiso sakiifori": {
+        mpCost: 60,
+        validTargets: ['self', 'nearest', 'entities'],
+        handler: (player, targetData) => { speedBoost(player, targetData, 180, 0) }
+    },
+    "sin yanamo sofiso mega": {
+        mpCost: 20,
+        validTargets: ['self', 'nearest', 'entities'],
+        handler: (player, targetData) => { speedBoost(player, targetData, 30, 1) }
+    },
+    "sin yanamo sofiso mega disortari": {
+        mpCost: 60,
+        validTargets: ['self', 'nearest', 'entities'],
+        handler: (player, targetData) => { speedBoost(player, targetData, 30, 1), true }
+    },
+    "sin yanamo sofiso mega sakiifori": {
+        mpCost: 120,
+        validTargets: ['self', 'nearest', 'entities'],
+        handler: (player, targetData) => { speedBoost(player, targetData, 30, 1) }
+    },
+    "sin yanamo sofiso mega mega": {
+        mpCost: 60,
+        validTargets: ['self', 'nearest', 'entities'],
+        handler: (player, targetData) => { speedBoost(player, targetData, 30, 2) }
+    },
+    "sin yanamo sofiso mega mega mega": {
+        mpCost: 120,
+        validTargets: ['self', 'nearest', 'entities'],
+        handler: (player, targetData) => { speedBoost(player, targetData, 30, 3) }
+    },
+};
 
-                    for (let i = 1; i <= 10; i++) {
-                        const spellIndex = findSpell(player, i, 'index')
-                        if (spellIndex !== undefined) {
-                            player.runCommand(`tellraw @s { "rawtext": [ { "text": "У меня в §d${i}§f канале заготовлено §6${getValueByIndex(spellsList, spellIndex)}" } ] }`)
-                        }
-                        else {
-                            player.runCommand(`tellraw @s { "rawtext": [ { "text": "У меня в §d${i}§f канале не заготовлено заклинаний" } ] }`)
-                        }
-                    }
-
-                    // Переменная для гида
-                    player.setDynamicProperty('hasEverCastedDinHijo', true)
-                }
-            } else {
-                player.addTag('cant_be_casted_cus_of_target')
-            }
-
-            break
-
-        case 'san yanamo horo':
-            setScore(player, "mp_req", 5)
-
-            if (getScore(player, "mp_req") <= player.getDynamicProperty('mp')) {
-                player.addTag("spell_available")
-                if (magicTarget === 1) {
-                    player.runCommand('effect @s regeneration 10 0')
-                } else if (magicTarget === 2) {
-                    player.runCommand('effect @p[tag=self2] regeneration 10 0')
-                } else {
-                    player.runCommand('effect @e[r=15, type=!player, type=!item] regeneration 10 0')
-                }
-                // Переменная для гида
-                player.setDynamicProperty('hasEverCastedSanYanamoHoro', true)
-            }
-
-            break
-
-        case 'din yanamo trafantana':
-            setScore(player, "mp_req", 15)
-
-            if (getScore(player, "mp_req") <= player.getDynamicProperty('mp')) {
-                player.addTag("spell_available")
-                if (magicTarget === 1) {
-                    TPWithNoxenessionPortal(player, player, 'spell')
-                } else if (magicTarget === 2) {
-                    if (nearestPlayer) {
-                        TPWithNoxenessionPortal(nearestPlayer, player, 'spell')
-                    }
-                } else {
-                    player.addTag('cant_be_casted_cus_of_target')
-                }
-            }
-
-            break
-    }
+/**
+ * Определяет тип цели по magicTarget
+ * @param {number} magicTarget
+ * @param {Player|null} nearestPlayer
+ * @returns {{ type: 'self'|'nearest'|'entities', player?: Player } | null}
+ */
+function resolveTargetType(magicTarget, nearestPlayer) {
+    if (magicTarget === 1) return { type: 'self' };
+    if (magicTarget === 2) return { type: 'nearest', player: nearestPlayer };
+    return { type: 'entities' }; // всё остальное — массовое (животные/монстры)
 }
 
-function getValueByIndex(obj, index) {
-    const keys = Object.keys(obj); // Получаем массив ключей
-    if (index >= 0 && index < keys.length) {
-        const key = keys[index];    // Получаем ключ по индексу
-        return obj[key];        // Получаем значение по ключу
-    } else {
-        return undefined; // Или выбросить ошибку, если индекс недопустим
+/**
+ * Основная функция вызова заклинания
+ * @param {Player} player
+ * @param {string} runeSequence
+ */
+export function castJSSpell(player, runeSequence) {
+    const spell = spellRegistry[runeSequence];
+    if (!spell) return;
+
+    const magicTarget = player.getDynamicProperty('magicTarget');
+    const nearestPlayer = getNearestPlayer(player, 10);
+    const targetData = resolveTargetType(magicTarget, nearestPlayer);
+
+    // Проверка: поддерживает ли заклинание выбранную цель?
+    if (!spell.validTargets.includes(targetData.type)) {
+        player.addTag('cant_be_casted_cus_of_target');
+        return;
     }
+
+    // Проверка маны
+    setScore(player, 'mp_req', spell.mpCost);
+    if (getScore(player, 'mp_req') > player.getDynamicProperty('mp')) {
+        return;
+    }
+
+    // Успешное применение
+    player.addTag('spell_available');
+
+    // Вызов обработчика с нужными данными
+    spell.handler(player, targetData);
 }

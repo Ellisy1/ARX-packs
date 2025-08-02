@@ -18,6 +18,13 @@ export function registerPlayerVars(player) {
         }
     }
 
+    // Бусты скорости
+    for (let i = 0; i < 4; i++) {
+        if (player.getDynamicProperty(`speedBoost:level${i}`) === undefined) {
+            player.setDynamicProperty(`speedBoost:level${i}`, 0)
+        }
+    }
+
     if (player.getDynamicProperty("mp") === undefined) {
         player.setDynamicProperty("mp", 1000)
     }

@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:amul_bloody_circle"
+    },
+
+    
+    "tags": [ "jewelry_crafting_table" ],
+    "pattern": [
+      "IR ",
+      "R R",
+      " R "
+    ],
+    "key": {
+      "I": {
+        "item": "arx:amul_string"
+      },
+      "R": {
+        "item": "arx:steel_ingot"
+      }
+    },
+    "result": {
+      "item": "arx:amul_bloody_circle"
+    }
+  }
+}

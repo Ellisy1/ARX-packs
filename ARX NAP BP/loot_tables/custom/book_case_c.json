@@ -10,7 +10,7 @@
           "functions": [
             {
               "function": "enchant_with_levels",
-              "levels": 20,
+              "levels": 30,
               "treasure": true
             }
           ]

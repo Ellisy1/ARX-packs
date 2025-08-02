@@ -7,9 +7,9 @@
                 "category": "weapon",
                 "duration": 2
             },
-            "minecraft:damage": 9,
+            "minecraft:damage": 6,
             "minecraft:durability": {
-                "max_durability": 1000
+                "max_durability": 2054
             },
             "minecraft:enchantable": {
                 "slot": "sword",
@@ -20,7 +20,9 @@
             "minecraft:tags": {
                 "tags": [
                     "is_staff",
-                    "staff_channels_8"
+                    "staff_channels_6",
+                    "is_melee_staff",
+                    "is_weapon"
                 ]
             }
         },

@@ -24,7 +24,9 @@ world.afterEvents.entityHitBlock.subscribe((hitEvent) => {
 // Постановка блоков
 world.afterEvents.playerPlaceBlock.subscribe((placeEvent) => {
     // Дополняем map placedBlocksData
-    recordBlockHistory(placeEvent.block, placeEvent.player)
+    if (placeEvent.player.getGameMode() === 'Survival') {
+        recordBlockHistory(placeEvent.block, placeEvent.player)
+    }
 })
 
 // Функция, записывающая историю блока

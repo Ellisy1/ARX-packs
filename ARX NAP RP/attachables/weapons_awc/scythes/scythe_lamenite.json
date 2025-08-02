@@ -2,12 +2,12 @@
     "format_version": "1.10.0",
     "minecraft:attachable": {
         "description": {
-            "identifier": "arx:scythe_forfacorite",
+            "identifier": "arx:scythe_lamenite",
             "materials": {
                 "default": "entity"
             },
             "textures": {
-                "default": "textures/items/weapons/scythes/scythe_forfacorite"
+                "default": "textures/items/weapons/scythes/scythe_lamenite"
             },
             "geometry": {
                 "default": "geometry.32px_weapon_mesh"

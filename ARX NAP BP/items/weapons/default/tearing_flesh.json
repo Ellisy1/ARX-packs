@@ -20,7 +20,8 @@
             "minecraft:mining_speed": 1,
             "minecraft:tags": {
                 "tags": [
-                    "is_default_sword"
+                    "is_default_sword",
+                    "is_weapon"
                 ]
             },
             "tag:raw_cost:42000": {}

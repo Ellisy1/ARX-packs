@@ -23,12 +23,6 @@
 
         scoreboard players add @a[scores={vic_dag_bonus=1..}] vic_dag_bonus -1
 
-    #Вычитание поинтов магической скорости
-        execute @e[scores={jump_speed_up_a=1..}] ~ ~ ~ scoreboard players add @e[r=0.0001] jump_speed_up_a -1
-        execute @e[scores={jump_speed_up_c=1..}] ~ ~ ~ scoreboard players add @e[r=0.0001] jump_speed_up_c -1
-        execute @e[scores={jump_speed_up_e=1..}] ~ ~ ~ scoreboard players add @e[r=0.0001] jump_speed_up_e -1
-        execute @e[scores={jump_speed_up_f=1..}] ~ ~ ~ scoreboard players add @e[r=0.0001] jump_speed_up_f -1
-
     #Вычитание поинтов блока син иноффо
         execute @e[scores={sin_host_block=1..}] ~ ~ ~ scoreboard players add @e[r=0.0001] sin_host_block -1
         execute @e[scores={sin_host_saki=1}] ~ ~ ~ scoreboard players set @e[r=0.0001] sin_host_block 1

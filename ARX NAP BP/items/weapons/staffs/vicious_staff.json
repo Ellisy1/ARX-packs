@@ -20,7 +20,8 @@
             "minecraft:tags": {
                 "tags": [
                     "is_staff",
-                    "staff_channels_4"
+                    "staff_channels_4",
+                    "is_weapon"
                 ]
             },
             "tag:raw_cost:20000": {}

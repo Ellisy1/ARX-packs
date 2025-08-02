@@ -322,11 +322,6 @@
         "textures/items/clothes/clothes/ranger_clothes_icon"
       ]
     },
-    "arx:red_brassiere": {
-      "textures": [
-        "textures/items/clothes/clothes/red_brassiere_icon"
-      ]
-    },
     "arx:red_cape": {
       "textures": [
         "textures/items/clothes/clothes/red_cape_icon"
@@ -1007,9 +1002,17 @@
     "arx:solve_crystal": {
       "textures": "textures/items/crafting/solve_crystal"
     },
+
     "arx:dildo": {
-      "textures": "textures/items/other/dildo"
+      "textures": "textures/items/xxx_toys/dildo"
     },
+    "arx:dildo_forest": {
+      "textures": "textures/items/xxx_toys/dildo_forest"
+    },
+    "arx:dildo_night_skewer": {
+      "textures": "textures/items/xxx_toys/dildo_night_skewer"
+    },
+
     "arx:cup": {
       "textures": "textures/items/other/cup"
     },
@@ -1488,6 +1491,11 @@
     "arx:amul_hypersynergy_superior": {
       "textures": "textures/items/jewelry/amulets/amul_hypersynergy_superior"
     },
+
+    "arx:amul_bloody_circle": {
+      "textures": "textures/items/jewelry/amulets/amul_bloody_circle"
+    },
+
 
     "arx:belt_lamp": {
       "textures": "textures/items/belt_lamps/belt_lamp"
@@ -3063,8 +3071,8 @@
     "arx:scythe_steel": {
       "textures": "textures/items/weapons/scythes/scythe_steel"
     },
-    "arx:scythe_forfacorite": {
-      "textures": "textures/items/weapons/scythes/scythe_forfacorite"
+    "arx:scythe_lamenite": {
+      "textures": "textures/items/weapons/scythes/scythe_lamenite"
     },
     "arx:scythe_naginitis": {
       "textures": "textures/items/weapons/scythes/scythe_naginitis"

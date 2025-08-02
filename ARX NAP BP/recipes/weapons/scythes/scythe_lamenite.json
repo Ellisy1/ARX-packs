@@ -2,7 +2,7 @@
   "format_version": "1.12",
   "minecraft:recipe_shaped": {
     "description": {
-    "identifier": "arx:scythe_forfacorite"
+    "identifier": "arx:scythe_lamenite"
     },
 
     
@@ -14,14 +14,14 @@
     ],
     "key": {
       "#": {
-        "item": "arx:forfactorite_billet"
+        "item": "arx:lamenite_billet"
       },
       "A": {
-        "item": "arx:forfactorite_ingot"
+        "item": "arx:steel_ingot"
       }
     },
     "result": {
-      "item": "arx:scythe_forfacorite"
+      "item": "arx:scythe_lamenite"
     }
   }
 }

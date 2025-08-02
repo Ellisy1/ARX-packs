@@ -3,24 +3,23 @@
     "minecraft:item": {
         "components": {
             "minecraft:durability": {
-                "max_durability": 1000
+                "max_durability": 500
             },
             "minecraft:enchantable": {
-                "slot": "armor_torso",
-                "value": 10
+                "slot": "armor_legs",
+                "value": 15
             },
-            "minecraft:icon": "arx:red_brassiere",
+            "minecraft:icon": "arx:amul_bloody_circle",
             "minecraft:max_stack_size": 1,
             "minecraft:wearable": {
-                "protection": 1,
-                "slot": "slot.armor.chest"
+                "slot": "slot.armor.legs"
             }
         },
         "description": {
-            "identifier": "arx:red_brassiere",
+            "identifier": "arx:amul_bloody_circle",
             "menu_category": {
                 "category": "equipment",
-                "group": "itemGroup.name.chestplate"
+                "group": "itemGroup.name.leggings"
             }
         }
     }

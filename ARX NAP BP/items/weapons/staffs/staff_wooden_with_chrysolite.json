@@ -20,7 +20,8 @@
             "minecraft:tags": {
                 "tags": [
                     "is_staff",
-                    "staff_channels_2"
+                    "staff_channels_2",
+                    "is_weapon"
                 ]
             }
         },

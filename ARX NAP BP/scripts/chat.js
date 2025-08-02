@@ -9,7 +9,7 @@ import { checkForItem } from "./checkForItem"
 
 import { runeCiphers } from './magic/rune_cipher_list'
 import { cipherRuneSequence } from './magic/on_use_magic_items'
-import { ARXGateIn } from './core/core'
+import { ARXGate } from './core/core'
 
 // Обработка чата before
 world.beforeEvents.chatSend.subscribe((eventData) => {
@@ -32,8 +32,10 @@ function parceCommand(player, trimmedMessage) {
 
         if (command[0] == "!test") { // Тест функция
             if (isAdmin(player)) {
-                // Получаем внеигровое время
-                console.warn(ARXGateIn)
+
+                ARXGate.out = "testarx123"
+                console.warn(JSON.stringify(ARXGate))
+                
             }
             else {
                 queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cНевозможно использовать команду ${command[0]} без прав модератора." } ] }`)

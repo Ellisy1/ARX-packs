@@ -20,7 +20,8 @@
             "minecraft:tags": {
                 "tags": [
                     "is_staff",
-                    "staff_of_angel"
+                    "staff_of_angel",
+                    "is_weapon"
                 ]
             }
         },

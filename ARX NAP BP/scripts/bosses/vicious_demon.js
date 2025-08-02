@@ -4,19 +4,21 @@ import { getEntitiesInCube } from '../core/music_core'
 
 // Взаимодействуем с мечом призыва демона
 export function interactWithViciousDemonSpawner(player) {
-    const form = new ActionFormData()
-        .title("Бой с Порочным Демоном")
-        .body('Начать бой с §aПорочным Демоном?')
-        .button("Начать бой", 'textures/ui/bosses/vicious_demon/start_battle')
-        .button("Отменить", 'textures/ui/bosses/vicious_demon/pass')
+    if (!world.getDynamicProperty('vicious_demon:is_fight_right_now')) {
+        const form = new ActionFormData()
+            .title("Бой с Порочным Демоном")
+            .body('Начать бой с §aПорочным Демоном?')
+            .button("Начать бой", 'textures/ui/bosses/vicious_demon/start_battle')
+            .button("Отменить", 'textures/ui/bosses/vicious_demon/pass')
 
-        .show(player)
-        .then((response) => {
-            if (response.selection === 0) {
-                startBattleWithViciousDemon()
-                world.getDimension('minecraft:overworld').runCommand('particle arx:vicious_demon_spawn_flame_inward -2239 26 1854')
-            }
-        })
+            .show(player)
+            .then((response) => {
+                if (response.selection === 0) {
+                    startBattleWithViciousDemon()
+                    world.getDimension('minecraft:overworld').runCommand('particle arx:vicious_demon_spawn_flame_inward -2239 26 1854')
+                }
+            })
+    }
 }
 
 // Стартуем бой с порочным демоном?

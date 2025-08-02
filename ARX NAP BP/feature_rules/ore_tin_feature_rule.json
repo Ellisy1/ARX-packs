@@ -9,11 +9,7 @@
 			"placement_pass": "before_underground_pass"
 		},
 		"distribution": {
-			"scatter_chance": {
-				"numerator": 1,
-				"denominator": 2
-			},
-			"iterations": 16,
+			"iterations": 8,
 			"x": {
 				"distribution": "uniform",
 				"extent": [
@@ -24,7 +20,7 @@
 			"y": {
 				"distribution": "uniform",
 				"extent": [
-					0,
+					-10,
 					120
 				]
 			},

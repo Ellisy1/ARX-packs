@@ -49,7 +49,7 @@ export function checkForItem(player, strSlot, itemId, report = false) {
     }
 
     // Проверяем экипированный предмет
-    const equippable = player.getComponent(EntityComponentTypes.Equippable);
+    const equippable = player?.getComponent(EntityComponentTypes.Equippable);
     if (!equippable) {
         report && console.warn("Equippable component missing");
         return false;

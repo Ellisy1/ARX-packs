@@ -12,21 +12,21 @@
 
     
     execute @p[tag=self, tag=spell_available, scores={target=1}] ~ ~ ~ execute @a[r=15] ~ ~ ~ particle arx:sempra_a ~ ~2 ~
-    execute @p[tag=self, tag=spell_available, scores={target=1}] ~ ~ ~ damage @a[r=15, scores={tick_nosempra_a=0, tick_nosempra_b=0, tick_nosempra_c=0}] 5
-    execute @p[tag=self, tag=spell_available, scores={target=1}] ~ ~ ~ damage @a[r=15, scores={tick_nosempra_a=!0}] 4
-    execute @p[tag=self, tag=spell_available, scores={target=1}] ~ ~ ~ damage @a[r=15, scores={tick_nosempra_b=!0}] 3
+    execute @p[tag=self, tag=spell_available, scores={target=1}] ~ ~ ~ damage @a[r=15, scores={tick_nosempra_a=0, tick_nosempra_b=0, tick_nosempra_c=0}] 2
+    execute @p[tag=self, tag=spell_available, scores={target=1}] ~ ~ ~ damage @a[r=15, scores={tick_nosempra_a=!0}] 1
+    execute @p[tag=self, tag=spell_available, scores={target=1}] ~ ~ ~ damage @a[r=15, scores={tick_nosempra_b=!0}] 0
     execute @p[tag=self, tag=spell_available, scores={target=1}] ~ ~ ~ damage @a[r=15, scores={tick_nosempra_c=!0}] 0
 
     execute @p[tag=self, tag=spell_available, scores={target=2}] ~ ~ ~ execute @a[tag=!self, r=15] ~ ~ ~ particle arx:sempra_a ~ ~2 ~
-    execute @p[tag=self, tag=spell_available, scores={target=2}] ~ ~ ~ damage @a[tag=!self, r=15, scores={tick_nosempra_a=0, tick_nosempra_b=0, tick_nosempra_c=0}] 5
-    execute @p[tag=self, tag=spell_available, scores={target=2}] ~ ~ ~ damage @a[tag=!self, r=15, scores={tick_nosempra_a=!0}] 4
-    execute @p[tag=self, tag=spell_available, scores={target=2}] ~ ~ ~ damage @a[tag=!self, r=15, scores={tick_nosempra_b=!0}] 3
+    execute @p[tag=self, tag=spell_available, scores={target=2}] ~ ~ ~ damage @a[tag=!self, r=15, scores={tick_nosempra_a=0, tick_nosempra_b=0, tick_nosempra_c=0}] 2
+    execute @p[tag=self, tag=spell_available, scores={target=2}] ~ ~ ~ damage @a[tag=!self, r=15, scores={tick_nosempra_a=!0}] 1
+    execute @p[tag=self, tag=spell_available, scores={target=2}] ~ ~ ~ damage @a[tag=!self, r=15, scores={tick_nosempra_b=!0}] 0
     execute @p[tag=self, tag=spell_available, scores={target=2}] ~ ~ ~ damage @a[tag=!self, r=15, scores={tick_nosempra_c=!0}] 0
 
     execute @p[tag=self, tag=spell_available, scores={target=3}] ~ ~ ~ execute @e[type=!player, type=!item, type=!arx:grave, r=15] ~ ~ ~ particle arx:sempra_a ~ ~1 ~
-    execute @p[tag=self, tag=spell_available, scores={target=3}] ~ ~ ~ execute @e[type=!player, type=!item, type=!arx:grave, r=15] ~ ~ ~ damage @e[r=0.0001, scores={tick_nosempra_a=0, tick_nosempra_b=0, tick_nosempra_c=0}] 5
-    execute @p[tag=self, tag=spell_available, scores={target=3}] ~ ~ ~ execute @e[type=!player, type=!item, type=!arx:grave, r=15] ~ ~ ~ damage @e[r=0.0001, scores={tick_nosempra_a=!0}] 4
-    execute @p[tag=self, tag=spell_available, scores={target=3}] ~ ~ ~ execute @e[type=!player, type=!item, type=!arx:grave, r=15] ~ ~ ~ damage @e[r=0.0001, scores={tick_nosempra_b=!0}] 3
+    execute @p[tag=self, tag=spell_available, scores={target=3}] ~ ~ ~ execute @e[type=!player, type=!item, type=!arx:grave, r=15] ~ ~ ~ damage @e[r=0.0001, scores={tick_nosempra_a=0, tick_nosempra_b=0, tick_nosempra_c=0}] 2
+    execute @p[tag=self, tag=spell_available, scores={target=3}] ~ ~ ~ execute @e[type=!player, type=!item, type=!arx:grave, r=15] ~ ~ ~ damage @e[r=0.0001, scores={tick_nosempra_a=!0}] 1
+    execute @p[tag=self, tag=spell_available, scores={target=3}] ~ ~ ~ execute @e[type=!player, type=!item, type=!arx:grave, r=15] ~ ~ ~ damage @e[r=0.0001, scores={tick_nosempra_b=!0}] 0
     execute @p[tag=self, tag=spell_available, scores={target=3}] ~ ~ ~ execute @e[type=!player, type=!item, type=!arx:grave, r=15] ~ ~ ~ damage @e[r=0.0001, scores={tick_nosempra_c=!0}] 0
 
     function spells/operations/withdraw_mp

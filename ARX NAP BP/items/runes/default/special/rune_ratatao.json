@@ -17,6 +17,10 @@
                     "rune:ratatao",
                     "is_rune"
                 ]
+            },
+            "minecraft:cooldown": {
+                "category": "rune",
+                "duration": 1
             }
         },
         "description": {

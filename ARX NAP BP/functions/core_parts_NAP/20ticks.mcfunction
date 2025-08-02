@@ -71,15 +71,6 @@
 # Технофоб
     execute as @a[scores={c_notecno=1..}] run function core_parts_NAP/technophobe
 
-# Проверка на меч модератора
-    execute as @a[hasitem={item=arx:mod_sword}, scores={verify=!2}] run tellraw @p[scores={verify=2}] { "rawtext": [ { "selector": "@s" }, { "text": " §cmod_sword" } ] }
-
-# Анимирование бездействия
-    scoreboard players set @a[tag=is_moving] move_delay 20
-    scoreboard players add @a[tag=!is_moving, scores={move_delay=1..}] move_delay -1
-    execute as @a[scores={move_delay=..0}] at @s run function core_parts_NAP/animate_killing_time
-    scoreboard players set @a[scores={move_delay=..0}] move_delay 20
-
 # Отслеживание режима игры (gamemode) для каждого игрока
     # Определяем gamemode_data зависимо от режима игры игрока
         scoreboard players set @a[m=survival] gamemode_data 0
@@ -107,9 +98,9 @@
     execute as @a[scores={faction=!0}] at @s if score @s faction = @r[r=8, rm=0.01] faction run scoreboard players add @s stress -3
 
 # Урон от заклинаний пассивного урона
-    execute as @e[scores={tick_sempra_dps=1..}] run damage @s[scores={tick_nosempra_a=0, tick_nosempra_b=0, tick_nosempra_c=0}] 5
-    execute as @e[scores={tick_sempra_dps=1..}] run damage @s[scores={tick_nosempra_a=!0}] 4
-    execute as @e[scores={tick_sempra_dps=1..}] run damage @s[scores={tick_nosempra_b=!0}] 3
+    execute as @e[scores={tick_sempra_dps=1..}] run damage @s[scores={tick_nosempra_a=0, tick_nosempra_b=0, tick_nosempra_c=0}] 2
+    execute as @e[scores={tick_sempra_dps=1..}] run damage @s[scores={tick_nosempra_a=!0}] 1
+    execute as @e[scores={tick_sempra_dps=1..}] run damage @s[scores={tick_nosempra_b=!0}] 0
     execute as @e[scores={tick_sempra_dps=1..}] run damage @s[scores={tick_nosempra_c=!0}] 0
     execute at @e[scores={tick_sempra_dps=1..}, type=player] run particle arx:sempra_a ~ ~2 ~
     execute at @e[scores={tick_sempra_dps=1..}, type=!player] run particle arx:sempra_a ~ ~1 ~

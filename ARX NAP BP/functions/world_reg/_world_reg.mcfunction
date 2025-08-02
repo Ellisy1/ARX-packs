@@ -97,13 +97,6 @@ scoreboard objectives add bow_spell_c dummy Компен_лука_с
 scoreboard objectives add bow_spell_d dummy Компен_лука_д
 scoreboard objectives add bow_tick dummy Контр_тряс_л
 
-scoreboard objectives add jump_speed_up_a dummy Буст_ловк_а
-scoreboard objectives add jump_speed_up_b dummy Буст_ловк_б
-scoreboard objectives add jump_speed_up_c dummy Буст_ловк_с
-scoreboard objectives add jump_speed_up_d dummy Буст_ловк_д
-scoreboard objectives add jump_speed_up_e dummy Буст_ловк_е
-scoreboard objectives add jump_speed_up_f dummy Буст_ловк_ф
-
 scoreboard objectives add resist_up_a dummy Защ_а
 scoreboard objectives add resist_up_b dummy Защ_б
 scoreboard objectives add resist_up_c dummy Защ_с

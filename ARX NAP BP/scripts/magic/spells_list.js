@@ -112,10 +112,6 @@ export const spellsList = {
     "sin yanamo trafantana sartagana mega mega mega": "заклинание призрачного сверхрывка",
 
 
-    "sin hijo": "заклинание запроса на навыки ловкости",
-
-
-
     // Солнце
     "san yanamo shumi": "слабое заклинание защиты",
 

@@ -989,7 +989,7 @@
           "functions": [
             {
               "function": "enchant_with_levels",
-              "levels": 3,
+              "levels": 12,
               "treasure": true
             }
           ]

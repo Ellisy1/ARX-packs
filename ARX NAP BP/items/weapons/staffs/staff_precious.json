@@ -9,7 +9,7 @@
             },
             "minecraft:damage": 3,
             "minecraft:durability": {
-                "max_durability": 839
+                "max_durability": 909
             },
             "minecraft:enchantable": {
                 "slot": "sword",
@@ -20,7 +20,8 @@
             "minecraft:tags": {
                 "tags": [
                     "is_staff",
-                    "staff_channels_3"
+                    "staff_channels_4",
+                    "is_weapon"
                 ]
             }
         },

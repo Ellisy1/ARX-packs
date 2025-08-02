@@ -197,7 +197,7 @@
         scoreboard players add @s[hasitem={item=arx:scythe_chloronite}] weighLoading 3
         scoreboard players add @s[hasitem={item=arx:scythe_toliriite}] weighLoading 3
         scoreboard players add @s[hasitem={item=arx:scythe_steel}] weighLoading 3
-        scoreboard players add @s[hasitem={item=arx:scythe_forfacorite}] weighLoading 3
+        scoreboard players add @s[hasitem={item=arx:scythe_lamenite}] weighLoading 3
         scoreboard players add @s[hasitem={item=arx:scythe_naginitis}] weighLoading 3
         scoreboard players add @s[hasitem={item=arx:jagged_lance}] weighLoading 3
         scoreboard players add @s[hasitem={item=arx:steel_alebard}] weighLoading 3
@@ -271,7 +271,7 @@
         scoreboard players add @s[hasitem={item=arx:vicious_staff_refined}] weighLoading 1
         scoreboard players add @s[hasitem={item=arx:sturdy_staff}] weighLoading 3
         scoreboard players add @s[hasitem={item=arx:golden_moon_radiance}] weighLoading 1
-        scoreboard players add @s[hasitem={item=arx:master_of_fates}] weighLoading 1
+        scoreboard players add @s[hasitem={item=arx:master_of_fates}] weighLoading 2
         scoreboard players add @s[hasitem={item=arx:hacksaw}] weighLoading 1
         scoreboard players add @s[hasitem={item=arx:composite_toothed_sawsword}] weighLoading 5
 
@@ -326,7 +326,6 @@
         scoreboard players add @s[hasitem={item=arx:plague_doctor_mask}] weighLoading 1
         scoreboard players add @s[hasitem={item=arx:purple_cape}] weighLoading 1
         scoreboard players add @s[hasitem={item=arx:ranger_clothes}] weighLoading 2
-        scoreboard players add @s[hasitem={item=arx:red_brassiere}] weighLoading 1
         scoreboard players add @s[hasitem={item=arx:red_cape}] weighLoading 1
         scoreboard players add @s[hasitem={item=arx:red_hat}] weighLoading 1
         scoreboard players add @s[hasitem={item=arx:rich_jacket}] weighLoading 2

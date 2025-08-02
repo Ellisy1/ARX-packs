@@ -12,6 +12,7 @@ import { executeCommandDelayed } from "./executeCommandDelayed"
 import { showDialog } from './dialogues'
 import { isEntityInCube } from './core/music_core'
 import { interactWithViciousDemonSpawner } from './bosses/vicious_demon'
+import { weighAnalysis } from './weighAnalysis'
 
 // Imports - Local scripts
 import './chat'
@@ -24,6 +25,27 @@ import './blocksHistory'
 
 import { registerPlayerVars } from "./registerPlayerVars"
 import { checkForItem } from "./checkForItem"
+
+// Инвентарь
+world.afterEvents.playerInventoryItemChange.subscribe((event) => {
+    const player = event.player
+
+    // console.warn('Обнаружено взаимодействие с инвентарём')
+
+    // Анализ поднимаемного игроком веса
+    weighAnalysis(player)
+
+    // Подмена яблок
+    if (checkForItem(player, 'Inventory', 'minecraft:apple')) {
+        player.runCommand('clear @s minecraft:apple 0 1')
+        player.runCommand('give @s arx:apple')
+    }
+
+    // Проверка на меч модератора
+    if (checkForItem(player, 'Inventory', 'arx:mod_sword') && getScore(player, "verify") !== 2) {
+        console.warn(`${player.name} §cmod_sword`)
+    }
+})
 
 // Игрок зашёл в мир
 world.afterEvents.playerSpawn.subscribe((event) => {
@@ -42,6 +64,18 @@ world.afterEvents.playerSpawn.subscribe((event) => {
     if (world.getPlayers().length === 1) { // Если только один игрок в мире, т.е. только хостер
         player.runCommand("function world_reg/_world_reg") // Регистрируем переменные
         player.runCommand('setmaxplayers 40')
+
+        // world.setDynamicProperty("ARXGateIn", undefined)
+        // world.setDynamicProperty("ARXGateOut", undefined)
+
+        // const prefix = 'ARXGate:рус:'
+        // const text1 = 'awaitingInput000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'
+        // const text2 = 'awaitingOutput'
+
+        // // Переменная-вход ARX Gate
+        // world.setDynamicProperty("ARXGateIn", prefix + text1)
+        // // Переменная-выход ARX Gate
+        // world.setDynamicProperty("ARXGateOut", prefix + text2)
     }
 });
 
@@ -480,7 +514,15 @@ world.afterEvents.entityHurt.subscribe((hurtEvent) => {
 
     // Если нам надо кровоточить за моба
     if (bleedingMobs.includes(damaged.typeId)) {
-        bleed(damaged, hurtEvent.damage - 2)
+
+        let bloodIntencity = hurtEvent.damage - 2
+
+        // Если есть колесо крови
+        if (checkForItem(damager, "Legs", "arx:amul_bloody_circle")) {
+            bloodIntencity *= 3
+        }
+
+        bleed(damaged, bloodIntencity)
     }
 
     // Если ранили игрока
@@ -503,7 +545,14 @@ world.afterEvents.entityHurt.subscribe((hurtEvent) => {
             damageCause != 'fire' && damageCause != 'fireTick' && damageCause != 'freezing' && damageCause != 'lava') {
 
             let bloodIntencity = hurtEvent.damage - 2 // Определяем интенсивность кровотечения
+
+            // Если есть колесо крови
+            if (checkForItem(damager, "Legs", "arx:amul_bloody_circle")) {
+                bloodIntencity *= 3
+            }
+
             if (bloodIntencity > 100) { bloodIntencity = 100 }
+
 
             if (player.getProperty('arx:is_ghost') === false) {
                 bleed(damaged, bloodIntencity)

@@ -20,7 +20,8 @@
             "minecraft:mining_speed": 1,
             "minecraft:tags": {
                 "tags": [
-                    "is_dagger"
+                    "is_dagger",
+                    "is_weapon"
                 ]
             }
         },

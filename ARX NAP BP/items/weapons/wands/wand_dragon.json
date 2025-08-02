@@ -20,7 +20,8 @@
             "minecraft:tags": {
                 "tags": [
                     "is_wand",
-                    "is_wand_radial"
+                    "is_wand_radial",
+                    "is_weapon"
                 ]
             },
             "tag:raw_cost:200000": {}
