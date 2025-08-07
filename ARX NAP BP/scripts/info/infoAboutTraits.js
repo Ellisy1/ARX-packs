@@ -26,7 +26,7 @@ export function infoAboutTraits(player) {
 
             } else if (response.selection === 2) {
                 const form2 = new ActionFormData()
-                    .title("Все существующие черты")
+                    .title("Механика черт")
                     .body(how_traits_work(player))
                     .show(player)
 

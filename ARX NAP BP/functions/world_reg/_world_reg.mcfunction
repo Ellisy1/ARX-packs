@@ -238,62 +238,6 @@ scoreboard objectives setdisplay list time_h
 
 scoreboard objectives add attack_weakness dummy attack_weakness
 
-
-# Черты характера
-    # Служебные переменные
-        scoreboard objectives add trait_random dummy trait_random
-
-    # Положительные черты
-        scoreboard objectives add c_inflexible dummy c_inflexible
-        scoreboard objectives add c_powerful dummy c_powerful
-        scoreboard objectives add c_indeclinable dummy c_indeclinable
-        scoreboard objectives add c_enlightened dummy c_enlightened
-        scoreboard objectives add c_bright_look dummy c_bright_look
-        scoreboard objectives add c_wise dummy c_wise
-        scoreboard objectives add c_persistent dummy c_persistent
-        scoreboard objectives add c_tenacious dummy c_tenacious
-        scoreboard objectives add c_conscious dummy c_conscious
-        scoreboard objectives add c_genious dummy c_genious
-        scoreboard objectives add c_water_lover dummy c_water_lover
-
-    # Нейтральные черты
-        scoreboard objectives add c_indifference dummy c_indifference
-        scoreboard objectives add c_angry dummy c_angry
-        scoreboard objectives add c_loner dummy c_loner
-        scoreboard objectives add c_rude dummy c_rude
-        scoreboard objectives add c_warmy dummy c_warmy
-        scoreboard objectives add c_coldy dummy c_coldy
-        scoreboard objectives add c_manipulator dummy c_manipulator
-        scoreboard objectives add c_charismatic dummy c_charismatic
-        scoreboard objectives add c_communicative dummy c_communicative
-        scoreboard objectives add c_unstable dummy c_unstable
-        scoreboard objectives add c_miner dummy c_miner
-
-    # Отрицательные черты
-        scoreboard objectives add c_cowardly dummy c_cowardly
-        scoreboard objectives add c_schizophrenic dummy c_schizophrenic
-        scoreboard objectives add c_stupid dummy c_stupid
-        scoreboard objectives add c_paranoid dummy c_paranoid
-        scoreboard objectives add c_nospider dummy c_nospider
-        scoreboard objectives add c_nonecro dummy c_nonecro
-        scoreboard objectives add c_nosocio dummy c_nosocio
-        scoreboard objectives add c_notecno dummy c_notecno
-        scoreboard objectives add c_nodarkness dummy c_nodarkness
-        scoreboard objectives add c_nomines dummy c_nomines
-        scoreboard objectives add c_religious dummy c_religious
-        scoreboard objectives add c_nolight dummy c_nolight
-        scoreboard objectives add c_nocold dummy c_nocold
-        scoreboard objectives add c_nowarm dummy c_nowarm
-        scoreboard objectives add c_lazy dummy c_lazy
-        scoreboard objectives add c_impulsive_par dummy c_impulsive_par
-        scoreboard objectives add c_paranoid_mas dummy c_paranoid_mas
-        scoreboard objectives add c_fastidious dummy c_fastidious
-        scoreboard objectives add c_aquaphobe dummy c_aquaphobe
-
-    # Сторонние черты
-        scoreboard objectives add c_demon dummy c_demon
-        scoreboard objectives add c_seen_death dummy c_seen_death
-
 # Еда
     # Вкусы еды
         scoreboard objectives add t_f_spicy dummy t_f_spicy
@@ -439,9 +383,6 @@ scoreboard objectives add heal_scrl_durt dummy heal_scrl_durt
 # Отслеживание режима игры игроков (gamemode)
     scoreboard objectives add gamemode_data dummy gamemode_data
     scoreboard objectives add gamemode_data_log dummy gamemode_data_log
-
-# Фракции
-    scoreboard objectives add faction dummy faction
 
 scoreboard objectives add mp_boost_by_amul_of_starpower dummy mp_boost_by_amul_of_starpower
 

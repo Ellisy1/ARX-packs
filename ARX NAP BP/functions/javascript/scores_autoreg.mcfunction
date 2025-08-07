@@ -85,53 +85,6 @@ scoreboard players add @a battery_charge 0
 scoreboard players add @a battery_max 0
 
 #черты
-    scoreboard players add @a c_seen_death 0
-    scoreboard players add @a c_demon 0
-
-    scoreboard players add @a c_inflexible 0
-    scoreboard players add @a c_powerful 0
-    scoreboard players add @a c_indeclinable 0
-    scoreboard players add @a c_enlightened 0
-    scoreboard players add @a c_bright_look 0
-    scoreboard players add @a c_wise 0
-    scoreboard players add @a c_persistent 0
-    scoreboard players add @a c_tenacious 0
-    scoreboard players add @a c_conscious 0
-    scoreboard players add @a c_genious 0
-    scoreboard players add @a c_water_lover 0
-
-    scoreboard players add @a c_indifference 0
-    scoreboard players add @a c_angry 0
-    scoreboard players add @a c_loner 0
-    scoreboard players add @a c_rude 0
-    scoreboard players add @a c_warmy 0
-    scoreboard players add @a c_coldy 0
-    scoreboard players add @a c_manipulator 0
-    scoreboard players add @a c_charismatic 0
-    scoreboard players add @a c_communicative 0
-    scoreboard players add @a c_unstable 0
-    scoreboard players add @a c_miner 0
-
-    scoreboard players add @a c_cowardly 0
-    scoreboard players add @a c_schizophrenic 0
-    scoreboard players add @a c_stupid 0
-    scoreboard players add @a c_paranoid 0
-    scoreboard players add @a c_nospider 0
-    scoreboard players add @a c_nonecro 0
-    scoreboard players add @a c_nosocio 0
-    scoreboard players add @a c_notecno 0
-    scoreboard players add @a c_nodarkness 0
-    scoreboard players add @a c_nomines 0
-    scoreboard players add @a c_religious 0
-    scoreboard players add @a c_nolight 0
-    scoreboard players add @a c_nocold 0
-    scoreboard players add @a c_nowarm 0
-    scoreboard players add @a c_lazy 0
-    scoreboard players add @a c_impulsive_par 0
-    scoreboard players add @a c_paranoid_mas 0
-    scoreboard players add @a c_fastidious 0
-    scoreboard players add @a c_aquaphobe 0
-
 scoreboard players add @a saturation 0
 
 scoreboard players add @a count_death 0
@@ -160,8 +113,6 @@ scoreboard players add @a allow_archlight 0
 
 scoreboard players add @a tp_cd 0
 scoreboard players add @a tp_cd_ghost 0
-
-scoreboard players add @a faction 0
 
 scoreboard players add @a restrict_block_interact 0
 scoreboard players add @a count_broken_blocks 0

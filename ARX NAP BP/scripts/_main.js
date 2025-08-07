@@ -93,16 +93,19 @@ world.afterEvents.entitySpawn.subscribe((spawnEvent) => {
 
 // Удары сущностей
 world.afterEvents.entityHitEntity.subscribe((hitEvent) => {
-    if (hitEvent.hitEntity.typeId === 'arx:grave') {
-        hitEvent.hitEntity.runCommand('damage @s 1000')
-    }
+    // Ударил игрок
     if (hitEvent.damagingEntity.typeId == 'minecraft:player') {
+        // Мечом модератора
         if (checkForItem(hitEvent.damagingEntity, "Mainhand", "arx:mod_sword")) {
             if (hitEvent.damagingEntity.hasTag('is_sneaking')) {
                 hitEvent.hitEntity.remove()
             } else {
                 hitEvent.hitEntity.kill()
             }
+        }
+        // По гробу
+        if (hitEvent.hitEntity.typeId === 'arx:grave' && hitEvent.damagingEntity.getProperty('arx:is_knocked') === false) {
+            hitEvent.hitEntity.runCommand('kill @s')
         }
     }
 })
@@ -533,7 +536,7 @@ world.afterEvents.entityHurt.subscribe((hurtEvent) => {
         if (damaged != damager && damageCause != 'campfire' && damageCause != 'contact' && damageCause != 'drowning' && damageCause != 'fall' && damageCause != 'magma' &&
             damageCause != 'soulCampfire' && damageCause != 'starve' && damageCause != 'suffocation' && damageCause != 'fire' && damageCause != 'fireTick' && damageCause != 'freezing') {
 
-            increaseSkillProgress(damaged, "hp", hurtEvent.damage * 6)
+            increaseSkillProgress(damaged, "hp", hurtEvent.damage * 10)
 
             if (checkForItem(player, 'Legs', 'arx:amul_dash')) {
                 player.applyKnockback({ x: (Math.random() - 0.5) * 6, z: (Math.random() - 0.5) * 6 }, 0.3)

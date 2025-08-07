@@ -11,8 +11,13 @@ import { runeCiphers } from './magic/rune_cipher_list'
 import { cipherRuneSequence } from './magic/on_use_magic_items'
 import { ARXGate } from './core/core'
 
+import { acquireTrait, clearTraits } from './traits/traitsOperations'
+
 // Обработка чата before
 world.beforeEvents.chatSend.subscribe((eventData) => {
+
+    eventData.cancel = true // Предотвращаем отправку сообщения в чат
+
     const player = eventData.sender
     let trimmedMessage = eventData.message.trim()
 
@@ -21,8 +26,6 @@ world.beforeEvents.chatSend.subscribe((eventData) => {
     for (let command of commandList) {
         parceCommand(player, command.trim())
     }
-
-    eventData.cancel = true // Предотвращаем отправку сообщения в чат
 });
 
 function parceCommand(player, trimmedMessage) {
@@ -32,25 +35,62 @@ function parceCommand(player, trimmedMessage) {
 
         if (command[0] == "!test") { // Тест функция
             if (isAdmin(player)) {
-
-                ARXGate.out = "testarx123"
-                console.warn(JSON.stringify(ARXGate))
-                
+                acquireTrait(player, undefined, command[1])
+            } else {
+                queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cНевозможно использовать команду ${command[0]} без прав модератора." } ] }`)
             }
-            else {
+        }
+
+        else if (command[0] === "!pos") { // Получить координаты
+            if (isAdmin(player)) {
+                if (player.location) {
+                    const { x, y, z } = player.location;
+                    const xPos = x.toFixed(1);
+                    const yPos = y.toFixed(1);
+                    const zPos = z.toFixed(1);
+
+                    player.sendMessage(`[§dSYSTEM§f] > ${xPos} ${yPos} ${zPos}`);
+                } else {
+                    player.sendMessage("[§dSYSTEM§f] > Не удалось получить координаты");
+                }
+            } else {
+                queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cНевозможно использовать команду ${command[0]} без прав модератора." } ] }`);
+            }
+        }
+
+        else if (command[0] == "!giveTrait") { // !giveTrait ник черта
+            if (isAdmin(player)) {
+
+                acquireTrait(player, [1, 1, 1])
+
+            } else {
+                queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cНевозможно использовать команду ${command[0]} без прав модератора." } ] }`)
+            }
+        }
+
+        else if (command[0] == "!clearTraits") {
+            if (isAdmin(player)) {
+
+                clearTraits(player)
+
+            } else {
                 queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cНевозможно использовать команду ${command[0]} без прав модератора." } ] }`)
             }
         }
 
         else if (command[0] == "!eval") { // Eval функция
-            const codeToEval = trimmedMessage.slice(5);
-            try {
-                const result = eval(codeToEval);
-                // Отправьте результат игроку (если нужно)
-                queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§aРезультат: ${result}" } ] }`);
-            } catch (error) {
-                console.error("Ошибка в eval:", error); // Выведите ошибку в консоль
-                queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cОшибка: ${error}" } ] }`);
+            if (isAdmin(player)) {
+                const codeToEval = trimmedMessage.slice(5);
+                try {
+                    const result = eval(codeToEval);
+                    // Отправьте результат игроку (если нужно)
+                    queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§aРезультат: ${result}" } ] }`);
+                } catch (error) {
+                    console.error("Ошибка при eval:", error); // Выведите ошибку в консоль
+                    queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cОшибка: ${error}" } ] }`);
+                }
+            } else {
+                queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cНевозможно использовать команду ${command[0]} без прав модератора." } ] }`)
             }
         }
 
@@ -64,7 +104,7 @@ function parceCommand(player, trimmedMessage) {
             queueCommand(player, `function javascript/arx_commands_help`);
         }
 
-        else if (command[0] == "!setname") { // Установить имя
+        else if (command[0].toLowerCase() == "!имя" || command[0].toLowerCase() == "!name" || command[0].toLowerCase() == "!setname") { // Установить имя
             const newName = command.slice(1).join(' ').trim()
 
             if (!newName) {
@@ -220,7 +260,7 @@ function parceCommand(player, trimmedMessage) {
             queueCommand(player, 'tag @s add idea')
         }
 
-        else if (command[0] == "!w" || command[0] == "!ш") { // Использование шёпота
+        else if (command[0].toLowerCase() == "!w" || command[0].toLowerCase() == "!ш") { // Использование шёпота
             if (player.getDynamicProperty('respawnDelay') === 0) {
                 sendChatMessage(player, `§7§o${trimmedMessage.slice(3).trim()}`, "§6Шёпот", 2, player.getDynamicProperty('name'))
             }
@@ -260,7 +300,7 @@ function parceCommand(player, trimmedMessage) {
             }
         }
 
-        else if (command[0] == "!г" || command[0] == "!g") {
+        else if (command[0].toLowerCase() == "!г" || command[0].toLowerCase() == "!g") {
             if (player.getDynamicProperty('respawnDelay') === 0) {
                 if (!command[1]) {
                     queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cНельзя отправить пустое глобальное сообщение." } ] }`)
@@ -350,7 +390,7 @@ function sendChatMessage(player, speech, prefix, clearDistance = 0, senderName =
 
     // Недопуск из-за отсутствия локального ника
     if (senderName === undefined) {
-        queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cУстановите имя персонажа, чтобы общаться. Это можно сделать командой §a!setname имя§c." } ] }`)
+        queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cУстановите имя персонажа, чтобы общаться. Это можно сделать командой §a!имя введите-имя-вашего-персонажа§c." } ] }`)
         return undefined
     }
 

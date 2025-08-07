@@ -1,5 +1,6 @@
 import { checkForItem } from "./checkForItem"
 import { getScore } from "./scoresOperations"
+import { checkForTrait } from './traits/traitsOperations'
 
 export function weighAnalysis(player) {
     // weighLimit - ограничение переносимого веса, при переходе за который накладывается штраф
@@ -26,6 +27,9 @@ export function weighAnalysis(player) {
     if (checkForItem(player, "OffHand", "arx:ring_lamenite_cornelian")) { weighLimit += 6 }
 
     if (player.getDynamicProperty('weighLimitBonusByPotion') > 0) { weighLimit += 2 }
+
+    // От черты
+    if (checkForTrait(player, 'powerful')) { weighLimit += 1 }
 
     // Увеличение от прокачки
     weighLimit += player.getDynamicProperty('skill:endurance_level')

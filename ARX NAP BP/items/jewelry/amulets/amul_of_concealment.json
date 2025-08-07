@@ -2,9 +2,6 @@
     "format_version": "1.21.0",
     "minecraft:item": {
         "components": {
-            "minecraft:display_name": {
-                "value": "§r§fАмулет сокрытия §e[Легендарное]\n§o§7Теперь ваши заготовленные заклинания не узнают даже саме опытные маги"
-            },
             "minecraft:durability": {
                 "max_durability": 150
             },

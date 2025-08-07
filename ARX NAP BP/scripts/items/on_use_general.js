@@ -11,6 +11,7 @@ import { launchCameraUI } from '../camera/launchCameraUI'
 import { TPWithNoxenessionPortal } from '../portals'
 
 import { showDialog } from '../dialogues'
+import { clearTraits } from '../traits/traitsOperations'
 
 // Использование предметов
 world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юзание предмета на ПКМ
@@ -586,7 +587,10 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
             break
 
         case "arx:wipe_traits":
-            player.runCommand("function traits/clear_all_traits")
+            clearTraits(player, true)
+            player.sendMessage('Все черты §aсброшены!')
+            player.runCommand('clear @s arx:wipe_traits 0 1')
+            player.runCommand('playsound elemental_use @a ~ ~ ~')
             break
 
         // Сравнение НЕ через ID предмета
@@ -604,43 +608,43 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
                     player.runCommand(`tellraw @s { "rawtext": [ { "text": "Довольно необычное наощупь." } ] }`)
                 }
             }
-            if (item?.getTags() == "is_dagger") {
+            if (item?.getTags().includes("is_dagger")) {
                 if (manageCD(player)) {
                     launchBlocking(player)
                     player.runCommand('playanimation @s animation.block.dagger.a')
                 }
             }
-            else if (item?.getTags() == "is_default_sword") {
+            else if (item?.getTags().includes("is_default_sword")) {
                 if (manageCD(player)) {
                     launchBlocking(player)
                     player.runCommand('playanimation @s animation.block.default.a')
                 }
             }
-            else if (item?.getTags() == "is_heavy_sword") {
+            else if (item?.getTags().includes("is_heavy_sword")) {
                 if (manageCD(player)) {
                     launchBlocking(player)
                     player.runCommand('playanimation @s animation.block.heavy.a')
                 }
             }
-            else if (item?.getTags() == "is_lance") {
+            else if (item?.getTags().includes("is_lance")) {
                 if (manageCD(player)) {
                     launchBlocking(player)
                     player.runCommand('playanimation @s animation.block.lance.a')
                 }
             }
-            else if (item?.getTags() == "is_long_sword") {
+            else if (item?.getTags().includes("is_long_sword")) {
                 if (manageCD(player)) {
                     launchBlocking(player)
                     player.runCommand('playanimation @s animation.block.longsword.a')
                 }
             }
-            else if (item?.getTags() == "is_scythe") {
+            else if (item?.getTags().includes("is_scythe")) {
                 if (manageCD(player)) {
                     launchBlocking(player)
                     player.runCommand('playanimation @s animation.block.scythe.a')
                 }
             }
-            else if (item?.getTags() == "is_hheavy_sword") {
+            else if (item?.getTags().includes("is_hheavy_sword")) {
                 if (manageCD(player)) {
                     launchBlocking(player)
                     player.runCommand('playanimation @s animation.block.veryheavy.a')

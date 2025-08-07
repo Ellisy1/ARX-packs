@@ -24,7 +24,7 @@ export function arxSettings(player) {
     const form = new ModalFormData()
         .title("Настройки Аркса")
 
-        .dropdown('Отображение §bманы', ['Натуральные числа', 'Десятичные дроби', '§cНе отображать'], {defaultValueIndex: manaDisplayModeDefaultDropdownPos})
+        .dropdown('После внесения изменений, не забудьте нажать кнопку §aсохранить§f внизу этого экрана!\n\nОтображение §bманы', ['Натуральные числа', 'Десятичные дроби', '§cНе отображать'], {defaultValueIndex: manaDisplayModeDefaultDropdownPos})
         .dropdown('Отображение §cотката атаки', ['Секунды', 'Такты (сек/20)', 'Линия', '§cНе отображать'], {defaultValueIndex: showAttackCDModeDefaultDropdownPos})
         .dropdown('Префиксы §aчатов', ['Полные §f[§aЛокал.§f]', 'Сокращённые §f[§aЛ§f]'], {defaultValueIndex: chatPrefixesDefaultDropdownPos})
         .toggle("Отображение производительности в <Инфо>", {defaultValue: canSeeServerSpeedInInfoBookDefaultTogglePos})

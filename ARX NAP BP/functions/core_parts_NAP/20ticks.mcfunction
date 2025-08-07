@@ -15,34 +15,6 @@
 # ЗАПУСК ФУНКЦИИ БАТАРЕЙ
     execute as @a[scores={battery_avail=1}] at @s run function core_parts_NAP/battery_logic
 
-# ВОЗДЕЙСТВИЕ ЧЕРТ
-    #Манипулятор
-        execute at @a[scores={c_manipulator=1.., custom_random=0..50}, m=!spectator] as @a[r=8, m=!spectator] run scoreboard players add @s stress 100
-        execute at @a[scores={c_manipulator=1.., custom_random=0..50}, m=!spectator] as @a[r=8, m=!spectator] run scoreboard players add @p[scores={c_manipulator=1..}] stress -100
-
-    #Харизматик
-        execute at @a[scores={c_charismatic=1.., custom_random=0..25}, m=!spectator] run scoreboard players add @a[r=8, rm=0.1, m=!spectator] stress -100
-
-    #Общительный
-        scoreboard players add @a[tag=alone, scores={c_communicative=1..}, m=!spectator] stress 2
-        title @a[tag=alone, scores={c_communicative=1..}, m=!spectator] actionbar Вам грустно одному
-        scoreboard players add @a[tag=!alone, scores={c_communicative=1..}, m=!spectator] stress -2
-
-    #Импульсивный параноик
-        execute at @a[scores={c_impulsive_par=1.., custom_random=1..10}, m=!spectator] run damage @a[r=4, rm=0.1] 2 entity_attack
-        execute as @a[scores={c_impulsive_par=1.., custom_random=1..10}, m=!spectator] run camerashake add @s 1 2 rotational
-        execute as @a[scores={c_impulsive_par=1.., custom_random=1..10}, m=!spectator] run tellraw @s { "rawtext": [ { "text": "§cВы непроизвольно пытаетесь ударить всё вокруг!" } ] } 
-        execute at @a[scores={c_impulsive_par=1.., custom_random=1..10, gender=1}, m=!spectator] run tellraw @a[r=4, rm=0.1] { "rawtext": [{ "selector": "@p[scores={c_impulsive_par=1..}]" }, { "text": "§c просто так меня ударил!" } ] } 
-        execute at @a[scores={c_impulsive_par=1.., custom_random=1..10, gender=2}, m=!spectator] run tellraw @a[r=4, rm=0.1] { "rawtext": [{ "selector": "@p[scores={c_impulsive_par=1..}]" }, { "text": "§c просто так меня ударила!" } ] } 
-
-    #Параноик-мазохист
-        damage @a[scores={c_paranoid_mas=1.., custom_random=50..51}, m=!spectator] 1 entity_attack
-        tellraw @a[scores={c_paranoid_mas=1.., custom_random=50..51}, m=!spectator] { "rawtext": [ { "text": "§cВы наносите себе удар" } ] } 
-
-    #Аквафоб
-        scoreboard players add @a[scores={c_aquaphobe=1.., water_delay=1..}, m=!spectator] stress 12
-        title @a[scores={c_aquaphobe=1.., water_delay=1..}, m=!spectator] actionbar Вы боитесь промокать!
-
 #Ломаем лодки мобами
     execute at @e[family=boat_destroyer] run damage @e[family=boat, r=1] 1000
 
@@ -68,9 +40,6 @@
     clear @a[scores={allow_magilight=0}] arx:magilight
     clear @a[scores={allow_archlight=0}] arx:archilight
 
-# Технофоб
-    execute as @a[scores={c_notecno=1..}] run function core_parts_NAP/technophobe
-
 # Отслеживание режима игры (gamemode) для каждого игрока
     # Определяем gamemode_data зависимо от режима игры игрока
         scoreboard players set @a[m=survival] gamemode_data 0
@@ -93,9 +62,6 @@
 
 # Если я (админ) в выживании, отключаем показ координат
     execute if entity @a[scores={verify=2}, m=survival] run gamerule showcoordinates false
-
-# Воздействие тиммейтов фракций на стресс
-    execute as @a[scores={faction=!0}] at @s if score @s faction = @r[r=8, rm=0.01] faction run scoreboard players add @s stress -3
 
 # Урон от заклинаний пассивного урона
     execute as @e[scores={tick_sempra_dps=1..}] run damage @s[scores={tick_nosempra_a=0, tick_nosempra_b=0, tick_nosempra_c=0}] 2
@@ -135,23 +101,18 @@
 
 # СТРЕСС
     #Чилл в водичке
-        scoreboard players add @a[scores={c_water_lover=0}, tag=in_block_water] stress -2
-        scoreboard players add @a[scores={c_water_lover=1..}, tag=in_block_water] stress -4
+        scoreboard players add @a[tag=in_block_water] stress -2
 
     #Случайная динамика
         #Случайная незначительная динамика
-            scoreboard players add @a[scores={custom_random=100..120, stress=-1000..1000, c_indifference=0}] stress -200
-            scoreboard players add @a[scores={custom_random=121..141, stress=-1000..1000, c_indifference=0, c_inflexible=0}] stress 200
-            scoreboard players add @a[scores={custom_random=100..120, stress=-1000..1000, c_indifference=1..}] stress -100
-            scoreboard players add @a[scores={custom_random=121..141, stress=-1000..1000, c_indifference=1.., c_inflexible=0}] stress 100
+            scoreboard players add @a[scores={custom_random=100..120, stress=-1000..1000}] stress -200
+            scoreboard players add @a[scores={custom_random=121..141, stress=-1000..1000}] stress 200
 
         #Случайные события
-            scoreboard players add @a[scores={custom_random=200, custom_random_b=0..100, c_indifference=0}] stress -2000
-            scoreboard players add @a[scores={custom_random=200, custom_random_b=0..100, c_indifference=1..}] stress -1000
+            scoreboard players add @a[scores={custom_random=200, custom_random_b=0..100}] stress -1000
             tellraw @a[scores={custom_random=200, custom_random_b=0..100}] { "rawtext": [ { "text": " Вы вспомнили хорошие времена. Это подняло ваше настроение." } ] }
-            scoreboard players add @a[scores={custom_random=201, custom_random_b=0..100, c_indifference=0, c_inflexible=0}] stress 2000
-            scoreboard players add @a[scores={custom_random=201, custom_random_b=0..100, c_indifference=1.., c_inflexible=0}] stress 1000
-            tellraw @a[scores={custom_random=201, custom_random_b=0..100, c_inflexible=0, xp_stage=2..}] { "rawtext": [ { "text": " Вы вспомнили плохие времена. Это испортило ваше настроение." } ] }
+            scoreboard players add @a[scores={custom_random=201, custom_random_b=0..100}] stress 1000
+            tellraw @a[scores={custom_random=201, custom_random_b=0..100}] { "rawtext": [ { "text": " Вы вспомнили плохие времена. Это испортило ваше настроение." } ] }
 
     # Корректирующая динамика. Этот код не позволяет оставаться игроку очень долго на стрессе или счастье, приближая его к нейтральным значениям
 
@@ -179,52 +140,16 @@
 
     #Падение стресса к нейтральным значениям
         #Снижение счастья
-            scoreboard players add @a[scores={stress=..-800, c_indifference=0, c_angry=0}] stress 1
-            scoreboard players add @a[scores={stress=..-800, c_indifference=1.., custom_random=0..500, c_angry=0}] stress 1
+            scoreboard players add @a[scores={stress=..-800}] stress 1
 
         #Снижение стресса
-            scoreboard players add @a[scores={stress=800.., c_indifference=0}] stress -1
-            scoreboard players add @a[scores={stress=800.., c_indifference=1.., custom_random=0..500}] stress -1
+            scoreboard players add @a[scores={stress=800..}] stress -1
             #Ускоренное снижение стресса при высоком стрессе
-                scoreboard players add @a[scores={stress=1600.., c_indifference=0}] stress -6
-                scoreboard players add @a[scores={stress=1600.., c_indifference=1..}] stress -3
-
-        #Если c_angry
-            scoreboard players add @a[scores={stress=..-2500, c_indifference=0, c_angry=1..}] stress 2
-            scoreboard players add @a[scores={stress=..-2500, c_indifference=1.., c_angry=1..}] stress 1
+                scoreboard players add @a[scores={stress=1600..}] stress -6
 
     #Стресс при низком хп
         scoreboard players add @a[tag=low_hp] stress 5
         scoreboard players add @a[tag=very_low_hp] stress 25
-
-    #Воздействие черт
-        execute at @e[type=cave_spider] run scoreboard players add @a[r=5, scores={c_nospider=1..}] stress 100
-        execute at @e[type=cave_spider] run title @a[r=5, scores={c_nospider=1..}] actionbar Вы боитесь паука!
-
-        execute at @e[type=zombie] run scoreboard players add @a[r=5, scores={c_nonecro=1..}] stress 100
-        execute at @e[type=zombie] run title @a[r=5, scores={c_nonecro=1..}] actionbar Вы боитесь мертвеца!
-
-        execute at @e[type=skeleton] run scoreboard players add @a[r=5, scores={c_nonecro=1..}] stress 100
-        execute at @e[type=skeleton] run title @a[r=5, scores={c_nonecro=1..}] actionbar Вы боитесь скелета!
-
-        execute at @a run scoreboard players add @a[r=8, rm=0.5, scores={c_nosocio=1..}] stress 6
-        execute at @a run title @a[r=8, rm=0.5, scores={c_nosocio=1..}] actionbar Вам неприятно в обществе
-
-        scoreboard players add @a[scores={c_nodarkness=1..}, tag=low_bright] stress 3
-        title @a[scores={c_nodarkness=1..}, tag=low_bright] actionbar Вы боитесь темноты!
-
-        scoreboard players add @a[scores={c_nolight=1..}, tag=high_bright] stress 3
-        title @a[scores={c_nolight=1..}, tag=high_bright] actionbar Вы боитесь света!
-
-        scoreboard players add @a[scores={c_nomines=1..}, tag=in_mines] stress 20
-        title @a[scores={c_nomines=1..}, tag=in_mines] actionbar Вы боитесь шахт!
-        scoreboard players add @a[scores={c_nomines=1..}, tag=in_safe_zone] stress 20
-        title @a[scores={c_nomines=1..}, tag=in_safe_zone] actionbar Вы боитесь шахт!
-        scoreboard players add @a[scores={c_nomines=1..}, tag=in_hot_deep] stress 20
-        title @a[scores={c_nomines=1..}, tag=in_hot_deep] actionbar Вы боитесь шахт!
-
-        scoreboard players add @a[scores={c_nocold=1.., freezing=1..}] stress 10
-        scoreboard players add @a[scores={c_nowarm=1.., freezing=..-1}] stress 10
 
     #Границы стресса
         scoreboard players set @a[scores={stress=..-4501}] stress -4500
@@ -268,26 +193,12 @@
         tellraw @a[scores={stress_co_delta=1.., stress_cond=2}] {"rawtext": [{"text": "[Стало хуже]  (§c2§f ур. стресса)"}]}
         tellraw @a[scores={stress_co_delta=1.., stress_cond=3}] {"rawtext": [{"text": "[Стало хуже]  (§c3§f ур. стресса)"}]}
         tellraw @a[scores={stress_co_delta=1.., stress_cond=4}] {"rawtext": [{"text": "[Стало хуже]  (§cМакс.§f ур. стресса)"}]}
-        
-    #Получение-снятие черт характера 
-        execute as @a[scores={stress_cond=4, custom_random=700, custom_random_b=0..500}] run function traits/get_negative_trait
-        execute as @a[scores={stress_cond=4, custom_random=700, custom_random_b=501..833}] run function traits/get_neutral_trait
-        execute as @a[scores={stress_cond=4, custom_random=700, custom_random_b=834..1000}] run function traits/get_positive_trait
-
-        execute as @a[scores={c_unstable=1.., stress_cond=4, custom_random=701, custom_random_b=0..500}] run function traits/get_negative_trait
-        execute as @a[scores={c_unstable=1.., stress_cond=4, custom_random=701, custom_random_b=501..833}] run function traits/get_neutral_trait
-        execute as @a[scores={c_unstable=1.., stress_cond=4, custom_random=701, custom_random_b=834..1000}] run function traits/get_positive_trait
-        
-        scoreboard players add @a[scores={stress_cond=4, custom_random=700}] stress -150
-        scoreboard players add @a[scores={c_unstable=1.., stress_cond=4, custom_random=701}] stress -150
-
-        execute as @a[scores={stress_cond=-4}] run function traits/clear_loose_traits
 
 # Маленькая голова (закл)
     scoreboard players add @a[scores={spell_of_small_head=1..}] spell_of_small_head -1 
     playanimation @a[scores={spell_of_small_head=1..}] animation.player.invisible_head
 
-    effect @a[hasitem={item=arx:amul_photoresonance, location=slot.armor.legs}, tag=high_bright] night_vision 11 0 true
+    # effect @a[hasitem={item=arx:amul_photoresonance, location=slot.armor.legs}, tag=high_bright] night_vision 11 0 true
 
     effect @a[hasitem={item=arx:amul_ruby, location=slot.armor.legs}, scores={freezing=!..-1001}] fire_resistance 1 0 true
 

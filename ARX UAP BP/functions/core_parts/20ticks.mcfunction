@@ -76,7 +76,6 @@
         tag @a[hasitem={location=slot.armor.legs, item=arx:demon_chain}] add demon_chain_equipped
 
     # Бонус демона
-        effect @a[scores={demon_power=1..}] night_vision 12 0 true
         camerashake add @a[scores={demon_power=1..}, tag=!demon_chain_equipped] 0.1 1 rotational
         scoreboard players add @a[scores={demon_power=1.., stress_cond=..1}, tag=!demon_chain_equipped] stress 10
 
@@ -85,10 +84,6 @@
         damage @a[scores={c_demon=1}, hasitem={item=arx:undemon_book}] 12 entity_attack
         execute @a[scores={c_demon=1}, hasitem={item=arx:salt}] ~ ~ ~ playsound demon.agressive @a ~ ~ ~
         execute @a[scores={c_demon=1}, hasitem={item=arx:undemon_book}] ~ ~ ~ playsound demon.agressive @a ~ ~ ~
-
-
-#Шизофреник
-    execute @r[scores={c_schizophrenic=1.., custom_random=1..10}] ~ ~ ~ function core_parts/schizophrenic
 
 #Анализ биомов
     tag @a remove BIOME_birch

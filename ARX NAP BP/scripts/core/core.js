@@ -13,23 +13,21 @@ import { getActiveStaffChannel } from '../magic/getActiveStaffChannel'
 import { channelRomanNums } from '../magic/channelRomanNums'
 import { isEntityInCube } from "./music_core"
 import { weighAnalysis } from '../weighAnalysis'
-
+import { checkForTrait } from "../traits/traitsOperations"
 import { portals } from '../portals'
 import { getPlayersInRadiusFromCoords } from '../portals'
 import { killingTimeAnimDelay, animate_killing_time } from './animate_killing_time'
 
 // Импорт - другие области движка
-import './music_core'
-import './achievements'
 import { getNearestPlayer } from "../getNearestPlayer"
 import { queueCommand } from "../commandQueue"
 
 
 // ARXGate
 export let ARXGate = {
-    index: "ARXGate:рус:INDEX",
-    out: "ARXGate:рус:awaitingOutput",
-    in: `ARXGate:рус:awaitingInput000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000`
+    index: "ARXGATE_INDEX",
+    out: "ARXGATE_OUTPUT",
+    in: `ARXGATE_INPUT000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000`
 }
 
 // 1 tick
@@ -188,6 +186,13 @@ system.runInterval(() => {
             // Прокач
             basicStrength += (player.getDynamicProperty('skill:strength_level') / 2)
 
+            // Черты
+            if (checkForTrait(player, 'loner')) {
+                const playersNearLoner = getPlayersInRadius(player, 8)
+                if (playersNearLoner.length > 0) { basicStrength -= 0.5 }
+                else { basicStrength += 0.5 }
+            }
+
             // Нокаут
             if (player.getProperty('arx:is_knocked') == true) { basicStrength -= 999 }
 
@@ -264,6 +269,10 @@ system.runInterval(() => {
             // Увеличение от бонуса фиоликса
             if (player.getDynamicProperty('statsBonusByFiolix') > 0) { mpRegenPower += 1.5 }
 
+            // От черты
+            if (checkForTrait(player, 'wise')) { mpRegenPower += 0.2 }
+            if (checkForTrait(player, 'paranoid')) { mpRegenPower -= 0.2 }
+
             // Штраф от увядания призрака
             mpRegenPower -= player.getDynamicProperty("ghostWitheringLevel") * 0.2
 
@@ -304,8 +313,14 @@ system.runInterval(() => {
             if (checkForItem(player, "Feet", "arx:ring_lamenite_sapphire")) { maxMp += 50 }
             if (checkForItem(player, "Offhand", "arx:ring_lamenite_sapphire")) { maxMp += 50 }
 
+            if (checkForItem(player, "Chest", "arx:apprentice_robe")) { maxMp += 3 }
+
             // Увеличение от бонуса фиоликса
             if (player.getDynamicProperty('statsBonusByFiolix') > 0) { maxMp += 10 }
+
+            // От черты
+            if (checkForTrait(player, 'enlightened')) { maxMp += 5 }
+            if (checkForTrait(player, 'stupid')) { maxMp -= 5 }
 
             // Штраф от увядания призрака
             maxMp -= player.getDynamicProperty("ghostWitheringLevel") * 3
@@ -774,7 +789,7 @@ system.runInterval(() => {
         }
 
         // Уменьшение no_fog
-        if (getScore(player, "no_fog") > 1) {
+        if (getScore(player, "no_fog") > 0) {
             player.runCommand('scoreboard players add @s no_fog -1')
         }
 
@@ -880,7 +895,9 @@ system.runInterval(() => {
 
         // Авторегенерация
         if (player.getDynamicProperty("autoHPRegenCD") == 0) {
-            player.setDynamicProperty("autoHPRegenCD", 90)
+            if (checkForTrait(player, 'tenacious')) { player.setDynamicProperty("autoHPRegenCD", 80) }
+            else { player.setDynamicProperty("autoHPRegenCD", 90) }
+
             player.addEffect("regeneration", 200, { amplifier: 0, showParticles: false })
         }
 

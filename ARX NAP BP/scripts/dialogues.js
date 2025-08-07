@@ -1,6 +1,7 @@
 // dialogues.js
 import { ActionFormData } from "@minecraft/server-ui";
 import { Player } from "@minecraft/server";
+import { clearTraits } from './traits/traitsOperations'
 
 // --- Импортируйте или определите здесь любые внешние функции, которые хотите использовать в диалогах ---
 // Например:
@@ -15,9 +16,8 @@ import { Player } from "@minecraft/server";
 const customFunctions = new Map();
 
 // --- Регистрируйте внешние функции здесь ---
-// customFunctions.set("healPlayer", healPlayer);
+customFunctions.set("clearTraits", clearTraits);
 // customFunctions.set("giveQuestItem", giveQuestItem);
-// customFunctions.set("startQuest", startQuest);
 
 /**
  * @typedef {Object} DialogNode
@@ -47,7 +47,6 @@ const dialogs = {
                 { text: 'Что это за портал рядом?', next: "about_portal" },
                 { text: 'Что это за огромная статуя?', next: "about_statue" },
                 { text: 'Не против, если я порыбачу тут?', next: "about_fishing" },
-                // Пример вызова сложного действия (массив действий)
                 {
                     text: 'Пожалуйста, вылечи мои раны',
                     action: [
@@ -55,12 +54,25 @@ const dialogs = {
                         'player.sendMessage("§aТы чувствуешь, как твои раны заживают!")'
                     ]
                 },
-                // Пример вызова зарегистрированной внешней функции
-                // { text: 'Начать задание', action: "FUNCTION:startQuest" },
+                { text: 'Пожалуйста, очисти мои черты характера', next: "about_clearing_traits" },
                 { text: 'Пока' }
             ]
         },
         // ... остальные узлы asi
+        about_clearing_traits: {
+            id: "about_clearing_traits",
+            title: "Аси",
+            body: "Интересная просьба... Хорошо, я сделаю это, однако я не смогу очистить тебя от черт, которые уже стали неотъемлемой частью твоего характера.",
+            buttons: [
+                {
+                    text: 'Да, сделай это', action: [
+                        'FUNCTION:clearTraits',
+                        'player.sendMessage("§aВы чувствуете некоторое облегчение.")'
+                    ]
+                },
+                { text: 'Не стоит', next: "start" }
+            ]
+        },
         about_fishing: {
             id: "about_fishing",
             title: "Аси",

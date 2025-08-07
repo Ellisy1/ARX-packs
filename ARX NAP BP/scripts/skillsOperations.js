@@ -2,6 +2,7 @@
 
 import { queueCommand } from './commandQueue'
 import { checkForItem } from './checkForItem'
+import { checkForTrait } from './traits/traitsOperations'
 
 // Увеличиваем прогресс навыка на inputValue, учитывая срезание прогресса от уровня
 export function increaseSkillProgress(player, skill, inputValue) {
@@ -18,7 +19,7 @@ export function increaseSkillProgress(player, skill, inputValue) {
     }
 
     // Определяем, насколько нужно улучшить навык
-    let increaseValue = inputValue / (2 ** player.getDynamicProperty(`skill:${skill}_level`))
+    let increaseValue = inputValue / (1.92 ** player.getDynamicProperty(`skill:${skill}_level`))
 
     // Настраиваем множитель получаемного опыта
     let increaseMultiplier = 1
@@ -40,6 +41,11 @@ export function increaseSkillProgress(player, skill, inputValue) {
 
     if (checkForItem(player, "Feet", "arx:ring_aluminum_zircon")) { increaseMultiplier += 0.05 }
     if (checkForItem(player, "Offhand", "arx:ring_aluminum_zircon")) { increaseMultiplier += 0.05 }
+
+    // От опыта
+    if (checkForTrait(player, 'genious')) { increaseMultiplier += 0.1 }
+    if (checkForTrait(player, 'lazy')) { increaseMultiplier -= 0.1 }
+
 
     // Домножаем получаемый опыт на множитель
     increaseValue *= increaseMultiplier
@@ -93,7 +99,7 @@ export function getSkillsData(player) {
 export function getInfoAboutHowToIncreaseSkills(player) {
     let resultString = ''
 
-    for (let skill in registeredSkills) {
+    for (const skill in registeredSkills) {
 
         resultString += `${registeredSkills[skill].nameRU} §f${registeredSkills[skill].howToIncrease}\n${registeredSkills[skill].nameRU.slice(0, 2)}-----\n`
     }
@@ -105,7 +111,7 @@ export function getInfoAboutHowToIncreaseSkills(player) {
 export function getInfoAboutSkillsBuffs(player) {
     let resultString = ''
 
-    for (let skill in registeredSkills) {
+    for (const skill in registeredSkills) {
 
         resultString += `${registeredSkills[skill].nameRU} §f${registeredSkills[skill].buff}\n${registeredSkills[skill].nameRU.slice(0, 2)}-----\n`
     }
@@ -117,15 +123,15 @@ export function getInfoAboutSkillsBuffs(player) {
 export function wipeSkills(player) {
     wipeSkillsProgress(player)
 
-    for (let skill in registeredSkills) {
+    for (const skill in registeredSkills) {
         player.setDynamicProperty(`skill:${skill}_level`, 0);
     }
 }
 
-// Стираем прогресс навыка
+// Стираем прогресс всех навыков
 export function wipeSkillsProgress(player) {
 
-    for (let skill in registeredSkills) {
+    for (const skill in registeredSkills) {
         player.setDynamicProperty(`skill:${skill}_progress`, 0)
     }
 }

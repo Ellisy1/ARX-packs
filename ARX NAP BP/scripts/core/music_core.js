@@ -182,10 +182,21 @@ function isDay(player) {
 
 // Находится ли игрок в указанном кубе (координаты передаются как массивы [x, y, z])
 export function isEntityInCube(entity, cornerA, cornerB) {
-    const entityPos = entity?.location;
+    // Проверяем, что entity существует и является объектом
+    if (!entity || typeof entity !== 'object') {
+        console.error('[isEntityInCube] Некорректный тип entity:', entity);
+        return false;
+    }
+
+    // Проверяем, что entity имеет location
+    if (!entity.location) {
+        console.warn('[isEntityInCube] Сущность не имеет location:', entity);
+        return false;
+    }
+
+    const entityPos = entity.location;
 
     // Находим минимальные и максимальные координаты куба
-    // Теперь обращаемся к элементам массива по индексам
     const minX = Math.min(cornerA[0], cornerB[0]);
     const maxX = Math.max(cornerA[0], cornerB[0]);
     const minY = Math.min(cornerA[1], cornerB[1]);
@@ -193,14 +204,12 @@ export function isEntityInCube(entity, cornerA, cornerB) {
     const minZ = Math.min(cornerA[2], cornerB[2]);
     const maxZ = Math.max(cornerA[2], cornerB[2]);
 
-    // Проверяем, находится ли игрок внутри куба
-    if (entityPos) {
-        return (
-            entityPos.x >= minX && entityPos.x <= maxX &&
-            entityPos.y >= minY && entityPos.y <= maxY &&
-            entityPos.z >= minZ && entityPos.z <= maxZ
-        );
-    }
+    // Проверяем, находится ли сущность внутри куба
+    return (
+        entityPos.x >= minX && entityPos.x <= maxX &&
+        entityPos.y >= minY && entityPos.y <= maxY &&
+        entityPos.z >= minZ && entityPos.z <= maxZ
+    );
 }
 
 // Возвращает массив сущностей, находящихся внутри указанного куба

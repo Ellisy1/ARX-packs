@@ -921,6 +921,7 @@ item.arx:shackles=§r§fКандалы [1] [3] §b[Редкое]
 item.arx:amul_of_desert_shield=§r§fАмулет пустынного щита §c[Мифическое+]\n§7§oЕсли HP < 5 сердец то +1 защита\nЕсли HP < 2.5 сердец то +2 защита
 item.arx:amul_steel_bone=§r§fАмулет стальной кости [2] §g[Эпическое]\n§o§7Этот амулет, как вам кажется, источает приятную надежность
 item.arx:amul_bloody_circle=§r§fКровавое колесо [+0.5 урон] §g[Эпическое]\n§o§7От ваших ударов разлетается гораздо больше крови
+item.arx:amul_of_concealment=§r§fАмулет сокрытия §e[Легендарное]\n§o§7Теперь ваши заготовленные заклинания не узнают даже самые опытные маги
 
 item.arx:bust_compressor=§r§fКрепкая повязка на грудь [1] §a[Необычное]\n§o§7Немножко усилий, и ваша грудь уже не так заметна
 
@@ -1416,8 +1417,8 @@ item.arx:staff_naginitis=§r§fНагинитовый посох V [1] §e[Л
 item.arx:vicious_staff=§r§fПорочный посох IV [1] §c[Мифическое+]
 item.arx:staff_cast_iron_with_chrysolite=§r§fЧугунный посох с хризолитом III [1] §e[Легендарное]
 item.arx:staff_chrysolite=§r§fХризолитовый посох IV [1] §e[Легендарное]
-item.arx:staff_golden_with_chrysolite=§r§fЗолотой посох с хризолитом VI [1] §e[Легендарное]
-item.arx:staff_golden_with_sapphire=§r§fЗолотой посох с сапфиром VI [1] §e[Легендарное]
+item.arx:staff_golden_with_chrysolite=§r§fЗолотой посох с хризолитом IV [1] §e[Легендарное]
+item.arx:staff_golden_with_sapphire=§r§fЗолотой посох с сапфиром IV [1] §e[Легендарное]
 item.arx:staff_of_forest=§r§fПосох леса IV [1] §e[Легендарное]
 item.arx:staff_of_phoenix=§r§fПосох феникса IV [1] §e[Легендарное]
 item.arx:staff_precious=§r§fДрагоценный посох IV [1] §e[Легендарное]
@@ -1992,6 +1993,7 @@ item.arx:bunker_access_card=§r§fКарта допуска в бункер §e[
 item.arx:cultists_letter=§r§fПисьмо крыс-культистов §b[Редкое]\n§o§7Одно из самых необычных писем, что вы получали
 
 item.arx:steady_boat_spawner=§r§fУстойчивая лодка [5] §b[Редкое]\n§o§73 места\nВместительность 8 слотов
+action.hint.exit.arx:steady_boat=Устойчивая лодка
 
 
 item.arx:chrupie_flake=§r§fОсколок хрупи §e[Легендарное]\n§o§7Осколок панция монстра, живущего в подземельях.\nОн холодный наощупть, будто состоит из металла
