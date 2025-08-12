@@ -4,7 +4,7 @@ export function onFoodConsume(player, foodname) {
     // Тип пищи у конкретной съеденной еды
     let foodType
     let foodTaste
-    
+
     const playerTaste_meat = player.getDynamicProperty('playerTaste_meat')
     const playerTaste_fish = player.getDynamicProperty('playerTaste_fish')
     const playerTaste_bread = player.getDynamicProperty('playerTaste_bread')
@@ -302,36 +302,36 @@ export function onFoodConsume(player, foodname) {
         case "arx:beer_bottle_solod": {
             player.runCommand(`effect @s regeneration 5 0 true`)
             player.runCommand(`effect @s nausea 7 0 true`)
-            player.runCommand(`scoreboard players add @s stress -500`)
+            player.setDynamicProperty('stress', player.getDynamicProperty('stress') - 500)
             break
         }
         case "arx:beer_bottle_solod_kari": {
             player.runCommand(`effect @s regeneration 10 0 true`)
             player.runCommand(`effect @s nausea 5 0 true`)
-            player.runCommand(`scoreboard players add @s stress -500`)
+            player.setDynamicProperty('stress', player.getDynamicProperty('stress') - 500)
             break
         }
         case "arx:beer_bottle_solod_kari_substractor": {
             player.runCommand(`effect @s regeneration 15 0 true`)
-            player.runCommand(`scoreboard players add @s stress -500`)
+            player.setDynamicProperty('stress', player.getDynamicProperty('stress') - 500)
             break
         }
         case "arx:beer_bottle_solod_salt": {
             player.runCommand(`effect @s regeneration 8 0 true`)
-            player.runCommand(`scoreboard players add @s stress -500`)
+            player.setDynamicProperty('stress', player.getDynamicProperty('stress') - 500)
             break
         }
         case "arx:beer_bottle_solod_solod": {
             player.runCommand(`effect @s regeneration 5 0 true`)
             player.runCommand(`effect @s nausea 5 0 true`)
             player.runCommand(`effect @s haste 10 0 true`)
-            player.runCommand(`scoreboard players add @s stress -500`)
+            player.setDynamicProperty('stress', player.getDynamicProperty('stress') - 500)
             break
         }
         case "arx:beer_bottle_solod_solod_substractor": {
             player.runCommand(`effect @s regeneration 10 0 true`)
             player.runCommand(`effect @s haste 30 0 true`)
-            player.runCommand(`scoreboard players add @s stress -500`)
+            player.setDynamicProperty('stress', player.getDynamicProperty('stress') - 500)
             break
         }
 
@@ -348,37 +348,37 @@ export function onFoodConsume(player, foodname) {
         }
         case "arx:vodka_apple": {
             player.runCommand(`effect @s nausea 8 0 true`)
-            player.runCommand(`scoreboard players add @s stress -1000`)
+            player.setDynamicProperty('stress', player.getDynamicProperty('stress') - 1000)
             break
         }
         case "arx:vodka_cactus": {
             player.runCommand(`effect @s nausea 8 0 true`)
-            player.runCommand(`scoreboard players add @s stress -1000`)
+            player.setDynamicProperty('stress', player.getDynamicProperty('stress') - 1000)
             break
         }
         case "arx:vodka_fiolix": {
             player.runCommand(`effect @s nausea 8 0 true`)
-            player.runCommand(`scoreboard players add @s stress -1000`)
+            player.setDynamicProperty('stress', player.getDynamicProperty('stress') - 1000)
             break
         }
         case "arx:vodka_light_berries": {
             player.runCommand(`effect @s nausea 8 0 true`)
-            player.runCommand(`scoreboard players add @s stress -1000`)
+            player.setDynamicProperty('stress', player.getDynamicProperty('stress') - 1000)
             break
         }
         case "arx:vodka_mushroom": {
             player.runCommand(`effect @s nausea 8 0 true`)
-            player.runCommand(`scoreboard players add @s stress -1000`)
+            player.setDynamicProperty('stress', player.getDynamicProperty('stress') - 1000)
             break
         }
         case "arx:vodka_sweet_berrie": {
             player.runCommand(`effect @s nausea 8 0 true`)
-            player.runCommand(`scoreboard players add @s stress -1000`)
+            player.setDynamicProperty('stress', player.getDynamicProperty('stress') - 1000)
             break
         }
         case "arx:wine": {
             player.runCommand(`effect @s regeneration 8 1 true`)
-            player.runCommand(`scoreboard players add @s stress -1000`)
+            player.setDynamicProperty('stress', player.getDynamicProperty('stress') - 1000)
             break
         }
 
@@ -412,7 +412,7 @@ export function onFoodConsume(player, foodname) {
         }
         // Круглые бутылки
         case "arx:rounded_bottle_water_fiuli_kari": {
-            player.runCommand(`scoreboard players add @s stress 3000`)
+            player.setDynamicProperty('stress', player.getDynamicProperty("stress") + 3000)
             break
         }
         case "arx:rounded_bottle_water_fiuli_night_kosk": {
@@ -502,7 +502,7 @@ export function onFoodConsume(player, foodname) {
             break
         }
         case "arx:rounded_bottle_water_golden_hay_kari": {
-            player.runCommand(`scoreboard players add @s stress -700`)
+            player.setDynamicProperty('stress', player.getDynamicProperty('stress') - 1200)
             break
         }
         case "arx:rounded_bottle_water_golden_hay_kavra": {
@@ -619,7 +619,7 @@ export function onFoodConsume(player, foodname) {
             player.setDynamicProperty("saturation", 360)
 
             // Выдаем счастье
-            setScore(player, 'stress', getScore(player, "stress") - happinessBonus)
+            player.setDynamicProperty('stress', player.getDynamicProperty('stress') - happinessBonus)
         } else {
             player.runCommand(`tellraw @s { "rawtext": [ { "text": "§cВам безразлична еда." } ] }`)
         }

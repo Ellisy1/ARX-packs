@@ -78,17 +78,17 @@ const spellRegistry = {
         handler: (player) => { magicDash(player, 30) }
     },
 
-    "sin yanamo sartagana trafantana": {
+    "sin yanamo trafantana sartagana": {
         mpCost: 16,
         validTargets: ['self'],
         handler: (player) => { magicDash(player, 7, true) }
     },
-    "sin yanamo sartagana trafantana mega": {
+    "sin yanamo trafantana sartagana mega": {
         mpCost: 30,
         validTargets: ['self'],
         handler: (player) => { magicDash(player, 14, true) }
     },
-    "sin yanamo sartagana trafantana mega mega mega": {
+    "sin yanamo trafantana sartagana mega mega mega": {
         mpCost: 70,
         validTargets: ['self'],
         handler: (player) => { magicDash(player, 30, true) }

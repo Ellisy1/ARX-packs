@@ -119,12 +119,6 @@ scoreboard objectives add move_delay dummy задержка_аним_безде�
             
 scoreboard objectives add freezing dummy freezing
 
-scoreboard objectives add stress dummy stress
-scoreboard objectives add stress_cond dummy stress_cond
-scoreboard objectives add stress_co_delta dummy stress_co_delta
-scoreboard objectives add stress_co_hist dummy stress_co_hist
-scoreboard objectives add stress_normalize dummy stress_normalize
-
 scoreboard objectives add on_hurt_delay dummy on_hurt_delay
 
 scoreboard objectives add water_block_saki dummy water_block_saki
@@ -237,38 +231,6 @@ scoreboard players set @s sec 0
 scoreboard objectives setdisplay list time_h
 
 scoreboard objectives add attack_weakness dummy attack_weakness
-
-# Еда
-    # Вкусы еды
-        scoreboard objectives add t_f_spicy dummy t_f_spicy
-        scoreboard objectives add t_f_salty dummy t_f_salty
-        scoreboard objectives add t_f_sweet dummy t_f_sweet
-        scoreboard objectives add t_f_sour dummy t_f_sour
-        scoreboard objectives add t_f_exotic dummy t_f_exotic
-
-    # Общая вкусность
-        scoreboard objectives add t_f_deliciousness dummy t_f_deliciousness
-
-    # Отравляющий эффект еды
-        scoreboard objectives add t_f_poisoning dummy t_f_poisoning
-
-    # Вкусы персонажа
-        scoreboard objectives add t_spicy dummy t_spicy 
-        scoreboard objectives add t_salty dummy t_salty
-        scoreboard objectives add t_sweet dummy t_sweet
-        scoreboard objectives add t_sour dummy t_sour
-        scoreboard objectives add t_exotic dummy t_exotic
-        scoreboard objectives add t_herbal dummy t_herbal
-        scoreboard objectives add t_meat dummy t_meat
-        scoreboard objectives add t_fish dummy t_fish
-        scoreboard objectives add t_bread dummy t_bread
-        scoreboard objectives add t_lactic dummy t_lactic
-
-    # Служебные переменные
-        scoreboard objectives add food_tray_stress dummy food_tray_stress
-        scoreboard objectives add food_tray_prime dummy food_tray_prime
-        scoreboard objectives add food_count_taste_types dummy food_count_taste_types
-
 
 #Книги
     scoreboard objectives add book_asar_i dummy book_asar_i

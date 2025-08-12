@@ -128,4 +128,17 @@ export function registerPlayerVars(player) {
     if (player.getDynamicProperty('speedBoostAfterKnockout') === undefined) {
         player.setDynamicProperty('speedBoostAfterKnockout', 0)
     }
+
+    if (player.getDynamicProperty('stress') === undefined) {
+        player.setDynamicProperty('stress', 0)
+    }
+    if (player.getDynamicProperty('stressLevel') === undefined) {
+        player.setDynamicProperty('stressLevel', 0)
+    }
+    if (player.getDynamicProperty('stressDynamic') === undefined) {
+        player.setDynamicProperty('stressDynamic', 0)
+    }
+    if (player.getDynamicProperty('characterLifeSec') === undefined) {
+        player.setDynamicProperty('characterLifeSec', 0)
+    }
 }

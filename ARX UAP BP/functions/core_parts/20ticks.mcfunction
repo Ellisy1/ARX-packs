@@ -77,7 +77,6 @@
 
     # Бонус демона
         camerashake add @a[scores={demon_power=1..}, tag=!demon_chain_equipped] 0.1 1 rotational
-        scoreboard players add @a[scores={demon_power=1.., stress_cond=..1}, tag=!demon_chain_equipped] stress 10
 
     # Урон от демона при паразитировании
         damage @a[scores={c_demon=1}, hasitem={item=arx:salt}] 5 entity_attack

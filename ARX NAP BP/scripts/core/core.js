@@ -214,12 +214,12 @@ system.runInterval(() => {
             basicStrength -= player.getDynamicProperty("ghostWitheringLevel")
 
             // Воздействие стресса
-            if (getScore(player, "stress_cond") == 4) { basicStrength -= 4 }
-            if (getScore(player, "stress_cond") == 3) { basicStrength -= 2 }
-            if (getScore(player, "stress_cond") == 2) { basicStrength -= 1 }
-            if (getScore(player, "stress_cond") == -2) { basicStrength += 1 }
-            if (getScore(player, "stress_cond") == -3) { basicStrength += 2 }
-            if (getScore(player, "stress_cond") == -4) { basicStrength += 3 }
+            if (player.getDynamicProperty('stressLevel') == 4) { basicStrength -= 4 }
+            if (player.getDynamicProperty('stressLevel') == 3) { basicStrength -= 2 }
+            if (player.getDynamicProperty('stressLevel') == 2) { basicStrength -= 1 }
+            if (player.getDynamicProperty('stressLevel') == -2) { basicStrength += 1 }
+            if (player.getDynamicProperty('stressLevel') == -3) { basicStrength += 2 }
+            if (player.getDynamicProperty('stressLevel') == -4) { basicStrength += 3 }
 
             // Штрафовое срезание от отката
             basicStrength -= Math.ceil(player.getDynamicProperty("attackCD") / 20) * 4
@@ -277,12 +277,12 @@ system.runInterval(() => {
             mpRegenPower -= player.getDynamicProperty("ghostWitheringLevel") * 0.2
 
             // Воздействие стресса
-            if (getScore(player, "stress_cond") == 4) { mpRegenPower -= 0.4 }
-            if (getScore(player, "stress_cond") == 3) { mpRegenPower -= 0.2 }
-            if (getScore(player, "stress_cond") == 2) { mpRegenPower -= 0.1 }
-            if (getScore(player, "stress_cond") == -2) { mpRegenPower += 0.1 }
-            if (getScore(player, "stress_cond") == -3) { mpRegenPower += 0.2 }
-            if (getScore(player, "stress_cond") == -4) { mpRegenPower += 0.4 }
+            if (player.getDynamicProperty('stressLevel') == 4) { mpRegenPower -= 0.4 }
+            if (player.getDynamicProperty('stressLevel') == 3) { mpRegenPower -= 0.2 }
+            if (player.getDynamicProperty('stressLevel') == 2) { mpRegenPower -= 0.1 }
+            if (player.getDynamicProperty('stressLevel') == -2) { mpRegenPower += 0.1 }
+            if (player.getDynamicProperty('stressLevel') == -3) { mpRegenPower += 0.2 }
+            if (player.getDynamicProperty('stressLevel') == -4) { mpRegenPower += 0.4 }
 
             // Срезание от отравления
             if (player.getDynamicProperty('intoxicationLevel') >= 2) { mpRegenPower -= player.getDynamicProperty('intoxicationLevel') }
@@ -326,12 +326,12 @@ system.runInterval(() => {
             maxMp -= player.getDynamicProperty("ghostWitheringLevel") * 3
 
             // Воздействие стресса
-            if (getScore(player, "stress_cond") == 4) { maxMp -= 20 }
-            if (getScore(player, "stress_cond") == 3) { maxMp -= 10 }
-            if (getScore(player, "stress_cond") == 2) { maxMp -= 5 }
-            if (getScore(player, "stress_cond") == -2) { maxMp += 5 }
-            if (getScore(player, "stress_cond") == -3) { maxMp += 10 }
-            if (getScore(player, "stress_cond") == -4) { maxMp += 15 }
+            if (player.getDynamicProperty('stressLevel') == 4) { maxMp -= 20 }
+            if (player.getDynamicProperty('stressLevel') == 3) { maxMp -= 10 }
+            if (player.getDynamicProperty('stressLevel') == 2) { maxMp -= 5 }
+            if (player.getDynamicProperty('stressLevel') == -2) { maxMp += 5 }
+            if (player.getDynamicProperty('stressLevel') == -3) { maxMp += 10 }
+            if (player.getDynamicProperty('stressLevel') == -4) { maxMp += 15 }
 
             // Срезание от отравления
             if (player.getDynamicProperty('intoxicationLevel') >= 2) { maxMp -= player.getDynamicProperty('intoxicationLevel') * 4 }
@@ -438,12 +438,12 @@ system.runInterval(() => {
             if (player.getDynamicProperty('statsBonusByFiolix') > 0) { speedPower += 25 }
 
             // Воздействие стресса
-            if (getScore(player, "stress_cond") == 4) { speedPower -= 40 }
-            if (getScore(player, "stress_cond") == 3) { speedPower -= 20 }
-            if (getScore(player, "stress_cond") == 2) { speedPower -= 10 }
-            if (getScore(player, "stress_cond") == -2) { speedPower += 10 }
-            if (getScore(player, "stress_cond") == -3) { speedPower += 20 }
-            if (getScore(player, "stress_cond") == -4) { speedPower += 30 }
+            if (player.getDynamicProperty('stressLevel') == 4) { speedPower -= 40 }
+            if (player.getDynamicProperty('stressLevel') == 3) { speedPower -= 20 }
+            if (player.getDynamicProperty('stressLevel') == 2) { speedPower -= 10 }
+            if (player.getDynamicProperty('stressLevel') == -2) { speedPower += 10 }
+            if (player.getDynamicProperty('stressLevel') == -3) { speedPower += 20 }
+            if (player.getDynamicProperty('stressLevel') == -4) { speedPower += 30 }
 
             // Штраф от намокания
             if (getScore(player, "water_delay") > 200) { speedPower -= 10 }
@@ -687,10 +687,10 @@ system.runInterval(() => {
             if (player.getDynamicProperty('ghostBoostByScarletMoon')) jumpPower += 1
 
             // Воздействие стресса
-            if (getScore(player, "stress_cond") == 4) { jumpPower -= 3 }
-            if (getScore(player, "stress_cond") == 3) { jumpPower -= 1 }
-            if (getScore(player, "stress_cond") == -3) { jumpPower += 1 }
-            if (getScore(player, "stress_cond") == -4) { jumpPower += 2 }
+            if (player.getDynamicProperty('stressLevel') == 4) { jumpPower -= 3 }
+            if (player.getDynamicProperty('stressLevel') == 3) { jumpPower -= 1 }
+            if (player.getDynamicProperty('stressLevel') == -3) { jumpPower += 1 }
+            if (player.getDynamicProperty('stressLevel') == -4) { jumpPower += 2 }
 
             // Штраф от намокания
             if (getScore(player, "water_delay") > 200) { jumpPower -= 1 }
@@ -776,6 +776,112 @@ system.runInterval(() => {
 
     for (const player of world.getPlayers()) {
 
+        // Сколько живет персонаж?
+        if (player.getDynamicProperty('hasRegisteredCharacter')) {
+            player.setDynamicProperty('characterLifeSec', player.getDynamicProperty('characterLifeSec') + 1)
+        }
+
+        // Система счастья - стресса
+        {
+            // Заводим JS переменные
+            let stress = player.getDynamicProperty('stress') // Стресс
+            let stressLevel = player.getDynamicProperty('stressLevel') // Уровень стресса
+            let stressDynamic = player.getDynamicProperty('stressDynamic') // Корректирующая динамика
+
+            // // Случайная динамика
+            // if (Math.random() < 0.02) { stress += 200 }
+            // if (Math.random() < 0.02) { stress -= 200 }
+
+            // Случайные события
+            if (Math.random() < 0.0001) {
+                player.sendMessage(' Вы вспомнили хорошие времена. Это подняло ваше настроение.')
+                stress -= 1200
+            }
+            if (Math.random() < 0.0001) {
+                player.sendMessage(' Вы вспомнили плохие времена. Это испортило ваше настроение.')
+                stress += 1200
+            }
+
+            // Чилл в водичке
+            if (player.hasTag('in_block_water')) { stress -= 3 }
+
+            // Стресс при низком здоровье
+            if (player.hasTag('very_low_hp')) { stress += 25 }
+            else if (player.hasTag('low_hp')) { stress += 8 }
+
+            // Падение стресса к нейтральным значениям
+            if (stress > 800) { stress -= stress / 1000 } // Если стресс высокий, падение ускорено.
+            else if (stress < -800) { stress += 1 }
+
+            // Корректирующая динамика
+            {
+                // Вычисление переменной от текущего стресса
+                stressDynamic += stress / 8000
+
+                // Угасание перменной
+                if (stressDynamic > 0) { stressDynamic -= 0.1 }
+                else if (stressDynamic < 0) { stressDynamic += 0.1 }
+
+                // Границы
+                const stressDynamicLimit = 30
+                if (stressDynamic > stressDynamicLimit) { stressDynamic = stressDynamicLimit }
+                else if (stressDynamic < -stressDynamicLimit) { stressDynamic = -stressDynamicLimit }
+
+                // Воздействие на стресс
+                stress -= stressDynamic
+            }
+
+            // Границы стресса
+            const stressLimit = 5000
+            if (stress > stressLimit) { stress = stressLimit }
+            else if (stress < -stressLimit) { stress = -stressLimit }
+
+            // Определяем уровень стресса
+            if (stress < -3500) stressLevel = -4;
+            else if (stress < -2500) stressLevel = -3;
+            else if (stress < -1500) stressLevel = -2;
+            else if (stress < -500) stressLevel = -1;
+            else if (stress <= 500) stressLevel = 0;
+            else if (stress <= 1500) stressLevel = 1;
+            else if (stress <= 2500) stressLevel = 2;
+            else if (stress <= 3500) stressLevel = 3;
+            else stressLevel = 4;
+
+            // Вывод в чат
+            let stressLevelOld = player.getDynamicProperty('stressLevel') // Уровень стресса в прошлый проход
+            if (stressLevelOld != stressLevel) {
+
+                const stressLevelAbs = Math.abs(stressLevel)
+
+                let word1
+                if (stressLevelOld < stressLevel) { word1 = "хуже" }
+                else { word1 = "лучше" }
+
+                let icon
+                let word2
+                if (stressLevel > 0) { icon = ''; word2 = 'стресса' }
+                else if (stressLevel === 0) { icon = ''; word2 = 'счастья' }
+                else { icon = ''; word2 = 'счастья' }
+
+                let color = ''
+                if (stressLevel > 1) { color = '§c' }
+                else if (stressLevel < -1) { color = '§a' }
+
+                let stressOutputLevel = stressLevelAbs.toString()
+                if (stressOutputLevel === '4') { stressOutputLevel = 'Макс.' }
+
+                player.sendMessage(`[Стало ${word1}] ${icon.repeat(stressLevelAbs != 0 ? stressLevelAbs : 1)} (${color}${stressOutputLevel} §fур. ${word2})`)
+            }
+
+            // Записываем полученные переменные в DP
+            player.setDynamicProperty('stress', stress) // Стресс
+            player.setDynamicProperty('stressLevel', stressLevel) // Уровень стресса
+            player.setDynamicProperty('stressDynamic', stressDynamic) // Корректирующая динамика
+
+            // Отладка
+            // player.runCommand(`title @s actionbar ${stress.toFixed(1)} ${stressDynamic.toFixed(1)}`)
+        }
+
         // Анимации бездействия
         {
             // Анализируем, когда надо анимировать
@@ -822,8 +928,8 @@ system.runInterval(() => {
 
             if (player.getDynamicProperty('ghostBoostByScarletMoonLastPass') == false && player.getDynamicProperty('ghostBoostByScarletMoon') == true) {
                 player.runCommand(`tellraw @s { "rawtext": [ { "text": "§cСвет луны наполняет вас невероятной мощью..." } ] }`)
-                if (getScore(player, `stress`) > -1200) {
-                    setScore(player, 'stress', -1200)
+                if (player.getDynamicProperty('stress') > -1200) {
+                    player.setDynamicProperty('stress', -1200)
                 }
             }
 
@@ -1039,7 +1145,7 @@ system.runInterval(() => {
                 }
 
                 // Выдаем бонусы
-                player.runCommand(`scoreboard players add @s stress ${bonusByEatenFiolix * happinessMultiplier * -1}`)
+                player.setDynamicProperty('stress', player.getDynamicProperty('stress') + bonusByEatenFiolix * happinessMultiplier * -1)
             }
 
             // Мы скушали фиоликс, и мы не зависимы на момент съедания
@@ -1112,12 +1218,12 @@ system.runInterval(() => {
             rangedAttackAccuracy -= player.getDynamicProperty("ghostWitheringLevel")
 
             // Воздействие стресса
-            if (getScore(player, "stress_cond") == 4) { rangedAttackAccuracy -= 4 }
-            if (getScore(player, "stress_cond") == 3) { rangedAttackAccuracy -= 2 }
-            if (getScore(player, "stress_cond") == 2) { rangedAttackAccuracy -= 1 }
-            if (getScore(player, "stress_cond") == -2) { rangedAttackAccuracy += 1 }
-            if (getScore(player, "stress_cond") == -3) { rangedAttackAccuracy += 2 }
-            if (getScore(player, "stress_cond") == -4) { rangedAttackAccuracy += 3 }
+            if (player.getDynamicProperty('stressLevel') == 4) { rangedAttackAccuracy -= 4 }
+            if (player.getDynamicProperty('stressLevel') == 3) { rangedAttackAccuracy -= 2 }
+            if (player.getDynamicProperty('stressLevel') == 2) { rangedAttackAccuracy -= 1 }
+            if (player.getDynamicProperty('stressLevel') == -2) { rangedAttackAccuracy += 1 }
+            if (player.getDynamicProperty('stressLevel') == -3) { rangedAttackAccuracy += 2 }
+            if (player.getDynamicProperty('stressLevel') == -4) { rangedAttackAccuracy += 3 }
 
             // Нормализуем значение
             if (rangedAttackAccuracy < 0) { rangedAttackAccuracy = 0 }

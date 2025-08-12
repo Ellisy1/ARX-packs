@@ -409,7 +409,7 @@ world.afterEvents.entityDie.subscribe((dieEvent) => {
         player.runCommand('scoreboard players add @s count_death 1')
 
         // Стрессуем
-        player.runCommand('scoreboard players add @s stress 4000')
+        player.setDynamicProperty('stress', player.getDynamicProperty('stress') + 4000)
 
         // Выставляем откат нокаута
         player.setDynamicProperty('respawnDelay', 60 - player.getDynamicProperty('skill:fortitude_level') * 2)
@@ -428,13 +428,12 @@ world.afterEvents.entityDie.subscribe((dieEvent) => {
             player.setDynamicProperty('freezing', 0)
             player.setDynamicProperty('respawnDelay', 0)
 
-            setScore(player, "stress", 0)
             setScore(player, "knockout_row_sounter", 0)
             setScore(player, "water_delay", 0)
 
             if (player.getProperty('arx:is_ghost') === true) { // Если призрак
 
-                console.warn('Смерть призрака')
+                console.warn(`Смерть призрака ${player.name}`)
 
                 player.runCommand('title @s title §c= Вы окончательно погибли =')
                 player.runCommand(`tellraw @s { "rawtext": [ { "text": "§cТак и закончилась эта история. Вы погибли навсегда." } ] }`)
@@ -448,17 +447,19 @@ world.afterEvents.entityDie.subscribe((dieEvent) => {
                 player.clearDynamicProperties()
                 registerPlayerVars(player)
 
+                player.setDynamicProperty('verify', true)
+
             } else { // Если не призрак
 
-                console.warn('Смерть обычного')
+                console.warn(`Смерть непризначного ${player.name}`)
 
                 player.runCommand('title @s title §c= Вы обращены в призрака =')
                 executeCommandDelayed(player, 'effect @s invisibility 60 0 true')
-                executeCommandDelayed(player, 'spreadplayers ~ ~ 0 60 @s')
+                executeCommandDelayed(player, 'spreadplayers ~ ~ 0 20 @s')
                 executeCommandDelayed(player, 'clear @s arx:slot_blocker')
                 player.setDynamicProperty('ghostUltimateResistance', 180)
 
-                player.runCommand(`tellraw @s { "rawtext": [ { "text": "§c! §f§сВы былы убиты и обращены в §cПРИЗРАКА!§f.\n§c! §fВы §cСОВСЕМ НЕДОЛГО§f неуязвимы к солнцу и воде!\n§c! §fВы невидимы на протяжении минуты." } ] }`)
+                player.runCommand(`tellraw @s { "rawtext": [ { "text": "§c! §f§сВы убиты и обращены в §cПРИЗРАКА!§f.\n§c! §fВы §cСОВСЕМ НЕДОЛГО§f неуязвимы к солнцу и воде!\n§c! §fВы невидимы на протяжении минуты." } ] }`)
                 player.setProperty('arx:is_ghost', true)
 
             }
@@ -569,7 +570,7 @@ world.afterEvents.entityHurt.subscribe((hurtEvent) => {
             let stressMultiplier
             getScore(player, "c_cowardly") == 1 ? stressMultiplier = 2 : stressMultiplier = 1
 
-            setScore(player, "stress", getScore(player, 'stress') + hurtEvent.damage * 150 * stressMultiplier + 50)
+            player.setDynamicProperty('stress', player.getDynamicProperty('stress') + hurtEvent.damage * 150 * stressMultiplier + 50)
         }
         // Если мы на алтаре
         {

@@ -39,14 +39,14 @@ export function weighAnalysis(player) {
 
     // Срезание от отравления
     if (player.getDynamicProperty('intoxicationLevel') >= 2) { weighLimit -= player.getDynamicProperty('intoxicationLevel') }
-
+    
     // Воздействие стресса
-    if (getScore(player, "stress_cond") == 4) { weighLimit -= 4 }
-    if (getScore(player, "stress_cond") == 3) { weighLimit -= 2 }
-    if (getScore(player, "stress_cond") == 2) { weighLimit -= 1 }
-    if (getScore(player, "stress_cond") == -2) { weighLimit += 1 }
-    if (getScore(player, "stress_cond") == -3) { weighLimit += 2 }
-    if (getScore(player, "stress_cond") == -4) { weighLimit += 3 }
+    if (player.getDynamicProperty('stressLevel') == 4) { weighLimit -= 4 }
+    if (player.getDynamicProperty('stressLevel') == 3) { weighLimit -= 2 }
+    if (player.getDynamicProperty('stressLevel') == 2) { weighLimit -= 1 }
+    if (player.getDynamicProperty('stressLevel') == -2) { weighLimit += 1 }
+    if (player.getDynamicProperty('stressLevel') == -3) { weighLimit += 2 }
+    if (player.getDynamicProperty('stressLevel') == -4) { weighLimit += 3 }
 
     // weighLoading - фактическая загруженность игрока
     player.runCommand('function javascript/weigh')

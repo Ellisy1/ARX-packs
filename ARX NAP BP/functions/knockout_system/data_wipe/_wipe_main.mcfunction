@@ -28,5 +28,4 @@
 
 #Временные статы
     scoreboard players set @s freezing 0
-    scoreboard players set @s stress 0
     scoreboard players set @s poisoning 0

@@ -38,8 +38,7 @@
 						"function summon_rat_eliminator",
 						"effect @a[r=15] blindness 3 0 true",
 						"summon arx:rat_monstr ~ ~ ~ ~ ~ become_agressive",
-						"summon arx:rat_monstr ~ ~ ~ ~ ~ become_agressive",
-						"scoreboard players add @a[r=15] stress 1000"
+						"summon arx:rat_monstr ~ ~ ~ ~ ~ become_agressive"
 					]
 				},
 				"add": {

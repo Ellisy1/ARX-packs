@@ -21,9 +21,9 @@ export const runeCiphers = {
     "floruum": "AF", // Отравление
     "flurri": "AG", // Огонь
     "horo": "AI", // Лечение
-    "kotoka": "AL", // (I kotoka) Опыт, знание
+    "kotoka": "AL", // (I kotoka) Опыт, знание, время
     "laffaeti": "AM", // Левитация
-    "marra": "AO", // Метка
+    "marra": "AO", // Метка, обозначение
     "recuro": "AR", // Обмен
     "sartagana": "AU", // Зрение
     "sempra": "AV", // Физический урон 

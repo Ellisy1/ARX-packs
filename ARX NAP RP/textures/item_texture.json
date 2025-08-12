@@ -2460,11 +2460,14 @@
       "textures": "textures/items/runes/forfacorite/rune_yanamo"
     },
 
-    "arx:rune_nakamata_b": {
+    "arx:rune_nakamata": {
       "textures": "textures/items/runes/special/rune_nakamata"
     },
-    "arx:rune_ratatao_b": {
+    "arx:rune_ratatao": {
       "textures": "textures/items/runes/special/rune_ratatao"
+    },
+    "arx:rune_ratatao_zelenchik": {
+      "textures": "textures/items/runes/special/rune_ratatao_zelenchik"
     },
 
     "arx:moder_gun": {
@@ -4750,6 +4753,9 @@
     },
     "arx:demonic_staff_fragment": {
       "textures": "textures/items/other/demonic_staff_fragment"
+    },
+    "arx:harakiri_sword": {
+      "textures": "textures/items/other/harakiri_sword"
     }
   }
 }

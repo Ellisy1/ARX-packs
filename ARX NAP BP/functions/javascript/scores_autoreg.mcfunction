@@ -27,7 +27,6 @@ scoreboard players add @a water_delay 0
 scoreboard players add @a water_block 0
 scoreboard players add @a move_delay 0
 scoreboard players add @a freezing 0
-scoreboard players add @a stress 0
 scoreboard players add @a blocking 0
 scoreboard players add @a on_hurt_delay 0
 scoreboard players add @a battle_delay 0
@@ -117,5 +116,3 @@ scoreboard players add @a tp_cd_ghost 0
 scoreboard players add @a restrict_block_interact 0
 scoreboard players add @a count_broken_blocks 0
 scoreboard players add @a count_placed_blocks 0
-
-scoreboard players add @a stress 0

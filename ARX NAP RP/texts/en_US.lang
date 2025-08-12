@@ -1143,7 +1143,8 @@ item.arx:rune_transkursio_s=§r§ftranskursio §c[Мифическое+]\n§o§7
 item.arx:rune_watashi_s=§r§fwatashi §c[Мифическое+]\n§o§7VIII каналов, без отката
 item.arx:rune_yanamo_s=§r§fyanamo §c[Мифическое+]\n§o§7VIII каналов, без отката
 
-item.arx:rune_nakamata=§r§fnakamata §c[Мифическое++]
+item.arx:rune_nakamata=§r§fnakamata §c[Мифическое+]
+item.arx:rune_ratatao_zelenchik=§r§fКарта: Порок §c[Мифическое+]
 item.arx:rune_ratatao=§r§fratatao §e[Легендарное]
 
 
@@ -1998,3 +1999,6 @@ action.hint.exit.arx:steady_boat=Устойчивая лодка
 
 item.arx:chrupie_flake=§r§fОсколок хрупи §e[Легендарное]\n§o§7Осколок панция монстра, живущего в подземельях.\nОн холодный наощупть, будто состоит из металла
 item.arx:demonic_staff_fragment=§r§fФрагмент демонического посоха §e[Легендарное]\n§o§7Посоха демона из ада,\nкоторый вы безжалостно разломали
+
+
+item.arx:harakiri_sword=§r§fМеч для харакири §b[Редкое]\n§o§7Используйте, чтобы §cнавсегда убить себя§7.\n// После этого вы сможете создать нового персонажа

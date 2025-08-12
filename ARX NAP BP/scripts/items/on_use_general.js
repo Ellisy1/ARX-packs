@@ -11,7 +11,7 @@ import { launchCameraUI } from '../camera/launchCameraUI'
 import { TPWithNoxenessionPortal } from '../portals'
 
 import { showDialog } from '../dialogues'
-import { clearTraits } from '../traits/traitsOperations'
+import { clearTraits, acquireTrait } from '../traits/traitsOperations'
 
 // Использование предметов
 world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юзание предмета на ПКМ
@@ -168,8 +168,42 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
         // Особые 
         case "arx:big_storybook":
             if (manageCD(player)) {
-                player.runCommand("function books/big_storybook")
+                const rand = Math.random()
+
+                if (rand < 0.333) {
+                    player.sendMessage('Вы прочитали §dполезную§f историю.')
+                    player.runCommand('xp 100 @s')
+                    for (let i = 0; i < 4; i++) {
+                        player.runCommand('summon minecraft:xp_orb')
+                    }
+                }
+
+                else if (rand < 0.5) {
+                    player.sendMessage(' Вы прочитали §aинтересную§f историю!')
+                    player.setDynamicProperty('stress', player.getDynamicProperty('stress') - 1000)
+                }
+                else if (rand < 0.666) {
+                    player.sendMessage(' Вы прочитали §cгрустную§f историю.')
+                    player.setDynamicProperty('stress', player.getDynamicProperty('stress') + 1500)
+                }
+
+                else if (rand < 0.8) {
+                    player.sendMessage('Вы прочитали §cстрашную§f историю!')
+                    acquireTrait(player, [0, 0, 1])
+                }
+                else if (rand < 0.932) {
+                    player.sendMessage('Вы прочитали §bпоучительную§f историю.')
+                    acquireTrait(player, [0, 1, 0])
+                }
+                else {
+                    player.sendMessage('Вы прочитали §eвоодушевляющую§f историю!')
+                    acquireTrait(player, [1, 0, 0])
+                }
+
+
+                player.runCommand('playsound item.book.page_turn @a ~ ~ ~')
                 if (Math.random() < 0.15) {
+                    player.sendMessage('Истории в книжке закончились')
                     player.runCommand('clear @s arx:big_storybook 0 1')
                     player.runCommand('playsound random.break @a ~ ~ ~')
                 }
@@ -591,6 +625,23 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
             player.sendMessage('Все черты §aсброшены!')
             player.runCommand('clear @s arx:wipe_traits 0 1')
             player.runCommand('playsound elemental_use @a ~ ~ ~')
+            break
+
+        case "arx:harakiri_sword":
+            const form1 = new ActionFormData()
+                .title("Харакири")
+                .body('§l§cПРОЧИТАЙТЕ ВНИМАТЕЛЬНО!!!\n\n§r§fВы погибните навсегда. Если вы человек, вы станете призраком. Если вы призрак, вы умрёте навсегда.')
+                .button("Убиться")
+                .button("Пока не стоит")
+
+                .show(player)
+                .then((response) => {
+                    if (response.selection === 0) { // Муж
+                        setScore(player, 'knockout_row_sounter', 10)
+                        player.runCommand('kill @s')
+                    }
+                })
+            break
             break
 
         // Сравнение НЕ через ID предмета
