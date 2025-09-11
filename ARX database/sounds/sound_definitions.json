@@ -331,5 +331,14 @@
             "stream": true
          }
       ]
+   },
+   "Bleeping_Demo": {
+      "category": "music",
+      "sounds": [
+         {
+            "name": "sounds/music/Bleeping_Demo",
+            "stream": true
+         }
+      ]
    }
 }

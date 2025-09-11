@@ -3,6 +3,7 @@
 // Импортируем
 import { system, world } from "@minecraft/server"
 import { getScore } from "../scoresOperations"
+import { ssDP } from "../DPOperations"
 
 const musicOptions = { fade: 2, loop: true }
 
@@ -25,6 +26,10 @@ system.runInterval(() => {
         // Бой с порочным демоном
         if (world.getDynamicProperty('vicious_demon:is_fight_right_now') && isEntityInCube(player, [-2252, 32, 1843], [-2227, 22, 1866])) {
             music_location = -1000
+        }
+        // Венард
+        if (isEntityInCube(player, [-2341, -31, 1933], [-2267, -46, 1897])) {
+            music_location = -3
         }
 
         // Мы не в кастомной локации
@@ -70,8 +75,13 @@ system.runInterval(() => {
             else if (music_location === -2) {
                 player.playMusic(`Silence`, musicOptions)
             }
+            // Бой с Порочным Демоном
             else if (music_location === -1000) {
                 player.playMusic(`Darkling`, musicOptions)
+            }
+            // Вернард
+            else if (music_location === -3) {
+                player.playMusic(`Bleeping_Demo`, musicOptions)
             }
 
             // Ад
@@ -166,7 +176,7 @@ system.runInterval(() => {
             }
         }
 
-        player.setDynamicProperty("music_location_previous", music_location)
+        ssDP(player, "music_location_previous", music_location)
     }
 }, 20)
 
@@ -189,7 +199,7 @@ export function isEntityInCube(entity, cornerA, cornerB) {
     }
 
     // Проверяем, что entity имеет location
-    if (!entity.location) {
+    if (!entity?.location) {
         console.warn('[isEntityInCube] Сущность не имеет location:', entity);
         return false;
     }

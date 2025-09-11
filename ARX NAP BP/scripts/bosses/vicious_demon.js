@@ -25,7 +25,7 @@ export function interactWithViciousDemonSpawner(player) {
 export function startBattleWithViciousDemon() {
     world.setDynamicProperty('vicious_demon:cd_before_battle', 6)
     world.setDynamicProperty('vicious_demon:is_fight_right_now', true)
-    entranceDoor('close')
+    door('close')
 
     const entities = getEntitiesInCube([-2252, 32, 1843], [-2227, 22, 1866])
     for (const entity of entities) {
@@ -37,7 +37,7 @@ export function startBattleWithViciousDemon() {
 
 function endBattleWithViciousDemon() {
     world.setDynamicProperty('vicious_demon:is_fight_right_now', false)
-    entranceDoor('open')
+    door('open')
 
     const entities = getEntitiesInCube([-2252, 32, 1843], [-2227, 22, 1866])
     for (const entity of entities) {
@@ -47,13 +47,17 @@ function endBattleWithViciousDemon() {
     }
 }
 
-// Закрываем входные ворота
-function entranceDoor(action) {
+// Закрываем/открываем ворота
+function door(action) {
     if (action === 'close') {
         world.getDimension('minecraft:overworld').runCommand('fill -2239 25 1843 -2239 26 1843 arx:bronze_block')
+        world.getDimension('minecraft:overworld').runCommand('fill -2252 25 1855 -2252 27 1853 arx:bronze_block')
     }
     else if (action === 'open') {
         world.getDimension('minecraft:overworld').runCommand('fill -2239 25 1843 -2239 26 1843 air')
+        if (world.getDynamicProperty('vicious_demon:hasEverDefeated') === true) {
+            world.getDimension('minecraft:overworld').runCommand('fill -2252 25 1855 -2252 27 1853 air')
+        }
     }
 }
 
@@ -96,6 +100,7 @@ system.runInterval(() => {
 
 world.afterEvents.entityDie.subscribe((dieEvent) => {
     if (dieEvent.deadEntity.typeId === "arx:vicious_demon") {
+        world.setDynamicProperty('vicious_demon:hasEverDefeated', true)
         endBattleWithViciousDemon()
     }
 })

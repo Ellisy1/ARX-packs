@@ -539,7 +539,7 @@ export function completeAchievement(player, achievementID) { // achievementID Б
 
 }
 
-// Прослушка достижений
+// Анализ достижений
 system.runInterval(() => {
     for (const player of world.getPlayers()) {
         if (player.getDynamicProperty('hasRegisteredCharacter') === true) {

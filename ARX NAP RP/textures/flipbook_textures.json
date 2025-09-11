@@ -347,5 +347,11 @@
     "atlas_tile": "arx_magic_barrier",
     "ticks_per_frame": 2,
 		"blend_frames": false
+  },
+  {
+    "flipbook_texture": "textures/blocks/dungeons/arx_magic_barrier_of_rat_cult",
+    "atlas_tile": "arx_magic_barrier_of_rat_cult",
+    "ticks_per_frame": 2,
+		"blend_frames": false
   }
 ]

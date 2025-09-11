@@ -32,24 +32,24 @@ function getBodyText(player) {
 
     // Стресс
     // 2 ур
-    else if (getScore(player, 'stress_cond') === 2 && player.getDynamicProperty('saturation') === 0) {
+    else if (player.getDynamicProperty('stressLevel') === 2 && player.getDynamicProperty('saturation') === 0) {
         return '§cУ вас 2 ур. стресса.§6\n\nВкусно покушайте, и он пройдет, вы как раз проголодались.'
     }
-    else if (getScore(player, 'stress_cond') === 2) {
+    else if (player.getDynamicProperty('stressLevel') === 2) {
         return '§cУ вас 2 ур. стресса.§6\n\nВкусно покушайте, сделайте и используйте свиток забвения или просто подождите, пока он не пройдет.'
     }
     // 3 ур
-    else if (getScore(player, 'stress_cond') === 3 && player.getDynamicProperty('saturation') === 0) {
+    else if (player.getDynamicProperty('stressLevel') === 3 && player.getDynamicProperty('saturation') === 0) {
         return '§cУ вас 3 ур. стресса.§6\n\nВкусно покушайте, и он уменьшится, вы как раз проголодались.'
     }
-    else if (getScore(player, 'stress_cond') === 3) {
+    else if (player.getDynamicProperty('stressLevel') === 3) {
         return '§cУ вас 3 ур. стресса.§6\n\nВкусно покушайте, сделайте и используйте свиток забвения или просто подождите, пока он не пройдет.'
     }
     // 4 ур
-    else if (getScore(player, 'stress_cond') === 4 && player.getDynamicProperty('saturation') === 0) {
+    else if (player.getDynamicProperty('stressLevel') === 4 && player.getDynamicProperty('saturation') === 0) {
         return '§cУ вас 4, максимальный ур. стресса.§6\n\nВкусно покушайте, и он пройдет, вы как раз проголодались.'
     }
-    else if (getScore(player, 'stress_cond') === 4) {
+    else if (player.getDynamicProperty('stressLevel') === 4) {
         return '§cУ вас 4, максимальный ур. стресса.§6\n\nВкусно покушайте, сделайте и используйте свиток забвения или просто подождите, пока он не пройдет. \n§cНе забывайте, что при 4 ур. стресса можно получить случайную черту характера, причём более вероятно отрицательную.'
     }
 

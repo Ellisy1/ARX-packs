@@ -1,6 +1,7 @@
 import { checkForItem } from "./checkForItem"
 import { getScore } from "./scoresOperations"
 import { checkForTrait } from './traits/traitsOperations'
+import { getNearestPlayer } from './getNearestPlayer'
 
 export function weighAnalysis(player) {
     // weighLimit - ограничение переносимого веса, при переходе за который накладывается штраф

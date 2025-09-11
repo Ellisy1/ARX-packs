@@ -17,6 +17,7 @@ import { checkForTrait } from "../traits/traitsOperations"
 import { portals } from '../portals'
 import { getPlayersInRadiusFromCoords } from '../portals'
 import { killingTimeAnimDelay, animate_killing_time } from './animate_killing_time'
+import { ssDP, iDP } from '../DPOperations'
 
 // Импорт - другие области движка
 import { getNearestPlayer } from "../getNearestPlayer"
@@ -88,7 +89,7 @@ system.runInterval(() => {
         // Отображение кд атаки
         if (player.getDynamicProperty("attackCD") > 0 || player.getDynamicProperty("prohibit_damage") > 0) {
             // Уменьшение отката атаки
-            if (player.getDynamicProperty("attackCD") > 0) { player.setDynamicProperty("attackCD", player.getDynamicProperty("attackCD") - 1) }
+            if (player.getDynamicProperty("attackCD") > 0) { iDP(player, 'attackCD', -1) }
             // Уменьшение отката блока
             if (player.getDynamicProperty("prohibit_damage") > 0) { player.setDynamicProperty("prohibit_damage", player.getDynamicProperty("prohibit_damage") - 1) }
 
@@ -159,7 +160,7 @@ system.runInterval(() => {
             if (player.getDynamicProperty('amul_hypersynergyCD') === 1) {
                 queueCommand(player, 'playsound tick @s ~ ~ ~')
             }
-            player.setDynamicProperty('amul_hypersynergyCD', player.getDynamicProperty('amul_hypersynergyCD') - 1)
+            iDP(player, 'amul_hypersynergyCD', -1)
         }
 
         // Базовая сила
@@ -237,8 +238,7 @@ system.runInterval(() => {
             basicStrength < -30 ? player.runCommand(`event entity @s arx:setBasicStrength_-30`) : player.runCommand(`event entity @s arx:setBasicStrength_${basicStrength}`)
 
             // Записывание в DP
-            player.setDynamicProperty("basicStrength", basicStrength)
-
+            ssDP(player, 'basicStrength', basicStrength)
         }
 
         // МАНА
@@ -290,7 +290,7 @@ system.runInterval(() => {
             // Увеличение от прокачки
             mpRegenPower += player.getDynamicProperty('skill:mp_regen_level') / 3
 
-            player.setDynamicProperty("mpRegenPower", mpRegenPower)
+            ssDP(player, "mpRegenPower", mpRegenPower)
 
             // Максимальная мана - рассчет
             let maxMp = 20
@@ -343,7 +343,7 @@ system.runInterval(() => {
             maxMp += player.getDynamicProperty('MPPermanentBonus')
 
             // Записываем максмп в дп
-            player.setDynamicProperty("maxMp", maxMp)
+            ssDP(player, "maxMp", maxMp)
 
             // Макс мана отрицательна
             if (maxMp < 0 || player.getDynamicProperty("mp") < 0) {
@@ -370,7 +370,7 @@ system.runInterval(() => {
             }
             // Мана равна макс мане
             else {
-                player.setDynamicProperty('MPSmoothAccrue', 0)
+                ssDP(player, 'MPSmoothAccrue', 0)
 
                 // Определяем, что у нас за предмет
                 const item = player.getComponent(EntityComponentTypes.Equippable).getEquipment(EquipmentSlot.Mainhand)
@@ -487,7 +487,7 @@ system.runInterval(() => {
                 movementComponent.setCurrentValue(speedPower / 1000)
             }
 
-            player.setDynamicProperty("speedPower", speedPower)
+            ssDP(player, "speedPower", speedPower)
         }
 
         // Контроль расстояния от места спавна
@@ -559,7 +559,7 @@ system.runInterval(() => {
         for (const chain of portals.noxenession) {
             for (const portal of chain) {
                 world.getDimension('minecraft:overworld').runCommand(`particle arx:portal_fog ${portal[0]} ${portal[1]} ${portal[2]}`)
-                world.getDimension('minecraft:overworld').runCommand(`playsound portal.passive @a ${portal[0]} ${portal[1]} ${portal[2]}`)
+                world.getDimension('minecraft:overworld').runCommand(`playsound portal.passive @a ${portal[0]} ${portal[1]} ${portal[2]} 0.1 1`)
             }
         }
     }
@@ -635,7 +635,7 @@ system.runInterval(() => {
         // Счётчик пройденного расстояния
         {
             if (player.hasTag('is_moving') && player.getGameMode() !== 'Creative' && player.getGameMode() !== 'Spectator') {
-                player.setDynamicProperty("statistics:distance", player.getDynamicProperty('statistics:distance') + 1.04 * (player.getDynamicProperty('speedPower') / 100))
+                iDP(player, "statistics:distance", 1.04 * (player.getDynamicProperty('speedPower') / 100))
             }
         }
 
@@ -703,7 +703,7 @@ system.runInterval(() => {
             jumpPower = Math.round(jumpPower)
 
             // Отправка в DP
-            player.setDynamicProperty("jumpPower", jumpPower)
+            ssDP(player, "jumpPower", jumpPower)
 
             // Прыжок - реализация
             if (jumpPower > 0) { player.runCommand(`effect @s jump_boost 1 ${jumpPower - 1} true`) }
@@ -724,7 +724,7 @@ system.runInterval(() => {
             if (player.getDynamicProperty('ghostBoostByScarletMoon')) maxHP += 10
 
             // Макс хп - запись в DP
-            player.setDynamicProperty("maxHP", maxHP)
+            ssDP(player, "maxHP", maxHP)
 
             // Исполнение
             player.runCommand(`event entity @s arx:set_${maxHP}_hp`)
@@ -778,7 +778,7 @@ system.runInterval(() => {
 
         // Сколько живет персонаж?
         if (player.getDynamicProperty('hasRegisteredCharacter')) {
-            player.setDynamicProperty('characterLifeSec', player.getDynamicProperty('characterLifeSec') + 1)
+            iDP(player, 'characterLifeSec')
         }
 
         // Система счастья - стресса
@@ -874,9 +874,9 @@ system.runInterval(() => {
             }
 
             // Записываем полученные переменные в DP
-            player.setDynamicProperty('stress', stress) // Стресс
-            player.setDynamicProperty('stressLevel', stressLevel) // Уровень стресса
-            player.setDynamicProperty('stressDynamic', stressDynamic) // Корректирующая динамика
+            ssDP(player, 'stress', stress) // Стресс
+            ssDP(player, 'stressLevel', stressLevel) // Уровень стресса
+            ssDP(player, 'stressDynamic', stressDynamic) // Корректирующая динамика
 
             // Отладка
             // player.runCommand(`title @s actionbar ${stress.toFixed(1)} ${stressDynamic.toFixed(1)}`)
@@ -902,7 +902,7 @@ system.runInterval(() => {
         // Уменьшение DP из dynamicPropertiesToDecrease
         for (const dp of dynamicPropertiesToDecrease) {
             if (player.getDynamicProperty(dp) > 0) {
-                player.setDynamicProperty(dp, player.getDynamicProperty(dp) - 1)
+                iDP(player, dp, -1)
             }
         }
 
@@ -1306,7 +1306,7 @@ system.runInterval(() => {
                 }
             }
 
-            player.setDynamicProperty('freezing', freezing)
+            ssDP(player, 'freezing', freezing)
         }
 
         // Кровотечение при низком хп
@@ -1390,7 +1390,7 @@ system.runInterval(() => {
                 // Ресаем
                 for (const nearbyPlayer of nearbyPlayers) {
                     if (nearbyPlayer.getProperty('arx:is_knocked') === true && !nearbyPlayer.hasTag('is_riding')) {
-                        nearbyPlayer.setDynamicProperty('reviveDelay', nearbyPlayer.getDynamicProperty('reviveDelay') + reviveSpeedValue)
+                        iDP(nearbyPlayer, 'reviveDelay', reviveSpeedValue)
                         displayRespawnLine(nearbyPlayer, player) // Отображаем линию воскрешения ресающему
                         displayRespawnLine(nearbyPlayer, nearbyPlayer) // Отображаем линию воскрешения тому кого ресают
 

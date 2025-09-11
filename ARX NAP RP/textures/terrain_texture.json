@@ -610,9 +610,18 @@
 		"arx_grim_stonebricks": {
 			"textures": "textures/blocks/dungeons/grim_stonebricks"
 		},
+		"arx_ancient_iron_processor": {
+			"textures": "textures/blocks/dungeons/ancient_iron_processor"
+		},
 
 		"arx_vicious_demon_sword": {
 			"textures": "textures/blocks/dungeons/vicious_demon_sword"
+		},
+		"arx_provolocka_diary": {
+			"textures": "textures/blocks/dungeons/provolocka_diary"
+		},
+		"arx_piece_of_red_cloth": {
+			"textures": "textures/blocks/dungeons/piece_of_red_cloth"
 		},
 
 		"arx_chloronite_lamp": {
@@ -628,6 +637,9 @@
 		},
 		"arx_magic_barrier": {
 			"textures": "textures/blocks/dungeons/arx_magic_barrier"
+		},
+		"arx_magic_barrier_of_rat_cult": {
+			"textures": "textures/blocks/dungeons/arx_magic_barrier_of_rat_cult"
 		},
 		"arx_moss_block_blue": {
 			"textures": "textures/blocks/dungeons/moss_block_blue"
