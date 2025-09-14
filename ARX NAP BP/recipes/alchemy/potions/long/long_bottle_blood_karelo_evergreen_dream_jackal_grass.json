@@ -8,11 +8,15 @@
     
     "tags": [ "substractor" ],
     "pattern": [
+      "A",
       "#"
     ],
     "key": {
       "#": {
-        "item": "arx:long_bottle_blood_karelo_evergreen_dream_jackal_grass"
+        "item": "arx:long_bottle_blood_karelo_evergreen_dream"
+      },
+      "A": {
+        "item": "arx:jackal_grass"
       }
     },
     "result": {

@@ -1,4 +1,5 @@
-import { getScore, setScore } from "../scoresOperations"
+import { acquireTrait } from "../traits/traitsOperations"
+import { ssDP, iDP } from "../DPOperations"
 
 export function onFoodConsume(player, foodname) {
     // Тип пищи у конкретной съеденной еды
@@ -289,8 +290,7 @@ export function onFoodConsume(player, foodname) {
             break
         }
         case "arx:fiolix": {
-            player.setDynamicProperty('FiolixNarcoticPower', player.getDynamicProperty('FiolixNarcoticPower') + 1800)
-            player.runCommand(`effect @s fatal_poison infinite 255 true`)
+            iDP(player, 'FiolixNarcoticPower', 1800)
             break
         }
         case "arx:le_fishe_au_chocolat": {
@@ -302,36 +302,36 @@ export function onFoodConsume(player, foodname) {
         case "arx:beer_bottle_solod": {
             player.runCommand(`effect @s regeneration 5 0 true`)
             player.runCommand(`effect @s nausea 7 0 true`)
-            player.setDynamicProperty('stress', player.getDynamicProperty('stress') - 500)
+            iDP(player, 'stress', -500)
             break
         }
         case "arx:beer_bottle_solod_kari": {
             player.runCommand(`effect @s regeneration 10 0 true`)
             player.runCommand(`effect @s nausea 5 0 true`)
-            player.setDynamicProperty('stress', player.getDynamicProperty('stress') - 500)
+            iDP(player, 'stress', -500)
             break
         }
         case "arx:beer_bottle_solod_kari_substractor": {
             player.runCommand(`effect @s regeneration 15 0 true`)
-            player.setDynamicProperty('stress', player.getDynamicProperty('stress') - 500)
+            iDP(player, 'stress', -500)
             break
         }
         case "arx:beer_bottle_solod_salt": {
             player.runCommand(`effect @s regeneration 8 0 true`)
-            player.setDynamicProperty('stress', player.getDynamicProperty('stress') - 500)
+            iDP(player, 'stress', -500)
             break
         }
         case "arx:beer_bottle_solod_solod": {
             player.runCommand(`effect @s regeneration 5 0 true`)
             player.runCommand(`effect @s nausea 5 0 true`)
             player.runCommand(`effect @s haste 10 0 true`)
-            player.setDynamicProperty('stress', player.getDynamicProperty('stress') - 500)
+            iDP(player, 'stress', -500)
             break
         }
         case "arx:beer_bottle_solod_solod_substractor": {
             player.runCommand(`effect @s regeneration 10 0 true`)
             player.runCommand(`effect @s haste 30 0 true`)
-            player.setDynamicProperty('stress', player.getDynamicProperty('stress') - 500)
+            iDP(player, 'stress', -500)
             break
         }
 
@@ -348,48 +348,48 @@ export function onFoodConsume(player, foodname) {
         }
         case "arx:vodka_apple": {
             player.runCommand(`effect @s nausea 8 0 true`)
-            player.setDynamicProperty('stress', player.getDynamicProperty('stress') - 1000)
+            iDP(player, 'stress', -1000)
             break
         }
         case "arx:vodka_cactus": {
             player.runCommand(`effect @s nausea 8 0 true`)
-            player.setDynamicProperty('stress', player.getDynamicProperty('stress') - 1000)
+            iDP(player, 'stress', -1000)
             break
         }
         case "arx:vodka_fiolix": {
             player.runCommand(`effect @s nausea 8 0 true`)
-            player.setDynamicProperty('stress', player.getDynamicProperty('stress') - 1000)
+            iDP(player, 'stress', -1000)
             break
         }
         case "arx:vodka_light_berries": {
             player.runCommand(`effect @s nausea 8 0 true`)
-            player.setDynamicProperty('stress', player.getDynamicProperty('stress') - 1000)
+            iDP(player, 'stress', -1000)
             break
         }
         case "arx:vodka_mushroom": {
             player.runCommand(`effect @s nausea 8 0 true`)
-            player.setDynamicProperty('stress', player.getDynamicProperty('stress') - 1000)
+            iDP(player, 'stress', -1000)
             break
         }
         case "arx:vodka_sweet_berrie": {
             player.runCommand(`effect @s nausea 8 0 true`)
-            player.setDynamicProperty('stress', player.getDynamicProperty('stress') - 1000)
+            iDP(player, 'stress', -1000)
             break
         }
         case "arx:wine": {
             player.runCommand(`effect @s regeneration 8 1 true`)
-            player.setDynamicProperty('stress', player.getDynamicProperty('stress') - 1000)
+            iDP(player, 'stress', -1000)
             break
         }
 
         // Бутыки тора
         case "arx:hole_bottle_mp_potion": {
-            player.setDynamicProperty('MPSmoothAccrue', 20)
+            iDP(player, 'MPSmoothAccrue', 20)
             break
         }
         case "arx:hole_bottle_mp_potion_royal_sorrel": {
             if (player.getDynamicProperty('MPPermanentBonus') < 5) {
-                player.setDynamicProperty('MPPermanentBonus', player.getDynamicProperty('MPPermanentBonus') + 1)
+                iDP(player, 'MPPermanentBonus', 1)
                 player.runCommand(`tellraw @s { "rawtext": [ { "text": "§aМаксимальная мана §d+1§a!" } ] }`)
             }
             else {
@@ -399,20 +399,20 @@ export function onFoodConsume(player, foodname) {
         }
         // Вертикальные бутылки
         case "arx:long_bottle_blood_karelo_evergreen_dream": {
-            player.runCommand(`function traits/get_neutral_trait`)
+            acquireTrait(player, [0, 1, 0])
             break
         }
         case "arx:long_bottle_blood_karelo_evergreen_dream_dragon_pion": {
-            player.runCommand(`function traits/get_positive_trait`)
+            acquireTrait(player, [1, 0, 0])
             break
         }
         case "arx:long_bottle_blood_karelo_evergreen_dream_jackal_grass": {
-            player.runCommand(`function traits/get_negative_trait`)
+            acquireTrait(player, [0, 0, 1])
             break
         }
         // Круглые бутылки
         case "arx:rounded_bottle_water_fiuli_kari": {
-            player.setDynamicProperty('stress', player.getDynamicProperty("stress") + 3000)
+            iDP(player, 'stress', 3000)
             break
         }
         case "arx:rounded_bottle_water_fiuli_night_kosk": {
@@ -425,11 +425,10 @@ export function onFoodConsume(player, foodname) {
         }
         case "arx:rounded_bottle_water_fiuli_yuan": {
             player.runCommand(`effect @s hunger 20 0 true`)
-            if (player.getDynamicProperty('saturation') > 0) {
-                player.setDynamicProperty('saturation', player.getDynamicProperty('saturation') - 60)
-                if (player.getDynamicProperty('saturation') < 0) {
-                    player.setDynamicProperty('saturation', 0)
-                }
+            if (player.getDynamicProperty('saturation') > 60) {
+                iDP(player, 'saturation', -60)
+            } else {
+                ssDP(player, 'saturation', 0)
             }
             break
         }
@@ -438,11 +437,11 @@ export function onFoodConsume(player, foodname) {
             break
         }
         case "arx:rounded_bottle_water_golden_hay_animal_eye_day_kosk": {
-            player.setDynamicProperty('noRainFog', 300)
+            ssDP(player, 'noRainFog', 300)
             break
         }
         case "arx:rounded_bottle_water_golden_hay_animal_eye_night_kosk": {
-            player.setDynamicProperty('noNightFog', 300)
+            ssDP(player, 'noNightFog', 300)
             break
         }
         case "arx:rounded_bottle_water_golden_hay_animal_eye_night_kosk_dragon_pion": {
@@ -458,15 +457,15 @@ export function onFoodConsume(player, foodname) {
             break
         }
         case "arx:rounded_bottle_water_golden_hay_bone": {
-            player.setDynamicProperty('jumpBoostByPotion', 60)
+            ssDP(player, 'jumpBoostByPotion', 60)
             break
         }
         case "arx:rounded_bottle_water_golden_hay_bone_dragon_pion": {
-            player.setDynamicProperty('jumpBoostByPotion', 300)
+            ssDP(player, 'jumpBoostByPotion', 300)
             break
         }
         case "arx:rounded_bottle_water_golden_hay_brain": {
-            player.setDynamicProperty('mpRegenBoostByPotion', 60)
+            ssDP(player, 'mpRegenBoostByPotion', 60)
             break
         }
         case "arx:rounded_bottle_water_golden_hay_claws": {
@@ -478,11 +477,11 @@ export function onFoodConsume(player, foodname) {
             break
         }
         case "arx:rounded_bottle_water_golden_hay_fang": {
-            player.setDynamicProperty('weighLimitBonusByPotion', 120)
+            ssDP(player, 'weighLimitBonusByPotion', 120)
             break
         }
         case "arx:rounded_bottle_water_golden_hay_fang_dragon_pion": {
-            player.setDynamicProperty('weighLimitBonusByPotion', 480)
+            ssDP(player, 'weighLimitBonusByPotion', 480)
             break
         }
         case "arx:rounded_bottle_water_golden_hay_feather": {
@@ -494,15 +493,15 @@ export function onFoodConsume(player, foodname) {
             break
         }
         case "arx:rounded_bottle_water_golden_hay_hoof": {
-            player.setDynamicProperty('speedBonusByPotion', 60)
+            ssDP(player, 'speedBonusByPotion', 60)
             break
         }
         case "arx:rounded_bottle_water_golden_hay_hoof_dragon_pion": {
-            player.setDynamicProperty('speedBonusByPotion', 300)
+            ssDP(player, 'speedBonusByPotion', 300)
             break
         }
         case "arx:rounded_bottle_water_golden_hay_kari": {
-            player.setDynamicProperty('stress', player.getDynamicProperty('stress') - 1200)
+            iDP(player, 'stress', -1200)
             break
         }
         case "arx:rounded_bottle_water_golden_hay_kavra": {
@@ -514,19 +513,19 @@ export function onFoodConsume(player, foodname) {
             break
         }
         case "arx:rounded_bottle_water_golden_hay_liver": {
-            player.setDynamicProperty('antitoxicationBonusByPotion100', 60)
+            ssDP(player, 'intitoxicationBonusByPotion100', 60)
             break
         }
         case "arx:rounded_bottle_water_golden_hay_liver_dragon_pion": {
-            player.setDynamicProperty('antitoxicationBonusByPotion100', 300)
+            ssDP(player, 'intitoxicationBonusByPotion100', 300)
             break
         }
         case "arx:rounded_bottle_water_golden_hay_liver_dragon_pion_dragon_pion": {
-            player.setDynamicProperty('antitoxicationBonusByPotion200', 60)
+            ssDP(player, 'intitoxicationBonusByPotion300', 60)
             break
         }
         case "arx:rounded_bottle_water_golden_hay_liver_dragon_pion_dragon_pion_dragon_pion": {
-            player.setDynamicProperty('antitoxicationBonusByPotion200', 300)
+            ssDP(player, 'intitoxicationBonusByPotion300', 300)
             break
         }
         case "arx:rounded_bottle_water_golden_hay_monster_eye": {
@@ -534,19 +533,19 @@ export function onFoodConsume(player, foodname) {
             break
         }
         case "arx:rounded_bottle_water_golden_hay_mp_flower": {
-            player.setDynamicProperty('MPSmoothAccrue', 20)
+            ssDP(player, 'MPSmoothAccrue', 20)
             break
         }
         case "arx:rounded_bottle_water_golden_hay_mp_flower_dragon_pion": {
-            player.setDynamicProperty('MPSmoothAccrue', 80)
+            ssDP(player, 'MPSmoothAccrue', 80)
             break
         }
         case "arx:rounded_bottle_water_golden_hay_snowflower": {
-            player.setDynamicProperty('freezingBlockByPotion', 600)
+            ssDP(player, 'freezingBlockByPotion', 600)
             break
         }
         case "arx:rounded_bottle_water_golden_hay_snowflower_jackal_grass": {
-            player.setDynamicProperty('heatingBlockByPotion', 60)
+            ssDP(player, 'heatingBlockByPotion', 60)
             break
         }
         case "arx:rounded_bottle_water_golden_hay_squama": {
@@ -554,11 +553,11 @@ export function onFoodConsume(player, foodname) {
             break
         }
         case "arx:rounded_bottle_water_golden_hay_yuan": {
-            player.setDynamicProperty('saturation', 1800)
+            ssDP(player, 'saturation', 1800)
             break
         }
         case "arx:fioletic_dose": {
-            player.setDynamicProperty('FiolixNarcoticPower', player.getDynamicProperty('FiolixNarcoticPower') + 600)
+            iDP(player, 'FiolixNarcoticPower', 600)
             break
         }
     }
@@ -570,7 +569,7 @@ export function onFoodConsume(player, foodname) {
             if (player.getDynamicProperty('hasEverAteSomething') !== true) {
                 player.runCommand(`tellraw @s { "rawtext": [ { "text": "[§aГид§f] > §aЕда восстанавливает§f вам §dвсю сытость§f примерно на 5 минут.\n[§aГид§f] > §aЧем вкуснее еда§f, §aтем больше счастья§f и §aболее сильную регенерацию§f вы получите при съедании.\n" } ] }`)
             }
-            player.setDynamicProperty('hasEverAteSomething', true)
+            ssDP(player, 'hasEverAteSomething', true)
 
 
             // Рассчет вкусности далее
@@ -616,10 +615,10 @@ export function onFoodConsume(player, foodname) {
 
             player.runCommand(`tellraw @s { "rawtext": [ { "text": "${messageColor}${messageStart}§f Бонус счастья ${messageColor}${(happinessBonus / 1000).toFixed(1)}§f." } ] }`)
 
-            player.setDynamicProperty("saturation", 360)
+            ssDP(player, 'saturation', 360)
 
             // Выдаем счастье
-            player.setDynamicProperty('stress', player.getDynamicProperty('stress') - happinessBonus)
+            iDP(player, 'stress', -happinessBonus)
         } else {
             player.runCommand(`tellraw @s { "rawtext": [ { "text": "§cВам безразлична еда." } ] }`)
         }
@@ -627,7 +626,7 @@ export function onFoodConsume(player, foodname) {
     // Мы выпили зелье. Надо накинуть отравление
     else if (foodType === "potion") {
         if (foodname in potions) {
-            player.setDynamicProperty('intoxication', player.getDynamicProperty('intoxication') + potions[foodname])
+            iDP(player, 'intoxication', potions[foodname])
         }
         else {
             console.warn(`Съета еда ${foodname}, подразумевается, что это зелье, но оно не найдено в списке зелий в onConsume`)

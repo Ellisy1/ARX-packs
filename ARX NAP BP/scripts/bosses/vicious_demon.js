@@ -1,6 +1,7 @@
 import { world, system } from "@minecraft/server"
 import { ActionFormData } from "@minecraft/server-ui"
 import { getEntitiesInCube } from '../core/music_core'
+import { iDP, ssDP } from "../DPOperations"
 
 // Взаимодействуем с мечом призыва демона
 export function interactWithViciousDemonSpawner(player) {
@@ -23,8 +24,8 @@ export function interactWithViciousDemonSpawner(player) {
 
 // Стартуем бой с порочным демоном?
 export function startBattleWithViciousDemon() {
-    world.setDynamicProperty('vicious_demon:cd_before_battle', 6)
-    world.setDynamicProperty('vicious_demon:is_fight_right_now', true)
+    ssDP(world, 'vicious_demon:cd_before_battle', 6)
+    ssDP(world, 'vicious_demon:is_fight_right_now', true)
     door('close')
 
     const entities = getEntitiesInCube([-2252, 32, 1843], [-2227, 22, 1866])
@@ -36,7 +37,7 @@ export function startBattleWithViciousDemon() {
 }
 
 function endBattleWithViciousDemon() {
-    world.setDynamicProperty('vicious_demon:is_fight_right_now', false)
+    ssDP(world, 'vicious_demon:is_fight_right_now', false)
     door('open')
 
     const entities = getEntitiesInCube([-2252, 32, 1843], [-2227, 22, 1866])
@@ -70,7 +71,7 @@ system.runInterval(() => {
             world.getDimension('minecraft:overworld').runCommand('particle arx:vicious_demon_spawn_flame_outward -2239 26 1854')
         }
 
-        world.setDynamicProperty('vicious_demon:cd_before_battle', world.getDynamicProperty('vicious_demon:cd_before_battle') - 1)
+        iDP(world, 'vicious_demon:cd_before_battle', -1)
     }
 
     // Обработка тех, кто в локации демона
@@ -100,8 +101,15 @@ system.runInterval(() => {
 
 world.afterEvents.entityDie.subscribe((dieEvent) => {
     if (dieEvent.deadEntity.typeId === "arx:vicious_demon") {
-        world.setDynamicProperty('vicious_demon:hasEverDefeated', true)
+        ssDP(world, 'vicious_demon:hasEverDefeated', true)
         endBattleWithViciousDemon()
+
+        const entities = getEntitiesInCube([-2252, 32, 1843], [-2227, 22, 1866])
+        for (const entity of entities) {
+            if (entity.typeId === "minecraft:player") {
+                entity.sendMessage("§dПорочный демон побеждён!\n§6§l--- §aШансы выпадения:\n§r§d10Ũ §aПорочная пика §c[Мифическое+]\n§d10Ũ §aПорочный посох §c[Мифическое+]\n§d10Ũ §aПорочный кинжал §c[Мифическое+]\n§d20Ũ §aРуна nakamata §c[Мифическое++]\n§d100Ũ §aСущность порочного демона §c[Мифическое++]\n§d4Ũ §aКомпозитный пиломеч демона §c[Мифическое+++]\n§d100Ũ 1-3 §aЭссенция опыта §g[Эпическое]")
+            }
+        }
     }
 })
 

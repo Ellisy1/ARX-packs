@@ -1,4 +1,5 @@
 import { queueCommand } from './commandQueue'
+import { ssDP } from './DPOperations';
 
 // Анализ эмоций
 export function emote(player, message) {
@@ -29,7 +30,7 @@ export function emote(player, message) {
         }
         else {
             if (parseInt(emotion) > 0 && parseInt(emotion) <= emotion_list.length) {
-                player.setDynamicProperty('hasEverEmoted', true)
+                ssDP(player, 'hasEverEmoted', true)
 
                 queueCommand(player, `playanimation @s animation.emote.${emotion_list[parseInt(emotion) - 1]} a 0.1 "query.is_moving || query.is_sneaking || q.property('arx:is_knocked') == true"`)
                 queueCommand(player, "tag @s add is_emoting_via_arx_command")

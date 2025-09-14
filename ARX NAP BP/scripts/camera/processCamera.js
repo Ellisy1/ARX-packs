@@ -1,5 +1,6 @@
 import { system, world } from "@minecraft/server"
 import { timeline } from './launchCameraUI'
+import { ssDP, iDP } from "../DPOperations";
 
 // Обработка камеры
 system.runInterval(() => {
@@ -12,14 +13,14 @@ system.runInterval(() => {
             const playerTimeLine = timeline[player.name]
 
             // Отсчитываем кд до след таймкода
-            player.setDynamicProperty('camera:tickCountdownToNextTimecode', player.getDynamicProperty('camera:tickCountdownToNextTimecode') - 1)
+            iDP(player, 'camera:tickCountdownToNextTimecode', -1)
 
             // Если отсчет до след таймкода закончился
             if (player.getDynamicProperty('camera:tickCountdownToNextTimecode') <= 0) {
 
                 // Если больше нет таймкодов (количество обработанных таймокодов равно количеству созданных игроком таймкодов)
                 if (player.getDynamicProperty('camera:numOfProcessedTimecodes') === playerTimeLine.length) {
-                    player.setDynamicProperty('camera:activeCamera', false)
+                    ssDP(player, 'camera:activeCamera', false)
                     player.runCommand('camera @s clear')
                 }
                 // Если таймкоды остались
@@ -31,11 +32,11 @@ system.runInterval(() => {
                     player.runCommand(`camera @s set minecraft:free ease ${currentTimecode.lengthSec} ${currentTimecode.interpolation} pos ${currentTimecode.position.x} ${currentTimecode.position.y} ${currentTimecode.position.z} rot ${pitch} ${yaw}`)
 
                     // Выставляем кд
-                    player.setDynamicProperty('camera:tickCountdownToNextTimecode', currentTimecode.lengthSec * 20)
+                    ssDP(player, 'camera:tickCountdownToNextTimecode', currentTimecode.lengthSec * 20)
                 }
 
                 // Увеличиваем счетчик обработанных таймкодов
-                player.setDynamicProperty('camera:numOfProcessedTimecodes', player.getDynamicProperty('camera:numOfProcessedTimecodes') + 1)
+                iDP(player, 'camera:numOfProcessedTimecodes')
             }
         }
     }

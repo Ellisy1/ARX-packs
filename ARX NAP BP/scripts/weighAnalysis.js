@@ -2,6 +2,7 @@ import { checkForItem } from "./checkForItem"
 import { getScore } from "./scoresOperations"
 import { checkForTrait } from './traits/traitsOperations'
 import { getNearestPlayer } from './getNearestPlayer'
+import { ssDP } from "./DPOperations"
 
 export function weighAnalysis(player) {
     // weighLimit - ограничение переносимого веса, при переходе за который накладывается штраф
@@ -64,7 +65,7 @@ export function weighAnalysis(player) {
     }
 
     // Отправляем значения в dynamicProperty
-    player.setDynamicProperty('weighLimit', weighLimit)
-    player.setDynamicProperty('weighLoading', weighLoading)
-    player.setDynamicProperty('overLoading', weighLoading - weighLimit)
+    ssDP(player, 'weighLimit', weighLimit)
+    ssDP(player, 'weighLoading', weighLoading)
+    ssDP(player, 'overLoading', weighLoading - weighLimit)
 }

@@ -18,6 +18,7 @@ import { portals } from '../portals'
 import { getPlayersInRadiusFromCoords } from '../portals'
 import { killingTimeAnimDelay, animate_killing_time } from './animate_killing_time'
 import { ssDP, iDP } from '../DPOperations'
+import { acquireTrait } from "../traits/traitsOperations"
 
 // Импорт - другие области движка
 import { getNearestPlayer } from "../getNearestPlayer"
@@ -36,13 +37,6 @@ system.runInterval(() => {
     world.getDimension("minecraft:overworld").runCommand("function core_parts/core")
     world.getDimension("minecraft:overworld").runCommand("function core_parts_NAP/core")
     world.getDimension("minecraft:overworld").runCommand("function core_parts_NAP/dynamic_light_execution")
-
-    // // Анализируем ARX Gate
-    // if (!ARXGate.in.startsWith('ARXGate:рус:awaitingInput')) {
-    //     console.warn(ARXGate.in)
-
-    //     ARXGate.in = `ARXGate:рус:awaitingInput_${Math.random()}`
-    // }
 
     for (const player of world.getPlayers()) {
 
@@ -91,7 +85,7 @@ system.runInterval(() => {
             // Уменьшение отката атаки
             if (player.getDynamicProperty("attackCD") > 0) { iDP(player, 'attackCD', -1) }
             // Уменьшение отката блока
-            if (player.getDynamicProperty("prohibit_damage") > 0) { player.setDynamicProperty("prohibit_damage", player.getDynamicProperty("prohibit_damage") - 1) }
+            if (player.getDynamicProperty("prohibit_damage") > 0) iDP(player, 'prohibit_damage', -1)
 
             // Отображаем в тактах
             if (player.getDynamicProperty("myRule:showAttackCDMode") == 'ticks') {
@@ -347,25 +341,25 @@ system.runInterval(() => {
 
             // Макс мана отрицательна
             if (maxMp < 0 || player.getDynamicProperty("mp") < 0) {
-                player.setDynamicProperty("mp", 0)
+                ssDP(player, 'mp', 0)
             }
             // Регенерируем
             else if (player.getDynamicProperty("mp") < maxMp) {
                 // Реген маны
                 if (mpRegenPower > 0) {
-                    player.setDynamicProperty("mp", player.getDynamicProperty("mp") + mpRegenPower / 10)
+                    iDP(player, "mp", mpRegenPower / 10)
                 }
                 // Если нам надо плавно накопить ману от зелий
                 if (player.getDynamicProperty('MPSmoothAccrue') > 0) {
-                    player.setDynamicProperty("mp", player.getDynamicProperty("mp") + 1)
-                    player.setDynamicProperty('MPSmoothAccrue', player.getDynamicProperty('MPSmoothAccrue') - 1)
+                    iDP(player, "mp")
+                    iDP(player, 'MPSmoothAccrue', -1)
                 }
                 displayMPAndAdjacent(player)
             }
             // Мана больше макс маны
             else if (player.getDynamicProperty("mp") > maxMp) { // Маны больше чем надо
-                player.setDynamicProperty("mp", maxMp)
-                player.setDynamicProperty('MPSmoothAccrue', 0)
+                ssDP(player, 'mp', maxMp)
+                ssDP(player, 'MPSmoothAccrue', 0)
                 displayMPAndAdjacent(player)
             }
             // Мана равна макс мане
@@ -742,13 +736,34 @@ system.runInterval(() => {
 }, 10);
 
 // DP, которые мы уменьшаем вплоть до 0
-const dynamicPropertiesToDecrease = [
-    'saturation', 'noRainFog', 'noNightFog', 'jumpBoostByPotion', 'mpRegenBoostByPotion', 'weighLimitBonusByPotion', 'speedBonusByPotion',
-    'antitoxicationBonusByPotion100', 'antitoxicationBonusByPotion200', 'freezingBlockByPotion', 'heatingBlockByPotion', 'statsBonusByFiolix',
-    'heatingBlockByScroll', "scrollOfHealingCD", 'autoHPRegenCD', 'ghostUltimateResistance', 'speedBoostAfterKnockout',
-
-    'speedBoost:level0', 'speedBoost:level1', 'speedBoost:level2', 'speedBoost:level3'
-]
+// 'dp': 'Сообщение при снижении до 0'
+const dynamicPropertiesToDecrease = {
+    'saturation': undefined,
+    'noRainFog': undefined,
+    'noNightFog': undefined,
+    'jumpBoostByPotion': '§6Бонус прыжка от зелья закончился',
+    'mpRegenBoostByPotion': '§6Бонус регенерации маны от зелья закончился',
+    'weighLimitBonusByPotion': '§6Бонус переносимого веса от зелья закончился',
+    'speedBonusByPotion': '§6Бонус скорости от зелья закончился',
+    'intitoxicationBonusByPotion100': '§6Бонус снятия интоксикации от зелья закончился',
+    'intitoxicationBonusByPotion300': '§6Бонус усиленного снятия интоксикации от зелья закончился',
+    'freezingBlockByPotion': '§6Неуязвимость к холоду от зелья закончилась',
+    'heatingBlockByPotion': '§6Неуязвимость к жаре от зелья закончилась',
+    'statsBonusByFiolix': undefined,
+    'heatingBlockByScroll': '§6Неуязвимость к жаре от свитка закончилась',
+    'scrollOfHealingCD': '§aСвиток исцеления снова можно использовать',
+    'autoHPRegenCD': undefined,
+    'ghostUltimateResistance': undefined,
+    'speedBoostAfterKnockout': undefined,
+    'speedBoost:level0': '§6Бонус скорости от заклинания [ур. 1] закончился',
+    'speedBoost:level1': '§6Бонус скорости от заклинания [ур. 2] закончился',
+    'speedBoost:level2': '§6Бонус скорости от заклинания [ур. 3] закончился',
+    'speedBoost:level3': '§6Бонус скорости от заклинания [ур. 4] закончился',
+    'shootingBoostBySpell_plus2': '§6Бонус стрельбы от заклинания (+2) закончился',
+    'shootingBoostBySpell_plus4': '§6Бонус стрельбы от заклинания (+4) закончился',
+    'shootingBoostBySpell_minus2': '§aШтраф стрельбы от заклинания (-2) закончился',
+    'shootingBoostBySpell_minus4': '§aШтраф стрельбы от заклинания (-4) закончился'
+};
 
 function getBlockWithOffset(player, x, y, z) {
     // Получаем позицию игрока
@@ -776,21 +791,60 @@ system.runInterval(() => {
 
     for (const player of world.getPlayers()) {
 
+        // Уменьшение DP из dynamicPropertiesToDecrease
+        for (const dp in dynamicPropertiesToDecrease) {
+            const DPValue = player.getDynamicProperty(dp)
+
+            if (DPValue > 0) {
+                iDP(player, dp, -1)
+
+                if (DPValue === 1 && dynamicPropertiesToDecrease[dp] !== undefined) {
+                    player.sendMessage(dynamicPropertiesToDecrease[dp])
+                }
+            }
+        }
+
         // Сколько живет персонаж?
         if (player.getDynamicProperty('hasRegisteredCharacter')) {
             iDP(player, 'characterLifeSec')
         }
 
+        // Телепортация на маяк
+        if (player.getDynamicProperty('magicBeacon') > 0) {
+            iDP(player, 'magicBeacon', -1)
+            if (player.getDynamicProperty('magicBeacon') === 0) {
+                const entities = player.dimension.getEntities()
+                for (const entity of entities) {
+                    if (entity.typeId === 'arx:magic_beacon' && entity.hasTag(player.name)) {
+                        player.runCommand('particle arx:portal_fog')
+                        player.teleport(entity.location)
+                        player.runCommand('camera @s fade time 0 0 1 color 200 0 150')
+                        player.runCommand('event entity @e[type=arx:magic_beacon, r = 0.1] arx:suicide')
+                        queueCommand(player, "playsound pallada_beacon @a ~ ~ ~")
+                        player.runCommand('particle arx:portal_fog')
+                        queueCommand(player, "camerashake add @a[r=8] 1 0.1")
+                        break
+                    }
+                }
+            }
+            else if (player.getDynamicProperty('magicBeacon') < 4) {
+                player.runCommand('playsound tick @s ~ ~ ~')
+                const entities = player.dimension.getEntities()
+                for (const entity of entities) {
+                    if (entity.typeId === 'arx:magic_beacon' && entity.hasTag(player.name)) {
+                        entity.runCommand('particle arx:beacon_fog ~ ~ ~')
+                        break
+                    }
+                }
+            }
+        }
+
         // Система счастья - стресса
-        {
+        if (player.getDynamicProperty('respawnDelay') === 0 && player.getGameMode() == 'Survival') {
             // Заводим JS переменные
             let stress = player.getDynamicProperty('stress') // Стресс
             let stressLevel = player.getDynamicProperty('stressLevel') // Уровень стресса
             let stressDynamic = player.getDynamicProperty('stressDynamic') // Корректирующая динамика
-
-            // // Случайная динамика
-            // if (Math.random() < 0.02) { stress += 200 }
-            // if (Math.random() < 0.02) { stress -= 200 }
 
             // Случайные события
             if (Math.random() < 0.0001) {
@@ -845,7 +899,20 @@ system.runInterval(() => {
             else if (stress <= 1500) stressLevel = 1;
             else if (stress <= 2500) stressLevel = 2;
             else if (stress <= 3500) stressLevel = 3;
-            else stressLevel = 4;
+            else {
+                stressLevel = 4
+                // Выдаем черту, если под стрессом
+                const traitRand = Math.random()
+
+                let traitProbability
+
+                if (player.getDynamicProperty('trait:unstable')) traitProbability = 0.01
+                else traitProbability = 0.005
+
+                if (traitRand < traitProbability) {
+                    acquireTrait(player, [2, 3, 4])
+                }
+            }
 
             // Вывод в чат
             let stressLevelOld = player.getDynamicProperty('stressLevel') // Уровень стресса в прошлый проход
@@ -899,13 +966,6 @@ system.runInterval(() => {
             player.runCommand('scoreboard players add @s no_fog -1')
         }
 
-        // Уменьшение DP из dynamicPropertiesToDecrease
-        for (const dp of dynamicPropertiesToDecrease) {
-            if (player.getDynamicProperty(dp) > 0) {
-                iDP(player, dp, -1)
-            }
-        }
-
         // Регаем на все сущности tick_nosempra_*
         world.getDimension("minecraft:overworld").runCommand("scoreboard players add @e[type=!item] tick_nosempra_a 0")
         world.getDimension("minecraft:overworld").runCommand("scoreboard players add @e[type=!item] tick_nosempra_b 0")
@@ -920,16 +980,12 @@ system.runInterval(() => {
 
         // Определяем бонус призрака
         {
-            if (player.getProperty('arx:is_ghost') && player.hasTag('scarlet_night') && !player.hasTag('underground')) {
-                player.setDynamicProperty('ghostBoostByScarletMoon', true)
-            } else {
-                player.setDynamicProperty('ghostBoostByScarletMoon', false)
-            }
+            ssDP(player, "ghostBoostByScarletMoon", player.getProperty('arx:is_ghost') && player.hasTag('scarlet_night') && !player.hasTag('underground'))
 
             if (player.getDynamicProperty('ghostBoostByScarletMoonLastPass') == false && player.getDynamicProperty('ghostBoostByScarletMoon') == true) {
                 player.runCommand(`tellraw @s { "rawtext": [ { "text": "§cСвет луны наполняет вас невероятной мощью..." } ] }`)
                 if (player.getDynamicProperty('stress') > -1200) {
-                    player.setDynamicProperty('stress', -1200)
+                    ssDP(player, 'stress', -1200)
                 }
             }
 
@@ -937,7 +993,7 @@ system.runInterval(() => {
                 player.runCommand(`tellraw @s { "rawtext": [ { "text": "§cМощь уходит..." } ] }`)
             }
 
-            player.setDynamicProperty('ghostBoostByScarletMoonLastPass', player.getDynamicProperty('ghostBoostByScarletMoon'))
+            ssDP(player, 'ghostBoostByScarletMoonLastPass', player.getDynamicProperty('ghostBoostByScarletMoon'))
         }
 
         // Анализ туманов
@@ -1001,8 +1057,8 @@ system.runInterval(() => {
 
         // Авторегенерация
         if (player.getDynamicProperty("autoHPRegenCD") == 0) {
-            if (checkForTrait(player, 'tenacious')) { player.setDynamicProperty("autoHPRegenCD", 80) }
-            else { player.setDynamicProperty("autoHPRegenCD", 90) }
+            if (checkForTrait(player, 'tenacious')) ssDP(player, 'autoHPRegenCD', 80)
+            else ssDP(player, 'autoHPRegenCD', 90)
 
             player.addEffect("regeneration", 200, { amplifier: 0, showParticles: false })
         }
@@ -1010,7 +1066,7 @@ system.runInterval(() => {
         // Игроки без персонажа
         if (player.getDynamicProperty('hasRegisteredCharacter') === false) {
             player.runCommand('effect @s regeneration 2 255 true')
-            player.setDynamicProperty('saturation', 720)
+            ssDP(player, 'saturation', 720)
         }
 
         // Механики призрака
@@ -1019,7 +1075,7 @@ system.runInterval(() => {
         }
         if (player.getProperty("arx:is_ghost") == true) {
             // Увядание призрака. Каждые 8 часов (= 28800 сек) призрак безвозвратно теряет характеристики
-            player.setDynamicProperty('ghostWithering', player.getDynamicProperty("ghostWithering") + 1)
+            iDP(player, 'ghostWithering')
 
             const ghostWitheringLevel = Math.floor(player.getDynamicProperty('ghostWithering') / 28800)
             // Отчитываемся, если увядание возросло
@@ -1027,10 +1083,10 @@ system.runInterval(() => {
                 player.runCommand('tellraw @s { "rawtext": [ { "text": "§4Вы всё больше теряете связь с этим миром..." } ] }')
             }
             // Записываем уровень увядания
-            player.setDynamicProperty("ghostWitheringLevel", ghostWitheringLevel)
+            ssDP(player, 'ghostWitheringLevel', ghostWitheringLevel)
 
             // Насыщаем
-            player.setDynamicProperty('saturation', 2)
+            ssDP(player, 'saturation', 2)
         }
 
         // Прокачка навыков, связанных с движением
@@ -1052,7 +1108,7 @@ system.runInterval(() => {
             player.runCommand(`tellraw @s { "rawtext": [ { "text": "§aНавыки сброшены." } ] }`)
         }
         if (player.hasTag("just_entered_arx")) {
-            player.setDynamicProperty("music_location_previous", 0)
+            ssDP(player, 'music_location_previous', 0)
             player.removeTag("just_entered_arx")
         }
 
@@ -1070,10 +1126,23 @@ system.runInterval(() => {
             // Расчёт снятия интоксикации
             let intoxicationDecreasePower = 100 // По умолчанию
 
-            player.setDynamicProperty('intoxicationDecreasePower', intoxicationDecreasePower)
+            // Бонус от колец
+            if (checkForItem(player, "Feet", "arx:ring_aluminum_aquamarine")) { intoxicationDecreasePower += 50 }
+            if (checkForItem(player, "Feet", "arx:ring_gold_aquamarine")) { intoxicationDecreasePower += 100 }
+            if (checkForItem(player, "Feet", "arx:ring_naginitis_aquamarine")) { intoxicationDecreasePower += 200 }
+            if (checkForItem(player, "Feet", "arx:ring_caryite_aquamarine")) { intoxicationDecreasePower += 300 }
+            if (checkForItem(player, "Feet", "arx:ring_malafiotironite_aquamarine")) { intoxicationDecreasePower += 400 }
+            if (checkForItem(player, "Feet", "arx:ring_lamenite_aquamarine")) { intoxicationDecreasePower += 500 }
+
+            // Бонус от зелий
+            if (player.getDynamicProperty('intitoxicationBonusByPotion100') > 0) { intoxicationDecreasePower += 100 }
+            if (player.getDynamicProperty('intitoxicationBonusByPotion300') > 0) { intoxicationDecreasePower += 300 }
+
+            // Записываем получившееся значение
+            ssDP(player, 'intoxicationDecreasePower', intoxicationDecreasePower)
 
             // Снятие интоксикации
-            if (player.getDynamicProperty('intoxication') > 0) player.setDynamicProperty('intoxication', player.getDynamicProperty('intoxication') - intoxicationDecreasePower / 100)
+            if (player.getDynamicProperty('intoxication') > 0) iDP(player, 'intoxication', -intoxicationDecreasePower / 100)
 
             // Расчитываем степень интоксикации
             const intoxicationLevel = Math.round(player.getDynamicProperty('intoxication') / 1000)
@@ -1111,7 +1180,7 @@ system.runInterval(() => {
                 if (Math.random() < 0.2) { player.runCommand(`effect @s fatal_poison 5 1 true`) }
             }
 
-            player.setDynamicProperty("intoxicationLevel", intoxicationLevel)
+            ssDP(player, 'intoxicationLevel', intoxicationLevel)
         }
 
         // Наркотики
@@ -1145,7 +1214,7 @@ system.runInterval(() => {
                 }
 
                 // Выдаем бонусы
-                player.setDynamicProperty('stress', player.getDynamicProperty('stress') + bonusByEatenFiolix * happinessMultiplier * -1)
+                iDP(player, 'stress', bonusByEatenFiolix * happinessMultiplier * -1)
             }
 
             // Мы скушали фиоликс, и мы не зависимы на момент съедания
@@ -1162,11 +1231,11 @@ system.runInterval(() => {
             if (FiolixNarcoticPower > 0) FiolixNarcoticPower--
 
             // Переменная для начисления сюда наркотиков
-            player.setDynamicProperty('FiolixNarcoticPower', FiolixNarcoticPower)
+            ssDP(player, 'FiolixNarcoticPower', FiolixNarcoticPower)
             // Внутренняя переменная для отслеживания динамики
-            player.setDynamicProperty('FiolixNarcoticPowerLastPass', FiolixNarcoticPower)
+            ssDP(player, 'FiolixNarcoticPowerLastPass', FiolixNarcoticPower)
             // Бонусы от съедания наркотиков
-            if (statsBonusByFiolix > 0) player.setDynamicProperty('statsBonusByFiolix', statsBonusByFiolix)
+            if (statsBonusByFiolix > 0) ssDP(player, 'statsBonusByFiolix', statsBonusByFiolix)
 
             // ПАССИВНЫЕ БОНУСЫ / ДЕБАФФЫ
             // 0 - 600 неприятная фаза
@@ -1207,6 +1276,12 @@ system.runInterval(() => {
 
             // Прибавка от уровня стрельбы
             rangedAttackAccuracy += player.getDynamicProperty("skill:shooting_level")
+
+            // Прибавка от заклинаний
+            if (player.getDynamicProperty('shootingBoostBySpell_plus2')) rangedAttackAccuracy += 2
+            if (player.getDynamicProperty('shootingBoostBySpell_plus4')) rangedAttackAccuracy += 4
+            if (player.getDynamicProperty('shootingBoostBySpell_minus2')) rangedAttackAccuracy -= 2
+            if (player.getDynamicProperty('shootingBoostBySpell_minus4')) rangedAttackAccuracy -= 4
 
             // Бонус для призака алой ночью
             if (player.getDynamicProperty('ghostBoostByScarletMoon')) rangedAttackAccuracy += 3
@@ -1253,7 +1328,7 @@ system.runInterval(() => {
         }
 
         // Холод - жара
-        {
+        if (player.getGameMode() === 'Survival') {
             let freezing = player.getDynamicProperty('freezing')
 
             // Определяем блокировку холода
@@ -1265,7 +1340,6 @@ system.runInterval(() => {
             if (player.hasTag('heating_by_heater_block_activate')) { blockFreezing = true }
 
             // Увеличение холода
-            //if (player.getTags().includes('BIOME_ice') && !blockFreezing) { freezing += 1 }
             if (player.getTags().includes('in_snow_biome') && !blockFreezing) { freezing += 1 }
             // Увеличение жары
             else if (player.getTags().includes('in_nether') && player.getDynamicProperty('heatingBlockByPotion') == 0 && player.getDynamicProperty('heatingBlockByScroll') == 0) { freezing -= 1 }
@@ -1353,7 +1427,7 @@ system.runInterval(() => {
                     }
 
                     player.runCommand(`tellraw @s { "rawtext": [ { "text": "§o§e${text}\n§7Вы ещё не до конца поняли, что к чему, но уже готовы бежать. (Получен временный бонус скорости)" } ] }`)
-                    player.setDynamicProperty("speedBoostAfterKnockout", 40)
+                    ssDP(player, 'speedBoostAfterKnockout', 40)
                 }
 
                 // Если есть кристалл быстрого возрождения
@@ -1406,7 +1480,7 @@ system.runInterval(() => {
                             player.runCommand(`tellraw @s { "rawtext": [ { "text": "${nearbyPlayer.getDynamicProperty('name')} §aчувствует себя лучше" } ] }`)
 
                             // Выставляем данные
-                            nearbyPlayer.setDynamicProperty('respawnDelay', 0)
+                            ssDP(nearbyPlayer, 'respawnDelay', 0)
                             nearbyPlayer.setProperty("arx:is_knocked", false)
                             nearbyPlayer.runCommand('event entity @s arx:property_is_knockout_set_0')
                         }
@@ -1428,7 +1502,7 @@ system.runInterval(() => {
                         }
                     }
                     if (!someoneWhoIsHelpingMe) {
-                        player.setDynamicProperty('reviveDelay', 0)
+                        ssDP(player, 'reviveDelay', 0)
                     }
                 }
                 // Темнеем камеру
@@ -1440,9 +1514,9 @@ system.runInterval(() => {
             }
 
             // Обработка переменных
-            player.setDynamicProperty('respawnDelayLastPass', player.getDynamicProperty('respawnDelay'))
+            ssDP(player, 'respawnDelayLastPass', player.getDynamicProperty('respawnDelay'))
             if (player.getDynamicProperty('respawnDelay') > 0) {
-                player.setDynamicProperty('respawnDelay', player.getDynamicProperty('respawnDelay') - 1)
+                iDP(player, 'respawnDelay', -1)
             }
 
             // Функия рисования линии респавна

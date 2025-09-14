@@ -15,7 +15,7 @@ function getBodyText(player) {
     bodyText += "§e|§f "
 
     {
-        switch (getScore(player, "stress_cond")) {
+        switch (player.getDynamicProperty('stressLevel')) {
             case 4:
                 bodyText += ' Стресс 4 (макс.) уровня.\n§e|§f Характеристики §4сильно понижены§f'
                 break

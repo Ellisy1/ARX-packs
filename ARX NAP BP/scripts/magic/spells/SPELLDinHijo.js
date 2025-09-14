@@ -1,3 +1,4 @@
+import { ssDP } from '../../DPOperations';
 import { findSpell } from '../findSpell';
 import { spellsList } from '../spells_list';
 
@@ -10,7 +11,7 @@ export function dinHijo(player, channels) {
             : `У меня в §d${i}§f канале не заготовлено заклинаний`;
         player.runCommand(`tellraw @s { "rawtext": [ { "text": "${message}" } ] }`);
     }
-    player.setDynamicProperty('hasEverCastedDinHijo', true);
+    ssDP(player, 'hasEverCastedDinHijo', true)
 }
 
 function getValueByIndex(obj, index) {

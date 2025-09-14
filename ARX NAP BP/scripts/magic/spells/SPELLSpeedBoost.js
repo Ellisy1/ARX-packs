@@ -1,3 +1,4 @@
+import { ssDP } from "../../DPOperations"
 import { getPlayersInRadius } from "../../getPlayersInRadius"
 
 const allowedPowers = [0, 1, 2, 3]
@@ -10,25 +11,25 @@ export function speedBoost(player, targetData, time, power, is_area_spell = fals
         case 'self':
             if (!is_area_spell) {
                 player.runCommand('particle arx:sofiso_a ~ ~2 ~')
-                player.setDynamicProperty(`speedBoost:level${power}`, time)
+                ssDP(player, `speedBoost:level${power}`, time)
             } else {
                 const players = getPlayersInRadius(player, 10)
                 for (const singlePlayer of players) {
                     singlePlayer.runCommand('particle arx:sofiso_a ~ ~2 ~')
-                    singlePlayer.setDynamicProperty(`speedBoost:level${power}`, time)
+                    ssDP(singlePlayer, `speedBoost:level${power}`, time)
                 }
             }
             break;
         case 'nearest':
             if (!is_area_spell) {
                 targetData.player.runCommand('particle arx:sofiso_a ~ ~2 ~')
-                targetData.player.setDynamicProperty(`speedBoost:level${power}`, time)
+                ssDP(targetData.player, `speedBoost:level${power}`, time)
             } else {
                 const players = getPlayersInRadius(player, 10)
                 for (const singlePlayer of players) {
                     if (singlePlayer != player) {
                         singlePlayer.runCommand('particle arx:sofiso_a ~ ~2 ~')
-                        singlePlayer.setDynamicProperty(`speedBoost:level${power}`, time)
+                        ssDP(singlePlayer, `speedBoost:level${power}`, time)
                     }
                 }
             }

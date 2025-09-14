@@ -1,6 +1,6 @@
 import { system, world } from "@minecraft/server"
 import { checkForItem } from "../checkForItem"
-import { getScore } from "../scoresOperations"
+import { ssDP } from "../DPOperations"
 
 // Аркс сохраняет данные о достижениях в DP, при этом формат записи ach:idДостижения
 // arx:id = false значит, что достижение не выполнено
@@ -533,7 +533,7 @@ export function completeAchievement(player, achievementID) { // achievementID Б
 
         player.runCommand(`tellraw @s { "rawtext": [ { "text": " §2Выполнено достижение: §r${achievementsList[achievementID].name} §7§o(${achievementsList[achievementID].description})" } ] }`)
         player.runCommand('playsound get_achievement @s ~ ~ ~')
-        player.setDynamicProperty(`ach:${achievementID}`, true)
+        ssDP(player, `ach:${achievementID}`, true)
         return 0
     }
 

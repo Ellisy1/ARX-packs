@@ -12,6 +12,7 @@ import { increaseSkillProgress } from "../skillsOperations";
 
 import { manageCD } from "../manageCD";
 import { queueCommand } from "../commandQueue";
+import { iDP, ssDP } from "../DPOperations";
 
 // Использование предметов
 world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юзание предмета на ПКМ
@@ -79,16 +80,16 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
                 player.runCommand("tag @s[rx=20, rxm=-20] add t2")
                 player.runCommand("tag @s[rx=-20] add t3")
 
-                if (player.hasTag('t1')) { player.runCommand("tag @s remove t1"); player.setDynamicProperty('magicTarget', 1) }
-                else if (player.hasTag('t2')) { player.runCommand("tag @s remove t2"); player.setDynamicProperty('magicTarget', 2) }
-                else if (player.hasTag('t3')) { player.runCommand("tag @s remove t3"); player.setDynamicProperty('magicTarget', 3) }
+                if (player.hasTag('t1')) { player.runCommand("tag @s remove t1"); ssDP(player, 'magicTarget', 1) }
+                else if (player.hasTag('t2')) { player.runCommand("tag @s remove t2"); ssDP(player, 'magicTarget', 2) }
+                else if (player.hasTag('t3')) { player.runCommand("tag @s remove t3"); ssDP(player, 'magicTarget', 3) }
                 reportAboutMagicTarget(player)
             }
             // Стардарт
             else {
-                if (player.getDynamicProperty('magicTarget') == 1) { player.setDynamicProperty('magicTarget', 2) }
-                else if (player.getDynamicProperty('magicTarget') == 2) { player.setDynamicProperty('magicTarget', 3) }
-                else if (player.getDynamicProperty('magicTarget') == 3) { player.setDynamicProperty('magicTarget', 1) }
+                if (player.getDynamicProperty('magicTarget') == 1) { ssDP(player, 'magicTarget', 2) }
+                else if (player.getDynamicProperty('magicTarget') == 2) { ssDP(player, 'magicTarget', 3) }
+                else if (player.getDynamicProperty('magicTarget') == 3) { ssDP(player, 'magicTarget', 1) }
                 reportAboutMagicTarget(player)
             }
 
@@ -146,11 +147,12 @@ export function cipherRuneSequence(player, runeName, runeTags) {
     }
 
     // Устанавливаем напрямую данные о рунах в DynamicProperty
-    player.setDynamicProperty(dynamicPropertyName, runeCiphers[runeName] + player.getDynamicProperty(dynamicPropertyName))
+
+    ssDP(player, dynamicPropertyName, runeCiphers[runeName] + player.getDynamicProperty(dynamicPropertyName))
 
     // Срезаем длину строки, если она более 100 символов
     if (player.getDynamicProperty(dynamicPropertyName).length > 100) {
-        player.setDynamicProperty(dynamicPropertyName, player.getDynamicProperty(dynamicPropertyName).substring(0, 100))
+        ssDP(player, dynamicPropertyName, player.getDynamicProperty(dynamicPropertyName).substring(0, 100))
     }
 
     // Сообщаем игроку о введенной руне
@@ -160,11 +162,11 @@ export function cipherRuneSequence(player, runeName, runeTags) {
 
 // Снимаем ману при использовании закла
 function withdrawMpOnCastingSpell(player) {
-    player.setDynamicProperty("mp", player.getDynamicProperty("mp") - getScore(player, "mp_req"))
+    iDP(player, "mp", -getScore(player, "mp_req"))
 }
 
 // Кастуем закл
-function castSpell(player, activeChannel, staff) {
+export function castSpell(player, activeChannel, staff) {
     // Получаем заклинание, корректно развернутое для запуска mcfunction заклинаний
     const reverseSpellCipher = reversePairs(findSpell(player, activeChannel))
 

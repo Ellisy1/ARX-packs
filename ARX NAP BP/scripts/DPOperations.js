@@ -10,7 +10,9 @@ export function ssDP(object, DPName, value) {
     
     if (oldValue != value) {
         object.setDynamicProperty(DPName, value)
-        // console.warn(DPName)
+        counter++
+        // Логирование всех действий с DP через DPOperations
+        // console.warn(counter, DPName)
     }
 }
 
@@ -25,3 +27,5 @@ export function iDP(object, DPName, valueToIncrease = 1) {
 
     ssDP(object, DPName, currentValue + valueToIncrease)
 }
+
+let counter = 0

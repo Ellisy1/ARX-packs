@@ -46,14 +46,6 @@ export const spellsList = {
     "kon yanamo floruum mega": "заклинание хорошего излечения отравления",
 
 
-    "kon orduino disortari": "заклинание нейтрализации длительного урона, действующее по площади",
-
-    "kon orduino": "заклинание нейтрализации длительного урона",
-
-
-    "kon hijo": "заклинание запроса на боевые навыки",
-
-
     "kon inoffo nakamata": "заклинание поджигания порочным пламенем",
 
     "kon inoffo nakamata mega": "усиленное заклинание поджигания порочным пламенем",
@@ -74,11 +66,6 @@ export const spellsList = {
     "sin inoffo arrako": "заклинание слабого ухудшения навыка стрельбы из лука",
 
     "sin inoffo arrako mega": "заклинание мощного ухудшения навыка стрельбы из лука",
-
-
-    "sin orduino disortari": "заклинание нейтрализации улучшений ловкости по площади",
-
-    "sin orduino": "заклинание нейтрализации улучшений ловкости",
 
 
     "sin yanamo sofiso": "слабое заклинание ускорения",
@@ -111,15 +98,34 @@ export const spellsList = {
 
     "sin yanamo trafantana sartagana mega mega mega": "заклинание призрачного сверхрывка",
 
+    "sin sukimo": 'заклинание цепи заклинаний',
 
     // Солнце
     "san yanamo shumi": "слабое заклинание защиты",
 
-    "san yanamo shumi mega": "хорошее заклинание защиты",
+    "san yanamo shumi sakiifori": "слабое длительное заклинание защиты",
 
-    "san yanamo shumi mega mega": "мощное заклинание защиты",
+    "san yanamo shumi disortari": "слабое заклинание защиты по площади",
 
-    "san yanamo shumi mega mega mega": "заклинание идеальной защиты",
+    "san yanamo shumi sakiifori disortari": "слабое длительное заклинание защиты по площади",
+
+
+    "san yanamo shumi mega": "слабое заклинание защиты",
+
+    "san yanamo shumi mega sakiifori": "слабое длительное заклинание защиты",
+
+    "san yanamo shumi mega disortari": "слабое заклинание защиты по площади",
+
+    "san yanamo shumi mega sakiifori disortari": "слабое длительное заклинание защиты по площади",
+
+
+    "san yanamo shumi mega mega mega": "слабое заклинание защиты",
+
+    "san yanamo shumi mega mega mega sakiifori": "слабое длительное заклинание защиты",
+
+    "san yanamo shumi mega mega mega disortari": "слабое заклинание защиты по площади",
+
+    "san yanamo shumi mega mega mega sakiifori disortari": "слабое длительное заклинание защиты по площади",
 
 
     "san yanamo shumi kotoka": "слабое заклинание блокировки воздействия враждебной магии направления хаоса",
@@ -171,11 +177,16 @@ export const spellsList = {
 
     "san yanamo horo sakiifori": "слабое сверхдлительное заклинание регенерации",
 
+    "san yanamo horo sakiifori disortari": "слабое сверхдлительное заклинание регенерации по площади",
+
+
     "san yanamo horo mega": "хорошее заклинание регенерации",
 
     "san yanamo horo mega disortari": "хорошее заклинание регенерации по площади",
 
     "san yanamo horo mega sakiifori": "хорошее сверхдлительное заклинание регенерации",
+
+    "san yanamo horo mega sakiifori disortari": "хорошее сверхдлительное заклинание регенерации по площади",
 
 
     "san yanamo horo mega mega mega": "мощное заклинание регенерации",
@@ -184,29 +195,18 @@ export const spellsList = {
 
     "san yanamo horo mega mega mega sakiifori": "мощное сверхдлительное заклинание регенерации",
 
+    "san yanamo horo mega mega mega sakiifori disortari": "мощное сверхдлительное заклинание регенерации по площади",
 
-    "san yanamo horo sofiso mega mega mega": "заклинание моментального восстановления",
 
-    "san yanamo horo sofiso mega mega mega disortari": "заклинание моментального восстановления по площади",
+    "san yanamo horo sofiso": "заклинание моментального восстановления",
+
+    "san yanamo horo sofiso disortari": "заклинание моментального восстановления по площади",
 
 
     "san yanamo marra": "заклинание метки",
 
 
-    "san hijo": "заклинание на запрос на текущие бонусы солнца",
-
-
-    "san orduino": "заклинание рассеивания длительных заклинаний солнца",
-
-    "san orduino disortari": "заклинание рассеивания длительных заклинаний солнца по площади",
-
-
     "san yanamo ratatao": "заклинание успокоения всех крыс, у которых есть спокойная фаза",
-
-
-    "san sukimo flurri": "заклинания слабого лампадного масла",
-
-    "san sukimo flurri mega": "заклинание сильного лампадного масла",
 
     
     "san yanamo shumi flurri": "заклинание огнестойкости на 5 сек.",
@@ -256,7 +256,9 @@ export const spellsList = {
 
     "din yanamo trafantana marra": "заклинание телепортации к игроку с меткой",
 
-    "din yanamo trafantana kotoka": "заклинание маяка",
+    "din yanamo trafantana kotoka": "заклинание маяка с задержкой 10 секунд",
+
+    "din yanamo trafantana sakiifori kotoka": "заклинание маяка с задержкой 30 секунд",
 
 
     "din yanamo watashi": "заклинание моментального высыхания",
@@ -325,11 +327,6 @@ export const spellsList = {
 
 
     "din sukimo subversa": "заклинание молнии",
-
-
-    "din hijo kotoka": "заклинание запроса магических навыков",
-
-    "din hijo kotoka mega": "заклинание запроса навыков",
 
 
     "din hijo": "заклинание запроса заклинания (4 канала)",

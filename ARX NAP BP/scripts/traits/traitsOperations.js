@@ -1,5 +1,8 @@
 import { traitsList } from './traitsList'
 import { queueCommand } from '../commandQueue'
+import { ssDP } from '../DPOperations';
+
+// Черты хранятся в dynamicProperty игрока вида trait:traitId = ( 0 == нет черты || 1 == есть черта || 2 == закреп )
 
 // Объект, содержащий в себе все черты
 const allTraits = { ...traitsList.positive, ...traitsList.neutral, ...traitsList.negative }
@@ -58,14 +61,14 @@ export function clearTraits(player, clearLocked = false) {
     // Если чистим все черты
     if (clearLocked) {
         Object.keys(allTraits).forEach(trait => {
-            player.setDynamicProperty(`trait:${trait}`, undefined);
+            ssDP(player, `trait:${trait}`, undefined)
         })
     }
     // Если чистим только незакреплённые
     else {
         Object.keys(allTraits).forEach(trait => {
             if (player.getDynamicProperty(`trait:${trait}`) !== 2) {
-                player.setDynamicProperty(`trait:${trait}`, undefined)
+                ssDP(player, `trait:${trait}`, undefined)
             }
         })
     }
@@ -104,14 +107,14 @@ function accureTrait(player, traitId) {
 
     if (currentTraitLockStatus === 1) {
         locked = true
-        player.setDynamicProperty(traitDP, 2)
+        ssDP(player, traitDP, 2)
     }
     else if (currentTraitLockStatus === 2) {
         // Мы не можем выдать черту, так как она уже есть и закреплена
         return
     }
     else {
-        player.setDynamicProperty(traitDP, 1)
+        ssDP(player, traitDP, 1)
     }
 
     reportAboutAcquiringTrait(player, traitNameRU, traitDescriptionRU, traitType, locked)

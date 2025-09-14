@@ -194,32 +194,34 @@ function isDay(player) {
 export function isEntityInCube(entity, cornerA, cornerB) {
     // Проверяем, что entity существует и является объектом
     if (!entity || typeof entity !== 'object') {
-        console.error('[isEntityInCube] Некорректный тип entity:', entity);
         return false;
     }
 
-    // Проверяем, что entity имеет location
-    if (!entity?.location) {
-        console.warn('[isEntityInCube] Сущность не имеет location:', entity);
-        return false;
+    try {
+        const entityPos = entity.location;
+
+        // Находим минимальные и максимальные координаты куба
+        const minx = Math.min(cornerA[0], cornerB[0]);
+        const maxx = Math.max(cornerA[0], cornerB[0]);
+        const miny = Math.min(cornerA[1], cornerB[1]);
+        const maxy = Math.max(cornerA[1], cornerB[1]);
+        const minz = Math.min(cornerA[2], cornerB[2]);
+        const maxz = Math.max(cornerA[2], cornerB[2]);
+
+        // Проверяем, находится ли сущность внутри куба
+        return (
+            entityPos.x >= minx && entityPos.x <= maxx &&
+            entityPos.y >= miny && entityPos.y <= maxy &&
+            entityPos.z >= minz && entityPos.z <= maxz
+        );
+    } catch (err) {
+        // Игнорируем ошибку типа "InvalidActorError" — сущность недействительна
+        if (err.message.includes("Failed to get property 'location'") || 
+            err.message.includes("Entity being invalid")) {
+            return false; // или true, если хочешь считать, что "не в кубе"
+        }
+        throw err; // Пробрасываем другие ошибки
     }
-
-    const entityPos = entity.location;
-
-    // Находим минимальные и максимальные координаты куба
-    const minX = Math.min(cornerA[0], cornerB[0]);
-    const maxX = Math.max(cornerA[0], cornerB[0]);
-    const minY = Math.min(cornerA[1], cornerB[1]);
-    const maxY = Math.max(cornerA[1], cornerB[1]);
-    const minZ = Math.min(cornerA[2], cornerB[2]);
-    const maxZ = Math.max(cornerA[2], cornerB[2]);
-
-    // Проверяем, находится ли сущность внутри куба
-    return (
-        entityPos.x >= minX && entityPos.x <= maxX &&
-        entityPos.y >= minY && entityPos.y <= maxY &&
-        entityPos.z >= minZ && entityPos.z <= maxZ
-    );
 }
 
 // Возвращает массив сущностей, находящихся внутри указанного куба

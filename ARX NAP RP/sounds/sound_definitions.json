@@ -439,5 +439,23 @@
             "stream": true
          }
       ]
+   },
+   "spell.healing": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/spells/healing_spell"
+      ]
+   },
+   "spell.power_sound": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/spells/power_sound"
+      ]
+   },
+   "spell.resistance": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/spells/resistance_spell"
+      ]
    }
 }

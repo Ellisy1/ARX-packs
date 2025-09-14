@@ -1,144 +1,148 @@
+import { ssDP } from "./DPOperations"
 import { registeredSkills } from "./skillsOperations"
 
 // Эта функция устанавливает игроку значения переменных в дефолтные
 export function registerPlayerVars(player) {
     for (let skill in registeredSkills) {
         if (player.getDynamicProperty(`skill:${skill}_level`) === undefined) {
-            player.setDynamicProperty(`skill:${skill}_level`, 0)
+            ssDP(player, `skill:${skill}_level`, 0)
         }
         if (player.getDynamicProperty(`skill:${skill}_progress`) === undefined) {
-            player.setDynamicProperty(`skill:${skill}_progress`, 0.0)
+            ssDP(player, `skill:${skill}_progress`, 0.0)
         }
     }
 
     // Каналы магии
     for (let i = 1; i < 11; i++) {
         if (player.getDynamicProperty(`channel_${i}_rune_sequence`) === undefined) {
-            player.setDynamicProperty(`channel_${i}_rune_sequence`, '')
+            ssDP(player, `channel_${i}_rune_sequence`, '')
         }
     }
 
     // Бусты скорости
     for (let i = 0; i < 4; i++) {
         if (player.getDynamicProperty(`speedBoost:level${i}`) === undefined) {
-            player.setDynamicProperty(`speedBoost:level${i}`, 0)
+            ssDP(player, `speedBoost:level${i}`, 0)
         }
     }
 
     if (player.getDynamicProperty("mp") === undefined) {
-        player.setDynamicProperty("mp", 1000)
+        ssDP(player, "mp", 1000)
     }
     if (player.getDynamicProperty("myRule:showAttackCDMode") === undefined) {
-        player.setDynamicProperty("myRule:showAttackCDMode", "seconds")
+        ssDP(player, "myRule:showAttackCDMode", "seconds")
     }
     if (player.getDynamicProperty("myRule:manaDisplayMode") === undefined) {
-        player.setDynamicProperty("myRule:manaDisplayMode", "integers")
+        ssDP(player, "myRule:manaDisplayMode", "integers")
     }
     if (player.getDynamicProperty("myRule:canSeeServerSpeedInInfoBook") === undefined) {
-        player.setDynamicProperty("myRule:canSeeServerSpeedInInfoBook", false)
+        ssDP(player, "myRule:canSeeServerSpeedInInfoBook", false)
     }
     if (player.getDynamicProperty("myRule:chatPrefixes") === undefined) {
-        player.setDynamicProperty("myRule:chatPrefixes", 'fullEN')
+        ssDP(player, "myRule:chatPrefixes", 'fullEN')
     }
     if (player.getDynamicProperty("attackCD") === undefined) {
-        player.setDynamicProperty("attackCD", 0)
+        ssDP(player, "attackCD", 0)
     }
     if (player.getDynamicProperty("overLoading") === undefined) {
-        player.setDynamicProperty("overLoading", 0)
+        ssDP(player, "overLoading", 0)
     }
     if (player.getDynamicProperty("prohibit_damage") === undefined) {
-        player.setDynamicProperty("prohibit_damage", 0)
+        ssDP(player, "prohibit_damage", 0)
     }
     if (player.getDynamicProperty("MPPermanentBonus") === undefined) {
-        player.setDynamicProperty("MPPermanentBonus", 0)
+        ssDP(player, "MPPermanentBonus", 0)
     }
     if (player.getDynamicProperty("intoxication") === undefined) {
-        player.setDynamicProperty("intoxication", 0)
+        ssDP(player, "intoxication", 0)
     }
     if (player.getDynamicProperty("FiolixNarcoticPower") === undefined) {
-        player.setDynamicProperty("FiolixNarcoticPower", 0)
+        ssDP(player, "FiolixNarcoticPower", 0)
     }
     if (player.getDynamicProperty("magicTarget") === undefined) {
-        player.setDynamicProperty("magicTarget", 1)
+        ssDP(player, "magicTarget", 1)
     }
     if (player.getDynamicProperty("freezing") === undefined) {
-        player.setDynamicProperty("freezing", 0)
+        ssDP(player, "freezing", 0)
     }
     if (player.getDynamicProperty("freezingBlockByPotion") === undefined) {
-        player.setDynamicProperty("freezingBlockByPotion", 0)
+        ssDP(player, "freezingBlockByPotion", 0)
     }
     if (player.getDynamicProperty("heatingBlockByPotion") === undefined) {
-        player.setDynamicProperty("heatingBlockByPotion", 0)
+        ssDP(player, "heatingBlockByPotion", 0)
     }
     if (player.getDynamicProperty("heatingBlockByScroll") === undefined) {
-        player.setDynamicProperty("heatingBlockByScroll", 0)
+        ssDP(player, "heatingBlockByScroll", 0)
     }
     if (player.getDynamicProperty("scrollOfHealingCD") === undefined) {
-        player.setDynamicProperty("scrollOfHealingCD", 0)
+        ssDP(player, "scrollOfHealingCD", 0)
     }
     if (player.getDynamicProperty("intoxicationLevel") === undefined) {
-        player.setDynamicProperty("intoxicationLevel", 0)
+        ssDP(player, "intoxicationLevel", 0)
     }
     if (player.getDynamicProperty("hasRegisteredCharacter") === undefined) {
-        player.setDynamicProperty("hasRegisteredCharacter", false)
+        ssDP(player, "hasRegisteredCharacter", false)
     }
     if (player.getDynamicProperty("autoHPRegenCD") === undefined) {
-        player.setDynamicProperty("autoHPRegenCD", 60)
+        ssDP(player, "autoHPRegenCD", 60)
     }
     if (player.getDynamicProperty("is_whispering") === undefined) {
-        player.setDynamicProperty("is_whispering", false)
+        ssDP(player, "is_whispering", false)
     }
     if (player.getDynamicProperty("verify") === undefined) {
-        player.setDynamicProperty("verify", false)
+        ssDP(player, "verify", false)
     }
     if (player.getDynamicProperty("trueName") === undefined) {
-        player.setDynamicProperty("trueName", "Странник")
+        ssDP(player, "trueName", "Странник")
     }
     if (player.getDynamicProperty("statistics:distance") === undefined) {
-        player.setDynamicProperty("statistics:distance", 0)
+        ssDP(player, "statistics:distance", 0)
     }
     if (player.getDynamicProperty("height") === undefined) {
-        player.setDynamicProperty("height", 180)
+        ssDP(player, "height", 180)
     }
     if (player.getDynamicProperty('ghostWithering') === undefined) {
-        player.setDynamicProperty('ghostWithering', 0)
+        ssDP(player, 'ghostWithering', 0)
     }
     if (player.getDynamicProperty('ghostWitheringLevel') === undefined) {
-        player.setDynamicProperty('ghostWitheringLevel', 0)
+        ssDP(player, 'ghostWitheringLevel', 0)
     }
     if (player.getDynamicProperty('ghostUltimateResistance') === undefined) {
-        player.setDynamicProperty('ghostUltimateResistance', 0)
+        ssDP(player, 'ghostUltimateResistance', 0)
     }
 
     if (player.getDynamicProperty('reviveDelay') === undefined) {
-        player.setDynamicProperty('reviveDelay', 0)
+        ssDP(player, 'reviveDelay', 0)
     }
     if (player.getDynamicProperty('respawnDelay') === undefined) {
-        player.setDynamicProperty('respawnDelay', 0)
+        ssDP(player, 'respawnDelay', 0)
     }
     if (player.getDynamicProperty('camera:activeCamera') === undefined) {
-        player.setDynamicProperty('camera:activeCamera', false)
+        ssDP(player, 'camera:activeCamera', false)
     }
     if (player.getDynamicProperty('camera:tickCountdownToNextTimecode') === undefined) {
-        player.setDynamicProperty('camera:tickCountdownToNextTimecode', 0)
+        ssDP(player, 'camera:tickCountdownToNextTimecode', 0)
     }
     if (player.getDynamicProperty('camera:numOfProcessedTimecodes') === undefined) {
-        player.setDynamicProperty('camera:numOfProcessedTimecodes', 0)
+        ssDP(player, 'camera:numOfProcessedTimecodes', 0)
     }
     if (player.getDynamicProperty('speedBoostAfterKnockout') === undefined) {
-        player.setDynamicProperty('speedBoostAfterKnockout', 0)
+        ssDP(player, 'speedBoostAfterKnockout', 0)
     }
 
     if (player.getDynamicProperty('stress') === undefined) {
-        player.setDynamicProperty('stress', 0)
+        ssDP(player, 'stress', 0)
     }
     if (player.getDynamicProperty('stressLevel') === undefined) {
-        player.setDynamicProperty('stressLevel', 0)
+        ssDP(player, 'stressLevel', 0)
     }
     if (player.getDynamicProperty('stressDynamic') === undefined) {
-        player.setDynamicProperty('stressDynamic', 0)
+        ssDP(player, 'stressDynamic', 0)
     }
     if (player.getDynamicProperty('characterLifeSec') === undefined) {
-        player.setDynamicProperty('characterLifeSec', 0)
+        ssDP(player, 'characterLifeSec', 0)
+    }
+    if (player.getDynamicProperty('MPSmoothAccrue') === undefined) {
+        ssDP(player, 'MPSmoothAccrue', 0)
     }
 }

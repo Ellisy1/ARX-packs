@@ -12,6 +12,7 @@ import { TPWithNoxenessionPortal } from '../portals'
 
 import { showDialog } from '../dialogues'
 import { clearTraits, acquireTrait } from '../traits/traitsOperations'
+import { iDP, ssDP } from "../DPOperations";
 
 // Использование предметов
 world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юзание предмета на ПКМ
@@ -38,7 +39,7 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
         case "arx:cigarette_fiolix":
             if (manageCD(player)) {
                 player.runCommand("function alchemy/cigarettes/cigarette_fiolix")
-                player.setDynamicProperty('FiolixNarcoticPower', player.getDynamicProperty('FiolixNarcoticPower') + 600)
+                iDP(player, 'FiolixNarcoticPower', 600)
             }
             break
 
@@ -180,11 +181,11 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
 
                 else if (rand < 0.5) {
                     player.sendMessage(' Вы прочитали §aинтересную§f историю!')
-                    player.setDynamicProperty('stress', player.getDynamicProperty('stress') - 1000)
+                    iDP(player, 'stress', -1000)
                 }
                 else if (rand < 0.666) {
                     player.sendMessage(' Вы прочитали §cгрустную§f историю.')
-                    player.setDynamicProperty('stress', player.getDynamicProperty('stress') + 1500)
+                    iDP(player, 'stress', 1500)
                 }
 
                 else if (rand < 0.8) {
@@ -472,9 +473,9 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
         // Свитки
         case "arx:scroll_of_fire_resistance":
             if (player.getDynamicProperty('freezing') < 0) {
-                player.setDynamicProperty('freezing', 0)
+                ssDP(player, 'freezing', 0)
             }
-            player.setDynamicProperty('heatingBlockByScroll', 30)
+            ssDP(player, 'heatingBlockByScroll', 30)
 
             player.runCommand('effect @s fire_resistance 30 0 true')
             player.runCommand('clear @s arx:scroll_of_fire_resistance 0 1')
@@ -484,7 +485,7 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
 
         case "arx:scroll_of_healing":
             if (player.getDynamicProperty('scrollOfHealingCD') == 0) {
-                player.setDynamicProperty('scrollOfHealingCD', 60)
+                ssDP(player, 'scrollOfHealingCD', 60)
                 player.runCommand('effect @s regeneration 10 1 true')
                 player.runCommand('clear @s arx:scroll_of_healing 0 1')
                 player.runCommand(`tellraw @s { "rawtext": [ { "text": "§aСвиток использован!" } ] }`)
@@ -515,10 +516,10 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
 
                 player.runCommand('effect @s clear')
 
-                player.setDynamicProperty('ghostWithering', 0)
-                player.setDynamicProperty('ghostWitheringLevel', 0)
-                player.setDynamicProperty('ghostUltimateResistance', 0)
-                player.setDynamicProperty('ghostBoostByScarletMoon', false)
+                ssDP(player, 'ghostWithering', 0)
+                ssDP(player, 'ghostWitheringLevel', 0)
+                ssDP(player, 'ghostUltimateResistance', 0)
+                ssDP(player, 'ghostBoostByScarletMoon', false)
 
                 player.setProperty('arx:is_ghost', false)
                 player.runCommand('clear @s arx:scroll_of_reborning 0 1')
@@ -706,7 +707,7 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
 
 function launchBlocking(player) {
     player.runCommand('effect @s resistance 1 1 true')
-    player.setDynamicProperty('prohibit_damage', 20)
-    player.setDynamicProperty('attackCD', player.getDynamicProperty('attackCD') + 25)
+    ssDP(player, 'prohibit_damage', 20)
+    iDP(player, 'attackCD', 15)
     player.runCommand("summon arx:blocking_invisible_shield")
 }

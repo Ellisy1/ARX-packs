@@ -3,6 +3,7 @@
 import { queueCommand } from './commandQueue'
 import { checkForItem } from './checkForItem'
 import { checkForTrait } from './traits/traitsOperations'
+import { iDP, ssDP } from './DPOperations'
 
 // Увеличиваем прогресс навыка на inputValue, учитывая срезание прогресса от уровня
 export function increaseSkillProgress(player, skill, inputValue) {
@@ -51,10 +52,10 @@ export function increaseSkillProgress(player, skill, inputValue) {
     increaseValue *= increaseMultiplier
 
     // Отправляем increaseMultiplier в DP
-    player.setDynamicProperty('xpMultiplier', increaseMultiplier)
+    ssDP(player, 'xpMultiplier', increaseMultiplier)
 
     // Добавляем опыт игроку
-    player.setDynamicProperty(`skill:${skill}_progress`, increaseValue + player.getDynamicProperty(`skill:${skill}_progress`))
+    iDP(player, `skill:${skill}_progress`, increaseValue)
 
 
     // Проверяем, надо ли делать левелап
@@ -72,8 +73,8 @@ export function increaseSkillLevel(player, skill) {
         }
 
         // Изменяем properties игрока
-        player.setDynamicProperty(`skill:${skill}_progress`, 0)
-        player.setDynamicProperty(`skill:${skill}_level`, player.getDynamicProperty(`skill:${skill}_level`) + 1)
+        ssDP(player, `skill:${skill}_progress`, 0)
+        iDP(player, `skill:${skill}_level`)
         // Отчитываемся в чат
         queueCommand(player, `playsound player.skill.levelUp @s ~ ~ ~`)
         queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§e§lНовый уровень§r§f: ${registeredSkills[skill].nameRU}§f: §a${player.getDynamicProperty(`skill:${skill}_level`)}" } ] }`)
@@ -124,7 +125,7 @@ export function wipeSkills(player) {
     wipeSkillsProgress(player)
 
     for (const skill in registeredSkills) {
-        player.setDynamicProperty(`skill:${skill}_level`, 0);
+        ssDP(player, `skill:${skill}_level`, 0)
     }
 }
 
@@ -132,7 +133,7 @@ export function wipeSkills(player) {
 export function wipeSkillsProgress(player) {
 
     for (const skill in registeredSkills) {
-        player.setDynamicProperty(`skill:${skill}_progress`, 0)
+        ssDP(player, `skill:${skill}_progress`, 0)
     }
 }
 

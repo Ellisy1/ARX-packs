@@ -25,6 +25,7 @@ import './blocksHistory'
 
 import { registerPlayerVars } from "./registerPlayerVars"
 import { checkForItem } from "./checkForItem"
+import { iDP, ssDP } from "./DPOperations"
 
 // Инвентарь
 world.afterEvents.playerInventoryItemChange.subscribe((event) => {
@@ -55,27 +56,15 @@ world.afterEvents.playerSpawn.subscribe((event) => {
     player.runCommand("function javascript/scores_autoreg")
     player.addTag("just_entered_arx")
 
-    player.setDynamicProperty('camera:activeCamera', false)
-    player.setDynamicProperty('camera:tickCountdownToNextTimecode', 0)
-    player.setDynamicProperty('camera:numOfProcessedTimecodes', 0)
+    ssDP(player, 'camera:activeCamera', false)
+    ssDP(player, 'camera:tickCountdownToNextTimecode', 0)
+    ssDP(player, 'camera:numOfProcessedTimecodes', 0)
 
     registerPlayerVars(player)
 
     if (world.getPlayers().length === 1) { // Если только один игрок в мире, т.е. только хостер
         player.runCommand("function world_reg/_world_reg") // Регистрируем переменные
         player.runCommand('setmaxplayers 40')
-
-        // world.setDynamicProperty("ARXGateIn", undefined)
-        // world.setDynamicProperty("ARXGateOut", undefined)
-
-        // const prefix = 'ARXGate:рус:'
-        // const text1 = 'awaitingInput000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'
-        // const text2 = 'awaitingOutput'
-
-        // // Переменная-вход ARX Gate
-        // world.setDynamicProperty("ARXGateIn", prefix + text1)
-        // // Переменная-выход ARX Gate
-        // world.setDynamicProperty("ARXGateOut", prefix + text2)
     }
 });
 
@@ -155,7 +144,7 @@ world.afterEvents.playerInteractWithEntity.subscribe((interactEvent) => {
             if (self.getProperty("arx:is_knocked") == false && getDistanceBetweenPlayers(taken, self) < 1.5 && !self.getTags().includes('has_riders') && !self.getTags().includes('is_sneaking')) { // Базовая проверка, можем ли мы вообще кого-то нести
 
                 if ((taken.getProperty("arx:is_knocked") != false) || (taken.getTags().includes('is_sneaking') && allow_carrying_by_cam_angle && !taken.getTags().includes('is_moving'))) { // Если поднимаемый нокнут ИЛИ если поднимаемый НЕ нокнут, НО его можно взять
-                    taken.runCommand(`ride @s start_riding ${self?.name} teleport_rider`)
+                    taken.runCommand(`ride @s start_riding "${self?.name}" teleport_rider`)
                     taken.runCommand('event entity @s arx:property_is_knockout_set_true')
                     self.runCommand('playanimation @s animation.player.pick_up_knocked_player')
                 }
@@ -378,13 +367,13 @@ world.afterEvents.entityDie.subscribe((dieEvent) => {
 
         // Сообщаем о том, что произошло с игроком, если это его первый нокаут
         if (player.getDynamicProperty('hasEverBeenKnocked') !== true) {
-            player.setDynamicProperty('hasEverBeenKnocked', true)
+            ssDP(player, 'hasEverBeenKnocked', true)
             player.runCommand(`tellraw @s { "rawtext": [ { "text": "[§aГид§f] > §cВы в нокауте§f. Ничего страшного, это не смерть. Вы полежите около минуты и снова очнётесь. §aВаши вещи§f лежат рядом с вами в деревянном ящике (если они у вас вообще были)." } ] }`)
         }
 
         // Уменьшаем интоксикацию, если надо
         if (player.getDynamicProperty('intoxication') > 1200) {
-            player.setDynamicProperty('intoxication', 1200)
+            ssDP(player, 'intoxication', 1200)
         }
 
         // Спавним гроб
@@ -405,7 +394,7 @@ world.afterEvents.entityDie.subscribe((dieEvent) => {
         wipeSkillsProgress(player)
 
         if (player.getProperty('arx:is_ghost') == true) {
-            player.setDynamicProperty('ghostWithering', player.getDynamicProperty('ghostWithering') + 3000)
+            iDP(player, 'ghostWithering', 3000)
         }
 
         // Выставляем вариант анимации нокаута
@@ -421,10 +410,10 @@ world.afterEvents.entityDie.subscribe((dieEvent) => {
         player.runCommand('scoreboard players add @s count_death 1')
 
         // Стрессуем
-        player.setDynamicProperty('stress', player.getDynamicProperty('stress') + 4000)
+        iDP(player, 'stress', 4000)
 
         // Выставляем откат нокаута
-        player.setDynamicProperty('respawnDelay', 60 - player.getDynamicProperty('skill:fortitude_level') * 2)
+        ssDP(player, 'respawnDelay', 60 - player.getDynamicProperty('skill:fortitude_level') * 2)
 
         // Если мы должны умереть по рп
         if (getScore(player, 'knockout_row_sounter') >= 2) {
@@ -436,9 +425,9 @@ world.afterEvents.entityDie.subscribe((dieEvent) => {
             player.runCommand('inputpermission set @s movement enabled')
             player.runCommand('inputpermission set @s camera enabled')
 
-            player.setDynamicProperty('FiolixNarcoticPower', 0)
-            player.setDynamicProperty('freezing', 0)
-            player.setDynamicProperty('respawnDelay', 0)
+            ssDP(player, 'FiolixNarcoticPower', 0)
+            ssDP(player, 'freezing', 0)
+            ssDP(player, 'respawnDelay', 0)
 
             setScore(player, "knockout_row_sounter", 0)
             setScore(player, "water_delay", 0)
@@ -459,7 +448,7 @@ world.afterEvents.entityDie.subscribe((dieEvent) => {
                 player.clearDynamicProperties()
                 registerPlayerVars(player)
 
-                player.setDynamicProperty('verify', true)
+                ssDP(player, 'verify', true)
 
             } else { // Если не призрак
 
@@ -469,7 +458,7 @@ world.afterEvents.entityDie.subscribe((dieEvent) => {
                 executeCommandDelayed(player, 'effect @s invisibility 60 0 true')
                 executeCommandDelayed(player, 'spreadplayers ~ ~ 0 20 @s')
                 executeCommandDelayed(player, 'clear @s arx:slot_blocker')
-                player.setDynamicProperty('ghostUltimateResistance', 180)
+                ssDP(player, 'ghostUltimateResistance', 180)
 
                 player.runCommand(`tellraw @s { "rawtext": [ { "text": "§c! §f§сВы убиты и обращены в §cПРИЗРАКА!§f.\n§c! §fВы §cСОВСЕМ НЕДОЛГО§f неуязвимы к солнцу и воде!\n§c! §fВы невидимы на протяжении минуты." } ] }`)
                 player.setProperty('arx:is_ghost', true)
@@ -580,9 +569,11 @@ world.afterEvents.entityHurt.subscribe((hurtEvent) => {
         // Стресс
         {
             let stressMultiplier
-            getScore(player, "c_cowardly") == 1 ? stressMultiplier = 2 : stressMultiplier = 1
+            getScore(player, "c_cowardly") > 0 ? stressMultiplier = 2 : stressMultiplier = 1
 
-            player.setDynamicProperty('stress', player.getDynamicProperty('stress') + hurtEvent.damage * 150 * stressMultiplier + 50)
+            const valueToAccure = hurtEvent.damage * 150 * stressMultiplier + 50
+
+            if (valueToAccure > 0) iDP(player, 'stress', valueToAccure)
         }
         // Если мы на алтаре
         {
@@ -637,48 +628,48 @@ world.afterEvents.entityHurt.subscribe((hurtEvent) => {
             if (weapon !== undefined) { // Определяем, есть ли какие-то теги на том, чем наносим удар
 
                 if (weapon.getTags().includes("is_dagger")) {
-                    damager.setDynamicProperty('attackCD', damager.getDynamicProperty('attackCD') + 20)
+                    iDP(damager, 'attackCD', 20)
                     damager.addTag("is_dagger")
                 }
                 else if (weapon.getTags().includes("is_default_sword")) {
-                    damager.setDynamicProperty('attackCD', damager.getDynamicProperty('attackCD') + 30)
+                    iDP(damager, 'attackCD', 30)
                     damager.addTag("is_default_sword")
                 }
                 else if (weapon.getTags().includes("is_heavy_sword")) {
-                    damager.setDynamicProperty('attackCD', damager.getDynamicProperty('attackCD') + 60)
+                    iDP(damager, 'attackCD', 60)
                     damager.addTag("is_heavy_sword")
                 }
                 else if (weapon.getTags().includes("is_lance")) {
-                    damager.setDynamicProperty('attackCD', damager.getDynamicProperty('attackCD') + 40)
+                    iDP(damager, 'attackCD', 40)
                     damager.addTag("is_lance")
                 }
                 else if (weapon.getTags().includes("is_long_sword")) {
-                    damager.setDynamicProperty('attackCD', damager.getDynamicProperty('attackCD') + 40)
+                    iDP(damager, 'attackCD', 40)
                     damager.addTag("is_long_sword")
                 }
                 else if (weapon.getTags().includes("is_scythe")) {
-                    damager.setDynamicProperty('attackCD', damager.getDynamicProperty('attackCD') + 40)
+                    iDP(damager, 'attackCD', 40)
                     damager.addTag("is_scythe")
                 }
                 else if (weapon.getTags().includes("is_staff")) {
-                    damager.setDynamicProperty('attackCD', damager.getDynamicProperty('attackCD') + 40)
+                    iDP(damager, 'attackCD', 40)
                     damager.addTag("is_staff")
                 }
                 else if (weapon.getTags().includes("is_hheavy_sword")) {
-                    damager.setDynamicProperty('attackCD', damager.getDynamicProperty('attackCD') + 80)
+                    iDP(damager, 'attackCD', 80)
                     damager.addTag("is_hheavy_sword")
                 }
                 else if (weapon.getTags().includes("is_wand")) {
-                    damager.setDynamicProperty('attackCD', damager.getDynamicProperty('attackCD') + 30)
+                    iDP(damager, 'attackCD', 30)
                     damager.addTag("is_wand")
                 }
                 else {
-                    damager.setDynamicProperty('attackCD', damager.getDynamicProperty('attackCD') + 30)
+                    iDP(damager, 'attackCD', 35)
                     damager.addTag("is_unarmed") // Например, игрок атакует куриным мясом. Оно не регистрируется, как оружие
                 }
             }
             else { // Атакующий атакует руками
-                damager.setDynamicProperty('attackCD', damager.getDynamicProperty('attackCD') + 30)
+                iDP(damager, 'attackCD', 35)
                 damager.addTag("is_unarmed")
             }
 

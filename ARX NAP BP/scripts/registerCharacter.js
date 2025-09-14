@@ -2,6 +2,7 @@ import { ModalFormData, MessageFormData, ActionFormData } from "@minecraft/serve
 import { getScore, setScore } from "./scoresOperations"
 import { setRandomTastes } from './food/setRandomTastes'
 import { tasteBodyString } from "./core/core"
+import { ssDP } from "./DPOperations"
 
 // Функция регистрации персонажа
 export function registerCharacter(player) {
@@ -24,7 +25,7 @@ export function registerCharacter(player) {
                     .show(player)
                     .then((response) => {
                         if (response.selection === 1) { // Игрок нажал "продолжитиь"
-                            player.setDynamicProperty('registerCharacterStage', 1)
+                            ssDP(player, "registerCharacterStage", 1)
                             registerCharacter(player)
                         }
                     })
@@ -44,13 +45,13 @@ export function registerCharacter(player) {
                             setScore(player, "gender", 1)
                             player.setProperty('arx:bust_size', 0)
 
-                            player.setDynamicProperty('registerCharacterStage', 3)
+                            ssDP(player, "registerCharacterStage", 3)
                             registerCharacter(player)
                         } else if (response.selection === 1) { // Жен
                             player.setProperty('arx:gender', 2)
                             setScore(player, "gender", 2)
 
-                            player.setDynamicProperty('registerCharacterStage', 2)
+                            ssDP(player, "registerCharacterStage", 2)
                             registerCharacter(player)
                         }
                     })
@@ -70,7 +71,7 @@ export function registerCharacter(player) {
                         if (response.selection != undefined) { // Выбран размер
                             player.setProperty('arx:bust_size', response.selection)
 
-                            player.setDynamicProperty('registerCharacterStage', 3)
+                            ssDP(player, "registerCharacterStage", 3)
                             registerCharacter(player)
                         }
                     })
@@ -110,10 +111,10 @@ export function registerCharacter(player) {
                             }
 
                             if (!wrongInput) {
-                                player.setDynamicProperty("trueName", correctedTrueName)
-                                player.setDynamicProperty("name", correctedName)
+                                ssDP(player, "trueName", correctedTrueName)
+                                ssDP(player, "name", correctedName)
 
-                                player.setDynamicProperty('registerCharacterStage', 4)
+                                ssDP(player, "registerCharacterStage", 4)
                                 registerCharacter(player)
                             }
                         }
@@ -131,7 +132,7 @@ export function registerCharacter(player) {
                     .show(player)
                     .then((response) => {
                         if (response.selection === 0) { // Игрок принял
-                            player.setDynamicProperty('registerCharacterStage', 5)
+                            ssDP(player, "registerCharacterStage", 5)
                             registerCharacter(player)
                         }
                         else if (response.selection === 1) { // Игрок перебросил
@@ -152,7 +153,7 @@ export function registerCharacter(player) {
 
                         if (response.selection != 2 && response.selection != undefined) {
                             player.setProperty('arx:arms_type', response.selection)
-                            player.setDynamicProperty('registerCharacterStage', 6)
+                            ssDP(player, "registerCharacterStage", 6)
                             registerCharacter(player)
                         }
                     })
@@ -169,12 +170,12 @@ export function registerCharacter(player) {
                     .show(player).then(response => {
 
                         if (response.formValues) {
-                            player.setDynamicProperty("height", response.formValues[0])
+                            ssDP(player, 'height', response.formValues[0])
                             player.setProperty("arx:height", response.formValues[0])
                             player.runCommand(`event entity @s arx:setHeight_${response.formValues[0]}`)
 
 
-                            player.setDynamicProperty('registerCharacterStage', 7)
+                            ssDP(player, "registerCharacterStage", 7)
                             player.runCommand(`tellraw @s { "rawtext": [ { "text": "Посмотрите на своего персонажа от третьего лица, §aвам нравится§f его §aрост§f? Возвращайтесь к <создать персонажа>, когда определитесь с ответом." } ] }`)
                         }
                     })
@@ -189,11 +190,11 @@ export function registerCharacter(player) {
 
                     .show(player)
                     .then((response) => {
-                        if (response.selection === 0) { // Игрок нажал "продолжитиь"
-                            player.setDynamicProperty('registerCharacterStage', 8)
+                        if (response.selection === 0) { // Игрок нажал "продолжить"
+                            ssDP(player, "registerCharacterStage", 8)
                             registerCharacter(player)
                         } else if (response.selection === 1) {
-                            player.setDynamicProperty('registerCharacterStage', 6)
+                            ssDP(player, "registerCharacterStage", 6)
                             registerCharacter(player)
                         }
                     })
@@ -222,7 +223,7 @@ export function registerCharacter(player) {
                             if (response.selection === 4) { player.setProperty('arx:eyes_position', 0) }
                             // Перекидываем на след этап регистрации
                             if (response.selection !== 5) {
-                                player.setDynamicProperty('registerCharacterStage', 9)
+                                ssDP(player, "registerCharacterStage", 9)
                                 registerCharacter(player)
                             }
                         }
@@ -244,8 +245,8 @@ export function registerCharacter(player) {
                             if (response.selection === 0) {
                                 player.runCommand("function tp/2_spawn")
 
-                                player.setDynamicProperty('registerCharacterStage', 0)
-                                player.setDynamicProperty('hasRegisteredCharacter', true)
+                                ssDP(player, "registerCharacterStage", 0)
+                                ssDP(player, "hasRegisteredCharacter", true)
 
                                 player.runCommand(`give @s arx:united_player_data 1 0 {"keep_on_death":{}}`)
 

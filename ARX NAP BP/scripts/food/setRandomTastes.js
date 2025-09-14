@@ -1,3 +1,5 @@
+import { ssDP } from "../DPOperations"
+
 // Устанавливаем случаные вкусы
 export function setRandomTastes(player) {
     let tastesArray
@@ -11,12 +13,12 @@ export function setRandomTastes(player) {
         sum = tastesArray.reduce((accumulator, currentValue) => accumulator + currentValue, 0)
     }
 
-    player.setDynamicProperty("playerTaste_meat", tastesArray[0])
-    player.setDynamicProperty("playerTaste_fish", tastesArray[1])
-    player.setDynamicProperty("playerTaste_bread", tastesArray[2])
-    player.setDynamicProperty("playerTaste_dairy", tastesArray[3])
-    player.setDynamicProperty("playerTaste_herbal", tastesArray[4])
-    player.setDynamicProperty("playerTaste_sweet", tastesArray[5])
+    ssDP(player, "playerTaste_meat", tastesArray[0])
+    ssDP(player, "playerTaste_fish", tastesArray[1])
+    ssDP(player, "playerTaste_bread", tastesArray[2])
+    ssDP(player, "playerTaste_dairy", tastesArray[3])
+    ssDP(player, "playerTaste_herbal", tastesArray[4])
+    ssDP(player, "playerTaste_sweet", tastesArray[5])
 }
 
 function getRandomInt(min, max) {

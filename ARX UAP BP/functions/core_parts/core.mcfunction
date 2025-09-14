@@ -63,13 +63,6 @@
         execute @a[tag=!is_dead, scores={teleport_def=1..}] ~ ~ ~ scoreboard players add @p teleport_def -1
         execute @a[tag=!is_dead, scores={teleport_dmg=1..}] ~ ~ ~ scoreboard players add @p teleport_dmg -1
 
-#телепортация на маяк
-    execute @a[scores={tp_backpoint=2}] ~ ~ ~ camera @s fade time 0 0 1 color 200 0 150
-    execute @a[scores={tp_backpoint=2}] ~ ~ ~ tp @s @e[type=armor_stand, tag=tp_backpoint]
-    execute @a[scores={tp_backpoint=1}] ~ ~ ~ playsound pallada_beacon @a ~ ~ ~
-    execute @a[scores={tp_backpoint=1}] ~ ~ ~ kill @e[type=armor_stand, tag=tp_backpoint, r = 0.1]
-    execute @a[scores={tp_backpoint=1..}] ~ ~ ~ scoreboard players add @s tp_backpoint -1
-
 #Вычитание очков удара
     scoreboard players add @a[scores={on_hurt_delay=1..}] on_hurt_delay -1
 

@@ -155,8 +155,6 @@ scoreboard objectives add teleport_dmg dummy Тп_с_уроном
 
 scoreboard objectives add in_portal dummy in_portal
 
-scoreboard objectives add tp_backpoint dummy tp_backpoint
-
 scoreboard objectives add no_fog dummy no_fog
 
 scoreboard objectives add nightvis_saki dummy nightvis_saki

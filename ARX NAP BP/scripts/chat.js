@@ -12,6 +12,7 @@ import { cipherRuneSequence } from './magic/on_use_magic_items'
 import { ARXGate } from './core/core'
 
 import { acquireTrait, clearTraits } from './traits/traitsOperations'
+import { ssDP } from "./DPOperations"
 
 // Обработка чата before
 world.beforeEvents.chatSend.subscribe((eventData) => {
@@ -96,11 +97,11 @@ function parceCommand(player, trimmedMessage) {
 
         else if (command[0] == "!rm") { // Получить инфо о груди
             queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§fМузыка перезапущена. §eЕсли вы не её слышите, то убедитесь, что у вас громкость музыки не установлена в 0 (Меню -> Опции -> Звук -> Музыка)" } ] }`)
-            player.setDynamicProperty("music_location_previous", 0)
+            ssDP(player, 'music_location_previous', 0)
         }
 
         else if (command[0] == "!") { // Инфо о командах
-            player.setDynamicProperty('hasEverSeenArxCommandsHelp', true)
+            ssDP(player, 'hasEverSeenArxCommandsHelp', true)
             queueCommand(player, `function javascript/arx_commands_help`);
         }
 
@@ -113,7 +114,7 @@ function parceCommand(player, trimmedMessage) {
             else {
                 if (newName.length < 30) {
                     queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§aИмя персонажа для локального чата изменено на §f${newName}§a." } ] }`)
-                    player.setDynamicProperty("name", newName)
+                    ssDP(player, "name", newName)
                 }
                 else {
                     queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cПожалуйста, введите более короткое имя." } ] }`)
@@ -155,7 +156,7 @@ function parceCommand(player, trimmedMessage) {
                         }
 
                         // Установка свойства
-                        targetPlayer.setDynamicProperty(command[1], value);
+                        ssDP(targetPlayer, command[1], value)
 
                         queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§dDP§f ${command[1]} §dигрока §f${targetPlayer.name}§d изменено на §f${value}" } ] }`);
                     }
@@ -217,7 +218,7 @@ function parceCommand(player, trimmedMessage) {
                         } else {
                             queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§aВыдана верификация§f игроку §a${targetPlayer.name}" } ] }`)
                             queueCommand(targetPlayer, `tellraw @s { "rawtext": [ { "text": "§aВам выдана верификация!§f Вы можете приступать к созданию персонажа." } ] }`)
-                            targetPlayer.setDynamicProperty('verify', true)
+                            ssDP(targetPlayer, 'verify', true)
                         }
                     }
                 }
@@ -236,13 +237,13 @@ function parceCommand(player, trimmedMessage) {
             if (!command[1] || (command[1] !== 'add' && command[1] !== 'set') || !command[2]) {
                 queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cИспользуйте §d!§alore set <история>§c, чтобы написать историю персонажа с нуля, или §d!§alore add <дополнение истории>§c, чтобы добавить к существующей истории новый эпизод." } ] }`);
             } else if (command[1] === 'set') {
-                player.setDynamicProperty('characterLore', command.slice(2).join(' ').trim());
+                ssDP(player, 'characterLore', command.slice(2).join(' ').trim())
                 queueCommand(player, `tellraw @s { "rawtext": [ { "text": "История §aустановлена§f." } ] }`)
             } else if (command[1] === 'add') {
                 if (player.getDynamicProperty('characterLore') === '' || player.getDynamicProperty('characterLore') === undefined) {
-                    player.setDynamicProperty('characterLore', command.slice(2).join(' ').trim());
+                    ssDP(player, 'characterLore', command.slice(2).join(' ').trim())
                 } else {
-                    player.setDynamicProperty('characterLore', player.getDynamicProperty('characterLore') + " " + command.slice(2).join(' ').trim());
+                    ssDP(player, 'characterLore', player.getDynamicProperty('characterLore') + " " + command.slice(2).join(' ').trim())
                 }
                 queueCommand(player, `tellraw @s { "rawtext": [ { "text": "История §aдополнена§f." } ] }`)
             } else {
@@ -371,8 +372,8 @@ function sendChatMessage(player, speech, prefix, clearDistance = 0, senderName =
     /*
     АРГУМЕНТЫ:
     speech: текстовое сообщение
-    clearDistance: дистанция, на которой речь слышно идеально. 0 - дистаниция бесконечная
-    prefix: префикс речи, например §aLocal
+    clearDistance: дистанция, на которой речь слышно без искажений. 0 - дистаниция бесконечная
+    prefix: префикс речи, например "§aЛокал."
     senderName - имя отправителя сообщения, которое отобразится в чате
     */
 
@@ -391,6 +392,12 @@ function sendChatMessage(player, speech, prefix, clearDistance = 0, senderName =
     // Недопуск из-за отсутствия локального ника
     if (senderName === undefined) {
         queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cУстановите имя персонажа, чтобы общаться. Это можно сделать командой §a!имя введите-имя-вашего-персонажа§c." } ] }`)
+        return undefined
+    }
+
+    // Недопуск из-за спектатора
+    if (player.getGameMode() === 'Spectator') {
+        queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cНевозможно использовать локальный чат в режиме наблюдателя." } ] }`)
         return undefined
     }
 
@@ -424,9 +431,9 @@ function sendChatMessage(player, speech, prefix, clearDistance = 0, senderName =
                         const item = player.getComponent(EntityComponentTypes.Equippable).getEquipment(EquipmentSlot.Legs)
                         cipherRuneSequence(player, rune, item?.getTags())
                         // Выдаем КД
-                        if (checkForItem(player, "Legs", 'arx:amul_hypersynergy')) { player.setDynamicProperty('amul_hypersynergyCD', 100) }
-                        if (checkForItem(player, "Legs", 'arx:amul_hypersynergy_improved')) { player.setDynamicProperty('amul_hypersynergyCD', 35) }
-                        if (checkForItem(player, "Legs", 'arx:amul_hypersynergy_superior')) { player.setDynamicProperty('amul_hypersynergyCD', 5) }
+                        if (checkForItem(player, "Legs", 'arx:amul_hypersynergy')) ssDP(player, 'amul_hypersynergyCD', 100)
+                        if (checkForItem(player, "Legs", 'arx:amul_hypersynergy_improved')) ssDP(player, 'amul_hypersynergyCD', 35)
+                        if (checkForItem(player, "Legs", 'arx:amul_hypersynergy_superior')) ssDP(player, 'amul_hypersynergyCD', 5)
                     }
                     else {
                         queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cОткат амулета гиперсинергии ещё не закончился." } ] }`)

@@ -1,72 +1,56 @@
-// Импорты
 import { getMoscowTime } from "./date"
 import { checkForItem } from "./checkForItem"
-
-// Imports - Minecraft
 import { world } from "@minecraft/server"
+import { ssDP } from "./DPOperations"
 
-/*
-Формат сохранения DP о блоке:
-Название DP (строка): {x:int, y:int, z:int, dimension: str}
-Значение DP (строка): [playerName, placeData, placeTime]
-*/
-
-// Взаимодействие с блоками
+// Получаем историю блока (триггер)
 world.afterEvents.entityHitBlock.subscribe((hitEvent) => {
-    // Выводим данные о блоке, если это требуется
     if (hitEvent.damagingEntity.hasTag('gbd_ready') || checkForItem(hitEvent.damagingEntity, "mainhand", 'arx:mod_sword')) {
         hitEvent.damagingEntity.removeTag('gbd_ready')
-
         readBlockHistory(hitEvent.hitBlock, hitEvent.damagingEntity)
     }
 })
 
-// Постановка блоков
+// Записываем историю блока (триггер)
 world.afterEvents.playerPlaceBlock.subscribe((placeEvent) => {
-    // Дополняем map placedBlocksData
-    if (placeEvent.player.getGameMode() === 'Survival') {
+    if (placeEvent.player.location.y > 40 && (placeEvent.player.getGameMode() === 'Survival')) {
         recordBlockHistory(placeEvent.block, placeEvent.player)
     }
 })
 
-// Функция, записывающая историю блока
+// Функция записи истории блока
 function recordBlockHistory(block, player) {
-
-    const monthNames = [
-        "января", "февраля", "марта", "апреля", "мая", "июня",
-        "июля", "августа", "сентября", "октября", "ноября", "декабря"
-    ]
-
     const now = getMoscowTime()
+    const y = now.getFullYear()
+    const m = (now.getMonth() + 1).toString().padStart(2, '0')
+    const d = now.getDate().toString().padStart(2, '0')
+    const h = now.getHours().toString().padStart(2, '0')
+    const min = now.getMinutes().toString().padStart(2, '0')
+    const s = now.getSeconds().toString().padStart(2, '0')
+    
+    const DPName = `bH:${block.location.x},${block.location.y},${block.location.z},${block.dimension.id.split(':')[1].substring(0, 2)}`
+    const valueToRecord = `["${player.name}","${y}${m}${d}","${h}${min}${s}"]`
 
-    const year = now.getFullYear();
-    const month = now.getMonth();
-    const day = now.getDate();
-    const hours = now.getHours();
-    const minutes = now.getMinutes();
-    const seconds = now.getSeconds();
-
-    world.setDynamicProperty(`blockHistory:${block.location.x},${block.location.y},${block.location.z},${block.dimension.id}}`, `["${player.name}", "${day} ${monthNames[month]} ${year}г.", "${hours}ч, ${minutes}мин, ${seconds}сек."]`)
+    ssDP(world, DPName, valueToRecord)
 }
 
-// Функция, выводящая историю блока
+// Функция чтения истории блока
 function readBlockHistory(block, player) {
-    const blockHistory = world.getDynamicProperty(`blockHistory:${block.location.x},${block.location.y},${block.location.z},${block.dimension.id}}`)
-
-    if (blockHistory) {
-
-        const blockHistoryParced = JSON.parse(blockHistory)
-
-        player.runCommand(`tellraw @s {
-            "rawtext": [
-                { "text": "§dИстория взаимодействия:\n" },
-                { "text": "§eПоставивший игрок§f: ${blockHistoryParced[0]}\n" },
-                { "text": "§eДата§f: ${blockHistoryParced[1]}\n" },
-                { "text": "§eВремя§f: ${blockHistoryParced[2]}\n" }
-            ]
-        }`)
+    const history = world.getDynamicProperty(`bH:${block.location.x},${block.location.y},${block.location.z},${block.dimension.id.split(':')[1].substring(0, 2)}`)
+    if (!history) {
+        player.sendMessage(`§cНе обнаружено истории взаимодействия с блоком`)
+        return
     }
-    else {
-        player.runCommand(`tellraw @s { "rawtext": [ { "text": "§cНе обнаржуно истории взаимодействия с блоком" } ] }`)
-    }
+
+    const [name, dateStr, timeStr] = JSON.parse(history)
+    const y = dateStr.substring(0, 4)
+    const m = dateStr.substring(4, 6)
+    const d = dateStr.substring(6, 8)
+    const h = timeStr.substring(0, 2)
+    const min = timeStr.substring(2, 4)
+    const s = timeStr.substring(4, 6)
+    
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    
+    player.sendMessage(`§dИстория взаимодействия:\n§eПоставивший игрок§f: ${name}\n§eДата§f: ${d} ${months[+m-1]} ${y}\n§eВремя§f: ${h}h ${min}m ${s}s`)
 }

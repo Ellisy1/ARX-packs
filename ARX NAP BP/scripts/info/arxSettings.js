@@ -1,4 +1,5 @@
 import { ModalFormData } from "@minecraft/server-ui"
+import { ssDP } from "../DPOperations"
 
 // Выводим экранчик с опциями навыков
 export function arxSettings(player) {
@@ -37,21 +38,21 @@ export function arxSettings(player) {
 
             if (response.formValues) {
                 // myRule:manaDisplayMode
-                if (response.formValues[0] === 0) {player.setDynamicProperty('myRule:manaDisplayMode', 'integers')}
-                else if (response.formValues[0] === 1) {player.setDynamicProperty('myRule:manaDisplayMode', 'decimals')}
-                else if (response.formValues[0] === 2) {player.setDynamicProperty('myRule:manaDisplayMode', 'none')}
+                if (response.formValues[0] === 0) ssDP(player, 'myRule:manaDisplayMode', 'integers')
+                else if (response.formValues[0] === 1) ssDP(player, 'myRule:manaDisplayMode', 'decimals')
+                else if (response.formValues[0] === 2) ssDP(player, 'myRule:manaDisplayMode', 'none')
 
-                if (response.formValues[1] === 0) {player.setDynamicProperty('myRule:showAttackCDMode', 'seconds')}
-                else if (response.formValues[1] === 1) {player.setDynamicProperty('myRule:showAttackCDMode', 'ticks')}
-                else if (response.formValues[1] === 2) {player.setDynamicProperty('myRule:showAttackCDMode', 'line')}
-                else if (response.formValues[1] === 3) {player.setDynamicProperty('myRule:showAttackCDMode', 'none')}
+                if (response.formValues[1] === 0) ssDP(player, 'myRule:showAttackCDMode', 'seconds')
+                else if (response.formValues[1] === 1) ssDP(player, 'myRule:showAttackCDMode', 'ticks')
+                else if (response.formValues[1] === 2) ssDP(player, 'myRule:showAttackCDMode', 'line')
+                else if (response.formValues[1] === 3) ssDP(player, 'myRule:showAttackCDMode', 'none')
 
-                if (response.formValues[2] === 0) {player.setDynamicProperty('myRule:chatPrefixes', 'fullEN')}
-                else if (response.formValues[2] === 1) {player.setDynamicProperty('myRule:chatPrefixes', 'shortEN')}
+                if (response.formValues[2] === 0) ssDP(player, 'myRule:chatPrefixes', 'fullEN')
+                else if (response.formValues[2] === 1) ssDP(player, 'myRule:chatPrefixes', 'shortEN')
 
-                player.setDynamicProperty('myRule:canSeeServerSpeedInInfoBook', response.formValues[3])
+                ssDP(player, 'myRule:canSeeServerSpeedInInfoBook', response.formValues[3])
 
-                player.setDynamicProperty('myRule:cinematographicMode', response.formValues[4])
+                ssDP(player, 'myRule:cinematographicMode', response.formValues[4])
             }
         })
 }
