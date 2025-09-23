@@ -2,12 +2,12 @@
   "format_version": 2,
   "header": {
     "description": "ARX database",
-    "name": "ARX database 3.1.5 [resourse]",
+    "name": "ARX database 3.1.8 [resourse]",
     "uuid": "7a7725db-1845-42ea-825e-f7d9c8026166",
     "version": [
       3,
       1,
-      5
+      8
     ],
     "min_engine_version": [
       1,

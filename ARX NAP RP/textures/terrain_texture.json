@@ -644,6 +644,9 @@
 		"arx_moss_block_blue": {
 			"textures": "textures/blocks/dungeons/moss_block_blue"
 		},
+		"arx_closed_provolochka_shop_banner": {
+			"textures": "textures/blocks/dungeons/closed_provolochka_shop_banner"
+		},
 
 		"tea_corp0": {
             "textures": "textures/blocks/tea_update/tea_corp0.png"
@@ -823,6 +826,12 @@
 		},
 		"arx_big_wall_monitor_rotated_down": {
 			"textures": "textures/blocks/ancient_blocks/big_wall_monitor_rotated_down"
+		},
+		"arx_big_wall_monitor_rotated_down_no_signal": {
+			"textures": "textures/blocks/ancient_blocks/big_wall_monitor_rotated_down_no_signal"
+		},
+		"arx_smartphone_yellow": {
+			"textures": "textures/blocks/ancient_blocks/smartphone_yellow"
 		},
 
 

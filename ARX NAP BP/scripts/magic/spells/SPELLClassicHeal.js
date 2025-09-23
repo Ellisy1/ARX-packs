@@ -15,7 +15,7 @@ export function classicHeal(player, targetData, time, power, is_area_spell = fal
                 executeSpell(player, time, power)
             }
             else {
-                const players = getPlayersInRadius(player, 10)
+                const players = getPlayersInRadius(player, 10, true)
                 for (const singlePlayer of players) {
                     executeSpell(singlePlayer, time, power)
                 }
@@ -23,7 +23,9 @@ export function classicHeal(player, targetData, time, power, is_area_spell = fal
             break;
         case 'nearest':
             if (!is_area_spell) {
-                executeSpell(targetData.player, time, power)
+                if (targetData.player) {
+                    executeSpell(targetData.player, time, power)
+                }
             }
             else {
                 const players = getPlayersInRadius(player, 10)

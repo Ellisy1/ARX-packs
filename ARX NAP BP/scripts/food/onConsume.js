@@ -295,6 +295,7 @@ export function onFoodConsume(player, foodname) {
         }
         case "arx:le_fishe_au_chocolat": {
             player.runCommand(`playsound le_fishe_au_chocolat @s ~ ~ ~ 0.5`)
+            iDP(player, 'eatenLeFisheCounter')
             break
         }
 

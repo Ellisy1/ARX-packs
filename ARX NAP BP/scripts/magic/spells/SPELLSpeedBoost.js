@@ -13,7 +13,7 @@ export function speedBoost(player, targetData, time, power, is_area_spell = fals
                 player.runCommand('particle arx:sofiso_a ~ ~2 ~')
                 ssDP(player, `speedBoost:level${power}`, time)
             } else {
-                const players = getPlayersInRadius(player, 10)
+                const players = getPlayersInRadius(player, 10, true)
                 for (const singlePlayer of players) {
                     singlePlayer.runCommand('particle arx:sofiso_a ~ ~2 ~')
                     ssDP(singlePlayer, `speedBoost:level${power}`, time)
@@ -22,8 +22,10 @@ export function speedBoost(player, targetData, time, power, is_area_spell = fals
             break;
         case 'nearest':
             if (!is_area_spell) {
-                targetData.player.runCommand('particle arx:sofiso_a ~ ~2 ~')
-                ssDP(targetData.player, `speedBoost:level${power}`, time)
+                if (targetData.player) {
+                    targetData.player.runCommand('particle arx:sofiso_a ~ ~2 ~')
+                    ssDP(targetData.player, `speedBoost:level${power}`, time)
+                }
             } else {
                 const players = getPlayersInRadius(player, 10)
                 for (const singlePlayer of players) {

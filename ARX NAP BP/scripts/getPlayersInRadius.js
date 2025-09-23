@@ -6,7 +6,7 @@ import { world, Player } from "@minecraft/server";
  * @param {number} radius Радиус поиска в блоках.
  * @returns {Player[]} Массив игроков в радиусе.
  */
-export function getPlayersInRadius(self, radius) {
+export function getPlayersInRadius(self, radius, includeSelf = false) {
     if (!(self instanceof Player)) {
         console.warn("getPlayersInRadius: self должен быть объектом Player!");
         return []; // Возвращаем пустой массив, если self не Player
@@ -24,7 +24,7 @@ export function getPlayersInRadius(self, radius) {
     const radiusSquared = radius * radius; // Квадрат радиуса для оптимизации
 
     for (const player of allPlayers) {
-        if (player === self) {
+        if (player === self && includeSelf === false) {
             continue; // Не включаем игрока самого в себя
         }
 

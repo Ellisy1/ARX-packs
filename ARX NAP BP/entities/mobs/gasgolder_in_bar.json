@@ -41,6 +41,13 @@
 				"probability": 0.02,
 				"look_time": [],
 				"target_distance": 6
+			},
+			"minecraft:interact": {
+				"interactions": [
+					{
+						"on_interact": {}
+					}
+				]
 			}
 		}
 	}

@@ -31,6 +31,10 @@ system.runInterval(() => {
         if (isEntityInCube(player, [-2341, -31, 1933], [-2267, -46, 1897])) {
             music_location = -3
         }
+        // Крысиный бар
+        if (isEntityInCube(player, [-2112, 56, 1486], [-2099, 65, 1511])) {
+            music_location = -4
+        }
 
         // Мы не в кастомной локации
         if (music_location === 0) {
@@ -82,6 +86,10 @@ system.runInterval(() => {
             // Вернард
             else if (music_location === -3) {
                 player.playMusic(`Bleeping_Demo`, musicOptions)
+            }
+            // Крысиный бар
+            else if (music_location === -4) {
+                player.playMusic(`Hillbilly_Swing`, musicOptions)
             }
 
             // Ад
@@ -216,7 +224,7 @@ export function isEntityInCube(entity, cornerA, cornerB) {
         );
     } catch (err) {
         // Игнорируем ошибку типа "InvalidActorError" — сущность недействительна
-        if (err.message.includes("Failed to get property 'location'") || 
+        if (err.message.includes("Failed to get property 'location'") ||
             err.message.includes("Entity being invalid")) {
             return false; // или true, если хочешь считать, что "не в кубе"
         }

@@ -1,7 +1,7 @@
 // ARX javascript
 
 // Imports - Minecraft
-import { system, world, EntityComponentTypes, EquipmentSlot, Player } from "@minecraft/server"
+import { system, world, EntityComponentTypes, EquipmentSlot, Player, ItemStack } from "@minecraft/server"
 
 // Imports - Arx functions 
 import { getScore, setScore } from './scoresOperations'
@@ -163,6 +163,10 @@ world.afterEvents.playerInteractWithEntity.subscribe((interactEvent) => {
     else if (interactEvent.target?.typeId == "arx:asi") {
         showDialog(interactEvent.player, 'asi', 'start')
     }
+    // Газ в баре
+    else if (interactEvent.target?.typeId == "arx:gasgolder_in_bar") {
+        showDialog(interactEvent.player, 'gasgolder_in_bar_ch1', 'start')
+    }
 })
 
 // При запуске мира
@@ -189,7 +193,7 @@ system.beforeEvents.startup.subscribe(initEvent => {
                 case "arx:vicious_demon_sword":
                     interactWithViciousDemonSpawner(event.player)
                     break
-                
+
                 case "arx:piece_of_red_cloth":
                     event.player.sendMessage('§c§lКлочок красной ткани\n§r§f§oИнтересно, как он тут оказался?')
                     break
@@ -199,7 +203,36 @@ system.beforeEvents.startup.subscribe(initEvent => {
                     break
 
                 case "arx:ancient_iron_processor":
+                    // if (checkForItem(event.player, 'Mainhand', 'minecraft:iron_ingot')) {
+                    //     event.block.dimension.playSound('random.explode', event.block.location)
+
+                    //     const stack1 = new ItemStack('arx:ancient_banknote', 3)
+                    //     event.block.dimension.spawnItem(stack1, event.block.location)
+
+                    //     const stack2 = new ItemStack('coal', 5)
+                    //     event.block.dimension.spawnItem(stack2, event.block.location)
+
+                    //     const stack3 = new ItemStack('arx:chrome_nugget', 3)
+                    //     event.block.dimension.spawnItem(stack3, event.block.location)
+
+                    //     const stack4 = new ItemStack('iron_ingot', 21)
+                    //     event.block.dimension.spawnItem(stack4, event.block.location)
+
+                    //     const stack5 = new ItemStack('arx:steel_protective_plate', 3)
+                    //     event.block.dimension.spawnItem(stack5, event.block.location)
+
+                    //     event.block.dimension.runCommand(executeOnBlockPosition + 'damage @a[r=8] 10 block_explosion')
+                    //     event.block.dimension.spawnParticle('arx:dirty_fog', event.block.location)
+                    //     event.block.dimension.runCommand(executeOnBlockPosition + 'fill ~ ~ ~ ~ ~ ~ air')
+                    //     event.block.dimension.runCommand(executeOnBlockPosition + 'camera @a[r=8] fade time 0 0.5 1 color 200 20 10')
+                    // }
+                    // else {
+                    //     event.player.sendMessage('§b§lМеталлическое устройство\n§r§o§fКажется, оно никак не реагирует, что бы вы ни делали')
+                    // }
+
+
                     event.player.sendMessage('§b§lМеталлическое устройство\n§r§o§fКажется, оно никак не реагирует, что бы вы ни делали')
+
                     break
 
                 // Мусорка
@@ -474,7 +507,7 @@ world.afterEvents.projectileHitEntity.subscribe((hitEvent) => {
     const damagedEntity = hitEvent.getEntityHit().entity
     const damager = hitEvent.source
 
-    if (damager.typeId === "minecraft:player" && hitEvent.projectile.typeId === "minecraft:arrow") {
+    if (damager?.typeId === "minecraft:player" && hitEvent.projectile?.typeId === "minecraft:arrow") {
 
         if ((getEntityFamilies(damagedEntity).includes('mob') || getEntityFamilies(damagedEntity).includes('animal') || getEntityFamilies(damagedEntity).includes('monster') || damagedEntity.typeId === 'player') &&
             damager != damagedEntity) {

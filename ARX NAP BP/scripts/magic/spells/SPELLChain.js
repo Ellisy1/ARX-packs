@@ -9,7 +9,7 @@ DP chainSpell = 1:2:4:9, где цифры - это каналы, а ":" - ра�
 */
 
 // Ключевая фукнция заклинания
-export function chain(player, channels) {
+export function chain(player) {
     if (player.hasTag('is_sneaking')) {
         // Отложим выполнение до следующего тика
         system.runTimeout(() => {

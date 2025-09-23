@@ -2,7 +2,11 @@
     "format_version": "1.21.0",
     "minecraft:item": {
         "components": {
-            "minecraft:icon": "arx:bunker_access_card"
+            "minecraft:icon": "arx:bunker_access_card",
+            "minecraft:cooldown": {
+                "category": "bunker_access_card",
+                "duration": 20
+            }
         },
         "description": {
             "identifier": "arx:bunker_access_card",

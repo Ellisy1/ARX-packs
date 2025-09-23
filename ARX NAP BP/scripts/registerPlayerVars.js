@@ -145,4 +145,7 @@ export function registerPlayerVars(player) {
     if (player.getDynamicProperty('MPSmoothAccrue') === undefined) {
         ssDP(player, 'MPSmoothAccrue', 0)
     }
+    if (player.getDynamicProperty('eatenLeFisheCounter') === undefined) {
+        ssDP(player, 'eatenLeFisheCounter', 0)
+    }
 }

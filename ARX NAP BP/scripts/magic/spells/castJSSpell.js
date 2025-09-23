@@ -17,23 +17,24 @@ import { ssDP } from '../../DPOperations';
  * - validTargets: массив поддерживаемых целей ['self', 'nearest', 'entities']
  * - handler: функция, принимающая player, targetData (с информацией о цели)
  */
+
 const spellRegistry = {
     'din hijo': {
         mpCost: 5,
-        validTargets: ['self'],
-        handler: (player) => { dinHijo(player, 4) }
+        validTargets: ['self', 'nearest'],
+        handler: (player, targetData) => { dinHijo(player, 4, targetData) }
     },
 
     'din hijo mega': {
         mpCost: 10,
-        validTargets: ['self'],
-        handler: (player) => { dinHijo(player, 7) }
+        validTargets: ['self', 'nearest'],
+        handler: (player, targetData) => { dinHijo(player, 7, targetData) }
     },
 
     'din hijo mega mega mega': {
         mpCost: 20,
-        validTargets: ['self'],
-        handler: (player) => { dinHijo(player, 10) }
+        validTargets: ['self', 'nearest'],
+        handler: (player, targetData) => { dinHijo(player, 10, targetData) }
     },
 
     'din yanamo trafantana': {
@@ -309,7 +310,7 @@ const spellRegistry = {
         validTargets: ['self', 'nearest'],
         handler: (player, targetData) => {
             let playerToBoost
-            
+
             if (targetData.type === 'self') playerToBoost = player
             else if (targetData.type === 'nearest') playerToBoost = targetData.player
 
@@ -333,7 +334,7 @@ const spellRegistry = {
         validTargets: ['self', 'nearest'],
         handler: (player, targetData) => {
             let playerToBoost
-            
+
             if (targetData.type === 'self') playerToBoost = player
             else if (targetData.type === 'nearest') playerToBoost = targetData.player
 

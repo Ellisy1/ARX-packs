@@ -340,5 +340,14 @@
             "stream": true
          }
       ]
+   },
+   "Hillbilly_Swing": {
+      "category": "music",
+      "sounds": [
+         {
+            "name": "sounds/music/Hillbilly_Swing",
+            "stream": true
+         }
+      ]
    }
 }

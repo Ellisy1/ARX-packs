@@ -285,6 +285,29 @@ const dialogs = {
     },
 
 
+    sample: {
+        start: {
+            id: "start",
+            title: "Газгольдер",
+            body: "Кхе.. Привет. Чего тебе?",
+            buttons: [
+                { text: "Что это за место", next: "about_bar" },
+                { text: "Что ты продаешь?", next: "about_trade" },
+                { text: "Покажи товары", next: "shop" },
+                { text: "Продай пилу", next: "give_me_saw" },
+                { text: "Покажи товары", next: "shop" },
+            ]
+        },
+        about: {
+            id: "about",
+            title: "Торговец - О себе",
+            body: "Я путешествую по миру уже много лет, собирая редкие товары...",
+            buttons: [
+                { text: "Назад", next: "start" }
+            ]
+        }
+    },
+
 
     sample: {
         start: {

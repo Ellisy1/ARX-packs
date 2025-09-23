@@ -23,9 +23,10 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
         // Тест
         case "arx:mod_sword":
             if (manageCD(player)) {
+                const rat = player.dimension.spawnEntity('arx:march_railgun_bullet', player.location)
                 const viewDirection = player.getViewDirection()
-                // player.applyKnockback({ x: viewDirection.x * 5, z: viewDirection.z * 5 }, viewDirection.y)
-                showDialog(player, 'asi', 'start')
+                rat.addEffect('invisibility', 2, { showParticles: false })
+                rat.applyKnockback({ x: viewDirection.x * 4, z: viewDirection.z * 4 }, viewDirection.y * 0)
             }
             break
 
@@ -207,6 +208,28 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
                     player.sendMessage('Истории в книжке закончились')
                     player.runCommand('clear @s arx:big_storybook 0 1')
                     player.runCommand('playsound random.break @a ~ ~ ~')
+                }
+            }
+            break
+
+        case "arx:bunker_access_card":
+            if (manageCD(player)) {
+                if (!world.getDynamicProperty('isRatBarOpened')) {
+                    ssDP(world, 'isRatBarOpened', true)
+                    system.runTimeout(() => {
+                        player.dimension.playSound('beep.long', { x: -2098, y: 63, z: 1497 })
+                    }, 20)
+                    system.runTimeout(() => {
+                        player.dimension.playSound('beep.long', { x: -2098, y: 63, z: 1497 })
+                    }, 60)
+                    system.runTimeout(() => {
+                        player.dimension.playSound('beep.long', { x: -2098, y: 63, z: 1497 })
+                    }, 90)
+                    system.runTimeout(() => {
+                        player.dimension.playSound('abrupt_closing_of_metal_door', { x: -2098, y: 63, z: 1497 })
+                        player.runCommand('fill -2100 61 1498 -2100 63 1497 air')
+                        player.runCommand('execute positioned -2098 63 1497 run camerashake add @a[r=10]')
+                    }, 220)
                 }
             }
             break

@@ -42,7 +42,7 @@ function getBodyText(player) {
 
     bodyText += '§6===\n§f'
 
-    bodyText += `Ваш профиль занимает места: §d${(player.getDynamicPropertyTotalByteCount() / 1024).toFixed(1)} КБ\n§f`
+    bodyText += `Съедено Le Fishe: §d${player.getDynamicProperty('eatenLeFisheCounter')}`
 
     return bodyText
 }

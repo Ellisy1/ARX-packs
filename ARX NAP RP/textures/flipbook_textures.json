@@ -353,5 +353,11 @@
     "atlas_tile": "arx_magic_barrier_of_rat_cult",
     "ticks_per_frame": 2,
 		"blend_frames": false
+  },
+  {
+    "flipbook_texture": "textures/blocks/ancient_blocks/big_wall_monitor_rotated_down_no_signal",
+    "atlas_tile": "arx_big_wall_monitor_rotated_down_no_signal",
+    "ticks_per_frame": 10,
+		"blend_frames": false
   }
 ]

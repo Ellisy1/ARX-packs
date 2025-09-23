@@ -1,15 +1,35 @@
 import { ssDP } from '../../DPOperations';
 import { findSpell } from '../findSpell';
 import { spellsList } from '../spells_list';
+import { checkForItem } from '../../checkForItem';
 
-export function dinHijo(player, channels) {
+export function dinHijo(player, channels, targetData) {
+
+    let messageStart = targetData.type === 'self' ? 'У меня в' : 'У цели в'
+    let playerToCheck = targetData.type === 'self' ? player : targetData.player
+
+    if (!targetData.player && targetData.type === 'nearest') return
+
+    if (targetData.type === 'nearest') {
+        if (checkForItem(targetData.player, 'Legs', 'arx:amul_of_concealment')) { // Амулет блокирования Din Hijo
+            player.sendMessage(`§e${targetData.player.getDynamicProperty('name')} блокирует моё заклинание запроса!`)
+            targetData.player.sendMessage(`§e${player.getDynamicProperty('name')} пытался узнать мои заготовленые заклинания!`)
+
+            targetData.player.runCommand('particle arx:din_hijo_block ~ ~1.5 ~')
+            targetData.player.runCommand('playsound din_hijo_block @a ~ ~ ~')
+
+            return undefined
+        }
+    }
+
     for (let i = 1; i <= channels; i++) { // Итерируемся по каналам
-        const spellIndex = findSpell(player, i, 'index'); // Работает верно
+        const spellIndex = findSpell(playerToCheck, i, 'index');
         const spellName = spellIndex !== undefined ? getValueByIndex(spellsList, spellIndex) : undefined;
         const message = spellName
-            ? `У меня в §d${i}§f канале заготовлено §6${spellName}`
-            : `У меня в §d${i}§f канале не заготовлено заклинаний`;
-        player.runCommand(`tellraw @s { "rawtext": [ { "text": "${message}" } ] }`);
+            ? `${messageStart} §d${i}§f канале заготовлено §6${spellName}`
+            : `${messageStart} §d${i}§f канале не заготовлено заклинаний`
+        player.sendMessage(message)
+
     }
     ssDP(player, 'hasEverCastedDinHijo', true)
 }

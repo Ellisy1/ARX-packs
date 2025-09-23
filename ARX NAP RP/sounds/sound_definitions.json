@@ -457,5 +457,11 @@
       "sounds": [
          "sounds/spells/resistance_spell"
       ]
+   },
+   "beep.long": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/meca/long_beep"
+      ]
    }
 }
