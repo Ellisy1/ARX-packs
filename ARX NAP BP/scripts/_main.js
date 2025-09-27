@@ -97,6 +97,11 @@ world.afterEvents.entityHitEntity.subscribe((hitEvent) => {
             hitEvent.hitEntity.runCommand('kill @s')
         }
     }
+    // Ударил культист воин
+    if (hitEvent.damagingEntity.typeId == 'arx:cultist_warrior_rat') {
+        if (Math.random() > 0.5) hitEvent.damagingEntity.runCommand('playanimation @s animation.cultist_warrior_rat.attack_slash')
+        else hitEvent.damagingEntity.runCommand('playanimation @s animation.cultist_warrior_rat.attack_pierce')
+    }
 })
 
 // Постановка блоков

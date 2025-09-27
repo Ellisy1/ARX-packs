@@ -110,22 +110,22 @@ export const spellsList = {
     "san yanamo shumi sakiifori disortari": "слабое длительное заклинание защиты по площади",
 
 
-    "san yanamo shumi mega": "слабое заклинание защиты",
+    "san yanamo shumi mega": "хорошее заклинание защиты",
 
-    "san yanamo shumi mega sakiifori": "слабое длительное заклинание защиты",
+    "san yanamo shumi mega sakiifori": "хорошее длительное заклинание защиты",
 
-    "san yanamo shumi mega disortari": "слабое заклинание защиты по площади",
+    "san yanamo shumi mega disortari": "хорошее заклинание защиты по площади",
 
-    "san yanamo shumi mega sakiifori disortari": "слабое длительное заклинание защиты по площади",
+    "san yanamo shumi mega sakiifori disortari": "хорошее длительное заклинание защиты по площади",
 
 
-    "san yanamo shumi mega mega mega": "слабое заклинание защиты",
+    "san yanamo shumi mega mega mega": "мощное заклинание защиты",
 
-    "san yanamo shumi mega mega mega sakiifori": "слабое длительное заклинание защиты",
+    "san yanamo shumi mega mega mega sakiifori": "мощное длительное заклинание защиты",
 
-    "san yanamo shumi mega mega mega disortari": "слабое заклинание защиты по площади",
+    "san yanamo shumi mega mega mega disortari": "мощное заклинание защиты по площади",
 
-    "san yanamo shumi mega mega mega sakiifori disortari": "слабое длительное заклинание защиты по площади",
+    "san yanamo shumi mega mega mega sakiifori disortari": "мощное длительное заклинание защиты по площади",
 
 
     "san yanamo shumi kotoka": "слабое заклинание блокировки воздействия враждебной магии направления хаоса",

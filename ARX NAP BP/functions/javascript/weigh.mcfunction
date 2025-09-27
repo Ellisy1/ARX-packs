@@ -6,6 +6,7 @@
 # Рассчитываем, что мы несем
     #Оружие
         scoreboard players add @s[hasitem={item=arx:costorub}] weighLoading 4
+        scoreboard players add @s[hasitem={item=arx:cult_warrior_sword}] weighLoading 2
         scoreboard players add @s[hasitem={item=arx:delimiter}] weighLoading 10
         scoreboard players add @s[hasitem={item=arx:golden_longsword}] weighLoading 3
         scoreboard players add @s[hasitem={item=arx:dorionite_dismantler}] weighLoading 7

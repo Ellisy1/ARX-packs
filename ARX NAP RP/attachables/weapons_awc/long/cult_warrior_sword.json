@@ -10,7 +10,7 @@
                 "default": "textures/items/weapons/long/cult_warrior_sword"
             },
             "geometry": {
-                "default": "geometry.Nonepx_weapon_mesh"
+                "default": "geometry.24px_weapon_mesh"
             },
             "render_controllers": [
                 "controller.render.default"

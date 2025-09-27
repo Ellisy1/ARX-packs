@@ -7,9 +7,9 @@
                 "category": "weapon",
                 "duration": 1
             },
-            "minecraft:damage": 5,
+            "minecraft:damage": 8,
             "minecraft:durability": {
-                "max_durability": 777
+                "max_durability": 1528
             },
             "minecraft:enchantable": {
                 "slot": "sword",
@@ -22,7 +22,8 @@
                     "is_long_sword",
                     "is_weapon"
                 ]
-            }
+            },
+            "tag:raw_cost:15000": {}
         },
         "description": {
             "identifier": "arx:cult_warrior_sword",
