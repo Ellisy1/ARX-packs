@@ -331,7 +331,7 @@ system.runInterval(() => {
             if (player.getDynamicProperty('intoxicationLevel') >= 2) { maxMp -= player.getDynamicProperty('intoxicationLevel') * 4 }
 
             // Увеличение от прокачки
-            maxMp += player.getDynamicProperty('skill:mana_level') * 4
+            maxMp += player.getDynamicProperty('skill:mana_level') * 5
 
             // От пермабонуса
             maxMp += player.getDynamicProperty('MPPermanentBonus')
@@ -1597,7 +1597,7 @@ function displayMPAndAdjacent(player) {
             return undefined
         }
 
-        const activeChannel = getActiveStaffChannel(player, channels)
+        const activeChannel = getActiveStaffChannel(player, channels, false)
 
         player.runCommand(`title @s actionbar §b${channelRomanNums[activeChannel - 1]} канал §7| §f${manaStr} §1MP`)
     }
@@ -1610,7 +1610,7 @@ function displayMPAndAdjacent(player) {
         else if (checkForItem(player, "Legs", 'arx:amul_hypersynergy_improved')) { channels = 6 }
         else if (checkForItem(player, "Legs", 'arx:amul_hypersynergy_superior')) { channels = 8 }
 
-        const activeChannel = getActiveStaffChannel(player, channels)
+        const activeChannel = getActiveStaffChannel(player, channels, false)
 
         player.runCommand(`title @s actionbar §7${channelRomanNums[activeChannel - 1]} канал §7| §f${manaStr} §1MP`)
     }

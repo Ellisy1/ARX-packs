@@ -41,8 +41,5 @@
     give @s[scores={custom_random=600..799}] arx:liver 1
     function dead_mobs/operations/get_blood
 
-# Дропаем ОП
-    scoreboard players add @s xp_tray 5
-
 # Удаляем предмет
     clear @s arx:dead_snow_lady 0 1

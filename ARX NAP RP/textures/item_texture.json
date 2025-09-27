@@ -2723,6 +2723,9 @@
     "arx:long_steel_sword_with_draphorite_inlays": {
       "textures": "textures/items/weapons/long/long_steel_sword_with_draphorite_inlays"
     },
+    "arx:cult_warrior_sword": {
+      "textures": "textures/items/weapons/long/cult_warrior_sword"
+    },
     "arx:naginitis_longsword": {
       "textures": "textures/items/weapons/long/naginitis_longsword"
     },
@@ -4083,7 +4086,7 @@
       "textures": "textures/items/food/fish_soup"
     },
     "arx:forcemeat": {
-      "textures": "textures/items/food/forcemeat"
+      "textures": "textures/items/alchemy/forcemeat"
     },
     "arx:fried_brain": {
       "textures": "textures/items/food/fried_brain"
@@ -4520,6 +4523,9 @@
     "arx:cultists_letter": {
       "textures": "textures/items/books/cultists_letter"
     },
+    "arx:cultists_letter_ii": {
+      "textures": "textures/items/books/cultists_letter_ii"
+    },
     "arx:bundle_with_vinyl": {
       "textures": "textures/items/other/bundle_with_vinyl"
     },
@@ -4591,6 +4597,9 @@
     },
     "arx:whipping_dummy": {
       "textures": "textures/items/other/whipping_dummy"
+    },
+    "arx:cult_nasty_gift": {
+      "textures": "textures/items/other/cult_nasty_gift"
     },
 
     

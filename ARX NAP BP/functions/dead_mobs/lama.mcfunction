@@ -9,6 +9,3 @@
     give @s[scores={custom_random=400..599}] arx:animal_heart 1
     give @s[scores={custom_random=600..799}] arx:animal_eye 1
     function dead_mobs/operations/get_blood
-
-# Дропаем ОП
-    scoreboard players add @s xp_tray 5

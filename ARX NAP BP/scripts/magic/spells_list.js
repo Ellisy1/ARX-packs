@@ -216,6 +216,8 @@ export const spellsList = {
     "san yanamo shumi flurri mega mega mega sakiifori": "заклинание огнестойкости на 5 мин.",
 
 
+    "san affuono": "заклинание блокировки канала",
+
 
     // Искажение
     "din sukimo watashi transkursio": "заклинание создания водяной ткани",
@@ -346,13 +348,16 @@ export const spellsList = {
     "din orduino low disortari": "заклинание рассеивания эффектов по площади",
 
 
-    "din sukimo ratatao": "заклинание призыва черной маленькой мыши",
+    "din sukimo ratatao": "заклинание броска маленькой мышью",
 
-    "din sukimo ratatao sempra": "заклинание призыва черной маленькой агрессивной мыши",
+    "din sukimo ratatao kotoka": "заклинание броска маленькой белой мышью",
 
-    "din sukimo ratatao kotoka": "заклинание призыва белой маленькой мыши",
+    "din sukimo ratatao mega": "заклинание броска пещерной крысой",
 
-    "din sukimo ratatao kotoka sempra": "заклинание призыва белой маленькой агрессивной мыши",
+    "din sukimo ratatao mega mega mega": "заклинание броска крысиным монстром",
+
+    "din sukimo ratatao mega mega mega kotoka": "заклинание броска белым крысиным монстром",
+
 
     "din sukimo flurri": "заклинание магисвета на 3 минуты",
 

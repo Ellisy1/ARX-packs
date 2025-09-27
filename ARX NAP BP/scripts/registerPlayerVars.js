@@ -148,4 +148,7 @@ export function registerPlayerVars(player) {
     if (player.getDynamicProperty('eatenLeFisheCounter') === undefined) {
         ssDP(player, 'eatenLeFisheCounter', 0)
     }
+    if (player.getDynamicProperty('holdedMagicChannel') === undefined) {
+        ssDP(player, 'holdedMagicChannel', 1)
+    }
 }

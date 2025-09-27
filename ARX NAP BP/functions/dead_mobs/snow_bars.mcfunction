@@ -13,6 +13,3 @@
     give @s[scores={custom_random_b=200..399}] arx:liver 1
     give @s[scores={custom_random_b=400..599}] arx:animal_eye 1
     function dead_mobs/operations/get_blood
-
-# Дропаем ОП
-    scoreboard players add @s xp_tray 5

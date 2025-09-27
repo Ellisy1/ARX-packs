@@ -4,6 +4,3 @@
 # Дроп
     give @s arx:small_rat_meat 1
     give @s arx:small_rat_black_skin 1
-
-# Дропаем ОП
-    scoreboard players add @s xp_tray 5

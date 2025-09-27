@@ -23,10 +23,10 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
         // Тест
         case "arx:mod_sword":
             if (manageCD(player)) {
-                const rat = player.dimension.spawnEntity('arx:march_railgun_bullet', player.location)
+                const rat = player.dimension.spawnEntity('arx:small_rat_white', { x: player.location.x, y: player.location.y + 1.3, z: player.location.z })
                 const viewDirection = player.getViewDirection()
                 rat.addEffect('invisibility', 2, { showParticles: false })
-                rat.applyKnockback({ x: viewDirection.x * 4, z: viewDirection.z * 4 }, viewDirection.y * 0)
+                rat.applyKnockback({ x: viewDirection.x * 8, z: viewDirection.z * 8 }, viewDirection.y * 2)
             }
             break
 
@@ -66,7 +66,33 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
             }
             break
 
-
+        // Крысиные подарки
+        case "arx:cult_nasty_gift_bomb":
+            player.runCommand('clear @s arx:cult_nasty_gift_bomb 0 1')
+            player.dimension.playSound('random.explode', player.location)
+            player.dimension.spawnParticle('arx:dirty_fog', player.location)
+            player.dimension.spawnParticle('arx:force_explosion', player.location)
+            player.runCommand('damage @a[r=5] 10 block_explosion')
+            player.runCommand('camerashake add @a[r=8] 2 0.5')
+            player.runCommand("damage @s 40 block_explosion")
+            break
+        case "arx:cult_nasty_gift_poison":
+            player.runCommand('clear @s arx:cult_nasty_gift_poison 0 1')
+            player.runCommand("give @s arx:rounded_bottle_water_fiuli_wolf_death")
+            break
+        case "arx:cult_nasty_gift_iron_pie":
+            player.runCommand('clear @s arx:cult_nasty_gift_iron_pie 0 1')
+            const randNastyGift = Math.random()
+            if (randNastyGift > 0.5) {
+                player.runCommand("give @s arx:pie")
+            } else {
+                player.runCommand("give @s arx:iron_pie")
+            }
+            break
+        case "arx:cult_nasty_gift_harakiri_sword":
+            player.runCommand('clear @s arx:cult_nasty_gift_harakiri_sword 0 1')
+            player.runCommand("give @s arx:harakiri_sword")
+            break
 
         // КНИГИ
         // Книги, дропающие чар книги
@@ -85,7 +111,10 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
 
         // Читаемые
         case "arx:cultists_letter":
-            player.runCommand("function books/cultists_letter")
+            player.sendMessage("§lПисьмо без названия\n§r§fВнимание! Вы вторглись на чужие земли без разрешения. Ваше грязное присутствие оскверняет великого Раттекса. Предупреждаем: не смейте общаться с разумными крысами, иначе ваша гниль заразит их. Убирайтесь с этих земель, пока мы еще настроены на мирное решение.\n\n§oСтражи священного порядка")
+            break
+        case "arx:cultists_letter_ii":
+            player.sendMessage("§lПриказ Раттекса\n§r§fСлушайте голос великого Раттекса. Он в ярости от людей! Их шаги оскорбляют нашу священную землю, их дыхание заражает воздух, их города - гной на теле нашего мира, который создан для нас, избранных. Недостойные люди отвергли нашу милость разрешить им уйти по-хорошему, и мы исполняем священный долг, очищая эту землю от грязи во имя священного Раттекса.\n\nЧеловек - зараза. Он пришёл на наши земли, выжигая огнём наши дома, извращая нашу священную магию и вольно пользуясь нашей священной руной. Они пробрались к сбившимся с пути в бар и веселятся с ними, оскорбляя весь крысиный народ!\n\nПоэтому слушай и повинуйся! Человек - враг. Каждый уцелевший - оскорбление Раттекса. Каждое убийство человека - священно.\n\n§oАкх-цхакель, воплощая слова священного Раттекса")
             break
         case "arx:book_about_ancients":
             player.runCommand("function books/storybooks/book_about_ancients")
@@ -443,6 +472,7 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
 
         case "arx:bundle_with_vinyl":
             const vinylVar = Math.floor(Math.random() * 14)
+            player.runCommand(`clear @s arx:bundle_with_vinyl 0 1`)
             switch (vinylVar) {
                 case 0: player.runCommand('give @s minecraft:music_disc_11')
                     break

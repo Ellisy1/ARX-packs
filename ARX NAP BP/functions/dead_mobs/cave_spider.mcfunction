@@ -5,6 +5,3 @@
     give @s[scores={custom_random=0..199}] arx:fang 1
     give @s[scores={custom_random=200..399}] arx:claws 1
     give @s spider_eye 1
-
-# Дропаем ОП
-    scoreboard players add @s xp_tray 5

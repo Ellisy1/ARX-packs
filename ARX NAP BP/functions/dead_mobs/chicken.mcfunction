@@ -7,6 +7,3 @@
     give @s[scores={custom_random=0..199}] bone 1
 
     function dead_mobs/operations/get_blood
-
-# Дропаем ОП
-    scoreboard players add @s xp_tray 5

@@ -135,7 +135,7 @@ export function cipherRuneSequence(player, runeName, runeTags) {
         return undefined
     }
 
-    channel = getActiveStaffChannel(player, channel)
+    channel = getActiveStaffChannel(player, channel, false)
 
     // Сохраняем некоторые данные
     const dynamicPropertyName = `channel_${channel}_rune_sequence`

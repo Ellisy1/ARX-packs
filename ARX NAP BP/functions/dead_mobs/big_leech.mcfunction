@@ -3,6 +3,3 @@
 
 # Дроп
     give @s arx:big_leech_skin 1
-
-# Дропаем ОП
-    scoreboard players add @s xp_tray 5

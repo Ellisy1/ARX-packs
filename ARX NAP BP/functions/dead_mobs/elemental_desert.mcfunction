@@ -4,6 +4,3 @@
 # Дроп
     give @s sand 1
     function dead_mobs/operations/get_desert_essence
-
-# Дропаем ОП
-    scoreboard players add @s xp_tray 10

@@ -396,7 +396,7 @@ function sendChatMessage(player, speech, prefix, clearDistance = 0, senderName =
     }
 
     // Недопуск из-за спектатора
-    if (player.getGameMode() === 'Spectator') {
+    if (player.getGameMode() === 'Spectator' && prefix !== "§cГлобал.") {
         queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cНевозможно использовать локальный чат в режиме наблюдателя." } ] }`)
         return undefined
     }

@@ -9,7 +9,7 @@
             },
             "minecraft:damage": 6,
             "minecraft:durability": {
-                "max_durability": 1931
+                "max_durability": 1916
             },
             "minecraft:enchantable": {
                 "slot": "sword",

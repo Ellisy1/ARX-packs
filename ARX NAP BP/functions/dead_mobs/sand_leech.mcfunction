@@ -3,6 +3,3 @@
 
 # Дроп
     give @s minecraft:slime_ball 1
-
-# Дропаем ОП
-    scoreboard players add @s xp_tray 5

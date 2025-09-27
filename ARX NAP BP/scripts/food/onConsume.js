@@ -28,7 +28,6 @@ export function onFoodConsume(player, foodname) {
         "arx:duckling_crisps": 42,
         "arx:dumplings": 35,
         "arx:firesalo": 80,
-        "arx:forcemeat": 2,
         "arx:fried_brain": 17,
         "arx:fried_eggs": 20,
         "arx:fried_frog_legs_in_elvish": 75,

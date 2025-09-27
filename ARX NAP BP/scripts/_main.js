@@ -203,35 +203,35 @@ system.beforeEvents.startup.subscribe(initEvent => {
                     break
 
                 case "arx:ancient_iron_processor":
-                    // if (checkForItem(event.player, 'Mainhand', 'minecraft:iron_ingot')) {
-                    //     event.block.dimension.playSound('random.explode', event.block.location)
+                    if (checkForItem(event.player, 'Mainhand', 'minecraft:iron_ingot')) {
+                        event.block.dimension.playSound('random.explode', event.block.location)
 
-                    //     const stack1 = new ItemStack('arx:ancient_banknote', 3)
-                    //     event.block.dimension.spawnItem(stack1, event.block.location)
+                        const stack1 = new ItemStack('arx:ancient_banknote', 3)
+                        event.block.dimension.spawnItem(stack1, event.block.location)
 
-                    //     const stack2 = new ItemStack('coal', 5)
-                    //     event.block.dimension.spawnItem(stack2, event.block.location)
+                        const stack2 = new ItemStack('coal', 5)
+                        event.block.dimension.spawnItem(stack2, event.block.location)
 
-                    //     const stack3 = new ItemStack('arx:chrome_nugget', 3)
-                    //     event.block.dimension.spawnItem(stack3, event.block.location)
+                        const stack3 = new ItemStack('arx:chrome_nugget', 3)
+                        event.block.dimension.spawnItem(stack3, event.block.location)
 
-                    //     const stack4 = new ItemStack('iron_ingot', 21)
-                    //     event.block.dimension.spawnItem(stack4, event.block.location)
+                        const stack4 = new ItemStack('iron_ingot', 21)
+                        event.block.dimension.spawnItem(stack4, event.block.location)
 
-                    //     const stack5 = new ItemStack('arx:steel_protective_plate', 3)
-                    //     event.block.dimension.spawnItem(stack5, event.block.location)
+                        const stack5 = new ItemStack('arx:steel_protective_plate', 3)
+                        event.block.dimension.spawnItem(stack5, event.block.location)
 
-                    //     event.block.dimension.runCommand(executeOnBlockPosition + 'damage @a[r=8] 10 block_explosion')
-                    //     event.block.dimension.spawnParticle('arx:dirty_fog', event.block.location)
-                    //     event.block.dimension.runCommand(executeOnBlockPosition + 'fill ~ ~ ~ ~ ~ ~ air')
-                    //     event.block.dimension.runCommand(executeOnBlockPosition + 'camera @a[r=8] fade time 0 0.5 1 color 200 20 10')
-                    // }
-                    // else {
-                    //     event.player.sendMessage('§b§lМеталлическое устройство\n§r§o§fКажется, оно никак не реагирует, что бы вы ни делали')
-                    // }
+                        event.block.dimension.runCommand(executeOnBlockPosition + 'damage @a[r=8] 10 block_explosion')
+                        event.block.dimension.spawnParticle('arx:dirty_fog', event.block.location)
+                        event.block.dimension.runCommand(executeOnBlockPosition + 'fill ~ ~ ~ ~ ~ ~ air')
+                        event.block.dimension.runCommand(executeOnBlockPosition + 'camera @a[r=8] fade time 0 0.5 1 color 200 20 10')
+                    }
+                    else {
+                        event.player.sendMessage('§b§lМеталлическое устройство\n§r§o§fКажется, оно никак не реагирует, что бы вы ни делали')
+                    }
 
 
-                    event.player.sendMessage('§b§lМеталлическое устройство\n§r§o§fКажется, оно никак не реагирует, что бы вы ни делали')
+                    // event.player.sendMessage('§b§lМеталлическое устройство\n§r§o§fКажется, оно никак не реагирует, что бы вы ни делали')
 
                     break
 

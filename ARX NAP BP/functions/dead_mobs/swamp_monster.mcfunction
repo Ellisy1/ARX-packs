@@ -5,6 +5,3 @@
     give @s arx:swamp_monster_heart 1
     give @s[scores={custom_random=500..999}] arx:straw_hat 1 65
     give @s bone 10
-
-# Дропаем ОП
-    scoreboard players add @s xp_tray 20

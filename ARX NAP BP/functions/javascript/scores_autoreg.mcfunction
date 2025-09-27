@@ -37,7 +37,6 @@ scoreboard players add @a c_demon 0
 scoreboard players add @a in_battle 0
 scoreboard players add @a weather 0
 scoreboard players add @a invisible 0
-scoreboard players add @a xp_tray 0
 scoreboard players add @a const_1000 0
 scoreboard players add @a const_1500 0
 scoreboard players add @a xp 0

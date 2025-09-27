@@ -7,9 +7,9 @@
                 "category": "weapon",
                 "duration": 1
             },
-            "minecraft:damage": 9,
+            "minecraft:damage": 7,
             "minecraft:durability": {
-                "max_durability": 1653
+                "max_durability": 1123
             },
             "minecraft:enchantable": {
                 "slot": "sword",

@@ -8,7 +8,8 @@ import { classicHeal } from './SPELLClassicHeal'
 import { instantHeal } from './SPELLInstantHeal'
 import { classicDefence } from './SPELLСlassicDefence'
 import { chain } from './SPELLChain'
-import { ssDP } from '../../DPOperations';
+import { ssDP } from '../../DPOperations'
+import { throwMob } from './SPELLThrowMob'
 
 /**
  * Реестр заклинаний
@@ -340,6 +341,50 @@ const spellRegistry = {
 
             ssDP(playerToBoost, 'shootingBoostBySpell_minus4', 60)
         }
+    },
+    "san affuono": {
+        mpCost: 30,
+        validTargets: ['self'],
+        handler: (player) => {
+            if (player.getDynamicProperty('holdMagicChannel') === true) {
+                // Снятие блокировки канала
+                player.sendMessage('§eБлокировка канала снята')
+                ssDP(player, 'holdMagicChannel', false)
+            } else {
+                // Установка блокировки канала
+                player.sendMessage('§eБлокировка канала установлена')
+                if (!player.getDynamicProperty('everHoldedMagicChannel')) player.sendMessage('§f[§ai§f] Вы можете выбирать каналы на присяде при помощи поворота камеры, а когда встаете, выбранный канал фиксируется и не изменяется. Используйте это заклинание снова, чтобы отменить блокировку канала.')
+                ssDP(player, 'holdMagicChannel', true)
+                ssDP(player, 'everHoldedMagicChannel', true)
+            }
+        }
+    },
+
+    // Крысы
+    "din sukimo ratatao": {
+        mpCost: 20,
+        validTargets: ['self'],
+        handler: (player) => { throwMob(player, 'arx:small_rat_black', 1.5, 'become_agressive') }
+    },
+    "din sukimo ratatao kotoka": {
+        mpCost: 25,
+        validTargets: ['self'],
+        handler: (player) => { throwMob(player, 'arx:small_rat_white', 1.5, 'become_agressive') }
+    },
+    "din sukimo ratatao mega": {
+        mpCost: 60,
+        validTargets: ['self'],
+        handler: (player) => { throwMob(player, 'arx:cave_rat') }
+    },
+    "din sukimo ratatao mega mega mega": {
+        mpCost: 120,
+        validTargets: ['self'],
+        handler: (player) => { throwMob(player, 'arx:rat_monstr', 1, 'become_agressive') }
+    },
+    "din sukimo ratatao mega mega mega kotoka": {
+        mpCost: 150,
+        validTargets: ['self'],
+        handler: (player) => { throwMob(player, 'arx:rat_monstr_white', 1, 'become_agressive') }
     },
 };
 
