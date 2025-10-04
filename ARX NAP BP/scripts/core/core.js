@@ -4,7 +4,7 @@
 import { system, world, EntityComponentTypes, EquipmentSlot } from "@minecraft/server"
 
 import { getScore, setScore } from '../scoresOperations'
-import { increaseSkillLevel, increaseSkillProgress, wipeSkills } from '../skillsOperations'
+import { calculateXPMultiplier, increaseSkillLevel, increaseSkillProgress, wipeSkills } from '../skillsOperations'
 import { checkForItem } from "../checkForItem"
 import { ModalFormData, MessageFormData, MessageFormResponse } from "@minecraft/server-ui"
 import { setRandomTastes } from '../food/setRandomTastes'
@@ -23,7 +23,8 @@ import { acquireTrait } from "../traits/traitsOperations"
 // Импорт - другие области движка
 import { getNearestPlayer } from "../getNearestPlayer"
 import { queueCommand } from "../commandQueue"
-
+import { parceChatCommand } from "../chat"
+import './ambience_core'
 
 // ARXGate
 export let ARXGate = {
@@ -38,22 +39,32 @@ system.runInterval(() => {
     world.getDimension("minecraft:overworld").runCommand("function core_parts_NAP/core")
     world.getDimension("minecraft:overworld").runCommand("function core_parts_NAP/dynamic_light_execution")
 
+    const umps = world.getDimension('minecraft:overworld').getEntities({ type: 'arx:ump' })
+    for (const ump of umps) {
+        ump.dimension.spawnParticle('arx:march_railgun_bullet', ump.location)
+    }
+
     for (const player of world.getPlayers()) {
+
+        // Откат блокировки
+        if (player.getDynamicProperty('blockingResistanceCD') > 0) {
+            iDP(player, 'blockingResistanceCD', -1)
+            if (player.getDynamicProperty('blockingResistanceCD') === 0) {
+                player.runCommand('event entity @s arx:property_is_knockout_set_0')
+            }
+        }
+        if (player.getDynamicProperty('blockingPlayerWasAttacked') > 0) {
+            iDP(player, 'blockingPlayerWasAttacked', -1)
+        }
 
         // Призрак и его механики
         if (player.getProperty("arx:is_ghost") == true) {
             const isSneaking = player.getTags().includes("is_sneaking")
 
-            // Определяем направление взгляда
-            let view_down = false
-            player.runCommand("tag @s[rxm=30] add ghost_is_looking_down")
-            if (player.getTags().includes("ghost_is_looking_down")) { view_down = true }
-            player.removeTag("ghost_is_looking_down")
-
             // Определяем, можно ли нам левитировать из-за блоков
             let allow_levitate = false
             // В i < num, num отвечает за высоту полёта призрака
-            for (let i = 0; i < 4; i++) {
+            for (let i = 0; i < 2; i++) {
                 if (getBlockWithOffset(player, 0, -0.5 - i, 0)?.typeId != "minecraft:air") {
                     allow_levitate = true
                 }
@@ -68,7 +79,7 @@ system.runInterval(() => {
             }
 
             // Левитируем
-            if ((isSneaking && view_down && allow_levitate) || force_to_levitate) {
+            if ((player.getDynamicProperty('pressedJumpButton') && allow_levitate) || force_to_levitate) {
 
                 if (player.getDynamicProperty('ghostBoostByScarletMoon')) {
                     player.addEffect("levitation", 2, { amplifier: 4, showParticles: false })
@@ -209,15 +220,14 @@ system.runInterval(() => {
             basicStrength -= player.getDynamicProperty("ghostWitheringLevel")
 
             // Воздействие стресса
-            if (player.getDynamicProperty('stressLevel') == 4) { basicStrength -= 4 }
-            if (player.getDynamicProperty('stressLevel') == 3) { basicStrength -= 2 }
-            if (player.getDynamicProperty('stressLevel') == 2) { basicStrength -= 1 }
-            if (player.getDynamicProperty('stressLevel') == -2) { basicStrength += 1 }
-            if (player.getDynamicProperty('stressLevel') == -3) { basicStrength += 2 }
-            if (player.getDynamicProperty('stressLevel') == -4) { basicStrength += 3 }
-
-            // Штрафовое срезание от отката
-            basicStrength -= Math.ceil(player.getDynamicProperty("attackCD") / 20) * 4
+            switch (player.getDynamicProperty('stressLevel')) {
+                case 4: basicStrength -= checkForTrait(player, 'conscious') ? 3 : 4; break
+                case 3: basicStrength -= 2; break
+                case 2: basicStrength -= 1; break
+                case -2: basicStrength += 1; break
+                case -3: basicStrength += 2; break
+                case -4: basicStrength += 3; break
+            }
 
             // Срезание от отравления
             if (player.getDynamicProperty('intoxicationLevel') >= 2) { basicStrength -= player.getDynamicProperty('intoxicationLevel') * 2 }
@@ -225,8 +235,14 @@ system.runInterval(() => {
             // Штрафовое срезание от перегруза
             if (player?.getDynamicProperty('overLoading') > 0) { basicStrength -= (player?.getDynamicProperty('overLoading') * 3) }
 
+            // Срезание от кольца гладиатора
+            if ((checkForItem(player, 'Feet', 'arx:ring_aluminum_amethyst') || checkForItem(player, 'Offhand', 'arx:ring_aluminum_amethyst')) && basicStrength > 1) basicStrength = 1
+
             // Штраф от запрета атаки
             if (player?.getDynamicProperty("prohibit_damage") > 0) { basicStrength -= 999 }
+
+            // Штрафовое срезание от отката
+            basicStrength -= Math.ceil(player.getDynamicProperty("attackCD") / 20) * 4
 
             // Выставляем силу
             basicStrength < -30 ? player.runCommand(`event entity @s arx:setBasicStrength_-30`) : player.runCommand(`event entity @s arx:setBasicStrength_${basicStrength}`)
@@ -271,12 +287,14 @@ system.runInterval(() => {
             mpRegenPower -= player.getDynamicProperty("ghostWitheringLevel") * 0.2
 
             // Воздействие стресса
-            if (player.getDynamicProperty('stressLevel') == 4) { mpRegenPower -= 0.4 }
-            if (player.getDynamicProperty('stressLevel') == 3) { mpRegenPower -= 0.2 }
-            if (player.getDynamicProperty('stressLevel') == 2) { mpRegenPower -= 0.1 }
-            if (player.getDynamicProperty('stressLevel') == -2) { mpRegenPower += 0.1 }
-            if (player.getDynamicProperty('stressLevel') == -3) { mpRegenPower += 0.2 }
-            if (player.getDynamicProperty('stressLevel') == -4) { mpRegenPower += 0.4 }
+            switch (player.getDynamicProperty('stressLevel')) {
+                case 4: mpRegenPower -= checkForTrait(player, 'conscious') ? 0.3 : 0.4; break
+                case 3: mpRegenPower -= 0.2; break
+                case 2: mpRegenPower -= 0.1; break
+                case -2: mpRegenPower += 0.1; break
+                case -3: mpRegenPower += 0.2; break
+                case -4: mpRegenPower += 0.4; break
+            }
 
             // Срезание от отравления
             if (player.getDynamicProperty('intoxicationLevel') >= 2) { mpRegenPower -= player.getDynamicProperty('intoxicationLevel') }
@@ -308,6 +326,7 @@ system.runInterval(() => {
             if (checkForItem(player, "Offhand", "arx:ring_lamenite_sapphire")) { maxMp += 50 }
 
             if (checkForItem(player, "Chest", "arx:apprentice_robe")) { maxMp += 3 }
+            if (checkForItem(player, "Head", "arx:royal_sorrel_flower")) { maxMp += 5 }
 
             // Увеличение от бонуса фиоликса
             if (player.getDynamicProperty('statsBonusByFiolix') > 0) { maxMp += 10 }
@@ -320,12 +339,14 @@ system.runInterval(() => {
             maxMp -= player.getDynamicProperty("ghostWitheringLevel") * 3
 
             // Воздействие стресса
-            if (player.getDynamicProperty('stressLevel') == 4) { maxMp -= 20 }
-            if (player.getDynamicProperty('stressLevel') == 3) { maxMp -= 10 }
-            if (player.getDynamicProperty('stressLevel') == 2) { maxMp -= 5 }
-            if (player.getDynamicProperty('stressLevel') == -2) { maxMp += 5 }
-            if (player.getDynamicProperty('stressLevel') == -3) { maxMp += 10 }
-            if (player.getDynamicProperty('stressLevel') == -4) { maxMp += 15 }
+            switch (player.getDynamicProperty('stressLevel')) {
+                case 4: maxMp -= checkForTrait(player, 'conscious') ? 15 : 20; break
+                case 3: maxMp -= 10; break
+                case 2: maxMp -= 5; break
+                case -2: maxMp += 5; break
+                case -3: maxMp += 10; break
+                case -4: maxMp += 15; break
+            }
 
             // Срезание от отравления
             if (player.getDynamicProperty('intoxicationLevel') >= 2) { maxMp -= player.getDynamicProperty('intoxicationLevel') * 4 }
@@ -391,53 +412,58 @@ system.runInterval(() => {
             let speedPower = 100 // База = 100%
 
             // Увеличение от колец
-            if (checkForItem(player, "Feet", "arx:ring_aluminum_chrysolite")) { speedPower += 5 }
-            if (checkForItem(player, "Offhand", "arx:ring_aluminum_chrysolite")) { speedPower += 5 }
+            if (checkForItem(player, "Feet", "arx:ring_aluminum_chrysolite")) speedPower += 5
+            if (checkForItem(player, "Offhand", "arx:ring_aluminum_chrysolite")) speedPower += 5
 
-            if (checkForItem(player, "Feet", "arx:ring_gold_chrysolite")) { speedPower += 10 }
-            if (checkForItem(player, "Offhand", "arx:ring_gold_chrysolite")) { speedPower += 10 }
+            if (checkForItem(player, "Feet", "arx:ring_gold_chrysolite")) speedPower += 10
+            if (checkForItem(player, "Offhand", "arx:ring_gold_chrysolite")) speedPower += 10
 
-            if (checkForItem(player, "Feet", "arx:ring_naginitis_chrysolite")) { speedPower += 20 }
-            if (checkForItem(player, "Offhand", "arx:ring_naginitis_chrysolite")) { speedPower += 20 }
+            if (checkForItem(player, "Feet", "arx:ring_naginitis_chrysolite")) speedPower += 20
+            if (checkForItem(player, "Offhand", "arx:ring_naginitis_chrysolite")) speedPower += 20
 
-            if (checkForItem(player, "Feet", "arx:ring_caryite_chrysolite")) { speedPower += 30 }
-            if (checkForItem(player, "Offhand", "arx:ring_caryite_chrysolite")) { speedPower += 30 }
+            if (checkForItem(player, "Feet", "arx:ring_caryite_chrysolite")) speedPower += 30
+            if (checkForItem(player, "Offhand", "arx:ring_caryite_chrysolite")) speedPower += 30
 
-            if (checkForItem(player, "Feet", "arx:ring_toliriite_chrysolite")) { speedPower += 40 }
-            if (checkForItem(player, "Offhand", "arx:ring_toliriite_chrysolite")) { speedPower += 40 }
+            if (checkForItem(player, "Feet", "arx:ring_toliriite_chrysolite")) speedPower += 40
+            if (checkForItem(player, "Offhand", "arx:ring_toliriite_chrysolite")) speedPower += 40
 
-            if (checkForItem(player, "Feet", "arx:ring_lamenite_chrysolite")) { speedPower += 50 }
-            if (checkForItem(player, "Offhand", "arx:ring_lamenite_chrysolite")) { speedPower += 50 }
+            if (checkForItem(player, "Feet", "arx:ring_lamenite_chrysolite")) speedPower += 50
+            if (checkForItem(player, "Offhand", "arx:ring_lamenite_chrysolite")) speedPower += 50
 
-            if (player.getDynamicProperty('speedBonusByPotion') > 0) { speedPower += 20 }
+            if (player.getDynamicProperty('speedBonusByPotion') > 0) speedPower += 20 || 0
 
             // От экипировки
-            if (checkForItem(player, "Feet", "arx:leg_bag_dual")) { speedPower -= 8 }
+            if (checkForItem(player, "Feet", "arx:leg_bag_dual")) speedPower -= 8 || 0
 
             // Бонус для призака алой ночью
-            if (player.getDynamicProperty('ghostBoostByScarletMoon')) speedPower += 30
+            if (player.getDynamicProperty('ghostBoostByScarletMoon')) speedPower += 30 || 0
 
             // Увеличение от уровня
-            speedPower += player.getDynamicProperty("skill:running_level") * 2
+            speedPower += player.getDynamicProperty("skill:running_level") * 2 || 0
+
+            // Срезание от попадания по блокирующему
+            speedPower -= (player.getDynamicProperty("blockingPlayerWasAttacked") * 1.2) || 0
 
             // Увеличение от роста
-            speedPower += Math.round((player.getDynamicProperty("height") - 150) / 9)
+            speedPower += Math.round((player.getDynamicProperty("height") - 150) / 9) || 0
 
             // Увеличение от навыка плавания
             if (player.hasTag('in_block_water')) {
-                speedPower += player.getDynamicProperty('skill:swimming_level') * 5
+                speedPower += player.getDynamicProperty('skill:swimming_level') * 5 || 0
             }
 
             // Увеличение от бонуса фиоликса
             if (player.getDynamicProperty('statsBonusByFiolix') > 0) { speedPower += 25 }
 
             // Воздействие стресса
-            if (player.getDynamicProperty('stressLevel') == 4) { speedPower -= 40 }
-            if (player.getDynamicProperty('stressLevel') == 3) { speedPower -= 20 }
-            if (player.getDynamicProperty('stressLevel') == 2) { speedPower -= 10 }
-            if (player.getDynamicProperty('stressLevel') == -2) { speedPower += 10 }
-            if (player.getDynamicProperty('stressLevel') == -3) { speedPower += 20 }
-            if (player.getDynamicProperty('stressLevel') == -4) { speedPower += 30 }
+            switch (player.getDynamicProperty('stressLevel')) {
+                case 4: speedPower -= checkForTrait(player, 'conscious') ? 30 : 40; break
+                case 3: speedPower -= 20; break
+                case 2: speedPower -= 10; break
+                case -2: speedPower += 10; break
+                case -3: speedPower += 20; break
+                case -4: speedPower += 30; break
+            }
 
             // Штраф от намокания
             if (getScore(player, "water_delay") > 200) { speedPower -= 10 }
@@ -473,7 +499,7 @@ system.runInterval(() => {
             // Если значение отрицательное
             if (speedPower < 0) { speedPower = 0 }
 
-            if (player.getTags().includes('is_sprinting')) { speedPower += 25 }
+            if (player.hasTag('is_sprinting')) { speedPower += 25 }
 
             // Скорость - реализация
             if (player.getDynamicProperty("speedPower") != speedPower && speedPower != NaN) {
@@ -643,6 +669,11 @@ system.runInterval(() => {
 system.runInterval(() => {
     for (const player of world.getPlayers()) {
 
+        // Прыжки
+        if (player.getDynamicProperty('pressedJumpButton')) {
+            if (player.getDynamicProperty('saturation') > 0) iDP(player, 'saturation', -1)
+        }
+
         // # === # Анализ эффектов # === #
 
         // Механики призрака
@@ -681,10 +712,12 @@ system.runInterval(() => {
             if (player.getDynamicProperty('ghostBoostByScarletMoon')) jumpPower += 1
 
             // Воздействие стресса
-            if (player.getDynamicProperty('stressLevel') == 4) { jumpPower -= 3 }
-            if (player.getDynamicProperty('stressLevel') == 3) { jumpPower -= 1 }
-            if (player.getDynamicProperty('stressLevel') == -3) { jumpPower += 1 }
-            if (player.getDynamicProperty('stressLevel') == -4) { jumpPower += 2 }
+            switch (player.getDynamicProperty('stressLevel')) {
+                case 4: jumpPower -= checkForTrait(player, 'conscious') ? 2 : 3; break
+                case 3: jumpPower -= 1; break
+                case -3: jumpPower += 1; break
+                case -4: jumpPower += 2; break
+            }
 
             // Штраф от намокания
             if (getScore(player, "water_delay") > 200) { jumpPower -= 1 }
@@ -791,6 +824,76 @@ system.runInterval(() => {
 
     for (const player of world.getPlayers()) {
 
+        // Снижение сытости от спринта
+        if (player.hasTag('is_sprinting')) {
+            if (player.getDynamicProperty('saturation') > 0) iDP(player, 'saturation', -1)
+        }
+
+        // Шизо
+        if (checkForTrait(player, 'schizophrenic') && !player.getProperty('arx:is_knocked')) {
+            if (Math.random() < 0.01) {
+                let sound
+                const rand = Math.floor(Math.random() * 10)
+                switch (rand) {
+                    case 0: sound = 'mob.chicken.say'; break
+                    case 1: sound = 'random.explode'; break
+                    case 2: sound = 'random.orb'; break
+                    case 3: sound = 'random.eat'; break
+                    case 4: sound = 'random.chestopen'; break
+                    case 5: sound = 'random.break'; break
+                    case 6: sound = 'random.door_close'; break
+                    case 7: sound = 'random.click'; break
+                    case 8: sound = 'fire.fire'; break
+                    case 9: sound = 'ambient.weather.lightning.impact'; break
+                }
+                player.runCommand(`playsound ${sound} @s ~${Math.floor(Math.random() * 17) - 8} ~${Math.floor(Math.random() * 5) - 2} ~${Math.floor(Math.random() * 17) - 8}`)
+            }
+        }
+
+        // Импульсивный параноик
+        if (checkForTrait(player, 'impulsive_par') && !player.getProperty('arx:is_knocked')) {
+            if (Math.random() < 0.015) {
+                const playersNearImpulsivePar = getPlayersInRadius(player, 3, false)
+                const strength = Math.max(player.getDynamicProperty('basicStrength'), 1)
+                if (playersNearImpulsivePar.length > 0) {
+                    const playerNearImpulsivePar = playersNearImpulsivePar[Math.floor(Math.random() * playersNearImpulsivePar.length)]
+                    playerNearImpulsivePar.applyDamage(strength, { damagingEntity: player, cause: 'entityAttack' })
+                    player.sendMessage(`§cВы непроизвольно пытаетесь ударить всех подряд, под ваши взмахи попадает ${playerNearImpulsivePar.getDynamicProperty('name')}`)
+                    player.runCommand('playanimation @s animation.player.break_limb')
+                    playerNearImpulsivePar.sendMessage(`§c${player.getDynamicProperty('name')} как-то странно пытается меня ударить!`)
+                }
+            }
+        }
+
+        // Параноик-мазохист
+        if (checkForTrait(player, 'paranoid_mas')) {
+            if (Math.random() < 0.002) {
+                player.applyDamage(Math.ceil(Math.random() * 3))
+                player.sendMessage('§cВы причиняете себе боль, но вам это нравится')
+                iDP(player, "stress", -100)
+            }
+        }
+
+        // Импульсивный токсик
+        if (checkForTrait(player, 'impulsive_toxic')) {
+            if (Math.random() < 0.008) {
+
+                const nearbyPlayers = getPlayersInRadius(player, 6, false)
+
+                if (nearbyPlayers.length > 0) {
+                    let phrases
+                    if (nearbyPlayers.length === 1) phrases = checkForTrait('rude') ? ['Ёб твою мать', 'Шёл бы ты нахуй', 'Чтоб ты помер, блядина', 'Иди в очко, скотина ебаная', 'Поешь говна, сучка'] :
+                        ['Вот дерьмо', 'Иди в жопу', 'Достало', 'Чтоб ты сдох']
+                    else phrases = checkForTrait('rude') ? ['Ёб вашу мать', 'Идите нахуй, уёбки', 'Чтоб вы все передохли к хуям', 'Чтоб вас всех крысы нахуй порвали'] :
+                        ['Вот дерьмо', 'Идите все в жопу', 'Достало', 'Чтоб вы все сдохли']
+                    parceChatCommand(player, phrases[Math.floor(Math.random() * phrases.length)])
+                }
+            }
+        }
+
+        // Перерасчитываем множитель получаемого опыта
+        calculateXPMultiplier(player)
+
         // Уменьшение DP из dynamicPropertiesToDecrease
         for (const dp in dynamicPropertiesToDecrease) {
             const DPValue = player.getDynamicProperty(dp)
@@ -847,25 +950,64 @@ system.runInterval(() => {
             let stressDynamic = player.getDynamicProperty('stressDynamic') // Корректирующая динамика
 
             // Случайные события
-            if (Math.random() < 0.0001) {
+            const goodTimesProb = (checkForTrait(player, 'skilled_fisherman') && checkForItem(player, 'mainhand', 'minecraft:fishing_rod')) ? 0.0002 : 0.0001
+            const stressBonus = checkForTrait(player, 'indifference') ? 1500 : 750
+            if (Math.random() < goodTimesProb) {
                 player.sendMessage(' Вы вспомнили хорошие времена. Это подняло ваше настроение.')
-                stress -= 1200
-            }
-            if (Math.random() < 0.0001) {
+                stress -= stressBonus;
+            } else if (Math.random() < 0.0001 && !checkForTrait(player, 'inflexible')) {
                 player.sendMessage(' Вы вспомнили плохие времена. Это испортило ваше настроение.')
-                stress += 1200
+                stress += stressBonus;
             }
 
             // Чилл в водичке
-            if (player.hasTag('in_block_water')) { stress -= 3 }
+            if (checkForTrait(player, 'water_lover') && player.hasTag('in_block_water')) { stress -= 3 }
+            // Депрессия в водичке
+            if (checkForTrait(player, 'aquaphobe') && player.hasTag('in_block_water')) { stress += 3 }
 
             // Стресс при низком здоровье
             if (player.hasTag('very_low_hp')) { stress += 25 }
             else if (player.hasTag('low_hp')) { stress += 8 }
 
             // Падение стресса к нейтральным значениям
-            if (stress > 800) { stress -= stress / 1000 } // Если стресс высокий, падение ускорено.
-            else if (stress < -800) { stress += 1 }
+            const decreaseValue = checkForTrait(player, 'kind') ? stress / 750 : stress / 1000
+            if (stress > 800) stress -= decreaseValue // Если стресс высокий, падение ускорено.
+            else if (stress < -800) stress += 1
+
+            // Черта манипулятор
+            if (checkForTrait(player, 'manipulator')) {
+                const playersNearManipulator = getPlayersInRadius(player, 8, false)
+                for (let playerNearManipulator of playersNearManipulator) {
+                    iDP(playerNearManipulator, 'stress')
+                    iDP(player, 'stress', -1)
+                }
+            }
+
+            // Черта харизматик
+            if (checkForTrait(player, 'charismatic')) {
+                const playersNearCharismatic = getPlayersInRadius(player, 8, false)
+                for (let playerNearCharismatic of playersNearCharismatic) {
+                    iDP(playerNearCharismatic, 'stress', -2)
+                }
+            }
+
+            // Черта общительный
+            if (checkForTrait(player, 'communicative')) {
+                const increaseValue = getPlayersInRadius(player, 8, false).length === 0 ? 2 : -2
+                iDP(player, 'stress', increaseValue)
+            }
+
+            // Черта страх темноты
+            if (checkForTrait(player, 'nodarkness') && player.hasTag('low_bright')) {
+                console.warn("nodarkness")
+                iDP(player, 'stress', 5)
+            }
+
+            // Черта страх глубин
+            if (checkForTrait(player, 'nomines') && player.location.y < 0) {
+                console.warn("nomines")
+                iDP(player, 'stress', 5)
+            }
 
             // Корректирующая динамика
             {
@@ -906,7 +1048,7 @@ system.runInterval(() => {
 
                 let traitProbability
 
-                if (player.getDynamicProperty('trait:unstable')) traitProbability = 0.01
+                if (checkForTrait(player, 'unstable')) traitProbability = 0.01
                 else traitProbability = 0.005
 
                 if (traitRand < traitProbability) {
@@ -920,22 +1062,12 @@ system.runInterval(() => {
 
                 const stressLevelAbs = Math.abs(stressLevel)
 
-                let word1
-                if (stressLevelOld < stressLevel) { word1 = "хуже" }
-                else { word1 = "лучше" }
+                const word1 = stressLevelOld < stressLevel ? "хуже" : "лучше"
+                const icon = stressLevel > 0 ? '' : stressLevel === 0 ? '' : ''
+                const word2 = stressLevel > 0 ? 'стресса' : 'счастья'
+                const color = stressLevel > 1 ? '§c' : stressLevel < -1 ? '§a' : ''
 
-                let icon
-                let word2
-                if (stressLevel > 0) { icon = ''; word2 = 'стресса' }
-                else if (stressLevel === 0) { icon = ''; word2 = 'счастья' }
-                else { icon = ''; word2 = 'счастья' }
-
-                let color = ''
-                if (stressLevel > 1) { color = '§c' }
-                else if (stressLevel < -1) { color = '§a' }
-
-                let stressOutputLevel = stressLevelAbs.toString()
-                if (stressOutputLevel === '4') { stressOutputLevel = 'Макс.' }
+                const stressOutputLevel = stressLevelAbs == 4 ? 'Макс.' : stressLevelAbs.toString()
 
                 player.sendMessage(`[Стало ${word1}] ${icon.repeat(stressLevelAbs != 0 ? stressLevelAbs : 1)} (${color}${stressOutputLevel} §fур. ${word2})`)
             }
@@ -1118,9 +1250,6 @@ system.runInterval(() => {
             showTastesRerollUI(player)
         }
 
-        // Впустую прозваниваем навык. Это делается для перерасчета бонусов увеличения опыта, следственно актуального их отображения
-        increaseSkillProgress(player, "strength", 0)
-
         // Интоксикация
         {
             // Расчёт снятия интоксикации
@@ -1149,10 +1278,9 @@ system.runInterval(() => {
 
             // Если есть какая-то динамика интоксикации
             if (player.getDynamicProperty("intoxicationLevel") != intoxicationLevel) {
-                let intoxicationLevelColor
-                if (intoxicationLevel == 0) { intoxicationLevelColor = '§a' }
-                if (intoxicationLevel == 1) { intoxicationLevelColor = '§e' }
-                if (intoxicationLevel >= 2) { intoxicationLevelColor = '§c' }
+                const intoxicationLevelColor =
+                    intoxicationLevel == 0 ? '§a' :
+                        intoxicationLevel == 1 ? '§e' : '§c'
 
                 // Если стало лучше
                 if (player.getDynamicProperty("intoxicationLevel") > intoxicationLevel) {
@@ -1168,16 +1296,21 @@ system.runInterval(() => {
             // 2 ур
             if (intoxicationLevel == 2) {
                 if (Math.random() < 0.08) { player.runCommand(`effect @s nausea 12 0 true`) }
+                if (!checkForTrait(player, 'persistent')) iDP(player, 'stress', 5)
             }
+            // 3 ур
             else if (intoxicationLevel == 3) {
                 if (Math.random() < 0.2) { player.runCommand(`effect @s nausea 12 0 true`) }
                 if (Math.random() < 0.14) { player.runCommand(`effect @s darkness 5 0 true`) }
                 if (Math.random() < 0.03) { player.runCommand(`effect @s fatal_poison 5 0 true`) }
+                if (!checkForTrait(player, 'persistent')) iDP(player, 'stress', 12)
             }
+            // 4 ур
             else if (intoxicationLevel >= 4) {
                 player.runCommand(`effect @s nausea 10 0 true`)
                 player.runCommand(`effect @s blindness 5 0 true`)
                 if (Math.random() < 0.2) { player.runCommand(`effect @s fatal_poison 5 1 true`) }
+                if (!checkForTrait(player, 'persistent')) iDP(player, 'stress', 30)
             }
 
             ssDP(player, 'intoxicationLevel', intoxicationLevel)
@@ -1293,12 +1426,14 @@ system.runInterval(() => {
             rangedAttackAccuracy -= player.getDynamicProperty("ghostWitheringLevel")
 
             // Воздействие стресса
-            if (player.getDynamicProperty('stressLevel') == 4) { rangedAttackAccuracy -= 4 }
-            if (player.getDynamicProperty('stressLevel') == 3) { rangedAttackAccuracy -= 2 }
-            if (player.getDynamicProperty('stressLevel') == 2) { rangedAttackAccuracy -= 1 }
-            if (player.getDynamicProperty('stressLevel') == -2) { rangedAttackAccuracy += 1 }
-            if (player.getDynamicProperty('stressLevel') == -3) { rangedAttackAccuracy += 2 }
-            if (player.getDynamicProperty('stressLevel') == -4) { rangedAttackAccuracy += 3 }
+            switch (player.getDynamicProperty('stressLevel')) {
+                case 4: rangedAttackAccuracy -= checkForTrait(player, 'conscious') ? 3 : 4; break
+                case 3: rangedAttackAccuracy -= 2; break
+                case 2: rangedAttackAccuracy -= 1; break
+                case -2: rangedAttackAccuracy += 1; break
+                case -3: rangedAttackAccuracy += 2; break
+                case -4: rangedAttackAccuracy += 3; break
+            }
 
             // Нормализуем значение
             if (rangedAttackAccuracy < 0) { rangedAttackAccuracy = 0 }
@@ -1312,7 +1447,7 @@ system.runInterval(() => {
             let diggingSpeed = 0
 
             // Определяем значение
-            if (player.getProperty('arx:is_knocked') == true) { diggingSpeed -= 255 }
+            if (player.getProperty('arx:is_knocked')) { diggingSpeed -= 255 }
 
             // Штраф от намокания
             if (getScore(player, "water_delay") > 200) { diggingSpeed -= 1 }
@@ -1354,10 +1489,10 @@ system.runInterval(() => {
                 let numOfSymbols = (Math.ceil(Math.abs(freezing) / 10))
                 if (numOfSymbols > 5) { numOfSymbols = 5 }
 
-                let symbolType
-                let message
-                freezing > 0 ? symbolType = "" : symbolType = ""
-                freezing > 0 ? message = " §bВы замерзаете§f " : message = " §cВам жарко§f "
+
+
+                const symbolType = freezing > 0 ? "" : ""
+                const message = freezing > 0 ? " §bВы замерзаете§f " : " §cВам жарко§f "
 
                 let symbolLine = ''
                 for (let i = 0; i < numOfSymbols; i++) {
@@ -1370,8 +1505,7 @@ system.runInterval(() => {
             }
 
             // Урон
-            let damageType
-            freezing > 0 ? damageType = 'freezing' : damageType = 'fire'
+            const damageType = freezing > 0 ? 'freezing' : 'fire'
 
             // Можно ли вообще нанести урон
             if (Math.abs(freezing) > 20) {
@@ -1413,20 +1547,11 @@ system.runInterval(() => {
                 // Говорим фразу
                 {
                     const rand = Math.floor(Math.random() * 3)
-                    let text
-                    switch (rand) {
-                        case 0:
-                            text = 'Где я...?'
-                            break
-                        case 1:
-                            text = 'Сколько прошло времени...?'
-                            break
-                        case 2:
-                            text = 'Как больно...'
-                            break
-                    }
+                    const text =
+                        rand === 0 ? 'Где я...?' :
+                            rand === 1 ? 'Сколько прошло времени...?' : 'Как больно...'
 
-                    player.runCommand(`tellraw @s { "rawtext": [ { "text": "§o§e${text}\n§7Вы ещё не до конца поняли, что к чему, но уже готовы бежать. (Получен временный бонус скорости)" } ] }`)
+                    player.sendMessage(`§o§e${text}\n§7Вы ещё не до конца поняли, что к чему, но уже готовы бежать. (Получен временный бонус скорости)`)
                     ssDP(player, 'speedBoostAfterKnockout', 40)
                 }
 

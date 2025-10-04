@@ -7,9 +7,9 @@
                 "category": "weapon",
                 "duration": 1.5
             },
-            "minecraft:damage": 8,
+            "minecraft:damage": 4,
             "minecraft:durability": {
-                "max_durability": 950
+                "max_durability": 1586
             },
             "minecraft:enchantable": {
                 "slot": "sword",
@@ -21,9 +21,11 @@
                 "tags": [
                     "is_staff",
                     "staff_of_angel",
-                    "is_weapon"
+                    "is_weapon",
+                    "material_metal"
                 ]
-            }
+            },
+            "tag:raw_cost:20000": {}
         },
         "description": {
             "identifier": "arx:staff_of_angel",

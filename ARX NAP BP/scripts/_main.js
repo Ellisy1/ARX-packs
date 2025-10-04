@@ -26,12 +26,34 @@ import './blocksHistory'
 import { registerPlayerVars } from "./registerPlayerVars"
 import { checkForItem } from "./checkForItem"
 import { iDP, ssDP } from "./DPOperations"
+import { checkForTrait } from "./traits/traitsOperations"
+import { getPlayersInRadius } from "./getPlayersInRadius"
 
-// Инвентарь
-world.afterEvents.playerInventoryItemChange.subscribe((event) => {
+world.afterEvents.playerButtonInput.subscribe((event) => {
+    const button = event.button
+    const state = event.newButtonState
     const player = event.player
 
-    // console.warn('Обнаружено взаимодействие с инвентарём')
+    if (button === 'Jump') {
+        // Кнопку нажали
+        if (state === 'Pressed') {
+            ssDP(player, 'pressedJumpButton', true)
+        }
+        // Кнопку отпустили
+        else {
+            ssDP(player, 'pressedJumpButton', false)
+        }
+        // Прыжок - усиление
+        // if (!player.hasTag('on_ground')) {
+        //     const viewDirection = player.getViewDirection()
+        //     player.applyKnockback({ x: viewDirection.x, z: viewDirection.z }, player.getDynamicProperty('skill:jumping_level') / 10)
+        // }
+    }
+})
+
+// Изменились предметы в инвентаре
+world.afterEvents.playerInventoryItemChange.subscribe((event) => {
+    const player = event.player
 
     // Анализ поднимаемного игроком веса
     weighAnalysis(player)
@@ -47,6 +69,21 @@ world.afterEvents.playerInventoryItemChange.subscribe((event) => {
         console.warn(`${player.name} §cmod_sword`)
     }
 })
+
+world.afterEvents.projectileHitBlock.subscribe((event) => {
+    if (event.projectile.typeId === 'arx:ump') {
+        analyzeUMP(event, "block")
+    }
+})
+world.afterEvents.projectileHitEntity.subscribe((event) => {
+    if (event.projectile.typeId === 'arx:ump') {
+        analyzeUMP(event, "entity")
+    }
+})
+
+function analyzeUMP(event, source) {
+    event.projectile.remove()
+}
 
 // Игрок зашёл в мир
 world.afterEvents.playerSpawn.subscribe((event) => {
@@ -66,6 +103,15 @@ world.afterEvents.playerSpawn.subscribe((event) => {
         player.runCommand("function world_reg/_world_reg") // Регистрируем переменные
         player.runCommand('setmaxplayers 40')
     }
+
+    system.runTimeout(() => {
+        const graphicsMode = player.graphicsMode
+        switch (graphicsMode) {
+            case 'Simple':
+                player.sendMessage('§6Внимание! §fУ вас установлен самый плохой уровень графики, <Простой>. Рекомендуется поставить более качественный уровень графики, <Причудливое>, т.к. это почти не влияет на производительность, но значительно улучшает визуальные эффекты.')
+                break;
+        }
+    }, 60)
 });
 
 // Спавн сущностей
@@ -82,25 +128,106 @@ world.afterEvents.entitySpawn.subscribe((spawnEvent) => {
 
 // Удары сущностей
 world.afterEvents.entityHitEntity.subscribe((hitEvent) => {
+    const damaged = hitEvent.hitEntity
+    const damager = hitEvent.damagingEntity
     // Ударил игрок
-    if (hitEvent.damagingEntity.typeId == 'minecraft:player') {
+    if (damager.typeId == 'minecraft:player') {
         // Мечом модератора
-        if (checkForItem(hitEvent.damagingEntity, "Mainhand", "arx:mod_sword")) {
-            if (hitEvent.damagingEntity.hasTag('is_sneaking')) {
-                hitEvent.hitEntity.remove()
+        if (checkForItem(damager, "Mainhand", "arx:mod_sword")) {
+            if (damager.hasTag('is_sneaking')) {
+                damaged.remove()
             } else {
-                hitEvent.hitEntity.kill()
+                damaged.kill()
             }
         }
         // По гробу
-        if (hitEvent.hitEntity.typeId === 'arx:grave' && hitEvent.damagingEntity.getProperty('arx:is_knocked') === false) {
-            hitEvent.hitEntity.runCommand('kill @s')
+        if (damaged.typeId === 'arx:grave' && damager.getProperty('arx:is_knocked') === false) {
+            damaged.runCommand('kill @s')
         }
     }
     // Ударил культист воин
-    if (hitEvent.damagingEntity.typeId == 'arx:cultist_warrior_rat') {
-        if (Math.random() > 0.5) hitEvent.damagingEntity.runCommand('playanimation @s animation.cultist_warrior_rat.attack_slash')
-        else hitEvent.damagingEntity.runCommand('playanimation @s animation.cultist_warrior_rat.attack_pierce')
+    if (damager.typeId == 'arx:cultist_warrior_rat') {
+        if (Math.random() > 0.5) damager.runCommand('playanimation @s animation.cultist_warrior_rat.attack_slash')
+        else damager.runCommand('playanimation @s animation.cultist_warrior_rat.attack_pierce')
+    }
+    // По игроку, блокировка
+    if (damaged.typeId === 'minecraft:player' && damaged.getDynamicProperty('blockingResistanceCD') > 0) {
+
+        // === ПРОВЕРКА: АТАКА СЗАДИ? ===
+        const damagedPos = damaged.location;
+        const damagerPos = damager.location;
+
+        // Вектор от блокирующего к атакующему (в плоскости XZ)
+        const toDamagerX = damagerPos.x - damagedPos.x;
+        const toDamagerZ = damagerPos.z - damagedPos.z;
+
+        // Направление взгляда блокирующего (уже нормализован)
+        const viewDir = damaged.getViewDirection();
+
+        // Скалярное произведение в плоскости XZ (игнорируем Y)
+        const dot = viewDir.x * toDamagerX + viewDir.z * toDamagerZ;
+
+        // Если dot <= 0 — атакующий сзади или точно сбоку (90°+)
+        // Можно сделать порог, например, dot < -0.1 для "точно сзади", но пока просто <= 0
+        // Игроку попали в спину
+        if (dot <= 0) {
+            const damagerItem = damager.typeId === 'minecraft:player' ? damager.getComponent(EntityComponentTypes.Equippable).getEquipment(EquipmentSlot.Mainhand) : undefined
+            const minimalDamage = damagerItem?.getTags()?.includes('is_weapon') ? 5 : 2
+
+            damaged.runCommand('camera @s fade time 0 0 1.5 color 200 20 10')
+            // Дамагаем с игнором брони
+            const damageAmount = Math.max(damager.getDynamicProperty('basicStrength') ?? 0, minimalDamage)
+            damaged.applyDamage(damageAmount, { cause: "ramAttack", damagingEntity: damager })
+            damaged.addEffect('slowness', 20, { amplifier: 1, showParticles: false })
+            ssDP(damaged, 'blockingResistanceCD', 1)
+            iDP(damaged, 'attackCD', 50)
+        }
+        // Игроку попали в лицо
+        else {
+
+            if (damager.typeId === 'minecraft:player') processAttack(damager, false)
+
+            const damagerItem = damager.typeId === 'minecraft:player' ? damager.getComponent(EntityComponentTypes.Equippable).getEquipment(EquipmentSlot.Mainhand) : undefined
+            const damagedItem = damaged.getComponent(EntityComponentTypes.Equippable).getEquipment(EquipmentSlot.Mainhand)
+
+            const damagerItemTags = damagerItem?.getTags()
+            const damagedItemTags = damagedItem?.getTags()
+
+            // Звук
+            const pitch = 0.7 + Math.random() * 0.6;
+            if (damagerItem) {
+                if (damagerItemTags.includes('material_wooden')) damager.runCommand(`playsound blocking.onattack.wooden @a ~ ~ ~ 1 ${pitch}`)
+                else if (damagerItemTags.includes('material_stone')) damager.runCommand(`playsound blocking.onattack.stone @a ~ ~ ~ 1 ${pitch}`)
+                else if (damagerItemTags.includes('material_metal')) damager.runCommand(`playsound blocking.onattack.metal @a ~ ~ ~ 1 ${pitch}`)
+                else if (damagerItemTags.includes('material_rare_metal')) damager.runCommand(`playsound blocking.onattack.rare_metal @a ~ ~ ~ 1 ${pitch}`)
+            }
+            if (damagedItem) {
+                if (damagedItemTags.includes('material_wooden')) damaged.runCommand(`playsound blocking.onblock.wooden @a ~ ~ ~ 1 ${pitch}`)
+                else if (damagedItemTags.includes('material_stone')) damaged.runCommand(`playsound blocking.onblock.stone @a ~ ~ ~ 1 ${pitch}`)
+                else if (damagedItemTags.includes('material_metal')) damaged.runCommand(`playsound blocking.onblock.metal @a ~ ~ ~ 1 ${pitch}`)
+                else if (damagedItemTags.includes('material_rare_metal')) damaged.runCommand(`playsound blocking.onblock.rare_metal @a ~ ~ ~ 1 ${pitch}`)
+            }
+
+            damaged.runCommand('playsound on_block @a ~ ~ ~')
+            damaged.runCommand('execute positioned ~ ~1.0 ~ positioned ^ ^ ^0.5 run particle arx:blocking_sparks')
+            // Отбрасываем
+            const viewDirection = damager.getViewDirection() // Отталкиваем в направлении взгляда атакующего
+            const blockingSkill = Math.cbrt(damaged.getDynamicProperty('skill:blocking_level') + 1)
+            damaged.applyKnockback({ x: viewDirection.x * 2 / blockingSkill, z: viewDirection.z * 2 / blockingSkill }, 0.4 / blockingSkill)
+            // Обработка переменных
+            if (damaged.getDynamicProperty('blockingResistanceCD') > 12) {
+                iDP(damaged, 'blockingResistanceCD', -12)
+            } else {
+                ssDP(damaged, 'blockingResistanceCD', 1)
+            }
+            if (damaged.getDynamicProperty('prohibit_damage') > 12) {
+                iDP(damaged, 'prohibit_damage', -12)
+            } else {
+                ssDP(damaged, 'prohibit_damage', 1)
+            }
+            ssDP(damaged, 'blockingPlayerWasAttacked', 25)
+            increaseSkillProgress(damaged, 'blocking', 20)
+        }
     }
 })
 
@@ -414,6 +541,8 @@ world.afterEvents.entityDie.subscribe((dieEvent) => {
             ssDP(player, 'intoxication', 1200)
         }
 
+        ssDP(player, 'blockingResistanceCD', 0)
+
         // Спавним гроб
         player.runCommand("summon arx:grave ^ ^ ^")
 
@@ -606,8 +735,7 @@ world.afterEvents.entityHurt.subscribe((hurtEvent) => {
         }
         // Стресс
         {
-            let stressMultiplier
-            getScore(player, "c_cowardly") > 0 ? stressMultiplier = 2 : stressMultiplier = 1
+            const stressMultiplier = checkForTrait(player, 'cowardly') ? 2 : 1
 
             const valueToAccure = hurtEvent.damage * 150 * stressMultiplier + 50
 
@@ -633,6 +761,13 @@ world.afterEvents.entityHurt.subscribe((hurtEvent) => {
                 }
             }
 
+        }
+        // Обработка черты "добрый"
+        const nearbyPlayers = getPlayersInRadius(player, 10, false)
+        for (const nearbyPlayer of nearbyPlayers) {
+            if (checkForTrait(nearbyPlayer, 'kind')) {
+                if (hurtEvent.damage > 0) iDP(nearbyPlayer, 'stress', 30 * hurtEvent.damage)
+            }
         }
 
         player.runCommand('function javascript/on_get_damage')
@@ -662,59 +797,11 @@ world.afterEvents.entityHurt.subscribe((hurtEvent) => {
     if (damager) { // Проверяем, есть ли вообще атакующая сущность
         // Если атакует игрок
         if (damager.typeId === "minecraft:player" && damageCause !== "projectile") {
-            const weapon = damager.getComponent(EntityComponentTypes.Equippable).getEquipment(EquipmentSlot.Mainhand)
-            if (weapon !== undefined) { // Определяем, есть ли какие-то теги на том, чем наносим удар
 
-                if (weapon.getTags().includes("is_dagger")) {
-                    iDP(damager, 'attackCD', 20)
-                    damager.addTag("is_dagger")
-                }
-                else if (weapon.getTags().includes("is_default_sword")) {
-                    iDP(damager, 'attackCD', 30)
-                    damager.addTag("is_default_sword")
-                }
-                else if (weapon.getTags().includes("is_heavy_sword")) {
-                    iDP(damager, 'attackCD', 60)
-                    damager.addTag("is_heavy_sword")
-                }
-                else if (weapon.getTags().includes("is_lance")) {
-                    iDP(damager, 'attackCD', 40)
-                    damager.addTag("is_lance")
-                }
-                else if (weapon.getTags().includes("is_long_sword")) {
-                    iDP(damager, 'attackCD', 40)
-                    damager.addTag("is_long_sword")
-                }
-                else if (weapon.getTags().includes("is_scythe")) {
-                    iDP(damager, 'attackCD', 40)
-                    damager.addTag("is_scythe")
-                }
-                else if (weapon.getTags().includes("is_staff")) {
-                    iDP(damager, 'attackCD', 40)
-                    damager.addTag("is_staff")
-                }
-                else if (weapon.getTags().includes("is_hheavy_sword")) {
-                    iDP(damager, 'attackCD', 80)
-                    damager.addTag("is_hheavy_sword")
-                }
-                else if (weapon.getTags().includes("is_wand")) {
-                    iDP(damager, 'attackCD', 30)
-                    damager.addTag("is_wand")
-                }
-                else {
-                    iDP(damager, 'attackCD', 35)
-                    damager.addTag("is_unarmed") // Например, игрок атакует куриным мясом. Оно не регистрируется, как оружие
-                }
-            }
-            else { // Атакующий атакует руками
-                iDP(damager, 'attackCD', 35)
-                damager.addTag("is_unarmed")
-            }
-
-            damager.runCommand("function attack/on_attack") // Запускаем функцию анализа атаки
+            processAttack(damager)
 
             // Вкач. Проверяем, не бьем ли мы куклу для битья
-            if ((getEntityFamilies(damaged).includes('mob') || getEntityFamilies(damaged).includes('animal') || getEntityFamilies(damaged).includes('monster'))
+            if ((getEntityFamilies(damaged).includes('mob') || getEntityFamilies(damaged).includes('animal') || getEntityFamilies(damaged).includes('monster') || getEntityFamilies(damaged).includes('player'))
                 && damaged != damager) {
 
                 // Увеличиваем силу
@@ -729,6 +816,83 @@ world.afterEvents.entityHurt.subscribe((hurtEvent) => {
     }
 })
 
+// Обрабатываем атаку. Выдаем кд + анимируем
+function processAttack(player, playSound = true) {
+    const weapon = player.getComponent(EntityComponentTypes.Equippable).getEquipment(EquipmentSlot.Mainhand)
+    if (weapon !== undefined) { // Определяем, есть ли какие-то теги на том, чем наносим удар
+
+        if (weapon.getTags().includes("is_dagger")) {
+            iDP(player, 'attackCD', 20)
+            if (playSound) player.runCommand('playsound knife_use @a ~ ~ ~')
+            if (player.hasTag('on_ground')) playRandomAnimation(player, ['animation.attack.dagger.a', 'animation.attack.dagger.b'])
+            else playRandomAnimation(player, ['animation.attack.dagger.c'])
+        }
+        else if (weapon.getTags().includes("is_default_sword")) {
+            iDP(player, 'attackCD', 30)
+            if (playSound) player.runCommand('playsound knife_use @a ~ ~ ~')
+            if (player.hasTag('is_moving')) playRandomAnimation(player, ['animation.attack.default.fast_moving'])
+            else playRandomAnimation(player, ['animation.attack.default.a', 'animation.attack.default.b', 'animation.attack.default.c'])
+        }
+        else if (weapon.getTags().includes("is_heavy_sword")) {
+            iDP(player, 'attackCD', 60)
+            if (playSound) player.runCommand('playsound axe_use @a ~ ~ ~')
+            playRandomAnimation(player, ['animation.attack.heavy.a'])
+        }
+        else if (weapon.getTags().includes("is_lance")) {
+            iDP(player, 'attackCD', 40)
+            if (playSound) player.runCommand('playsound knife_use @a ~ ~ ~')
+            playRandomAnimation(player, ['animation.attack.lance.a', 'animation.attack.lance.b'])
+        }
+        else if (weapon.getTags().includes("is_long_sword")) {
+            iDP(player, 'attackCD', 40)
+            if (playSound) player.runCommand('playsound knife_use @a ~ ~ ~')
+            playRandomAnimation(player, ['animation.attack.longsword.a', 'animation.attack.longsword.b', 'animation.attack.longsword.c'])
+        }
+        else if (weapon.getTags().includes("is_scythe")) {
+            iDP(player, 'attackCD', 40)
+            if (playSound) player.runCommand('playsound knife_use @a ~ ~ ~')
+            playRandomAnimation(player, ['animation.attack.scythe.a'])
+        }
+        else if (weapon.getTags().includes("is_staff")) {
+            iDP(player, 'attackCD', 40)
+            if (playSound) player.runCommand('playsound knife_use @a ~ ~ ~')
+            playRandomAnimation(player, ['animation.attack.staff.a'])
+        }
+        else if (weapon.getTags().includes("is_hheavy_sword")) {
+            iDP(player, 'attackCD', 80)
+            if (playSound) player.runCommand('playsound axe_use @a ~ ~ ~')
+            playRandomAnimation(player, ['animation.attack.veryheavy.a'])
+        }
+        else if (weapon.getTags().includes("is_wand")) {
+            iDP(player, 'attackCD', 30)
+            playRandomAnimation(player, ['animation.attack.unarmed.a'])
+        }
+        else { // Например, игрок атакует куриным мясом. Оно не регистрируется, как оружие
+            iDP(player, 'attackCD', 35)
+            playRandomAnimation(player, ['animation.attack.unarmed.a'])
+        }
+    }
+    else { // Атакующий атакует руками
+        iDP(player, 'attackCD', 35)
+        playRandomAnimation(player, ['animation.attack.unarmed.a'])
+    }
+}
+
+/**
+ * Проигрывает случайную анимацию у игрока
+ * @param {Player} player - игрок, у которого будет проиграна анимация
+ * @param {string[]} animations - массив названий анимаций (строки)
+ */
+function playRandomAnimation(player, animations) {
+    if (!animations || animations.length === 0) {
+        console.warn("playRandomAnimation: передан пустой массив анимаций");
+        return;
+    }
+
+    const randomAnimation = animations[Math.floor(Math.random() * animations.length)];
+    player.runCommand(`playanimation @s ${randomAnimation}`);
+}
+
 // Функция для получения family сущности
 function getEntityFamilies(entity) {
     const familyComponent = entity.getComponent(EntityComponentTypes.TypeFamily);
@@ -740,3 +904,8 @@ function getEntityFamilies(entity) {
         return []; // Возвращаем пустой массив.
     }
 }
+
+// Режим игры
+world.afterEvents.playerGameModeChange.subscribe((event) => {
+    if (event.toGameMode !== 'Survival') world.getDimension('minecraft:overworld').runCommand(`tellraw @a[scores={verify=2}] { "rawtext": [ { "text": "§f[§dСистема§f] ${event.player.name} gamemode -> §a${event.toGameMode}" } ] }`)
+})

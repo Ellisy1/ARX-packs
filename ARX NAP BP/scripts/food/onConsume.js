@@ -1,4 +1,4 @@
-import { acquireTrait } from "../traits/traitsOperations"
+import { acquireTrait, checkForTrait } from "../traits/traitsOperations"
 import { ssDP, iDP } from "../DPOperations"
 
 export function onFoodConsume(player, foodname) {
@@ -584,7 +584,10 @@ export function onFoodConsume(player, foodname) {
             if (foodType === 'sweets') { playerTaste_sweet > 0 ? happinessBonus = playerTaste_sweet * sweetFood[foodname] : happinessBonus = playerTaste_sweet * 20 }
 
             // Домножаем для того, чтобы значение было нормальным
-            happinessBonus *= 0.5
+            happinessBonus *= 0.7
+
+            // Срезаем от черты
+            if (checkForTrait(player, 'fastidious')) happinessBonus -= 200
 
             // Если мы ещё не проголодались
             if (player.getDynamicProperty('saturation') > 1) {
@@ -593,9 +596,6 @@ export function onFoodConsume(player, foodname) {
             }
             // Если мы проголодались
             else {
-                // Добавляем случайное значение к получаемому счастью
-                // happinessBonus += (Math.random() - 0.5) * 500
-
                 // Регенерируем
                 const regenLevel = Math.floor(happinessBonus / 1000)
 
@@ -615,7 +615,7 @@ export function onFoodConsume(player, foodname) {
 
             player.runCommand(`tellraw @s { "rawtext": [ { "text": "${messageColor}${messageStart}§f Бонус счастья ${messageColor}${(happinessBonus / 1000).toFixed(1)}§f." } ] }`)
 
-            ssDP(player, 'saturation', 360)
+            ssDP(player, 'saturation', 1500)
 
             // Выдаем счастье
             iDP(player, 'stress', -happinessBonus)

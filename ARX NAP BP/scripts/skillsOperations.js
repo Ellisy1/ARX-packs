@@ -8,6 +8,11 @@ import { iDP, ssDP } from './DPOperations'
 // Увеличиваем прогресс навыка на inputValue, учитывая срезание прогресса от уровня
 export function increaseSkillProgress(player, skill, inputValue) {
 
+    // Отрицательный/нулевой прирост навыка - запрещаем начисление
+    if (inputValue <= 0) {
+        return undefined
+    }
+
     // Если улучшаемого навыка не существует
     if (!(skill in registeredSkills)) {
         console.warn(`Попыка увеличить прогресс незарегистрированного навыка ${skill}`)
@@ -22,6 +27,23 @@ export function increaseSkillProgress(player, skill, inputValue) {
     // Определяем, насколько нужно улучшить навык
     let increaseValue = inputValue / (1.92 ** player.getDynamicProperty(`skill:${skill}_level`))
 
+    // Определяем множитель получаемого опыта
+    const increaseMultiplier = calculateXPMultiplier(player)
+
+    // Домножаем получаемый опыт на множитель
+    increaseValue *= increaseMultiplier
+
+    // Добавляем опыт игроку
+    iDP(player, `skill:${skill}_progress`, increaseValue)
+
+
+    // Проверяем, надо ли делать левелап
+    if (player.getDynamicProperty(`skill:${skill}_progress`) >= 100) {
+        increaseSkillLevel(player, skill)
+    }
+}
+
+export function calculateXPMultiplier(player) {
     // Настраиваем множитель получаемного опыта
     let increaseMultiplier = 1
 
@@ -44,24 +66,14 @@ export function increaseSkillProgress(player, skill, inputValue) {
     if (checkForItem(player, "Offhand", "arx:ring_aluminum_zircon")) { increaseMultiplier += 0.05 }
 
     // От опыта
-    if (checkForTrait(player, 'genious')) { increaseMultiplier += 0.1 }
+    if (checkForTrait(player, 'genius')) { increaseMultiplier += 0.1 }
     if (checkForTrait(player, 'lazy')) { increaseMultiplier -= 0.1 }
-
-
-    // Домножаем получаемый опыт на множитель
-    increaseValue *= increaseMultiplier
 
     // Отправляем increaseMultiplier в DP
     ssDP(player, 'xpMultiplier', increaseMultiplier)
 
-    // Добавляем опыт игроку
-    iDP(player, `skill:${skill}_progress`, increaseValue)
-
-
-    // Проверяем, надо ли делать левелап
-    if (player.getDynamicProperty(`skill:${skill}_progress`) >= 100) {
-        increaseSkillLevel(player, skill)
-    }
+    // Возврат
+    return increaseMultiplier
 }
 
 // Увеличиваем уровень
@@ -183,6 +195,11 @@ export const registeredSkills = {
         nameRU: "§9Сила духа",
         howToIncrease: "повышается, когда у вас низкий уровень здоровья.",
         buff: "уменьшает время, которое вы пребываете в нокауте на 2 сек."
+    },
+    'blocking': {
+        nameRU: "§vБлокирование",
+        howToIncrease: "повышается, когда вы блокируете атаки.",
+        buff: "уменьшает силу, с которой вас отбрасывает, когда вы блокируете атаку."
     },
     // 'psycoSupport': {
     //     nameRU: "§3Поддержка",

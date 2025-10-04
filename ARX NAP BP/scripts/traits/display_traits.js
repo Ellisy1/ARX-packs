@@ -1,7 +1,7 @@
 import { traitsList } from './traitsList'
 
 /*
-Черты хранятся в dynamicProperty игрока вида trait:traitId = ( 0 == нет черты || 1 == есть черта || 2 == закреп )
+Черты хранятся в dynamicProperty игрока вида trait:traitId = ( 0 === нет черты || 1 === есть черта || 2 === закреп )
 */
 
 // Выводим ВСЕ СУЩЕСТВУЮЩИЕ черты характера

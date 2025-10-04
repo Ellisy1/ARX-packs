@@ -7,7 +7,7 @@
                 "category": "weapon",
                 "duration": 1
             },
-            "minecraft:damage": 7,
+            "minecraft:damage": 6,
             "minecraft:durability": {
                 "max_durability": 2150
             },
@@ -21,7 +21,8 @@
             "minecraft:tags": {
                 "tags": [
                     "is_dagger",
-                    "is_weapon"
+                    "is_weapon",
+                    "material_rare_metal"
                 ]
             }
         },

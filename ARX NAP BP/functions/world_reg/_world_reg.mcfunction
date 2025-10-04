@@ -340,10 +340,6 @@ scoreboard objectives add heal_scrl_durt dummy heal_scrl_durt
     scoreboard objectives add tp_cd dummy tp_cd
     scoreboard objectives add tp_cd_ghost dummy tp_cd_ghost
 
-# Отслеживание режима игры игроков (gamemode)
-    scoreboard objectives add gamemode_data dummy gamemode_data
-    scoreboard objectives add gamemode_data_log dummy gamemode_data_log
-
 scoreboard objectives add mp_boost_by_amul_of_starpower dummy mp_boost_by_amul_of_starpower
 
 # Универсальный радиоключ

@@ -7,9 +7,9 @@
                 "category": "weapon",
                 "duration": 1
             },
-            "minecraft:damage": 18,
+            "minecraft:damage": 10,
             "minecraft:durability": {
-                "max_durability": 1000
+                "max_durability": 2186
             },
             "minecraft:enchantable": {
                 "slot": "sword",
@@ -20,9 +20,11 @@
             "minecraft:tags": {
                 "tags": [
                     "is_long_sword",
-                    "is_weapon"
+                    "is_weapon",
+                    "material_rare_metal"
                 ]
-            }
+            },
+            "tag:raw_cost:400000": {}
         },
         "description": {
             "identifier": "arx:even",

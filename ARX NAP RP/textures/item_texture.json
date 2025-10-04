@@ -1240,6 +1240,9 @@
     "arx:ring_aluminum_zircon": {
       "textures": "textures/items/jewelry/rings/ring_aluminum_zircon"
     },
+    "arx:ring_aluminum_amethyst": {
+      "textures": "textures/items/jewelry/rings/ring_aluminum_amethyst"
+    },
 
     "arx:ring_caryite__empty": {
       "textures": "textures/items/jewelry/rings/ring_caryite__empty"
@@ -2009,9 +2012,6 @@
     },
     "arx:zakuska": {
       "textures": "textures/items/food/zakuska"
-    },
-    "arx:copper_nugget": {
-      "textures": "textures/items/mining/copper_nugget"
     },
     "arx:cheap_cloth": {
       "textures": "textures/items/crafting/cheap_cloth"
@@ -4765,6 +4765,9 @@
     },
     "arx:harakiri_sword": {
       "textures": "textures/items/other/harakiri_sword"
+    },
+    "arx:towel": {
+      "textures": "textures/items/other/towel"
     }
   }
 }

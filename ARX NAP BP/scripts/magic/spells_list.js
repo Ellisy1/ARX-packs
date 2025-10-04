@@ -1,26 +1,26 @@
 export const spellsList = {
     // Хаос
-    "kon inoffo sempra": "простейшее боевое заклинание, наносящее небольшой урон",
+    // "kon inoffo sempra": "простейшее боевое заклинание, наносящее небольшой урон",
 
-    "kon inoffo sempra disortari": "боевое заклинание, наносящее небольшой урон по площади",
+    // "kon inoffo sempra disortari": "боевое заклинание, наносящее небольшой урон по площади",
 
-    "kon inoffo sempra sakiifori": "боевое заклинание, наносящее длительный урон",
+    // "kon inoffo sempra sakiifori": "боевое заклинание, наносящее длительный урон",
 
-    "kon inoffo sempra disortari sakiifori": "сложное альтернативное боевое заклинание, наносящее длительный урон по площади",
+    // "kon inoffo sempra disortari sakiifori": "сложное альтернативное боевое заклинание, наносящее длительный урон по площади",
 
-    "kon inoffo sempra sakiifori disortari": "сложное боевое заклинание, наносящее длительный урон по площади",
+    // "kon inoffo sempra sakiifori disortari": "сложное боевое заклинание, наносящее длительный урон по площади",
 
-    "kon inoffo sempra mega": "боевое заклинание, наносящее высокий урон",
+    // "kon inoffo sempra mega": "боевое заклинание, наносящее высокий урон",
 
-    "kon inoffo sempra mega disortari": "сложное боевое заклинание, наносящее высокий урон по площади",
+    // "kon inoffo sempra mega disortari": "сложное боевое заклинание, наносящее высокий урон по площади",
 
-    "kon inoffo sempra mega mega mega": "сложнейшее боевое заклинание, наносящее невероятный урон",
+    // "kon inoffo sempra mega mega mega": "сложнейшее боевое заклинание, наносящее невероятный урон",
 
-    "kon inoffo sempra low": "боевое заклинание, наносящее маленький урон, игнорирующий броню",
+    // "kon inoffo sempra low": "боевое заклинание, наносящее маленький урон, игнорирующий броню",
 
-    "kon inoffo sempra low mega": "боевое заклинание, наносящее урон, игнорирущий броню",
+    // "kon inoffo sempra low mega": "боевое заклинание, наносящее хороший урон, игнорирущий броню",
 
-    "kon inoffo sempra marra mega mega mega": "заклинание дезинтеграции сущности, находящейся под меткой",
+    // "kon inoffo sempra marra mega mega mega": "заклинание дезинтеграции сущности, находящейся под меткой",
 
 
     "kon inoffo recuro": "заклинание вампиризма, наносящее урон жертве, и лечащее самого мага",
@@ -99,6 +99,14 @@ export const spellsList = {
     "sin yanamo trafantana sartagana mega mega mega": "заклинание призрачного сверхрывка",
 
     "sin sukimo": 'заклинание цепи заклинаний',
+
+
+    "sin yanamo laffaeti": "слабое заклинание подбрасывания",
+
+    "sin yanamo laffaeti mega": "хорошее заклинание подбрасывания",
+
+    "sin yanamo laffaeti mega mega mega": "мощное заклинание подбрасывания",
+
 
     // Солнце
     "san yanamo shumi": "слабое заклинание защиты",
@@ -227,13 +235,6 @@ export const spellsList = {
 
 
     "din yanamo shumi sartagana sakiifori": "заклинание невидимости при отдалении от игроков",
-
-
-    "din yanamo laffaeti": "слабое заклинание подбрасывания",
-
-    "din yanamo laffaeti mega": "хорошее заклинание подбрасывания",
-
-    "din yanamo laffaeti mega mega mega": "мощное заклинание подбрасывания",
 
 
     "din inoffo laffaeti": "альтернативное слабое заклинание подбрасывания",

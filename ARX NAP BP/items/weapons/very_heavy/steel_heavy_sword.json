@@ -7,7 +7,7 @@
                 "category": "weapon",
                 "duration": 1
             },
-            "minecraft:damage": 9,
+            "minecraft:damage": 8,
             "minecraft:durability": {
                 "max_durability": 1070
             },
@@ -20,7 +20,8 @@
             "minecraft:tags": {
                 "tags": [
                     "is_hheavy_sword",
-                    "is_weapon"
+                    "is_weapon",
+                    "material_metal"
                 ]
             }
         },

@@ -4,14 +4,12 @@ import { emote } from './emote'
 import { getScore } from './scoresOperations'
 import { getSkillsData } from './skillsOperations'
 import { queueCommand } from './commandQueue'
-import { getMoscowTime } from './date'
 import { checkForItem } from "./checkForItem"
 
 import { runeCiphers } from './magic/rune_cipher_list'
 import { cipherRuneSequence } from './magic/on_use_magic_items'
-import { ARXGate } from './core/core'
 
-import { acquireTrait, clearTraits } from './traits/traitsOperations'
+import { acquireTrait, checkForTrait, clearTraits } from './traits/traitsOperations'
 import { ssDP } from "./DPOperations"
 
 // Обработка чата before
@@ -25,11 +23,11 @@ world.beforeEvents.chatSend.subscribe((eventData) => {
     const commandList = trimmedMessage.split(" ++ ").filter(item => item !== "")
 
     for (let command of commandList) {
-        parceCommand(player, command.trim())
+        parceChatCommand(player, command.trim())
     }
 });
 
-function parceCommand(player, trimmedMessage) {
+export function parceChatCommand(player, trimmedMessage) {
     if (trimmedMessage.startsWith("!")) { // Если это команда Аркса
         // command содержит в себе список из последовательности введенных слов в команде
         const command = trimmedMessage.split(/\s+/)
@@ -56,26 +54,6 @@ function parceCommand(player, trimmedMessage) {
                 }
             } else {
                 queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cНевозможно использовать команду ${command[0]} без прав модератора." } ] }`);
-            }
-        }
-
-        else if (command[0] == "!giveTrait") { // !giveTrait ник черта
-            if (isAdmin(player)) {
-
-                acquireTrait(player, [1, 1, 1])
-
-            } else {
-                queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cНевозможно использовать команду ${command[0]} без прав модератора." } ] }`)
-            }
-        }
-
-        else if (command[0] == "!clearTraits") {
-            if (isAdmin(player)) {
-
-                clearTraits(player)
-
-            } else {
-                queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cНевозможно использовать команду ${command[0]} без прав модератора." } ] }`)
             }
         }
 
@@ -216,8 +194,16 @@ function parceCommand(player, trimmedMessage) {
                         if (targetPlayer.getDynamicProperty('verify') == true) { // Если уже верифицирован
                             queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§eИгрок §f${playerNickName}§e уже верифицирован" } ] }`)
                         } else {
-                            queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§aВыдана верификация§f игроку §a${targetPlayer.name}" } ] }`)
-                            queueCommand(targetPlayer, `tellraw @s { "rawtext": [ { "text": "§aВам выдана верификация!§f Вы можете приступать к созданию персонажа." } ] }`)
+                            player.sendMessage(`§aВыдана верификация§f игроку §a${targetPlayer.name}`)
+                            targetPlayer.sendMessage("§aВам выдана верификация!§f Вы можете приступать к созданию персонажа.")
+                            // Говорим, как начать создание персонажа
+                            let textToSend
+                            switch (targetPlayer.inputInfo.lastInputModeUsed) {
+                                case 'KeyboardAndMouse': textToSend = 'Для этого подойдите к статуе <Создать персонажа> и нажмите на неё правой кнопкой мыши.'; break
+                                case 'Touch': textToSend = 'Для этого подойдите к статуе <Создать персонажа> и долго зажмите на ней пальцем.'
+                            }
+                            if (textToSend) targetPlayer.sendMessage(textToSend)
+                            queueCommand(targetPlayer, 'playsound random.orb @s ~ ~ ~ ')
                             ssDP(targetPlayer, 'verify', true)
                         }
                     }
@@ -267,6 +253,15 @@ function parceCommand(player, trimmedMessage) {
             }
             else {
                 queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cВы не можете шептать, пока вы без сознания." } ] }`)
+            }
+        }
+
+        else if (command[0].toLowerCase() == "!д" || command[0].toLowerCase() == "!a" || command[0].toLowerCase() == "!me") { // Использование действия
+            if (player.getDynamicProperty('respawnDelay') === 0) {
+                sendChatMessage(player, `§o(${trimmedMessage.slice(3).trim()})`, "§bДействие", 8, player.getDynamicProperty('name'))
+            }
+            else {
+                queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cВы не можете выполнять действия, пока вы без сознания." } ] }`)
             }
         }
 
@@ -351,23 +346,12 @@ function parceCommand(player, trimmedMessage) {
         }
     }
     else { // Сообщение - не команда Аркса. Обработать и отправить
-        // Недопуск из-за нока
-        if (player.getDynamicProperty('respawnDelay') > 0) {
-            queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cВы не можете разговаривать, пока вы без сознания." } ] }`)
-        }
-        // Недопуск из-за отсутствия регистрации
-        else if (player.getDynamicProperty('hasRegisteredCharacter') !== true) {
-            queueCommand(player, `tellraw @s { "rawtext": [ { "text": "Наверное, вы хотели написать в §cглобальный чат§f?\nДля этого отправьте §d!§aг <сообщение>" } ] }`)
-        }
-        // Успешно
-        else {
-            sendChatMessage(player, trimmedMessage, "§aЛокал.", 8, player.getDynamicProperty('name'))
-        }
+        sendChatMessage(player, trimmedMessage, "§aЛокал.", 8, player.getDynamicProperty('name'))
     }
 }
 
 // Функция отправка сообщения в локальный чат
-function sendChatMessage(player, speech, prefix, clearDistance = 0, senderName = "???") {
+function sendChatMessage(player, speech, prefix, clearDistance = 0, senderName = undefined) {
 
     /*
     АРГУМЕНТЫ:
@@ -379,26 +363,52 @@ function sendChatMessage(player, speech, prefix, clearDistance = 0, senderName =
 
     // Есть ли сообщение
     if (!speech || (speech.split("§").length - 1) * 2 == speech.length) {
-        queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cНевозможно отправить пустое сообщение." } ] }`)
+        player.sendMessage('§cНевозможно отправить пустое сообщение.')
         return undefined
     }
 
     // Запрет на отправку сообщения из-за содержания \ или "
     if (speech.includes("\\") || speech.includes('"')) {
-        queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cИз-за технических особенностей невозможно отправить сообщение, содержащее двойную кавычку или обратный слеш." } ] }`)
+        player.sendMessage('§cИз-за технических особенностей невозможно отправить сообщение, содержащее двойную кавычку или обратный слеш.')
+        return undefined
+    }
+
+    // Недопуск из-за нока
+    if (player.getDynamicProperty('respawnDelay') > 0) {
+        player.sendMessage("§cВы не можете разговаривать, пока вы без сознания.")
         return undefined
     }
 
     // Недопуск из-за отсутствия локального ника
     if (senderName === undefined) {
-        queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cУстановите имя персонажа, чтобы общаться. Это можно сделать командой §a!имя введите-имя-вашего-персонажа§c." } ] }`)
+        player.sendMessage("§cУстановите имя персонажа, чтобы общаться. Это можно сделать командой §a!имя введите-имя-вашего-персонажа§c.")
         return undefined
     }
 
     // Недопуск из-за спектатора
     if (player.getGameMode() === 'Spectator' && prefix !== "§cГлобал.") {
-        queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cНевозможно использовать локальный чат в режиме наблюдателя." } ] }`)
+        player.sendMessage("§cНевозможно использовать локальный чат в режиме наблюдателя.")
         return undefined
+    }
+
+    // Обрабатываем, если игрок - материшинник
+    if (checkForTrait(player, 'rude') && prefix !== "§cГлобал." && prefix !== "§bДействие" && prefix !== "§vКрик") {
+        // Надо вставить мат
+        if (Math.random() > 0.5) {
+            const lastSymbol = '!.?'.includes(speech[speech.length - 1]) ? speech[speech.length - 1] : ''
+            if (lastSymbol) {
+                speech = speech.slice(0, -1)
+            }
+
+            const rand = Math.floor(Math.random() * 5)
+            switch (rand) {
+                case 0: speech = speech + ', сука' + lastSymbol; break
+                case 1: speech = speech + ', блядь' + lastSymbol; break
+                case 2: speech = speech + ', ёпта' + lastSymbol; break
+                case 3: speech = speech + ', бля' + lastSymbol; break
+                case 4: speech = speech + ', ебать' + lastSymbol; break
+            }
+        }
     }
 
     // Делаем речевую эмоцию, если это нужно
@@ -436,7 +446,7 @@ function sendChatMessage(player, speech, prefix, clearDistance = 0, senderName =
                         if (checkForItem(player, "Legs", 'arx:amul_hypersynergy_superior')) ssDP(player, 'amul_hypersynergyCD', 5)
                     }
                     else {
-                        queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cОткат амулета гиперсинергии ещё не закончился." } ] }`)
+                        player.sendMessage("§cОткат амулета гиперсинергии ещё не закончился.")
                     }
                 }
             }
@@ -465,12 +475,12 @@ function sendChatMessage(player, speech, prefix, clearDistance = 0, senderName =
             if (speechReadyToSend) {
                 // Настраиваем префикс чата
                 let finalPrefix = prefix // значение по умолчанию
-                if (speechListener.getDynamicProperty('myRule:chatPrefixes') == 'shortEN') {
-                    finalPrefix = prefix.slice(0, 3)
-                }
+
+                // Срезаем префикс, если это нужно
+                if (speechListener.getDynamicProperty('myRule:chatPrefixes') == 'shortEN') finalPrefix = prefix.slice(0, 3)
 
                 // Отправляем сообщение
-                queueCommand(speechListener, `tellraw @s {"rawtext":[{"text": "[${finalPrefix}§f] <${readySenderName}§f> ${speechReadyToSend}"}]}`)
+                speechListener.sendMessage(`[${finalPrefix}§f] <${readySenderName}§f> ${speechReadyToSend}`)
             }
         }
     }

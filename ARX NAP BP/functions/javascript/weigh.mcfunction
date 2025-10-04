@@ -45,7 +45,7 @@
         scoreboard players add @s[hasitem={item=arx:petrified_sword}] weighLoading 5
         scoreboard players add @s[hasitem={item=arx:rose_crusher}] weighLoading 1
         scoreboard players add @s[hasitem={item=arx:bronze_fang}] weighLoading 2
-        scoreboard players add @s[hasitem={item=arx:wooden_heavy_crusher}] weighLoading 3
+        scoreboard players add @s[hasitem={item=arx:wooden_heavy_crusher}] weighLoading 2
         scoreboard players add @s[hasitem={item=arx:altaite_small_hammer}] weighLoading 4
         scoreboard players add @s[hasitem={item=arx:bronze_sword}] weighLoading 2
         scoreboard players add @s[hasitem={item=arx:copper_heavy_battleaxe}] weighLoading 4
@@ -56,7 +56,7 @@
         scoreboard players add @s[hasitem={item=arx:plumbum_small_hammer}] weighLoading 3
         scoreboard players add @s[hasitem={item=arx:steel_chorper}] weighLoading 6
         scoreboard players add @s[hasitem={item=arx:durasteel_sword_with_bronze_inlays}] weighLoading 2
-        scoreboard players add @s[hasitem={item=arx:wooden_heavy_sword}] weighLoading 3
+        scoreboard players add @s[hasitem={item=arx:wooden_heavy_sword}] weighLoading 2
         scoreboard players add @s[hasitem={item=arx:altaite_battlehammer}] weighLoading 5
         scoreboard players add @s[hasitem={item=arx:ideal_altaite_sword}] weighLoading 4
         scoreboard players add @s[hasitem={item=arx:durasteel_longsword}] weighLoading 4
@@ -64,7 +64,7 @@
         scoreboard players add @s[hasitem={item=arx:netherite_crusher}] weighLoading 4
         scoreboard players add @s[hasitem={item=arx:netherite_heavy_secyra}] weighLoading 5
         scoreboard players add @s[hasitem={item=arx:leave_axe}] weighLoading 5
-        scoreboard players add @s[hasitem={item=arx:stone_heavy_crusher}] weighLoading 5
+        scoreboard players add @s[hasitem={item=arx:stone_heavy_crusher}] weighLoading 3
         scoreboard players add @s[hasitem={item=arx:riolik_hammer}] weighLoading 4
         scoreboard players add @s[hasitem={item=arx:cast_iron_board}] weighLoading 4
         scoreboard players add @s[hasitem={item=arx:duraluminium_crusher}] weighLoading 5
@@ -75,7 +75,7 @@
         scoreboard players add @s[hasitem={item=arx:dorionite_small_battleaxe}] weighLoading 4
         scoreboard players add @s[hasitem={item=arx:bronze_great_battleaxe}] weighLoading 5
         scoreboard players add @s[hasitem={item=arx:caryite_small_battleaxe}] weighLoading 4
-        scoreboard players add @s[hasitem={item=arx:stone_tomahawk}] weighLoading 3
+        scoreboard players add @s[hasitem={item=arx:stone_tomahawk}] weighLoading 2
         scoreboard players add @s[hasitem={item=arx:iron_default_axe}] weighLoading 2
         scoreboard players add @s[hasitem={item=arx:wooden_very_heavy_crusher}] weighLoading 3
         scoreboard players add @s[hasitem={item=arx:naginitis_battleaxe}] weighLoading 4

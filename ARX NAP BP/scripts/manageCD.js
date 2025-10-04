@@ -3,7 +3,7 @@
 import { EntityComponentTypes, EquipmentSlot, ItemComponentTypes } from "@minecraft/server";
 
 
-export function manageCD(player) {
+export function manageCD(player, startCooldown = true) {
     const equippable = player.getComponent(EntityComponentTypes.Equippable);
     if (!equippable) {
         console.warn(`Вызвана функция ManageCD, но у игрока нет компонента Equippable. Игрок ${player.name}, предмет ${item?.typeId}`);
@@ -29,7 +29,7 @@ export function manageCD(player) {
     //console.warn(`Категория кулдауна: ${cooldownCategory}, Время кулдауна: ${maxCD}`);
 
     if (remainingCD === 0) {
-        cooldownComponent.startCooldown(player) // Запускаем кулдаун. Важно делать это в конце, после получения данных
+        if (startCooldown) cooldownComponent.startCooldown(player) // Запускаем кулдаун. Важно делать это в конце, после получения данных
         return true
     } else {
         return false

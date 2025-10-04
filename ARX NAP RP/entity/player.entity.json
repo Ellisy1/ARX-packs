@@ -37,18 +37,17 @@
           "variable.tcos0 = (math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;",
           "variable.first_person_rotation_factor = math.sin((1 - variable.attack_time) * 180.0);",
           "variable.hand_bob = query.life_time < 0.01 ? 0.0 : variable.hand_bob + ((query.is_on_ground && query.is_alive ? math.clamp(math.sqrt(math.pow(query.position_delta(0), 2.0) + math.pow(query.position_delta(2), 2.0)), 0.0, 0.1) : 0.0) - variable.hand_bob) * 0.02;",
-
           "variable.map_angle = math.clamp(1 - variable.player_x_rotation / 45.1, 0.0, 1.0);",
           "variable.item_use_normalized = query.main_hand_item_use_duration / query.main_hand_item_max_duration;",
-
           "variable.is_moving_anyway = query.is_moving || (query.ground_speed != 0) ? 1 : 0;"
         ],
         "animate": [
-          "root"
+          "root",
+          "sneaking_controller"
         ]
       },
       "animations": {
-        "holdingveryheavy":"animation.weapon.hold.veryheavy",
+        "holdingveryheavy": "animation.weapon.hold.veryheavy",
         "holdingheavy": "animation.weapon.hold.heavy",
         "holding_light_longsword": "animation.weapon.hold.light_longsword",
         "holding_dagger": "animation.weapon.hold.dagger",
@@ -62,15 +61,14 @@
         "holding_umbrella": "animation.umbrella.hold",
         "umbrella_rotations": "animation.umbrella.rotations",
         "holding_torch": "animation.player.holding_torch",
-
         "zigkhael": "animation.player.zigkhael",
         "bob_no_arms": "animation.player.bob_no_arms",
         "bob_only_left_arm": "animation.player.bob_only_left_arm",
-
-        "render":"animation.render",
+        "render": "animation.render",
         "root": "controller.animation.player.root",
+        "sneaking_controller": "controller.animation.player.sneaking",
         "base_controller": "controller.animation.player.base",
-        "hudplayer":  "controller.animation.player.hudplayer",
+        "hudplayer": "controller.animation.player.hudplayer",
         "humanoid_base_pose": "animation.humanoid.base_pose",
         "look_at_target": "controller.animation.humanoid.look_at_target",
         "look_at_target_ui": "animation.player.look_at_target.ui",
@@ -122,21 +120,29 @@
         "blink": "controller.animation.persona.blink",
         "statue_of_liberty": "animation.player.move.arms.statue_of_liberty",
         "weapon_normalize": "animation.weapon.normalize",
-
         "knockout_basic": "animation.player.knockout_basic",
         "carried_by_someone_static": "animation.player.carried_by_someone_static",
         "carried_by_someone_moving": "animation.player.carried_by_someone_moving",
         "knockout_var_a": "animation.player.knockout_var_a",
         "knockout_var_b": "animation.player.knockout_var_b",
-
         "none": "animation.none"
       },
       "render_controllers": [
-        { "controller.render.player.first_person_spectator": "variable.is_first_person && query.is_spectator" },
-        { "controller.render.player.third_person_spectator": "!variable.is_first_person && !variable.map_face_icon && query.is_spectator" },
-        { "controller.render.player.first_person": "variable.is_first_person && !query.is_spectator" },
-        { "controller.render.player.third_person": "!variable.is_first_person && !variable.map_face_icon && !query.is_spectator" },
-        { "controller.render.player.map": "variable.map_face_icon" }
+        {
+          "controller.render.player.first_person_spectator": "variable.is_first_person && query.is_spectator"
+        },
+        {
+          "controller.render.player.third_person_spectator": "!variable.is_first_person && !variable.map_face_icon && query.is_spectator"
+        },
+        {
+          "controller.render.player.first_person": "variable.is_first_person && !query.is_spectator"
+        },
+        {
+          "controller.render.player.third_person": "!variable.is_first_person && !variable.map_face_icon && !query.is_spectator"
+        },
+        {
+          "controller.render.player.map": "variable.map_face_icon"
+        }
       ],
       "enable_attachables": true
     }

@@ -9,7 +9,7 @@
     "tags": [ "weapons_assembly_crafting_table" ],
     "pattern": [
       "ABW",
-      " AB",
+      " XB",
       "A A"
     ],
     "key": {
@@ -21,6 +21,9 @@
       },
       "W": {
         "item": "arx:gold_feather"
+      },
+      "X": {
+        "item": "arx:demonic_staff_fragment"
       }
     },
     "result": {

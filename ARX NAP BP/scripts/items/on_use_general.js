@@ -1,8 +1,8 @@
 // Imports - Minecraft
-import { world, EntityComponentTypes, ItemComponentTypes, EquipmentSlot, system } from "@minecraft/server";
+import { world, EntityComponentTypes, ItemComponentTypes, EquipmentSlot, system, ItemStack } from "@minecraft/server";
 import { ActionFormData } from "@minecraft/server-ui";
 
-import { setScore } from "../scoresOperations";
+import { getScore, setScore } from "../scoresOperations";
 import { getNearestPlayer } from "../getNearestPlayer"
 import { checkForItem } from "../checkForItem"
 import { infoScreen } from '../info/_infoScreen'
@@ -23,10 +23,11 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
         // Тест
         case "arx:mod_sword":
             if (manageCD(player)) {
-                const rat = player.dimension.spawnEntity('arx:small_rat_white', { x: player.location.x, y: player.location.y + 1.3, z: player.location.z })
-                const viewDirection = player.getViewDirection()
-                rat.addEffect('invisibility', 2, { showParticles: false })
-                rat.applyKnockback({ x: viewDirection.x * 8, z: viewDirection.z * 8 }, viewDirection.y * 2)
+                // player.inputPermissions.setPermissionCategory(6, true)
+                // const stack1 = new ItemStack('arx:small_stone', 1)
+                // stack1.setLore(['§bЧто-то интересное'])
+                // player.dimension.spawnItem(stack1, player.location)
+                player.setProperty('arx:is_ghost', true)
             }
             break
 
@@ -271,6 +272,26 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
         case "arx:scientific_book_unused":
             if (manageCD(player)) {
                 player.runCommand("function books/scientific_book_unused")
+            }
+            break
+
+        // Полотенце
+        case "arx:towel":
+            if (manageCD(player, false)) {
+                if (!player.hasTag('is_moving')) {
+                    if (!player.hasTag('in_block_water')) {
+                        manageCD(player)
+                        const currentWet = getScore(player, 'water_delay')
+                        const valueWet = checkForItem(player, 'chest', undefined) ? 1200 : 300
+                        setScore(player, 'water_delay', currentWet - valueWet)
+                        player.runCommand('playsound armor.equip_leather @a ~ ~ ~ ')
+                        player.addEffect('slowness', 30, { amplifier: 1, showParticles: false })
+                    } else {
+                        player.sendMessage('§cВылезьте из воды, чтобы вытереться')
+                    }
+                } else {
+                    player.sendMessage('§cВстаньте на месте, чтобы вытереться')
+                }
             }
             break
 
@@ -759,8 +780,9 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
 })
 
 function launchBlocking(player) {
-    player.runCommand('effect @s resistance 1 1 true')
-    ssDP(player, 'prohibit_damage', 20)
-    iDP(player, 'attackCD', 15)
-    player.runCommand("summon arx:blocking_invisible_shield")
+    // Выдаем группу компонентов для блокировки
+    player.runCommand('event entity @s arx:set_blocking_damage_sensor')
+    ssDP(player, 'blockingResistanceCD', 30)
+    // Запрещаем урон
+    ssDP(player, 'prohibit_damage', 30)
 }

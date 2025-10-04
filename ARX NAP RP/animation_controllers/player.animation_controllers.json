@@ -1,6 +1,31 @@
 {
 	"format_version": "1.10.0",
 	"animation_controllers": {
+		"controller.animation.player.sneaking":{
+			"initial_state": "staying",
+			"states": {
+				"staying": {
+					"animations": [
+						"none"
+					],
+					"transitions": [
+						{"sneaking": "query.is_sneaking && !query.is_sleeping"}
+					],
+					"blend_transition": 0.25,
+					"blend_via_shortest_path": true
+				},
+				"sneaking": {
+					"animations": [
+						"sneaking"
+					],
+					"transitions": [
+						{"staying": "!(query.is_sneaking && !query.is_sleeping)"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				}
+			}
+		},
 		"controller.animation.player.root": {
 			"initial_state": "first_person",
 			"states": {
@@ -54,7 +79,6 @@
 						{"brandish_spear": "variable.is_brandishing_spear"},
 						{"holding_spyglass": "variable.is_holding_spyglass"},
 						{"charging": "query.is_charging"},
-						{"sneaking": "query.is_sneaking && !query.is_sleeping"},
 						{"bob": "!variable.is_holding_spyglass && !variable.is_tooting_goat_horn"},
 						{"damage_nearby_mobs": "variable.damage_nearby_mobs"},
 						{"swimming": "variable.swim_amount > 0.0"},
@@ -102,7 +126,6 @@
 						{"brandish_spear": "variable.is_brandishing_spear"},
 						{"holding_spyglass": "variable.is_holding_spyglass"},
 						{"charging": "query.is_charging"},
-						{"sneaking": "query.is_sneaking && !query.is_sleeping"},
 						{"bob_no_arms": "!variable.is_holding_spyglass && !variable.is_tooting_goat_horn"},
 						{"damage_nearby_mobs": "variable.damage_nearby_mobs"},
 						{"swimming": "variable.swim_amount > 0.0"},
@@ -137,7 +160,6 @@
 						{"brandish_spear": "variable.is_brandishing_spear"},
 						{"holding_spyglass": "variable.is_holding_spyglass"},
 						{"charging": "query.is_charging"},
-						{"sneaking": "query.is_sneaking && !query.is_sleeping"},
 						{"bob_only_left_arm": "!variable.is_holding_spyglass && !variable.is_tooting_goat_horn"},
 						{"damage_nearby_mobs": "variable.damage_nearby_mobs"},
 						{"swimming": "variable.swim_amount > 0.0"},
@@ -171,7 +193,6 @@
 						{"brandish_spear": "variable.is_brandishing_spear"},
 						{"holding_spyglass": "variable.is_holding_spyglass"},
 						{"charging": "query.is_charging"},
-						{"sneaking": "query.is_sneaking && !query.is_sleeping"},
 						{"bob_no_arms": "!variable.is_holding_spyglass && !variable.is_tooting_goat_horn"},
 						{"damage_nearby_mobs": "variable.damage_nearby_mobs"},
 						{"swimming": "variable.swim_amount > 0.0"},
@@ -205,7 +226,6 @@
 						{"brandish_spear": "variable.is_brandishing_spear"},
 						{"holding_spyglass": "variable.is_holding_spyglass"},
 						{"charging": "query.is_charging"},
-						{"sneaking": "query.is_sneaking && !query.is_sleeping"},
 						{"bob_no_arms": "!variable.is_holding_spyglass && !variable.is_tooting_goat_horn"},
 						{"damage_nearby_mobs": "variable.damage_nearby_mobs"},
 						{"swimming": "variable.swim_amount > 0.0"},
@@ -239,7 +259,6 @@
 						{"brandish_spear": "variable.is_brandishing_spear"},
 						{"holding_spyglass": "variable.is_holding_spyglass"},
 						{"charging": "query.is_charging"},
-						{"sneaking": "query.is_sneaking && !query.is_sleeping"},
 						{"bob_no_arms": "!variable.is_holding_spyglass && !variable.is_tooting_goat_horn"},
 						{"damage_nearby_mobs": "variable.damage_nearby_mobs"},
 						{"swimming": "variable.swim_amount > 0.0"},
@@ -274,7 +293,6 @@
 						{"brandish_spear": "variable.is_brandishing_spear"},
 						{"holding_spyglass": "variable.is_holding_spyglass"},
 						{"charging": "query.is_charging"},
-						{"sneaking": "query.is_sneaking && !query.is_sleeping"},
 						{"bob": "!variable.is_holding_spyglass && !variable.is_tooting_goat_horn"},
 						{"damage_nearby_mobs": "variable.damage_nearby_mobs"},
 						{"swimming": "variable.swim_amount > 0.0"},
@@ -310,7 +328,6 @@
 						{"brandish_spear": "variable.is_brandishing_spear"},
 						{"holding_spyglass": "variable.is_holding_spyglass"},
 						{"charging": "query.is_charging"},
-						{"sneaking": "query.is_sneaking && !query.is_sleeping"},
 						{"bob": "!variable.is_holding_spyglass && !variable.is_tooting_goat_horn"},
 						{"damage_nearby_mobs": "variable.damage_nearby_mobs"},
 						{"swimming": "variable.swim_amount > 0.0"},
@@ -345,7 +362,6 @@
 						{"brandish_spear": "variable.is_brandishing_spear"},
 						{"holding_spyglass": "variable.is_holding_spyglass"},
 						{"charging": "query.is_charging"},
-						{"sneaking": "query.is_sneaking && !query.is_sleeping"},
 						{"bob_no_arms": "!variable.is_holding_spyglass && !variable.is_tooting_goat_horn"},
 						{"damage_nearby_mobs": "variable.damage_nearby_mobs"},
 						{"swimming": "variable.swim_amount > 0.0"},
@@ -379,7 +395,6 @@
 						{"brandish_spear": "variable.is_brandishing_spear"},
 						{"holding_spyglass": "variable.is_holding_spyglass"},
 						{"charging": "query.is_charging"},
-						{"sneaking": "query.is_sneaking && !query.is_sleeping"},
 						{"bob_only_left_arm": "!variable.is_holding_spyglass && !variable.is_tooting_goat_horn"},
 						{"damage_nearby_mobs": "variable.damage_nearby_mobs"},
 						{"swimming": "variable.swim_amount > 0.0"},
@@ -415,7 +430,6 @@
 						{"brandish_spear": "variable.is_brandishing_spear"},
 						{"holding_spyglass": "variable.is_holding_spyglass"},
 						{"charging": "query.is_charging"},
-						{"sneaking": "query.is_sneaking && !query.is_sleeping"},
 						{"bob_only_left_arm": "!variable.is_holding_spyglass && !variable.is_tooting_goat_horn"},
 						{"damage_nearby_mobs": "variable.damage_nearby_mobs"},
 						{"swimming": "variable.swim_amount > 0.0"},
@@ -450,7 +464,6 @@
 						{"brandish_spear": "variable.is_brandishing_spear"},
 						{"holding_spyglass": "variable.is_holding_spyglass"},
 						{"charging": "query.is_charging"},
-						{"sneaking": "query.is_sneaking && !query.is_sleeping"},
 						{"bob_only_left_arm": "!variable.is_holding_spyglass && !variable.is_tooting_goat_horn"},
 						{"damage_nearby_mobs": "variable.damage_nearby_mobs"},
 						{"swimming": "variable.swim_amount > 0.0"},
@@ -485,7 +498,6 @@
 						{"brandish_spear": "variable.is_brandishing_spear"},
 						{"holding_spyglass": "variable.is_holding_spyglass"},
 						{"charging": "query.is_charging"},
-						{"sneaking": "query.is_sneaking && !query.is_sleeping"},
 						{"bob_only_left_arm": "!variable.is_holding_spyglass && !variable.is_tooting_goat_horn"},
 						{"damage_nearby_mobs": "variable.damage_nearby_mobs"},
 						{"swimming": "variable.swim_amount > 0.0"},
@@ -520,7 +532,6 @@
 						{"brandish_spear": "variable.is_brandishing_spear"},
 						{"holding_spyglass": "variable.is_holding_spyglass"},
 						{"charging": "query.is_charging"},
-						{"sneaking": "query.is_sneaking && !query.is_sleeping"},
 						{"bob_only_left_arm": "!variable.is_holding_spyglass && !variable.is_tooting_goat_horn"},
 						{"damage_nearby_mobs": "variable.damage_nearby_mobs"},
 						{"swimming": "variable.swim_amount > 0.0"},

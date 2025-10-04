@@ -919,6 +919,11 @@
 		},
 		"caryite_bricks": {
 			"textures": "textures/blocks/decorative_blocks/caryite_bricks"
+		},
+
+
+		"mechanic_core": {
+			"textures": "textures/blocks/mechanic_core"
 		}
 	}
 } 

@@ -358,12 +358,69 @@
       ]
    },
    "random.burp": {},
-   "on_block": {
+
+
+   "blocking.onblock.metal": {
       "category": "neutral",
       "sounds": [
-         "sounds/swords/on_block"
+         "sounds/weapons/on_block_metal_a",
+         "sounds/weapons/on_block_metal_b"
       ]
    },
+   "blocking.onblock.rare_metal": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/weapons/on_block_rare_metal_a",
+         "sounds/weapons/on_block_rare_metal_b"
+      ]
+   },
+   "blocking.onblock.wooden": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/weapons/on_block_wooden_a",
+         "sounds/weapons/on_block_wooden_b"
+      ]
+   },
+   "blocking.onblock.stone": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/weapons/on_block_stone_a",
+         "sounds/weapons/on_block_stone_b"
+      ]
+   },
+
+   "blocking.onattack.metal": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/weapons/on_hit_metal_a",
+         "sounds/weapons/on_hit_metal_b",
+         "sounds/weapons/on_hit_metal_c"
+      ]
+   },
+   "blocking.onattack.rare_metal": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/weapons/on_hit_rare_metal_a",
+         "sounds/weapons/on_hit_rare_metal_b",
+         "sounds/weapons/on_hit_rare_metal_c"
+      ]
+   },
+   "blocking.onattack.stone": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/weapons/on_hit_stone_a",
+         "sounds/weapons/on_hit_stone_b"
+      ]
+   },
+   "blocking.onattack.wooden": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/weapons/on_hit_wooden_a",
+         "sounds/weapons/on_hit_wooden_b"
+      ]
+   },
+
+
    "whipping_dummy.take_hit": {
       "category": "neutral",
       "sounds": [
@@ -385,19 +442,17 @@
          }
       ]
    },
-
-   "random.eat" : {
-      "__use_legacy_max_distance" : "true",
-      "category" : "player",
-      "max_distance" : null,
-      "min_distance" : null,
-      "sounds" : [
+   "random.eat": {
+      "__use_legacy_max_distance": "true",
+      "category": "player",
+      "max_distance": null,
+      "min_distance": null,
+      "sounds": [
          "sounds/eating/eat_solid_1",
          "sounds/eating/eat_solid_2",
          "sounds/eating/eat_solid_3"
       ]
    },
-
    "music.game": {},
    "music.game.creative": {},
    "music.game.credits": {},
@@ -414,7 +469,6 @@
    "music.game.nether": {},
    "music.game.nether_wastes": {},
    "music.game.snowy_slopes": {},
-   "music.game.soul_sand_valley": {},
    "music.game.soulsand_valley": {},
    "music.game.stony_peaks": {},
    "music.game.swamp_music": {},
@@ -430,7 +484,6 @@
    "music.overworld.jungle": {},
    "music.overworld.jungle_edge": {},
    "music.overworld.mesa": {},
-
    "ai_music.deepDrumBass": {
       "category": "music",
       "sounds": [

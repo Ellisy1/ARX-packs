@@ -108,6 +108,3 @@
 
 # Деспавним всех приговоренных алой ночью / обычной ночью
     execute if entity @a[scores={is_day=0}] run event entity @e[tag=force_to_despawn] arx:despawn_forced
-
-# Телепортируем невидимые щиты на игроков
-    execute as @e[type=arx:blocking_invisible_shield] at @s run tp @s @p[r=3]

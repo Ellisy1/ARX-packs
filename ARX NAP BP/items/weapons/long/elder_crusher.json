@@ -7,9 +7,9 @@
                 "category": "weapon",
                 "duration": 1
             },
-            "minecraft:damage": 17,
+            "minecraft:damage": 10,
             "minecraft:durability": {
-                "max_durability": 450
+                "max_durability": 2075
             },
             "minecraft:enchantable": {
                 "slot": "sword",
@@ -20,9 +20,11 @@
             "minecraft:tags": {
                 "tags": [
                     "is_long_sword",
-                    "is_weapon"
+                    "is_weapon",
+                    "material_rare_metal"
                 ]
-            }
+            },
+            "tag:raw_cost:230000": {}
         },
         "description": {
             "identifier": "arx:elder_crusher",

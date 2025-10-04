@@ -7,9 +7,9 @@
                 "category": "weapon",
                 "duration": 1
             },
-            "minecraft:damage": 14,
+            "minecraft:damage": 9,
             "minecraft:durability": {
-                "max_durability": 150
+                "max_durability": 1908
             },
             "minecraft:enchantable": {
                 "slot": "sword",
@@ -20,9 +20,11 @@
             "minecraft:tags": {
                 "tags": [
                     "is_long_sword",
-                    "is_weapon"
+                    "is_weapon",
+                    "material_stone"
                 ]
-            }
+            },
+            "tag:raw_cost:100000": {}
         },
         "description": {
             "identifier": "arx:flesh_sword",

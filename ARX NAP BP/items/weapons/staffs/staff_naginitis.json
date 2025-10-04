@@ -21,7 +21,8 @@
                 "tags": [
                     "is_staff",
                     "staff_channels_5",
-                    "is_weapon"
+                    "is_weapon",
+                    "material_rare_metal"
                 ]
             }
         },

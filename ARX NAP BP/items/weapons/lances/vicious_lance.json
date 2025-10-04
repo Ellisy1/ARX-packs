@@ -7,7 +7,7 @@
                 "category": "weapon",
                 "duration": 1
             },
-            "minecraft:damage": 9,
+            "minecraft:damage": 8,
             "minecraft:durability": {
                 "max_durability": 1586
             },
@@ -20,7 +20,8 @@
             "minecraft:tags": {
                 "tags": [
                     "is_lance",
-                    "is_weapon"
+                    "is_weapon",
+                    "material_metal"
                 ]
             },
             "tag:raw_cost:20000": {}

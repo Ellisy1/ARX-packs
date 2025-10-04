@@ -3,7 +3,7 @@
     "minecraft:item": {
         "components": {
             "minecraft:durability": {
-                "max_durability": 90
+                "max_durability": 200
             },
             "minecraft:enchantable": {
                 "slot": "armor_legs",

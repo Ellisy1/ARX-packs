@@ -10,6 +10,8 @@ import { classicDefence } from './SPELLСlassicDefence'
 import { chain } from './SPELLChain'
 import { ssDP } from '../../DPOperations'
 import { throwMob } from './SPELLThrowMob'
+import { classicTossing } from './SPELLClassicTossing'
+import { classicDamage } from './SPELLClassicDamage'
 
 /**
  * Реестр заклинаний
@@ -386,6 +388,29 @@ const spellRegistry = {
         validTargets: ['self'],
         handler: (player) => { throwMob(player, 'arx:rat_monstr_white', 1, 'become_agressive') }
     },
+
+    "sin yanamo laffaeti": {
+        mpCost: 5,
+        validTargets: ['self'],
+        handler: (player) => { classicTossing(player, 2) }
+    },
+    "sin yanamo laffaeti mega": {
+        mpCost: 15,
+        validTargets: ['self'],
+        handler: (player) => { classicTossing(player, 6) }
+    },
+    "sin yanamo laffaeti mega mega mega": {
+        mpCost: 45,
+        validTargets: ['self'],
+        handler: (player) => { classicTossing(player, 10) }
+    },
+
+
+    // "kon inoffo sempra": {
+    //     mpCost: 5,
+    //     validTargets: ['self', 'nearest', 'entities'],
+    //     handler: (player) => { classicDamage(player, 2) }
+    // },
 };
 
 /**
@@ -406,6 +431,7 @@ function resolveTargetType(magicTarget, nearestPlayer) {
  * @param {string} runeSequence
  */
 export function castJSSpell(player, runeSequence) {
+    // Получаем нужное нам заклинание из реестра
     const spell = spellRegistry[runeSequence];
     if (!spell) return;
 

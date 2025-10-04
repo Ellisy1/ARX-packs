@@ -4,6 +4,7 @@ tellraw @s { "rawtext": [ { "text": "\n§6# =§d Чат §6= #" } ] }
 tellraw @s { "rawtext": [ { "text": "§d!§aг <сообщение>§f - отправить сообщение в глобальный чат" } ] }
 tellraw @s { "rawtext": [ { "text": "§d!§aк <сообщение>§f - крикнуть" } ] }
 tellraw @s { "rawtext": [ { "text": "§d!§aш <сообщение>§f - шептать" } ] }
+tellraw @s { "rawtext": [ { "text": "§d!§aд <сообщение>§f - действие" } ] }
 tellraw @s { "rawtext": [ { "text": "§d!§aимя <имя>§f - установить имя в локальном чате" } ] }
 tellraw @s { "rawtext": [ { "text": "\n§6# =§d Эмоции §6= #" } ] }
 tellraw @s { "rawtext": [ { "text": "§d!! §f- список эмоций" } ] }

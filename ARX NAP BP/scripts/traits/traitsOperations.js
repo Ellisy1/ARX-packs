@@ -2,7 +2,7 @@ import { traitsList } from './traitsList'
 import { queueCommand } from '../commandQueue'
 import { ssDP } from '../DPOperations';
 
-// Черты хранятся в dynamicProperty игрока вида trait:traitId = ( 0 == нет черты || 1 == есть черта || 2 == закреп )
+// Черты хранятся в dynamicProperty игрока вида trait:traitId = ( 0 === нет черты || 1 === есть черта || 2 === закреп )
 
 // Объект, содержащий в себе все черты
 const allTraits = { ...traitsList.positive, ...traitsList.neutral, ...traitsList.negative }

@@ -21,7 +21,8 @@
                 "tags": [
                     "is_wand",
                     "is_wand_radial",
-                    "is_weapon"
+                    "is_weapon",
+                    "material_rare_metal"
                 ]
             },
             "tag:raw_cost:200000": {}

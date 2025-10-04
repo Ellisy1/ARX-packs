@@ -63,14 +63,6 @@
         execute @a[tag=!is_dead, scores={teleport_def=1..}] ~ ~ ~ scoreboard players add @p teleport_def -1
         execute @a[tag=!is_dead, scores={teleport_dmg=1..}] ~ ~ ~ scoreboard players add @p teleport_dmg -1
 
-#Вычитание очков удара
-    scoreboard players add @a[scores={on_hurt_delay=1..}] on_hurt_delay -1
-
-#Снятие особых фич брони
-    scoreboard players add @a[scores={armor_assas_dmg=1..}] armor_assas_dmg -1
-    scoreboard players add @a[scores={armor_conq_dmg=1..}] armor_conq_dmg -1
-    scoreboard players add @a[scores={armor_ranger_dmg=1..}] armor_ranger_dmg -1
-
 # Обнаружение несуществующих мобов и их деспавн
     tp @e[type=pillager] -10000 -100 -10000
     tp @e[type=villager] -10000 -100 -10000
@@ -81,11 +73,3 @@
     tp @e[type=zombie_villager] -10000 -100 -10000
     tp @e[type=spider] -10000 -100 -10000
     tp @e[type=witch] -10000 -100 -10000
-
-# Партиклы
-    execute @a ~ ~ ~ execute @s[m=!spectator, tag=BIOME_forest, y=55, dy=200, scores={custom_random=0..600}] ~ ~ ~ particle arx:forest_ambient_leaf
-    execute @a ~ ~ ~ execute @s[m=!spectator, tag=BIOME_jungle, y=55, dy=200, scores={custom_random=0..600}] ~ ~ ~ particle arx:forest_ambient_leaf
-    execute @a ~ ~ ~ execute @s[m=!spectator, tag=BIOME_desert, y=30, dy=200, scores={custom_random=0..600}] ~ ~ ~ particle arx:ambient_desert_sand
-
-# Медленное падение в храме черепа
-    effect @a[x=-191, y=48, z=336, dy=5] slow_falling 1 0 true

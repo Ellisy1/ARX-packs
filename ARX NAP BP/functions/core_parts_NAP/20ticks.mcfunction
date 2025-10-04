@@ -40,26 +40,6 @@
     clear @a[scores={allow_magilight=0}] arx:magilight
     clear @a[scores={allow_archlight=0}] arx:archilight
 
-# Отслеживание режима игры (gamemode) для каждого игрока
-    # Определяем gamemode_data зависимо от режима игры игрока
-        scoreboard players set @a[m=survival] gamemode_data 0
-        scoreboard players set @a[m=creative] gamemode_data 1
-        scoreboard players set @a[m=adventure] gamemode_data 2
-        scoreboard players set @a[m=spectator] gamemode_data 3
-    
-    # Определяем, изменился ли режим игры у игрока
-        tag @a remove __gamemode_is_unchanging__
-        execute as @a if score @s gamemode_data_log = @s gamemode_data run tag @s add __gamemode_is_unchanging__
-
-    # Отчитываемся, если гм поменялся
-        execute as @a[tag=!__gamemode_is_unchanging__, m=survival] run tellraw @a[scores={verify=2}] { "rawtext": [ { "text": "§6[СИСТЕМА]§b " }, { "selector": "@s" }, {"text": " §fсменил(а) режим на §aВыживание" } ] }
-        execute as @a[tag=!__gamemode_is_unchanging__, m=creative] run tellraw @a[scores={verify=2}] { "rawtext": [ { "text": "§6[СИСТЕМА]§b " }, { "selector": "@s" }, {"text": " §fсменил(а) режим на §aТворческий" } ] }
-        execute as @a[tag=!__gamemode_is_unchanging__, m=adventure] run tellraw @a[scores={verify=2}] { "rawtext": [ { "text": "§6[СИСТЕМА]§b " }, { "selector": "@s" }, {"text": " §fсменил(а) режим на §aПриключение" } ] }
-        execute as @a[tag=!__gamemode_is_unchanging__, m=spectator] run tellraw @a[scores={verify=2}] { "rawtext": [ { "text": "§6[СИСТЕМА]§b " }, { "selector": "@s" }, {"text": " §fсменил(а) режим на §aНаблюдатель" } ] }
-
-    # Записываем журнальное значение gamemode_data_log для определения динамики
-        execute as @a run scoreboard players operation @s gamemode_data_log = @s gamemode_data
-
 # Если я (админ) в выживании, отключаем показ координат
     execute if entity @a[scores={verify=2}, m=survival] run gamerule showcoordinates false
 
@@ -150,3 +130,5 @@
     execute if entity @a[scores={verify=2, is_day=1}] at @e[family=despawn_as_ghost] run playsound undemon @a ~ ~ ~
 
     execute if entity @a[scores={verify=2, is_day=1}] run event entity @e[family=despawn_as_ghost] arx:despawn_as_ghost
+
+    

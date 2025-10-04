@@ -7,7 +7,7 @@
                 "category": "weapon",
                 "duration": 1
             },
-            "minecraft:damage": 8,
+            "minecraft:damage": 7,
             "minecraft:durability": {
                 "max_durability": 1819
             },
@@ -20,7 +20,8 @@
             "minecraft:tags": {
                 "tags": [
                     "is_scythe",
-                    "is_weapon"
+                    "is_weapon",
+                    "material_rare_metal"
                 ]
             }
         },

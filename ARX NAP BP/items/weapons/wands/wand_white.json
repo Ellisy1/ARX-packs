@@ -20,7 +20,8 @@
             "minecraft:tags": {
                 "tags": [
                     "is_wand",
-                    "is_weapon"
+                    "is_weapon",
+                    "material_wooden"
                 ]
             },
             "tag:raw_cost:1000": {}

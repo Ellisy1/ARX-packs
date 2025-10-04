@@ -14,34 +14,32 @@ let stabilityTestResult = undefined
 
 // Получаем данные с последнего теста стабильности в виде str XXX.XX%
 export function getStabilityTestResult() {
-    if (stabilityTestResult) {
-        let textColor
-        if (stabilityTestResult > 0.90) {
-            textColor = '§a'
-        } else if (stabilityTestResult > 0.75) {
-            textColor = '§e'
-        } else if (stabilityTestResult > 0.50) {
-            textColor = '§6'
-        } else {
-            textColor = '§c'
-        }
+    const result = stabilityTestResult
 
-        return `${textColor}${(stabilityTestResult * 100).toFixed(2)}§fŨ`
-    } else {
-        return undefined
-    }
+    if (result == null) return undefined
+    const textColor =
+        result > 0.90 ? '§a' :
+        result > 0.75 ? '§e' :
+        result > 0.50 ? '§6' : '§c'
+
+    return `${textColor}${(result * 100).toFixed(2)}§fŨ`
 }
 
 // Выполняем тест стабильности
 function performStabilityTest() {
-    const moscowTimeCurrent = getMoscowTime() // Получаем московское время
-    const moscowTimeDeltaMilliseconds = moscowTimeCurrent.getTime() - moscowTimeLastTest.getTime() // Получаем разницу во времени между тестом стабильности, который сейчас в процессе завершения, и предыдущим в миллисекундах
+    const now = getMoscowTime() // Получаем московское время
+    const delta = now.getTime() - moscowTimeLastTest.getTime() // Получаем разницу во времени между тестом стабильности, который сейчас в процессе завершения, и предыдущим в миллисекундах
+
+    // Если мы получили неожиданное delta, скипаем тест стабильности
+    if (delta <= 0) {
+        return
+    }
 
     // Получаем стабильность в виде float, где идеальная стабильность 1.0
-    stabilityTestResult = testIntervalSec * 1000 / moscowTimeDeltaMilliseconds // Значения в миллисек.
+    stabilityTestResult = testIntervalSec * 1000 / delta // Значения в миллисек.
 
     // Выставляем moscowTimeLastTest
-    moscowTimeLastTest = moscowTimeCurrent
+    moscowTimeLastTest = now
 }
 
 // Интервальный запуск
@@ -49,10 +47,5 @@ system.runInterval(() => {
 
     // Запуск тестов стабильности
     performStabilityTest()
-
-    // Запуск тестов пинга
-    for (const player of world.getPlayers()) {
-        player.setProperty('arx:ping_test', true)
-    }
 
 }, testIntervalSec * 20);

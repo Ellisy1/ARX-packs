@@ -7,9 +7,9 @@
                 "category": "weapon",
                 "duration": 1.25
             },
-            "minecraft:damage": 10,
+            "minecraft:damage": 5,
             "minecraft:durability": {
-                "max_durability": 800
+                "max_durability": 1908
             },
             "minecraft:enchantable": {
                 "slot": "sword",
@@ -21,9 +21,11 @@
                 "tags": [
                     "is_staff",
                     "staff_channels_6",
-                    "is_weapon"
+                    "is_weapon",
+                    "material_rare_metal"
                 ]
-            }
+            },
+            "tag:raw_cost:100000": {}
         },
         "description": {
             "identifier": "arx:staff_dragon",

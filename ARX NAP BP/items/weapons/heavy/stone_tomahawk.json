@@ -20,7 +20,8 @@
             "minecraft:tags": {
                 "tags": [
                     "is_heavy_sword",
-                    "is_weapon"
+                    "is_weapon",
+                    "material_stone"
                 ]
             }
         },

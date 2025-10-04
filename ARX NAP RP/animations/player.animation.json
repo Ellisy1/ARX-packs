@@ -436,7 +436,7 @@
 			"loop": true,
 			"bones": {
 				"body": {
-					"position": [0, -2, 0]
+					"position": [0, -1, 0]
 				},
 				"head": {
 					"position": [0, -1, 0]
@@ -455,7 +455,7 @@
 				},
 				"root": {
 					"rotation": ["28.0 - this", 0, 0],
-					"position": [0, 1.25, 9]
+					"position": [0, 1.25, 5.625]
 				}
 			}
 		},

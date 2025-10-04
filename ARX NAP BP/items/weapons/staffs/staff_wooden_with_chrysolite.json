@@ -7,7 +7,7 @@
                 "category": "weapon",
                 "duration": 6
             },
-            "minecraft:damage": 3,
+            "minecraft:damage": 2,
             "minecraft:durability": {
                 "max_durability": 664
             },
@@ -21,7 +21,8 @@
                 "tags": [
                     "is_staff",
                     "staff_channels_2",
-                    "is_weapon"
+                    "is_weapon",
+                    "material_wooden"
                 ]
             }
         },

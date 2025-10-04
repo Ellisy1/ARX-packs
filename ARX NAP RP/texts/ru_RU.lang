@@ -1343,8 +1343,13 @@ disconnectionScreen.connectionLost=Соединение с Арксом поте
 
 item.bundle.empty.description=§f
 
-commands.me.description=§cНедоступно
+commands.me.description=§cНедоступно, используйте команду !д
 commands.tell.description=§cНедоступно
 
 item.itemLock.popupNotice.cantMove=§fПредмет заблокирован
 item.itemLock.cantMove=Неперемещаемые эл. нельзя:
+
+item.copper_pickaxe.name=Свинцовая кирка §b[Редкое]
+item.copper_axe.name=Свинцовый топор §b[Редкое]
+item.copper_shovel.name=Свинцовая лопата §b[Редкое]
+item.copper_hoe.name=Свинцовая мотыга §b[Редкое]

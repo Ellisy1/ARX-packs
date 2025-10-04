@@ -21,7 +21,8 @@
                 "tags": [
                     "is_staff",
                     "staff_channels_4",
-                    "is_weapon"
+                    "is_weapon",
+                    "material_stone"
                 ]
             },
             "tag:raw_cost:1200": {}

@@ -7,9 +7,9 @@
                 "category": "weapon",
                 "duration": 2.5
             },
-            "minecraft:damage": 6,
+            "minecraft:damage": 4,
             "minecraft:durability": {
-                "max_durability": 400
+                "max_durability": 1375
             },
             "minecraft:enchantable": {
                 "slot": "sword",
@@ -21,9 +21,11 @@
                 "tags": [
                     "is_staff",
                     "staff_channels_4",
-                    "is_weapon"
+                    "is_weapon",
+                    "material_metal"
                 ]
-            }
+            },
+            "tag:raw_cost:7000": {}
         },
         "description": {
             "identifier": "arx:staff_golden_cross",

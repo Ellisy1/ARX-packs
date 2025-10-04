@@ -2177,6 +2177,25 @@
             }
           ]
         }
+      },
+      "arx:set_blocking_damage_sensor": {
+        "minecraft:damage_sensor": {
+          "triggers": [
+            {
+              "cause": "fall",
+              "deals_damage": true,
+              "damage_multiplier": 2
+            },
+            {
+              "cause": "starve",
+              "deals_damage": true
+            },
+            {
+              "cause": "entity_attack",
+              "deals_damage": false
+            }
+          ]
+        }
       }
 
     },
@@ -4410,6 +4429,13 @@
         "queue_command": {
           "command": [
             "scoreboard players set @s revive_delay 0"
+          ]
+        }
+      },
+      "arx:set_blocking_damage_sensor": { // Игрок запустил блокировку
+        "add": {
+          "component_groups": [
+            "arx:set_blocking_damage_sensor"
           ]
         }
       }

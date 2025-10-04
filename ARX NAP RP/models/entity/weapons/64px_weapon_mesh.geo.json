@@ -6,20 +6,11 @@
 				"identifier": "geometry.64px_weapon_mesh",
 				"texture_width": 16,
 				"texture_height": 16,
-				"visible_bounds_width": 1,
-				"visible_bounds_height": 1,
-				"visible_bounds_offset": [0, 0, 0]
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 1.5,
+				"visible_bounds_offset": [0, 0.25, 0]
 			},
 			"bones": [
-				{
-					"name": "weapon_fix",
-					"parent": "rightItem",
-					"pivot": [0, 0, 0],
-					"rotation": [0, 0, 0],
-					"cubes": [
-						{"origin": [0, 0, 0], "size": [0, 0, 0], "uv": [0, 0]}
-					]
-				},
 				{
 					"name": "rightItem",
 					"pivot": [0, 0, 0],
@@ -28,8 +19,16 @@
 							"texture": "default",
 							"position": [-0.5, 20.8, -22.2],
 							"rotation": [0, 37.5, -90],
-							"scale": [2, 0, 2]
+							"scale": [2, 1, 2]
 						}
+					]
+				},
+				{
+					"name": "weapon_fix",
+					"parent": "rightItem",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [0, 0, 0], "size": [0, 0, 0], "uv": [0, 0]}
 					]
 				}
 			]
