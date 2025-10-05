@@ -33,8 +33,6 @@ scoreboard objectives add drugs_delay dummy Наркозавис.
 scoreboard objectives add gender dummy Пол_перс.
 scoreboard objectives add time_h dummy "Часы игры"
 scoreboard objectives add time_m dummy Минуты-игры.
-scoreboard objectives add water_delay dummy Намокание
-scoreboard objectives add water_block dummy Намокание
 scoreboard objectives add class dummy is_ghost
 scoreboard objectives add target dummy цель_мага
 
@@ -360,6 +358,3 @@ scoreboard objectives add spell_of_small_head dummy spell_of_small_head
 # Данные для отката в до-смертельное состояние
     scoreboard objectives add xp_roll_back dummy xp_roll_back
     scoreboard objectives add xp_stage_roll_back dummy xp_stage_roll_back
-
-# Динамический свет
-    scoreboard objectives add dynamic_light_power dummy dynamic_light_power

@@ -8,6 +8,3 @@
 
 # Звук от магического рывка
     execute at @a[scores={tp_cd=1..}] run playsound magic_dash @a ~ ~1.3 ~
-
-# Партиклы от деражщих факел
-    execute at @a[hasitem={item=minecraft:torch, location=slot.weapon.mainhand}] positioned ~ ~1.9 ~ run particle minecraft:basic_smoke_particle ^-0.3 ^0 ^0.4

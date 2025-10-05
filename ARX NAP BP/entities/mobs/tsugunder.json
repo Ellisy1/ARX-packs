@@ -176,10 +176,6 @@
 						"execute as @s[scores={mp=30.., custom_random=500..700}, tag=low_hp] run effect @s regeneration 10 2",
 						"execute as @s[scores={mp=30.., custom_random=500..700}, tag=low_hp] run tag @s add spell_activated",
 						"execute as @s[scores={mp=30.., custom_random=500..700}, tag=low_hp] run scoreboard players add @s mp -30",
-						// Намокание по площади
-						"execute as @s[scores={mp=80.., custom_random=300..350}] if entity @a[r=15] run scoreboard players add @a[r=15] water_delay 600",
-						"execute as @s[scores={mp=80.., custom_random=300..350}] if entity @a[r=15] run tag @s add spell_activated",
-						"execute as @s[scores={mp=80.., custom_random=300..350}] if entity @a[r=15] run scoreboard players add @s mp -80",
 						// Завершающий анализ
 						"playanimation @s[tag=spell_activated] animation.tsugunder.cast_spell",
 						"tag @s remove spell_activated"

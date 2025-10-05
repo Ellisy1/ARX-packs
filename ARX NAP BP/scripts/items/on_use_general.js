@@ -27,7 +27,7 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
                 // const stack1 = new ItemStack('arx:small_stone', 1)
                 // stack1.setLore(['§bЧто-то интересное'])
                 // player.dimension.spawnItem(stack1, player.location)
-                player.setProperty('arx:is_ghost', true)
+                player.setProperty('arx:is_ghost', false)
             }
             break
 
@@ -281,9 +281,9 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
                 if (!player.hasTag('is_moving')) {
                     if (!player.hasTag('in_block_water')) {
                         manageCD(player)
-                        const currentWet = getScore(player, 'water_delay')
+                        const currentWet = player.getDynamicProperty('wetness')
                         const valueWet = checkForItem(player, 'chest', undefined) ? 1200 : 300
-                        setScore(player, 'water_delay', currentWet - valueWet)
+                        ssDP(player, 'wetness', currentWet - valueWet)
                         player.runCommand('playsound armor.equip_leather @a ~ ~ ~ ')
                         player.addEffect('slowness', 30, { amplifier: 1, showParticles: false })
                     } else {
@@ -578,7 +578,7 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
             break
 
         case "arx:scroll_of_water_blocking":
-            setScore(player, 'water_delay', 0)
+            ssDP(player, 'wetness', 0)
             setScore(player, 'water_block', 30)
             player.runCommand('clear @s arx:scroll_of_water_blocking 0 1')
             player.runCommand(`tellraw @s { "rawtext": [ { "text": "§aСвиток использован!" } ] }`)

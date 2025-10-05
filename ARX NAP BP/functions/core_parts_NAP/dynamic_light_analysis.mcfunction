@@ -5,7 +5,8 @@
     # Предметы в руке
         execute as @a[hasitem={item=minecraft:torch, location=slot.weapon.mainhand}] run scoreboard players add @s dynamic_light_power 14
         execute as @a[hasitem={item=minecraft:redstone_torch, location=slot.weapon.mainhand}] run scoreboard players add @s dynamic_light_power 7
-        execute as @a[hasitem={item=minecraft:soul_torch, location=slot.weapon.mainhand}] run scoreboard players add @s dynamic_light_power 10
+        execute as @a[hasitem={item=minecraft:soul_torch, location=slot.weapon.mainhand}] run scoreboard players add @s dynamic_light_power 12
+        execute as @a[hasitem={item=minecraft:copper_torch, location=slot.weapon.mainhand}] run scoreboard players add @s dynamic_light_power 12
         execute as @a[hasitem={item=minecraft:lantern, location=slot.weapon.mainhand}] run scoreboard players add @s dynamic_light_power 14
 
     # Надетые предметы

@@ -7,13 +7,13 @@ export function animate_killing_time(player) {
     let allowAnimation = true
 
     if ((item?.getTags().includes('is_weapon')) ||
-    (item?.getTags().includes('is_umbrella')) ||
-    (item?.getTags().includes('is_dildo')) ||
-    (killingTimeBanItems.includes(item?.typeId)) ||
-    (player.getProperty('arx:is_knocked') === true) ||
-    (player.hasTag('is_emoting_via_arx_command') === true) ||
-    (player.hasTag('is_riding') === true) ||
-    (player.hasTag('has_riders') === true)) allowAnimation = false
+        (item?.getTags().includes('is_umbrella')) ||
+        (item?.getTags().includes('is_dildo')) ||
+        (killingTimeBanItems.includes(item?.typeId)) ||
+        (player.getProperty('arx:is_knocked') === true) ||
+        (player.hasTag('is_emoting_via_arx_command') === true) ||
+        (player.hasTag('is_riding') === true) ||
+        (player.hasTag('has_riders') === true)) allowAnimation = false
 
     if (allowAnimation) {
         const animVar = Math.floor(Math.random() * 3)
@@ -27,7 +27,7 @@ const killingTimeAnims = ['a', 'b', 'c']
 
 // Конкретные предметы, в руке с которыми нельзя анимировать бездействие
 const killingTimeBanItems = [
-    "minecraft:torch", "minecraft:fishing_rod",
+    "minecraft:torch", "minecraft:redstone_torch", "minecraft:soul_torch", "minecraft:copper_torch", "minecraft:fishing_rod",
     'minecraft:wooden_pickaxe', 'minecraft:stone_pickaxe', 'minecraft:golden_pickaxe', 'minecraft:iron_pickaxe', 'minecraft:diamond_pickaxe', 'minecraft:netherite_pickaxe',
     'minecraft:wooden_axe', 'minecraft:stone_axe', 'minecraft:golden_axe', 'minecraft:iron_axe', 'minecraft:diamond_axe', 'minecraft:netherite_axe',
     'minecraft:wooden_hoe', 'minecraft:stone_hoe', 'minecraft:golden_hoe', 'minecraft:iron_hoe', 'minecraft:diamond_hoe', 'minecraft:netherite_hoe',

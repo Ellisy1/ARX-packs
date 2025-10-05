@@ -109,7 +109,7 @@
 						{"third_person_staff_moving": "query.equipped_item_any_tag('slot.weapon.mainhand', 'is_staff') && q.is_moving"},
 						{"third_person_gun": "query.is_item_name_any('slot.weapon.mainhand', 0, 'arx:moder_gun')"},
 						{"third_person_umbrella": "query.equipped_item_any_tag('slot.weapon.mainhand', 'is_umbrella')"},
-						{"third_person_torch": "query.is_item_name_any('slot.weapon.mainhand', 'minecraft:torch')"}
+						{"third_person_torch": "q.is_item_name_any('slot.weapon.mainhand', 'minecraft:torch') || q.is_item_name_any('slot.weapon.mainhand', 'minecraft:copper_torch') || q.is_item_name_any('slot.weapon.mainhand', 'minecraft:redstone_torch') || q.is_item_name_any('slot.weapon.mainhand', 'minecraft:soul_torch')"}
 					],
 					"blend_transition": 0.1
 				},
@@ -548,7 +548,7 @@
 						{"paperdoll": "variable.is_paperdoll"},
 						{"first_person": "variable.is_first_person"},
 						{"map_player": "variable.map_face_icon"},
-						{"third_person": "!query.is_item_name_any('slot.weapon.mainhand', 'minecraft:torch') || q.property('arx:is_knocked') == true"}
+						{"third_person": "!(q.is_item_name_any('slot.weapon.mainhand', 'minecraft:torch') || q.is_item_name_any('slot.weapon.mainhand', 'minecraft:copper_torch') || q.is_item_name_any('slot.weapon.mainhand', 'minecraft:redstone_torch') || q.is_item_name_any('slot.weapon.mainhand', 'minecraft:soul_torch')) || q.property('arx:is_knocked') == true"}
 					],
 					"blend_transition": 0.1
 				},

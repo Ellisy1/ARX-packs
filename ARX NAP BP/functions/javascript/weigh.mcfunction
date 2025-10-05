@@ -413,8 +413,8 @@
         scoreboard players add @s[hasitem={item=arx:warrior_chain_mail}] weighLoading 3
         scoreboard players add @s[hasitem={item=arx:warrior_helmet}] weighLoading 3
 
-        scoreboard players add @s[hasitem={item=arx:pallas_assasin_clothing}] weighLoading 2
-        scoreboard players add @s[hasitem={item=arx:pires_ranger_coat}] weighLoading 2
+        scoreboard players add @s[hasitem={item=arx:pallas_assasin_clothing}] weighLoading 3
+        scoreboard players add @s[hasitem={item=arx:pires_ranger_coat}] weighLoading 3
 
         scoreboard players add @s[hasitem={item=arx:baron_gambeson}] weighLoading 4
         scoreboard players add @s[hasitem={item=arx:desert_protector_armor}] weighLoading 4

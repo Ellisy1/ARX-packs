@@ -40,69 +40,6 @@
     # Кровати
         execute as @a[tag=is_riding] at @s if entity @e[r=1, type=arx:bed_straw] run playanimation @s animation.player.sleep_on_custom_bed
 
-
-# НАМОКАНИЕ И ВЫСЫХАНИЕ
-    # Анализ окружения и условий высыхания и намокания
-        tag @a remove in_rain
-        tag @a[tag=in_water, tag=!in_block_water] add in_rain
-
-        tag @a remove in_boat
-        execute at @e[family=boat] run tag @a[r=2, tag=is_riding] add in_boat
-
-        # Если зонт или сапф. амулет (дополнительное вычитание намокания)
-            # Чистка тегов
-                tag @a remove holding_umbrella
-                tag @a remove amul_sapphire
-            
-            # Выдача тегов
-                # Зонты
-                    tag @a[hasitem={item=arx:umbrella_golden_silk, location=slot.weapon.mainhand}] add holding_umbrella
-                    tag @a[hasitem={item=arx:umbrella_silk, location=slot.weapon.mainhand}] add holding_umbrella
-                    tag @a[hasitem={item=arx:umbrella_skin, location=slot.weapon.mainhand}] add holding_umbrella
-                    tag @a[hasitem={item=arx:umbrella_small_silk, location=slot.weapon.mainhand}] add holding_umbrella
-                    # Если держим зонт, даем всем вокруг блок дождя
-                        execute at @a[tag=holding_umbrella] run tag @a[r=1] add holding_umbrella
-                    
-                # Амулет с сапфиром
-                    tag @a[hasitem={item=arx:amul_sapphire, location=slot.armor.legs}] add amul_sapphire
-
-    # ВЫСЫХАНИЕ
-        # Основное высыхание
-            scoreboard players add @a[scores={water_delay=1..}, tag=!in_water] water_delay -1
-
-        # Высыхание в аду
-            scoreboard players add @a[scores={water_delay=1..}, tag=in_nether] water_delay -4
-
-        # Высыхание с зонтиком
-            scoreboard players add @a[scores={water_delay=1..}, tag=in_rain, tag=holding_umbrella] water_delay -1
-
-        # Высыхание с амулетом-сапфиром
-            scoreboard players add @a[scores={water_delay=1..}, tag=in_rain, tag=amul_sapphire] water_delay -1
-
-    # НАМОКАНИЕ
-        # В воде
-            scoreboard players add @a[scores={water_delay=..1200, water_block=..0}, tag=in_block_water, tag=!in_boat, tag=!blue_lake, m=!spectator] water_delay 10
-
-        # Под дождем
-            scoreboard players add @a[scores={water_delay=..1200, water_block=..0}, tag=in_rain, tag=!amul_sapphire, tag=!holding_umbrella, tag=!underground, m=!spectator] water_delay 1
-
-
-    # Дебаг отриц. значений
-        scoreboard players set @a[scores={water_delay=..0}] water_delay 0
-
-    # Сообщения
-        title @a[scores={water_delay=1}] actionbar §fВы высохли
-        title @a[scores={water_delay=2..200}] actionbar  §bВы промокли §f
-        title @a[scores={water_delay=201..400}] actionbar  §bВы промокли §f
-        title @a[scores={water_delay=401..}] actionbar  §bВы промокли §f
-
-    # Партиклы
-        execute at @a[scores={water_delay=1..}, tag=!in_block_water, m=!spectator] run particle arx:arx_water_splash_particle ~.2 ~ ~.2
-        execute at @a[scores={water_delay=1..}, tag=!in_block_water, m=!spectator] run particle arx:arx_water_splash_particle ~-0.2 ~ ~.2
-        execute at @a[scores={water_delay=1..}, tag=!in_block_water, m=!spectator] run particle arx:arx_water_splash_particle ~.2 ~ ~-0.2
-        execute at @a[scores={water_delay=1..}, tag=!in_block_water, m=!spectator] run particle arx:arx_water_splash_particle ~-0.2 ~ ~-0.2
-        execute at @a[scores={water_delay=1..}, tag=!in_block_water, m=!spectator] run particle arx:arx_water_splash_particle ~ ~ ~
-
 # Твикер нажатия на блоки
     scoreboard players add @a[scores={restrict_block_interact=1..}] restrict_block_interact -1
 

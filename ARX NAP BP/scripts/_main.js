@@ -171,16 +171,21 @@ world.afterEvents.entityHitEntity.subscribe((hitEvent) => {
         // Можно сделать порог, например, dot < -0.1 для "точно сзади", но пока просто <= 0
         // Игроку попали в спину
         if (dot <= 0) {
-            const damagerItem = damager.typeId === 'minecraft:player' ? damager.getComponent(EntityComponentTypes.Equippable).getEquipment(EquipmentSlot.Mainhand) : undefined
-            const minimalDamage = damagerItem?.getTags()?.includes('is_weapon') ? 5 : 2
+            if (damager.getDynamicProperty('basicStrength') > 0) {
+                const damagerItem = damager.typeId === 'minecraft:player' ? damager.getComponent(EntityComponentTypes.Equippable).getEquipment(EquipmentSlot.Mainhand) : undefined
+                const minimalDamage = damagerItem?.getTags()?.includes('is_weapon') ? 5 : 2
 
-            damaged.runCommand('camera @s fade time 0 0 1.5 color 200 20 10')
-            // Дамагаем с игнором брони
-            const damageAmount = Math.max(damager.getDynamicProperty('basicStrength') ?? 0, minimalDamage)
-            damaged.applyDamage(damageAmount, { cause: "ramAttack", damagingEntity: damager })
-            damaged.addEffect('slowness', 20, { amplifier: 1, showParticles: false })
-            ssDP(damaged, 'blockingResistanceCD', 1)
-            iDP(damaged, 'attackCD', 50)
+                damaged.runCommand('camera @s fade time 0 0 1.5 color 200 20 10')
+                // Дамагаем с игнором брони
+                const damageAmount = Math.max(damager.getDynamicProperty('basicStrength') ?? 0, minimalDamage)
+                damaged.applyDamage(damageAmount, { cause: "ramAttack", damagingEntity: damager })
+                damaged.addEffect('slowness', 20, { amplifier: 1, showParticles: false })
+                ssDP(damaged, 'blockingResistanceCD', 1)
+                iDP(damaged, 'attackCD', 50)
+            }
+            else {
+                damager.sendMessage('§cВы слишком ослаблены, чтобы нанести удар в спину')
+            }
         }
         // Игроку попали в лицо
         else {
@@ -214,6 +219,7 @@ world.afterEvents.entityHitEntity.subscribe((hitEvent) => {
             const viewDirection = damager.getViewDirection() // Отталкиваем в направлении взгляда атакующего
             const blockingSkill = Math.cbrt(damaged.getDynamicProperty('skill:blocking_level') + 1)
             damaged.applyKnockback({ x: viewDirection.x * 2 / blockingSkill, z: viewDirection.z * 2 / blockingSkill }, 0.4 / blockingSkill)
+            damager.applyKnockback({ x: viewDirection.x * -1 / blockingSkill, z: viewDirection.z * -1 / blockingSkill }, 0.2 / blockingSkill)
             // Обработка переменных
             if (damaged.getDynamicProperty('blockingResistanceCD') > 12) {
                 iDP(damaged, 'blockingResistanceCD', -12)
@@ -597,7 +603,7 @@ world.afterEvents.entityDie.subscribe((dieEvent) => {
             ssDP(player, 'respawnDelay', 0)
 
             setScore(player, "knockout_row_sounter", 0)
-            setScore(player, "water_delay", 0)
+            ssDP(player, 'wetness', 0)
 
             if (player.getProperty('arx:is_ghost') === true) { // Если призрак
 
@@ -745,18 +751,22 @@ world.afterEvents.entityHurt.subscribe((hurtEvent) => {
         {
             // Проверяем допуск по типу урона
             if (damager?.typeId === 'minecraft:player' && damageCause === 'entityAttack') {
-                // Проверяем допуск по тому, не призрак ли игрок
-                if (damaged.getProperty('arx:is_ghost') === false) {
-                    // Проверяем допуск по тому, нокнут ли игрок
-                    if (damaged.getDynamicProperty('respawnDelay') > 0) {
-                        // Проверям допуск по наличию алтаря
-                        if (world.getDimension(damaged.dimension.id).getBlock({ x: damaged.location.x, y: damaged.location.y - 1, z: damaged.location.z }).typeId === 'arx:divine_altar') {
+                if (world.getDimension(damaged.dimension.id).getBlock({ x: damaged.location.x, y: damaged.location.y - 1, z: damaged.location.z }).typeId === 'arx:divine_altar') {
+                    // Проверяем допуск по тому, не призрак ли игрок
+                    if (damaged.getProperty('arx:is_ghost') === false) {
+                        // Проверяем допуск по тому, нокнут ли игрок
+                        if (damaged.getDynamicProperty('respawnDelay') > 0) {
+                            // Проверям допуск по наличию алтаря
                             setScore(player, 'knockout_row_sounter', 99)
                             player.runCommand('loot spawn ~ ~1 ~ loot "custom/gold_feather"')
 
                             player.runCommand('kill @s')
                             console.warn('Разрешен дроп пера')
+                        } else {
+                            damager.sendMessage('§cДля убийства на алтаре, убиваемый персонаж должен быть вырублен')
                         }
+                    } else {
+                        damager.sendMessage('§cВы не можете убить на алтаре призрачное существо')
                     }
                 }
             }
@@ -894,7 +904,7 @@ function playRandomAnimation(player, animations) {
 }
 
 // Функция для получения family сущности
-function getEntityFamilies(entity) {
+export function getEntityFamilies(entity) {
     const familyComponent = entity.getComponent(EntityComponentTypes.TypeFamily);
 
     if (familyComponent) {

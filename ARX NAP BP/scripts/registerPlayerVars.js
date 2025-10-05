@@ -30,7 +30,7 @@ export function registerPlayerVars(player) {
         ssDP(player, "mp", 1000)
     }
     if (player.getDynamicProperty("myRule:showAttackCDMode") === undefined) {
-        ssDP(player, "myRule:showAttackCDMode", "seconds")
+        ssDP(player, "myRule:showAttackCDMode", "secondsFloat")
     }
     if (player.getDynamicProperty("myRule:manaDisplayMode") === undefined) {
         ssDP(player, "myRule:manaDisplayMode", "integers")
@@ -150,5 +150,8 @@ export function registerPlayerVars(player) {
     }
     if (player.getDynamicProperty('holdedMagicChannel') === undefined) {
         ssDP(player, 'holdedMagicChannel', 1)
+    }
+    if (player.getDynamicProperty('wetness') === undefined) {
+        ssDP(player, 'wetness', 0)
     }
 }

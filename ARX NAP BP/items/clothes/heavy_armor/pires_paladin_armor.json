@@ -3,7 +3,7 @@
     "minecraft:item": {
         "components": {
             "minecraft:durability": {
-                "max_durability": 2500
+                "max_durability": 800
             },
             "minecraft:enchantable": {
                 "slot": "armor_torso",

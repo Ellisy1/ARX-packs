@@ -19,12 +19,14 @@ import { getPlayersInRadiusFromCoords } from '../portals'
 import { killingTimeAnimDelay, animate_killing_time } from './animate_killing_time'
 import { ssDP, iDP } from '../DPOperations'
 import { acquireTrait } from "../traits/traitsOperations"
+import { sendToActionBar } from './actionBarCore'
 
 // Импорт - другие области движка
 import { getNearestPlayer } from "../getNearestPlayer"
 import { queueCommand } from "../commandQueue"
 import { parceChatCommand } from "../chat"
 import './ambience_core'
+import { getEntityFamilies } from "../_main"
 
 // ARXGate
 export let ARXGate = {
@@ -79,7 +81,7 @@ system.runInterval(() => {
             }
 
             // Левитируем
-            if ((player.getDynamicProperty('pressedJumpButton') && allow_levitate) || force_to_levitate) {
+            if (((player.getDynamicProperty('pressedJumpButton') && !player.isOnGround) && allow_levitate) || force_to_levitate) {
 
                 if (player.getDynamicProperty('ghostBoostByScarletMoon')) {
                     player.addEffect("levitation", 2, { amplifier: 4, showParticles: false })
@@ -92,37 +94,45 @@ system.runInterval(() => {
         }
 
         // Отображение кд атаки
-        if (player.getDynamicProperty("attackCD") > 0 || player.getDynamicProperty("prohibit_damage") > 0) {
+        let attackCD = player.getDynamicProperty("attackCD")
+        if (attackCD > 0 || player.getDynamicProperty("prohibit_damage") > 0) {
             // Уменьшение отката атаки
-            if (player.getDynamicProperty("attackCD") > 0) { iDP(player, 'attackCD', -1) }
+            if (attackCD > 0) { iDP(player, 'attackCD', -1); attackCD -= 1 }
             // Уменьшение отката блока
             if (player.getDynamicProperty("prohibit_damage") > 0) iDP(player, 'prohibit_damage', -1)
 
+            let stringToDisplay
             // Отображаем в тактах
             if (player.getDynamicProperty("myRule:showAttackCDMode") == 'ticks') {
-                if (player?.getDynamicProperty("prohibit_damage") > 0) { player.runCommand(`title @s actionbar  §c${player.getDynamicProperty("attackCD")}`) }
-                else player.runCommand(`title @s actionbar  ${player.getDynamicProperty("attackCD")}`)
+                if (player?.getDynamicProperty("prohibit_damage") > 0) stringToDisplay = ` §c${attackCD}`
+                else stringToDisplay = ` ${attackCD}`
             }
             // Секундах
             else if (player.getDynamicProperty("myRule:showAttackCDMode") == 'seconds') {
-                if (player?.getDynamicProperty("prohibit_damage") > 0) { player.runCommand(`title @s actionbar  §c${Math.ceil(player.getDynamicProperty("attackCD") / 20)}`) }
-                else { player.runCommand(`title @s actionbar  ${Math.ceil(player.getDynamicProperty("attackCD") / 20)}`) }
+                if (player?.getDynamicProperty("prohibit_damage") > 0) stringToDisplay = ` §c${Math.ceil(attackCD / 20)}`
+                else stringToDisplay = ` ${Math.ceil(attackCD / 20)}`
+            }
+            // Дробных долях секунд
+            else if (player.getDynamicProperty("myRule:showAttackCDMode") == 'secondsFloat') {
+                if (player?.getDynamicProperty("prohibit_damage") > 0) stringToDisplay = ` §c${(attackCD / 20).toFixed(1)}`
+                else stringToDisplay = ` ${(attackCD / 20).toFixed(1)}`
             }
             // Строкой
             else if (player.getDynamicProperty("myRule:showAttackCDMode") == 'line') {
+                let damageString
                 if (player?.getDynamicProperty("prohibit_damage") > 0) {
-                    let damageString = '§c'
-                    for (let i = 0; i < Math.ceil(player.getDynamicProperty("attackCD") / 20); i++) { damageString += '=' }
+                    damageString = '§c'
+                    for (let i = 0; i < Math.ceil(attackCD / 5); i++) { damageString += '=' }
                     damageString += "§f"
-                    player.runCommand(`title @s actionbar  ${damageString} `)
                 }
                 else {
-                    let damageString = '§f'
-                    for (let i = 0; i < Math.ceil(player.getDynamicProperty("attackCD") / 20); i++) { damageString += '-' }
+                    damageString = '§f'
+                    for (let i = 0; i < Math.ceil(attackCD / 5); i++) { damageString += '-' }
                     damageString += "§f"
-                    player.runCommand(`title @s actionbar  ${damageString} `)
                 }
+                stringToDisplay = ` ${damageString} `
             }
+            sendToActionBar(player, 'attackCD', stringToDisplay, 2)
         }
 
         // Система нокаута
@@ -152,6 +162,58 @@ system.runInterval(() => {
             else {
                 player.runCommand('spawnpoint @s ~ ~ ~')
             }
+        }
+
+        // Намокание
+        // Основное намокание задается через DP wetness
+        {
+            // Определяем состояния игрока
+            const inRain = player.hasTag('in_water') && !player.hasTag('in_block_water')
+            let isBoatNearby = false
+            for (const entity of player.dimension.getEntities({ maxDistance: 1 })) {
+                if (getEntityFamilies(entity).includes('boat')) isBoatNearby = true
+            }
+            const inBoat = player.hasTag('is_riding') && isBoatNearby
+
+            // Зонт или амулет ненамокания 
+            const holdingUmbrella = checkForItem(player, 'mainhand', 'arx:umbrella_golden_silk') || checkForItem(player, 'mainhand', 'arx:umbrella_silk') || checkForItem(player, 'mainhand', 'arx:umbrella_skin') || checkForItem(player, 'mainhand', 'arx:umbrella_small_silk')
+            for (let playerNearUmbrella of getPlayersInRadius(player, 1.5, false)) {
+                ssDP(playerNearUmbrella, 'someoneCoversWithUmbrella', true)
+            }
+            const antiRainAmul = checkForItem(player, 'Legs', 'arx:amul_sapphire')
+
+            // Намокаем или сохнем, зависимо от ситуации
+            let wetness = player.getDynamicProperty('wetness') ?? 0
+            // В воде
+            if (player.hasTag('in_block_water') && !inBoat) wetness += 10
+            // Под дождём
+            else if (inRain && !antiRainAmul && !holdingUmbrella && !player.hasTag('underground') && !player.getDynamicProperty('someoneCoversWithUmbrella')) wetness += 1
+            // Высыхание в аду
+            else if (player.dimension.id === 'minecraft:nether') wetness -= 4
+            // Высыхание
+            else wetness -= 1
+
+            // Обрабатываем границы намокания
+            if (wetness > 600) wetness = 600
+            if (wetness < 0) wetness = 0
+
+            // Отбражение
+            if (wetness > 0) {
+                let waterIcons = wetness < 200 ? "" : wetness < 400 ? "" : ""
+                if (wetness === 1) sendToActionBar(player, 'wetness', 'Вы высохли', 2)
+                else sendToActionBar(player, 'wetness', `${waterIcons} §bВы промокли §f${waterIcons}`, 2)
+            }
+
+            // Партиклы
+            if (wetness > 0) {
+                for (let i = 0; i < Math.random() * 7; i++) {
+                    player.dimension.spawnParticle('arx:arx_water_splash_particle', { x: player.location.x + (Math.random() - 0.5) * 0.4, y: player.location.y + (Math.random() - 0.5) * 0.4, z: player.location.z + (Math.random() - 0.5) * 0.4 })
+                }
+            }
+
+            // В самом конце
+            ssDP(player, 'wetness', wetness)
+            ssDP(player, 'someoneCoversWithUmbrella', false)
         }
     }
 }, 1);
@@ -466,8 +528,8 @@ system.runInterval(() => {
             }
 
             // Штраф от намокания
-            if (getScore(player, "water_delay") > 200) { speedPower -= 10 }
-            if (getScore(player, "water_delay") > 400) { speedPower -= 10 }
+            if (player.getDynamicProperty('wetness') > 200) speedPower -= 10
+            if (player.getDynamicProperty('wetness') > 400) speedPower -= 10
 
             // Бонус от закла
             if (player.getDynamicProperty('speedBoost:level0') > 0) { speedPower += 10 }
@@ -659,6 +721,9 @@ system.runInterval(() => {
             }
         }
 
+        // Анализ мощности освещения (0 - нет, 15 - макс.)
+
+
     }
 
     world.getDimension("minecraft:overworld").runCommand("function core_parts_NAP/dynamic_light_analysis")
@@ -668,6 +733,9 @@ system.runInterval(() => {
 // 10 ticks
 system.runInterval(() => {
     for (const player of world.getPlayers()) {
+
+        // Партиклы от деражщих факел
+        if (checkForItem(player, 'Mainhand', 'minecraft:torch') || checkForItem(player, 'Mainhand', 'minecraft:soul_torch') || checkForItem(player, 'Mainhand', 'minecraft:copper_torch') || checkForItem(player, 'Mainhand', 'minecraft:redstone_torch')) player.runCommand('execute positioned ~ ~1.9 ~ run particle minecraft:basic_smoke_particle ^-0.3 ^0 ^0.4')
 
         // Прыжки
         if (player.getDynamicProperty('pressedJumpButton')) {
@@ -720,8 +788,8 @@ system.runInterval(() => {
             }
 
             // Штраф от намокания
-            if (getScore(player, "water_delay") > 200) { jumpPower -= 1 }
-            if (getScore(player, "water_delay") > 400) { jumpPower -= 1 }
+            if (player.getDynamicProperty('wetness') > 200) { jumpPower -= 1 }
+            if (player.getDynamicProperty('wetness') > 400) { jumpPower -= 1 }
 
             // Срезание от перегруза
             if (player?.getDynamicProperty('overLoading') > 0) { jumpPower -= player.getDynamicProperty("overLoading") }
@@ -882,7 +950,7 @@ system.runInterval(() => {
 
                 if (nearbyPlayers.length > 0) {
                     let phrases
-                    if (nearbyPlayers.length === 1) phrases = checkForTrait('rude') ? ['Ёб твою мать', 'Шёл бы ты нахуй', 'Чтоб ты помер, блядина', 'Иди в очко, скотина ебаная', 'Поешь говна, сучка'] :
+                    if (nearbyPlayers.length === 1) phrases = checkForTrait(player, 'rude') ? ['Ёб твою мать', 'Шёл бы ты нахуй', 'Чтоб ты помер, блядина', 'Иди в очко, скотина ебаная', 'Поешь говна, сучка'] :
                         ['Вот дерьмо', 'Иди в жопу', 'Достало', 'Чтоб ты сдох']
                     else phrases = checkForTrait('rude') ? ['Ёб вашу мать', 'Идите нахуй, уёбки', 'Чтоб вы все передохли к хуям', 'Чтоб вас всех крысы нахуй порвали'] :
                         ['Вот дерьмо', 'Идите все в жопу', 'Достало', 'Чтоб вы все сдохли']
@@ -999,13 +1067,11 @@ system.runInterval(() => {
 
             // Черта страх темноты
             if (checkForTrait(player, 'nodarkness') && player.hasTag('low_bright')) {
-                console.warn("nodarkness")
                 iDP(player, 'stress', 5)
             }
 
             // Черта страх глубин
             if (checkForTrait(player, 'nomines') && player.location.y < 0) {
-                console.warn("nomines")
                 iDP(player, 'stress', 5)
             }
 
@@ -1076,9 +1142,6 @@ system.runInterval(() => {
             ssDP(player, 'stress', stress) // Стресс
             ssDP(player, 'stressLevel', stressLevel) // Уровень стресса
             ssDP(player, 'stressDynamic', stressDynamic) // Корректирующая динамика
-
-            // Отладка
-            // player.runCommand(`title @s actionbar ${stress.toFixed(1)} ${stressDynamic.toFixed(1)}`)
         }
 
         // Анимации бездействия
@@ -1450,8 +1513,8 @@ system.runInterval(() => {
             if (player.getProperty('arx:is_knocked')) { diggingSpeed -= 255 }
 
             // Штраф от намокания
-            if (getScore(player, "water_delay") > 200) { diggingSpeed -= 1 }
-            if (getScore(player, "water_delay") > 400) { diggingSpeed -= 1 }
+            if (player.getDynamicProperty('wetness') > 200) { diggingSpeed -= 1 }
+            if (player.getDynamicProperty('wetness') > 400) { diggingSpeed -= 1 }
 
             // Нормализуем
             if (diggingSpeed < -255) { diggingSpeed = -255 }
@@ -1501,7 +1564,7 @@ system.runInterval(() => {
 
                 const resultLine = symbolLine + message + symbolLine
 
-                player.runCommand(`title @s actionbar ${resultLine}`)
+                sendToActionBar(player, 'freezing', resultLine, 20)
             }
 
             // Урон
@@ -1647,11 +1710,11 @@ system.runInterval(() => {
             // Функия рисования линии респавна
             function displayRespawnLine(playerWhoIsKnocked, playerToDisplay) {
                 const reviveValue = playerWhoIsKnocked.getDynamicProperty('reviveDelay')
-                let resultLine = ''
+                let resultLine = '§a'
                 for (let i = 0; i < reviveValue; i++) {
                     resultLine += '█ '
                 }
-                playerToDisplay.runCommand(`title @s actionbar §a${resultLine.slice(0, -1)}`) // Выводим, срезая пробел сзади строки
+                sendToActionBar(playerToDisplay, 'respawnLine', resultLine.slice(0, -1), 25) // Выводим, срезая пробел сзади строки
             }
         }
     }
@@ -1703,7 +1766,9 @@ function displayMPAndAdjacent(player) {
         const activeChannel = getActiveStaffChannel(player, staffChannelNum)
         const activeTarget = player.getDynamicProperty('magicTarget')
 
-        player.runCommand(`title @s actionbar §d${channelRomanNums[activeChannel - 1]} канал §7| §c${targets[activeTarget - 1]} §7| §f${manaStr} §1MP`)
+        sendToActionBar(player, 'magicChannel', `§d${channelRomanNums[activeChannel - 1]} канал`, 2)
+        sendToActionBar(player, 'magicTarget', `§d${targets[activeTarget - 1]}`, 2)
+        sendToActionBar(player, 'MP', `${manaStr} §1MP`, 2)
     }
     // Мы держим руну
     else if (itemTags?.includes('is_rune')) {
@@ -1724,7 +1789,8 @@ function displayMPAndAdjacent(player) {
 
         const activeChannel = getActiveStaffChannel(player, channels, false)
 
-        player.runCommand(`title @s actionbar §b${channelRomanNums[activeChannel - 1]} канал §7| §f${manaStr} §1MP`)
+        sendToActionBar(player, 'magicChannel', `§d${channelRomanNums[activeChannel - 1]} канал`, 2)
+        sendToActionBar(player, 'MP', `${manaStr} §1MP`, 2)
     }
     // У нас амулет гиперсинергии
     else if (checkForItem(player, "Legs", 'arx:amul_hypersynergy') || checkForItem(player, "Legs", 'arx:amul_hypersynergy_improved') || checkForItem(player, "Legs", 'arx:amul_hypersynergy_superior')) {
@@ -1737,14 +1803,12 @@ function displayMPAndAdjacent(player) {
 
         const activeChannel = getActiveStaffChannel(player, channels, false)
 
-        player.runCommand(`title @s actionbar §7${channelRomanNums[activeChannel - 1]} канал §7| §f${manaStr} §1MP`)
+        sendToActionBar(player, 'magicChannel', `§7${channelRomanNums[activeChannel - 1]} канал`, 2)
+        sendToActionBar(player, 'MP', `${manaStr} §1MP`, 2)
     }
 
-
-    // Мы не держим ничего
-    else {
-        player.runCommand(`title @s actionbar ${manaStr} §1MP`)
-    }
+    // Выводим ману в любом случае
+    sendToActionBar(player, 'MP', `${manaStr} §1MP`, 2)
 }
 
 // Отображение UI еды
