@@ -18,27 +18,27 @@ function getBiomeFromPlayer(player) {
 }
 
 /**
- * Получает все блоки вокруг игрока с координатами, кратными 10
+ * Получает все блоки вокруг игрока с координатами, кратными 10 по X/Z и кратными 5 по Y
  */
 function getBlocksAtMultiplesOf10(player, radius = 30) {
     const dim = player.dimension;
     const loc = player.location;
 
-    // Горизонтальные границы (X, Z) — как раньше
+    // Горизонтальные границы (X, Z)
     const startX = Math.floor((loc.x - radius) / 10) * 10;
     const endX = Math.floor((loc.x + radius) / 10) * 10;
     const startZ = Math.floor((loc.z - radius) / 10) * 10;
     const endZ = Math.floor((loc.z + radius) / 10) * 10;
 
-    // Вертикальные границы (Y) — только ±10 от игрока, шаг 5
-    const startY = Math.max(0, Math.floor((loc.y - 10) / 5) * 5);
+    // Вертикальные границы (Y): ±10 от игрока, шаг 5, с учётом валидного диапазона [-64, 319]
+    const startY = Math.max(-64, Math.floor((loc.y - 10) / 5) * 5);
     const endY = Math.min(319, Math.floor((loc.y + 10) / 5) * 5);
 
     const blocks = [];
 
     for (let x = startX; x <= endX; x += 10) {
         for (let z = startZ; z <= endZ; z += 10) {
-            for (let y = startY; y <= endY; y += 5) { // ← шаг 5 по Y
+            for (let y = startY; y <= endY; y += 5) {
                 const block = dim.getBlock({ x, y, z });
                 if (block) {
                     blocks.push(block);
@@ -60,9 +60,9 @@ system.runInterval(() => {
 
     for (const player of world.getPlayers()) {
         const biome = getBiomeFromPlayer(player);
-        if (!biome) continue; // игрок не в "отслеживаемом" биоме
 
         const nearbyBlocks = getBlocksAtMultiplesOf10(player, 12);
+        const dimension = player.dimension
 
         for (const block of nearbyBlocks) {
             const key = `${block.x},${block.y},${block.z}`;
@@ -71,7 +71,8 @@ system.runInterval(() => {
                 x: block.x,
                 y: block.y,
                 z: block.z,
-                biome: biome
+                biome: biome,
+                dimension: dimension
             });
         }
     }
@@ -80,8 +81,10 @@ system.runInterval(() => {
     // Например, раз в несколько тиков спавнить частицы
     for (const blockData of biomeBlocks.values()) {
 
-        if (blockData.biome === 'desert') world.getDimension("overworld").runCommand(`particle arx:ambience_desert ${blockData.x} ${blockData.y} ${blockData.z}`)
-        if (blockData.biome === 'forest' && Math.random() < 0.3) world.getDimension("overworld").runCommand(`particle arx:forest_ambient_leaf ${blockData.x} ${blockData.y} ${blockData.z}`)
-        if (blockData.biome === 'river' || blockData.biome === 'ocean' || blockData.biome === 'beach') world.getDimension("overworld").runCommand(`particle arx:river_fog ${blockData.x} ${blockData.y} ${blockData.z}`)
+        if (blockData.y < 0) blockData.dimension.runCommand(`particle arx:mine_fog ${blockData.x} ${blockData.y} ${blockData.z}`)
+        else if (blockData.biome === 'desert' && blockData.y > 60) blockData.dimension.runCommand(`particle arx:ambience_desert ${blockData.x} ${blockData.y} ${blockData.z}`)
+        else if (blockData.biome === 'forest' && Math.random() < 0.3 && blockData.y > 60) blockData.dimension.runCommand(`particle arx:forest_ambient_leaf ${blockData.x} ${blockData.y} ${blockData.z}`)
+        else if (blockData.biome === 'river' || blockData.biome === 'ocean' || blockData.biome === 'beach') blockData.dimension.runCommand(`particle arx:river_fog ${blockData.x} ${blockData.y} ${blockData.z}`)
     }
+
 }, 40)

@@ -48,6 +48,10 @@ system.runInterval(() => {
 
     for (const player of world.getPlayers()) {
 
+        // Сколько тактов игрок жмет пробел?
+        if (player.getDynamicProperty('pressedJumpButton')) iDP(player, 'pressedJumpButtonTicks')
+        else ssDP(player, 'pressedJumpButtonTicks', 0)
+
         // Откат блокировки
         if (player.getDynamicProperty('blockingResistanceCD') > 0) {
             iDP(player, 'blockingResistanceCD', -1)
@@ -81,7 +85,7 @@ system.runInterval(() => {
             }
 
             // Левитируем
-            if (((player.getDynamicProperty('pressedJumpButton') && !player.isOnGround) && allow_levitate) || force_to_levitate) {
+            if (((player.getDynamicProperty('pressedJumpButton') && player.getDynamicProperty('pressedJumpButtonTicks') > 5) && allow_levitate) || force_to_levitate) {
 
                 if (player.getDynamicProperty('ghostBoostByScarletMoon')) {
                     player.addEffect("levitation", 2, { amplifier: 4, showParticles: false })
@@ -119,18 +123,18 @@ system.runInterval(() => {
             }
             // Строкой
             else if (player.getDynamicProperty("myRule:showAttackCDMode") == 'line') {
-                let damageString
+                let damageString = ''
                 if (player?.getDynamicProperty("prohibit_damage") > 0) {
-                    damageString = '§c'
-                    for (let i = 0; i < Math.ceil(attackCD / 5); i++) { damageString += '=' }
+                    for (let i = 0; i < Math.ceil(attackCD / 10); i++) { damageString += '=' }
                     damageString += "§f"
+                    stringToDisplay = ` §c${damageString}§f `
                 }
                 else {
-                    damageString = '§f'
-                    for (let i = 0; i < Math.ceil(attackCD / 5); i++) { damageString += '-' }
+                    for (let i = 0; i < Math.ceil(attackCD / 10); i++) { damageString += '-' }
                     damageString += "§f"
+                    stringToDisplay = ` ${damageString} `
                 }
-                stringToDisplay = ` ${damageString} `
+
             }
             sendToActionBar(player, 'attackCD', stringToDisplay, 2)
         }
@@ -884,6 +888,26 @@ function getBlockWithOffset(player, x, y, z) {
     return block
 }
 
+// 16 ticks (сердцебиение)
+system.runInterval(() => {
+    for (const player of world.getPlayers()) {
+        if (!player.getProperty('arx:is_ghost')) {
+            const currentHP = player.getComponent('health').currentValue
+            if (currentHP <= 10 && currentHP > 0) {
+                const loudness = 1 / currentHP
+                const pitch = 0.9 + (1.1 - 0.9) * Math.random()
+                const rotationPower = 0.4 / currentHP
+
+                player.runCommand(`playsound heartbeat.default @s ~ ~ ~ ${loudness} ${pitch}`)
+                player.runCommand(`camerashake add @s ${rotationPower} 0.1 positional`)
+                system.runTimeout(() => {
+                    player.runCommand(`camerashake add @s ${rotationPower} 0.1 positional`)
+                }, 5)
+            }
+        }
+    }
+}, 16)
+
 // 20 ticks
 system.runInterval(() => {
 
@@ -1114,8 +1138,8 @@ system.runInterval(() => {
 
                 let traitProbability
 
-                if (checkForTrait(player, 'unstable')) traitProbability = 0.01
-                else traitProbability = 0.005
+                if (checkForTrait(player, 'unstable')) traitProbability = 0.005
+                else traitProbability = 0.0025
 
                 if (traitRand < traitProbability) {
                     acquireTrait(player, [2, 3, 4])
@@ -1727,9 +1751,18 @@ system.runInterval(() => {
 // 3s
 system.runInterval(() => {
     for (const player of world.getPlayers()) {
+        // Вес
         weighAnalysis(player)
     }
 }, 60)
+
+// 5s
+system.runInterval(() => {
+    for (const player of world.getPlayers()) {
+        // Генератор травы
+        player.dimension.spawnEntity('arx:grass_generator_launcher', player.location)
+    }
+}, 100)
 
 // Отображение маны
 function displayMPAndAdjacent(player) {

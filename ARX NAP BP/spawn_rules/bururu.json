@@ -9,7 +9,7 @@
       {
         "minecraft:spawns_underground": {},
         "minecraft:weight": {
-          "default": 10
+          "default": 7
         },
         "minecraft:height_filter": {
           "min": -63,

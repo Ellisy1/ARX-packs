@@ -116,15 +116,48 @@ world.afterEvents.playerSpawn.subscribe((event) => {
 
 // Спавн сущностей
 world.afterEvents.entitySpawn.subscribe((spawnEvent) => {
-    if (spawnEvent.entity.typeId === 'arx:grave') {
-        spawnEvent.entity.nameTag = 'Ударьте, чтобы\nполучить все вещи'
+    const entity = spawnEvent.entity
+
+    if (entity.typeId === 'arx:grave') {
+        entity.nameTag = 'Ударьте, чтобы\nполучить все вещи'
     }
-    if (spawnEvent.entity.typeId === 'arx:hungry_rat' || spawnEvent.entity.typeId === 'arx:larva') {
-        if (isEntityInCube(spawnEvent.entity, [-2274, 13, 1773], [-2205, 45, 1839]) || isEntityInCube(spawnEvent.entity, [-2225, 24, 1839], [-2255, 30, 1868])) {
-            spawnEvent.entity.remove()
+    if (entity.typeId === 'arx:hungry_rat' || entity.typeId === 'arx:larva') {
+        if (isEntityInCube(entity, [-2274, 13, 1773], [-2205, 45, 1839]) || isEntityInCube(entity, [-2225, 24, 1839], [-2255, 30, 1868])) {
+            entity.remove()
         }
     }
+    if (entity.typeId === 'arx:grass_generator_launcher') {
+        for (let i = 0; i < (Math.random() * 20 + 5); i++) {
+            generateGrass({ x: entity.location.x + Math.random() * 42 - 21, y: entity.location.y + Math.random() * 4 - 2, z: entity.location.z + Math.random() * 42 - 21 }, entity.dimension)
+        }
+        entity.runCommand('event entity @s arx:suicide')
+    }
 })
+
+export function generateGrass(vector3, dimension) {
+    // Нам не нужно генерировать траву нигде, кроме верхнего мира
+    if (dimension.id !== 'minecraft:overworld') return
+
+    // Далее код генерации травы
+    const currentBlock = dimension.getBlock(vector3)
+    // Если текущий блок - не воздух, ничего не делаем
+    if (currentBlock?.typeId !== 'minecraft:air') return
+    // Получаем блок ниже
+    const blockBelow = dimension.getBlock({ x: vector3.x, y: vector3.y - 1, z: vector3.z });
+    // Если не трава, ничего не делаем
+    if (blockBelow.typeId !== 'minecraft:grass_block') return
+
+    // Определяем, что ставить
+    const grassRand = Math.random()
+    let blockToPaste
+    if (grassRand < 0.1) blockToPaste = 'minecraft:tall_grass'
+    else if (grassRand < 0.15) blockToPaste = 'arx:stones'
+    else if (grassRand < 0.18) blockToPaste = 'arx:kavra'
+    else blockToPaste = 'minecraft:short_grass'
+
+    const coords = `${vector3.x} ${vector3.y} ${vector3.z}`
+    dimension.runCommand(`fill ${coords} ${coords} ${blockToPaste}`)
+}
 
 // Удары сущностей
 world.afterEvents.entityHitEntity.subscribe((hitEvent) => {
@@ -184,7 +217,7 @@ world.afterEvents.entityHitEntity.subscribe((hitEvent) => {
                 iDP(damaged, 'attackCD', 50)
             }
             else {
-                damager.sendMessage('§cВы слишком ослаблены, чтобы нанести удар в спину')
+                if (damager.typeId === 'minecraft:player') damager.sendMessage('§cВы слишком ослаблены, чтобы нанести удар в спину')
             }
         }
         // Игроку попали в лицо
@@ -754,16 +787,20 @@ world.afterEvents.entityHurt.subscribe((hurtEvent) => {
                 if (world.getDimension(damaged.dimension.id).getBlock({ x: damaged.location.x, y: damaged.location.y - 1, z: damaged.location.z }).typeId === 'arx:divine_altar') {
                     // Проверяем допуск по тому, не призрак ли игрок
                     if (damaged.getProperty('arx:is_ghost') === false) {
-                        // Проверяем допуск по тому, нокнут ли игрок
-                        if (damaged.getDynamicProperty('respawnDelay') > 0) {
-                            // Проверям допуск по наличию алтаря
-                            setScore(player, 'knockout_row_sounter', 99)
-                            player.runCommand('loot spawn ~ ~1 ~ loot "custom/gold_feather"')
+                        if (damaged.getDynamicProperty('characterLifeSec') > 72000) {
+                            // Проверяем допуск по тому, нокнут ли игрок
+                            if (damaged.getDynamicProperty('respawnDelay') > 0) {
+                                // Проверям допуск по наличию алтаря
+                                setScore(player, 'knockout_row_sounter', 99)
+                                player.runCommand('loot spawn ~ ~1 ~ loot "custom/gold_feather"')
 
-                            player.runCommand('kill @s')
-                            console.warn('Разрешен дроп пера')
+                                player.runCommand('kill @s')
+                                console.warn('Разрешен дроп пера')
+                            } else {
+                                damager.sendMessage('§cДля убийства на алтаре, убиваемый персонаж должен быть вырублен')
+                            }
                         } else {
-                            damager.sendMessage('§cДля убийства на алтаре, убиваемый персонаж должен быть вырублен')
+                            damager.sendMessage('§cЭтот персонаж слишком мало прожил, и пока перо получить с него невозможно')
                         }
                     } else {
                         damager.sendMessage('§cВы не можете убить на алтаре призрачное существо')

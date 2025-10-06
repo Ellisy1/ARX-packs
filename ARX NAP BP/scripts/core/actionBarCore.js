@@ -34,7 +34,7 @@ system.runInterval(() => {
             for (const key in actionBarGlobal[player.name]) {
                 messagesToDisplay.push(actionBarGlobal[player.name][key]['message'])
                 actionBarGlobal[player.name][key]['time'] -= 1
-                if (actionBarGlobal[player.name][key]['time'] == 0) {
+                if (actionBarGlobal[player.name][key]['time'] <= 0) {
                     delete actionBarGlobal[player.name][key]
                     continue
                 }
