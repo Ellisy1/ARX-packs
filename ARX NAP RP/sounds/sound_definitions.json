@@ -1,10 +1,4 @@
 {
-   "dissecting_fog": {
-      "category": "neutral",
-      "sounds": [
-         "sounds/swords/dissecting_fog"
-      ]
-   },
    "knife_use": {
       "category": "neutral",
       "sounds": [
@@ -504,6 +498,36 @@
       "category": "neutral",
       "sounds": [
          "sounds/spells/resistance_spell"
+      ]
+   },
+   "spell.calming_rats": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/spells/calming_rats"
+      ]
+   },
+   "spell.despawn_rats": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/spells/despawn_rats"
+      ]
+   },
+   "spell.fire_resistance": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/spells/fire_resistance"
+      ]
+   },
+   "spell.dispell_magic": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/spells/dispell_magic"
+      ]
+   },
+   "spell.classic_damage": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/spells/classic_damage"
       ]
    },
    "beep.long": {

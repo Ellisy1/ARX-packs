@@ -30,16 +30,6 @@
 # Звуки от Газгольдера Истрибитора
     execute as @e[type=arx:gasgolder_istribitor] at @s run playsound gasgolder_istribitor_saw @a ~ ~ ~ 
 
-# Маги-фонари (анализ исчезновения)
-    scoreboard players add @a[scores={allow_magilight=1..}] allow_magilight -1
-    scoreboard players add @a[scores={allow_archlight=1..}] allow_archlight -1
-
-    tellraw @a[scores={allow_magilight=20}] { "rawtext": [ { "text": "§eДо исчезновения магисвета 20 сек." } ] }
-    tellraw @a[scores={allow_archlight=20}] { "rawtext": [ { "text": "§eДо исчезновения архисвета 20 сек." } ] }
-
-    clear @a[scores={allow_magilight=0}] arx:magilight
-    clear @a[scores={allow_archlight=0}] arx:archilight
-
 # Если я (админ) в выживании, отключаем показ координат
     execute if entity @a[scores={verify=2}, m=survival] run gamerule showcoordinates false
 

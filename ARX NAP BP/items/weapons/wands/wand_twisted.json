@@ -20,9 +20,9 @@
             "minecraft:tags": {
                 "tags": [
                     "is_wand",
-                    "is_wand_radial",
                     "is_weapon",
-                    "material_wooden"
+                    "material_wooden",
+                    "wand_channels_9"
                 ]
             },
             "tag:raw_cost:80000": {}

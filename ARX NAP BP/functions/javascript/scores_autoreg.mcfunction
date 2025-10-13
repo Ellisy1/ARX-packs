@@ -90,9 +90,6 @@ scoreboard players add @a allow_block_buff 0
 
 scoreboard players add @a heal_scrl_durt 0
 
-scoreboard players add @a allow_magilight 0
-scoreboard players add @a allow_archlight 0
-
 scoreboard players add @a tp_cd 0
 scoreboard players add @a tp_cd_ghost 0
 

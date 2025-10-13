@@ -921,6 +921,19 @@
 			"textures": "textures/blocks/decorative_blocks/caryite_bricks"
 		},
 
+		"cult_combined_brick_wall": {
+			"textures": "textures/blocks/cult/cult_combined_brick_wall"
+		},
+		"cult_horizontal_pattern_wall": {
+			"textures": "textures/blocks/cult/cult_horizontal_pattern_wall"
+		},
+		"cult_floor_with_pressure_plate": {
+			"textures": "textures/blocks/cult/cult_floor_with_pressure_plate"
+		},
+		"cult_floor": {
+			"textures": "textures/blocks/cult/cult_floor"
+		},
+
 
 		"mechanic_core": {
 			"textures": "textures/blocks/mechanic_core"

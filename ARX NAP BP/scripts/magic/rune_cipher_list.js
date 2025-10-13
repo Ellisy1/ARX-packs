@@ -24,7 +24,7 @@ export const runeCiphers = {
     "kotoka": "AL", // (I kotoka) Опыт, знание, время
     "laffaeti": "AM", // Левитация
     "marra": "AO", // Метка, обозначение
-    "recuro": "AR", // Обмен
+    "recuro": "AR", // Обмен. Люмен Рекка. 
     "sartagana": "AU", // Зрение
     "sempra": "AV", // Физический урон 
     "shumi": "AW", // Защита
@@ -48,8 +48,8 @@ export const runeCiphers = {
     "suridima": "BH", // Руна Падшего Бога
     "skatarra": "BI", // Руна Высшего
 
-    "pallasia": "BJ", // Паллада
-    "piretesse": "HK" // Пирета
+    "pallasia": "PL", // Паллада
+    "piretesse": "PR" // Пирета. Люмен
 }
 
 // Люмен - люменессионное существо

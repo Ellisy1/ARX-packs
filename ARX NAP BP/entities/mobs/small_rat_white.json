@@ -37,7 +37,9 @@
 				"family": [
 					"mob",
 					"dangerous",
-					"small_rat"
+					"small_rat",
+					"rat",
+					"can_be_despawned_by_ratatao_spell"
 				]
 			},
 			"minecraft:breathable": {

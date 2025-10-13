@@ -1,6 +1,6 @@
 import { iDP, ssDP } from '../../DPOperations'
 import { ActionFormData, ModalFormData } from "@minecraft/server-ui"
-import { castSpell } from '../on_use_magic_items'
+import { useStaff } from '../on_use_magic_items'
 import { system } from "@minecraft/server"
 
 /*
@@ -115,7 +115,7 @@ function executeChain(player) {
         chainDP = String(chainDP)
         const arrayOfChannels = chainDP.split(':')
         for (const channel of arrayOfChannels) {
-            castSpell(player, channel)
+            useStaff(player, channel)
         }
     }
 }

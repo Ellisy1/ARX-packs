@@ -999,9 +999,6 @@
     "arx:sphere_of_power": {
       "textures": "textures/items/crafting/sphere_of_power"
     },
-    "arx:solve_crystal": {
-      "textures": "textures/items/crafting/solve_crystal"
-    },
 
     "arx:dildo": {
       "textures": "textures/items/xxx_toys/dildo"
@@ -2036,23 +2033,14 @@
     "arx:wand_wooden": {
       "textures": "textures/items/weapons/wands/wand_wooden"
     },
-    "arx:wand_dragon": {
-      "textures": "textures/items/weapons/wands/wand_dragon"
-    },
     "arx:wand_duo": {
       "textures": "textures/items/weapons/wands/wand_duo"
-    },
-    "arx:wand_gf_neth_rod": {
-      "textures": "textures/items/weapons/wands/wand_gf_neth_rod"
     },
     "arx:wand_iron": {
       "textures": "textures/items/weapons/wands/wand_iron"
     },
-    "arx:wand_pine_and_neth": {
-      "textures": "textures/items/weapons/wands/wand_pine_and_neth"
-    },
-    "arx:wand_wooden_broken": {
-      "textures": "textures/items/other/wand_wooden_broken"
+    "arx:wand_pine_and_netherite": {
+      "textures": "textures/items/weapons/wands/wand_pine_and_netherite"
     },
     "arx:wand_sakura": {
       "textures": "textures/items/weapons/wands/wand_sakura"
@@ -2063,8 +2051,8 @@
     "arx:wand_white": {
       "textures": "textures/items/weapons/wands/wand_white"
     },
-    "arx:wand_gf_neth_wood": {
-      "textures": "textures/items/weapons/wands/wand_gf_neth_wood"
+    "arx:wand_scarlet": {
+      "textures": "textures/items/weapons/wands/wand_scarlet"
     },
     "arx:wand_of_darkness": {
       "textures": "textures/items/weapons/wands/wand_of_darkness"
@@ -2075,11 +2063,17 @@
     "arx:wand_naginitis": {
       "textures": "textures/items/weapons/wands/wand_naginitis"
     },
-    "arx:wand_altaite": {
-      "textures": "textures/items/weapons/wands/wand_altaite"
+    "arx:wand_tironite": {
+      "textures": "textures/items/weapons/wands/wand_tironite"
     },
-    "arx:wand_tironite_butterfly": {
-      "textures": "textures/items/weapons/wands/wand_tironite_butterfly"
+    "arx:aluminum_wand": {
+      "textures": "textures/items/weapons/wands/aluminum_wand"
+    },
+    "arx:god_wand": {
+      "textures": "textures/items/weapons/wands/god_wand"
+    },
+    "arx:wand_forfacorite": {
+      "textures": "textures/items/weapons/wands/wand_forfacorite"
     },
 
 
@@ -4659,19 +4653,6 @@
     },
     "arx:tea_seeds": {
       "textures": "textures/items/tea_update/tea_seeds"
-    },
-
-    "arx:crystal_of_durability": {
-      "textures": "textures/items/crystals/crystal_of_durability"
-    },
-    "arx:crystal_of_mob_calmness": {
-      "textures": "textures/items/crystals/crystal_of_mob_calmness"
-    },
-    "arx:crystal_of_return": {
-      "textures": "textures/items/crystals/crystal_of_return"
-    },
-    "arx:crystal_of_swift_respawn": {
-      "textures": "textures/items/crystals/crystal_of_swift_respawn"
     },
 
     "arx:pouch_with_dyes": {

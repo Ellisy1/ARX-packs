@@ -579,6 +579,21 @@
 		"textures": "crying_obsidian_even_bricks"
 	},
 
+
+	"arx:cult_combined_brick_wall": {
+		"textures": "cult_combined_brick_wall"
+	},
+	"arx:cult_horizontal_pattern_wall": {
+		"textures": "cult_horizontal_pattern_wall"
+	},
+	"arx:cult_floor_with_pressure_plate": {
+		"textures": "cult_floor_with_pressure_plate"
+	},
+	"arx:cult_floor": {
+		"textures": "cult_floor"
+	},
+
+	
 	"arx:sea_bricks": {
 		"textures": "sea_bricks"
 	},

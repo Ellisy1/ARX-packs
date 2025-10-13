@@ -1,459 +1,150 @@
-import { setScore, getScore } from '../../scoresOperations';
-import { TPWithNoxenessionPortal } from '../../portals';
+// Imports
 import { getNearestPlayer } from '../../getNearestPlayer';
-import { dinHijo } from './SPELLDinHijo'
-import { magicDash } from './SPELLMagicDash'
-import { speedBoost } from './SPELLSpeedBoost'
-import { classicHeal } from './SPELLClassicHeal'
-import { instantHeal } from './SPELLInstantHeal'
-import { classicDefence } from './SPELLСlassicDefence'
-import { chain } from './SPELLChain'
-import { ssDP } from '../../DPOperations'
-import { throwMob } from './SPELLThrowMob'
-import { classicTossing } from './SPELLClassicTossing'
-import { classicDamage } from './SPELLClassicDamage'
+import { getEntityFamilies } from '../../_main';
+import { system } from "@minecraft/server"
+import { spellRegistry } from './spellRegistry';
 
-/**
- * Реестр заклинаний
- * Каждое заклинание указывает:
- * - mpCost: стоимость маны
- * - validTargets: массив поддерживаемых целей ['self', 'nearest', 'entities']
- * - handler: функция, принимающая player, targetData (с информацией о цели)
- */
+// Создает и возвращает объект spellData, хранящий в себе всё, что может пригодиться в обработке заклинания
+function defineSpellData(player, runeSequence) {
+    let spellData = {}
 
-const spellRegistry = {
-    'din hijo': {
-        mpCost: 5,
-        validTargets: ['self', 'nearest'],
-        handler: (player, targetData) => { dinHijo(player, 4, targetData) }
-    },
+    // 1 - на себя, 2 - по направлению взгляда
+    const currentTargetRaw = player.getDynamicProperty('magicTarget')
+    if (![1, 2].includes(currentTargetRaw)) {
+        console.log(`Получена неожиданная цель ${currentTargetRaw} в обработчике заклинаний для ${player.name}`)
+    }
 
-    'din hijo mega': {
-        mpCost: 10,
-        validTargets: ['self', 'nearest'],
-        handler: (player, targetData) => { dinHijo(player, 7, targetData) }
-    },
+    // Определяем дальность действия заклинания
+    let spellDistance = 10
 
-    'din hijo mega mega mega': {
-        mpCost: 20,
-        validTargets: ['self', 'nearest'],
-        handler: (player, targetData) => { dinHijo(player, 10, targetData) }
-    },
+    // Определяем, по площади ли заклинание? Если оно содержит руну disortari, то по площади
+    const isAreaSpell = runeSequence.includes("disortari")
 
-    'din yanamo trafantana': {
-        mpCost: 15,
-        validTargets: ['self', 'nearest'], // Только на себя и на ближайшего
-        handler: (player, targetData) => {
-            if (targetData.type === 'self') {
-                TPWithNoxenessionPortal(player, player, 'spell');
-            } else if (targetData.type === 'nearest' && targetData.player) {
-                TPWithNoxenessionPortal(targetData.player, player, 'spell');
+    // Определяем инициатора
+    spellData['initiator'] = player
+
+    // Определяем ближайшего игрока
+    spellData['nearestPlayer'] = getNearestPlayer(player, spellDistance)
+
+    // Определяем, используем ли мы закл на себя? (для быстрых запросов)
+    spellData['castingOnSelf'] = currentTargetRaw == 1
+
+    // Определяем цель
+    spellData['targetRaw'] = currentTargetRaw
+
+    // По площади ли заклинание?
+    spellData['isAreaSpell'] = isAreaSpell
+
+    // Определяем объекты целей
+    let targets = []
+    if (!isAreaSpell) {
+        if (currentTargetRaw === 1) {
+            targets = [player]
+        }
+        else if (currentTargetRaw === 2) {
+            const rayHits = player.getEntitiesFromViewDirection({ maxDistance: spellDistance })
+                .filter(hit => hit.entity.name !== player.name)
+            if (rayHits.length > 0) {
+                // Находим hit с минимальной дистанцией
+                const nearestHit = rayHits.reduce((closest, current) =>
+                    current.distance < closest.distance ? current : closest
+                );
+                targets = [nearestHit.entity];
             }
         }
-    },
-
-    "sin yanamo trafantana": {
-        mpCost: 8,
-        validTargets: ['self'],
-        handler: (player) => { magicDash(player, 7) }
-    },
-    "sin yanamo trafantana mega": {
-        mpCost: 15,
-        validTargets: ['self'],
-        handler: (player) => { magicDash(player, 14) }
-    },
-    "sin yanamo trafantana mega mega mega": {
-        mpCost: 35,
-        validTargets: ['self'],
-        handler: (player) => { magicDash(player, 30) }
-    },
-
-    "sin yanamo trafantana sartagana": {
-        mpCost: 16,
-        validTargets: ['self'],
-        handler: (player) => { magicDash(player, 7, true) }
-    },
-    "sin yanamo trafantana sartagana mega": {
-        mpCost: 30,
-        validTargets: ['self'],
-        handler: (player) => { magicDash(player, 14, true) }
-    },
-    "sin yanamo trafantana sartagana mega mega mega": {
-        mpCost: 70,
-        validTargets: ['self'],
-        handler: (player) => { magicDash(player, 30, true) }
-    },
-
-    // Ускорение
-    "sin yanamo sofiso": {
-        mpCost: 10,
-        validTargets: ['self', 'nearest', 'entities'],
-        handler: (player, targetData) => { speedBoost(player, targetData, 30, 0) }
-    },
-    "sin yanamo sofiso disortari": {
-        mpCost: 30,
-        validTargets: ['self', 'nearest', 'entities'],
-        handler: (player, targetData) => { speedBoost(player, targetData, 30, 0, true) }
-    },
-    "sin yanamo sofiso sakiifori": {
-        mpCost: 60,
-        validTargets: ['self', 'nearest', 'entities'],
-        handler: (player, targetData) => { speedBoost(player, targetData, 180, 0) }
-    },
-    "sin yanamo sofiso mega": {
-        mpCost: 20,
-        validTargets: ['self', 'nearest', 'entities'],
-        handler: (player, targetData) => { speedBoost(player, targetData, 30, 1) }
-    },
-    "sin yanamo sofiso mega disortari": {
-        mpCost: 60,
-        validTargets: ['self', 'nearest', 'entities'],
-        handler: (player, targetData) => { speedBoost(player, targetData, 30, 1), true }
-    },
-    "sin yanamo sofiso mega sakiifori": {
-        mpCost: 120,
-        validTargets: ['self', 'nearest', 'entities'],
-        handler: (player, targetData) => { speedBoost(player, targetData, 30, 1) }
-    },
-    "sin yanamo sofiso mega mega": {
-        mpCost: 60,
-        validTargets: ['self', 'nearest', 'entities'],
-        handler: (player, targetData) => { speedBoost(player, targetData, 30, 2) }
-    },
-    "sin yanamo sofiso mega mega mega": {
-        mpCost: 120,
-        validTargets: ['self', 'nearest', 'entities'],
-        handler: (player, targetData) => { speedBoost(player, targetData, 30, 3) }
-    },
-
-    // Хил
-    "san yanamo horo": {
-        mpCost: 5,
-        validTargets: ['self', 'nearest', 'entities'],
-        handler: (player, targetData) => { classicHeal(player, targetData, 10, 0) }
-    },
-    "san yanamo horo sakiifori": {
-        mpCost: 25,
-        validTargets: ['self', 'nearest', 'entities'],
-        handler: (player, targetData) => { classicHeal(player, targetData, 60, 0) }
-    },
-    "san yanamo horo disortari": {
-        mpCost: 15,
-        validTargets: ['self', 'nearest', 'entities'],
-        handler: (player, targetData) => { classicHeal(player, targetData, 10, 0, true) }
-    },
-    "san yanamo horo sakiifori disortari": {
-        mpCost: 75,
-        validTargets: ['self', 'nearest', 'entities'],
-        handler: (player, targetData) => { classicHeal(player, targetData, 60, 0, true) }
-    },
-
-    "san yanamo horo mega": {
-        mpCost: 15,
-        validTargets: ['self', 'nearest', 'entities'],
-        handler: (player, targetData) => { classicHeal(player, targetData, 10, 1) }
-    },
-    "san yanamo horo mega sakiifori": {
-        mpCost: 75,
-        validTargets: ['self', 'nearest', 'entities'],
-        handler: (player, targetData) => { classicHeal(player, targetData, 60, 1) }
-    },
-    "san yanamo horo mega disortari": {
-        mpCost: 45,
-        validTargets: ['self', 'nearest', 'entities'],
-        handler: (player, targetData) => { classicHeal(player, targetData, 10, 1, true) }
-    },
-    "san yanamo horo mega sakiifori disortari": {
-        mpCost: 225,
-        validTargets: ['self', 'nearest', 'entities'],
-        handler: (player, targetData) => { classicHeal(player, targetData, 60, 1, true) }
-    },
-
-    "san yanamo horo mega mega mega": {
-        mpCost: 45,
-        validTargets: ['self', 'nearest', 'entities'],
-        handler: (player, targetData) => { classicHeal(player, targetData, 10, 2) }
-    },
-    "san yanamo horo mega mega mega sakiifori": {
-        mpCost: 225,
-        validTargets: ['self', 'nearest', 'entities'],
-        handler: (player, targetData) => { classicHeal(player, targetData, 60, 2) }
-    },
-    "san yanamo horo mega mega mega disortari": {
-        mpCost: 135,
-        validTargets: ['self', 'nearest', 'entities'],
-        handler: (player, targetData) => { classicHeal(player, targetData, 10, 2, true) }
-    },
-    "san yanamo horo mega mega mega sakiifori disortari": {
-        mpCost: 675,
-        validTargets: ['self', 'nearest', 'entities'],
-        handler: (player, targetData) => { classicHeal(player, targetData, 60, 2, true) }
-    },
-
-    // Мгновенный реген
-    "san yanamo horo sofiso": {
-        mpCost: 60,
-        validTargets: ['self', 'nearest', 'entities'],
-        handler: (player, targetData) => { instantHeal(player, targetData) }
-    },
-    "san yanamo horo sofiso disortari": {
-        mpCost: 180,
-        validTargets: ['self', 'nearest', 'entities'],
-        handler: (player, targetData) => { instantHeal(player, targetData, true) }
-    },
-
-    // Маяк
-    "din yanamo trafantana kotoka": {
-        mpCost: 40,
-        validTargets: ['self'],
-        handler: (player) => {
-            player.sendMessage('§dМаяк установлен')
-            player.runCommand('summon arx:magic_beacon ~ ~ ~')
-            ssDP(player, 'magicBeacon', 10)
-            player.runCommand(`tag @e[type=arx:magic_beacon, r=0.1] add ${player.name}`)
+    }
+    else {
+        if (currentTargetRaw === 1) {
+            targets = player.dimension.getEntities({ location: player.location, maxDistance: spellDistance })
+                .filter(entity => !getEntityFamilies(entity).includes('furniture'))
+        } else {
+            targets = player.dimension.getEntities({ location: player.location, maxDistance: spellDistance, minDistance: 0.001 })
+                .filter(entity => !getEntityFamilies(entity).includes('furniture'))
         }
-    },
-    "din yanamo trafantana sakiifori kotoka": {
-        mpCost: 60,
-        validTargets: ['self'],
-        handler: (player) => {
-            player.sendMessage('§dМаяк установлен')
-            player.runCommand('summon arx:magic_beacon ~ ~ ~')
-            ssDP(player, 'magicBeacon', 30)
-            player.runCommand(`tag @e[type=arx:magic_beacon, r=0.1] add ${player.name}`)
-        }
-    },
+    }
+    // Записываем в массив
+    spellData['targets'] = targets
 
-    // Защита
-    "san yanamo shumi": {
-        mpCost: 15,
-        validTargets: ['self', 'nearest', 'entities'],
-        handler: (player, targetData) => { classicDefence(player, targetData, 10, 0) }
-    },
-    "san yanamo shumi sakiifori": {
-        mpCost: 75,
-        validTargets: ['self', 'nearest', 'entities'],
-        handler: (player, targetData) => { classicDefence(player, targetData, 60, 0) }
-    },
-    "san yanamo shumi disortari": {
-        mpCost: 45,
-        validTargets: ['self', 'nearest', 'entities'],
-        handler: (player, targetData) => { classicDefence(player, targetData, 10, 0, true) }
-    },
-    "san yanamo shumi sakiifori disortari": {
-        mpCost: 225,
-        validTargets: ['self', 'nearest', 'entities'],
-        handler: (player, targetData) => { classicDefence(player, targetData, 60, 0, true) }
-    },
+    // Создаем только если цель одна
+    spellData['singleTarget'] = targets.length === 1 ? targets[0] : undefined
 
-    "san yanamo shumi mega": {
-        mpCost: 45,
-        validTargets: ['self', 'nearest', 'entities'],
-        handler: (player, targetData) => { classicDefence(player, targetData, 10, 1) }
-    },
-    "san yanamo shumi mega sakiifori": {
-        mpCost: 225,
-        validTargets: ['self', 'nearest', 'entities'],
-        handler: (player, targetData) => { classicDefence(player, targetData, 60, 1) }
-    },
-    "san yanamo shumi mega disortari": {
-        mpCost: 135,
-        validTargets: ['self', 'nearest', 'entities'],
-        handler: (player, targetData) => { classicDefence(player, targetData, 10, 1, true) }
-    },
-    "san yanamo shumi mega sakiifori disortari": {
-        mpCost: 675,
-        validTargets: ['self', 'nearest', 'entities'],
-        handler: (player, targetData) => { classicDefence(player, targetData, 60, 1, true) }
-    },
-
-    "san yanamo shumi mega mega mega": {
-        mpCost: 135,
-        validTargets: ['self', 'nearest', 'entities'],
-        handler: (player, targetData) => { classicDefence(player, targetData, 10, 2) }
-    },
-    "san yanamo shumi mega mega mega sakiifori": {
-        mpCost: 675,
-        validTargets: ['self', 'nearest', 'entities'],
-        handler: (player, targetData) => { classicDefence(player, targetData, 60, 2) }
-    },
-    "san yanamo shumi mega mega mega disortari": {
-        mpCost: 405,
-        validTargets: ['self', 'nearest', 'entities'],
-        handler: (player, targetData) => { classicDefence(player, targetData, 10, 2, true) }
-    },
-    "san yanamo shumi mega mega mega sakiifori disortari": {
-        mpCost: 2025,
-        validTargets: ['self', 'nearest', 'entities'],
-        handler: (player, targetData) => { classicDefence(player, targetData, 60, 2, true) }
-    },
-
-    // Цепи
-    "sin sukimo": {
-        mpCost: 10,
-        validTargets: ['self'],
-        handler: (player) => { chain(player) }
-    },
-
-    // Стрельба с лука
-    "sin yanamo arrako": {
-        mpCost: 15,
-        validTargets: ['self', 'nearest'],
-        handler: (player, targetData) => {
-            let playerToBoost
-
-            if (targetData.type === 'self') playerToBoost = player
-            else if (targetData.type === 'nearest') playerToBoost = targetData.player
-
-            ssDP(playerToBoost, 'shootingBoostBySpell_plus2', 60)
-        }
-    },
-    "sin yanamo arrako mega": {
-        mpCost: 45,
-        validTargets: ['self', 'nearest'],
-        handler: (player, targetData) => {
-            let playerToBoost
-
-            if (targetData.type === 'self') playerToBoost = player
-            else if (targetData.type === 'nearest') playerToBoost = targetData.player
-
-            ssDP(playerToBoost, 'shootingBoostBySpell_plus4', 60)
-        }
-    },
-    "sin inoffo arrako": {
-        mpCost: 15,
-        validTargets: ['self', 'nearest'],
-        handler: (player, targetData) => {
-            let playerToBoost
-
-            if (targetData.type === 'self') playerToBoost = player
-            else if (targetData.type === 'nearest') playerToBoost = targetData.player
-
-            ssDP(playerToBoost, 'shootingBoostBySpell_minus2', 60)
-        }
-    },
-    "sin inoffo arrako mega": {
-        mpCost: 45,
-        validTargets: ['self', 'nearest'],
-        handler: (player, targetData) => {
-            let playerToBoost
-
-            if (targetData.type === 'self') playerToBoost = player
-            else if (targetData.type === 'nearest') playerToBoost = targetData.player
-
-            ssDP(playerToBoost, 'shootingBoostBySpell_minus4', 60)
-        }
-    },
-    "san affuono": {
-        mpCost: 30,
-        validTargets: ['self'],
-        handler: (player) => {
-            if (player.getDynamicProperty('holdMagicChannel') === true) {
-                // Снятие блокировки канала
-                player.sendMessage('§eБлокировка канала снята')
-                ssDP(player, 'holdMagicChannel', false)
-            } else {
-                // Установка блокировки канала
-                player.sendMessage('§eБлокировка канала установлена')
-                if (!player.getDynamicProperty('everHoldedMagicChannel')) player.sendMessage('§f[§ai§f] Вы можете выбирать каналы на присяде при помощи поворота камеры, а когда встаете, выбранный канал фиксируется и не изменяется. Используйте это заклинание снова, чтобы отменить блокировку канала.')
-                ssDP(player, 'holdMagicChannel', true)
-                ssDP(player, 'everHoldedMagicChannel', true)
-            }
-        }
-    },
-
-    // Крысы
-    "din sukimo ratatao": {
-        mpCost: 20,
-        validTargets: ['self'],
-        handler: (player) => { throwMob(player, 'arx:small_rat_black', 1.5, 'become_agressive') }
-    },
-    "din sukimo ratatao kotoka": {
-        mpCost: 25,
-        validTargets: ['self'],
-        handler: (player) => { throwMob(player, 'arx:small_rat_white', 1.5, 'become_agressive') }
-    },
-    "din sukimo ratatao mega": {
-        mpCost: 60,
-        validTargets: ['self'],
-        handler: (player) => { throwMob(player, 'arx:cave_rat') }
-    },
-    "din sukimo ratatao mega mega mega": {
-        mpCost: 120,
-        validTargets: ['self'],
-        handler: (player) => { throwMob(player, 'arx:rat_monstr', 1, 'become_agressive') }
-    },
-    "din sukimo ratatao mega mega mega kotoka": {
-        mpCost: 150,
-        validTargets: ['self'],
-        handler: (player) => { throwMob(player, 'arx:rat_monstr_white', 1, 'become_agressive') }
-    },
-
-    "sin yanamo laffaeti": {
-        mpCost: 5,
-        validTargets: ['self'],
-        handler: (player) => { classicTossing(player, 2) }
-    },
-    "sin yanamo laffaeti mega": {
-        mpCost: 15,
-        validTargets: ['self'],
-        handler: (player) => { classicTossing(player, 6) }
-    },
-    "sin yanamo laffaeti mega mega mega": {
-        mpCost: 45,
-        validTargets: ['self'],
-        handler: (player) => { classicTossing(player, 10) }
-    },
-
-
-    // "kon inoffo sempra": {
-    //     mpCost: 5,
-    //     validTargets: ['self', 'nearest', 'entities'],
-    //     handler: (player) => { classicDamage(player, 2) }
-    // },
-};
-
-/**
- * Определяет тип цели по magicTarget
- * @param {number} magicTarget
- * @param {Player|null} nearestPlayer
- * @returns {{ type: 'self'|'nearest'|'entities', player?: Player } | null}
- */
-function resolveTargetType(magicTarget, nearestPlayer) {
-    if (magicTarget === 1) return { type: 'self' };
-    if (magicTarget === 2) return { type: 'nearest', player: nearestPlayer };
-    return { type: 'entities' }; // всё остальное — массовое (животные/монстры)
+    // Всё составили, возвращаем
+    return spellData
 }
 
 /**
- * Основная функция вызова заклинания
+ * Основная функция вызова заклинания. 
+ * Напрямую вызывает заклинание, не проверяя требуемые условия
+ * Управляет всей внутренней логикой заклинания
  * @param {Player} player
  * @param {string} runeSequence
  */
 export function castJSSpell(player, runeSequence) {
     // Получаем нужное нам заклинание из реестра
     const spell = spellRegistry[runeSequence];
-    if (!spell) return;
+    if (!spell) return 'noSpell'
 
-    const magicTarget = player.getDynamicProperty('magicTarget');
-    const nearestPlayer = getNearestPlayer(player, 10);
-    const targetData = resolveTargetType(magicTarget, nearestPlayer);
+    // Получем spellData
+    const spellData = defineSpellData(player, runeSequence)
 
     // Проверка: поддерживает ли заклинание выбранную цель?
-    if (!spell.validTargets.includes(targetData.type)) {
-        player.addTag('cant_be_casted_cus_of_target');
+    if (spell.validTargets !== undefined && !spell.validTargets.includes(spellData.targetRaw)) {
+        return 'noValidTarget'
+    }
+
+    // Вызов обработчика конкретного заклинания с нужными данными для каждой сущности
+    if (spellData.targets.length > 0) {
+        let successfulCastsCounter = 0
+        let wasWrongEntityType = false
+        for (const entity of spellData.targets) {
+            // Луч заклинания
+            if (!spellData.isAreaSpell && !spellData.castingOnSelf) spawnParticleTrail(spellData.initiator, entity, runeSequence)
+            // Проверка onlyOnPlayers: true
+            if (spell.onlyOnPlayers === true && entity.typeId !== 'minecraft:player') {
+                wasWrongEntityType = true
+                continue
+            }
+            // Активируем заклинание
+            spell.handler(entity, spellData)
+            successfulCastsCounter++
+        }
+        if (successfulCastsCounter === 0 && wasWrongEntityType) return 'wrongEntityType'
+        return 'ok'
+    }
+    else {
+        return ('noValidEntity')
+    }
+}
+
+function spawnParticleTrail(initiator, entity, runeSequence, delayTicks = 0.25) {
+    let p0, p1;
+
+    try {
+        p0 = initiator.getHeadLocation();
+        p1 = entity.getHeadLocation();
+    } catch (e) {
         return;
     }
 
-    // Проверка маны
-    setScore(player, 'mp_req', spell.mpCost);
-    if (getScore(player, 'mp_req') > player.getDynamicProperty('mp')) {
-        return;
+    // Определяем частицу
+    const magicDirection = runeSequence.substring(0, 3)
+    const particleName = `arx:magic_trace_${magicDirection}`
+
+    const dx = p1.x - p0.x;
+    const dy = p1.y - p0.y;
+    const dz = p1.z - p0.z;
+
+    const distance = Math.sqrt(dx * dx + dy * dy + dz * dz);
+    const steps = Math.max(2, Math.round(distance * 1)); // минимум 2 точки
+
+    for (let i = 1; i <= steps; i++) {
+        const t = i / steps;
+        const x = p0.x + dx * t;
+        const y = p0.y + dy * t;
+        const z = p0.z + dz * t;
+
+        system.runTimeout(() => {
+            initiator.dimension.spawnParticle(particleName, { x, y, z });
+        }, (i - 1) * delayTicks);
     }
-
-    // Успешное применение
-    player.addTag('spell_available');
-
-    // Вызов обработчика с нужными данными
-    spell.handler(player, targetData);
 }

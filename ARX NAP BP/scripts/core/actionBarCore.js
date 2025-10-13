@@ -27,7 +27,6 @@ export function sendToActionBar(player, iD, message, time) {
 
 // Отображение в actionbar. Если есть несколько актуальных сообщений, отображаются через |, наприм Откат атаки 1 | Мана 10 | Вы промокли
 system.runInterval(() => {
-    //console.warn(JSON.stringify(actionBarGlobal))
     for (const player of world.getPlayers()) {
         if (player.name in actionBarGlobal) {
             let messagesToDisplay = [] // Те messages, которые нам нужно в этом такте вывести на экран
@@ -40,7 +39,7 @@ system.runInterval(() => {
                 }
             }
             if (messagesToDisplay.length > 0) {
-                player.onScreenDisplay.setActionBar(messagesToDisplay.join(" §7|§f "));
+                player.onScreenDisplay.setActionBar(messagesToDisplay.join(" §r§7|§f "));
             }
         }
     }

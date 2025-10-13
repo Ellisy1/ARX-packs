@@ -21,7 +21,8 @@
                 "tags": [
                     "is_wand",
                     "is_weapon",
-                    "material_metal"
+                    "material_metal",
+                    "wand_channels_5"
                 ]
             },
             "tag:raw_cost:12100": {}

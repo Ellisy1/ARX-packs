@@ -28,6 +28,8 @@ import { checkForItem } from "./checkForItem"
 import { iDP, ssDP } from "./DPOperations"
 import { checkForTrait } from "./traits/traitsOperations"
 import { getPlayersInRadius } from "./getPlayersInRadius"
+import { getItem } from "./items/getItem"
+import { getActiveStaffChannel } from "./magic/getActiveStaffChannel"
 
 world.afterEvents.playerButtonInput.subscribe((event) => {
     const button = event.button
@@ -48,6 +50,22 @@ world.afterEvents.playerButtonInput.subscribe((event) => {
         //     const viewDirection = player.getViewDirection()
         //     player.applyKnockback({ x: viewDirection.x, z: viewDirection.z }, player.getDynamicProperty('skill:jumping_level') / 10)
         // }
+    }
+    else if (button === 'Sneak') {
+        if (state === 'Pressed') {
+            // Обновляем данные о посохе
+            const item = getItem(player, 'mainhand')
+            if (item) {
+                const itemTags = item.getTags()
+                let staffChannels
+                for (const tag of itemTags) {
+                    if (tag.includes('staff_channels_')) {
+                        staffChannels = parseInt(tag.slice(15))
+                    }
+                }
+                if (itemTags.includes('is_staff')) getActiveStaffChannel(player, staffChannels, true, true)
+            }
+        }
     }
 })
 
@@ -132,6 +150,9 @@ world.afterEvents.entitySpawn.subscribe((spawnEvent) => {
         }
         entity.runCommand('event entity @s arx:suicide')
     }
+
+    if (entity.typeId === 'arx:wandering_flame_of_mines') ssDP(entity, 'dynamicLightPower', 9)
+    if (entity.typeId === 'arx:wandering_flame_of_night') ssDP(entity, 'dynamicLightPower', 12)
 })
 
 export function generateGrass(vector3, dimension) {
@@ -165,6 +186,7 @@ world.afterEvents.entityHitEntity.subscribe((hitEvent) => {
     const damager = hitEvent.damagingEntity
     // Ударил игрок
     if (damager.typeId == 'minecraft:player') {
+        iDP(damager, 'anticheat:autoclick_tracker')
         // Мечом модератора
         if (checkForItem(damager, "Mainhand", "arx:mod_sword")) {
             if (damager.hasTag('is_sneaking')) {
@@ -511,8 +533,22 @@ system.beforeEvents.startup.subscribe(initEvent => {
                     break
 
                 default:
+                    // Блок - светящийся блок
                     if (event.block.type.id.startsWith("arx:dynamic_light_block")) {
-                        world.getDimension(event.block.dimension.id).runCommand(executeOnBlockPositionWithoutRun + `unless entity @e[r=2, scores={dynamic_light_power=${event.block.type.id.slice(24)}}] run fill ~ ~ ~ ~ ~ ~ air`)
+                        // Получаем сущности рядом
+                        const entities = event.block.dimension.getEntities({ location: event.block.location, maxDistance: 2 })
+                        // Если никого нет, сразу ставим воздух
+                        if (entities.length === 0) event.block.setType('minecraft:air')
+                        // Если есть
+                        else {
+                            let allowBlockToStay = false
+                            for (const entity of entities) {
+                                const dynamicLightPower = entity.getDynamicProperty('dynamicLightPower')
+                                const currentBlockLightPower = event.block.type.id.slice(24)
+                                if (dynamicLightPower == currentBlockLightPower) allowBlockToStay = true
+                            }
+                            if (!allowBlockToStay) event.block.setType('minecraft:air')
+                        }
                     }
             }
         }
@@ -590,8 +626,8 @@ world.afterEvents.entityDie.subscribe((dieEvent) => {
         player.runCommand(`kill @e[type=item, name="§r§cВы в нокауте, ваш инвентарь заблокирован", r=4]`)
 
         // Чистим данные о маги-фонарях
-        player.runCommand('scoreboard players set @s allow_magilight 0')
-        player.runCommand('scoreboard players set @s allow_archlight 0')
+        ssDP(player, 'allowMagilight', 0)
+        ssDP(player, 'allowArchilight', 0)
 
         // Выставляем данные о ноке
         player.runCommand('event entity @s arx:property_is_knockout_set_true')
@@ -737,7 +773,7 @@ world.afterEvents.entityHurt.subscribe((hurtEvent) => {
     }
 
     // Если ранили игрока
-    if (damaged.typeId === "minecraft:player") {
+    if (damaged.typeId === "minecraft:player" && hurtEvent.damage >= 0) {
         const player = damaged
 
         // Проверяем тип урона
@@ -758,7 +794,7 @@ world.afterEvents.entityHurt.subscribe((hurtEvent) => {
             let bloodIntencity = hurtEvent.damage - 2 // Определяем интенсивность кровотечения
 
             // Если есть колесо крови
-            if (checkForItem(damager, "Legs", "arx:amul_bloody_circle")) {
+            if (damager && checkForItem(damager, "Legs", "arx:amul_bloody_circle")) {
                 bloodIntencity *= 3
             }
 
@@ -827,7 +863,8 @@ world.afterEvents.entityHurt.subscribe((hurtEvent) => {
         if (damageCause != "fire" && damageCause != "fireTick" && damageCause != "lava") {
             damaged?.runCommand(`playanimation @s animation.whipping_dummy.on_hit${randomIndex}`)
             damaged?.runCommand(`playsound whipping_dummy.take_hit @a ~ ~ ~`)
-            for (let i = 0; i < hurtEvent.damage; i++) {
+            const particlesNum = hurtEvent.damage > 200 ? 200 : hurtEvent.damage
+            for (let i = 0; i < particlesNum; i++) {
                 damaged?.runCommand('particle arx:whipping_dummy_filing ~ ~ ~')
             }
         }

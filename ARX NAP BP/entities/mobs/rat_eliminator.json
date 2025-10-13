@@ -25,7 +25,8 @@
 					"mob",
 					"dangerous",
 					"despawn_as_ghost",
-					"boat_destroyer"
+					"boat_destroyer",
+					"rat"
 				]
 			},
 			"minecraft:navigation.walk": {

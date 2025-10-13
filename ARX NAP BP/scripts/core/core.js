@@ -26,6 +26,7 @@ import { getNearestPlayer } from "../getNearestPlayer"
 import { queueCommand } from "../commandQueue"
 import { parceChatCommand } from "../chat"
 import './ambience_core'
+import './dynamicLightCore'
 import { getEntityFamilies } from "../_main"
 
 // ARXGate
@@ -39,7 +40,6 @@ export let ARXGate = {
 system.runInterval(() => {
     world.getDimension("minecraft:overworld").runCommand("function core_parts/core")
     world.getDimension("minecraft:overworld").runCommand("function core_parts_NAP/core")
-    world.getDimension("minecraft:overworld").runCommand("function core_parts_NAP/dynamic_light_execution")
 
     const umps = world.getDimension('minecraft:overworld').getEntities({ type: 'arx:ump' })
     for (const ump of umps) {
@@ -204,7 +204,7 @@ system.runInterval(() => {
             // Отбражение
             if (wetness > 0) {
                 let waterIcons = wetness < 200 ? "" : wetness < 400 ? "" : ""
-                if (wetness === 1) sendToActionBar(player, 'wetness', 'Вы высохли', 2)
+                if (wetness === 1) sendToActionBar(player, 'wetness', 'Вы высохли', 20)
                 else sendToActionBar(player, 'wetness', `${waterIcons} §bВы промокли §f${waterIcons}`, 2)
             }
 
@@ -226,6 +226,17 @@ system.runInterval(() => {
 system.runInterval(() => {
     world.getDimension("minecraft:overworld").runCommand("function core_parts_NAP/2ticks")
     for (const player of world.getPlayers()) {
+        // Античит - автоклик
+        {
+            const clicks = player.getDynamicProperty('anticheat:autoclick_tracker')
+            if (clicks > 0) {
+                if (clicks > 2) {
+                    console.warn(`${player.name} имеет подозрителькую скорость клика: ${clicks}/0.1сек`)
+                }
+                ssDP(player, 'anticheat:autoclick_tracker', 0)
+            }
+        }
+
         // Откат амулета гиперсинергии
         if (player.getDynamicProperty('amul_hypersynergyCD') > 0) {
             if (player.getDynamicProperty('amul_hypersynergyCD') === 1) {
@@ -458,6 +469,11 @@ system.runInterval(() => {
 
                 // Если мы держим посох
                 if (item?.getTags().includes('is_staff')) {
+                    displayMPAndAdjacent(player)
+                }
+
+                // Если мы держим руну
+                else if (item?.getTags().includes('is_wand')) {
                     displayMPAndAdjacent(player)
                 }
 
@@ -730,7 +746,6 @@ system.runInterval(() => {
 
     }
 
-    world.getDimension("minecraft:overworld").runCommand("function core_parts_NAP/dynamic_light_analysis")
     world.getDimension("minecraft:overworld").runCommand("function core_parts/5ticks")
 }, 5);
 
@@ -867,7 +882,9 @@ const dynamicPropertiesToDecrease = {
     'shootingBoostBySpell_plus2': '§6Бонус стрельбы от заклинания (+2) закончился',
     'shootingBoostBySpell_plus4': '§6Бонус стрельбы от заклинания (+4) закончился',
     'shootingBoostBySpell_minus2': '§aШтраф стрельбы от заклинания (-2) закончился',
-    'shootingBoostBySpell_minus4': '§aШтраф стрельбы от заклинания (-4) закончился'
+    'shootingBoostBySpell_minus4': '§aШтраф стрельбы от заклинания (-4) закончился',
+    'allowArchilight': '§6Действие архисвета закончилось',
+    'allowMagilight': '§6Действие магисвета закончилось'
 };
 
 function getBlockWithOffset(player, x, y, z) {
@@ -915,6 +932,14 @@ system.runInterval(() => {
     world.getDimension('minecraft:overworld').runCommand('particle arx:vicious_gardens_ambiance -2238 15 1806')
 
     for (const player of world.getPlayers()) {
+
+        // Удаляем магисветы
+        if (!player.getDynamicProperty('allowArchilight')) {
+            player.runCommand('clear @s arx:archilight')
+        }
+        if (!player.getDynamicProperty('allowMagilight')) {
+            player.runCommand('clear @s arx:magilight')
+        }
 
         // Снижение сытости от спринта
         if (player.hasTag('is_sprinting')) {
@@ -1359,6 +1384,7 @@ system.runInterval(() => {
 
             // Снятие интоксикации
             if (player.getDynamicProperty('intoxication') > 0) iDP(player, 'intoxication', -intoxicationDecreasePower / 100)
+            else if (player.getDynamicProperty('intoxication') < 0) ssDP(player, 'intoxication', 0)
 
             // Расчитываем степень интоксикации
             const intoxicationLevel = Math.round(player.getDynamicProperty('intoxication') / 1000)
@@ -1765,7 +1791,7 @@ system.runInterval(() => {
 }, 100)
 
 // Отображение маны
-function displayMPAndAdjacent(player) {
+export function displayMPAndAdjacent(player) {
 
     // Определяем, как нам показать ману
     let manaStr = ''
@@ -1794,10 +1820,10 @@ function displayMPAndAdjacent(player) {
             }
         }
 
-        const targets = ['§aНа себя', '§cНа ближайшего', '§eНа животных и монстров']
+        const targets = ['§aНа себя', '§6На другого']
 
         const activeChannel = getActiveStaffChannel(player, staffChannelNum)
-        const activeTarget = player.getDynamicProperty('magicTarget')
+        const activeTarget = player.getDynamicProperty(`channel_${activeChannel}_target`)
 
         sendToActionBar(player, 'magicChannel', `§d${channelRomanNums[activeChannel - 1]} канал`, 2)
         sendToActionBar(player, 'magicTarget', `§d${targets[activeTarget - 1]}`, 2)
@@ -1808,11 +1834,11 @@ function displayMPAndAdjacent(player) {
 
         // Определяем каналы
         let channels = undefined
-        if (itemTags?.includes('plumbum_rune')) { channels = 4 }
-        else if (itemTags?.includes('naginitis_rune')) { channels = 6 }
-        else if (itemTags?.includes('forfacorite_rune')) { channels = 10 }
-        else if (itemTags?.includes('special_rune')) { channels = 10 }
-        else if (itemTags?.includes('malafiotironite_rune')) { channels = 8 }
+        if (itemTags?.includes('plumbum_rune')) channels = 4
+        else if (itemTags?.includes('naginitis_rune')) channels = 6
+        else if (itemTags?.includes('forfacorite_rune')) channels = 10
+        else if (itemTags?.includes('special_rune')) channels = 10
+        else if (itemTags?.includes('malafiotironite_rune')) channels = 8
 
         // Не удалось определить каналы
         if (channels === undefined) {
@@ -1825,14 +1851,39 @@ function displayMPAndAdjacent(player) {
         sendToActionBar(player, 'magicChannel', `§d${channelRomanNums[activeChannel - 1]} канал`, 2)
         sendToActionBar(player, 'MP', `${manaStr} §1MP`, 2)
     }
+    // Мы держим волшебную палочку
+    else if (itemTags?.includes('is_wand')) {
+
+        // Определяем каналы
+        let channels
+        for (const tag of itemTags) {
+            if (tag.includes('wand_channels_')) {
+                channels = parseInt(tag.slice(14))
+            }
+        }
+
+        // Не удалось определить каналы
+        if (channels === undefined) {
+            console.warn(`Не удалось считать количество каналов на палочке. Игрок ${player}, предмет ${item.typeId}`)
+            return undefined
+        }
+
+        const activeChannel = getActiveStaffChannel(player, channels, false)
+        const currentChannel = `channel_${activeChannel}_target`
+        const targetRuCurrent = player.getDynamicProperty(currentChannel) === 1 ? '§aна себя' : '§6на другого'
+        const targetRuOpposite = player.getDynamicProperty(currentChannel) === 1 ? '§6на другого' : '§aна себя'
+
+        sendToActionBar(player, 'magicChannel', `§d${channelRomanNums[activeChannel - 1]}§f канал ${targetRuCurrent}§f -> §o${targetRuOpposite}`, 2)
+        sendToActionBar(player, 'MP', `${manaStr} §1MP`, 2)
+    }
     // У нас амулет гиперсинергии
     else if (checkForItem(player, "Legs", 'arx:amul_hypersynergy') || checkForItem(player, "Legs", 'arx:amul_hypersynergy_improved') || checkForItem(player, "Legs", 'arx:amul_hypersynergy_superior')) {
 
         let channels = undefined
 
-        if (checkForItem(player, "Legs", 'arx:amul_hypersynergy')) { channels = 4 }
-        else if (checkForItem(player, "Legs", 'arx:amul_hypersynergy_improved')) { channels = 6 }
-        else if (checkForItem(player, "Legs", 'arx:amul_hypersynergy_superior')) { channels = 8 }
+        if (checkForItem(player, "Legs", 'arx:amul_hypersynergy')) channels = 4
+        else if (checkForItem(player, "Legs", 'arx:amul_hypersynergy_improved')) channels = 6
+        else if (checkForItem(player, "Legs", 'arx:amul_hypersynergy_superior')) channels = 8
 
         const activeChannel = getActiveStaffChannel(player, channels, false)
 

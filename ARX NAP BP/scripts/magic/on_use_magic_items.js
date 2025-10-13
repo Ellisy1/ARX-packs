@@ -13,6 +13,9 @@ import { increaseSkillProgress } from "../skillsOperations";
 import { manageCD } from "../manageCD";
 import { queueCommand } from "../commandQueue";
 import { iDP, ssDP } from "../DPOperations";
+import { spellRegistry } from "./spells/spellRegistry";
+import { getItem } from '../items/getItem'
+import { channelRomanNums } from "./channelRomanNums";
 
 // Использование предметов
 world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юзание предмета на ПКМ
@@ -43,78 +46,41 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
     // Посох
     if (item?.getTags().includes("is_staff")) {
         if (manageCD(player)) {
-            // Получаем количество каналов посоха
-            let staffChannels = null;
-            const tagPrefix = "staff_channels_";
-
-            for (const tag of item.getTags()) {
-                if (tag.startsWith(tagPrefix)) {
-                    const numStr = tag.substring(tagPrefix.length);
-                    const num = parseInt(numStr, 10);
-
-                    if (!isNaN(num) && num > 0) {
-                        staffChannels = num;
-                        break; // нашли — выходим
-                    }
-                }
-            }
-
-            if (staffChannels === null) {
-                console.warn(`Нет данных о каналах посоха ${event.itemStack.typeId}`);
-            }
-
-            // Получаем текущий канал
-            const activeChannel = getActiveStaffChannel(player, staffChannels)
-
             // Кастуем
-            castSpell(player, activeChannel, item)
+            useStaff(player)
         }
     }
     // Палочка
     else if (item?.getTags().includes("is_wand")) {
         if (manageCD(player)) {
-            // Радиал
-            if (item?.getTags().includes("is_wand_radial")) {
-
-                player.runCommand("tag @s[rxm=20] add t1")
-                player.runCommand("tag @s[rx=20, rxm=-20] add t2")
-                player.runCommand("tag @s[rx=-20] add t3")
-
-                if (player.hasTag('t1')) { player.runCommand("tag @s remove t1"); ssDP(player, 'magicTarget', 1) }
-                else if (player.hasTag('t2')) { player.runCommand("tag @s remove t2"); ssDP(player, 'magicTarget', 2) }
-                else if (player.hasTag('t3')) { player.runCommand("tag @s remove t3"); ssDP(player, 'magicTarget', 3) }
-                reportAboutMagicTarget(player)
+            // Определяем каналы
+            let channels
+            for (const tag of item?.getTags()) {
+                if (tag.includes('wand_channels_')) {
+                    channels = parseInt(tag.slice(14))
+                }
             }
-            // Стардарт
-            else {
-                if (player.getDynamicProperty('magicTarget') == 1) { ssDP(player, 'magicTarget', 2) }
-                else if (player.getDynamicProperty('magicTarget') == 2) { ssDP(player, 'magicTarget', 3) }
-                else if (player.getDynamicProperty('magicTarget') == 3) { ssDP(player, 'magicTarget', 1) }
-                reportAboutMagicTarget(player)
-            }
+            const channel = getActiveStaffChannel(player, channels)
+            const targetDP = `channel_${channel}_target`
+
+            // Логика
+            if (player.getDynamicProperty(targetDP) == 1) ssDP(player, targetDP, 2)
+            else ssDP(player, targetDP, 1)
+
+            // Отчёт
+            const magicTarget = player.getDynamicProperty(targetDP)
+            const targetRu = magicTarget === 1 ? '§aна себя' : '§6на другого'
+            player.sendMessage(`Установлена цель для §d${channelRomanNums[channel - 1]}§f канала: ${targetRu}`)
 
             // Анимируем
-            const animVar = getRandomInt(4)
+            const animVar = Math.floor(Math.random() * 4)
             if (animVar == 0) { player.runCommand("playanimation @s animation.arx.wand_a_a") }
             else if (animVar == 1) { player.runCommand("playanimation @s animation.arx.wand_a_b") }
             else if (animVar == 2) { player.runCommand("playanimation @s animation.arx.wand_a_b") }
             else if (animVar == 3) { player.runCommand("playanimation @s animation.arx.wand_b_a") }
-
-            setScore(player, "target", player.getDynamicProperty('magicTarget'))
         }
     }
 })
-
-function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
-}
-
-function reportAboutMagicTarget(player) {
-    const magicTarget = player.getDynamicProperty('magicTarget')
-    if (magicTarget == 1) { player.runCommand(`tellraw @s { "rawtext": [ { "text": "Установлена цель: §aна себя" } ] }`) }
-    if (magicTarget == 2) { player.runCommand(`tellraw @s { "rawtext": [ { "text": "Установлена цель: §cна ближайшего" } ] }`) }
-    if (magicTarget == 3) { player.runCommand(`tellraw @s { "rawtext": [ { "text": "Установлена цель: §eна животных и монстров" } ] }`) }
-}
 
 // Шифруем последовательность данных по факту набора последовательности рун (АКТИВИРУЕТСЯ ПРИ ЮЗАНИИ РУНЫ)
 export function cipherRuneSequence(player, runeName, runeTags) {
@@ -157,139 +123,122 @@ export function cipherRuneSequence(player, runeName, runeTags) {
 
     // Сообщаем игроку о введенной руне
     const runeNameCapitalized = runeName[0].toUpperCase() + runeName.slice(1)
-    queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§6${runeNameCapitalized} §bзаписано в §6${channel} §bканал" } ] }`)
+    queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§6${runeNameCapitalized} §bзаписано в §6${channelRomanNums[channel - 1]} §bканал" } ] }`)
 }
 
-// Снимаем ману при использовании закла
-function withdrawMpOnCastingSpell(player) {
-    iDP(player, "mp", -getScore(player, "mp_req"))
-}
+// Использован посох
+export function useStaff(player, forceChannel = undefined) {
 
-// Кастуем закл
-export function castSpell(player, activeChannel, staff) {
-    // Получаем заклинание, корректно развернутое для запуска mcfunction заклинаний
-    const reverseSpellCipher = reversePairs(findSpell(player, activeChannel))
+    // Получаем объект предметы
+    const staffItem = player.getComponent(EntityComponentTypes.Equippable).getEquipment(EquipmentSlot.Mainhand)
 
-    // Отчитываемся, какой используется канал
-    player.runCommand(`tellraw @s { "rawtext": [ { "text": "§b${activeChannel} §fканал" } ] }`)
+    // Получаем количество каналов посоха
+    let staffChannels
+    const tagPrefix = "staff_channels_";
 
-    // Отчитываемся, какая используется цель
-    {
-        const magicTarget = player.getDynamicProperty('magicTarget')
-        if (magicTarget === 1) { player.runCommand(`tellraw @s { "rawtext": [ { "text": "Цель: §aна себя" } ] }`) }
-        if (magicTarget === 2) { player.runCommand(`tellraw @s { "rawtext": [ { "text": "Цель: §cна ближайшего" } ] }`) }
-        if (magicTarget === 3) { player.runCommand(`tellraw @s { "rawtext": [ { "text": "Цель: §eна животных и монстров" } ] }`) }
+    for (const tag of staffItem?.getTags()) {
+        if (tag.startsWith(tagPrefix)) {
+            const numStr = tag.substring(tagPrefix.length);
+            const num = parseInt(numStr, 10);
+
+            if (!isNaN(num) && num > 0) {
+                staffChannels = num;
+                break; // нашли — выходим
+            }
+        }
     }
 
+    // Получаем текущий канал
+    let activeChannel = 1
+    if (forceChannel) activeChannel = forceChannel
+    else activeChannel = getActiveStaffChannel(player, staffChannels)
+
+    // Получаем заклинание
+    const spell = findSpell(player, activeChannel, 'sequence')
+    const spellArray = spell?.split(' ')
+
+    // Отчитываемся, какая используется цель и канал
+    const magicTarget = player.getDynamicProperty(`channel_${activeChannel}_target`)
+    const targetRu = magicTarget === 1 ? '§aна себя' : '§6на другого'
+    player.sendMessage(`§b${channelRomanNums[activeChannel - 1]} §fканал ${targetRu}`)
+    if (![1, 2].includes(magicTarget)) console.warn(`Использовано заклинание ${spell} с недопустимой целью ${magicTarget} игроком ${player.name}`)
+
     // Если есть закл
-    if (reverseSpellCipher) {
+    if (spell) {
+        // Множитель стоимости заклинания. Нужен для рассчёта скидок
+        let spellCostMult = 1
 
-        player.addTag("self")
-        player.runCommand("tag @p[tag=!self, r=15] add self2")
-
-        if (staff?.getTags().includes("staff_kon")) { player.addTag('staff_kon') }
-        if (staff?.getTags().includes("staff_sin")) { player.addTag('staff_sin') }
-        if (staff?.getTags().includes("staff_san")) { player.addTag('staff_san') }
-        if (staff?.getTags().includes("staff_din")) { player.addTag('staff_din') }
-
-        // 
-        // ИСПОЛНЕНИЕ ЗАКЛИНАНИЯ
-        //
-
-        // JS заклинания
-        castJSSpell(player, findSpell(player, activeChannel, 'sequence'))
-
-        // MCFunction заклинания
-        if (!player.hasTag('spell_available')) {
-            // Определяем направление заклинания
-            let spellType
-            if (reverseSpellCipher.startsWith("AC")) { spellType = 'din' }
-            else if (reverseSpellCipher.startsWith("AK")) { spellType = 'kon' }
-            else if (reverseSpellCipher.startsWith("AT")) { spellType = 'san' }
-            else if (reverseSpellCipher.startsWith("AX")) { spellType = 'sin' }
-            else { console.warn(`Ошибка с определением направления KON/SIN/SAN/DIN заклинания ${reverseSpellCipher}`) }
-
-            // Переводим коду необходимые данные
-            setScore(player, 'mp', player.getDynamicProperty('mp'))
-            setScore(player, 'target', player.getDynamicProperty('magicTarget'))
-
-            // Запускаем заклинание
-            player.runCommand(`function spells/${spellType}/${reverseSpellCipher}`)
+        // Определяем, есть ли скидка по руне или рунам. Тег хранится в виде spell_cost_reduction_with_rune_san:0.25 и может находиться на любом экипируемом предмете
+        const spellCostReductionPrefix = 'spell_cost_reduction_with_rune_'
+        const equipment = getItem(player, 'equipment')
+        for (let equipmentItem of equipment) for (const tag of equipmentItem?.getTags()) {
+            if (!equipmentItem) continue
+            if (tag.startsWith(spellCostReductionPrefix)) {
+                const costReductionData = tag.substring(spellCostReductionPrefix.length).split(':')
+                if (costReductionData.length !== 2) console.warn(`Неожиданная длинна ${costReductionData} для заклинания ${spell}, игрока ${player.name}`)
+                if (spellArray.includes(costReductionData[0]) || costReductionData[0] === 'any') spellCostMult -= +costReductionData[1]
+            }
         }
 
-        //
-        // ИСПОЛНЕНИЕ ЗАКЛИНАНИЯ - КОНЕЦ
-        //
+        // Если скидка каким-то образом слишком большая
+        if (spellCostMult < 0.1) spellCostMult = 0.1
 
+        // Проверяем, можем ли мы использовать заклинание
+        const spellCostReq = Math.round(spellRegistry[spell].mpCost * spellCostMult)
+        const canCast = player.getDynamicProperty('mp') >= spellCostReq
 
-        // Отчет + анимация
+        // Если можем использовать
+        if (canCast) {
+            // Активируем заклинание, и получаем от него ответ, что оно сделало или не сделало
+            const spellResponce = castJSSpell(player, spell)
 
-        // Успешно использован закл
-        if (player.hasTag('spell_available') && !player.hasTag('cant_be_casted_cus_of_target')) {
-            withdrawMpOnCastingSpell(player)
-            player.runCommand("playanimation @s animation.arx.staff_a")
-            player.runCommand(`tellraw @s { "rawtext": [ { "text": "Потрачено §b${getScore(player, "mp_req")}§f маны" } ] }`)
+            // Если заклинание успешно использовано
+            switch (spellResponce) {
+                case 'ok':
+                    withdrawMP(player, spellCostReq, spellCostMult)
+                    player.runCommand("playanimation @s animation.arx.staff_a")
+                    break
 
-            // Выдаем опыт
-            {
-                const mpReq = getScore(player, "mp_req")
+                case 'noValidEntity':
+                    player.sendMessage('§vНе на кого сотворять заклинание')
+                    player.runCommand("playanimation @s animation.arx.no")
+                    break
 
-                // РЕГЕН mpRegenSkillIncreaseValue: Низкое значение до 30, резкий рост после.
-                const mpRegenSkillIncreaseValue = mpReq <= 30 ? mpReq / 6 : mpReq;
+                case 'wrongEntityType':
+                    player.sendMessage('§vЭто заклинание невозможно применить на это существо')
+                    player.runCommand("playanimation @s animation.arx.no")
+                    break
 
-                // МАКС МП manaSkillIncreaseValue: Высокое значение до 30, низкое после.
-                const manaSkillIncreaseValue = mpReq <= 30 ? mpReq * 3 : mpReq / 2;
-
-                increaseSkillProgress(player, "mana", manaSkillIncreaseValue)
-                increaseSkillProgress(player, "mp_regen", mpRegenSkillIncreaseValue)
+                case 'noValidTarget':
+                    player.sendMessage('§vЗаклинание не поддерживает выбранную цель')
+                    player.runCommand("playanimation @s animation.arx.no")
+                    break
             }
         }
         else {
             player.runCommand("playanimation @s animation.arx.no")
-            player.runCommand(`tellraw @s { "rawtext": [ { "text": "§cТребуется §b${getScore(player, "mp_req")}§c маны" } ] }`)
-
-            if (player.hasTag("cant_be_casted_cus_of_target")) { player.runCommand(`tellraw @s { "rawtext": [ { "text": "§cНевозможно использовать это заклинание на выбранную цель." } ] }`) }
+            player.sendMessage(`§vwТребуется §b${spellCostReq}§c маны §o§7(не хватает ${spellCostReq - player.getDynamicProperty('mp')})`)
         }
-
-        player.removeTag("self")
-        player.runCommand("tag @a remove self2")
-
     }
     // Если заклинания нет
     else {
         player.runCommand("playanimation @s animation.arx.no")
-        player.runCommand(`tellraw @s { "rawtext": [ { "text": "§cЗаклинание не заготовлено" } ] }`)
+        player.sendMessage(`§cЗаклинание не заготовлено в ${channelRomanNums[activeChannel - 1]} канале`)
     }
-
-    player.removeTag("spell_available")
-
-    player.removeTag("drop_cost_with_staff")
-    player.removeTag("drop_cost_with_amulet")
-
-    player.removeTag("drop_25")
-    player.removeTag("drop_50")
-
-    player.removeTag("cant_be_casted_cus_of_target")
-    player.removeTag("block_mp_withdraw")
-
-    player.removeTag("staff_kon")
-    player.removeTag("staff_sin")
-    player.removeTag("staff_san")
-    player.removeTag("staff_din")
 }
 
-function reversePairs(str) {
-    if (!str) { return undefined }
+function withdrawMP(player, spellCostReq, spellCostMult) {
+    // spellCostReq - уже с рассчётом скидки
+    iDP(player, 'mp', -spellCostReq)
 
-    if (str?.length % 2 !== 0) {
-        console.error(`Подана неверная строка в reversePairs: ${str}`)
-        return undefined
-    }
+    // РЕГЕН mpRegenSkillIncreaseValue: Низкое значение до 30, резкий рост после.
+    const mpRegenSkillIncreaseValue = spellCostReq <= 30 ? spellCostReq / 6 : spellCostReq;
+    // МАКС МП manaSkillIncreaseValue: Высокое значение до 30, низкое после.
+    const manaSkillIncreaseValue = spellCostReq <= 30 ? spellCostReq * 3 : spellCostReq / 2;
 
-    let result = ""
-    while (str != "") {
-        result = str.slice(0, 2) + result
-        str = str.slice(2)
-    }
-    return result
+    increaseSkillProgress(player, "mp_regen", mpRegenSkillIncreaseValue)
+    increaseSkillProgress(player, "mana", manaSkillIncreaseValue)
+
+    if (spellCostMult === 1) player.sendMessage(`Потрачено §b${spellCostReq}§f маны`)
+    else player.sendMessage(`Потрачено §b${spellCostReq}§f маны §a§o(скидка ${(1 - spellCostMult) * 100}Ũ)`)
 }

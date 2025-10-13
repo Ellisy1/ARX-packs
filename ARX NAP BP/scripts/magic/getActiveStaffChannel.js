@@ -1,19 +1,21 @@
 // Задача функции - вычислить текущий канал и вернуть его индекс
 // channels - число каналов, которое мы рассматриваем
-// considerChannelHolding - стоит ли нам обращать внимание на заклинание удержания канала?
+// considerChannelHolding - стоит ли нам обращать внимание на правило удержания канала?
 
 import { ssDP } from "../DPOperations";
 
-export function getActiveStaffChannel(player, channels, considerChannelHolding = true) {
+export function getActiveStaffChannel(player, channels, considerChannelHolding = true, forceChannelHolding = false) {
+
+    if (!channels) return
 
     // Если нам не надо обращать внимание на удержание канала
-    if (!considerChannelHolding || player.getDynamicProperty('holdMagicChannel') !== true) {
+    if (!considerChannelHolding) {
         return getChannel(player, channels)
     }
     // Если надо
     else {
         // Мы на присяде, и у нас выбор каналов должен работать по правилу поворота камеры
-        if (player.hasTag('is_sneaking')) {
+        if (player.isSneaking || forceChannelHolding) {
             // Запоминаем текущий канал
             const channel = getChannel(player, channels)
             ssDP(player, 'holdedMagicChannel', channel)
@@ -21,7 +23,9 @@ export function getActiveStaffChannel(player, channels, considerChannelHolding =
         }
         // Мы не на присяде. Надо вернуть канал, который был последним удержанным
         else {
-            return player.getDynamicProperty('holdedMagicChannel')
+            const holdedChannel = player.getDynamicProperty('holdedMagicChannel')
+            if (channels >= holdedChannel) return holdedChannel
+            else return channels
         }
     }
 }

@@ -1,0 +1,26 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:god_wand"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      " A",
+      "S "
+    ],
+    "key": {
+      "A": {
+        "item": "arx:gold_feather"
+      },
+      "S": {
+        "item": "arx:steel_ingot"
+      }
+    },
+    "result": {
+      "item": "arx:god_wand"
+    }
+  }
+}

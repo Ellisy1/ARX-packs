@@ -36,7 +36,9 @@
 			"minecraft:type_family": {
 				"family": [
 					"mob",
-					"dangerous"
+					"dangerous",
+					"rat",
+					"can_be_despawned_by_ratatao_spell"
 				]
 			},
 			"minecraft:breathable": {

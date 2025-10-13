@@ -20,9 +20,9 @@
             "minecraft:tags": {
                 "tags": [
                     "is_wand",
-                    "is_wand_radial",
                     "is_weapon",
-                    "material_rare_metal"
+                    "material_rare_metal",
+                    "wand_channels_6"
                 ]
             }
         },

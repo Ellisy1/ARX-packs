@@ -18,7 +18,8 @@
 				"family": [
 					"mob",
 					"ghost",
-					"despawn_as_ghost"
+					"despawn_as_ghost",
+					"rat"
 				]
 			},
 			"minecraft:breathable": {

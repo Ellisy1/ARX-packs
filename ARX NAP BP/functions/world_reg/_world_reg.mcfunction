@@ -40,77 +40,11 @@ scoreboard objectives add mp_current dummy Текущая_мана
 scoreboard objectives add mp_req dummy Треб_маны_для_закл
 scoreboard objectives add mp dummy Мана
 
-scoreboard objectives add poisoning dummy poisoning
-scoreboard objectives add pois_cond_delta dummy pois_cond_delta
-scoreboard objectives add pois_cond dummy pois_cond
-scoreboard objectives add pois_cond_log dummy pois_cond_log
-scoreboard objectives add pois_dec dummy Pois_dec
-scoreboard objectives add pois_block dummy Pois_block
-scoreboard objectives add freezing_hold dummy freezing_hold
-scoreboard objectives add hot_hold dummy hot_hold
 scoreboard objectives add mark dummy Метка
-scoreboard objectives add regen_hp dummy Регенерация
-scoreboard objectives add regen_mp dummy Восст_маны
-scoreboard objectives add weighLoading dummy Загруж.
-
-scoreboard objectives add final_mining dummy final_mining
-
-scoreboard objectives add sneese_prob dummy sneese_prob
-scoreboard objectives add cough_prob dummy cough_prob
-
-scoreboard objectives add no_hard_ill dummy no_hard_ill
 
 scoreboard objectives add no_dark_fog dummy no_dark_fog
 
 scoreboard objectives add poit_mp_reg dummy poit_mp_reg
-
-scoreboard objectives add blocking dummy Блокировка
-
-scoreboard objectives add poit_speed_a dummy poit_speed_a
-scoreboard objectives add poit_speed_b dummy poit_speed_b
-scoreboard objectives add poit_jump_a dummy poit_jump_a
-scoreboard objectives add poit_jump_b dummy poit_jump_b
-scoreboard objectives add poit_heigth_a dummy poit_heigth_a
-scoreboard objectives add poit_heigth_b dummy poit_heigth_b
-scoreboard objectives add poit_mining_u dummy poit_mining_u
-scoreboard objectives add poit_mining_d dummy poit_mining_d
-scoreboard objectives add poit_pois_dec_a dummy poit_pois_dec_a
-scoreboard objectives add poit_pois_dec_b dummy poit_pois_dec_b
-scoreboard objectives add poit_pois_dec_c dummy poit_pois_dec_c
-scoreboard objectives add poit_pois_dec_d dummy poit_pois_dec_d
-
-scoreboard objectives add mp_const dummy mp_const
-
-
-scoreboard objectives add speed_skill dummy Навык_вора
-scoreboard objectives add magic_skill dummy Навык_мага
-scoreboard objectives add strength_skill dummy Навык_воина
-scoreboard objectives add trailblazer_skill dummy trailblazer_skill
-scoreboard objectives add might_skill dummy might_skill
-
-scoreboard objectives add bow_result dummy Тряска_лука
-scoreboard objectives add bow_spell_a dummy Компен_лука_а
-scoreboard objectives add bow_spell_b dummy Компен_лука_б
-scoreboard objectives add bow_spell_c dummy Компен_лука_с
-scoreboard objectives add bow_spell_d dummy Компен_лука_д
-scoreboard objectives add bow_tick dummy Контр_тряс_л
-
-scoreboard objectives add resist_up_a dummy Защ_а
-scoreboard objectives add resist_up_b dummy Защ_б
-scoreboard objectives add resist_up_c dummy Защ_с
-scoreboard objectives add resist_up_d dummy Защ_д
-
-
-scoreboard objectives add final_speed dummy Конеч_скор.
-scoreboard objectives add final_jump dummy Конеч_прыж.
-scoreboard objectives add final_strength dummy Конеч_сил.
-scoreboard objectives add final_weak dummy Конеч_слаб.
-scoreboard objectives add final_resist dummy Конеч_защ.
-scoreboard objectives add final_slow dummy Конеч_медл.
-
-scoreboard objectives add regen_speed dummy Задерж_автреген
-scoreboard objectives add regen_effect dummy Степень_автреген
-scoreboard objectives add regen_delay dummy Счёт_автреген
 
 
 scoreboard objectives add move_delay dummy задержка_аним_бездействия
@@ -254,22 +188,6 @@ scoreboard objectives add attack_weakness dummy attack_weakness
     scoreboard objectives add book_about_march dummy book_about_march
     scoreboard objectives add book_oculus_primae_maledictionis dummy book_oculus_primae_maledictionis
 
-
-# Броня
-    scoreboard objectives add armor_assas_dmg dummy armor_assas_dmg
-    scoreboard objectives add armor_conq_dmg dummy armor_conq_dmg
-    scoreboard objectives add armor_ranger_dmg dummy armor_ranger_dmg
-
-    scoreboard objectives add debugtp_drct dummy debugtp_drct
-    scoreboard players set @s debugtp_drct 0
-
-    scoreboard objectives add taste_summary dummy taste_summary
-
-    scoreboard objectives add backpack_volume dummy backpack_volume
-
-# Дебаг скиллпоинтов
-    scoreboard objectives add skill_points_dbg dummy skill_points_dbg
-
 # Высокотехнологичное
     scoreboard objectives add battery_avail dummy battery_avail
     scoreboard objectives add battery_charge dummy battery_charge
@@ -326,10 +244,6 @@ scoreboard objectives add uni_cool_down dummy uni_cool_down
     scoreboard objectives add crys_sw_respawn dummy crys_sw_respawn
 
 scoreboard objectives add heal_scrl_durt dummy heal_scrl_durt
-
-# Магические светильники
-    scoreboard objectives add allow_magilight dummy allow_magilight
-    scoreboard objectives add allow_archlight dummy allow_archlight
 
 # Уникальный идентефикатор
     scoreboard objectives add UID dummy UID

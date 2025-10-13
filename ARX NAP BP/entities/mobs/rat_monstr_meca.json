@@ -40,7 +40,8 @@
 					"mob",
 					"dangerous",
 					"boat_destroyer",
-					"meca"
+					"meca",
+					"rat"
 				]
 			},
 			"minecraft:navigation.walk": {

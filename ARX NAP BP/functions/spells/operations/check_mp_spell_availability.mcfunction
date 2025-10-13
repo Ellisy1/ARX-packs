@@ -1,1 +1,0 @@
-execute as @s if score @p mp >= @p mp_req run tag @s add spell_available

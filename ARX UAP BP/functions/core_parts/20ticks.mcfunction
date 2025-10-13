@@ -1,9 +1,6 @@
 #Эффекты брони
     camera @a[hasitem={item=arx:blindness_bandage, location=slot.armor.head}] fade time 0 2 0 color 30 30 30 
 
-#Просчёт стабильности ядра
-    scoreboard players add @a[scores={verify=2}] stability_core 1
-
 #Просчёт общего времени
     execute @a[scores={verify=2, sec=60}] ~ ~ ~ scoreboard players add @a time_m 1
     execute @a[scores={time_m=60}] ~ ~ ~ scoreboard players add @s time_h 1
@@ -12,57 +9,6 @@
     scoreboard objectives add time_h_display dummy "§a§lЧасы игры"
     execute @a ~ ~ ~ scoreboard players operation @s time_h_display = @s time_h
     scoreboard objectives setdisplay list time_h_display
-
-#Невидимость 
-    scoreboard players add @a[scores={invisible=1..}] invisible -1
-    effect @a[scores={invisible=1..}] invisibility 2 0 true
-    effect @a[tag=alone, scores={invis_saki=1..}] invisibility 2 0 true
-
-    #Откат переменной боя (получается при ударах чего-л)
-        scoreboard players add @a[scores={in_battle=1..}] in_battle -1
-
-        scoreboard players add @a[scores={vic_dag_bonus=1..}] vic_dag_bonus -1
-
-    #Вычитание поинтов блока син иноффо
-        execute @e[scores={sin_host_block=1..}] ~ ~ ~ scoreboard players add @e[r=0.0001] sin_host_block -1
-        execute @e[scores={sin_host_saki=1}] ~ ~ ~ scoreboard players set @e[r=0.0001] sin_host_block 1
-
-    #Вычитание поинтов блока сэмпры
-        execute @e[scores={tick_nosempra_a=1..}] ~ ~ ~ scoreboard players add @e[r=0.0001] tick_nosempra_a -1 
-        execute @e[scores={tick_nosempra_b=1..}] ~ ~ ~ scoreboard players add @e[r=0.0001] tick_nosempra_b -1
-        execute @e[scores={tick_nosempra_c=1..}] ~ ~ ~ scoreboard players add @e[r=0.0001] tick_nosempra_c -1
-
-        execute @e[scores={tick_nosempra_c=1..}] ~ ~ ~ scoreboard players set @e[r=0.0001] tick_nosempra_a 0 
-        execute @e[scores={tick_nosempra_c=1..}] ~ ~ ~ scoreboard players set @e[r=0.0001] tick_nosempra_b 0 
-        execute @e[scores={tick_nosempra_b=1..}] ~ ~ ~ scoreboard players set @e[r=0.0001] tick_nosempra_a 0 
-
-    #Вычитание поинтов защиты
-        execute @e[scores={resist_up_a=1..}] ~ ~ ~ scoreboard players add @e[r=0.0001] resist_up_a -1
-        execute @e[scores={resist_up_b=1..}] ~ ~ ~ scoreboard players add @e[r=0.0001] resist_up_b -1
-        execute @e[scores={resist_up_c=1..}] ~ ~ ~ scoreboard players add @e[r=0.0001] resist_up_c -1
-        execute @e[scores={resist_up_d=1..}] ~ ~ ~ scoreboard players add @e[r=0.0001] resist_up_d -1
-
-        execute @e[scores={resist_up_d=1..}] ~ ~ ~ scoreboard players set @e[r=0.0001] resist_up_a 0 
-        execute @e[scores={resist_up_d=1..}] ~ ~ ~ scoreboard players set @e[r=0.0001] resist_up_b 0 
-        execute @e[scores={resist_up_d=1..}] ~ ~ ~ scoreboard players set @e[r=0.0001] resist_up_c 0 
-        execute @e[scores={resist_up_c=1..}] ~ ~ ~ scoreboard players set @e[r=0.0001] resist_up_a 0 
-        execute @e[scores={resist_up_c=1..}] ~ ~ ~ scoreboard players set @e[r=0.0001] resist_up_b 0 
-        execute @e[scores={resist_up_b=1..}] ~ ~ ~ scoreboard players set @e[r=0.0001] resist_up_a 0 
-
-    #Вычитание поинтов блока ослепления
-        scoreboard players add @a[scores={blind_block=1..}] blind_block -1
-        scoreboard players set @a[scores={blind_block_saki=1}] blind_block 1
-        
-    #Вычитание поинтов блока намокания
-        scoreboard players add @a[scores={water_block=1..}] water_block -1
-        scoreboard players set @a[scores={water_block_saki=1}] water_block 1
-    
-    #Вычитание поинтов заклинания лука
-        scoreboard players add @a[scores={bow_spell_a=1..}] bow_spell_a -1
-        scoreboard players add @a[scores={bow_spell_b=1..}] bow_spell_b -1
-        scoreboard players add @a[scores={bow_spell_c=1..}] bow_spell_c -1
-        scoreboard players add @a[scores={bow_spell_d=1..}] bow_spell_d -1
-    
 
 # Демон
     # Откат бонуса демона
@@ -137,12 +83,3 @@
             execute @a[scores={verify=2, weather=0, custom_random=310, custom_random_b=0..250}] ~ ~ ~ weather rain
             execute @a[scores={verify=2, weather=0, custom_random=310, custom_random_b=0..50}] ~ ~ ~ scoreboard players random @s weather 200 800
             execute @a[scores={verify=2, weather=0, custom_random=310, custom_random_b=51..250}] ~ ~ ~ scoreboard players random @s weather 10 200
-
-# Партиклы опыта (когда бонус 1.5)
-    execute @a[scores={xp_х1_5=1..}] ~ ~ ~ particle arx:xp_upgrade ~ ~2 ~ 
-
-# Снимаем переменную буста опыта
-    execute @a[scores={xp_х1_5=1..}] ~ ~ ~ scoreboard players add @s xp_х1_5 -1
-
-# Снимаем переменную невидимости от магии
-    execute @a[scores={invis_saki=1..}] ~ ~ ~ scoreboard players add @s invis_saki -1

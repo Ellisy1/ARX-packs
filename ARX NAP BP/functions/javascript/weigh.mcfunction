@@ -419,7 +419,7 @@
         scoreboard players add @s[hasitem={item=arx:baron_gambeson}] weighLoading 4
         scoreboard players add @s[hasitem={item=arx:desert_protector_armor}] weighLoading 4
         scoreboard players add @s[hasitem={item=arx:hell_fighter_armor}] weighLoading 3
-        scoreboard players add @s[hasitem={item=arx:swordsman_armor}] weighLoading 3
+        scoreboard players add @s[hasitem={item=arx:swordsman_armor}] weighLoading 4
         scoreboard players add @s[hasitem={item=arx:light_leather_armor}] weighLoading 3
         scoreboard players add @s[hasitem={item=arx:snow_lord_armor}] weighLoading 5
 

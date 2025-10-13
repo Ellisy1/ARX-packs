@@ -17,6 +17,9 @@ export function registerPlayerVars(player) {
         if (player.getDynamicProperty(`channel_${i}_rune_sequence`) === undefined) {
             ssDP(player, `channel_${i}_rune_sequence`, '')
         }
+        if (player.getDynamicProperty(`channel_${i}_target`) === undefined || player.getDynamicProperty(`channel_${i}_target`) > 2) {
+            ssDP(player, `channel_${i}_target`, 1)
+        }
     }
 
     // Бусты скорости
@@ -153,5 +156,8 @@ export function registerPlayerVars(player) {
     }
     if (player.getDynamicProperty('wetness') === undefined) {
         ssDP(player, 'wetness', 0)
+    }
+    if (player.getDynamicProperty('anticheat:autoclick_tracker') === undefined) {
+        ssDP(player, 'anticheat:autoclick_tracker', 0)
     }
 }

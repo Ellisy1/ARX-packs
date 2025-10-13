@@ -23,11 +23,14 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
         // Тест
         case "arx:mod_sword":
             if (manageCD(player)) {
+                for (const playera of world.getPlayers()) {
+                    console.warn(playera.name, playera.getDynamicProperty('name'), playera.getDynamicProperty('trueName'), player.getProperty('arx:is_ghost'), player.getDynamicProperty('height'))
+                }
                 // player.inputPermissions.setPermissionCategory(6, true)
                 // const stack1 = new ItemStack('arx:small_stone', 1)
                 // stack1.setLore(['§bЧто-то интересное'])
                 // player.dimension.spawnItem(stack1, player.location)
-                player.setProperty('arx:is_ghost', false)
+                player.getComponent('minecraft:scale')
             }
             break
 
@@ -303,20 +306,6 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
             break
         case "arx:small_xp_book":
             player.runCommand("function books/small_xp_book")
-            break
-
-        // Кристаллы
-        case "arx:crystal_of_durability":
-            player.runCommand("function crystals/crystal_of_durability")
-            break
-        case "arx:crystal_of_mob_calmness":
-            player.runCommand("function crystals/crystal_of_mob_calmness")
-            break
-        case "arx:crystal_of_return":
-            player.runCommand("function crystals/crystal_of_return")
-            break
-        case "arx:crystal_of_swift_respawn":
-            player.runCommand("function crystals/crystal_of_swift_respawn")
             break
 
         // Мертвые мобы

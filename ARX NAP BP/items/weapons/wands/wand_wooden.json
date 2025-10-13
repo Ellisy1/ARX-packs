@@ -21,7 +21,8 @@
                 "tags": [
                     "is_wand",
                     "is_weapon",
-                    "material_wooden"
+                    "material_wooden",
+                    "wand_channels_1"
                 ]
             }
         },

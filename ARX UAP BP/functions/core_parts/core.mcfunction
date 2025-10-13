@@ -1,8 +1,3 @@
-#Дебаг двух игроков на одной позиции (ИМЕЕТ СМЫСЛ, ПОКА ОСТАЛСЯ ПОЗ. КОД)
-    scoreboard players set @a check_one_point 0
-    execute @a ~ ~ ~ scoreboard players add @a[r=0.0001] check_one_point 1
-    execute @a[scores={check_one_point=2..}] ~ ~ ~ function core_parts/debugtp
-
 #Просчёт тактов от лица хостера со счётом verify = 2
     execute @a[scores={verify=2}] ~ ~ ~ scoreboard players add @s tick 1
     execute @a[scores={verify=2, tick=21}] ~ ~ ~ scoreboard players set @s tick 1
@@ -40,28 +35,6 @@
 
         tag @a remove in_space
         execute @a ~ ~ ~ tag @s[y=320, dy=100000] add in_space
-
-#Телепортация мага
-    execute @a[tag=!is_dead, scores={teleport_def=20}] ~ ~ ~ tp @p ~-5 ~ ~
-    execute @a[tag=!is_dead, scores={teleport_def=16}] ~ ~ ~ tp @p ~5 ~ ~5
-    execute @a[tag=!is_dead, scores={teleport_def=12}] ~ ~ ~ tp @p ~ ~ ~-10
-    execute @a[tag=!is_dead, scores={teleport_def=8}] ~ ~ ~ tp @p ~5 ~ ~5
-    execute @a[tag=!is_dead, scores={teleport_def=4}] ~ ~ ~ tp @p ~-5 ~ ~
-
-    execute @a[tag=!is_dead, scores={teleport_dmg=20}] ~ ~ ~ tp @p ~-5 ~ ~
-    execute @a[tag=!is_dead, scores={teleport_dmg=16}] ~ ~ ~ tp @p ~5 ~ ~5
-    execute @a[tag=!is_dead, scores={teleport_dmg=12}] ~ ~ ~ tp @p ~ ~ ~-10
-    execute @a[tag=!is_dead, scores={teleport_dmg=8}] ~ ~ ~ tp @p ~5 ~ ~5
-    execute @a[tag=!is_dead, scores={teleport_dmg=4}] ~ ~ ~ tp @p ~-5 ~ ~
-    execute @a[tag=!is_dead, scores={teleport_dmg=20}] ~ ~ ~ damage @e[r=15] 4
-    execute @a[tag=!is_dead, scores={teleport_dmg=16}] ~ ~ ~ damage @e[r=15] 4
-    execute @a[tag=!is_dead, scores={teleport_dmg=12}] ~ ~ ~ damage @e[r=15] 4
-    execute @a[tag=!is_dead, scores={teleport_dmg=8}] ~ ~ ~ damage @e[r=15] 4
-    execute @a[tag=!is_dead, scores={teleport_dmg=4}] ~ ~ ~ damage @e[r=15] 4
-
-    #Откат очков телепортации мага
-        execute @a[tag=!is_dead, scores={teleport_def=1..}] ~ ~ ~ scoreboard players add @p teleport_def -1
-        execute @a[tag=!is_dead, scores={teleport_dmg=1..}] ~ ~ ~ scoreboard players add @p teleport_dmg -1
 
 # Обнаружение несуществующих мобов и их деспавн
     tp @e[type=pillager] -10000 -100 -10000

@@ -42,7 +42,8 @@
 					"monstr",
 					"mob",
 					"dangerous",
-					"boat_destroyer"
+					"boat_destroyer",
+					"rat"
 				]
 			},
 			"minecraft:breathable": {
