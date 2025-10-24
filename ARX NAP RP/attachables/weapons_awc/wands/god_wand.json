@@ -2,12 +2,12 @@
     "format_version": "1.10.0",
     "minecraft:attachable": {
         "description": {
-            "identifier": "arx:wand_tironite_butterfly",
+            "identifier": "arx:god_wand",
             "materials": {
                 "default": "entity"
             },
             "textures": {
-                "default": "textures/items/weapons/wands/wand_tironite_butterfly"
+                "default": "textures/items/weapons/wands/god_wand"
             },
             "geometry": {
                 "default": "geometry.16px_weapon_mesh"

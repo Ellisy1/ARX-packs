@@ -1,5 +1,4 @@
 import { ActionFormData } from "@minecraft/server-ui"
-import { getSkillsData, getInfoAboutHowToIncreaseSkills, getInfoAboutSkillsBuffs } from "../skillsOperations"
 import { display_all_traits, display_my_traits, how_traits_work } from '../traits/display_traits'
 
 // Выводим экранчик с опциями навыков

@@ -5,11 +5,10 @@ import { system } from "@minecraft/server"
 import { spellRegistry } from './spellRegistry';
 
 // Создает и возвращает объект spellData, хранящий в себе всё, что может пригодиться в обработке заклинания
-function defineSpellData(player, runeSequence) {
+function defineSpellData(player, runeSequence, currentTargetRaw) {
     let spellData = {}
 
     // 1 - на себя, 2 - по направлению взгляда
-    const currentTargetRaw = player.getDynamicProperty('magicTarget')
     if (![1, 2].includes(currentTargetRaw)) {
         console.log(`Получена неожиданная цель ${currentTargetRaw} в обработчике заклинаний для ${player.name}`)
     }
@@ -79,13 +78,13 @@ function defineSpellData(player, runeSequence) {
  * @param {Player} player
  * @param {string} runeSequence
  */
-export function castJSSpell(player, runeSequence) {
+export function castJSSpell(player, runeSequence, target) {
     // Получаем нужное нам заклинание из реестра
     const spell = spellRegistry[runeSequence];
     if (!spell) return 'noSpell'
 
     // Получем spellData
-    const spellData = defineSpellData(player, runeSequence)
+    const spellData = defineSpellData(player, runeSequence, target)
 
     // Проверка: поддерживает ли заклинание выбранную цель?
     if (spell.validTargets !== undefined && !spell.validTargets.includes(spellData.targetRaw)) {
@@ -97,13 +96,13 @@ export function castJSSpell(player, runeSequence) {
         let successfulCastsCounter = 0
         let wasWrongEntityType = false
         for (const entity of spellData.targets) {
-            // Луч заклинания
-            if (!spellData.isAreaSpell && !spellData.castingOnSelf) spawnParticleTrail(spellData.initiator, entity, runeSequence)
             // Проверка onlyOnPlayers: true
             if (spell.onlyOnPlayers === true && entity.typeId !== 'minecraft:player') {
                 wasWrongEntityType = true
                 continue
             }
+            // Луч заклинания
+            if (!spellData.isAreaSpell && !spellData.castingOnSelf) spawnParticleTrail(spellData.initiator, entity, runeSequence)
             // Активируем заклинание
             spell.handler(entity, spellData)
             successfulCastsCounter++

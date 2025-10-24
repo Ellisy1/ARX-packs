@@ -1,7 +1,8 @@
 // ARX javascript
 
 // Imports - Minecraft
-import { system, world, EntityComponentTypes, EquipmentSlot, Player, ItemStack } from "@minecraft/server"
+import { system, world, EntityComponentTypes, EquipmentSlot, Player, ItemStack, MolangVariableMap } from "@minecraft/server"
+import { ActionFormData } from "@minecraft/server-ui"
 
 // Imports - Arx functions 
 import { getScore, setScore } from './scoresOperations'
@@ -87,21 +88,6 @@ world.afterEvents.playerInventoryItemChange.subscribe((event) => {
         console.warn(`${player.name} §cmod_sword`)
     }
 })
-
-world.afterEvents.projectileHitBlock.subscribe((event) => {
-    if (event.projectile.typeId === 'arx:ump') {
-        analyzeUMP(event, "block")
-    }
-})
-world.afterEvents.projectileHitEntity.subscribe((event) => {
-    if (event.projectile.typeId === 'arx:ump') {
-        analyzeUMP(event, "entity")
-    }
-})
-
-function analyzeUMP(event, source) {
-    event.projectile.remove()
-}
 
 // Игрок зашёл в мир
 world.afterEvents.playerSpawn.subscribe((event) => {
@@ -321,25 +307,40 @@ function getDistanceBetweenPlayers(player1, player2) {
     return Math.sqrt(dx * dx + dy * dy + dz * dz);
 }
 
+// Функция поднятия игрока. Не имеет встроенных проверок, только выполняет задачу
+function pickUpPlayer(initiator, playerToPickUp) {
+    playerToPickUp.runCommand(`ride @s start_riding "${initiator?.name}" teleport_rider`)
+    playerToPickUp.runCommand('event entity @s arx:property_is_knockout_set_true')
+    initiator.runCommand('playanimation @s animation.player.pick_up_knocked_player')
+}
+
 // Взаимодействие с сущностями на пкм
 world.afterEvents.playerInteractWithEntity.subscribe((interactEvent) => {
     if (interactEvent.target?.typeId == "minecraft:player") {
         // Поднимаем игрока
         {
-            const taken = interactEvent.target // Взятый игрок
+            const nearest = interactEvent.target // Взятый игрок
             const self = interactEvent.player // Поднимающий игрок
 
-            // Определяем поворот камеры поднимаемого
-            taken.runCommand('tag @s[rxm=80] add allow_carrying_by_cam_angle')
-            const allow_carrying_by_cam_angle = taken.getTags().includes('allow_carrying_by_cam_angle')
-            taken.removeTag('allow_carrying_by_cam_angle')
+            // Можем ли мы открыть интерфейс поднятие
+            if (self.getProperty("arx:is_knocked") == false && getDistanceBetweenPlayers(nearest, self) < 1.5 && self.getDynamicProperty('hasRegisteredCharacter')) {
+                const form = new ActionFormData()
+                    .title('Взаимодействие с персонажем')
+                    .body('Взаимодействие с игроком body')
+                    .button('Поднять', '')
+                    .button('Выхватить предмет из рук', '')
+                    .button('Карманная кража', '')
+                    .show(self).then((r) => {
+                        if (r.selection === 0) pickUpPlayer(self, nearest)
+                        if (r.selection === 0) snatchItem(self, nearest)
+                    })
+            }
+            if (self.getProperty("arx:is_knocked") == false && getDistanceBetweenPlayers(nearest, self) < 1.5 && !self.getTags().includes('has_riders') && !self.getTags().includes('is_sneaking')) {
 
-            if (self.getProperty("arx:is_knocked") == false && getDistanceBetweenPlayers(taken, self) < 1.5 && !self.getTags().includes('has_riders') && !self.getTags().includes('is_sneaking')) { // Базовая проверка, можем ли мы вообще кого-то нести
+                // Может ли поднимаемый быть поднят
+                if ((nearest.getProperty("arx:is_knocked") != false) || (nearest.getTags().includes('is_sneaking') && allow_carrying_by_cam_angle && !nearest.getTags().includes('is_moving'))) {
+                    // Поднимаем
 
-                if ((taken.getProperty("arx:is_knocked") != false) || (taken.getTags().includes('is_sneaking') && allow_carrying_by_cam_angle && !taken.getTags().includes('is_moving'))) { // Если поднимаемый нокнут ИЛИ если поднимаемый НЕ нокнут, НО его можно взять
-                    taken.runCommand(`ride @s start_riding "${self?.name}" teleport_rider`)
-                    taken.runCommand('event entity @s arx:property_is_knockout_set_true')
-                    self.runCommand('playanimation @s animation.player.pick_up_knocked_player')
                 }
             }
         }
@@ -726,19 +727,24 @@ world.afterEvents.projectileHitEntity.subscribe((hitEvent) => {
     }
 })
 
-function bleed(entity, intencity) {
+function bleed(entity, intencity, damager) {
+    const particleLoc = entity.getHeadLocation()
+    const molang = new MolangVariableMap()
+    const hitDirection = damager?.getViewDirection() ?? { x: 0, y: 0, z: 0 }
+    molang.setVector3('variable.direction', hitDirection)
+
     if (intencity > 0) {
         for (let i = 0; i < intencity * 5; i++) {
-            entity.runCommand('particle arx:blood_drop_bright ~ ~0.2 ~')
+            entity.dimension.spawnParticle('arx:blood_drop_bright', particleLoc, molang)
         }
         for (let i = 0; i < intencity; i++) {
-            entity.runCommand('particle arx:blood_drop_brightest ~ ~0.2 ~')
+            entity.dimension.spawnParticle('arx:blood_drop_brightest', particleLoc, molang)
         }
         for (let i = 0; i < intencity * 2; i++) {
-            entity.runCommand('particle arx:blood_drop_dark ~ ~0.2 ~')
+            entity.dimension.spawnParticle('arx:blood_drop_dark', particleLoc, molang)
         }
         if (intencity > 5) {
-            entity.runCommand('particle arx:blood_drop_darkest ~ ~0.2 ~')
+            entity.dimension.spawnParticle('arx:blood_drop_darkest', particleLoc, molang)
         }
     }
 }
@@ -769,7 +775,7 @@ world.afterEvents.entityHurt.subscribe((hurtEvent) => {
             bloodIntencity *= 3
         }
 
-        bleed(damaged, bloodIntencity)
+        bleed(damaged, bloodIntencity, damager)
     }
 
     // Если ранили игрока
@@ -802,7 +808,7 @@ world.afterEvents.entityHurt.subscribe((hurtEvent) => {
 
 
             if (player.getProperty('arx:is_ghost') === false) {
-                bleed(damaged, bloodIntencity)
+                bleed(damaged, bloodIntencity, damager)
             }
             else {
                 player.runCommand("particle arx:ghost_blood ~ ~1.8 ~")

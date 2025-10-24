@@ -23,14 +23,12 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
         // Тест
         case "arx:mod_sword":
             if (manageCD(player)) {
-                for (const playera of world.getPlayers()) {
-                    console.warn(playera.name, playera.getDynamicProperty('name'), playera.getDynamicProperty('trueName'), player.getProperty('arx:is_ghost'), player.getDynamicProperty('height'))
-                }
-                // player.inputPermissions.setPermissionCategory(6, true)
-                // const stack1 = new ItemStack('arx:small_stone', 1)
-                // stack1.setLore(['§bЧто-то интересное'])
-                // player.dimension.spawnItem(stack1, player.location)
-                player.getComponent('minecraft:scale')
+                const block = player.dimension.getBlock({ x: player.location.x, y: player.location.y - 1, z: player.location.z })
+                const itemStack = block.getItemStack()
+                block.setType("minecraft:air")
+                if (itemStack) block.dimension.spawnItem(itemStack, block.location)
+
+                player.sendMessage("\uE100"); // выведет  (если шрифт поддерживает)
             }
             break
 

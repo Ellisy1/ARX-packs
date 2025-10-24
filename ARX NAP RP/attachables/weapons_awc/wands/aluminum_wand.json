@@ -2,12 +2,12 @@
     "format_version": "1.10.0",
     "minecraft:attachable": {
         "description": {
-            "identifier": "arx:wand_altaite",
+            "identifier": "arx:aluminum_wand",
             "materials": {
                 "default": "entity"
             },
             "textures": {
-                "default": "textures/items/weapons/wands/wand_altaite"
+                "default": "textures/items/weapons/wands/aluminum_wand"
             },
             "geometry": {
                 "default": "geometry.16px_weapon_mesh"

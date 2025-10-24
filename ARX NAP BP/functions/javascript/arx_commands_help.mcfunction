@@ -10,6 +10,7 @@ tellraw @s { "rawtext": [ { "text": "\n§6# =§d Эмоции §6= #" } ] }
 tellraw @s { "rawtext": [ { "text": "§d!! §f- список эмоций" } ] }
 tellraw @s { "rawtext": [ { "text": "§d!! §a<номер эмоции>§f - запустить эмоцию" } ] }
 tellraw @s { "rawtext": [ { "text": "\n§6# =§d Система §6= #" } ] }
+tellraw @s { "rawtext": [ { "text": "§d!§aи§f - открыть <инфо>" } ] }
 tellraw @s { "rawtext": [ { "text": "§d!§abug§f - составить отчёт об ошибке" } ] }
 tellraw @s { "rawtext": [ { "text": "§d!§aidea§f - предложить улучшение" } ] }
 tellraw @s { "rawtext": [ { "text": "§d!§arm§f - перезапустить музыку Аркса" } ] }

@@ -89,23 +89,37 @@ export function increaseSkillLevel(player, skill) {
         iDP(player, `skill:${skill}_level`)
         // Отчитываемся в чат
         queueCommand(player, `playsound player.skill.levelUp @s ~ ~ ~`)
-        queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§e§lНовый уровень§r§f: ${registeredSkills[skill].nameRU}§f: §a${player.getDynamicProperty(`skill:${skill}_level`)}" } ] }`)
+        queueCommand(player, `tellraw @s { "rawtext": [ { "text": "${getSkillIcon(skill, player.getDynamicProperty(`skill:${skill}_level`))} §e§lНовый уровень§r§f: ${registeredSkills[skill].nameRU}§f: §a${player.getDynamicProperty(`skill:${skill}_level`)}\n" } ] }`)
     }
 }
 
-// Возвращаем данные о навыках
+// Возвращаем данные о навыках, отсортированные по уровню (от высокого к низкому)
 export function getSkillsData(player) {
-    let resultString = ''
+    // Собираем все навыки в массив с их данными
+    const skillsArray = Object.keys(registeredSkills).map(skill => {
+        const level = player.getDynamicProperty(`skill:${skill}_level`) ?? 0;
+        const progress = player.getDynamicProperty(`skill:${skill}_progress`) ?? 0;
+        return { skill, level, progress };
+    });
 
-    for (let skill in registeredSkills) {
+    // Сортируем по уровню: сначала высокие
+    skillsArray.sort((a, b) => b.level - a.level);
 
-        let skill_level = player.getDynamicProperty(`skill:${skill}_level`)
-        let skill_progress = player.getDynamicProperty(`skill:${skill}_progress`)
+    let resultString = '';
 
-        resultString += `§a${skill_level}§f ур. ${registeredSkills[skill].nameRU}§f, прогресс §a${Math.floor(skill_progress)}§fŨ\n`
+    for (const { skill, level, progress } of skillsArray) {
+        resultString += `\n${getSkillIcon(skill, level)} §a${level}§f ур. ${registeredSkills[skill].nameRU}§f\n     `;
+
+        const symb = 'I';
+        const lineLength = 25;
+        const lengthDone = Math.floor(lineLength * progress / 100);
+        const lengthUndone = lineLength - lengthDone;
+
+        let progressString = '[§a' + symb.repeat(lengthDone) + `§r§l${symb}§r§8` + symb.repeat(lengthUndone) + `§f] (§a${Math.floor(progress)}§fŨ)`;
+        resultString += progressString;
     }
 
-    return resultString
+    return resultString;
 }
 
 // Возвращаем данные о том как вкачать навык
@@ -149,61 +163,81 @@ export function wipeSkillsProgress(player) {
     }
 }
 
+// Получить иконку навыка
+function getSkillIcon(skillName, level) {
+    // Базовый символ
+    const base = 0xE000
+    // Смещение
+    const offsetByLevel = level < 15 ? Math.floor(level / 2) : 7
+    const offset = registeredSkills[skillName].iconIndex * 16 + offsetByLevel
+    return String.fromCodePoint(base + offset)
+}
+
 // Зарегистрированные навыки
 export const registeredSkills = {
     'strength': {
         nameRU: "§cСила",
         howToIncrease: "повышается, когда вы наносите удары в ближнем бою, при этом увеличение навыка прямо зависит от нанесённого урона.",
-        buff: "увеличивает базовый урон на 0.5."
+        buff: "увеличивает базовый урон на 0.5.",
+        iconIndex: 1,
     },
     'endurance': {
         nameRU: "§6Выносливость",
         howToIncrease: "повышается, когда вы сражаетесь в ближнем бою, будучи перегруженным, либо когда вы ходите с перегрузом.",
-        buff: "увеличивает переносимый вес на 1"
+        buff: "увеличивает переносимый вес на 1",
+        iconIndex: 2,
     },
     'running': {
         nameRU: "§2Бег",
         howToIncrease: "повышается, когда вы бежите без перегруза.",
-        buff: "увеличивает скорость бега на 2Ũ."
+        buff: "увеличивает скорость бега на 2Ũ.",
+        iconIndex: 3,
     },
     'shooting': {
         nameRU: "§aСтрельба",
         howToIncrease: "повышается, когда вы стреляете и попадаете из дистанционного немагического оружия.",
-        buff: "увеличивает точность и дальность стрельбы, а так же урон от стрел."
+        buff: "увеличивает точность и дальность стрельбы, а так же урон от стрел.",
+        iconIndex: 4,
     },
     'mana': {
         nameRU: "§bМана",
         howToIncrease: "повышается, когда вы сотворяете заклинания, требующие небольшое количество маны.",
-        buff: "увеличивает максимальную ману на 5."
+        buff: "увеличивает максимальную ману на 5.",
+        iconIndex: 5,
     },
     'mp_regen': {
         nameRU: "§dМагическая мощь",
         howToIncrease: "повышается, когда вы сотворяете заклинания, требующие большое количество маны.",
-        buff: "увеличивает скорость регенерации маны на 0.2."
+        buff: "увеличивает скорость регенерации маны на 0.2.",
+        iconIndex: 6,
     },
     'hp': {
         nameRU: "§eСтойкость",
         howToIncrease: "повышается, когда вы получаете удары, при этом увеличение навыка прямо зависит от полученного урона.",
-        buff: "увеличивает здоровье на сердце."
+        buff: "увеличивает здоровье на сердце.",
+        iconIndex: 7,
     },
     'swimming': {
         nameRU: "§bПлавание",
         howToIncrease: "повышается, когда вы плаваете.",
-        buff: "увеличивает скорость плавания."
+        buff: "увеличивает скорость плавания.",
+        iconIndex: 8,
     },
     'fortitude': {
         nameRU: "§9Сила духа",
         howToIncrease: "повышается, когда у вас низкий уровень здоровья.",
-        buff: "уменьшает время, которое вы пребываете в нокауте на 2 сек."
+        buff: "уменьшает время, которое вы пребываете в нокауте на 2 сек.",
+        iconIndex: 9,
     },
     'blocking': {
         nameRU: "§vБлокирование",
         howToIncrease: "повышается, когда вы блокируете атаки.",
-        buff: "уменьшает силу, с которой вас отбрасывает, когда вы блокируете атаку."
+        buff: "уменьшает силу, с которой вас отбрасывает, когда вы блокируете атаку.",
+        iconIndex: 10,
     },
     // 'psycoSupport': {
     //     nameRU: "§3Поддержка",
     //     howToIncrease: "повышается, когда вы общаетесь с разумными в позитивном ключе.",
-    //     buff: "игроки чувствуют себя лучше, когда вы общаетесь с ними не в негативных тонах."
+    //     buff: "игроки чувствуют себя лучше, когда вы общаетесь с ними не в негативных тонах.",
     // }
 }

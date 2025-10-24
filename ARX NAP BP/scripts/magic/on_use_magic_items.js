@@ -60,7 +60,7 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
                     channels = parseInt(tag.slice(14))
                 }
             }
-            const channel = getActiveStaffChannel(player, channels)
+            const channel = getActiveStaffChannel(player, channels, false)
             const targetDP = `channel_${channel}_target`
 
             // Логика
@@ -190,7 +190,16 @@ export function useStaff(player, forceChannel = undefined) {
         // Если можем использовать
         if (canCast) {
             // Активируем заклинание, и получаем от него ответ, что оно сделало или не сделало
-            const spellResponce = castJSSpell(player, spell)
+            const spellResponce = castJSSpell(player, spell, magicTarget)
+
+            // Ставим это заклинание, как известное
+            const knownDpellDP = `ksb:${spellRegistry[spell].cipher}`
+            const isAlreadyKnown = player.getDynamicProperty(knownDpellDP)
+            if (!isAlreadyKnown) {
+                player.sendMessage(`Открыто §dновое заклинание§f ${spell}!`)
+                player.runCommand('playsound random.orb @s ~ ~ ~')
+                ssDP(player, knownDpellDP, true)
+            }
 
             // Если заклинание успешно использовано
             switch (spellResponce) {
@@ -217,7 +226,7 @@ export function useStaff(player, forceChannel = undefined) {
         }
         else {
             player.runCommand("playanimation @s animation.arx.no")
-            player.sendMessage(`§vwТребуется §b${spellCostReq}§c маны §o§7(не хватает ${spellCostReq - player.getDynamicProperty('mp')})`)
+            player.sendMessage(`§vТребуется §b${spellCostReq}§v маны §o§7(не хватает ${smartRound(spellCostReq - player.getDynamicProperty('mp'))})`)
         }
     }
     // Если заклинания нет
@@ -225,6 +234,11 @@ export function useStaff(player, forceChannel = undefined) {
         player.runCommand("playanimation @s animation.arx.no")
         player.sendMessage(`§cЗаклинание не заготовлено в ${channelRomanNums[activeChannel - 1]} канале`)
     }
+}
+
+function smartRound(num) {
+    const rounded = Math.round(num * 10) / 10;
+    return rounded % 1 === 0 ? Math.trunc(rounded) : rounded;
 }
 
 function withdrawMP(player, spellCostReq, spellCostMult) {

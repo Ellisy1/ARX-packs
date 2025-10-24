@@ -108,8 +108,7 @@ deathScreen.respawn=Респавн
 deathScreen.title=Вы вырублены!
 deathScreen.titleScreen=Ну нахуй, я ливаю
 
-disconnect.kicked=Че, закибербуллили тебя, да? Ну я не знаю, выключи компьютер и хз, иди нахуй отсюда
-disconnectionScreen.cantConnect=Ахахаха лох иди нахуй
+disconnect.kicked=Вы были удалены из Аркса модератором
 disconnectionScreen.outdatedClient=Обновись до последней версии
 disconnectionScreen.outdatedServer=Сервер использует парашную старую версию
 

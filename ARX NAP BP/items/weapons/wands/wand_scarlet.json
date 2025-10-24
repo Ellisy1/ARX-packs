@@ -5,7 +5,7 @@
             "minecraft:can_destroy_in_creative": false,
             "minecraft:cooldown": {
                 "category": "weapon",
-                "duration": 0.25
+                "duration": 0.4
             },
             "minecraft:damage": 1,
             "minecraft:durability": {

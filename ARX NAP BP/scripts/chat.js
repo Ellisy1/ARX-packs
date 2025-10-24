@@ -238,12 +238,17 @@ export function parceChatCommand(player, trimmedMessage) {
         }
 
         else if (command[0] == "!bug") { // Отчитаться о баге
-            queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§aЗакройте чат и прыгните§f, чтобы составить отчёт об ошибке.\n§o§7(Не задавайте вопросов, так надо)" } ] }`);
+            queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§aЗакройте чат и прыгните§f, чтобы составить отчёт об ошибке" } ] }`);
             queueCommand(player, 'tag @s add bug')
         }
 
+        else if (command[0] == "!i" || command[0] == "!и") { // Открыть инфо
+            player.sendMessage('§aЗакройте чат и прыгните§f, чтобы открыть <Инфо>')
+            ssDP(player, 'ui:readyToOpenInfoBook', true)
+        }
+
         else if (command[0] == "!idea") { // Предложить идею
-            queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§aЗакройте чат и прыгните§f, чтобы написать идею или предложение.\n§o§7(Не задавайте вопросов, так надо)" } ] }`);
+            queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§aЗакройте чат и прыгните§f, чтобы написать идею или предложение" } ] }`);
             queueCommand(player, 'tag @s add idea')
         }
 
@@ -818,4 +823,18 @@ function speechEmote(player, phrase) {
 
 function isAdmin(player) {
     return getScore(player, "verify") == 2 ? true : false
+}
+
+export function msgFromGuide(player, message) {
+    if (!player || !message) {
+        console.warn(`Попытка отправить сообщение от гида игроку ${player.name} с содержанием ${message} с отсутствием достаточного числа аргументов`)
+    }
+    player.sendMessage(`[§aГид§f] > ${message}`)
+    player.runCommand('playsound random.orb @s ~ ~ ~')
+}
+export function msgFromSystem(player, message) {
+    if (!player || !message) {
+        console.warn(`Попытка отправить сообщение от системы игроку ${player.name} с содержанием ${message} с отсутствием достаточного числа аргументов`)
+    }
+    player.sendMessage(`[§dСистема§f] > ${message}`)
 }

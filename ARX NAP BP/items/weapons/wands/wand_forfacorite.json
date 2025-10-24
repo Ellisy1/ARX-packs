@@ -5,11 +5,11 @@
             "minecraft:can_destroy_in_creative": false,
             "minecraft:cooldown": {
                 "category": "weapon",
-                "duration": 0.9
+                "duration": 1.2
             },
             "minecraft:damage": 1,
             "minecraft:durability": {
-                "max_durability": 1704
+                "max_durability": 1638
             },
             "minecraft:enchantable": {
                 "slot": "sword",

@@ -1,7 +1,7 @@
 // Arx core manager
 
 // Импорт - основа
-import { system, world, EntityComponentTypes, EquipmentSlot } from "@minecraft/server"
+import { system, world, EntityComponentTypes, EquipmentSlot, MolangVariableMap } from "@minecraft/server"
 
 import { getScore, setScore } from '../scoresOperations'
 import { calculateXPMultiplier, increaseSkillLevel, increaseSkillProgress, wipeSkills } from '../skillsOperations'
@@ -24,10 +24,11 @@ import { sendToActionBar } from './actionBarCore'
 // Импорт - другие области движка
 import { getNearestPlayer } from "../getNearestPlayer"
 import { queueCommand } from "../commandQueue"
-import { parceChatCommand } from "../chat"
+import { msgFromGuide, parceChatCommand } from "../chat"
 import './ambience_core'
 import './dynamicLightCore'
 import { getEntityFamilies } from "../_main"
+import { infoScreen } from "../info/_infoScreen"
 
 // ARXGate
 export let ARXGate = {
@@ -108,17 +109,17 @@ system.runInterval(() => {
             let stringToDisplay
             // Отображаем в тактах
             if (player.getDynamicProperty("myRule:showAttackCDMode") == 'ticks') {
-                if (player?.getDynamicProperty("prohibit_damage") > 0) stringToDisplay = ` §c${attackCD}`
+                if (player?.getDynamicProperty("prohibit_damage") > 0) stringToDisplay = ` §c${attackCD}`
                 else stringToDisplay = ` ${attackCD}`
             }
             // Секундах
             else if (player.getDynamicProperty("myRule:showAttackCDMode") == 'seconds') {
-                if (player?.getDynamicProperty("prohibit_damage") > 0) stringToDisplay = ` §c${Math.ceil(attackCD / 20)}`
+                if (player?.getDynamicProperty("prohibit_damage") > 0) stringToDisplay = ` §c${Math.ceil(attackCD / 20)}`
                 else stringToDisplay = ` ${Math.ceil(attackCD / 20)}`
             }
             // Дробных долях секунд
             else if (player.getDynamicProperty("myRule:showAttackCDMode") == 'secondsFloat') {
-                if (player?.getDynamicProperty("prohibit_damage") > 0) stringToDisplay = ` §c${(attackCD / 20).toFixed(1)}`
+                if (player?.getDynamicProperty("prohibit_damage") > 0) stringToDisplay = ` §c${(attackCD / 20).toFixed(1)}`
                 else stringToDisplay = ` ${(attackCD / 20).toFixed(1)}`
             }
             // Строкой
@@ -127,7 +128,7 @@ system.runInterval(() => {
                 if (player?.getDynamicProperty("prohibit_damage") > 0) {
                     for (let i = 0; i < Math.ceil(attackCD / 10); i++) { damageString += '=' }
                     damageString += "§f"
-                    stringToDisplay = ` §c${damageString}§f `
+                    stringToDisplay = ` §c${damageString}§f `
                 }
                 else {
                     for (let i = 0; i < Math.ceil(attackCD / 10); i++) { damageString += '-' }
@@ -226,6 +227,7 @@ system.runInterval(() => {
 system.runInterval(() => {
     world.getDimension("minecraft:overworld").runCommand("function core_parts_NAP/2ticks")
     for (const player of world.getPlayers()) {
+
         // Античит - автоклик
         {
             const clicks = player.getDynamicProperty('anticheat:autoclick_tracker')
@@ -732,6 +734,12 @@ system.runInterval(() => {
                     }
                 })
 
+        }
+
+        // Открывание книжки
+        if (player.getDynamicProperty('ui:readyToOpenInfoBook') && player.hasTag('is_moving')) {
+            ssDP(player, 'ui:readyToOpenInfoBook', false)
+            infoScreen(player)
         }
 
         // Счётчик пройденного расстояния
@@ -1632,11 +1640,16 @@ system.runInterval(() => {
 
         // Кровотечение при низком хп
         if (player.getProperty('arx:is_ghost') == false) {
+            const particleLoc = player.getHeadLocation()
+            const molang = new MolangVariableMap()
+            const hitDirection = { x: 0, y: 0, z: 0 }
+            molang.setVector3('variable.direction', hitDirection)
+
             if (player.getTags().includes('low_hp') && Math.random() > 0.6) {
-                player.runCommand('particle arx:blood_drop_bright')
+                player.dimension.spawnParticle('arx:blood_drop_bright', particleLoc, molang)
             }
             if (player.getTags().includes('very_low_hp')) {
-                player.runCommand('particle arx:blood_drop_bright')
+                player.dimension.spawnParticle('arx:blood_drop_bright', particleLoc, molang)
             }
         }
 
@@ -1818,6 +1831,11 @@ export function displayMPAndAdjacent(player) {
             if (tag.includes('staff_channels_')) {
                 staffChannelNum = parseInt(tag.slice(15))
             }
+        }
+
+        if (staffChannelNum > 1 && !player.getDynamicProperty('hasEverHoldedMultiChannelStaff')) {
+            ssDP(player, 'hasEverHoldedMultiChannelStaff', true)
+            msgFromGuide(player, 'Вы держите §aмногоканальный посох§f! Чтобы выбрать канал магии, присядьте и поворачивайте камерой вверх-вниз. Чтобы зафиксировать выбранный канал, встанье.')
         }
 
         const targets = ['§aНа себя', '§6На другого']

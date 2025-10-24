@@ -2,12 +2,12 @@
     "format_version": "1.10.0",
     "minecraft:attachable": {
         "description": {
-            "identifier": "arx:wand_dragon",
+            "identifier": "arx:wand_forfacorite",
             "materials": {
                 "default": "entity"
             },
             "textures": {
-                "default": "textures/items/weapons/wands/wand_dragon"
+                "default": "textures/items/weapons/wands/wand_forfacorite"
             },
             "geometry": {
                 "default": "geometry.16px_weapon_mesh"

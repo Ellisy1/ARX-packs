@@ -6,6 +6,7 @@ import { infoSkillsScreen } from "./infoSkillsScreen"
 import { infoAboutStats } from "./infoAboutStats"
 import { infoAboutStatistics } from "./infoAboutStatistics"
 import { infoAboutAchievements } from "./infoAboutAchievements"
+import { knownSpellsBook } from "./knownSpellsBook"
 import { infoAboutTraits } from "./infoAboutTraits"
 import { arxSettings } from "./arxSettings"
 import { guide } from "./guide"
@@ -30,6 +31,7 @@ export function infoScreen(player) {
         form.button("Гид", 'textures/ui/info/guide')
         form.button("О персонаже", 'textures/ui/info/about_character')
         form.button("Навыки", 'textures/ui/info/about_skills')
+        form.button("Открытые заклинания", 'textures/ui/info/known_spells_book')
         form.button("Характеристики", 'textures/ui/info/about_stats')
         form.button("Черты характера", 'textures/ui/info/about_traits')
         form.button("Вкусы", 'textures/ui/info/about_tastes')
@@ -39,30 +41,22 @@ export function infoScreen(player) {
         form.button("Авторы и разработчики", 'textures/ui/info/about_authors')
 
         form.show(player).then((response) => {
-            if (response.selection === 0) {
-                guide(player)
-            } else if (response.selection === 1) {
-                infoAboutCharacter(player)
-            } else if (response.selection === 2) {
-                infoSkillsScreen(player)
-            } else if (response.selection === 3) {
-                infoAboutStats(player)
-            } else if (response.selection === 4) {
-                infoAboutTraits(player)
-            } else if (response.selection === 5) {
-                infoAboutTastes(player)
-            } else if (response.selection === 6) {
-                infoAboutAchievements(player)
-            } else if (response.selection === 7) {
-                arxSettings(player)
-            } else if (response.selection === 8) {
-                infoAboutStatistics(player)
-            } else if (response.selection === 9) {
-                player.runCommand('function info/authors')
+            switch (response.selection) {
+                case 0: guide(player); break;
+                case 1: infoAboutCharacter(player); break;
+                case 2: infoSkillsScreen(player); break;
+                case 3: knownSpellsBook(player); break;
+                case 4: infoAboutStats(player); break;
+                case 5: infoAboutTraits(player); break;
+                case 6: infoAboutTastes(player); break;
+                case 7: infoAboutAchievements(player); break;
+                case 8: arxSettings(player); break;
+                case 9: infoAboutStatistics(player); break;
+                case 10: player.runCommand('function info/authors'); break
             }
         })
     } else {
         console.warn(`Игрок ${player.name} использовал инфо, хотя не имеет зарегистрированного персонажа`)
-        player.runCommand(`tellraw @s { "rawtext": [ { "text": "§cВы не имеете зарегистрированного персонажа, невозможно вызвать <Инфо>." } ] }`)
+        player.sendMessage("§cВы не имеете зарегистрированного персонажа, невозможно вызвать <Инфо>.")
     }
 }

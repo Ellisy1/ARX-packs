@@ -2,12 +2,12 @@
     "format_version": "1.10.0",
     "minecraft:attachable": {
         "description": {
-            "identifier": "arx:wand_gf_neth_rod",
+            "identifier": "arx:wand_scarlet",
             "materials": {
                 "default": "entity"
             },
             "textures": {
-                "default": "textures/items/weapons/wands/wand_gf_neth_rod"
+                "default": "textures/items/weapons/wands/wand_scarlet"
             },
             "geometry": {
                 "default": "geometry.16px_weapon_mesh"
