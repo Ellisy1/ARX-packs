@@ -1000,16 +1000,6 @@
       "textures": "textures/items/crafting/sphere_of_power"
     },
 
-    "arx:dildo": {
-      "textures": "textures/items/xxx_toys/dildo"
-    },
-    "arx:dildo_forest": {
-      "textures": "textures/items/xxx_toys/dildo_forest"
-    },
-    "arx:dildo_night_skewer": {
-      "textures": "textures/items/xxx_toys/dildo_night_skewer"
-    },
-
     "arx:cup": {
       "textures": "textures/items/other/cup"
     },

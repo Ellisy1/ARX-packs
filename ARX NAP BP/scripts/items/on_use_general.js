@@ -708,19 +708,6 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
 
         // Сравнение НЕ через ID предмета
         default:
-            if (item?.getTags() == "is_dildo") {
-                if (player.getProperty("arx:gender") == 2) {
-                    if (checkForItem(player, "Chest", undefined) === false) {
-                        player.runCommand(`tellraw @s { "rawtext": [ { "text": "§cМне нужно раздеться, чтобы использовать дилдо." } ] }`)
-                    } else if (player.hasTag('is_moving')) {
-                        player.runCommand(`tellraw @s { "rawtext": [ { "text": "§cИспользовать дилдо на ходу - плохая идея." } ] }`)
-                    } else {
-                        player.runCommand(`playanimation @s animation.humanoid.dildo.default a 0.1 "query.is_moving || q.property('arx:is_knocked') == true || !query.equipped_item_any_tag('slot.weapon.mainhand', 'is_dildo') || q.is_sneaking"`)
-                    }
-                } else {
-                    player.runCommand(`tellraw @s { "rawtext": [ { "text": "Довольно необычное наощупь." } ] }`)
-                }
-            }
             if (item?.getTags().includes("is_dagger")) {
                 if (manageCD(player)) {
                     launchBlocking(player)

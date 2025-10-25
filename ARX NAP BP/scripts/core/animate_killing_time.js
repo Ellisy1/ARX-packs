@@ -8,7 +8,6 @@ export function animate_killing_time(player) {
 
     if ((item?.getTags().includes('is_weapon')) ||
         (item?.getTags().includes('is_umbrella')) ||
-        (item?.getTags().includes('is_dildo')) ||
         (killingTimeBanItems.includes(item?.typeId)) ||
         (player.getProperty('arx:is_knocked') === true) ||
         (player.hasTag('is_emoting_via_arx_command') === true) ||

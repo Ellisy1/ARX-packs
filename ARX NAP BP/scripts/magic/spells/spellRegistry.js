@@ -752,12 +752,12 @@ export let spellRegistry = {
     },
     "kon inoffo sempra mega": {
         mpCost: 15,
-        description: 'заклинание небольшого урона',
+        description: 'заклинание хорошего урона',
         handler: (player) => { classicDamage(player, 7.5) }
     },
     "kon inoffo sempra mega mega mega": {
         mpCost: 45,
-        description: 'заклинание небольшого урона',
+        description: 'заклинание мощного урона',
         handler: (player) => { classicDamage(player, 22.5) }
     },
 };

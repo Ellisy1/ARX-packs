@@ -326,22 +326,10 @@ world.afterEvents.playerInteractWithEntity.subscribe((interactEvent) => {
             if (self.getProperty("arx:is_knocked") == false && getDistanceBetweenPlayers(nearest, self) < 1.5 && self.getDynamicProperty('hasRegisteredCharacter')) {
                 const form = new ActionFormData()
                     .title('Взаимодействие с персонажем')
-                    .body('Взаимодействие с игроком body')
                     .button('Поднять', '')
-                    .button('Выхватить предмет из рук', '')
-                    .button('Карманная кража', '')
                     .show(self).then((r) => {
                         if (r.selection === 0) pickUpPlayer(self, nearest)
-                        if (r.selection === 0) snatchItem(self, nearest)
                     })
-            }
-            if (self.getProperty("arx:is_knocked") == false && getDistanceBetweenPlayers(nearest, self) < 1.5 && !self.getTags().includes('has_riders') && !self.getTags().includes('is_sneaking')) {
-
-                // Может ли поднимаемый быть поднят
-                if ((nearest.getProperty("arx:is_knocked") != false) || (nearest.getTags().includes('is_sneaking') && allow_carrying_by_cam_angle && !nearest.getTags().includes('is_moving'))) {
-                    // Поднимаем
-
-                }
             }
         }
     }

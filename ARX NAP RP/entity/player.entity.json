@@ -24,11 +24,9 @@
           "variable.is_blinking = 0.0;",
           "variable.last_blink_time = 0.0;",
           "variable.hand_bob = 0.0;",
-          "variable.is_moving_anyway = 0.0;",
-          "variable.dildo = 0.0;"
+          "variable.is_moving_anyway = 0.0;"
         ],
         "pre_animation": [
-          "variable.dildo = math.sin(q.anim_time * (9 * (q.target_x_rotation + 90))) * 2;",
           "variable.helmet_layer_visible = 1.0;",
           "variable.leg_layer_visible = 1.0;",
           "variable.boot_layer_visible = 1.0;",
