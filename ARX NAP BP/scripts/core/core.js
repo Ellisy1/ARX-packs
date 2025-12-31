@@ -670,72 +670,6 @@ system.runInterval(() => {
 
     for (const player of world.getPlayers()) {
 
-        // Интерфейс отчета о баге
-        if (player.hasTag("bug") && player.hasTag("is_moving")) {
-            player.removeTag("bug")
-
-            const form = new ModalFormData()
-                .title("Отчет об ошибке")
-                .slider("Насколько этот баг серьёзен", 1, 5, { defaultValue: 2 })
-                .textField("Опишите баг", "Описание")
-                .toggle("Приложить к отчёту моё местоположение")
-                .toggle("Приложить к отчёту данные о предмете в правой руке")
-                .submitButton("Отправить")
-
-                .show(player)
-                .then(response => {
-                    if (response.formValues) {
-                        let report = ''
-
-                        report += `\n§eПользовательский отчёт от ошибке\n`
-                        report += `§fСоставитель: §d${player.name}\n`
-                        report += `§fСерьёзность бага: §d${response.formValues[0]}\n`
-                        report += `§fБаг: ${response.formValues[1]}\n`
-                        if (response.formValues[2] === true) {
-                            report += (`x: ${Math.round(player.location.x)}, y: ${Math.round(player.location.y)}, z: ${Math.round(player.location.z)}, ${player.dimension.id}\n`)
-                        }
-                        if (response.formValues[3] === true) {
-                            const item = player.getComponent(EntityComponentTypes.Equippable).getEquipment(EquipmentSlot.Mainhand)
-
-                            report += (`Предмет в правой руке: ${item?.typeId}\n`)
-                        }
-
-                        // Отправляем отчет в консоль
-                        console.error(report)
-
-                        player.runCommand(`tellraw @s { "rawtext": [ { "text": "Спасибо за отчёт, §a${player.name}§f! Модератор уже получил его." } ] }`)
-                    }
-                })
-
-        }
-
-        // Интерфейс преложения
-        if (player.hasTag("idea") && player.hasTag("is_moving")) {
-            player.removeTag("idea")
-
-            const form = new ModalFormData()
-                .title("Преложение по улучшению Аркса")
-                .textField("Что вы хотите предложить?", "Ваша потрясающая мысль", { tooltip: 'Пожалуйста, пишите понятно и конкретно' })
-                .submitButton("Отправить")
-
-                .show(player)
-                .then(response => {
-                    if (response.formValues) {
-                        let report = ''
-
-                        report += `\n§aПользовательское предложение\n`
-                        report += `§fСоставитель: §d${player.name}\n`
-                        report += `§fСодержание: ${response.formValues[0]}\n`
-
-                        // Отправляем отчет в консоль
-                        console.warn(report)
-
-                        player.runCommand(`tellraw @s { "rawtext": [ { "text": "Спасибо за предложение, §a${player.name}§f! Модератор уже получил его." } ] }`)
-                    }
-                })
-
-        }
-
         // Открывание книжки
         if (player.getDynamicProperty('ui:readyToOpenInfoBook') && player.hasTag('is_moving')) {
             ssDP(player, 'ui:readyToOpenInfoBook', false)
@@ -1266,7 +1200,7 @@ system.runInterval(() => {
             player.runCommand(`fog @s remove "scarlet_night"`)
 
             //Установка туманов
-            // Если у игрока бан туманов 
+            // Если у игрока сняты туманы 
             if (getScore(player, 'no_fog') > 0 || player.getDynamicProperty('ghostBoostByScarletMoon')) {
                 player.runCommand(`fog @s push minecraft:fog_default "default"`)
             }

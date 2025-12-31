@@ -70,7 +70,7 @@ system.runInterval(() => {
         // Запускаем музыку
         if (music_location != player.getDynamicProperty("music_location_previous")) {
             // Запускаем музыку (выше в списке = приоритетнее)
-
+            console.warn('Music restart')
             // Порочные сады
             if (music_location === -1) {
                 player.playMusic(`Music_for_Manatees`, musicOptions)

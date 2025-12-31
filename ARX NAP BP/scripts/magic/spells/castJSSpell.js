@@ -115,6 +115,7 @@ export function castJSSpell(player, runeSequence, target) {
     }
 }
 
+// Создаем луч из частиц, зависимо от набранного заклинания 
 function spawnParticleTrail(initiator, entity, runeSequence, delayTicks = 0.25) {
     let p0, p1;
 

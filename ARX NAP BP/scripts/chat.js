@@ -214,11 +214,6 @@ export function parceChatCommand(player, trimmedMessage) {
             }
         }
 
-        else if (command[0] == "!myskills") { // Инфо о навыках
-            queueCommand(player, `tellraw @s { "rawtext": [ { "text": " " } ] }`)
-            getSkillsData(player, "strength")
-        }
-
         else if (command[0] == "!lore") { // История персонажа
             if (!command[1] || (command[1] !== 'add' && command[1] !== 'set') || !command[2]) {
                 queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cИспользуйте §d!§alore set <история>§c, чтобы написать историю персонажа с нуля, или §d!§alore add <дополнение истории>§c, чтобы добавить к существующей истории новый эпизод." } ] }`);
@@ -237,19 +232,9 @@ export function parceChatCommand(player, trimmedMessage) {
             }
         }
 
-        else if (command[0] == "!bug") { // Отчитаться о баге
-            queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§aЗакройте чат и прыгните§f, чтобы составить отчёт об ошибке" } ] }`);
-            queueCommand(player, 'tag @s add bug')
-        }
-
         else if (command[0] == "!i" || command[0] == "!и") { // Открыть инфо
             player.sendMessage('§aЗакройте чат и прыгните§f, чтобы открыть <Инфо>')
             ssDP(player, 'ui:readyToOpenInfoBook', true)
-        }
-
-        else if (command[0] == "!idea") { // Предложить идею
-            queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§aЗакройте чат и прыгните§f, чтобы написать идею или предложение" } ] }`);
-            queueCommand(player, 'tag @s add idea')
         }
 
         else if (command[0].toLowerCase() == "!w" || command[0].toLowerCase() == "!ш") { // Использование шёпота
@@ -262,56 +247,71 @@ export function parceChatCommand(player, trimmedMessage) {
         }
 
         else if (command[0].toLowerCase() == "!д" || command[0].toLowerCase() == "!a" || command[0].toLowerCase() == "!me") { // Использование действия
-            if (player.getDynamicProperty('respawnDelay') === 0) {
-                sendChatMessage(player, `§o(${trimmedMessage.slice(3).trim()})`, "§bДействие", 8, player.getDynamicProperty('name'))
+            if (world.getDynamicProperty('RPMode') === true) {
+                if (player.getDynamicProperty('respawnDelay') === 0) {
+                    sendChatMessage(player, `§o(${trimmedMessage.slice(3).trim()})`, "§bДействие", 8, player.getDynamicProperty('name'))
+                }
+                else {
+                    queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cВы не можете выполнять действия, пока вы без сознания." } ] }`)
+                }
             }
             else {
-                queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cВы не можете выполнять действия, пока вы без сознания." } ] }`)
+                player.sendMessage(`§cЭту команду можно использовать только в режиме РП. Режим РП может включить только владелец мира.`)
             }
         }
 
         else if (command[0].startsWith("!к") && command[0].length - ((command[0].match(/к/g) || []).length) === 1) { // Использование крика
-            if (player.getDynamicProperty('respawnDelay') === 0) {
-                if (!command[1]) {
-                    queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cНельзя крикнуть без слов, чел." } ] }`)
+            if (world.getDynamicProperty('RPMode') === true) {
+                if (player.getDynamicProperty('respawnDelay') === 0) {
+                    if (!command[1]) {
+                        queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cНельзя крикнуть без слов, чел." } ] }`)
+                    }
+                    else {
+                        // Трясём камеру
+                        queueCommand(player, "camerashake add @s 0.2 0.1")
+
+                        // Громкость крика без обработки
+                        const basicShoutPower = command[0].length - 1
+
+                        // Громкость крика с обработкой (сигмоида)
+                        const L = 9
+                        const k = 0.75
+                        const x0 = 5.5
+                        const offset = 10
+
+                        const modifiedShoutPower = L / (1 + Math.exp(-k * (basicShoutPower - x0))) + offset
+
+                        // Восклиц знаки
+                        let additionalExcalmations = "!".repeat(Math.ceil(modifiedShoutPower / 12))
+
+                        sendChatMessage(player, `§l${command.slice(1).join(" ").toUpperCase()}${additionalExcalmations}`, "§vКрик", modifiedShoutPower, player.getDynamicProperty('name'))
+                    }
                 }
                 else {
-                    // Трясём камеру
-                    queueCommand(player, "camerashake add @s 0.2 0.1")
-
-                    // Громкость крика без обработки
-                    const basicShoutPower = command[0].length - 1
-
-                    // Громкость крика с обработкой (сигмоида)
-                    const L = 9
-                    const k = 0.75
-                    const x0 = 5.5
-                    const offset = 10
-
-                    const modifiedShoutPower = L / (1 + Math.exp(-k * (basicShoutPower - x0))) + offset
-
-                    // Восклиц знаки
-                    let additionalExcalmations = "!".repeat(Math.ceil(modifiedShoutPower / 12))
-
-                    sendChatMessage(player, `§l${command.slice(1).join(" ").toUpperCase()}${additionalExcalmations}`, "§vКрик", modifiedShoutPower, player.getDynamicProperty('name'))
+                    queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cВы не можете общаться, пока вы без сознания." } ] }`)
                 }
             }
             else {
-                queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cВы не можете общаться, пока вы без сознания." } ] }`)
+                player.sendMessage(`§cЭту команду можно использовать только в режиме РП. Режим РП может включить только владелец мира.`)
             }
         }
 
         else if (command[0].toLowerCase() == "!г" || command[0].toLowerCase() == "!g") {
-            if (player.getDynamicProperty('respawnDelay') === 0) {
-                if (!command[1]) {
-                    queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cНельзя отправить пустое глобальное сообщение." } ] }`)
+            if (world.getDynamicProperty('RPMode') === true) {
+                if (player.getDynamicProperty('respawnDelay') === 0) {
+                    if (!command[1]) {
+                        player.sendMessage(`§cНельзя отправить пустое глобальное сообщение.`)
+                    }
+                    else {
+                        sendChatMessage(player, trimmedMessage.slice(3).trim(), "§cГлобал.", 0, player.name)
+                    }
                 }
                 else {
-                    sendChatMessage(player, trimmedMessage.slice(3).trim(), "§cГлобал.", 0, player.name)
+                    player.sendMessage(`§cВы не можете использовать глобальный чат, пока вы без сознания.`)
                 }
             }
             else {
-                queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cВы не можете использовать глобальный чат, пока вы без сознания." } ] }`)
+                player.sendMessage(`§cЭту команду можно использовать только в режиме РП. Режим РП может включить только владелец мира.`)
             }
         }
         else if (command[0] == "!camset") {
@@ -342,12 +342,12 @@ export function parceChatCommand(player, trimmedMessage) {
                 emote(player, trimmedMessage)
             }
             else {
-                queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cВы не можете использовать эмоции, пока вы без сознания." } ] }`)
+                player.sendMessage(`§cВы не можете использовать эмоции, пока вы без сознания.`)
             }
         }
 
         else {
-            queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cТакой команды Аркса не существует.\nВведите §f!§c, чтобы посмотреть доступные." } ] }`)
+            player.sendMessage(`§cТакой команды Аркса не существует.\nВведите §f!§c, чтобы посмотреть доступные.`)
         }
     }
     else { // Сообщение - не команда Аркса. Обработать и отправить
@@ -361,7 +361,7 @@ function sendChatMessage(player, speech, prefix, clearDistance = 0, senderName =
     /*
     АРГУМЕНТЫ:
     speech: текстовое сообщение
-    clearDistance: дистанция, на которой речь слышно без искажений. 0 - дистаниция бесконечная
+    clearDistance: максимальная дистанция, на которой речь слышно без искажений. Если 0, то дистаниция бесконечная
     prefix: префикс речи, например "§aЛокал."
     senderName - имя отправителя сообщения, которое отобразится в чате
     */
@@ -416,77 +416,87 @@ function sendChatMessage(player, speech, prefix, clearDistance = 0, senderName =
         }
     }
 
-    // Делаем речевую эмоцию, если это нужно
-    if (!player.hasTag('is_emoting_via_arx_command') && (prefix === "§aЛокал." || prefix === "§vКрик")) {
-        speechEmote(player, speech)
-    }
+    // ЕСЛИ ВКЛЮЧЕН РП ЧАТ
+    if (world.getDynamicProperty('RPMode') === true) {
+        // Делаем речевую эмоцию, если это нужно
+        if (!player.hasTag('is_emoting_via_arx_command') && (prefix === "§aЛокал." || prefix === "§vКрик")) {
+            speechEmote(player, speech)
+        }
 
-    // Записываем руну, если надо, используя кристалл синергии
-    if (checkForItem(player, "Legs", 'arx:amul_hypersynergy') || checkForItem(player, "Legs", 'arx:amul_hypersynergy_improved') || checkForItem(player, "Legs", 'arx:amul_hypersynergy_superior')) {
-        if (prefix !== "§cГлобал.") {
-            const words = speech.split(' ')
+        // Записываем руну, если надо, используя кристалл синергии
+        if (checkForItem(player, "Legs", 'arx:amul_hypersynergy') || checkForItem(player, "Legs", 'arx:amul_hypersynergy_improved') || checkForItem(player, "Legs", 'arx:amul_hypersynergy_superior')) {
+            if (prefix !== "§cГлобал.") {
+                const words = speech.split(' ')
 
-            let rune = words[0]
+                let rune = words[0]
 
-            if (!words[1]) {
-                rune = rune.toLowerCase()
-                rune = rune.replace(/[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]+/g, "")
+                if (!words[1]) {
+                    rune = rune.toLowerCase()
+                    rune = rune.replace(/[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]+/g, "")
 
-                // Обрабатываем форматирование
-                while (true) {
-                    if (rune.startsWith('§')) {
-                        rune = rune.slice(2)
-                    } else {
-                        break
+                    // Обрабатываем форматирование
+                    while (true) {
+                        if (rune.startsWith('§')) {
+                            rune = rune.slice(2)
+                        } else {
+                            break
+                        }
+                    }
+
+                    if (rune in runeCiphers) {
+                        if (!player.getDynamicProperty('amul_hypersynergyCD') > 0) {
+                            const item = player.getComponent(EntityComponentTypes.Equippable).getEquipment(EquipmentSlot.Legs)
+                            cipherRuneSequence(player, rune, item?.getTags())
+                            // Выдаем КД
+                            if (checkForItem(player, "Legs", 'arx:amul_hypersynergy')) ssDP(player, 'amul_hypersynergyCD', 100)
+                            if (checkForItem(player, "Legs", 'arx:amul_hypersynergy_improved')) ssDP(player, 'amul_hypersynergyCD', 35)
+                            if (checkForItem(player, "Legs", 'arx:amul_hypersynergy_superior')) ssDP(player, 'amul_hypersynergyCD', 5)
+                        }
+                        else {
+                            player.sendMessage("§cОткат амулета гиперсинергии ещё не закончился.")
+                        }
                     }
                 }
+            }
+        }
 
-                if (rune in runeCiphers) {
-                    if (!player.getDynamicProperty('amul_hypersynergyCD') > 0) {
-                        const item = player.getComponent(EntityComponentTypes.Equippable).getEquipment(EquipmentSlot.Legs)
-                        cipherRuneSequence(player, rune, item?.getTags())
-                        // Выдаем КД
-                        if (checkForItem(player, "Legs", 'arx:amul_hypersynergy')) ssDP(player, 'amul_hypersynergyCD', 100)
-                        if (checkForItem(player, "Legs", 'arx:amul_hypersynergy_improved')) ssDP(player, 'amul_hypersynergyCD', 35)
-                        if (checkForItem(player, "Legs", 'arx:amul_hypersynergy_superior')) ssDP(player, 'amul_hypersynergyCD', 5)
-                    }
-                    else {
-                        player.sendMessage("§cОткат амулета гиперсинергии ещё не закончился.")
-                    }
+        // Проходимся по каждому игроку
+        for (const speechListener of world.getPlayers()) {
+
+            // Если тот, кто получает сообщение не нокнут
+            if (speechListener.getDynamicProperty('respawnDelay') === 0) {
+
+                // Определяем дистанцию между говорящим и слушающим
+                const dx = speechListener.location.x - player.location.x
+                const dy = speechListener.location.y - player.location.y
+                const dz = speechListener.location.z - player.location.z
+                const distanceToListener = Math.sqrt(dx * dx + dy * dy + dz * dz)
+
+                // Путаем речь зависимо от дистанции между говорящим и слущающим
+                const speechReadyToSend = messSpeechByDistance(speech, distanceToListener, clearDistance)
+
+                // Путаем никнейм
+                const readySenderName = messSpeechByDistance(senderName, distanceToListener, clearDistance)
+
+                // Если игрок должен получить какое-то сообщение
+                if (speechReadyToSend) {
+                    // Настраиваем префикс чата
+                    let finalPrefix = prefix // значение по умолчанию
+
+                    // Срезаем префикс, если это нужно
+                    if (speechListener.getDynamicProperty('myRule:chatPrefixes') == 'shortEN') finalPrefix = prefix.slice(0, 3)
+
+                    // Отправляем сообщение
+                    speechListener.sendMessage(`[${finalPrefix}§f] <${readySenderName}§f> ${speechReadyToSend}`)
                 }
             }
         }
     }
 
-    // Проходимся по каждому игроку
-    for (const speechListener of world.getPlayers()) {
-
-        // Если тот, кто получает сообщение не нокнут
-        if (speechListener.getDynamicProperty('respawnDelay') === 0) {
-
-            // Определяем дистанцию между говорящим и слушающим
-            const dx = speechListener.location.x - player.location.x
-            const dy = speechListener.location.y - player.location.y
-            const dz = speechListener.location.z - player.location.z
-            const distanceToListener = Math.sqrt(dx * dx + dy * dy + dz * dz)
-
-            // Путаем речь зависимо от дистанции между говорящим и слущающим
-            const speechReadyToSend = messSpeechByDistance(speech, distanceToListener, clearDistance)
-
-            // Путаем никнейм
-            const readySenderName = messSpeechByDistance(senderName, distanceToListener, clearDistance)
-
-            // Если игрок должен получить какое-то сообщение
-            if (speechReadyToSend) {
-                // Настраиваем префикс чата
-                let finalPrefix = prefix // значение по умолчанию
-
-                // Срезаем префикс, если это нужно
-                if (speechListener.getDynamicProperty('myRule:chatPrefixes') == 'shortEN') finalPrefix = prefix.slice(0, 3)
-
-                // Отправляем сообщение
-                speechListener.sendMessage(`[${finalPrefix}§f] <${readySenderName}§f> ${speechReadyToSend}`)
-            }
+    // ЕСЛИ РП ЧАТ ВЫКЛЮЧЕН
+    else {
+        for (const speechListener of world.getPlayers()) {
+            speechListener.sendMessage(`<${player.name}> ${speech}`)
         }
     }
 }

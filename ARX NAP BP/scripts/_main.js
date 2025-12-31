@@ -46,11 +46,6 @@ world.afterEvents.playerButtonInput.subscribe((event) => {
         else {
             ssDP(player, 'pressedJumpButton', false)
         }
-        // Прыжок - усиление
-        // if (!player.hasTag('on_ground')) {
-        //     const viewDirection = player.getViewDirection()
-        //     player.applyKnockback({ x: viewDirection.x, z: viewDirection.z }, player.getDynamicProperty('skill:jumping_level') / 10)
-        // }
     }
     else if (button === 'Sneak') {
         if (state === 'Pressed') {
@@ -290,23 +285,6 @@ world.afterEvents.playerBreakBlock.subscribe((breakEvent) => {
     breakEvent.player.runCommand("scoreboard players add @s count_broken_blocks 1")
 })
 
-// Получаем дистанцию между игроками
-function getDistanceBetweenPlayers(player1, player2) {
-    if (!(player1 instanceof Player) || !(player2 instanceof Player)) {
-        console.warn("getDistanceBetweenPlayers: Оба параметра должны быть объектами Player!");
-        return undefined;
-    }
-
-    const pos1 = player1.location;
-    const pos2 = player2.location;
-
-    const dx = pos2.x - pos1.x;
-    const dy = pos2.y - pos1.y;
-    const dz = pos2.z - pos1.z;
-
-    return Math.sqrt(dx * dx + dy * dy + dz * dz);
-}
-
 // Функция поднятия игрока. Не имеет встроенных проверок, только выполняет задачу
 function pickUpPlayer(initiator, playerToPickUp) {
     playerToPickUp.runCommand(`ride @s start_riding "${initiator?.name}" teleport_rider`)
@@ -322,15 +300,7 @@ world.afterEvents.playerInteractWithEntity.subscribe((interactEvent) => {
             const nearest = interactEvent.target // Взятый игрок
             const self = interactEvent.player // Поднимающий игрок
 
-            // Можем ли мы открыть интерфейс поднятие
-            if (self.getProperty("arx:is_knocked") == false && getDistanceBetweenPlayers(nearest, self) < 1.5 && self.getDynamicProperty('hasRegisteredCharacter')) {
-                const form = new ActionFormData()
-                    .title('Взаимодействие с персонажем')
-                    .button('Поднять', '')
-                    .show(self).then((r) => {
-                        if (r.selection === 0) pickUpPlayer(self, nearest)
-                    })
-            }
+            if (r.selection === 0) pickUpPlayer(self, nearest)
         }
     }
     // Создание персонажа в лобби
