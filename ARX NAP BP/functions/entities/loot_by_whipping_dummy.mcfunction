@@ -1,1 +1,0 @@
-loot spawn ~ ~ ~ loot "entities/whipping_dummy"

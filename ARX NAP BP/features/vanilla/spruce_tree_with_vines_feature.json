@@ -1,8 +1,0 @@
-{
-  "format_version": "1.13.0",
-  "minecraft:tree_feature": {
-    "description": {
-      "identifier": "minecraft:spruce_tree_with_vines_feature"
-    }
-  }
-}
