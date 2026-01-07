@@ -1,0 +1,21 @@
+{
+	"format_version": "1.17.41",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "arx:seeds_beetroot"
+		},
+		"tags": ["crafting_table"],
+		"pattern": [
+		"P"
+		],
+		"key": {
+			"P": "minecraft:beetroot"
+			
+		},
+		"result": [
+			{
+				"item": "arx:seeds_beetroot"
+			}
+		]
+	}
+}

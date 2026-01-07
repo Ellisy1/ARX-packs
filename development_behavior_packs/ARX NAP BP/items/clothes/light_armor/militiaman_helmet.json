@@ -1,0 +1,27 @@
+{
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:durability": {
+                "max_durability": 120
+            },
+            "minecraft:enchantable": {
+                "slot": "armor_head",
+                "value": 10
+            },
+            "minecraft:icon": "arx:militiaman_helmet",
+            "minecraft:max_stack_size": 1,
+            "minecraft:wearable": {
+                "protection": 4,
+                "slot": "slot.armor.head"
+            }
+        },
+        "description": {
+            "identifier": "arx:militiaman_helmet",
+            "menu_category": {
+                "category": "equipment",
+                "group": "itemGroup.name.helmet"
+            }
+        }
+    }
+}

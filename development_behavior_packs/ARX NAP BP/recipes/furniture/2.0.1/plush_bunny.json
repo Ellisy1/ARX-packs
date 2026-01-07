@@ -1,0 +1,33 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:plush_bunny"
+    },
+
+    
+    "tags": [ "clothes_crafting_table" ],
+    "pattern": [
+      "DID",
+      "IAI",
+      "VIV"
+    ],
+    "key": {
+      "I": {
+        "item": "arx:cheap_cloth"
+      },
+      "A": {
+        "item": "minecraft:feather"
+      },
+      "F": {
+        "item": "minecraft:dye:9"
+      },
+      "V": {
+        "item": "minecraft:dye:19"
+      }
+    },
+    "result": {
+      "item": "arx:plush_bunny"
+    }
+  }
+}

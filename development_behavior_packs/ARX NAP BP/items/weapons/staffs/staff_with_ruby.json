@@ -1,0 +1,37 @@
+{
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:can_destroy_in_creative": false,
+            "minecraft:cooldown": {
+                "category": "weapon",
+                "duration": 3.5
+            },
+            "minecraft:damage": 3,
+            "minecraft:durability": {
+                "max_durability": 874
+            },
+            "minecraft:enchantable": {
+                "slot": "sword",
+                "value": 15
+            },
+            "minecraft:icon": "arx:staff_with_ruby",
+            "minecraft:max_stack_size": 1,
+            "minecraft:tags": {
+                "tags": [
+                    "is_staff",
+                    "staff_channels_3",
+                    "is_weapon",
+                    "material_metal"
+                ]
+            }
+        },
+        "description": {
+            "identifier": "arx:staff_with_ruby",
+            "menu_category": {
+                "category": "equipment",
+                "group": "itemGroup.name.sword"
+            }
+        }
+    }
+}

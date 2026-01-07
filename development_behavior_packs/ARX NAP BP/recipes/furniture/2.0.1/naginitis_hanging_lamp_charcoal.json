@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:naginitis_hanging_lamp_charcoal"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "I I",
+      " R ",
+      " I "
+    ],
+    "key": {
+      "I": {
+        "item": "arx:naginitis_ingot"
+      },
+      "R": {
+        "item": "minecraft:charcoal"
+      }
+    },
+    "result": {
+      "item": "arx:naginitis_hanging_lamp"
+    }
+  }
+}

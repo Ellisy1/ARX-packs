@@ -1,0 +1,23 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "arx:night_knight_helmet",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/clothes/light_armor/night_knight_set"
+      },
+      "geometry": {
+        "default": "geometry.night_knight_helmet"
+      },
+      "scripts": {
+        "parent_setup": "variable.chest_layer_visible = 0.0;"
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ]
+    }
+  }
+}

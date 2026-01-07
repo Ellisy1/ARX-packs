@@ -1,0 +1,33 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "arx:warrior_chain_mail",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/clothes/light_armor/warrior_chain_mail"
+      },
+      "geometry": {
+        "default": "geometry.warrior_chain_mail"
+      },
+      "animations": {
+        "cloak": "animation.cloak.default",
+        "cloak_controller": "controller.animation.cloak",
+        "bust": "animation.player.bust",
+        "bust_controller": "controller.animation.bust"
+      },
+      "scripts": {
+        "animate": [
+          "cloak_controller",
+          "bust_controller"
+        ],
+        "parent_setup": "variable.chest_layer_visible = 0.0;"
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ]
+    }
+  }
+}

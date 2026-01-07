@@ -1,0 +1,33 @@
+{
+  "format_version": 2,
+  "header": {
+    "description": "NAP [resourse]",
+    "name": "ARX resource pack 3.4.0 [1.21.0 engine]",
+    "uuid": "cad4ce53-2a75-45ac-83fb-85d44d83a36a",
+    "version": [
+      3,
+      4,
+      0
+    ],
+    "min_engine_version": [
+      1,
+      21,
+      0
+    ]
+  },
+  "modules": [
+    {
+      "description": "Pack",
+      "type": "resources",
+      "uuid": "6f435b9a-6828-4247-b3bc-b7a66251aa7f",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    }
+  ],
+  "capabilities": [
+    "raytraced"
+  ]
+}

@@ -1,0 +1,37 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.bururu.stay": {
+			"loop": true,
+			"bones": {
+				"head": {
+					"rotation": ["math.sin(query.anim_time * 90) * 3", 0, 0]
+				}
+			}
+		},
+		"animation.bururu.run": {
+			"loop": true,
+			"bones": {
+				"main": {
+					"position": [0, 3, 0]
+				},
+				"body": {
+					"rotation": [0, "math.sin(query.anim_time * 300) * -12", "math.sin(query.anim_time * 300) * 15"],
+					"position": [0, "math.sin(query.anim_time * 600 + 120) * 1", 0]
+				},
+				"tail": {
+					"rotation": [12.5, "math.sin(query.anim_time * 300) * 6", 0]
+				},
+				"left": {
+					"rotation": ["math.sin(query.anim_time * 300 + 90) * -50", 0, 0]
+				},
+				"right": {
+					"rotation": ["math.sin(query.anim_time * 300 + 90) * 50", 0, 0]
+				},
+				"head": {
+					"rotation": ["15+math.sin(query.anim_time * 600) * 2", "math.sin(query.anim_time * 300) * 12", "math.sin(query.anim_time * 300) * -12"]
+				}
+			}
+		}
+	}
+}

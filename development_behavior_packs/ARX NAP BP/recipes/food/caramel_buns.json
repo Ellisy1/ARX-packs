@@ -1,0 +1,31 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:caramel_buns"
+    },
+
+    
+    "tags": [ "thermal_cooking_crafting_table" ],
+    "pattern": [
+      " A ",
+      "ACA",
+      "BBB"
+
+    ],
+    "key": {
+      "A": {
+        "item": "arx:caramel"
+      },
+      "B": {
+        "item": "arx:dough"
+      },
+      "C": {
+        "item": "minecraft:sugar"
+      }
+    },
+    "result": {
+      "item": "arx:caramel_buns"
+    }
+  }
+}

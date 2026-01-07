@@ -1,0 +1,60 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:feature_rules": {
+		"description": {
+			"identifier": "arx:plant_wild_tea_feature_rule",
+			"places_feature": "arx:plant_wild_tea_feature"
+		},
+		"conditions": {
+			"placement_pass": "surface_pass",
+			"minecraft:biome_filter": [
+				{
+					"all_of": [
+						{
+							"test": "has_biome_tag",
+							"operator": "!=",
+							"value": "nether"
+						},
+						{
+							"test": "has_biome_tag",
+							"operator": "!=",
+							"value": "taiga"
+						},
+						{
+							"test": "has_biome_tag",
+							"operator": "!=",
+							"value": "savanna"
+						},
+						{
+							"test": "has_biome_tag",
+							"operator": "==",
+							"value": "forest"
+						}
+					]
+				}
+			]
+		},
+		"distribution": {
+			"scatter_chance": {
+				"numerator": 1,
+				"denominator": 64
+			},
+			"iterations": 3,
+			"x": {
+				"distribution": "gaussian",
+				"extent": [
+					0,
+					8
+				]
+			},
+			"y": "query.heightmap(variable.worldx, variable.worldz)",
+			"z": {
+				"distribution": "gaussian",
+				"extent": [
+					0,
+					8
+				]
+			}
+		}
+	}
+}

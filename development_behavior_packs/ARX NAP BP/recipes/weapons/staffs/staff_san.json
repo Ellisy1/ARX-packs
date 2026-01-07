@@ -1,0 +1,33 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:staff_san"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      " BV",
+      " WB",
+      "A  "
+    ],
+    "key": {
+      "A": {
+        "item": "arx:iron_billet"
+      },
+      "B": {
+        "item": "arx:gold_billet"
+      },
+      "V": {
+        "item": "arx:sphere_of_power"
+      },
+      "W": {
+        "item": "arx:gold_feather"
+      }
+    },
+    "result": {
+      "item": "arx:staff_san"
+    }
+  }
+}

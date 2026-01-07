@@ -1,0 +1,30 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:dorionite_double_edged_sword"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      "  #",
+      " X ",
+      "A  "
+    ],
+    "key": {
+      "#": {
+        "item": "arx:dorionite_billet"
+      },
+      "X": {
+        "item": "arx:steel_ingot"
+      },
+      "A": {
+        "item": "arx:dorionite_ingot"
+      }
+    },
+    "result": {
+      "item": "arx:dorionite_double_edged_sword"
+    }
+  }
+}

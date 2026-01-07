@@ -1,0 +1,14 @@
+{
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:icon": "arx:naginitis_ingot"
+        },
+        "description": {
+            "identifier": "arx:naginitis_ingot",
+            "menu_category": {
+                "category": "items"
+            }
+        }
+    }
+}

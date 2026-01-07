@@ -1,0 +1,55 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:feature_rules": {
+		"description": {
+			"identifier": "arx:plant_royal_sorrel_feature_rule",
+			"places_feature": "arx:plant_royal_sorrel_feature"
+		},
+		"conditions": {
+			"placement_pass": "surface_pass",
+			"minecraft:biome_filter": [
+				{
+					"all_of": [
+						{
+							"test": "has_biome_tag",
+							"operator": "==",
+							"value": "overworld"
+						},
+						{
+							"test": "has_biome_tag",
+							"operator": "!=",
+							"value": "frozen"
+						},
+						{
+							"test": "has_biome_tag",
+							"operator": "!=",
+							"value": "desert"
+						}
+					]
+				}
+			]
+		},
+		"distribution": {
+			"scatter_chance": {
+				"numerator": 1,
+				"denominator": 961
+			},
+			"iterations": 1,
+			"x": {
+				"distribution": "uniform",
+				"extent": [
+					0,
+					1
+				]
+			},
+			"y": "query.heightmap(variable.worldx, variable.worldz)",
+			"z": {
+				"distribution": "uniform",
+				"extent": [
+					0,
+					1
+				]
+			}
+		}
+	}
+}

@@ -1,0 +1,35 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:blue_pirate_hat"
+    },
+
+    
+    "tags": [ "clothes_crafting_table" ],
+    "pattern": [
+      "B  ",
+      "DCD",
+      " E "
+    ],
+    "key": {
+      "B": {
+        "item": "minecraft:feather"
+      },
+      "C": {
+        "item": "arx:cotton_fabric"
+      },
+      "D": {
+        "item": "minecraft:dye",
+        "data": 18
+      },
+      "E": {
+        "item": "minecraft:dye",
+        "data": 11
+      }
+    },
+    "result": {
+      "item": "arx:blue_pirate_hat"
+    }
+  }
+}

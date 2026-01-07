@@ -1,0 +1,26 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:divine_altar"
+    },
+
+    
+    "tags": [ "rune_crafting_table" ],
+    "pattern": [
+      "AAA",
+      "BAB"
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:quartz_block"
+      },
+      "B": {
+        "item": "arx:durasteel_protective_plate"
+      }
+    },
+    "result": {
+      "item": "arx:divine_altar"
+    }
+  }
+}

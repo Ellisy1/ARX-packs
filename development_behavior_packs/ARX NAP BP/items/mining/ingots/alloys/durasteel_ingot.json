@@ -1,0 +1,14 @@
+{
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:icon": "arx:durasteel_ingot"
+        },
+        "description": {
+            "identifier": "arx:durasteel_ingot",
+            "menu_category": {
+                "category": "items"
+            }
+        }
+    }
+}

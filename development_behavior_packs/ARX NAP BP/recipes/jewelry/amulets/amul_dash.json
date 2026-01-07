@@ -1,0 +1,29 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:amul_dash"
+    },
+
+    
+    "tags": [ "jewelry_crafting_table" ],
+    "pattern": [
+      " I ",
+      "ERE"
+    ],
+    "key": {
+      "I": {
+        "item": "arx:amul_string"
+      },
+      "R": {
+        "item": "arx:olivine_gem"
+      },
+      "E": {
+        "item": "arx:steel_ingot"
+      }
+    },
+    "result": {
+      "item": "arx:amul_dash"
+    }
+  }
+}

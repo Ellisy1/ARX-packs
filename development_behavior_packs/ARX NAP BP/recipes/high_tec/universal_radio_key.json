@@ -1,0 +1,33 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:universal_radio_key"
+    },
+
+    
+    "tags": [ "electronics_crafting_table" ],
+    "pattern": [
+      "XIM",
+      "IRI",
+      "  M"
+    ],
+    "key": {
+      "I": {
+        "item": "arx:plumbum_block"
+      },
+      "R": {
+        "item": "arx:chrome_ingot"
+      },
+      "X": {
+        "item": "arx:chrome_nugget"
+      },
+      "M": {
+        "item": "arx:copper_provoloka"
+      }
+    },
+    "result": {
+      "item": "arx:universal_radio_key"
+    }
+  }
+}

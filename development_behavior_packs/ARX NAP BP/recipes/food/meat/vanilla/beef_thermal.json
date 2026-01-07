@@ -1,0 +1,22 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:beef_thermal"
+    },
+
+    
+    "tags": [ "thermal_cooking_crafting_table" ],
+    "pattern": [
+      "#"
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:beef"
+      }
+    },
+    "result": {
+      "item": "arx:fried_beef"
+    }
+  }
+}

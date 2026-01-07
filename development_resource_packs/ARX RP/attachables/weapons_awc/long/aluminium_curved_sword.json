@@ -1,0 +1,20 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:attachable": {
+        "description": {
+            "identifier": "arx:aluminium_curved_sword",
+            "materials": {
+                "default": "entity"
+            },
+            "textures": {
+                "default": "textures/items/weapons/long/aluminium_curved_sword"
+            },
+            "geometry": {
+                "default": "geometry.32px_weapon_mesh"
+            },
+            "render_controllers": [
+                "controller.render.default"
+            ]
+        }
+    }
+}

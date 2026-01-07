@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:wall_torch"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      " I ",
+      "XIX",
+      " X "
+    ],
+    "key": {
+      "I": {
+        "item": "minecraft:planks"
+      },
+      "X": {
+        "item": "arx:aluminum_ingot"
+      }
+    },
+    "result": {
+      "item": "arx:wall_torch"
+    }
+  }
+}

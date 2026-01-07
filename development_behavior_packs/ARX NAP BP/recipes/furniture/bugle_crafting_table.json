@@ -1,0 +1,33 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:bugle_crafting_table"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "RiR",
+      "AiA",
+      "RIR"
+    ],
+    "key": {
+      "I": {
+        "item": "arx:steel_ingot"
+      },
+      "A": {
+        "item": "arx:tin_ingot"
+      },
+      "R": {
+        "item": "arx:cast_iron_ingot"
+      },
+      "i": {
+        "item": "minecraft:coal"
+      }
+    },
+    "result": [
+      {"item": "arx:bugle_crafting_table"}
+    ]
+  }
+}

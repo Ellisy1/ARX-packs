@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:heavy_armor_crafting_table"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      " I ",
+      "RRR",
+      "RRR"
+    ],
+    "key": {
+      "I": {
+        "item": "arx:steel_ingot"
+      },
+      "R": {
+        "item": "arx:cast_iron_ingot"
+      }
+    },
+    "result": [
+      {"item": "arx:heavy_armor_crafting_table"}
+    ]
+  }
+}

@@ -1,0 +1,157 @@
+{
+	"format_version": "1.16.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "arx:grim_skull",
+			"is_spawnable": true,
+			"is_summonable": true
+		},
+		"components": {
+			"minecraft:knockback_resistance": {
+				"value": 0.5
+			},
+			"minecraft:despawn": {
+				"despawn_from_distance": {}
+			},
+			"minecraft:experience_reward": {
+				"on_death": "query.last_hit_by_player ? 60 : 0"
+			},
+			"minecraft:loot": {
+				"table": "loot_tables/entities/grim_skull.json"
+			},
+			"minecraft:type_family": {
+				"family": [
+					"mob",
+					"dangerous",
+					"despawn_as_ghost"
+				]
+			},
+			"minecraft:health": {
+				"value": 12
+			},
+			"minecraft:collision_box": {
+				"width": 0.5,
+				"height": 0.5
+			},
+			"minecraft:balloonable": {},
+			"minecraft:physics": {},
+			"minecraft:pushable": {
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			},
+			"minecraft:conditional_bandwidth_optimization": {},
+			"minecraft:on_death": {
+				"event": "on_death",
+				"target": "self"
+			},
+			"minecraft:behavior.random_hover": {
+				"priority": 12,
+				"xz_dist": 8,
+				"y_dist": 8,
+				"y_offset": -1,
+				"interval": 1,
+				"hover_height": [
+					1,
+					4
+				]
+			},
+			"minecraft:behavior.float": {
+				"priority": 19
+			},
+			"minecraft:flying_speed": {
+				"value": 0.17
+			},
+			"minecraft:navigation.hover": {
+				"can_path_over_water": false,
+				"can_sink": false,
+				"can_pass_doors": false,
+				"can_path_from_air": true,
+				"avoid_water": true,
+				"avoid_damage_blocks": true,
+				"avoid_sun": false
+			},
+			"minecraft:movement.hover": {},
+			"minecraft:jump.static": {},
+			"minecraft:can_fly": {},
+			"minecraft:behavior.nearest_attackable_target": {
+				"priority": 2,
+				"must_see": true,
+				"reselect_targets": true,
+				"within_radius": 25.0,
+				"must_see_forget_duration": 25.0,
+				"entity_types": [
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "player"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"operator": "not",
+									"value": "is_knocked"
+								}
+							]
+						},
+						"max_dist": 30
+					}
+				]
+			},
+			"minecraft:behavior.melee_attack": {
+				"priority": 1,
+				"speed_multiplier": 1.4
+			},
+			"minecraft:attack": {
+				"damage": 8
+			},
+			"minecraft:behavior.melee_box_attack": {
+				"priority": 2,
+				"attack_once": true,
+				"speed_multiplier": 1.2
+			},
+			"minecraft:fire_immune": {}
+		},
+		"component_groups": {
+			"arx:despawn": {
+				"minecraft:instant_despawn": {}
+			},
+			"arx:despawn_as_ghost": {
+				"minecraft:instant_despawn": {}
+			}
+		},
+		"events": {
+			"on_death": {
+				"queue_command": {
+					"command": [
+						"scoreboard players add @a[r=10] xp_tray 60",
+						"scoreboard players add @a[r=10] count_mob_kills 1"
+					]
+				}
+			},
+			"minecraft:entity_spawned": {
+				"queue_command": {
+					"command": [
+						"execute unless entity @a[scores={verify=2}, tag=scarlet_night] run tag @s add force_to_despawn"
+					]
+				}
+			},
+			"arx:despawn_forced": {
+				"add": {
+					"component_groups": [
+						"arx:despawn"
+					]
+				}
+			},
+			"arx:despawn_as_ghost": {
+				"add": {
+					"component_groups": [
+						"arx:despawn_as_ghost"
+					]
+				}
+			}
+		}
+	}
+}

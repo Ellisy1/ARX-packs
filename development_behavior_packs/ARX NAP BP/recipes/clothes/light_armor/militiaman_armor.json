@@ -1,0 +1,30 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:militiaman_armor"
+    },
+
+    
+    "tags": [ "light_armor_crafting_table" ],
+    "pattern": [
+      "#A#",
+      "BAB",
+      "AAA"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:iron_protective_plate"
+      },
+      "A": {
+        "item": "arx:cheap_cloth"
+      },
+      "B": {
+        "item": "minecraft:dye:11"
+      }
+    },
+    "result": {
+      "item": "arx:militiaman_armor"
+    }
+  }
+}

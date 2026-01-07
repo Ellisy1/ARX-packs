@@ -1,0 +1,24 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:gravel_slab"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "A",
+      "A"
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:gravel"
+      }
+    },
+    "result": {
+      "item": "arx:gravel_slab",
+      "count": 4
+    }
+  }
+}

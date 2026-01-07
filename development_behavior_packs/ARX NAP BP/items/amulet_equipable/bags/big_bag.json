@@ -1,0 +1,26 @@
+{
+    "format_version": "1.21.30",
+    "minecraft:item": {
+        "components": {
+            "minecraft:icon": {
+                "textures": {
+                    "default": "arx:big_bag"
+                }
+            },
+            "minecraft:max_stack_size": 1,
+            "minecraft:durability": {
+              "max_durability": 250
+            },
+            "minecraft:wearable": {
+                "slot": "slot.armor.legs"
+            }
+        },
+        "description": {
+            "identifier": "arx:big_bag",
+            "menu_category": {
+                "category": "equipment",
+                "group": "itemGroup.name.leggings"
+            }
+        }
+    }
+}

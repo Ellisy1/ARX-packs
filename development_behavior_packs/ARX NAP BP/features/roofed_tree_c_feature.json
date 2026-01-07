@@ -1,0 +1,14 @@
+{
+	"format_version": "1.19.50",
+	"minecraft:structure_template_feature": {
+		"description": {
+			"identifier": "arx:roofed_tree_c_feature"
+		},
+		"structure_name": "arx:roofed_tree_c",
+		"adjustment_radius": 0,
+		"constraints": {
+			"grounded": {},
+			"unburied": {}
+		}
+	}
+}

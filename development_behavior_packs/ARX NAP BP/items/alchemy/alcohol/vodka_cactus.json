@@ -1,0 +1,30 @@
+{
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:custom_components": [
+                "arx:onConsume"
+            ],
+            "minecraft:food": {
+                "can_always_eat": true,
+                "nutrition": 20,
+                "saturation_modifier": 0,
+                "using_converts_to": "arx:default_bottle"
+            },
+            "minecraft:icon": "arx:vodka_cactus",
+            "minecraft:max_stack_size": 1,
+            "minecraft:use_animation": "drink",
+            "minecraft:use_modifiers": {
+                "movement_modifier": 0.5,
+                "use_duration": 2.0
+            }
+        },
+        "description": {
+            "identifier": "arx:vodka_cactus",
+            "menu_category": {
+                "category": "equipment",
+                "group": "itemGroup.name.potion"
+            }
+        }
+    }
+}

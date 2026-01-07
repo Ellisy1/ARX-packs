@@ -1,0 +1,30 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:spawn_rules": {
+    "description": {
+      "identifier": "minecraft:magma_cube",
+      "population_control": "monster"
+    },
+    "conditions": [
+      {
+        "minecraft:spawns_underground": {
+        },
+
+        "minecraft:spawns_on_block_prevented_filter": [
+          "minecraft:nether_wart_block",
+          "minecraft:shroomlight"
+        ],
+
+        "minecraft:weight": {
+          "default": 1
+        },
+
+        "minecraft:biome_filter": {
+          "test": "has_biome_tag",
+          "operator": "==",
+          "value": "spawn_many_magma_cubes"
+        }
+      }
+    ]
+  }
+}

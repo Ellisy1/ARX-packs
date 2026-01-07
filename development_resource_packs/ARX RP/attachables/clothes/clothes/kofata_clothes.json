@@ -1,0 +1,23 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "arx:kofata_clothes",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/clothes/clothes/kofata_clothes"
+      },
+      "geometry": {
+        "default": "geometry.kofata_clothes"
+      },
+      "scripts": {
+        "parent_setup": "variable.chest_layer_visible = 0.0;"
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ]
+    }
+  }
+}

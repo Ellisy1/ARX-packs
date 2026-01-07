@@ -1,0 +1,51 @@
+{
+    "format_version": "1.21.30",
+    "minecraft:block": {
+        "components": {
+            "minecraft:collision_box": 0,
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 0.2
+            },
+            "minecraft:geometry": "geometry.basic_plant",
+            "minecraft:loot": "loot_tables/blocks/ores/xp_ore.json",
+            "minecraft:map_color": "#37812f",
+            "minecraft:material_instances": {
+                "*": {
+                    "render_method": "alpha_test",
+                    "texture": "arx_xp_flower"
+                }
+            },
+            "minecraft:placement_filter": {
+                "conditions": [
+                    {
+                        "allowed_faces": [
+                            "up"
+                        ],
+                        "block_filter": [
+                            "minecraft:grass",
+                            "dirt"
+                        ]
+                    }
+                ]
+            },
+            "minecraft:selection_box": {
+                "origin": [
+                    -6.0,
+                    0.0,
+                    -6.0
+                ],
+                "size": [
+                    12.0,
+                    16.0,
+                    12.0
+                ]
+            }
+        },
+        "description": {
+            "identifier": "arx:xp_flower",
+            "menu_category": {
+                "category": "nature"
+            }
+        }
+    }
+}

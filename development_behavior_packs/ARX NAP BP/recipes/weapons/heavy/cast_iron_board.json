@@ -1,0 +1,33 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:cast_iron_board"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      "  #",
+      " # ",
+      "YX "
+    ],
+    "key": {
+      "#": {
+        "item": "arx:cast_iron_billet"
+      },
+      "Z": {
+        "item": "arx:cast_iron_ingot"
+      },
+      "X": {
+        "item": "minecraft:dye", "data": 5
+      },
+      "Y": {
+        "item": "minecraft:stick"
+      }
+    },
+    "result": {
+      "item": "arx:cast_iron_board"
+    }
+  }
+}

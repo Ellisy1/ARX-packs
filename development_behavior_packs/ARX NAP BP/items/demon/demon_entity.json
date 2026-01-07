@@ -1,0 +1,14 @@
+{
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:icon": "arx:demon_entity"
+        },
+        "description": {
+            "identifier": "arx:demon_entity",
+            "menu_category": {
+                "category": "items"
+            }
+        }
+    }
+}

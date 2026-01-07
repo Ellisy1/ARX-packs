@@ -1,0 +1,35 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.snow_lady.attack": {
+			"animation_length": 0.25,
+			"bones": {
+				"backcircle": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0833": [-832.5, 82.5, -1140],
+						"0.125": [-541.875, 61.875, -1035],
+						"0.25": [0, 0, -720]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.0833": {
+							"pre": [-25, -5, -37],
+							"post": [-25, -5, -37],
+							"lerp_mode": "catmullrom"
+						},
+						"0.125": {
+							"post": [0, -11, -66.06],
+							"lerp_mode": "catmullrom"
+						},
+						"0.1667": {
+							"post": [25, -6, -36],
+							"lerp_mode": "catmullrom"
+						},
+						"0.25": [0, 0, 0]
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,22 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:fish_fillet_thermal"
+    },
+
+    
+    "tags": [ "thermal_cooking_crafting_table" ],
+    "pattern": [
+      "#"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:fish_fillet"
+      }
+    },
+    "result": {
+      "item": "arx:fish_fillet_fried"
+    }
+  }
+}

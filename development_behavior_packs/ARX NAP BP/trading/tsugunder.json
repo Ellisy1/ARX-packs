@@ -1,0 +1,619 @@
+{
+  "tiers": [
+    {
+      "trades": [
+        //ПРОДАЖА
+        //Сигареты 
+        {
+          "wants": [
+            {
+              "item": "arx:rat_coin"
+            }
+          ],
+          "gives": [
+            {
+              "item": "arx:cigarette_fiolix",
+              "quantity": 4
+            }
+          ]
+        },
+        //Среднедешёвый товар 
+        {
+          "wants": [
+            {
+              "item": "arx:rat_coin",
+              "quantity": {
+                "min": 8,
+                "max": 20
+              }
+            }
+          ],
+          "gives": [
+            {
+              "choice": [
+                {
+                  "item": "arx:apprentice_robe"
+                },
+                {
+                  "item": "arx:amul_of_concealment"
+                },
+                {
+                  "item": "arx:myterious_eye"
+                },
+                {
+                  "item": "arx:breaker_of_modified_moving_t1"
+                },
+                {
+                  "item": "arx:big_storybook"
+                },
+                {
+                  "item": "arx:crystal_of_durability"
+                },
+                {
+                  "item": "arx:crystal_of_swift_respawn"
+                }
+              ]
+            }
+          ]
+        },
+        //Книги
+        {
+          "wants": [
+            {
+              "item": "arx:rat_coin",
+              "quantity": {
+                "min": 8,
+                "max": 20
+              }
+            }
+          ],
+          "gives": [
+            {
+              "choice": [
+                {
+                  "item": "arx:book_mage_notes"
+                },
+                {
+                  "item": "arx:book_about_ancients"
+                },
+                {
+                  "item": "arx:book_about_march"
+                },
+                {
+                  "item": "arx:book_about_tsaskhin"
+                },
+                {
+                  "item": "arx:book_asarocchi_i"
+                },
+                {
+                  "item": "arx:book_asarocchi_ii"
+                },
+                {
+                  "item": "arx:book_asarocchi_iii"
+                },
+                {
+                  "item": "arx:book_asarocchi_iv"
+                },
+                {
+                  "item": "arx:book_asarocchi_v"
+                },
+                {
+                  "item": "arx:book_asarocchi_vi"
+                },
+                {
+                  "item": "arx:book_asarocchi_vii"
+                },
+                {
+                  "item": "arx:book_asarocchi_viii"
+                },
+                {
+                  "item": "arx:book_asarocchi_ix"
+                },
+                {
+                  "item": "arx:book_asarocchi_x"
+                },
+                {
+                  "item": "arx:book_dext"
+                },
+                {
+                  "item": "arx:book_dragon_artifacts"
+                },
+                {
+                  "item": "arx:book_golfari"
+                },
+                {
+                  "item": "arx:book_holy_sakura"
+                },
+                {
+                  "item": "arx:book_legend_of_fallen_god"
+                },
+                {
+                  "item": "arx:book_nameless_paladin"
+                },
+                {
+                  "item": "arx:book_of_immortal_eagle"
+                },
+                {
+                  "item": "arx:book_philosophy"
+                },
+                {
+                  "item": "arx:book_thinking_about_gods"
+                },
+                {
+                  "item": "arx:book_wandering_puppet"
+                },
+                {
+                  "item": "arx:book_oculus_primae_maledictionis"
+                },
+                {
+                  "item": "arx:demon_book"
+                }
+              ]
+            }
+          ]
+        },
+        //Зелья
+        {
+          "wants": [
+            {
+              "item": "arx:rat_coin",
+              "quantity": {
+                "min": 5,
+                "max": 30
+              }
+            }
+          ],
+          "gives": [
+            {
+              "choice": [
+                {
+                  "item": "arx:hole_bottle_mp_potion"
+                },
+                {
+                  "item": "arx:long_bottle_blood"
+                },
+                {
+                  "item": "arx:long_bottle_blood_karelo"
+                },
+                {
+                  "item": "arx:rounded_bottle_blood"
+                },
+                {
+                  "item": "arx:rounded_bottle_water"
+                },
+                {
+                  "item": "arx:rounded_bottle_water_fiuli"
+                },
+                {
+                  "item": "arx:rounded_bottle_water_fiuli_kari"
+                },
+                {
+                  "item": "arx:rounded_bottle_water_fiuli_night_kosk"
+                },
+                {
+                  "item": "arx:rounded_bottle_water_fiuli_night_kosk_dragon_pion"
+                },
+                {
+                  "item": "arx:rounded_bottle_water_fiuli_wolf_death"
+                },
+                {
+                  "item": "arx:rounded_bottle_water_fiuli_yuan"
+                },
+                {
+                  "item": "arx:rounded_bottle_water_golden_hay"
+                },
+                {
+                  "item": "arx:rounded_bottle_water_golden_hay_animal_eye"
+                },
+                {
+                  "item": "arx:rounded_bottle_water_golden_hay_animal_eye_day_kosk"
+                },
+                {
+                  "item": "arx:rounded_bottle_water_golden_hay_animal_eye_night_kosk"
+                },
+                {
+                  "item": "arx:rounded_bottle_water_golden_hay_animal_eye_night_kosk_dragon_pion"
+                },
+                {
+                  "item": "arx:rounded_bottle_water_golden_hay_beast_heart"
+                },
+                {
+                  "item": "arx:rounded_bottle_water_golden_hay_beast_heart_dragon_pion"
+                },
+                {
+                  "item": "arx:rounded_bottle_water_golden_hay_bone"
+                },
+                {
+                  "item": "arx:rounded_bottle_water_golden_hay_bone_dragon_pion"
+                },
+                {
+                  "item": "arx:rounded_bottle_water_golden_hay_brain"
+                },
+                {
+                  "item": "arx:rounded_bottle_water_golden_hay_claws"
+                },
+                {
+                  "item": "arx:rounded_bottle_water_golden_hay_claws_jackal_grass"
+                },
+                {
+                  "item": "arx:rounded_bottle_water_golden_hay_fang"
+                },
+                {
+                  "item": "arx:rounded_bottle_water_golden_hay_fang_dragon_pion"
+                },
+                {
+                  "item": "arx:rounded_bottle_water_golden_hay_feather"
+                },
+                {
+                  "item": "arx:rounded_bottle_water_golden_hay_feather_dragon_pion"
+                },
+                {
+                  "item": "arx:rounded_bottle_water_golden_hay_hoof"
+                },
+                {
+                  "item": "arx:rounded_bottle_water_golden_hay_hoof_dragon_pion"
+                },
+                {
+                  "item": "arx:rounded_bottle_water_golden_hay_kari"
+                },
+                {
+                  "item": "arx:rounded_bottle_water_golden_hay_kavra"
+                },
+                {
+                  "item": "arx:rounded_bottle_water_golden_hay_kavra_dragon_pion"
+                },
+                {
+                  "item": "arx:rounded_bottle_water_golden_hay_liver"
+                },
+                {
+                  "item": "arx:rounded_bottle_water_golden_hay_liver_dragon_pion"
+                },
+                {
+                  "item": "arx:rounded_bottle_water_golden_hay_liver_dragon_pion_dragon_pion"
+                },
+                {
+                  "item": "arx:rounded_bottle_water_golden_hay_liver_dragon_pion_dragon_pion_dragon_pion"
+                },
+                {
+                  "item": "arx:rounded_bottle_water_golden_hay_monster_eye"
+                },
+                {
+                  "item": "arx:rounded_bottle_water_golden_hay_mp_flower"
+                },
+                {
+                  "item": "arx:rounded_bottle_water_golden_hay_mp_flower_dragon_pion"
+                },
+                {
+                  "item": "arx:rounded_bottle_water_golden_hay_snowflower"
+                },
+                {
+                  "item": "arx:rounded_bottle_water_golden_hay_snowflower_jackal_grass"
+                },
+                {
+                  "item": "arx:rounded_bottle_water_golden_hay_squama"
+                },
+                {
+                  "item": "arx:rounded_bottle_water_golden_hay_yuan"
+                },
+                {
+                  "item": "arx:triangle_bottle_water"
+                },
+                {
+                  "item": "arx:triangle_bottle_water_karelo"
+                },
+                {
+                  "item": "arx:triangle_bottle_water_karelo_fioletic"
+                }
+              ]
+            }
+          ]
+        },
+        //Дорогой товар - крынцы
+        {
+          "wants": [
+            {
+              "item": "arx:rat_coin",
+              "quantity": {
+                "min": 18,
+                "max": 40
+              }
+            }
+          ],
+          "gives": [
+            {
+              "choice": [
+                {
+                  "item": "arx:breaker_of_modified_moving_t2"
+                },
+                {
+                  "item": "arx:wand_white:80"
+                },
+                {
+                  "item": "arx:rune_ratatao"
+                },
+                {
+                  "item": "arx:belt_lamp"
+                },
+                {
+                  "item": "arx:staff_with_skull"
+                },
+                {
+                  "item": "minecraft:enchanted_book",
+                  "functions": [
+                    {
+                      "function": "enchant_randomly"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "max_uses": 1
+        },
+        //Дорогой товар - руны
+        {
+          "wants": [
+            {
+              "item": "arx:rat_coin",
+              "quantity": {
+                "min": 15,
+                "max": 40
+              }
+            }
+          ],
+          "gives": [
+            {
+              "choice": [
+                {
+                  "item": "arx:rune_affuono_b"
+                },
+                {
+                  "item": "arx:rune_arrako_b"
+                },
+                {
+                  "item": "arx:rune_din_b"
+                },
+                {
+                  "item": "arx:rune_disortari_b"
+                },
+                {
+                  "item": "arx:rune_elletera_b"
+                },
+                {
+                  "item": "arx:rune_floruum_b"
+                },
+                {
+                  "item": "arx:rune_flurri_b"
+                },
+                {
+                  "item": "arx:rune_hijo_b"
+                },
+                {
+                  "item": "arx:rune_horo_b"
+                },
+                {
+                  "item": "arx:rune_inoffo_b"
+                },
+                {
+                  "item": "arx:rune_kon_b"
+                },
+                {
+                  "item": "arx:rune_kotoka_b"
+                },
+                {
+                  "item": "arx:rune_laffaeti_b"
+                },
+                {
+                  "item": "arx:rune_low_b"
+                },
+                {
+                  "item": "arx:rune_marra_b"
+                },
+                {
+                  "item": "arx:rune_mega_b"
+                },
+                {
+                  "item": "arx:rune_orduino_b"
+                },
+                {
+                  "item": "arx:rune_recuro_b"
+                },
+                {
+                  "item": "arx:rune_sakiifori_b"
+                },
+                {
+                  "item": "arx:rune_san_b"
+                },
+                {
+                  "item": "arx:rune_sartagana_b"
+                },
+                {
+                  "item": "arx:rune_sempra_b"
+                },
+                {
+                  "item": "arx:rune_shumi_b"
+                },
+                {
+                  "item": "arx:rune_sin_b"
+                },
+                {
+                  "item": "arx:rune_sofiso_b"
+                },
+                {
+                  "item": "arx:rune_subversa_b"
+                },
+                {
+                  "item": "arx:rune_sukimo_b"
+                },
+                {
+                  "item": "arx:rune_trafantana_b"
+                },
+                {
+                  "item": "arx:rune_transkursio_b"
+                },
+                {
+                  "item": "arx:rune_watashi_b"
+                },
+                {
+                  "item": "arx:rune_yanamo_b"
+                }
+              ]
+            }
+          ],
+          "max_uses": 1
+        },
+        //Дорогой товар - крайнцы
+        {
+          "wants": [
+            {
+              "item": "arx:rat_coin_gold",
+              "quantity": {
+                "min": 4,
+                "max": 6
+              }
+            }
+          ],
+          "gives": [
+            {
+              "choice": [
+                {
+                  "item": "arx:archmage_robe"
+                },
+                {
+                  "item": "arx:hu_tao_hat"
+                },
+                {
+                  "item": "arx:staff_of_angel"
+                }
+              ]
+            }
+          ],
+          "max_uses": 1
+        },
+        //Дорогой товар - руны (крайнцы)
+        {
+          "wants": [
+            {
+              "item": "arx:rat_coin_gold"
+            }
+          ],
+          "gives": [
+            {
+              "choice": [
+                {
+                  "item": "arx:rune_affuono_s"
+                },
+                {
+                  "item": "arx:rune_arrako_s"
+                },
+                {
+                  "item": "arx:rune_din_s"
+                },
+                {
+                  "item": "arx:rune_disortari_s"
+                },
+                {
+                  "item": "arx:rune_elletera_s"
+                },
+                {
+                  "item": "arx:rune_floruum_s"
+                },
+                {
+                  "item": "arx:rune_flurri_s"
+                },
+                {
+                  "item": "arx:rune_hijo_s"
+                },
+                {
+                  "item": "arx:rune_horo_s"
+                },
+                {
+                  "item": "arx:rune_inoffo_s"
+                },
+                {
+                  "item": "arx:rune_kon_s"
+                },
+                {
+                  "item": "arx:rune_kotoka_s"
+                },
+                {
+                  "item": "arx:rune_laffaeti_s"
+                },
+                {
+                  "item": "arx:rune_low_s"
+                },
+                {
+                  "item": "arx:rune_marra_s"
+                },
+                {
+                  "item": "arx:rune_mega_s"
+                },
+                {
+                  "item": "arx:rune_orduino_s"
+                },
+                {
+                  "item": "arx:rune_recuro_s"
+                },
+                {
+                  "item": "arx:rune_sakiifori_s"
+                },
+                {
+                  "item": "arx:rune_san_s"
+                },
+                {
+                  "item": "arx:rune_sartagana_s"
+                },
+                {
+                  "item": "arx:rune_sempra_s"
+                },
+                {
+                  "item": "arx:rune_shumi_s"
+                },
+                {
+                  "item": "arx:rune_sin_s"
+                },
+                {
+                  "item": "arx:rune_sofiso_s"
+                },
+                {
+                  "item": "arx:rune_subversa_s"
+                },
+                {
+                  "item": "arx:rune_sukimo_s"
+                },
+                {
+                  "item": "arx:rune_trafantana_s"
+                },
+                {
+                  "item": "arx:rune_transkursio_s"
+                },
+                {
+                  "item": "arx:rune_watashi_s"
+                },
+                {
+                  "item": "arx:rune_yanamo_s"
+                }
+              ]
+            }
+          ],
+          "max_uses": 1
+        },
+        //СКУПКА
+        //Осколки
+        {
+          "wants": [
+            {
+              "item": "arx:xp_shard",
+              "quantity": 5
+            }
+          ],
+          "gives": [
+            {
+              "item": "arx:rat_coin"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

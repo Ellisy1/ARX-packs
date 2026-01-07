@@ -1,0 +1,22 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.royal_sorrel_flower": {
+			"loop": true,
+			"bones": {
+				"leaf": {
+					"rotation": ["-78 + math.sin(query.time_of_day * 180) * 75", 0, 0]
+				},
+				"leaf2": {
+					"rotation": ["-78 + math.sin(query.time_of_day * 180) * 75", 0, 0]
+				},
+				"leaf3": {
+					"rotation": ["-78 + math.sin(query.time_of_day * 180) * 75", 0, 0]
+				},
+				"leaf4": {
+					"rotation": ["-78 + math.sin(query.time_of_day * 180) * 75", 0, 0]
+				}
+			}
+		}
+	}
+}

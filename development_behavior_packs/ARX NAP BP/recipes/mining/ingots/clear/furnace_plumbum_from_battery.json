@@ -1,0 +1,13 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_furnace": {
+    "description": {
+      "identifier": "arx:furnace_plumbum_from_battery"
+    },
+    "tags": [
+      "blast_furnace", "furnace"
+    ],
+    "input": "arx:battery_broken",
+    "output": "arx:plumbum_ingot"
+  }
+}

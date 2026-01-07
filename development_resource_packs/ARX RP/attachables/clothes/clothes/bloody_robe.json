@@ -1,0 +1,30 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "arx:bloody_robe",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/clothes/clothes/bloody_robe_D"
+      },
+      "geometry": {
+        "default": "geometry.default_model_v2"
+      },
+      "animations": {
+        "bust": "animation.player.bust",
+        "bust_controller": "controller.animation.bust"
+      },
+      "scripts": {
+        "animate": [
+          "bust_controller"
+        ],
+        "parent_setup": "variable.chest_layer_visible = 0.0;"
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ]
+    }
+  }
+}

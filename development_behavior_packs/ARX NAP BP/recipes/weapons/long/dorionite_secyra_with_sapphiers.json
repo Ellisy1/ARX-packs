@@ -1,0 +1,33 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:dorionite_secyra_with_sapphiers"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      " #X",
+      "#A ",
+      "X  "
+    ],
+    "key": {
+      "#": {
+        "item": "arx:dorionite_billet"
+      },
+      "A": {
+        "item": "arx:dorionite_ingot"
+      },
+      "Y": {
+        "item": "arx:steel_billet"
+      },
+      "X": {
+        "item": "arx:sapphire_gem"
+      }
+    },
+    "result": {
+      "item": "arx:dorionite_secyra_with_sapphiers"
+    }
+  }
+}

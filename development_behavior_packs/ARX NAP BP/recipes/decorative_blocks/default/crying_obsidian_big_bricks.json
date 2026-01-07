@@ -1,0 +1,23 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:crying_obsidian_big_bricks"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "AA"
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:crying_obsidian"
+      }
+    },
+    "result": {
+      "item": "arx:crying_obsidian_big_bricks",
+      "count": 2
+    }
+  }
+}

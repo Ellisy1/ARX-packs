@@ -1,0 +1,37 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:mayonnaise"
+    },
+
+    
+    "tags": [ "cooking_crafting_table" ],
+    "pattern": [
+      "# A",
+      "CBC",
+      " D "
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:milk_bucket"
+      },
+      "A": {
+        "item": "minecraft:sugar"
+      },
+      "B": {
+        "item": "arx:salt"
+      },
+      "C": {
+        "item": "minecraft:egg"
+      },
+      "D": {
+        "item": "minecraft:bowl"
+      }
+    },
+    "result": [
+      {"item": "arx:mayonnaise"},
+      {"item": "minecraft:bucket"}
+    ]
+  }
+}

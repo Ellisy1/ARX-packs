@@ -1,0 +1,105 @@
+{
+    "format_version": "1.21.30",
+    "minecraft:block": {
+        "components": {
+            "minecraft:collision_box": {
+                "origin": [
+                    -3.0,
+                    0.0,
+                    -3.0
+                ],
+                "size": [
+                    6.0,
+                    16.0,
+                    6.0
+                ]
+            },
+            "minecraft:geometry": "geometry.vicious_demon_sword",
+            "minecraft:material_instances": {
+                "*": {
+                    "render_method": "alpha_test",
+                    "texture": "arx_vicious_demon_sword"
+                }
+            },
+            "minecraft:selection_box": {
+                "origin": [
+                    -3.0,
+                    0.0,
+                    -3.0
+                ],
+                "size": [
+                    6.0,
+                    16.0,
+                    6.0
+                ]
+            },
+            "minecraft:custom_components": [
+                "arx:blockInteration"
+            ]
+        },
+        "description": {
+            "identifier": "arx:vicious_demon_sword",
+            "menu_category": {
+                "category": "none"
+            },
+            "traits": {
+                "minecraft:placement_direction": {
+                    "enabled_states": [
+                        "minecraft:cardinal_direction"
+                    ],
+                    "y_rotation_offset": 180.0
+                }
+            }
+        },
+        "permutations": [
+            {
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            0,
+                            0
+                        ]
+                    }
+                },
+                "condition": "q.block_state('minecraft:cardinal_direction') == 'north'"
+            },
+            {
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            90,
+                            0
+                        ]
+                    }
+                },
+                "condition": "q.block_state('minecraft:cardinal_direction') == 'west'"
+            },
+            {
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            180,
+                            0
+                        ]
+                    }
+                },
+                "condition": "q.block_state('minecraft:cardinal_direction') == 'south'"
+            },
+            {
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            -90,
+                            0
+                        ]
+                    }
+                },
+                "condition": "q.block_state('minecraft:cardinal_direction') == 'east'"
+            }
+        ]
+    }
+}

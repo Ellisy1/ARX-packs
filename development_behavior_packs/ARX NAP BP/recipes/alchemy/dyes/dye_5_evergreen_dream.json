@@ -1,0 +1,22 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:dye_5_evergreen_dream"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "#"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:evergreen_dream"
+      }
+    },
+    "result": {
+      "item": "minecraft:dye:5"
+    }
+  }
+}

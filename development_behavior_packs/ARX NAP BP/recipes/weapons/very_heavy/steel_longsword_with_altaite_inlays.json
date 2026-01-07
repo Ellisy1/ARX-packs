@@ -1,0 +1,30 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:steel_longsword_with_altaite_inlays"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      " AB",
+      "ABA",
+      "XA "
+    ],
+    "key": {
+      "A": {
+        "item": "arx:steel_billet"
+      },
+      "X": {
+        "item": "arx:sapphire_gem"
+      },
+      "B": {
+        "item": "arx:altaite_billet"
+      }
+    },
+    "result": {
+      "item": "arx:steel_longsword_with_altaite_inlays"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:fire_berry"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "#"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:gloomy_flower"
+      }
+    },
+    "result": {
+      "item": "arx:fire_berry"
+    }
+  }
+}

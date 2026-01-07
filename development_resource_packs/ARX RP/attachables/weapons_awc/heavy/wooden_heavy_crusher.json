@@ -1,0 +1,20 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:attachable": {
+        "description": {
+            "identifier": "arx:wooden_heavy_crusher",
+            "materials": {
+                "default": "entity"
+            },
+            "textures": {
+                "default": "textures/items/weapons/heavy/wooden_heavy_crusher"
+            },
+            "geometry": {
+                "default": "geometry.32px_weapon_mesh"
+            },
+            "render_controllers": [
+                "controller.render.default"
+            ]
+        }
+    }
+}

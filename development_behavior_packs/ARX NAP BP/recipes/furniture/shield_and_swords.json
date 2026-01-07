@@ -1,0 +1,26 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:shield_and_swords"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "I I",
+      " R "
+    ],
+    "key": {
+      "I": {
+        "item": "arx:steel_classic_sword"
+      },
+      "R": {
+        "item": "arx:steel_protective_plate"
+      }
+    },
+    "result": {
+      "item": "arx:shield_and_swords"
+    }
+  }
+}

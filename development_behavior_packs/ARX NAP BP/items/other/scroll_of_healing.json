@@ -1,0 +1,17 @@
+{
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:display_name": {
+                "value": "§r§fСвиток регенерации §g[Эпическое]\n§7§oОдноразовое заклинание для исцеления"
+            },
+            "minecraft:icon": "arx:scroll_of_healing"
+        },
+        "description": {
+            "identifier": "arx:scroll_of_healing",
+            "menu_category": {
+                "category": "items"
+            }
+        }
+    }
+}

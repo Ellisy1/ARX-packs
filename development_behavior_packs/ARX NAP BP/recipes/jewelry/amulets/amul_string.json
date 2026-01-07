@@ -1,0 +1,22 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:amul_string"
+    },
+
+    
+    "tags": [ "loom_crafting_table" ],
+    "pattern": [
+      "II"
+    ],
+    "key": {
+      "I": {
+        "item": "minecraft:string"
+      }
+    },
+    "result": {
+      "item": "arx:amul_string"
+    }
+  }
+}

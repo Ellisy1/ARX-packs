@@ -1,0 +1,28 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:mayor_coat"
+    },
+
+    
+    "tags": [ "clothes_crafting_table" ],
+    "pattern": [
+      "DBD",
+      "DBD",
+      " B "
+    ],
+    "key": {
+      "B": {
+        "item": "minecraft:dye",
+        "data": 1
+      },
+      "D": {
+        "item": "arx:leather_super"
+      }
+    },
+    "result": {
+      "item": "arx:mayor_coat"
+    }
+  }
+}

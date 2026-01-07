@@ -1,0 +1,33 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:battery_small"
+    },
+
+    
+    "tags": [ "piezo_crafting_table" ],
+    "pattern": [
+      "IXH",
+      "IGI",
+      "IXI"
+    ],
+    "key": {
+      "I": {
+        "item": "arx:plumbum_ingot"
+      },
+      "X": {
+        "item": "arx:copper_provoloka"
+      },
+      "G": {
+        "item": "arx:chrome_nugget"
+      },
+      "H": {
+        "item": "minecraft:gold_ingot"
+      }
+    },
+    "result": {
+      "item": "arx:battery_small"
+    }
+  }
+}

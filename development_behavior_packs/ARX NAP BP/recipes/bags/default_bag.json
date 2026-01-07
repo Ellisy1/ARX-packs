@@ -1,0 +1,26 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:default_bag"
+    },
+
+    
+    "tags": [ "clothes_crafting_table" ],
+    "pattern": [
+      "A#A",
+      "###"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:leather_super"
+      },
+      "A": {
+        "item": "minecraft:string"
+      }
+    },
+    "result": {
+      "item": "arx:default_bag"
+    }
+  }
+}

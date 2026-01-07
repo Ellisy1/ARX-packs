@@ -1,0 +1,21 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.cloaks": {
+		"arrays": {
+			"geometries": {
+				"Array.geometries": [
+					"geometry.default"
+				]
+			}
+		},
+      "geometry": "Array.geometries[query.variant]",
+	  "materials": [
+	  	  {"default": "Material.default"}
+	  ],
+      "textures": [ 
+		"Texture.default"		
+	  ]
+    }
+  }
+}

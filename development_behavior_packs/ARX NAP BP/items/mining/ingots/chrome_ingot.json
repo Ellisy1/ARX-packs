@@ -1,0 +1,14 @@
+{
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:icon": "arx:chrome_ingot"
+        },
+        "description": {
+            "identifier": "arx:chrome_ingot",
+            "menu_category": {
+                "category": "items"
+            }
+        }
+    }
+}

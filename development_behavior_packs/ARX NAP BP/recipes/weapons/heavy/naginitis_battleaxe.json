@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:naginitis_battleaxe"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      " # ",
+      " Z#",
+      "Z  "
+    ],
+    "key": {
+      "#": {
+        "item": "arx:naginitis_billet"
+      },
+      "Z": {
+        "item": "arx:naginitis_ingot"
+      }
+    },
+    "result": {
+      "item": "arx:naginitis_battleaxe"
+    }
+  }
+}

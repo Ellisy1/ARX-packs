@@ -1,0 +1,46 @@
+{
+	"format_version": "1.20.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "arx:rat_in_bar_with_bass_guitar",
+			"is_spawnable": true,
+			"is_summonable": true
+		},
+		"components": {
+			"minecraft:movement.basic": {},
+			"minecraft:knockback_resistance": {
+				"value": 1
+			},
+			"minecraft:type_family": {
+				"family": [
+					"rat"
+				]
+			},
+			"minecraft:collision_box": {
+				"width": 0.6,
+				"height": 1.8
+			},
+			"minecraft:health": {
+				"value": 2000
+			},
+			"minecraft:movement": {
+				"value": 0.28
+			},
+			"minecraft:balloonable": {},
+			"minecraft:physics": {},
+			"minecraft:pushable": {
+				"is_pushable": false,
+				"is_pushable_by_piston": false
+			},
+			"minecraft:conditional_bandwidth_optimization": {},
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "all",
+						"deals_damage": false
+					}
+				]
+			}
+		}
+	}
+}

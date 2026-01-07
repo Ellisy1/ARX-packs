@@ -1,0 +1,20 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:attachable": {
+        "description": {
+            "identifier": "arx:steel_advanced_guard_dagger",
+            "materials": {
+                "default": "entity"
+            },
+            "textures": {
+                "default": "textures/items/weapons/daggers/steel_advanced_guard_dagger"
+            },
+            "geometry": {
+                "default": "geometry.16px_weapon_mesh"
+            },
+            "render_controllers": [
+                "controller.render.default"
+            ]
+        }
+    }
+}

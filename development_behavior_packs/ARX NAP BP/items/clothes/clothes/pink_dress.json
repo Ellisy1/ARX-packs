@@ -1,0 +1,27 @@
+{
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:durability": {
+                "max_durability": 220
+            },
+            "minecraft:enchantable": {
+                "slot": "armor_torso",
+                "value": 10
+            },
+            "minecraft:icon": "arx:pink_dress",
+            "minecraft:max_stack_size": 1,
+            "minecraft:wearable": {
+                "protection": 2,
+                "slot": "slot.armor.chest"
+            }
+        },
+        "description": {
+            "identifier": "arx:pink_dress",
+            "menu_category": {
+                "category": "equipment",
+                "group": "itemGroup.name.chestplate"
+            }
+        }
+    }
+}

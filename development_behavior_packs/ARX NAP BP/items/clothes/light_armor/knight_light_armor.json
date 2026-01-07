@@ -1,0 +1,27 @@
+{
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:durability": {
+                "max_durability": 550
+            },
+            "minecraft:enchantable": {
+                "slot": "armor_torso",
+                "value": 10
+            },
+            "minecraft:icon": "arx:knight_light_armor",
+            "minecraft:max_stack_size": 1,
+            "minecraft:wearable": {
+                "protection": 6,
+                "slot": "slot.armor.chest"
+            }
+        },
+        "description": {
+            "identifier": "arx:knight_light_armor",
+            "menu_category": {
+                "category": "equipment",
+                "group": "itemGroup.name.chestplate"
+            }
+        }
+    }
+}

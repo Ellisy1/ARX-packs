@@ -1,0 +1,30 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "arx:bandage_white",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/clothes/clothes/bandage"
+      },
+      "geometry": {
+        "default": "geometry.bandage"
+      },
+      "animations": {
+        "cloak": "animation.cloak.default",
+        "cloak_controller": "controller.animation.cloak"
+      },
+      "scripts": {
+        "animate": [
+          "cloak_controller"
+        ],
+        "parent_setup": "variable.helmet_layer_visible = 0.0;"
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ]
+    }
+  }
+}

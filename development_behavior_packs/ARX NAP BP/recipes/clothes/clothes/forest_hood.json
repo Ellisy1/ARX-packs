@@ -1,0 +1,26 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:forest_hood"
+    },
+
+    
+    "tags": [ "clothes_crafting_table" ],
+    "pattern": [
+      "A#A"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:cotton_fabric"
+      },
+      "A": {
+        "item": "minecraft:dye",
+        "data": 2
+      }
+    },
+    "result": {
+      "item": "arx:forest_hood"
+    }
+  }
+}

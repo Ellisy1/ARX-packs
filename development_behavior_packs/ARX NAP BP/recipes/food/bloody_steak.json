@@ -1,0 +1,30 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:bloody_steak_a"
+    },
+
+    
+    "tags": [ "cooking_crafting_table" ],
+    "pattern": [
+      "A#A",
+      "BA "
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:beef"
+      },
+      "A": {
+        "item": "arx:bottle_of_blood"
+      },
+      "B": {
+        "item": "arx:salt"
+      }
+    },
+    "result": [
+      {"item": "arx:bloody_steak"},
+      {"item": "arx:bottle_for_blood", "count": 3}
+    ]
+  }
+}

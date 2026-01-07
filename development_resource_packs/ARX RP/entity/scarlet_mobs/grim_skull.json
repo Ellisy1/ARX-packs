@@ -1,0 +1,35 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "arx:grim_skull",
+      "min_engine_version": "1.8.0",
+      "materials": {
+        "default": "entity_emissive_alpha"
+      },
+      "textures": {
+        "default": "textures/entity/mobs/scarlet_mobs/grim_skull"
+      },
+      "geometry": {
+        "default": "geometry.grim_skull"
+      },
+      "animations": {
+        "look_at_target_default": "animation.humanoid.look_at_target.default",
+        "look_at_target_gliding": "animation.humanoid.look_at_target.gliding",
+        "look_at_target_swimming": "animation.humanoid.look_at_target.swimming"
+      },
+      "animation_controllers": [
+        {
+          "look_at_target": "controller.animation.humanoid.look_at_target"
+        }
+      ],
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "spawn_egg": {
+        "base_color": "#2c281e",
+        "overlay_color": "#2b2205"
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:jewelry_crafting_table"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "RFR",
+      "RIR",
+      "R R"
+    ],
+    "key": {
+      "I": {
+        "item": "arx:steel_ingot"
+      },
+      "R": {
+        "item": "minecraft:planks"
+      },
+      "F": {
+        "item": "minecraft:gold_ingot"
+      }
+    },
+    "result": [
+      {"item": "arx:jewelry_crafting_table"}
+    ]
+  }
+}

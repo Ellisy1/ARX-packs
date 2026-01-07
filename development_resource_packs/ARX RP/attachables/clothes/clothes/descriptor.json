@@ -1,0 +1,20 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "arx:descriptor",
+      "materials": {
+        "default": "entity_emissive_alpha"
+      },
+      "textures": {
+        "default": "textures/entity/clothes/clothes/descriptor"
+      },
+      "geometry": {
+        "default": "geometry.descriptor"
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ]
+    }
+  }
+}

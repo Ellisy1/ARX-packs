@@ -1,0 +1,135 @@
+{
+    "entity_sounds": {
+        "entities": {
+            "arx:rat_eliminator": {
+                "volume": 1.0,
+                "pitch": [
+                    0.8,
+                    1.2
+                ],
+                "events": {
+                    "spawn": "mob.rat_eliminator.spawn"
+                }
+            },
+            "arx:vicious_demon": {
+                "volume": 1.0,
+                "pitch": 1,
+                "events": {
+                    "ambient": "entity.wither_skeleton.ambient",
+                    "death": "entity.wither_skeleton.death",
+                    "hurt": "mob.blaze.hit"
+                }
+            },
+            "arx:fiercewolf": {
+                "volume": 1.0,
+                "pitch": [
+                    0.5,
+                    0.8
+                ],
+                "events": {
+                    "ambient": "mob.wolf.bark",
+                    "hurt": "mob.wolf.hurt",
+                    "death": "mob.wolf.death",
+                    "step": {
+                        "sound": "mob.wolf.step",
+                        "volume": 0.65,
+                        "pitch": 1.0
+                    }
+                }
+            },
+            "arx:wandering_flame_of_tsaskhin": {
+                "events": {
+                    "ambient": "mob.blaze.breathe",
+                    "death": "mob.blaze.death",
+                    "hurt": "mob.blaze.hit"
+                },
+                "pitch": [
+                    0.80,
+                    1.20
+                ],
+                "volume": 1.0
+            },
+            "arx:rat_monstr_meca": {
+                "events": {
+                    "step": {
+                        "sound": "meca_motor",
+                        "volume": 0.65,
+                        "pitch": [
+                            0.80,
+                            1.20
+                        ]
+                    }
+                },
+                "pitch": [
+                    0.60,
+                    1.40
+                ],
+                "volume": 1.0
+            },
+            "arx:wandering_flame_of_night": {
+                "events": {
+                    "ambient": "mob.wandering_flame_of_night.breathe"
+                },
+                "pitch": [
+                    1,
+                    1
+                ],
+                "volume": 1.2
+            },
+            "arx:wandering_flame_of_mines": {
+                "events": {
+                    "ambient": "mob.blaze.breathe",
+                    "death": "mob.blaze.death",
+                    "hurt": "mob.blaze.hit"
+                },
+                "pitch": [
+                    0.80,
+                    1.20
+                ],
+                "volume": 1.0
+            },
+            "camel": {
+                "events": {
+                    "death": "mob.camel.death",
+                    "eat": "mob.camel.eat",
+                    "hurt": "mob.camel.hurt",
+                    "saddle": "mob.horse.leather",
+                    "step": "mob.camel.step",
+                    "step_sand": "mob.camel.step_sand"
+                },
+                "pitch": [
+                    0.80,
+                    1.20
+                ],
+                "volume": 0.5
+            },
+            "arx:mosquito": {
+                "events": {
+                    "ambient": "mob.mosquito.fly"
+                },
+                "pitch": [
+                    0.80,
+                    1.20
+                ],
+                "volume": 1.7
+            },
+            "arx:march": {
+                "events": {
+                    "step": {
+                        "sound": "meca_motor",
+                        "volume": 0.75,
+                        "pitch": [
+                            0.90,
+                            1.10
+                        ]
+                    }
+                },
+                "pitch": [
+                    0.80,
+                    1.20
+                ],
+                "volume": 1.0
+            }
+        }
+    }
+}

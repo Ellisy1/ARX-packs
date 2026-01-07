@@ -1,0 +1,2006 @@
+menu.copyright=ARX packs §aactive
+
+## \uE100: 
+## \uE101: 
+## \uE102: 
+## \uE103: 
+## \uE104: 
+## \uE105: 
+## \uE106: 
+## \uE107: 
+## \uE108: 
+## \uE109: 
+## \uE10A: 
+## \uE10B: 
+## \uE10C: 
+## \uE10D: 
+## \uE10E: 
+## \uE10F: 
+## \uE110: 
+## \uE111: 
+## \uE112: 
+## \uE113: 
+## \uE114: 
+## \uE115: 
+## \uE116: 
+## \uE117: 
+## \uE118: 
+## \uE119: 
+## \uE11A: 
+## \uE11B: 
+## \uE11C: 
+## \uE11D: 
+## \uE11E: 
+## \uE11F: 
+## \uE120: 
+
+rarity=§7[Обычное] §a[Необычное] §b[Редкое] §g[Эпическое] §e[Легендарное] §c[Мифическое] §d[Божественное]
+
+entity.arx:grave.name=Гроб
+
+item.arx:book_case_a=§r§fПеревязанная зачарованная книга §b[Редкое]\n§7§oНе используйте при полном инвентаре!
+item.arx:book_case_b=§r§fПеревязанная зачарованная книга §g[Эпическое]\n§7§oНе используйте при полном инвентаре!
+item.arx:book_case_c=§r§fПеревязанная зачарованная книга §c[Мифическое]\n§7§oНе используйте при полном инвентаре!
+item.arx:book_case_d=§r§fПеревязанная зачарованная книга §c[Мифическое+++]\n§7§oНе используйте при полном инвентаре!
+
+
+
+item.arx:inst_small_motors=§r§fИнструкция по сборке небольших моторов §b[Редкое]
+item.arx:inst_cooler=§r§fИнструкция по сборке кулеров §b[Редкое]
+item.arx:inst_catushka=§r§fИнструкция по сборке проволочных катушек §b[Редкое]
+item.arx:inst_provoloka=§r§fИнструкция по ковке проволоки §b[Редкое]
+item.arx:inst_wire=§r§fИнструкция по ковке обычных проводов §b[Редкое]
+item.arx:inst_power_wire=§r§fИнструкция по ковке силовых проводов §b[Редкое]
+item.arx:inst_contact=§r§fИнструкция по ковке контактов §b[Редкое]
+item.arx:inst_reestr=§r§fИнструкция по сборке фрагментов реестра §b[Редкое]
+item.arx:inst_contact_line=§r§fИнструкция по сборке шлейфов §b[Редкое]
+item.arx:inst_radio=§r§fИнструкция по сборке радиотехники §b[Редкое]
+item.arx:inst_antenna=§r§fИнструкция по сборке антенн §b[Редкое]
+item.arx:small_motor=§r§fНебольшой мотор §b[Редкое]
+item.arx:cooler=§r§fКулер §b[Редкое]
+item.arx:catushka=§r§fМедная катушка §b[Редкое]
+item.arx:copper_provoloka=§r§fМедная проволока §b[Редкое]
+item.arx:wire=§r§fПровода §b[Редкое]
+item.arx:power_wire=§r§fСиловой провод §b[Редкое]
+item.arx:contacts=§r§fКонтакты §b[Редкое]
+item.arx:reestr=§r§fФрагмент реестра §g[Эпическое]
+item.arx:shlafe=§r§fШлейф §b[Редкое]
+item.arx:pult=§r§fПульт §g[Эпическое]
+item.arx:antenna=§r§fАнтенна §b[Редкое]
+item.arx:processor=§r§fПроцессор §g[Эпическое]
+item.arx:textolite=§r§fТекстолит §b[Редкое]
+item.arx:vinil=§r§fВиниловая пластмасса §b[Редкое]
+
+
+
+item.arx:wipe_traits=§r§fРуна уничтожения черт §c[Мифическое]\n§7§oИспользуйте, чтобы удалить все черты, в том числе закреплённые
+
+
+
+item.arx:bundle_with_vinyl=§r§fУпаковка с виниловой пластинкой §b[Редкое]
+
+
+
+item.arx:beer_bottle_solod=§r§fНенасыщенное пиво §a[Необычное]
+item.arx:beer_bottle_solod_kari=§r§fНефильтрованное тёмное пиво §b[Редкое]
+item.arx:beer_bottle_solod_kari_substractor=§r§fТёмное пиво §g[Эпическое]
+item.arx:beer_bottle_solod_salt=§r§fБезалкогольное пиво §a[Необычное]
+item.arx:beer_bottle_solod_solod=§r§fНефильтрованное светлое пиво §b[Редкое]
+item.arx:beer_bottle_solod_solod_substractor=§r§fСветлое пиво §g[Эпическое]
+item.arx:beer_bottle_water=§r§fБанка с водой §a[Необычное]
+item.arx:default_bottle_sugar=§r§fЧистый спирт §a[Необычное]
+item.arx:default_bottle_water=§r§fБутылка с водой §a[Необычное]
+item.arx:vodka=§r§fВодка §a[Необычное]
+item.arx:vodka_apple=§r§fНастойка на яблоке §b[Редкое]
+item.arx:vodka_cactus=§r§fНастойка на кактусе §b[Редкое]
+item.arx:vodka_fiolix=§r§fНастойка на фиолетике §b[Редкое]
+item.arx:vodka_light_berries=§r§fНастойка на светящихся ягодах §b[Редкое]
+item.arx:vodka_mushroom=§r§fНастойка на грибах §b[Редкое]
+item.arx:vodka_sweet_berrie=§r§fНастойка на сладких ягодах §b[Редкое]
+item.arx:wine=§r§fВино §g[Эпическое]
+
+
+item.arx:bung=§r§fПробка §7[Обычное]\n§7§oПросто пробка. Для бутылки
+
+item.arx:beer_bottle=§r§fБанка §a[Необычное]\n§7§oСоздаётся на стеклоплавильне
+item.arx:bottle_for_blood=§r§fКолба для крови §a[Необычное]\n§7§oСоздаётся на стеклоплавильне
+item.arx:bottle_of_blood=§r§fКолба с кровью §g[Эпическое]
+item.arx:default_bottle=§r§fБутылка §a[Необычное]\n§7§oСоздаётся на стеклоплавильне
+item.arx:hole_bottle=§r§fСосуд тора §a[Необычное]\n§7§oСоздаётся на стеклоплавильне
+item.arx:long_bottle=§r§fТонкий сосуд §a[Необычное]\n§7§oСоздаётся на стеклоплавильне
+item.arx:rounded_bottle=§r§fОкруглённый сосуд §a[Необычное]\n§7§oСоздаётся на стеклоплавильне
+item.arx:small_bottle=§r§fБанка §a[Необычное]\n§7§oСоздаётся на стеклоплавильне
+item.arx:square_bottle=§r§fКвадратный сосуд §a[Необычное]\n§7§oСоздаётся на стеклоплавильне
+item.arx:triangle_bottle=§r§fТреугольный сосуд §a[Необычное]\n§7§oСоздаётся на стеклоплавильне
+item.arx:vial=§r§fФлакон §a[Необычное]\n§7§oСоздаётся на стеклоплавильне
+
+
+item.arx:cigarette_fiolix=§r§fФиоликсовое курево §b[Редкое]
+item.arx:cigarette_kavra=§r§fСигарета §a[Необычное]
+
+
+item.arx:fioletic_dose=§r§fДоза фиоликса §g[Эпическое]
+
+item.arx:hole_bottle_mp_potion=§r§fЗелье маны §g[Эпическое]\n§7§oВосстанавливает 20 маны
+item.arx:hole_bottle_mp_potion_royal_sorrel=§r§fВечная мана §c[Мифическое++]\n§7§o+1 мана навсегда\nНельзя увеличить перманентный бонус маны более 5
+
+item.arx:long_bottle_blood=§r§fТонкий сосуд с кровью §g[Эпическое]\n§7§oБез эффектов
+item.arx:long_bottle_blood_karelo=§r§fКровяной настой на карело §g[Эпическое]\n§7§oБез эффектов
+item.arx:long_bottle_blood_karelo_evergreen_dream=§r§fЗелье дара §c[Мифическое+]\n§7§oВыпивший обретет новую нейтральную черту характера
+item.arx:long_bottle_blood_karelo_evergreen_dream_dragon_pion=§r§fЗелье мудреца §c[Мифическое+]\n§7§oВыпивший познает мудрость
+item.arx:long_bottle_blood_karelo_evergreen_dream_jackal_grass=§r§fЗелье дурака §c[Мифическое+]\n§7§oЛишь дураку хватит смелости
+item.arx:rounded_bottle_blood=§r§fОкруглённый сосуд с кровью §g[Эпическое]\n§7§oБез эффектов
+item.arx:rounded_bottle_water=§r§fОкруглённый сосуд с водой §b[Редкое]\n§7§oБез эффектов
+item.arx:rounded_bottle_water_fiuli=§r§fОтвар фиули §b[Редкое]\n§7§oБез эффектов
+item.arx:rounded_bottle_water_fiuli_kari=§r§fЗелье злой псины §g[Эпическое]\n§7§oСильно ухудшает ваше настроение
+item.arx:rounded_bottle_water_fiuli_night_kosk=§r§fЗелье ночи §g[Эпическое]\n§7§oНа 60 секунд погружает вас в темноту
+item.arx:rounded_bottle_water_fiuli_night_kosk_dragon_pion=§r§fЗелье тёмной ночи §e[Легендарное]\n§7§oНа 5 минут погружает вас в темноту
+item.arx:rounded_bottle_water_fiuli_wolf_death=§r§fВолчья погибель §g[Эпическое]\n§7§oПить это - очень плохая идея
+item.arx:rounded_bottle_water_fiuli_yuan=§r§fЗелье извержения §g[Эпическое]\n§7§oЗаставит вас скорее избавиться от съеденной еды
+item.arx:rounded_bottle_water_golden_hay=§r§fОтвар златоколоса §b[Редкое]\n§7§oБез эффектов
+item.arx:rounded_bottle_water_golden_hay_animal_eye=§r§fЗелье прозрения §g[Эпическое]\n§7§oУлучшит ваше зрение на 30 секунд
+item.arx:rounded_bottle_water_golden_hay_animal_eye_day_kosk=§r§fЗелье святого дождя §e[Легендарное]\n§7§oДождь более не ослабляет ваше зрение на протияжении 5 минут
+item.arx:rounded_bottle_water_golden_hay_animal_eye_night_kosk=§r§fЗелье белой ночи §e[Легендарное]\n§7§oВы видите ночью всё ярче, будто вы призрак. Длительность 5 минут
+item.arx:rounded_bottle_water_golden_hay_animal_eye_night_kosk_dragon_pion=§r§fЗелье тьмы §e[Легендарное]\n§7§oЗатягивает вас тьмой на 30 секунд
+item.arx:rounded_bottle_water_golden_hay_beast_heart=§r§fЗелье драконоборца §g[Эпическое]\n§7§oОгнестойкость на 30 секунд
+item.arx:rounded_bottle_water_golden_hay_beast_heart_dragon_pion=§r§fЗелье адского странника §e[Легендарное]\n§7§oОгнестойкость на 2 минуты
+item.arx:rounded_bottle_water_golden_hay_bone=§r§fЗелье кролика §g[Эпическое]\n§7§oВы прыгаете выше на протяжении минуты
+item.arx:rounded_bottle_water_golden_hay_bone_dragon_pion=§r§fЗелье сверхпрыжка §e[Легендарное]\n§7§oВы прыгаете выше на протяжении 5 минут
+item.arx:rounded_bottle_water_golden_hay_brain=§r§fЗелье синергии §g[Эпическое]\n§7§oВы регенерируете ману на 1 ед. в сек. быстрее на протяжении минуты
+item.arx:rounded_bottle_water_golden_hay_claws=§r§fЗелье шахтёра §g[Эпическое]\n§7§oВы копаете ощутимо быстрее на протяжении минуты
+item.arx:rounded_bottle_water_golden_hay_claws_jackal_grass=§r§fЗелье лени §e[Легендарное]\n§7§oВы копаете ощутимо медленнее на протяжении минуты
+item.arx:rounded_bottle_water_golden_hay_fang=§r§fЗелье быка §g[Эпическое]\n§7§oВы можете переносить на 2 веса больше на протяжении 2 минут
+item.arx:rounded_bottle_water_golden_hay_fang_dragon_pion=§r§fЗелье мощи §e[Легендарное]\n§7§oВы можете переносить на 2 веса больше на протяжении 8 минут
+item.arx:rounded_bottle_water_golden_hay_feather=§r§fЗелье пёрышка §g[Эпическое]\n§7§oЗамедляет ваше падение, не давая вашему прекрасному лицу встретиться к камнями
+item.arx:rounded_bottle_water_golden_hay_feather_dragon_pion=§r§fУлётное зелье §e[Легендарное]\n§7§oНемного подбрасывает вас вверх
+item.arx:rounded_bottle_water_golden_hay_hoof=§r§fЗелье скорости §g[Эпическое]\n§7§oУскоряет ваш бег на 20Ũ на 1 минуту
+item.arx:rounded_bottle_water_golden_hay_hoof_dragon_pion=§r§fМолния §e[Легендарное]\n§7§oУскоряет ваш бег на 20Ũ на 5 минут
+item.arx:rounded_bottle_water_golden_hay_kari=§r§fЗелье благоговения §g[Эпическое]\n§7§oПовышает ваше настроение
+item.arx:rounded_bottle_water_golden_hay_kavra=§r§fЗелье восстановления §g[Эпическое]\n§7§oНемного восстанавливает ваше здоровье
+item.arx:rounded_bottle_water_golden_hay_kavra_dragon_pion=§r§fЗелье регенерации §e[Легендарное]\n§7§oХорошо восстанавливает ваше здоровье
+item.arx:rounded_bottle_water_golden_hay_liver=§r§fЗелье неотравления §g[Эпическое]\n§7§oСкорость снижения интоксикации +100Ũ на 1 мин
+item.arx:rounded_bottle_water_golden_hay_liver_dragon_pion=§r§fЗелье ядостойкости §e[Легендарное]\n§7§oСкорость снижения интоксикации +100Ũ на 5 мин
+item.arx:rounded_bottle_water_golden_hay_liver_dragon_pion_dragon_pion=§r§fЗелье защиты от ядов §e[Легендарное]\n§7§oСкорость снижения интоксикации +300Ũ на 1 мин
+item.arx:rounded_bottle_water_golden_hay_liver_dragon_pion_dragon_pion_dragon_pion=§r§fЗелье мощной антитоксикации §e[Легендарное]\n§7§oСкорость снижения интоксикации +300Ũ на 5 мин
+item.arx:rounded_bottle_water_golden_hay_monster_eye=§r§fЗелье невидимости §g[Эпическое]\n§7§oВы станете невидимым на 10 секунд
+item.arx:rounded_bottle_water_golden_hay_mp_flower=§r§fЗелье маны §g[Эпическое]\n§7§oВосстанавливает 20 маны
+item.arx:rounded_bottle_water_golden_hay_mp_flower_dragon_pion=§r§fЗелье великой маны §e[Легендарное]\n§7§oВосстанавливает 80 маны
+item.arx:rounded_bottle_water_golden_hay_snowflower=§r§fЗелье морозостойкости §g[Эпическое]\n§7§oВы невосприимчивы к холоду на протяжении 10 минут
+item.arx:rounded_bottle_water_golden_hay_snowflower_jackal_grass=§r§fЗелье теплостойкости §e[Легендарное]\n§7§oВы невосприимчивы к перегреву на протяжении 1 минуты
+item.arx:rounded_bottle_water_golden_hay_squama=§r§fЗелье рыбы §g[Эпическое]\n§7§oВы можете дышать под водой на протяжении 5 минут
+item.arx:rounded_bottle_water_golden_hay_yuan=§r§fНасыщающее зелье §g[Эпическое]\n§7§oГолод вас не будет беспокоить 30 минут
+item.arx:triangle_bottle_water=§r§fТреугольный сосуд с водой §b[Редкое]\n§7§oБез эффектов
+item.arx:triangle_bottle_water_karelo=§r§fОтвар карело §b[Редкое]\n§7§oБез эффектов
+item.arx:triangle_bottle_water_karelo_fioletic=§r§fОтвар фиолетика на карело §g[Эпическое]\n§7§oСлабое наркотическое воздействие
+
+
+item.arx:allay_meat=§r§fСырое мясо эллея §a[Необычное]\n§o§7Это невозможно есть, если не приготовить
+item.arx:allay_skin=§r§fКожа эллея §a[Необычное]
+item.arx:animal_eye=§r§fГлаз животного §a[Необычное]
+item.arx:animal_heart=§r§fСердце животного §a[Необычное]\n§o§7Это невозможно есть, если не приготовить
+item.arx:arctic_fox_skin=§r§fШкура полярной лисы §e[Легендарное]
+item.arx:bat_meat=§r§fСырое мясо летучей мыши §a[Необычное]\n§o§7Это невозможно есть, если не приготовить
+item.arx:bat_skin=§r§fШкурка летучей мыши §a[Необычное]
+item.arx:beast_heart=§r§fСердце бестии §b[Редкое]\n§o§7Это невозможно есть, если не приготовить
+item.arx:big_leech_skin=§r§fШкурка большой личинки §b[Редкое]
+item.arx:brain=§r§fМозг §a[Необычное]
+item.arx:cactus=§r§fКактус §7[Обычное]
+item.arx:camel_meat=§r§fСырое мясо верблюда §b[Редкое]\n§o§7Это невозможно есть, если не приготовить
+item.arx:camel_skin=§r§fШкура верблюда §b[Редкое]
+item.arx:cat_meat=§r§fСырое мясо кошки §a[Необычное]\n§o§7Это невозможно есть, если не приготовить
+item.arx:cave_rat_meat=§r§fСырое мясо пещерной крысы §b[Редкое]\n§o§7Это невозможно есть, если не приготовить
+item.arx:cave_rat_skin=§r§fШкура пещерной крысы §b[Редкое]
+item.arx:claws=§r§fКогти §b[Редкое]
+item.arx:cow_skin=§r§fШкура коровы §a[Необычное]
+item.arx:desert_essence=§r§fЭссенция пустыни §g[Эпическое]
+item.arx:dolphin_meat=§r§fСырое мясо дельфина §a[Необычное]\n§o§7Это невозможно есть, если не приготовить
+item.arx:duckling_fowl=§r§fСырое мясо утёнка §a[Необычное]\n§o§7Это невозможно есть, если не приготовить
+item.arx:fang=§r§fКлык §b[Редкое]
+item.arx:fiercewolf_meat=§r§fСырое мясо лютоволка §b[Редкое]\n§o§7Это невозможно есть, если не приготовить
+item.arx:fiercewolf_skin=§r§fШкура лютоволка §b[Редкое]
+item.arx:fox_meat=§r§fСырое мясо лисы §a[Необычное]\n§o§7Это невозможно есть, если не приготовить
+item.arx:fox_skin=§r§fШкура лисы §a[Необычное]
+item.arx:frog_legs=§r§fСырые лягушачьи лапки §a[Необычное]\n§o§7Это невозможно есть, если не приготовить
+item.arx:goat_meat=§r§fСырая козлятина §a[Необычное]\n§o§7Это невозможно есть, если не приготовить
+item.arx:goat_skin=§r§fКозья шкура §a[Необычное]
+item.arx:grease=§r§fЖир §a[Необычное]\n§o§7Не самая эстетичная, но вполне рабочая замена угля
+item.arx:hoof=§r§fКопыто §a[Необычное]
+item.arx:horse_meat=§r§fСырая конина §b[Редкое]\n§o§7Это невозможно есть, если не приготовить
+item.arx:human_meat=§r§fСырое человеческое мясо §b[Редкое]\n§o§7Это невозможно есть, если не приготовить
+item.arx:human_skin=§r§fЧеловеческая кожа §b[Редкое]
+item.arx:kapibara_meat=§r§fСырое мясо капибары §a[Необычное]\n§o§7Это невозможно есть, если не приготовить
+item.arx:kapibara_skin=§r§fШкура капибары §a[Необычное]
+item.arx:lama_meat=§r§fСырое мясо ламы §a[Необычное]\n§o§7Это невозможно есть, если не приготовить
+item.arx:lama_skin=§r§fШкура ламы §a[Необычное]
+item.arx:liver=§r§fПечень §b[Редкое]\n§o§7Это невозможно есть, если не приготовить
+item.arx:meat_beatle_meat=§r§fСырое мясо мясного жука §a[Необычное]\n§o§7Это невозможно есть, если не приготовить
+item.arx:monster_eye=§r§fГлаз монстра §b[Редкое]
+item.arx:panda_skin=§r§fШкура панды §a[Необычное]
+item.arx:parrot_fowl=§r§fСырая ножка попугая §a[Необычное]\n§o§7Это невозможно есть, если не приготовить
+item.arx:pig_skin=§r§fСвиная кожа §a[Необычное]
+item.arx:polar_bear_meat=§r§fСырое мясо медведя §b[Редкое]\n§o§7Это невозможно есть, если не приготовить
+item.arx:polar_bear_skin=§r§fШкура полярного медведя §b[Редкое]
+item.arx:rabbit_meat=§r§fСырое мясо кролика §a[Необычное]\n§o§7Это невозможно есть, если не приготовить
+item.arx:rabbit_skin=§r§fШкурка кролика §a[Необычное]
+item.arx:rat_monstr_meat=§r§fСырое мясо крысиного монстра §b[Редкое]\n§o§7Это невозможно есть, если не приготовить
+item.arx:rat_monstr_skin=§r§fШкура крысиного монстра §b[Редкое]
+item.arx:salt=§r§fСоль §a[Необычное]
+item.arx:sand_elemental_heart=§r§fСердце пустынного элементаля §e[Легендарное]
+item.arx:sea_turtle_meat=§r§fСырое мясо морской черепахи §a[Необычное]\n§o§7Это невозможно есть, если не приготовить
+item.arx:sea_turtle_shell=§r§fПанцирь морской черепахи §a[Необычное]
+item.arx:skorpion_poison=§r§fЯд скорпиона §b[Редкое]
+item.arx:skorpion_shell=§r§fХитиновый скелет скорпиона §b[Редкое]
+item.arx:chitin=§r§fХитин §g[Эпическое]
+item.arx:small_rat_black_skin=§r§fШкурка маленькой чёрной крысы §a[Необычное]
+item.arx:small_rat_meat=§r§fСырое мясо маленькой крысы §a[Необычное]\n§o§7Это невозможно есть, если не приготовить
+item.arx:small_rat_white_skin=§r§fШкурка маленькой белой крысы §a[Необычное]
+item.arx:snow_bars_meat=§r§fСырое мясо снежного барса §b[Редкое]\n§o§7Это невозможно есть, если не приготовить
+item.arx:snow_bars_skin=§r§fШкура снежного барса §b[Редкое]
+item.arx:snow_bug_shell=§r§fПанцирь снежного жука §b[Редкое]
+item.arx:snow_essence=§r§fСнежная эссенция §g[Эпическое]
+item.arx:solod=§r§fСолод §a[Необычное]
+item.arx:squama=§r§fЧешуя §b[Редкое]
+item.arx:swamp_monster_heart=§r§fСердце болотного монстра §e[Легендарное]
+item.arx:wolf_meat=§r§fСырое волчье мясо §a[Необычное]\n§o§7Это невозможно есть, если не приготовить
+item.arx:wolf_skin=§r§fВолчья кожа §a[Необычное]
+item.arx:demon_essence=§r§fИстинная сущность демона §c[Мифическое]
+item.arx:bear_skin=§r§fШкура медведя §b[Редкое]
+item.arx:raw_venison=§r§fСырая оленина §a[Необычное]\n§o§7Это невозможно есть, если не приготовить
+item.arx:deer_skin=§r§fОленья шкура §a[Необычное]
+
+
+item.arx:snow_bars_scarf=§r§fНакидка из снежного барса §g[Эпическое]\n§o§7Защищает вас от холода\nпри условии, что у вас есть верхняя одежда
+
+
+item.arx:cast_iron_preperation=§r§fЗаготовка для чугуна §a[Необычное]\n§7§oПереплавье в печи, чтобы получить чугун
+item.arx:steel_preperation=§r§fЗаготовка для стали §b[Редкое]\n§7§oПереплавье в плавильной печи, чтобы получить сталь
+
+
+item.arx:altaite_billet=§r§fАльтаитовая оружейная болванка §c[Мифическое]\n§o§7Материал для кузнеца
+item.arx:altaite_forged_billet=§r§fАльтаитовая раскалённая болванка [] §c[Мифическое]\n§c§oВы обожжетесь§7 без усиленных кузнечных клещей!\n§aОхладите её в ведре с водой
+item.arx:altaite_hot_billet=§r§fАльтаитовый раскалённый прут [] §c[Мифическое]\n§c§oВы обожжетесь§7 без усиленных кузнечных клещей!\n§aПридайте ему форму на расковочной наковальне
+item.arx:altaite_hot_protective_plate=§r§fАльтаитовая раскалённая защитная пластина [] §c[Мифическое]\n§c§oВы обожжетесь§7 без усиленных кузнечных клещей!\n§aОхладите её в ведре с водой
+item.arx:altaite_protective_plate=§r§fАльтаитовая защитная пластина §c[Мифическое]\n§o§7Материал для кузнеца
+
+item.arx:aluminum_billet=§r§fАлюминиевая оружейная болванка §a[Необычное]\n§o§7Материал для кузнеца
+item.arx:aluminum_forged_billet=§r§fАлюминиевая раскалённая болванка [] §a[Необычное]\n§c§oВы обожжетесь§7 без кузнечных клещей!\n§aОхладите её в ведре с водой
+item.arx:aluminum_hot_billet=§r§fАлюминиевый раскалённый прут [] §a[Необычное]\n§c§oВы обожжетесь§7 без кузнечных клещей!\n§aПридайте ему форму на расковочной наковальне
+item.arx:aluminum_hot_protective_plate=§r§fАлюминиевая раскалённая защитная пластина [] §a[Необычное]\n§c§oВы обожжетесь§7 без кузнечных клещей!\n§aОхладите её в ведре с водой
+item.arx:aluminum_protective_plate=§r§fАлюминиевая защитная пластина §a[Необычное]\n§o§7Материал для кузнеца
+
+item.arx:bronze_billet=§r§fБронзовая оружейная болванка §b[Редкое]\n§o§7Материал для кузнеца
+item.arx:bronze_forged_billet=§r§fБронзовая раскалённая болванка [] §b[Редкое]\n§c§oВы обожжетесь§7 без кузнечных клещей!\n§aОхладите её в ведре с водой
+item.arx:bronze_hot_billet=§r§fБронзовый раскалённый прут [] §b[Редкое]\n§c§oВы обожжетесь§7 без кузнечных клещей!\n§aПридайте ему форму на расковочной наковальне
+item.arx:bronze_hot_protective_plate=§r§fБронзовая раскалённая защитная пластина [] §b[Редкое]\n§c§oВы обожжетесь§7 без кузнечных клещей!\n§aОхладите её в ведре с водой
+item.arx:bronze_protective_plate=§r§fБронзовая защитная пластина §b[Редкое]\n§o§7Материал для кузнеца
+
+item.arx:caryite_billet=§r§fКариитовая оружейная болванка §c[Мифическое]\n§o§7Материал для кузнеца
+item.arx:caryite_forged_billet=§r§fКариитовая раскалённая болванка [] §c[Мифическое]\n§c§oВы обожжетесь§7 без усиленных кузнечных клещей!\n§aОхладите её в ведре с водой
+item.arx:caryite_hot_billet=§r§fКариитовый раскалённый прут [] §c[Мифическое]\n§c§oВы обожжетесь§7 без усиленных кузнечных клещей!\n§aПридайте ему форму на расковочной наковальне
+item.arx:caryite_hot_protective_plate=§r§fКариитовая раскалённая защитная пластина [] §c[Мифическое]\n§c§oВы обожжетесь§7 без усиленных кузнечных клещей!\n§aОхладите её в ведре с водой
+item.arx:caryite_protective_plate=§r§fКариитовая защитная пластина §c[Мифическое]\n§o§7Материал для кузнеца
+
+item.arx:cast_iron_billet=§r§fЧугунная оружейная болванка §a[Необычное]\n§o§7Материал для кузнеца
+item.arx:cast_iron_forged_billet=§r§fЧугунная раскалённая болванка [] §a[Необычное]\n§c§oВы обожжетесь§7 без кузнечных клещей!\n§aОхладите её в ведре с водой
+item.arx:cast_iron_hot_billet=§r§fЧугунный раскалённый прут [] §a[Необычное]\n§c§oВы обожжетесь§7 без кузнечных клещей!\n§aПридайте ему форму на расковочной наковальне
+item.arx:cast_iron_hot_protective_plate=§r§fЧугунная раскалённая защитная пластина [] §a[Необычное]\n§c§oВы обожжетесь§7 без кузнечных клещей!\n§aОхладите её в ведре с водой
+item.arx:cast_iron_protective_plate=§r§fЧугунная защитная пластина §a[Необычное]\n§o§7Материал для кузнеца
+
+item.arx:chloronite_billet=§r§fХлоронитовая оружейная болванка §c[Мифическое]\n§o§7Материал для кузнеца
+item.arx:chloronite_forged_billet=§r§fХлоронитовая раскалённая болванка [] §c[Мифическое]\n§c§oВы обожжетесь§7 без усиленных кузнечных клещей!\n§aОхладите её в ведре с водой
+item.arx:chloronite_hot_billet=§r§fХлоронитовый раскалённый прут [] §c[Мифическое]\n§c§oВы обожжетесь§7 без усиленных кузнечных клещей!\n§aПридайте ему форму на расковочной наковальне
+item.arx:chloronite_hot_protective_plate=§r§fХлоронитовая раскалённая защитная пластина [] §c[Мифическое]\n§c§oВы обожжетесь§7 без усиленных кузнечных клещей!\n§aОхладите её в ведре с водой
+item.arx:chloronite_protective_plate=§r§fХлоронитовая защитная пластина §c[Мифическое]\n§o§7Материал для кузнеца
+
+item.arx:dorionite_billet=§r§fДорионитовая оружейная болванка §c[Мифическое]\n§o§7Материал для кузнеца
+item.arx:dorionite_forged_billet=§r§fДорионитовая раскалённая болванка [] §c[Мифическое]\n§c§oВы обожжетесь§7 без усиленных кузнечных клещей!\n§aОхладите её в ведре с водой
+item.arx:dorionite_hot_billet=§r§fДорионитовый раскалённый прут [] §c[Мифическое]\n§c§oВы обожжетесь§7 без усиленных кузнечных клещей!\n§aПридайте ему форму на расковочной наковальне
+item.arx:dorionite_hot_protective_plate=§r§fДорионитовая раскалённая защитная пластина [] §c[Мифическое]\n§c§oВы обожжетесь§7 без усиленных кузнечных клещей!\n§aОхладите её в ведре с водой
+item.arx:dorionite_protective_plate=§r§fДорионитовая защитная пластина §c[Мифическое]\n§o§7Материал для кузнеца
+
+item.arx:draphorite_billet=§r§fДрафоритовая оружейная болванка §c[Мифическое+++]\n§o§7Материал для кузнеца
+item.arx:draphorite_forged_billet=§r§fДрафоритовая раскалённая болванка [] §c[Мифическое+++]\n§c§oВы обожжетесь§7 без усиленных кузнечных клещей!\n§aОхладите её в ведре с водой
+item.arx:draphorite_hot_billet=§r§fДрафоритовый раскалённый прут [] §c[Мифическое+++]\n§c§oВы обожжетесь§7 без усиленных кузнечных клещей!\n§aПридайте ему форму на расковочной наковальне
+item.arx:draphorite_hot_protective_plate=§r§fДрафоритовая раскалённая защитная пластина [] §c[Мифическое+++]\n§c§oВы обожжетесь§7 без усиленных кузнечных клещей!\n§aОхладите её в ведре с водой
+item.arx:draphorite_protective_plate=§r§fДрафоритовая защитная пластина §c[Мифическое+++]\n§o§7Материал для кузнеца
+
+item.arx:duraluminum_billet=§r§fДюралюминиевая оружейная болванка §b[Редкое]\n§o§7Материал для кузнеца
+item.arx:duraluminum_forged_billet=§r§fДюралюминиевая раскалённая болванка [] §b[Редкое]\n§c§oВы обожжетесь§7 без кузнечных клещей!\n§aОхладите её в ведре с водой
+item.arx:duraluminum_hot_billet=§r§fДюралюминиевый раскалённый прут [] §b[Редкое]\n§c§oВы обожжетесь§7 без кузнечных клещей!\n§aПридайте ему форму на расковочной наковальне
+item.arx:duraluminum_hot_protective_plate=§r§fДюралюминиевая раскалённая защитная пластина [] §b[Редкое]\n§c§oВы обожжетесь§7 без кузнечных клещей!\n§aОхладите её в ведре с водой
+item.arx:duraluminum_protective_plate=§r§fДюралюминиевая защитная пластина §b[Редкое]\n§o§7Материал для кузнеца
+
+item.arx:durasteel_billet=§r§fДюрастальная оружейная болванка §g[Эпическое]\n§o§7Материал для кузнеца
+item.arx:durasteel_forged_billet=§r§fДюрастальная раскалённая болванка [] §g[Эпическое]\n§c§oВы обожжетесь§7 без кузнечных клещей!\n§aОхладите её в ведре с водой
+item.arx:durasteel_hot_billet=§r§fДюрастальной раскалённый прут [] §g[Эпическое]\n§c§oВы обожжетесь§7 без кузнечных клещей!\n§aПридайте ему форму на расковочной наковальне
+item.arx:durasteel_hot_protective_plate=§r§fДюрастальная раскалённая защитная пластина [] §g[Эпическое]\n§c§oВы обожжетесь§7 без кузнечных клещей!\n§aОхладите её в ведре с водой
+item.arx:durasteel_protective_plate=§r§fДюрастальная защитная пластина §g[Эпическое]\n§o§7Материал для кузнеца
+
+item.arx:forfactorite_billet=§r§fФорфакоритовая оружейная болванка §c[Мифическое]\n§o§7Материал для кузнеца
+item.arx:forfactorite_forged_billet=§r§fФорфакоритовая раскалённая болванка [] §c[Мифическое]\n§c§oВы обожжетесь§7 без усиленных кузнечных клещей!\n§aОхладите её в ведре с водой
+item.arx:forfactorite_hot_billet=§r§fФорфакоритовой раскалённый прут [] §c[Мифическое]\n§c§oВы обожжетесь§7 без усиленных кузнечных клещей!\n§aПридайте ему форму на расковочной наковальне
+item.arx:forfactorite_hot_protective_plate=§r§fФорфакоритовая раскалённая защитная пластина [] §c[Мифическое]\n§c§oВы обожжетесь§7 без усиленных кузнечных клещей!\n§aОхладите её в ведре с водой
+item.arx:forfactorite_protective_plate=§r§fФорфакоритовая защитная пластина §c[Мифическое]\n§o§7Материал для кузнеца
+
+item.arx:gold_billet=§r§fЗолотая оружейная болванка §b[Редкое]\n§o§7Материал для кузнеца
+item.arx:gold_forged_billet=§r§fЗолотая раскалённая болванка [] §b[Редкое]\n§c§oВы обожжетесь§7 без кузнечных клещей!\n§aОхладите её в ведре с водой
+item.arx:gold_hot_billet=§r§fЗолотой раскалённый прут [] §b[Редкое]\n§c§oВы обожжетесь§7 без кузнечных клещей!\n§aПридайте ему форму на расковочной наковальне
+item.arx:gold_hot_protective_plate=§r§fЗолотая раскалённая защитная пластина [] §b[Редкое]\n§c§oВы обожжетесь§7 без кузнечных клещей!\n§aОхладите её в ведре с водой
+item.arx:gold_protective_plate=§r§fЗолотая защитная пластина §b[Редкое]\n§o§7Материал для кузнеца
+
+item.arx:iron_billet=§r§fЖелезная оружейная болванка §a[Необычное]\n§o§7Материал для кузнеца
+item.arx:iron_forged_billet=§r§fЖелезная раскалённая болванка [] §a[Необычное]\n§c§oВы обожжетесь§7 без кузнечных клещей!\n§aОхладите её в ведре с водой
+item.arx:iron_hot_billet=§r§fЖелезный раскалённый прут [] §a[Необычное]\n§c§oВы обожжетесь§7 без кузнечных клещей!\n§aПридайте ему форму на расковочной наковальне
+item.arx:iron_hot_protective_plate=§r§fЖелезная раскалённая защитная пластина [] §a[Необычное]\n§c§oВы обожжетесь§7 без кузнечных клещей!\n§aОхладите её в ведре с водой
+item.arx:iron_protective_plate=§r§fЖелезная защитная пластина §a[Необычное]\n§o§7Материал для кузнеца
+
+item.arx:lamenite_billet=§r§fЛаменитовая оружейная болванка §c[Мифическое++]\n§o§7Материал для кузнеца
+item.arx:lamenite_forged_billet=§r§fЛаменитовая раскалённая болванка [] §c[Мифическое++]\n§c§oВы обожжетесь§7 без усиленных кузнечных клещей!\n§aОхладите её в ведре с водой
+item.arx:lamenite_hot_billet=§r§fЛаменитовый раскалённый прут [] §c[Мифическое++]\n§c§oВы обожжетесь§7 без усиленных кузнечных клещей!\n§aПридайте ему форму на расковочной наковальне
+item.arx:lamenite_hot_protective_plate=§r§fЛаменитовая раскалённая защитная пластина [] §c[Мифическое++]\n§c§oВы обожжетесь§7 без усиленных кузнечных клещей!\n§aОхладите её в ведре с водой
+item.arx:lamenite_protective_plate=§r§fЛаменитовая защитная пластина §c[Мифическое++]\n§o§7Материал для кузнеца
+
+item.arx:malafiotironite_billet=§r§fМалафиотиронитовая оружейная болванка §c[Мифическое+]\n§o§7Материал для кузнеца
+item.arx:malafiotironite_forged_billet=§r§fМалафиотиронитовая раскалённая болванка [] §c[Мифическое+]\n§c§oВы обожжетесь§7 без усиленных кузнечных клещей!\n§aОхладите её в ведре с водой
+item.arx:malafiotironite_hot_billet=§r§fМалафиотиронитовый раскалённый прут [] §c[Мифическое+]\n§c§oВы обожжетесь§7 без усиленных кузнечных клещей!\n§aПридайте ему форму на расковочной наковальне
+item.arx:malafiotironite_hot_protective_plate=§r§fМалафиотиронитовая раскалённая защитная пластина [] §c[Мифическое+]\n§c§oВы обожжетесь§7 без усиленных кузнечных клещей!\n§aОхладите её в ведре с водой
+item.arx:malafiotironite_protective_plate=§r§fМалафиотиронитовая защитная пластина §c[Мифическое+]\n§o§7Материал для кузнеца
+
+item.arx:naginitis_billet=§r§fНагинитовая оружейная болванка §e[Легендарное]\n§o§7Материал для кузнеца
+item.arx:naginitis_forged_billet=§r§fНагинитовая раскалённая болванка [] §e[Легендарное]\n§c§oВы обожжетесь§7 без усиленных кузнечных клещей!\n§aОхладите её в ведре с водой
+item.arx:naginitis_hot_billet=§r§fНагинитовый раскалённый прут [] §e[Легендарное]\n§c§oВы обожжетесь§7 без усиленных кузнечных клещей!\n§aПридайте ему форму на расковочной наковальне
+item.arx:naginitis_hot_protective_plate=§r§fНагинитовая раскалённая защитная пластина [] §e[Легендарное]\n§c§oВы обожжетесь§7 без усиленных кузнечных клещей!\n§aОхладите её в ведре с водой
+item.arx:naginitis_protective_plate=§r§fНагинитовая защитная пластина §e[Легендарное]\n§o§7Материал для кузнеца
+
+item.arx:netherite_billet=§r§fНезеритовая оружейная болванка §c[Мифическое+]\n§o§7Материал для кузнеца
+item.arx:netherite_forged_billet=§r§fНезеритовая раскалённая болванка [] §c[Мифическое+]\n§c§oВы обожжетесь§7 без усиленных кузнечных клещей!\n§aОхладите её в ведре с водой
+item.arx:netherite_hot_billet=§r§fНезеритовый раскалённый прут [] §c[Мифическое+]\n§c§oВы обожжетесь§7 без усиленных кузнечных клещей!\n§aПридайте ему форму на расковочной наковальне
+item.arx:netherite_hot_protective_plate=§r§fНезеритовая раскалённая защитная пластина [] §c[Мифическое+]\n§c§oВы обожжетесь§7 без усиленных кузнечных клещей!\n§aОхладите её в ведре с водой
+item.arx:netherite_protective_plate=§r§fНезеритовая защитная пластина §c[Мифическое+]\n§o§7Материал для кузнеца
+
+item.arx:plumbum_billet=§r§fСвинцовая оружейная болванка §b[Редкое]\n§o§7Материал для кузнеца
+item.arx:plumbum_forged_billet=§r§fСвинцовая раскалённая болванка [] §b[Редкое]\n§c§oВы обожжетесь§7 без кузнечных клещей!\n§aОхладите её в ведре с водой
+item.arx:plumbum_hot_billet=§r§fСвинцовый раскалённый прут [] §b[Редкое]\n§c§oВы обожжетесь§7 без кузнечных клещей!\n§aПридайте ему форму на расковочной наковальне
+item.arx:plumbum_hot_protective_plate=§r§fСвинцовая раскалённая защитная пластина [] §b[Редкое]\n§c§oВы обожжетесь§7 без кузнечных клещей!\n§aОхладите её в ведре с водой
+item.arx:plumbum_protective_plate=§r§fСвинцовая защитная пластина §b[Редкое]\n§o§7Материал для кузнеца
+
+item.arx:riolik_billet=§r§fРиоликовая оружейная болванка §b[Редкое]\n§o§7Материал для кузнеца
+item.arx:riolik_forged_billet=§r§fРиоликовая раскалённая болванка [] §b[Редкое]\n§c§oВы обожжетесь§7 без кузнечных клещей!\n§aОхладите её в ведре с водой
+item.arx:riolik_hot_billet=§r§fРиоликовый раскалённый прут [] §b[Редкое]\n§c§oВы обожжетесь§7 без кузнечных клещей!\n§aПридайте ему форму на расковочной наковальне
+item.arx:riolik_hot_protective_plate=§r§fРиоликовая раскалённая защитная пластина [] §b[Редкое]\n§c§oВы обожжетесь§7 без кузнечных клещей!\n§aОхладите её в ведре с водой
+item.arx:riolik_protective_plate=§r§fРиоликовая защитная пластина §b[Редкое]\n§o§7Материал для кузнеца
+
+item.arx:steel_billet=§r§fСтальная оружейная болванка §b[Редкое]\n§o§7Материал для кузнеца
+item.arx:steel_forged_billet=§r§fСтальная раскалённая болванка [] §b[Редкое]\n§c§oВы обожжетесь§7 без кузнечных клещей!\n§aОхладите её в ведре с водой
+item.arx:steel_hot_billet=§r§fСтальной раскалённый прут [] §b[Редкое]\n§c§oВы обожжетесь§7 без кузнечных клещей!\n§aПридайте ему форму на расковочной наковальне
+item.arx:steel_hot_protective_plate=§r§fСтальная раскалённая защитная пластина [] §b[Редкое]\n§c§oВы обожжетесь§7 без кузнечных клещей!\n§aОхладите её в ведре с водой
+item.arx:steel_protective_plate=§r§fСтальная защитная пластина §b[Редкое]\n§o§7Материал для кузнеца
+
+item.arx:tin_billet=§r§fОловянная оружейная болванка §a[Необычное]\n§o§7Материал для кузнеца
+item.arx:tin_forged_billet=§r§fОловянная раскалённая болванка [] §a[Необычное]\n§c§oВы обожжетесь§7 без кузнечных клещей!\n§aОхладите её в ведре с водой
+item.arx:tin_hot_billet=§r§fОловянный раскалённый прут [] §a[Необычное]\n§c§oВы обожжетесь§7 без кузнечных клещей!\n§aПридайте ему форму на расковочной наковальне
+item.arx:tin_hot_protective_plate=§r§fОловянная раскалённая защитная пластина [] §a[Необычное]\n§c§oВы обожжетесь§7 без кузнечных клещей!\n§aОхладите её в ведре с водой
+item.arx:tin_protective_plate=§r§fОловянная защитная пластина §a[Необычное]\n§o§7Материал для кузнеца
+
+item.arx:toliriite_billet=§r§fТолириитовая оружейная болванка §c[Мифическое+]\n§o§7Материал для кузнеца
+item.arx:toliriite_forged_billet=§r§fТолириитовая раскалённая болванка [] §c[Мифическое+]\n§c§oВы обожжетесь§7 без усиленных кузнечных клещей!\n§aОхладите её в ведре с водой
+item.arx:toliriite_hot_billet=§r§fТолириитовый раскалённый прут [] §c[Мифическое+]\n§c§oВы обожжетесь§7 без усиленных кузнечных клещей!\n§aПридайте ему форму на расковочной наковальне
+item.arx:toliriite_hot_protective_plate=§r§fТолириитовая раскалённая защитная пластина [] §c[Мифическое+]\n§c§oВы обожжетесь§7 без усиленных кузнечных клещей!\n§aОхладите её в ведре с водой
+item.arx:toliriite_protective_plate=§r§fТолириитовая защитная пластина §c[Мифическое+]\n§o§7Материал для кузнеца
+
+
+item.arx:scientific_book_unused=§r§fПустая научная книга §a[Необычное]\n§7§oСюда можно записать свой невероятный ОПЫТ
+item.arx:scientific_book=§r§fНаучная книга §b[Редкое]\n§7§oХранит в себе чей-то опыт
+
+
+item.arx:leather_super=§r§fПрочная кожа §b[Редкое]\n§7§oКачественный материал для экипировки\nМожет быть создана из разной кожи или шкур на дубильном станке
+item.arx:pushnina=§r§fКачественный мех §b[Редкое]\n§7§oТёплый и приятный на ощупь\nМожет быть создан из разных шкуры на дубильном станке
+
+
+
+item.arx:bio_adona=§r§fБиочип Адоны §d[Божественное]
+item.arx:bio_baldur=§r§fБиочип Балдура §c[Мифическое+++]
+item.arx:bio_derek=§r§fБиочип Дерека §c[Мифическое+++]
+item.arx:bio_diego=§r§fБиочип Диего §c[Мифическое+++]
+item.arx:bio_empty=§r§fПустой биочип §e[Легендарное]
+item.arx:bio_jarken=§r§fБиочип Джаркена §c[Мифическое+++]
+item.arx:bio_juggernaut=§r§fБиочип Джагернаута §c[Мифическое+++]
+item.arx:bio_kofata=§r§fБиочип Кофаты §d[Божественное]
+item.arx:bio_mortis=§r§fБиочип Мортиса §c[Мифическое+++]
+item.arx:bio_pallada=§r§fБиочип Паллады §d[Божественное]
+item.arx:bio_pireta=§r§fБиочип Пиреты §d[Божественное]
+item.arx:bio_rigata=§r§fБиочип Ригаты §c[Мифическое+++]
+item.arx:bio_saburo=§r§fБиочип Сабуро §c[Мифическое+++]
+item.arx:bio_toka=§r§fБиочип Токи §c[Мифическое+++]
+
+
+item.arx:teleportation_rune=§r§fРуна телепортации §e[Легендарное]
+
+
+item.arx:mod_sword=§r§fМеч модератора §e[Ебалосносное]
+item.arx:moder_gun=§r§fСКС модератора §e[Ебалосносное]
+
+
+
+entity.arx:resurrected_armor_stand.name=Воскесший маникен
+item.spawn_egg.entity.arx:resurrected_armor_stand.name=Spawn Воскесший маникен
+
+item.spawn_egg.entity.arx:default_chair.name=§r§fПростой стул §7[Обычное]
+action.hint.exit.arx:default_chair=Простой стул
+
+item.spawn_egg.entity.arx:ottoman.name=§r§fПуфик поджопник §a[Необычное]
+action.hint.exit.arx:ottoman=Пуфик
+
+item.spawn_egg.entity.arx:log_bench.name=§r§fСкамья из полена §a[Необычное]
+action.hint.exit.arx:log_bench=Скамья из полена
+
+item.spawn_egg.entity.arx:carved_bench.name=§r§fРезная скамья §b[Редкое]
+action.hint.exit.arx:carved_bench=Резная скамья
+
+item.spawn_egg.entity.arx:wooden_bench.name=§r§fПростая скамья §a[Необычное]
+action.hint.exit.arx:wooden_bench=Простая скамья
+
+item.spawn_egg.entity.arx:bed_straw.name=§r§fСоломенная кровать §a[Необычное]
+action.hint.exit.arx:bed_straw=Соломенная кровать
+
+item.spawn_egg.entity.arx:bar_stool.name=§r§fБарный стул §a[Необычное]
+action.hint.exit.arx:bar_stool=Барный стул
+
+item.spawn_egg.entity.arx:wooden_stool.name=§r§fТабурет §a[Необычное]
+action.hint.exit.arx:wooden_stool=Табурет
+
+
+item.arx:night_vision_device=§r§fПрибор ночного видения 1Ő - 5Ő [1] [1] §c[Мифическое]
+item.arx:descriptor=§r§fДескриптор 200Ő [2] [1] §c[Мифическое]
+
+item.arx:adona_bandage=§r§fПовязка Адоны [2] §d[Божественное]
+item.arx:adona_jacket=§r§fКуртка Адоны [3] [2] §d[Божественное]
+item.arx:apprentice_robe=§r§fРоба мага-новичка [2 §1MP§f3] [2] §b[Редкое]
+item.arx:arabic_bandage=§r§fПовязка пустынника [2] §e[Легендарное]
+item.arx:archmage_robe=§r§fМантия тёмного архимага [4] [2] §c[Мифическое]
+item.arx:bandage_black=§r§fЧёрная бандана [1] §a[Необычное]
+item.arx:bandage_red=§r§fКрасная бандана [1] §a[Необычное]
+item.arx:bandage_white=§r§fБандана [1] §a[Необычное]
+item.arx:bandit_mask=§r§fПовязка бандита [1] §a[Необычное]
+item.arx:big_hat=§r§fШирокополая шляпа [2] [1] §b[Редкое]
+item.arx:big_hat_dyed_blue=§r§fСиняя широкополая шляпа [2] [1] §b[Редкое]
+item.arx:big_hat_dyed_red=§r§fКрасная широкополая шляпа [2] [1] §b[Редкое]
+item.arx:big_hat_dyed_black=§r§fЧёрная широкополая шляпа [2] [1] §b[Редкое]
+item.arx:big_hat_dyed_white=§r§fБелая широкополая шляпа [2] [1] §b[Редкое]
+item.arx:black_jacket=§r§fЧёрный жакет [4] [2] §g[Эпическое]
+item.arx:blindness_bandage=§r§fСлепая повязка [1] §a[Необычное]
+item.arx:bloody_robe=§r§fОткрытая багровая штормовка [3] [2] §b[Редкое]
+item.arx:blue_pirate_hat=§r§fСиняя треуголка [2] [1] §b[Редкое]
+item.arx:bone_mask=§r§fМаска костяного [1] [1] §a[Необычное]
+item.arx:cape_of_purple_dust=§r§fПлащ пурпурной пыли [2] [1] §b[Редкое]
+item.arx:cheap_cape=§r§fПростая ряса [1] [1] §a[Необычное]
+item.arx:citizen_clothes=§r§fОдежда горожанина [3] [1] §b[Редкое]
+item.arx:clothes_of_roaring_winds=§r§fСиреневая накидка [3] [1] §b[Редкое]
+item.arx:day_wreath=§r§fДневной венок [1] §a[Необычное]
+item.arx:marchs_wreath=§r§fВенок Марта [2 §1MP§f8] §c[Мифическое+++]
+item.arx:dealer_clothes=§r§fОдежда торговца [3] [2] §b[Редкое]
+item.arx:demon_mask=§r§fДемоническая маска [2] [1] §b[Редкое]
+item.arx:derek_hat=§r§fШляпа Дерека [2] [1] §e[Легендарное]
+item.arx:diadem_of_desert_wanderer=§r§fДиадема пустынной странницы [2] [1] §g[Эпическое]
+item.arx:diadem_of_the_forgotten_queen=§r§fДиадема забытой королевы [2 §bMPR§f2] [1] §e[Легендарное]
+item.arx:dress_of_green_rose=§r§fПлатье зелёной розы [2] [1] §a[Необычное]
+item.arx:elven_hat=§r§fЭльфийская шапочка [2] §b[Редкое]
+item.arx:elven_tunic=§r§fЭльфийская туника [3] [1] §b[Редкое]
+item.arx:exquisite_town_clothes=§r§fИзысканная городская одежда [3] [2] §b[Редкое]
+item.arx:farmers_clothes=§r§fРубаха фермера [3] [1] §a[Необычное]
+item.arx:forest_hood=§r§fЛесной капюшон [1] §b[Редкое]
+item.arx:fox_mask=§r§fМаска лисы [1] [1] §a[Необычное]
+item.arx:fox_sakura_mask=§r§fМаска сакуровой лисы [1] [1] §a[Необычное]
+item.arx:glasses_red=§r§fКрасные очки [1] §e[Легендарное]
+item.arx:gown_of_desert_wanderer=§r§fПлатье пустынной странницы [3] [1] §g[Эпическое]
+item.arx:gray_dress=§r§fСерое платье [3] [1] §b[Редкое]
+item.arx:night_hunter_dress=§r§fЧерное платье [2] [1] §b[Редкое]
+item.arx:gray_dress_of_the_forgotten_queen=§r§fПлатье забытой королевы [3 §1MP§f7] [1] §e[Легендарное]
+item.arx:horn_mask=§r§fРогатая маска [1] [1] §a[Необычное]
+item.arx:hu_tao_hat=§r§fШляпа Ху Тао [3] [1] §e[Легендарное]
+item.arx:kofata_bandage=§r§fПовязка Кофаты [2] §d[Божественное]
+item.arx:kofata_clothes=§r§fОдежда кофаты [4] [1] §d[Божественное]
+item.arx:morning_forest_clothes=§r§fПростая лесная одежда [2] [1] §a[Необычное]
+item.arx:new_year_hat=§r§fНовогодняя шапка [1] §b[Редкое]
+item.arx:pallada_barrette=§r§fЗаколка Паллады [2] §d[Божественное]
+item.arx:pallada_sweater=§r§fСвитер Паллады [4] [2] §d[Божественное]
+item.arx:pirate_clothes=§r§fПиратский фрак [3] [2] §b[Редкое]
+item.arx:pirate_hat=§r§fТреуголка [2] [1] §b[Редкое]
+item.arx:pireta_clothes=§r§fОдежда Пиреты [3] [1] §d[Божественное]
+item.arx:pireta_hairband=§r§fОбодок Пиреты [2] §d[Божественное]
+item.arx:plague_doctor_mask=§r§fМаска чумного доктора [2] [1] §b[Редкое]
+item.arx:purple_cape=§r§fСвободный фиолетовый халат [3] [1] §b[Редкое]
+item.arx:ranger_clothes=§r§fКуртка рейнджера [4] [2] §b[Редкое]
+item.arx:red_cape=§r§fКрасный пыльник [3] [1] §b[Редкое]
+item.arx:red_hat=§r§fАристократичная красная шляпа [2] [1] §b[Редкое]
+item.arx:rich_jacket=§r§fИзысканная богатая куртка [3] [2] §g[Эпическое]
+item.arx:robe_of_clouds=§r§fОблачная роба [3 §1MP§f5] [2] §g[Эпическое]
+item.arx:robe_of_desert=§r§fПустынное лёгкое одеяние [3] [1] §b[Редкое]
+item.arx:royal_sorrel_flower=§r§fЗаколка с цветком царского щавеля [1 §1MP§f5] §e[Легендарное]\n§o§7Цветок раскрывается днём и закрывается ночью
+item.arx:sailors_clothing=§r§fШтормовка шкипера [2] [1] §a[Необычное]
+item.arx:scarlet_dress=§r§fАлое платье [3] [1] §g[Эпическое]
+item.arx:scientists_clothes=§r§fОдежда древнего учёного [3] [1] §e[Легендарное]
+item.arx:shepherd_clothes=§r§fПастушья одежда [2] [1] §a[Необычное]
+item.arx:simple_open_clothing=§r§fПростейшая нижняя одежда [1] [1] §a[Необычное]
+item.arx:simple_skin_clothes=§r§fКожаная легкая одежда [3] [2] §b[Редкое]
+item.arx:simple_worker_clothes=§r§fОдежда рабочего [2] [1] §a[Необычное]
+item.arx:slave_clothes=§r§fРабские штаны [2] [1] §a[Необычное]
+item.arx:steampunk_glasses=§r§fОчки Медного Мастера [2] §e[Легендарное]
+item.arx:steampunk_pants=§r§fШтаны Медного Мастера [4] [2] §e[Легендарное]
+item.arx:straw_hat=§r§fСоломенная шляпа [1] §7[Обычное]
+item.arx:stroller_clothes=§r§fТёплая одежда странника [3] [3] §g[Эпическое]
+item.arx:travelers_cape=§r§fКуртка путешественника [3] [2] §b[Редкое]
+item.arx:wanderer_jacket=§r§fОдежда северянина [4] [3] §g[Эпическое]
+item.arx:watermelon_hat=§r§fШлем арбуз [1] [2] §7[Обычное]
+item.arx:white_hat=§r§fБелая аристократичная шляпа [2] [1] §b[Редкое]
+item.arx:white_wreath=§r§fБелый венок [1] §a[Необычное]
+item.arx:wide_hat=§r§fШляпа пустынника [1] [1] §a[Необычное]
+item.arx:women_face=§r§fЖенское лицо [2] [1] §e[Легендарное]
+item.arx:youkai_mask=§r§fМаска ёкая [2] [1] §b[Редкое]
+item.arx:pink_dress=§r§fРозовое платье [2] [1] §b[Редкое]
+item.arx:pink_bow=§r§fРозовый бант [1] §b[Редкое]
+item.arx:ancient_simple_glasses=§r§fДревние очки [1] §e[Легендарное]
+item.arx:home_gown=§r§fДомашнее платье [2] [1] §b[Редкое]
+item.arx:blue_dawn_dress=§r§fСиний Рассвет [2] [1] §b[Редкое]
+
+item.arx:archer_coat=§r§fПальто лучника [3] [2] §g[Эпическое]
+item.arx:astronomer_cape=§r§fНакидка астронома [2] [1] §g[Эпическое]
+item.arx:dark_captain_jacket=§r§fЖакет капера [3] [2] §g[Эпическое]
+item.arx:dark_shepherd_clothes=§r§fОдежда тёмного пастуха [2] [1] §b[Редкое]
+item.arx:desert_traders_clothes=§r§fОдеяние пустынного торговца [3] [2] §g[Эпическое]
+item.arx:desert_traders_hood=§r§fКапюшон пустынного торговца [2] [1] §g[Эпическое]
+item.arx:eclipse_tunic=§r§fТуника затмения [2] [1] §g[Эпическое]
+item.arx:elite_gown=§r§fЭлитное платье [2] [1] §e[Легендарное]
+item.arx:forest_fairy_bandages=§r§fОдежда леса [2] [1] §a[Необычное]
+item.arx:forest_fairy_wreath=§r§fВенок лесной феи [1] §a[НеобычнFое]
+item.arx:mantle_of_swamp_alchemist=§r§fМантия болотного алхимика [3] [1] §g[Эпическое]
+item.arx:mayor_coat=§r§fПальто майора [3] [1] §g[Эпическое]
+item.arx:moon_fierce=§r§fЛунная маска [2] [1] §a[Необычное]
+item.arx:red_dress=§r§fКрасное платье [2] [1] §g[Эпическое]
+item.arx:red_sunset_dress=§r§fПлатье багрового заката [2] [1] §g[Эпическое]
+item.arx:robe_of_dark_priest=§r§fРоба тёмного священника [3] [2] §g[Эпическое]
+item.arx:royal_gown=§r§fКоролевское платье [2] [1] §g[Эпическое]
+item.arx:scarlet_cape=§r§fБагровая туника [2] [1] §g[Эпическое]
+item.arx:swordsman_clothes=§r§fВедьмачье одеяние [3] [2] §b[Редкое]
+item.arx:torn_cast_off=§r§fРваные обноски [1] [0] §a[Необычное]
+item.arx:twilight_cape=§r§fСумеречная накидка [2] [1] §b[Редкое]
+item.arx:twilight_dress=§r§fСумеречное платье [2] [1] §b[Редкое]
+
+
+item.arx:crimson_armor=§r§fБагровый доспех [12] [7] §c[Мифическое+]
+item.arx:lamenite_plate_armor=§r§fЛаменитовый латный доспех [13] [8] §c[Мифическое+++]
+item.arx:dark_knight_armor=§r§fКираса тёмного рыцаря [8] [5] §g[Эпическое]
+item.arx:dark_knight_helmet=§r§fШлем тёмного рыцаря [6] [4] §g[Эпическое]
+item.arx:dragon_slayer_armor=§r§fДоспех драконоборца [8] [5] §g[Эпическое]
+item.arx:dragon_slayer_helmet=§r§fШлем драконоборца [6] [4] §g[Эпическое]
+item.arx:duke_armor=§r§fДоспех графа [7] [4] §b[Редкое]
+item.arx:duke_helmet=§r§fШлем графа [5] [3] §b[Редкое]
+item.arx:durasteel_armor=§r§fДюрастальной доспех [10] [6] §g[Эпическое]
+item.arx:durasteel_helmet=§r§fДюрастальной шлем [7] [5] §g[Эпическое]
+item.arx:heavy_plate_armor=§r§fТяжёлый пластичный доспех [9] [5] §g[Эпическое]
+item.arx:heavy_plate_helmet=§r§fТяжёлый пластичный шлем [7] [5] §g[Эпическое]
+item.arx:knight_armor=§r§fДоспех рыцаря [9] [5] §g[Эпическое]
+item.arx:knight_helmet=§r§fШлем рыцаря [6] [4] §g[Эпическое]
+item.arx:knight_steel_armor=§r§fРыцарский стальной доспех [9] [5] §g[Эпическое]
+item.arx:northerner_armor=§r§fТяжёлый доспех северянина [12] [7] §c[Мифическое]
+item.arx:northerner_helmet=§r§fТяжёлый шлем северянина [8] [6] §c[Мифическое]
+item.arx:old_camp_armor=§r§fДоспех старого лагеря [10] [6] §e[Легендарное]
+item.arx:precursor_armor=§r§fДоспех предвестника [12] [6] §d[Божественное]
+item.arx:precursor_helmet=§r§fШлем предвестника [8] [6] §d[Божественное]
+item.arx:purple_plate_helmet=§r§fПурпурный полный шлем [7] [5] §e[Легендарное]
+item.arx:purple_plate_helmet_magik=§r§fАрникс [7] [5] §e[Легендарное]
+item.arx:purple_plates=§r§fПурпурный полный доспех [10] [5] §e[Легендарное]
+item.arx:steeletherite_armor=§r§fСверхтяжёлый сталенезеритовый доспех [13] [8] §c[Мифическое++]
+
+item.arx:silver_samurai_helmet=§r§fШлем серебрянного самурая [8] [6] §c[Мифическое]
+item.arx:silver_samurai_armor=§r§fДоспех серебрянного самурая [12] [8] §c[Мифическое]
+item.arx:plate_chainmail_armor=§r§fПластичнокольчужный доспех [10] [6] §g[Эпическое]
+item.arx:snow_warrior_armor=§r§fДоспех снежного воителя [12] [7] §c[Мифическое]
+
+
+item.arx:armored_blue_clothes=§r§fЗащищённая синяя туника [5] [3] §g[Эпическое]
+item.arx:armored_chain_mail_armor=§r§fКольчужный полный доспех [7] [4] §g[Эпическое]
+item.arx:armored_robe=§r§fАрмированная роба мага [6 §1MP§f5] [4] §e[Легендарное]
+item.arx:beryl_armor=§r§fБронекостюм "берилл": прототип [7] [2] §d[Божественное]
+item.arx:crown_with_ruby=§r§fКорона с рубином [4] [2] §e[Легендарное]
+item.arx:dwarf_armor=§r§fБроня дварфа [6] [4] §g[Эпическое]
+item.arx:dwarf_helmet=§r§fШлем дварфа [4] [3] §g[Эпическое]
+item.arx:golden_crown=§r§fЗолотая корона [4] [3] §g[Эпическое]
+item.arx:golden_silk_coat=§r§fЗолотое шёлковое пальто [5] [3] §g[Эпическое]
+item.arx:knight_chain_mail=§r§fЛегкий доспех паладина [6] [4] §g[Эпическое]
+item.arx:knight_chain_mail_helmet=§r§fЛёгкий шлем паладина [4] [3] §g[Эпическое]
+item.arx:knight_light_armor=§r§fОблегчённый рыцарский доспех [6] [4] §g[Эпическое]
+item.arx:knight_light_helmet=§r§fОблегчённый рыцарский шлем [4] [3] §g[Эпическое]
+item.arx:light_chestplate=§r§fПростой алюминиевый доспех [4] [2] §a[Необычное]
+item.arx:lightweight_combat_armor=§r§fЛёгкий боевой доспех [6] [3] §e[Легендарное]
+item.arx:militiaman_armor=§r§fДоспех ополченца [5] [3] §a[Необычное]
+item.arx:militiaman_helmet=§r§fШлем ополченца [4] [3] §a[Необычное]
+item.arx:moon_mask=§r§fЛунная маска [5] [2] §c[Мифическое]
+item.arx:night_knight=§r§fДоспех холодной стали [5] [3] §g[Эпическое]
+item.arx:night_knight_helmet=§r§fШлем холодной стали [4] [3] §g[Эпическое]
+item.arx:pallas_crown=§r§fКорона Палласа [5] [2] §d[Божественное]
+item.arx:pires_crown=§r§fКорона Пиреса [5] [2] §d[Божественное]
+item.arx:precious_coat=§r§fДрагоценное прочное пальто [5] [3] §g[Эпическое]
+item.arx:protector_armor=§r§fДоспех защитника [6] [4] §g[Эпическое]
+item.arx:raven_armor=§r§fДоспех Ворона [8] [§4§o?§fНочь => +1 скорость§r§f] [5] §c[Мифическое+]
+item.arx:silk_reinforced_armor=§r§fАрмированная шёлковая броня [6] [3] §g[Эпическое]
+item.arx:skull_mask=§r§fМаска череп [2] [2] §a[Необычное]
+item.arx:warrior_chain_mail=§r§fКольчуга воителя [5] [3] §b[Редкое]
+item.arx:warrior_helmet=§r§fШлем воителя [4] [3] §b[Редкое]
+
+item.arx:baron_gambeson=§r§fГамбезон барона [6] [4] §e[Легендарное]
+item.arx:desert_protector_armor=§r§fБроня пустынного защитника [6] [4] §g[Эпическое]
+item.arx:hell_fighter_armor=§r§fДоспех адского берсерка [5] [3] §g[Эпическое]
+item.arx:swordsman_armor=§r§fЛёгкий доспех мечника [6] [4] §e[Легендарное]
+item.arx:light_leather_armor=§r§fКожаный доспех [5] [3] §g[Эпическое]
+item.arx:snow_lord_armor=§r§fОдеяние снежного лорда [8] [5] §c[Мифическое]
+
+
+item.arx:pallas_apprentice_robe=§r§fРоба ученика тьмы [3] [1] §b[Редкое]
+item.arx:pires_apprentice_robe=§r§fРоба ученика [3] [1] §b[Редкое]
+item.arx:necro_mantle=§r§fМантия некроманта [4] [2] §e[Легендарное]
+item.arx:necro_mantle_zel=§r§fКитель передового мага [4] [2] §e[Легендарное]
+item.arx:pallas_mage_mantle=§r§fМантия иллюзиониста [3] [2] §e[Легендарное]
+item.arx:pires_mage_mantle=§r§fМантия архимага [3] [2] §e[Легендарное]
+
+item.arx:pallas_conqueror_armor=§r§fСталезуб [12] [7] §e[Легендарное]
+item.arx:pires_paladin_armor=§r§fДоспех паладина [9] [5] §e[Легендарное]
+
+item.arx:pires_ranger_coat=§r§fОдеяние стража леса [5] [3] §e[Легендарное]
+item.arx:pallas_assasin_clothing=§r§fОдеяние тёмного ассасина [5] [3] §e[Легендарное]
+
+
+
+item.arx:dead_allay=§r§fМёртвый эллей §a[Необычное]\n§7§oМожно разделать
+item.arx:dead_arctic_fox=§r§fМёртвая арктическая лиса §e[Легендарное]\n§7§oМожно разделать
+item.arx:dead_bat=§r§fМёртвая летучая мышь §a[Необычное]\n§7§oМожно разделать
+item.arx:dead_big_leech=§r§fМёртвая большая личинка §b[Редкое]\n§7§oМожно разделать
+item.arx:dead_camel=§r§fМёртвый верблюд §b[Редкое]\n§7§oМожно разделать
+item.arx:dead_cat=§r§fМёртвая кошка §a[Необычное]\n§7§oМожно разделать
+item.arx:dead_cave_rat=§r§fМёртвая пещерная крыса §b[Редкое]\n§7§oМожно разделать
+item.arx:dead_cave_spider=§r§fМёртвый пещерный паук §a[Необычное]\n§7§oМожно разделать
+item.arx:dead_chicken=§r§fМёртвая курица §a[Необычное]\n§7§oМожно разделать
+item.arx:dead_cow=§r§fМёртвая корова §a[Необычное]\n§7§oМожно разделать
+item.arx:dead_dolphin=§r§fМёртвый дельфин §a[Необычное]\n§7§oМожно разделать
+item.arx:dead_duckling=§r§fМёртвый утёнок §a[Необычное]\n§7§oМожно разделать
+item.arx:dead_elemental_desert=§r§fМёртвый пустынный элементаль §b[Редкое]\n§7§oМожно разделать
+item.arx:dead_elemental_snow=§r§fМёртвый снежный элементаль §b[Редкое]\n§7§oМожно разделать
+item.arx:dead_fiercewolf=§r§fМёртвый лютоволк §b[Редкое]\n§7§oМожно разделать
+item.arx:dead_fox=§r§fМёртвая лиса §a[Необычное]\n§7§oМожно разделать
+item.arx:dead_frog=§r§fМёртвая лягушка §a[Необычное]\n§7§oМожно разделать
+item.arx:dead_glow_squid=§r§fМёртвый светящийся спрут §a[Необычное]\n§7§oМожно разделать
+item.arx:dead_goat=§r§fМёртвый козёл §a[Необычное]\n§7§oМожно разделать
+item.arx:dead_horse=§r§fМёртвая лошадь §b[Редкое]\n§7§oМожно разделать
+item.arx:dead_kapibara=§r§fМёртвая капибара §a[Необычное]\n§7§oМожно разделать
+item.arx:dead_lama=§r§fМёртвая лама §a[Необычное]\n§7§oМожно разделать
+item.arx:dead_lavra=§r§fМёртвая мерзкая личинка §a[Необычное]\n§7§oМожно разделать
+item.arx:dead_leech=§r§fМёртвая личинка §a[Необычное]\n§7§oМожно разделать
+item.arx:dead_meat_beatle=§r§fМёртвый мясной жук §a[Необычное]\n§7§oМожно разделать
+item.arx:dead_panda=§r§fМёртвая панда §a[Необычное]\n§7§oМожно разделать
+item.arx:dead_parrot=§r§fМёртвый попугай §a[Необычное]\n§7§oМожно разделать
+item.arx:dead_pig=§r§fМёртвая свинья §a[Необычное]\n§7§oМожно разделать
+item.arx:dead_polar_bear=§r§fМёртвый полярный медведь §b[Редкое]\n§7§oМожно разделать
+item.arx:dead_rabbit=§r§fМёртвый кролик §a[Необычное]\n§7§oМожно разделать
+item.arx:dead_rat_monstr=§r§fМёртвый крысиный монстр §b[Редкое]\n§7§oМожно разделать
+item.arx:dead_sand_elemental=§r§fМёртвый песчаный элементаль §e[Легендарное]\n§7§oМожно разделать
+item.arx:dead_sand_leech=§r§fМёртвая печсаная личинка §a[Необычное]\n§7§oМожно разделать
+item.arx:dead_sea_turtle=§r§fМёртвая морская черепаха §a[Необычное]\n§7§oМожно разделать
+item.arx:dead_sheep=§r§fМёртвая овца §a[Необычное]\n§7§oМожно разделать
+item.arx:dead_skorpion=§r§fМёртвый скорпион §b[Редкое]\n§7§oМожно разделать
+item.arx:dead_small_rat_black=§r§fМёртвая чёрная крыска §a[Необычное]\n§7§oМожно разделать
+item.arx:dead_small_rat_white=§r§fМёртвая белая крыска §a[Необычное]\n§7§oМожно разделать
+item.arx:dead_snow_bars=§r§fМёртвый снежный барс §b[Редкое]\n§7§oМожно разделать
+item.arx:dead_snow_bug=§r§fМёртвый снежный жук §b[Редкое]\n§7§oМожно разделать
+item.arx:dead_snow_lady=§r§fМёртвая снежная дева §e[Легендарное]\n§7§oМожно разделать
+item.arx:dead_squid=§r§fМёртвый спрут §a[Необычное]\n§7§oМожно разделать
+item.arx:dead_swamp_monster=§r§fМёртвый болотный монстр §e[Легендарное]\n§7§oМожно разделать
+item.arx:dead_warden=§r§fМёртвый варден §e[Легендарное]\n§7§oМожно разделать
+item.arx:dead_wolf=§r§fМёртвый волк §a[Необычное]\n§7§oМожно разделать
+item.arx:dead_bear=§r§fМёртвый медведь §b[Редкое]\n§7§oМожно разделать
+item.arx:dead_deer=§r§fМёртвый олень §a[Необычное]\n§7§oМожно разделать
+
+
+
+item.arx:demon_book=§r§fКнига демона §g[Эпическое]
+item.arx:used_demon_book=§r§fОткрытая книга демона §g[Эпическое]
+item.arx:undemon_book=§r§fАльманах изгнания тьмы §e[Легендарное]
+item.arx:demon_entity=§r§fСкованная сущность демона §g[Эпическое]
+
+
+
+## Монеты Аркса
+item.arx:hole_coin=§r§fМонета с дыркой §b[Редкое]
+item.arx:simple_coin=§r§fМонета §b[Редкое]
+item.arx:rat_coin=§r§fКрынц §b[Редкое]
+item.arx:rat_coin_gold=§r§fКрайнц §e[Легендарное]
+
+## Кастом монеты
+## item.arx:coin_of_falcon=§r§fЗолотой сокол §b[Редкое]
+## item.arx:coin_of_falcon_silver=§r§fСеребряный сокол §a[Необычное]
+
+
+
+item.arx:baby_shark=§r§fМини-акула §g[Эпическое]\n§o§7Можно разделать на столе для готовки
+item.arx:clownfish=§r§fРыба-клоун §a[Необычное]\n§o§7Можно разделать на столе для готовки
+item.arx:cramp_fish=§r§fСкат §g[Эпическое]\n§o§7Можно разделать на столе для готовки
+item.arx:devil_fish=§r§fРыба-дьявол §g[Эпическое]\n§o§7Можно разделать на столе для готовки
+item.arx:fish=§r§fТреска §7[Обычное]\n§o§7Можно разделать на столе для готовки
+item.arx:gold_tail_fish=§r§fЗлатохвостка §g[Эпическое]\n§o§7Можно разделать на столе для готовки
+item.arx:piranha=§r§fПиранья §b[Редкое]\n§o§7Можно разделать на столе для готовки
+item.arx:salmon=§r§fЛосось §a[Необычное]\n§o§7Можно разделать на столе для готовки
+item.arx:sun_fish=§r§fСолнечная рыба §g[Эпическое]\n§o§7Можно разделать на столе для готовки
+item.arx:wave_fish=§r§fРыба-волна §g[Эпическое]\n§o§7Можно разделать на столе для готовки
+
+item.arx:baby_shark_meat=§r§fСырое филе мини-акулы §g[Эпическое]\n§o§7Это невозможно есть, если не приготовить
+item.arx:clownfish_meat=§r§fСырое филе рыбы-клоуна §a[Необычное]\n§o§7Это невозможно есть, если не приготовить
+item.arx:cramp_fish_meat=§r§fСырое филе ската §g[Эпическое]\n§o§7Это невозможно есть, если не приготовить
+item.arx:devil_fish_meat=§r§fСырое филе рыбы-дьявола §g[Эпическое]\n§o§7Это невозможно есть, если не приготовить
+item.arx:fish_fillet=§r§fСырое филе трески §7[Обычное]\n§o§7Это невозможно есть, если не приготовить
+item.arx:gold_tail_fish_meat=§r§fСырое филе златохвостки §g[Эпическое]\n§o§7Это невозможно есть, если не приготовить
+item.arx:piranha_meat=§r§fСырое филе пираньи §b[Редкое]\n§o§7Это невозможно есть, если не приготовить
+item.arx:salmon_fillet=§r§fСырое филе лосося §a[Необычное]\n§o§7Это невозможно есть, если не приготовить
+item.arx:sun_fish_meat=§r§fСырое филе солнечнай рыбы §g[Эпическое]\n§o§7Это невозможно есть, если не приготовить
+item.arx:wave_fish_meat=§r§fСырое филе рыбы-волны §g[Эпическое]\n§o§7Это невозможно есть, если не приготовить
+
+item.arx:baby_shark_meat_fried=§r§fЖареное филе мини-акулы §g[Эпическое]
+item.arx:clownfish_meat_fried=§r§fЖареное филе рыбы-клоуна §a[Необычное]
+item.arx:cramp_fish_meat_fried=§r§fЖареное филе ската §g[Эпическое]
+item.arx:devil_fish_meat_fried=§r§fЖареное филе рыбы-дьявола §g[Эпическое]
+item.arx:fish_fillet_fried=§r§fЖареное филе трески §7[Обычное]
+item.arx:gold_tail_fish_meat_fried=§r§fЖареное филе златохвостки §g[Эпическое]
+item.arx:piranha_meat_fried=§r§fЖареное филе пираньи §b[Редкое]
+item.arx:salmon_fillet_fried=§r§fЖареное филе лосося §a[Необычное]
+item.arx:sun_fish_meat_fried=§r§fЖареное филе солнечнай рыбы §g[Эпическое]
+item.arx:wave_fish_meat_fried=§r§fЖареное филе рыбы-волны §g[Эпическое]
+
+
+item.arx:fried_allay_meat=§r§fЖареное мясо эллея §a[Необычное]
+item.arx:fried_animal_heart=§r§fЖареное сердце животного §a[Необычное]
+item.arx:fried_bat_meat=§r§fЖареное мясо летучей мыши §a[Необычное]
+item.arx:fried_beast_heart=§r§fЖареное сердце бестии §b[Редкое]
+item.arx:fried_camel_meat=§r§fЖареное мясо верблюда §b[Редкое]
+item.arx:fried_cat_meat=§r§fЖареное мясо кошки §a[Необычное]
+item.arx:fried_cave_rat_meat=§r§fЖареное мясо пещерной крысы §b[Редкое]
+item.arx:fried_dolphin_meat=§r§fЖареное мясо дельфина §a[Необычное]
+item.arx:fried_duckling_fowl=§r§fЖареное мясо утёнка §a[Необычное]
+item.arx:fried_fiercewolf_meat=§r§fЖареное мясо лютоволка §b[Редкое]
+item.arx:fried_fox_meat=§r§fЖареное мясо лисы §a[Необычное]
+item.arx:fried_frog_legs=§r§fЖареные лягушачьи лапки §a[Необычное]
+item.arx:fried_goat_meat=§r§fЖареная козлятина §a[Необычное]
+item.arx:fried_horse_meat=§r§fЖареная конина §b[Редкое]
+item.arx:fried_human_meat=§r§fЖареное человеческое мясо §b[Редкое]
+item.arx:fried_kapibara_meat=§r§fЖареное мясо капибары §a[Необычное]
+item.arx:fried_lama_meat=§r§fЖареное мясо ламы §a[Необычное]
+item.arx:fried_liver=§r§fЖареная печень §b[Редкое]
+item.arx:fried_meat_beatle_meat=§r§fЖареное мясо мясного жука §a[Необычное]
+item.arx:fried_parrot_fowl=§r§fЖареная ножка попугая §a[Необычное]
+item.arx:fried_polar_bear_meat=§r§fЖареное мясо полярного медведя §b[Редкое]
+item.arx:fried_rabbit_meat=§r§fЖареное мясо кролика §a[Необычное]
+item.arx:fried_rat_monstr_meat=§r§fЖареное мясо крысиного монстра §b[Редкое]
+item.arx:fried_sea_turtle_meat=§r§fЖареное мясо морской черепахи §a[Необычное]
+item.arx:fried_small_rat_meat=§r§fЖареное мясо маленькой крысы §a[Необычное]
+item.arx:fried_snow_bars_meat=§r§fЖареное мясо снежного барса §b[Редкое]
+item.arx:fried_wolf_meat=§r§fЖареное волчье мясо §a[Необычное]
+item.arx:fried_venison=§r§fЖареная оленина §a[Необычное]
+
+item.arx:fried_beef=§r§fЖареная говядина §b[Редкое]
+item.arx:fried_chicken=§r§fЖареная курятина §a[Необычное]
+item.arx:fried_mutton=§r§fЖареная баранина §a[Необычное]
+item.arx:fried_porkchop=§r§fЖареная свинина §a[Необычное]
+item.arx:fried_rabbit=§r§fЖареная крольчатина §a[Необычное]
+
+
+item.arx:allaybread=§r§fБутерброд из эллея §b[Редкое]
+item.arx:apple_pie=§r§fЯблочный пирог §b[Редкое]
+item.arx:baked_apple=§r§fПечёное яблоко §a[Необычное]
+item.arx:bandit_pie=§r§fПирог бандита §b[Редкое]
+item.arx:bears_potato=§r§fМедвежья картошка §b[Редкое]
+item.arx:beefbread=§r§fБифброд §b[Редкое]
+item.arx:bloody_steak=§r§fКровавый стейк §g[Эпическое]
+item.arx:borsch=§r§fБорщ §g[Эпическое]
+item.arx:bread=§r§fХлеб §a[Необычное]
+item.arx:cactus_sandwich=§r§fСэндвич с мякотью кактуса §a[Необычное]
+item.arx:cactus_soup=§r§fСуп из кактуса §a[Необычное]
+item.arx:cake_contemplator=§r§fТорт "созерцатель" §b[Редкое]
+item.arx:camel_shashlik=§r§fШашлык из верблюда §b[Редкое]
+item.arx:caramel=§r§fКарамель §a[Необычное]
+item.arx:caramel_buns=§r§fКарамельные булочки §b[Редкое]
+item.arx:caretaker=§r§fНадзиратель §b[Редкое]
+item.arx:cave_rat_meat_in_caramel=§r§fЗапечёная в карамели пещерная крыса §b[Редкое]
+item.arx:cheese=§r§fСыр §g[Эпическое]
+item.arx:cheese_pie=§r§fСырный пирог §g[Эпическое]
+item.arx:chicken_in_vodka=§r§fКурица в водке §b[Редкое]
+item.arx:chocolate_bar=§r§fШоколадная плитка §a[Необычное]
+item.arx:chocolate_cubes=§r§fШоколадные кубики §b[Редкое]
+item.arx:chocolate_donut=§r§fШоколадный пончик §b[Редкое]
+item.arx:chocolate_waffles=§r§fШоколадные вафли §b[Редкое]
+item.arx:cookie=§r§fПеченье §a[Необычное]
+item.arx:crisps=§r§fКартофельные хрустяшки §a[Необычное]
+item.arx:cupcake=§r§fПирожное §a[Необычное]
+item.arx:curd=§r§fТворог §b[Редкое]
+item.arx:cutlet=§r§fКотлета §b[Редкое]
+item.arx:devil_soup=§r§fДьявольский суп §g[Эпическое]
+item.arx:dough=§r§fТесто §a[Необычное]
+item.arx:duckling_crisps=§r§fЦыплячьи хрустяшки §g[Эпическое]
+item.arx:dumplings=§r§fПельмени §b[Редкое]
+item.arx:eggbread=§r§fЯичница-бутерброд §b[Редкое]
+item.arx:electrodinner=§r§fЭлектроужин §g[Эпическое]
+item.arx:elven_salad=§r§fСалат по-эльфийски §b[Редкое]
+item.arx:fiercebread=§r§fЛютохлеб §b[Редкое]
+item.arx:fiolix=§r§fФиоликс §g[Эпическое]
+item.arx:firesalo=§r§fОгнесало §g[Эпическое]
+item.arx:fish_crisps=§r§fРыбьи хрустяшки §a[Необычное]
+item.arx:fish_cutlet=§r§fРыбная котлета §a[Необычное]
+item.arx:fish_pie=§r§fРыбный пирожок §b[Редкое]
+item.arx:fish_soup=§r§fУха §a[Необычное]
+item.arx:fried_brain=§r§fЖареный мозг §a[Необычное]
+item.arx:fried_eggs=§r§fЯичница §a[Необычное]
+item.arx:fried_frog_legs_in_elvish=§r§fЛягушачьи ножки по-эльфийски §b[Редкое]
+item.arx:fried_fugu=§r§fЖареная рыба фугу §g[Эпическое]
+item.arx:fulfilled_wish=§r§fИсполнившееся желание §g[Эпическое]
+item.arx:gnil_pie=§r§fГнилой пирожок §a[Необычное]
+item.arx:grass_soup=§r§fТравяной суп §a[Необычное]
+item.arx:green_salad=§r§fСалат "Зелёный" §a[Необычное]
+item.arx:heart_stew=§r§fПохлёбка из сердец §b[Редкое]
+item.arx:hoof_bouillon=§r§fБульон из копыт §a[Необычное]
+item.arx:horse_shashlik=§r§fШашлык из лошади §b[Редкое]
+item.arx:iron_pie=§r§fПирожок §a[Необычное]
+item.arx:juicy_goat_ribs=§r§fСочные бараньи рёбрышки §b[Редкое]
+item.arx:juicy_grass=§r§fСочная трава §7[Обычное]
+item.arx:kaspora_salad=§r§fСалат из каспоры §a[Необычное]
+item.arx:kefir=§r§fКефир §a[Необычное]
+item.arx:khryuchevo=§r§fХрючево §b[Редкое]
+item.arx:king_bun=§r§fКоролевская булочка §b[Редкое]
+item.arx:king_steak=§r§fКоролевский стейк §g[Эпическое]
+item.arx:lama_in_wine=§r§fЛама в вине §g[Эпическое]
+item.arx:lasagna=§r§fЛазанья §g[Эпическое]
+item.arx:liver_stew=§r§fПохлёбка из печени §b[Редкое]
+item.arx:loaf=§r§fБуханка §a[Необычное]
+item.arx:mayonnaise=§r§fМайонез §a[Необычное]
+item.arx:meat_bug_bug=§r§fОшибка мясного жука §b[Редкое]
+item.arx:meat_hurricane=§r§fМясной ураган §g[Эпическое]
+item.arx:meat_pie=§r§fПирожок с мясом §b[Редкое]
+item.arx:moon_potato=§r§fЛунный картофель §b[Редкое]
+item.arx:mushroom_soup=§r§fГрибной суп §b[Редкое]
+item.arx:pie=§r§fПирожок §a[Необычное]
+item.arx:pirate_steak=§r§fПиратский стейк §b[Редкое]
+item.arx:piratebread=§r§fПиратский бутерброд §b[Редкое]
+item.arx:pumpkin_pie=§r§fТыквенный пирожок §b[Редкое]
+item.arx:rat_monstr_with_potatoes_and_mayonnaise=§r§fКрысиный монстр с картошкой и майонезом §b[Редкое]
+item.arx:rat_potato_casserole=§r§fКрысиная картофельная запеканка §b[Редкое]
+item.arx:reconstruction_meat_cake=§r§fМясной торт "Реконструкция" §b[Редкое]
+item.arx:royal_salad=§r§fЦарский салат §c[Мифическое]
+item.arx:salo=§r§fСало §a[Необычное]
+item.arx:sausage=§r§fКолбаска §b[Редкое]
+item.arx:shark_soup=§r§fАкулий суп §g[Эпическое]
+item.arx:small_rat_cutlet=§r§fКрысиная котлетка §a[Необычное]
+item.arx:snow_bars_steak=§r§fСнежный стейк §b[Редкое]
+item.arx:sour_cream=§r§fСметана §b[Редкое]
+item.arx:spicy_beefbread=§r§fОстрый бифброд §b[Редкое]
+item.arx:spicy_mushroom_soup=§r§fОстрый грибной суп §b[Редкое]
+item.arx:spicy_sauce=§r§fОстрый соус §a[Необычное]
+item.arx:steamed_dolphin=§r§fДельфин на пару §a[Необычное]
+item.arx:stew=§r§fПохлёбка §b[Редкое]
+item.arx:storm_steak=§r§fГромовой стейк §e[Легендарное]
+item.arx:sugar_donut=§r§fСладкий пончик §a[Необычное]
+item.arx:sun_snack=§r§fСолнечный перекус §g[Эпическое]
+item.arx:sweet_bun=§r§fСладкая булка §a[Необычное]
+item.arx:sweet_pie=§r§fСладкий пирожок §a[Необычное]
+item.arx:tea_cup_of_evergreen_dream=§r§fВечнозелёный чай §c[Мифическое]
+item.arx:tea_cup_of_fioletic=§r§fФиолетиковый чай §a[Необычное]
+item.arx:tea_cup_of_fok=§r§fФоковый чай §a[Необычное]
+item.arx:tea_cup_of_kavra=§r§fКавровый чай §a[Необычное]
+item.arx:wave_of_taste=§r§fВолна вкуса §g[Эпическое]
+item.arx:wooden_crust=§r§fДревесная кора §7[Обычное]
+item.arx:brainbread=§r§fБутерброд с мозгами §b[Редкое]
+item.arx:apple=§r§fСочное яблоко §a[Необычное]
+item.arx:le_fishe_au_chocolat=§r§fLe Fishe Au Chocolat §e[Легендарное]
+
+
+
+item.arx:custom_cookie=§r§eПеченька админа
+
+item.arx:fire_berry=§r§fОгнеягода §b[Редкое]
+
+
+item.arx:amul_higher_knowledge=§r§fАмулет высшего знания §c[Мифическое+++]\n§o§a1.5x§7 получаемый опыт
+item.arx:amul_pallas=§r§fАмулет-Паллас §g[Эпическое]\n§7§oБез эффектов
+item.arx:amul_photoresonance=§r§fФоторезонансный амулет §c[Мифическое]
+item.arx:amul_pires=§r§fАмулет-Пирес §g[Эпическое] \n§7§oБез эффектов
+item.arx:amul_ruby=§r§fАмулет огненной защиты §c[Мифическое+]
+item.arx:amul_sapphire=§r§fАмулет дождевой невосприимчивости §c[Мифическое]
+item.arx:amul_string=§r§fПодвеска амулета §a[Необычное]
+item.arx:amul_titan=§r§fАмулет титана [3] §c[Мифическое+]\n§7§oХорошо вас защищает
+item.arx:demon_chain=§r§fЦепь контроля демона [1] §b[Редкое]
+item.arx:pallada_amul=§r§fАмулет Паллады §1MP§f25 §bMPR§f8 §d[Божественное]
+item.arx:piranha_amulet=§r§fАмулет из зубов пираньи §1MP§f3 §b[Редкое]
+item.arx:amul_demon_essence=§r§fАмулет истинного демона §c[Мифическое]
+item.arx:amul_essence_of_vicious_demon=§r§fАмулет порочного демона [+3 урон] §a(Блокировка порочного огня) §c[Мифическое++]
+item.arx:shackles=§r§fКандалы [1] [3] §b[Редкое]
+item.arx:amul_of_desert_shield=§r§fАмулет пустынного щита §c[Мифическое+]\n§7§oЕсли HP < 5 сердец то +1 защита\nЕсли HP < 2.5 сердец то +2 защита
+item.arx:amul_steel_bone=§r§fАмулет стальной кости [2] §g[Эпическое]\n§o§7Этот амулет, как вам кажется, источает приятную надежность
+item.arx:amul_bloody_circle=§r§fКровавое колесо [+0.5 урон] §g[Эпическое]\n§o§7От ваших ударов разлетается гораздо больше крови
+item.arx:amul_of_concealment=§r§fАмулет сокрытия §e[Легендарное]\n§o§7Теперь ваши заготовленные заклинания не узнают даже самые опытные маги
+
+item.arx:bust_compressor=§r§fКрепкая повязка на грудь [1] §a[Необычное]\n§o§7Немножко усилий, и ваша грудь уже не так заметна
+
+item.arx:amul_hypersynergy=§r§fКристалл гиперсинергии §c[Мифическое]\n§7§oПозволяет составлять заклинания, проговаривая руны\nIV канала, откат 10с
+item.arx:amul_hypersynergy_improved=§r§fУлучшенный кристалл гиперсинергии §c[Мифическое++]\n§7§oПозволяет составлять заклинания, проговаривая руны\nVI каналов, откат 3.5с
+item.arx:amul_hypersynergy_superior=§r§fВысший кристалл гиперсинергии §d[Божественное]\n§7§oПозволяет составлять заклинания, проговаривая руны\nVIII каналов, откат 0.5с
+
+
+item.arx:jw_aluminum=§r§fЮвелирный алюминиевый слиток §a[Необычное]
+item.arx:jw_caryite=§r§fЮвелирный кариитовый слиток §c[Мифическое]
+item.arx:jw_naginitis=§r§fЮвелирный нагинитовый слиток §e[Легендарное]
+item.arx:jw_gold=§r§fЮвелирный золотой слиток §b[Редкое]
+item.arx:jw_lamenite=§r§fЮвелирный ламенитовый слиток §c[Мифическое++]
+item.arx:jw_malafiotironite=§r§fЮвелирный малафиотиронитовый слиток §c[Мифическое+]
+item.arx:jw_toliriite=§r§fЮвелирный толириитовый слиток §c[Мифическое+]
+
+
+item.arx:bertold's_silver_ring=§r§fСеребряное кольцо Бертольда §a[Необычное]
+item.arx:ring_of_immortal_eagle=§r§fПерстень орла (Эффективность снятия отравления +500Ũ) §c[Мифическое+++]
+
+
+item.arx:aquamarine_gem=§r§fАквамарин §e[Легендарное]\n§7§oДрагоценный камень
+item.arx:chrysolite_gem=§r§fХризолит §e[Легендарное]\n§7§oДрагоценный камень
+item.arx:cornelian_gem=§r§fСердолик §e[Легендарное]\n§7§oДрагоценный камень
+item.arx:ruby_gem=§r§fРубин §e[Легендарное]\n§7§oДрагоценный камень
+item.arx:sapphire_gem=§r§fСапфир §e[Легендарное]\n§7§oДрагоценный камень
+item.arx:topaz_gem=§r§fТопаз §e[Легендарное]\n§7§oДрагоценный камень
+item.arx:beryl_gem=§r§fБерилл §e[Легендарное]\n§7§oДрагоценный камень
+item.arx:olivine_gem=§r§fОливин §e[Легендарное]\n§7§oДрагоценный камень
+item.arx:zircon_gem=§r§fЦиркон §e[Легендарное]\n§7§oДрагоценный камень
+
+item.arx:painit_gem=§r§fПейнит §c[Мифическое]\n§7§oОсобо редкий драгоценный камень
+item.arx:titanite_gem=§r§fТитанит §c[Мифическое]\n§7§oОсобо редкий драгоценный камень
+item.arx:zoisite_gem=§r§fЦоизит §c[Мифическое]\n§7§oОсобо редкий драгоценный камень
+
+item.arx:lamenit_ore=§r§fЛаменитовая руда §c[Мифическое++]
+
+
+item.arx:altaite_ingot=§r§fАльтаитовый слиток §c[Мифическое]
+item.arx:aluminum_ingot=§r§fАлюминиевый слиток §a[Необычное]
+item.arx:caryite_ingot=§r§fКариитовый слиток §c[Мифическое]
+item.arx:chloronite_ingot=§r§fХлоронитовый слиток §c[Мифическое]
+item.arx:dorionite_ingot=§r§fДорионитовый слиток §c[Мифическое]
+item.arx:draphorite_ingot=§r§fДрафоритовый слиток §c[Мифическое+++]
+item.arx:forfactorite_ingot=§r§fФорфакоритовый слиток §c[Мифическое]
+item.arx:lamenite_ingot=§r§fЛаменитовый слиток §c[Мифическое++]
+item.arx:malafiotironite_ingot=§r§fМалафиотиронитовый слиток §c[Мифическое+]
+item.arx:naginitis_ingot=§r§fНагинитовый слиток §e[Легендарное]
+item.arx:plumbum_ingot=§r§fСвинцовый слиток §b[Редкое]
+item.arx:riolik_ingot=§r§fРиоликовый слиток §b[Редкое]
+item.arx:steel_ingot=§r§fСтальной слиток §b[Редкое]
+item.arx:tin_ingot=§r§fОловянный слиток §a[Необычное]
+item.arx:toliriite_ingot=§r§fТолириитовый слиток §c[Мифическое+]
+
+item.arx:bronze_ingot=§r§fБронзовый слиток §b[Редкое]
+item.arx:cast_iron_ingot=§r§fЧугунный слиток §a[Необычное]
+item.arx:duraluminum_ingot=§r§fДюралюминиевый слиток §b[Редкое]
+item.arx:durasteel_ingot=§r§fДюрастальной слиток §g[Эпическое]
+
+item.arx:chrome_ingot=§r§fХромовый слиток §c[Мифическое]
+item.arx:chrome_nugget=§r§fХромовый самородок §e[Легендарное]
+
+
+item.arx:cheap_cloth=§r§fДешёвая ткань §a[Необычное]
+item.arx:cotton_fabric=§r§fХлопчатобумажная ткань §b[Редкое]\n§o§7Приятная на ощупь
+
+item.arx:diamond_dust=§r§fАлмазная пыль §g[Эпическое]
+item.arx:emerald_dust=§r§fИзумрудная пыль §g[Эпическое]
+item.arx:salt_dust=§r§fСоляная пыль §a[Необычное]
+
+item.arx:gold_feather=§r§fПеро Бога §c[Мифическое+++]\n§7§oЧасть души разумной сущности, насильно оторванная от тела
+item.arx:golden_cross=§r§fЗолотой крест §c[Мифическое]
+item.arx:heal_wand=§r§fЖезл поддержки §e[Легендарное]
+item.arx:hiperprocessor=§r§fГиперпроцессор §e[Легендарное]
+
+item.arx:silk=§r§fШёлк §a[Необычное]
+item.arx:nether_silk=§r§fШёлк прошитый незеритом §c[Мифическое+]
+item.arx:golden_silk=§r§fШёлк прошитый золотом §b[Редкое]
+item.arx:sphere_of_power=§r§fСфера силы §c[Мифическое]
+
+item.arx:water_textile=§r§fВодяная ткань §g[Эпическое]
+
+item.arx:cup=§r§fЧашка §7[Обычное]
+
+item.arx:small_stone=§r§fНебольшой камень §7[Обычное]
+
+
+item.arx:rune_affuono_a=§r§faffuono §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_arrako_a=§r§farrako §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_din_a=§r§fdin §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_disortari_a=§r§fdisortari §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_elletera_a=§r§felletera §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_floruum_a=§r§ffloruum §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_flurri_a=§r§fflurri §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_hijo_a=§r§fhijo §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_horo_a=§r§fhoro §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_inoffo_a=§r§finoffo §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_kon_a=§r§fkon §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_kotoka_a=§r§fkotoka §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_laffaeti_a=§r§flaffaeti §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_low_a=§r§flow §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_marra_a=§r§fmarra §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_mega_a=§r§fmega §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_orduino_a=§r§forduino §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_recuro_a=§r§frecuro §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_sakiifori_a=§r§fsakiifori §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_san_a=§r§fsan §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_sartagana_a=§r§fsartagana §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_sempra_a=§r§fsempra §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_shumi_a=§r§fshumi §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_sin_a=§r§fsin §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_sofiso_a=§r§fsofiso §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_subversa_a=§r§fsubversa §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_sukimo_a=§r§fsukimo §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_trafantana_a=§r§ftrafantana §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_transkursio_a=§r§ftranskursio §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_watashi_a=§r§fwatashi §b[Редкое]\n§o§7IV канала, 3с откат
+item.arx:rune_yanamo_a=§r§fyanamo §b[Редкое]\n§o§7IV канала, 3с откат
+
+item.arx:rune_affuono_b=§r§faffuono §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_arrako_b=§r§farrako §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_din_b=§r§fdin §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_disortari_b=§r§fdisortari §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_elletera_b=§r§felletera §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_floruum_b=§r§ffloruum §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_flurri_b=§r§fflurri §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_hijo_b=§r§fhijo §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_horo_b=§r§fhoro §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_inoffo_b=§r§finoffo §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_kon_b=§r§fkon §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_kotoka_b=§r§fkotoka §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_laffaeti_b=§r§flaffaeti §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_low_b=§r§flow §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_marra_b=§r§fmarra §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_mega_b=§r§fmega §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_orduino_b=§r§forduino §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_recuro_b=§r§frecuro §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_sakiifori_b=§r§fsakiifori §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_san_b=§r§fsan §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_sartagana_b=§r§fsartagana §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_sempra_b=§r§fsempra §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_shumi_b=§r§fshumi §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_sin_b=§r§fsin §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_sofiso_b=§r§fsofiso §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_subversa_b=§r§fsubversa §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_sukimo_b=§r§fsukimo §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_trafantana_b=§r§ftrafantana §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_transkursio_b=§r§ftranskursio §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_watashi_b=§r§fwatashi §e[Легендарное]\n§o§7VI каналов, 1с откат
+item.arx:rune_yanamo_b=§r§fyanamo §e[Легендарное]\n§o§7VI каналов, 1с откат
+
+item.arx:rune_affuono_f=§r§faffuono §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_arrako_f=§r§farrako §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_din_f=§r§fdin §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_disortari_f=§r§fdisortari §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_elletera_f=§r§felletera §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_floruum_f=§r§ffloruum §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_flurri_f=§r§fflurri §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_hijo_f=§r§fhijo §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_horo_f=§r§fhoro §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_inoffo_f=§r§finoffo §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_kon_f=§r§fkon §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_kotoka_f=§r§fkotoka §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_laffaeti_f=§r§flaffaeti §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_low_f=§r§flow §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_marra_f=§r§fmarra §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_mega_f=§r§fmega §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_orduino_f=§r§forduino §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_recuro_f=§r§frecuro §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_sakiifori_f=§r§fsakiifori §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_san_f=§r§fsan §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_sartagana_f=§r§fsartagana §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_sempra_f=§r§fsempra §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_shumi_f=§r§fshumi §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_sin_f=§r§fsin §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_sofiso_f=§r§fsofiso §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_subversa_f=§r§fsubversa §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_sukimo_f=§r§fsukimo §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_trafantana_f=§r§ftrafantana §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_transkursio_f=§r§ftranskursio §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_watashi_f=§r§fwatashi §c[Мифическое]\n§o§7X каналов, 1с откат
+item.arx:rune_yanamo_f=§r§fyanamo §c[Мифическое]\n§o§7X каналов, 1с откат
+
+item.arx:rune_affuono_s=§r§faffuono §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_arrako_s=§r§farrako §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_din_s=§r§fdin §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_disortari_s=§r§fdisortari §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_elletera_s=§r§felletera §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_floruum_s=§r§ffloruum §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_flurri_s=§r§fflurri §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_hijo_s=§r§fhijo §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_horo_s=§r§fhoro §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_inoffo_s=§r§finoffo §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_kon_s=§r§fkon §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_kotoka_s=§r§fkotoka §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_laffaeti_s=§r§flaffaeti §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_low_s=§r§flow §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_marra_s=§r§fmarra §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_mega_s=§r§fmega §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_orduino_s=§r§forduino §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_recuro_s=§r§frecuro §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_sakiifori_s=§r§fsakiifori §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_san_s=§r§fsan §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_sartagana_s=§r§fsartagana §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_sempra_s=§r§fsempra §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_shumi_s=§r§fshumi §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_sin_s=§r§fsin §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_sofiso_s=§r§fsofiso §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_subversa_s=§r§fsubversa §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_sukimo_s=§r§fsukimo §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_trafantana_s=§r§ftrafantana §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_transkursio_s=§r§ftranskursio §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_watashi_s=§r§fwatashi §c[Мифическое+]\n§o§7VIII каналов, без отката
+item.arx:rune_yanamo_s=§r§fyanamo §c[Мифическое+]\n§o§7VIII каналов, без отката
+
+item.arx:rune_nakamata=§r§fnakamata §c[Мифическое+]
+item.arx:rune_ratatao_zelenchik=§r§fКарта: Порок §c[Мифическое+]
+item.arx:rune_ratatao=§r§fratatao §e[Легендарное]
+
+
+item.arx:elder_cross_rune=§r§fДревняя руна-крест §c[Мифическое]
+item.arx:teleportation_rune=§r§fРуна телепортации §e[Легендарное]
+item.arx:scroll_of_reborning=§r§fСвиток перерождения §d[Божественное]\n§o§7Призрак может перевоплотиться назад в живого,\nиспользовав этот свиток
+
+item.arx:scroll_of_teleportation=§r§fСвиток телепортации §e[Легендарное]\n§o§7Этот свиток активирует портал, на котором вы стоите
+item.arx:scroll_of_bane_removing=§r§fСвиток исцеления от проклятия §e[Легендарное]
+item.arx:scroll_of_water_blocking=§r§fСвиток ненамокания §e[Легендарное]\n§o§7Вы моментально высыхаете, а так же становитесь ненамокаемым на 30 секунд
+item.arx:scroll_of_fire_resistance=§r§fСвиток несгорания §e[Легендарное]\n§o§7Вы получаете сопротивление к любому нагреванию на 30 секунд
+item.arx:scroll_of_oblivion=§r§fСвиток забвения §e[Легендарное]\n§o§7Ваше настроение моментально вернется в норму
+item.arx:scroll_of_barrier_breaking=§r§fСвиток сокрушения фиолетового магического барьера §e[Легендарное]\n§o§7Подойдите близко к барьеру и используйте
+
+
+
+## Сверхтяжёлые мечи
+item.arx:delimiter=§r§fРасчленитель [10] §c[Мифическое++]
+item.arx:steel_heavy_crusher=§r§fТяжёлый стальной крушитель [7] §b[Редкое]
+item.arx:dorionite_dismantler=§r§fДорионитовый дробитель [7] §c[Мифическое]
+item.arx:cast_iron_hammer_crusher=§r§fЧугунный боевой молот [5] §a[Необычное]
+item.arx:heavy_axe_with_chloronite_inlays=§r§fТяжёлый боевой топор с хлоронитовыми вставками [7] §c[Мифическое]
+item.arx:petrified_sword=§r§fЗакаменевший меч [5] §e[Легендарное]
+item.arx:dorionite_battleaxe=§r§fДрафоритовый боевой топор [7] §c[Мифическое]
+item.arx:dorionite_powered_battleaxe=§r§fДрафоритовый усиленный боевой топор [8] §c[Мифическое]
+item.arx:red_crystal_crusher=§r§fКрасный кристаллический крушитель [7] §c[Мифическое+]
+item.arx:steel_chorper=§r§fСтальной тесак [6] §b[Редкое]
+item.arx:wooden_heavy_sword=§r§fТяжёлый деревянный меч [2] §7[Обычное]
+item.arx:leave_axe=§r§fТопор леса [5] §e[Легендарное]
+item.arx:duraluminium_crusher=§r§fДюралюминиевый мегаклинок [5] §b[Редкое]
+item.arx:bronze_crusher=§r§fБронзовый крушитель [6] §b[Редкое]
+item.arx:wooden_very_heavy_crusher=§r§fДеревянный особо тяжёлый меч [3] §7[Обычное]
+item.arx:caryite_and_toliriite_sword=§r§fКариито-толириитовый тяжёлый клинок [6] §c[Мифическое+]
+item.arx:netherite_bonecrusher=§r§fНезеритовый костолом [9] §c[Мифическое+]
+item.arx:cast_netherite_crusher=§r§fЛитой незеритовый крушитель [7] §c[Мифическое+]
+item.arx:steel_heavy_sword=§r§fТяжёлый стальной меч [5] §b[Редкое]
+item.arx:dorionite_ripper=§r§fДорионитовый потрошитель [7] §c[Мифическое]
+item.arx:toliriite_ripper=§r§fТолириитовый потрошитель [6] §c[Мифическое+]
+item.arx:red_crystal_heavy_sword=§r§fКрасный кристаллический тяжёлый меч [8] §c[Мифическое+]
+item.arx:toliriite_cutter=§r§fТолириитовый резец [5] §c[Мифическое+]
+item.arx:bronze_crusher_with_cornelian=§r§fБронзовый каратель [7] §b[Редкое]
+item.arx:lamenite_megahammer=§r§fЛаменитовый мегамолот [5] §c[Мифическое+++]
+item.arx:netherite_blade=§r§fНезеритовый клинок [6] §c[Мифическое+]
+item.arx:bronze_and_caryite_axe=§r§fКариитобронзовый топор [7] §c[Мифическое]
+item.arx:clear_dorionite_sword=§r§fДорионитовый мегамеч [8] §c[Мифическое]
+item.arx:duraluminium_sword_with_draphorite_inlays=§r§fДюралюминиевый меч с драфоритовыми вставками [6] §c[Мифическое+++]
+item.arx:dorionite_megahammer=§r§fДорионитовый мегамолот [10] §c[Мифическое]
+item.arx:caryite_and_toliriite_wide_sword=§r§fКариито-толириитовый широкий меч [5] §c[Мифическое+]
+item.arx:durasteel_extreme_long_sword=§r§fДюрастальной сверхдлинный крушитель [13] §g[Эпическое]
+item.arx:bronze_hammer=§r§fБронзовый молот [9] §b[Редкое]
+item.arx:draphorite_sword=§r§fДрафоритовый титанический меч [7] §c[Мифическое+++]
+item.arx:duraluminium_dismantler_with_draphorite_inlays=§r§fДюралюминиевый крушитель с драфоритовыми вставками [7] §c[Мифическое+++]
+item.arx:cast_iron_heavy_crusher=§r§fТяжёлый чугунный разрушитель [9] §a[Необычное]
+item.arx:cast_iron_battleaxe_with_chloronite_inlays=§r§fХлоронитовочугунный боевой топор [7] §c[Мифическое]
+item.arx:durasteel_wide_greatsword=§r§fГроза войны [15] §c[Мифическое+++]
+item.arx:wide_cross_sword=§r§fСвященный крест [7] §e[Легендарное]
+item.arx:caryite_delimiter=§r§fКариитовый расчленитель [7] §c[Мифическое]
+item.arx:harbinger_of_dawn=§r§fПредвестник упадка [8] §c[Мифическое+++]
+item.arx:caryite_sword_with_sapphire=§r§fТёмный кариитовый меч [5] §c[Мифическое]
+item.arx:bronze_and_gold_alloy_battleaxe=§r§fБоевой топор из бронзозолотого сплава [7] §b[Редкое]
+item.arx:steel_big_longsword=§r§fСтальной рыцарский меч [4] §b[Редкое]
+item.arx:ravensword=§r§fМеч ворона [8] §c[Мифическое]
+item.arx:steel_longsword_with_altaite_inlays=§r§fСталеальтаитовый тяжёлый меч [7] §c[Мифическое]
+item.arx:clear_caryite_crusher=§r§fМеч из чистого кариита [8] §c[Мифическое]
+item.arx:flesh_hell_sword=§r§fМеч адской плоти [5] §c[Мифическое++]
+item.arx:elder_battleboard=§r§fДревняя доска [5] §c[Мифическое]
+item.arx:cast_iron_greatsword=§r§fПлан "Б" [13] §b[Редкое]
+item.arx:elder_white_crusher=§r§fБелый арбитр [7] §c[Мифическое+++]
+item.arx:chloronite_big_sword=§r§fБольшой хлоронитовый меч [6] §c[Мифическое]
+item.arx:duraluminium_delimiter=§r§fДюралюминиевый расчленитель [5] §b[Редкое]
+item.arx:steel_battleaxe=§r§fСтальной тяжёлый боевой топор [5] §b[Редкое]
+item.arx:plumbum_lighted_small_longsword=§r§fОблегчённый свинцовый меч [1] §b[Редкое]
+item.arx:duraluminium_great_battleaxe=§r§fДюралюминиевый лунный тесак [5] §b[Редкое]
+
+## Тяжёлые двуручи
+item.arx:costorub=§r§fКосторуб [4] §e[Легендарное]
+item.arx:rose_crusher=§r§fМеч-роза [1] §e[Легендарное]
+item.arx:wooden_heavy_crusher=§r§fМассивный деревянный крушитель [2] §7[Обычное]
+item.arx:copper_heavy_battleaxe=§r§fТяжёлый медный топор [4] §a[Необычное]
+item.arx:plumbum_small_hammer=§r§fОблегчённый свинцовый молот [3] §b[Редкое]
+item.arx:altaite_battlehammer=§r§fАльтаитовый боевой молот [5] §c[Мифическое]
+item.arx:dorionite_secyra_with_sapphiers=§r§fДорионитовая секира с сапфирами [3] §c[Мифическое]
+item.arx:netherite_crusher=§r§fНезеритовый крушитель [4] §c[Мифическое+]
+item.arx:netherite_heavy_secyra=§r§fНезеритовая тяжёлая секира [5] §c[Мифическое+]
+item.arx:stone_heavy_crusher=§r§fТяжёлый каменный меч [3] §7[Обычное]
+item.arx:riolik_hammer=§r§fРиоликовый молот [4] §b[Редкое]
+item.arx:cast_iron_board=§r§fЧугунная доска [4] §a[Необычное]
+item.arx:full_golden_longsword=§r§fЗолотой двуручный меч [4] §b[Редкое]
+item.arx:durasteel_ripper=§r§fДюрастальной потрошитель [5] §g[Эпическое]
+item.arx:dorionite_small_battleaxe=§r§fНебольшой дорионитовый топор [4] §c[Мифическое]
+item.arx:bronze_great_battleaxe=§r§fСлавный бронзовый топор [5] §b[Редкое]
+item.arx:stone_tomahawk=§r§fКаменный томагавк [2] §7[Обычное]
+item.arx:iron_default_axe=§r§fПростой железный топор [2] §a[Необычное]
+item.arx:naginitis_battleaxe=§r§fНагинитовая секира [4] §e[Легендарное]
+item.arx:naginits_and_forfacorite_sword=§r§fНагинито-кариитовый меч [4] §c[Мифическое]
+item.arx:netherite_secyra=§r§fНезеритовая древковая секира [3] §c[Мифическое+]
+item.arx:riolik_heavy_sword=§r§fТяжёлый риоликовый меч [5] §b[Редкое]
+item.arx:cast_iron_hammer=§r§fЧугунный молот [5] §a[Необычное]
+item.arx:tin_heavy_sword=§r§fБольшой оловянный меч [3] §a[Необычное]
+item.arx:plumbum_full_small_hammer=§r§fСвинцовый укороченный молот [3] §b[Редкое]
+
+## Легкий двуручный меч
+item.arx:golden_longsword=§r§fЗолочёный длинный меч [3] §b[Редкое]
+item.arx:steel_light_sword=§r§fЛёгкий стальной меч [2] §b[Редкое]
+item.arx:even=§r§fЭвен [3] §c[Мифическое+++]
+item.arx:flesh_sword=§r§fМеч из плоти [3] §c[Мифическое]
+item.arx:dorionite_hammer=§r§fДорионитовый молот [4] §c[Мифическое]
+item.arx:bronze_fang=§r§fБронзовый клык [2] §b[Редкое]
+item.arx:altaite_small_hammer=§r§fАльтаитовый молот [4] §c[Мифическое]
+item.arx:bronze_sword=§r§fБронзовый меч [2] §b[Редкое]
+item.arx:wooden_wide_sword=§r§fШирокий деревянный меч [1] §7[Обычное]
+item.arx:durasteel_sword_with_bronze_inlays=§r§fДюрастальной меч с бронзовыми вставками [2] §g[Эпическое]
+item.arx:ideal_altaite_sword=§r§fЧистый альтаитовый меч [4] §c[Мифическое]
+item.arx:durasteel_longsword=§r§fДюрастальной длинный меч [4] §g[Эпическое]
+item.arx:caryite_sword=§r§fКариитовый штык [2] §c[Мифическое]
+item.arx:caryite_small_battleaxe=§r§fКариитовая двусторонняя секира [4] §c[Мифическое]
+item.arx:elder_crusher=§r§fМеха-крушитель [3] §c[Мифическое++]
+item.arx:duraluminium_short_sword=§r§fКороткий дюралюминиевый меч с драфоритовыми вставками [3] §c[Мифическое+++]
+item.arx:dorionite_long_sword=§r§fДорионитовое мегалезвие [5] §c[Мифическое]
+item.arx:cast_iron_longsword=§r§fЧугунный цвайхандер [2] §a[Необычное]
+item.arx:naginitis_longsword=§r§fНагинитовый двуручный меч [3] §e[Легендарное]
+item.arx:simple_iron_longsword=§r§fПростой железный двуручный меч [3] §a[Необычное]
+item.arx:sacrificial_iron_sword=§r§fЖертвенный клинок [2] §g[Эпическое]
+item.arx:wooden_longsword=§r§fДеревянный длинный меч [1] §7[Обычное]
+item.arx:plumbum_sword=§r§fСвинцовое лезвие [2] §b[Редкое]
+item.arx:netherite_ripper=§r§fНезеритовый потрошитель [4] §c[Мифическое+]
+item.arx:caryite_saber=§r§fКариитовая сабля [4] §c[Мифическое]
+item.arx:duraluminium_battleaxe_with_draphorite_inlays=§r§fДюралюминиевый топор с драфоритовыми вставками [3] §c[Мифическое+++]
+item.arx:steel_simple_sword=§r§fПростой стальной тесак [2] §b[Редкое]
+item.arx:copper_sword_hook=§r§fМедный крюк [2] §a[Необычное]
+item.arx:simple_iron_axe=§r§fПростой железный топор [2] §a[Необычное]
+item.arx:wooden_simple_sword=§r§fПримитивный деревянный меч [1] §7[Обычное]
+item.arx:steel_saber=§r§fСтальная сабля [3] §b[Редкое]
+item.arx:durasteel_simple_longsword=§r§fГрубый дюрастальной меч [3] §g[Эпическое]
+item.arx:dorionite_battleaxe_with_caryite_inlays=§r§fДорионитово-кариитовый боевой топор [3] §c[Мифическое]
+item.arx:dorionite_double_edged_sword=§r§fДорионитовый обоюдоострый меч [2] §c[Мифическое]
+item.arx:plumbum_longsword=§r§fСвинцовый двуручный меч [3] §b[Редкое]
+item.arx:aluminium_sword=§r§fАлюминиевый меч [3] §a[Необычное]
+item.arx:simple_iron_sword=§r§fПримитивный железный меч [2] §a[Необычное]
+item.arx:iron_wide_sword=§r§fШирокий железный меч [3] §a[Необычное]
+item.arx:steel_weighted_sword=§r§fУтяжелённый стальной меч [4] §b[Редкое]
+item.arx:aluminium_curved_sword=§r§fАлюминиевый палач [2] §a[Необычное]
+item.arx:iron_wide_heavy_sword=§r§fЖелезный широкий меч [3] §a[Необычное]
+item.arx:bronze_longed_sword=§r§fУдлинённый бронзовый меч [3] §b[Редкое]
+item.arx:steel_sword_with_copper_guard=§r§fСтальной меч с медной гардой [2] §b[Редкое]
+item.arx:bronze_longsword=§r§fДлинный бронзовый меч [3] §b[Редкое]
+item.arx:bronze_heighted_battleaxe=§r§fТяжёлый бронзовый боевой топор [4] §b[Редкое]
+item.arx:steel_mace=§r§fСтальная булава [4] §b[Редкое]
+item.arx:plumbum_axe=§r§fСвинцовый топорчик [3] §b[Редкое]
+item.arx:steel_longsword_with_copper_guard=§r§fСтальной длинный меч с медной гардой [3] §b[Редкое]
+item.arx:steel_longsword=§r§fСтальной двуручный меч [3] §b[Редкое]
+item.arx:tin_curved_saber=§r§fОловянный гнутый меч [2] §a[Необычное]
+item.arx:steel_crossword=§r§fСтальной крест [3] §b[Редкое]
+item.arx:bronze_trident=§r§fБронзовый трезубец [4] §b[Редкое]
+item.arx:durasteel_streight_longsword=§r§fДюрастальной сверхдлинный двуручный меч [5] §g[Эпическое]
+item.arx:tin_small_battleaxe=§r§fОловянный усечённый боевой топор [3] §a[Необычное]
+item.arx:plumbum_small_longsword=§r§fСвинцовый усечённый двуручный меч [2] §b[Редкое]
+item.arx:wooden_one_sided_sword=§r§fДеревянный односторонний меч [1] §7[Обычное]
+item.arx:steel_sword_with_golden_guard=§r§fСтальной штык с золотой рукоятью [2] §b[Редкое]
+item.arx:wooden_battleaxe=§r§fДеревянный топорчик [1] §7[Обычное]
+item.arx:plumbum_heighted_longsword=§r§fСвинцовый утяжелённый двуручный меч [3] §b[Редкое]
+item.arx:naginitis_weighted_battleaxe=§r§fНагинитовая тяжёлая секира [4] §e[Легендарное]
+item.arx:altaite_saber=§r§fАльтаитовая сабля [3] §c[Мифическое]
+item.arx:cast_iron_long_saber=§r§fДвуручная чугунная сабля [2] §a[Необычное]
+item.arx:durasteel_small_longsword=§r§fДюрастальной легкий двуручный меч [2] §g[Эпическое]
+item.arx:golden_trident=§r§fЗолотой двуручный трезубец [3] §b[Редкое]
+item.arx:forfacorite_longsword=§r§fКариитовый клинок [2] §c[Мифическое]
+item.arx:stone_longsword=§r§fКаменный двуручный меч [2] §7[Обычное]
+item.arx:durasteel_sword_with_dorionite=§r§fДюрастально-дорионитовый меч [3] §c[Мифическое]
+item.arx:steel_heavy_longsword=§r§fТяжёлый стальной двуручный меч [4] §b[Редкое]
+item.arx:caryite_heavysword=§r§fКариитовый двуручный меч [3] §c[Мифическое]
+item.arx:wooden_carved_sword=§r§fДеревянный двуручный резной меч [1] §7[Обычное]
+item.arx:long_steel_sword_with_draphorite_inlays=§r§fСтальной двуручный меч с драфоритовыми вставками [4] §c[Мифическое+++]
+item.arx:cult_warrior_sword=§r§fКлинок крыс-культистов [2] §e[Легендарное]
+
+## Кинжалы
+item.arx:bone_dagger=§r§fКостяной кинжал [1] §a[Необычное]
+item.arx:podlik=§r§fПодлик [1] §c[Мифическое]
+item.arx:golden_ossified_dagger=§r§fЗолотое жало [1] §b[Редкое]
+item.arx:golden_dagger_fang=§r§fЗолотой коготь [1] §b[Редкое]
+item.arx:hunting_cast_iron_knife=§r§fОхотничий чугунный кинжал-резец [1] §a[Необычное]
+item.arx:simple_iron_dagger=§r§fЖелезный кинжал [1] §a[Необычное]
+item.arx:dagger_fang=§r§fКинжал-коготь [1] §b[Редкое]
+item.arx:longed_cast_iron_dagger=§r§fУдлинённый чугунный кинжал [2] §a[Необычное]
+item.arx:notched_durasteel_dagger=§r§fЗубчатый дюрастальной кинжал [1] §g[Эпическое]
+item.arx:simple_stone_dagger=§r§fКаменный кинжал [1] §7[Обычное]
+item.arx:fish_knife=§r§fРыбный нож [1] §b[Редкое]
+item.arx:chloronite_dagger=§r§fХлоронитовый кинжал [1] §c[Мифическое]
+item.arx:steel_advanced_guard_dagger=§r§fКинжал с усиленной гардой [1] §b[Редкое]
+item.arx:dagger_of_the_gap=§r§fКинжал разрыва [1] §c[Мифическое+]
+item.arx:dagger_with_golden_blade=§r§fКинжал с золотым лезвием [1] §b[Редкое]
+item.arx:vicious_dagger=§r§fПорочный кинжал [1] §c[Мифическое+]
+item.arx:vicious_dagger_refined=§r§fИстинный порочный кинжал [1] §c[Мифическое+++]
+
+## Обычные мечи
+item.arx:adona_sword=§r§fМеч Адоны [2] §d[Божественное]
+item.arx:tearing_flesh=§r§fРвущий плоть [2] §c[Мифическое]
+item.arx:blood_waiting=§r§fЖаждущий крови [3] §g[Эпическое]
+item.arx:steel_wide_shortsword=§r§fСтальной широкий короткий одноручный меч [2] §b[Редкое]
+item.arx:steel_wide_shortsword_with_special_guard=§r§fСтальной широкий короткий одноручный меч с особой гардой [2] §b[Редкое]
+item.arx:powered_steel_wide_shortsword=§r§fУсиленный стальной широкий короткий одноручный меч [3] §b[Редкое]
+item.arx:steel_sharp_sword=§r§fСтальной острый клинок [2] §b[Редкое]
+item.arx:plumbum_dark_sword=§r§fСвинцовый тёмный крест [3] §b[Редкое]
+item.arx:plumbum_simple_sword=§r§fПростой свинцовый меч [3] §b[Редкое]
+item.arx:steel_classic_sword=§r§fКлассический стальной меч [3] §b[Редкое]
+item.arx:steel_tooth=§r§fСтальной зубец [3] §b[Редкое]
+item.arx:steel_shortsword=§r§fСтальной короткий меч [2] §b[Редкое]
+item.arx:steel_sword_with_red_guard=§r§fСтальной короткий меч с красной гардой [2] §b[Редкое]
+item.arx:powered_steel_shortsword=§r§fУсиленный стальной короткий меч [3] §b[Редкое]
+item.arx:steel_dark_shortsword=§r§fСтальной тёмный короткий меч [2] §b[Редкое]
+item.arx:chloronite_shortsword=§r§fХлоронитовый одноручный меч [2] §c[Мифическое]
+item.arx:chloronite_shortsword_magik=§r§fЛезвие Вечности [2] §c[Мифическое]
+item.arx:cast_iron_tooth=§r§fЧугунный зубец [3] §a[Необычное]
+item.arx:steel_sword_with_gold_inlay=§r§fСтальной меч с золотой вставкой [3] §b[Редкое]
+item.arx:holy_sword=§r§fСвятой меч [1] §4[Отозвано]
+item.arx:aluminium_simple_sword=§r§fАлюминиевый одноручный меч [2] §b[Редкое]
+item.arx:steel_simple_blade=§r§fСтальной упрощённый клинок [2] §b[Редкое]
+item.arx:steel_cleaver=§r§fСтальной тесак мясника [2] §b[Редкое]
+item.arx:plumbum_saber=§r§fСвинцовая одноручная сабля [3] §b[Редкое]
+item.arx:hacksaw=§r§fНожовка [1] §b[Редкое]
+
+## Косы
+item.arx:scythe_altaite=§r§fАльтаитовая коса [3] §c[Мифическое]
+item.arx:scythe_netherite=§r§fНезеритовая коса [4] §c[Мифическое+]
+item.arx:scythe_caryite=§r§fКариитовая коса [4] §c[Мифическое]
+item.arx:scythe_tin=§r§fОловянная коса [2] §a[Необычное]
+item.arx:scythe_chloronite=§r§fХлоронитовая коса [3] §c[Мифическое]
+item.arx:scythe_toliriite=§r§fТолириитовая коса [3] §c[Мифическое+]
+item.arx:scythe_steel=§r§fСтальная коса [3] §b[Редкое]
+item.arx:scythe_lamenite=§r§fЛаментовая коса [3] §c[Мифическое+++]
+item.arx:scythe_naginitis=§r§fНагинитовая коса [3] §e[Легендарное]
+
+## Копья
+item.arx:spear_with_gold_inlays=§r§fДюрастальное копьё с золотыми балансирами [4] §g[Эпическое]
+item.arx:cast_iron_alebard=§r§fЧугунная алебарда [3] §a[Необычное]
+item.arx:steel_lance=§r§fСтальное копьё [2] §b[Редкое]
+item.arx:cast_iron_lance=§r§fЧугунная пика [3] §a[Необычное]
+item.arx:duraluminium_lance=§r§fДюралюминиевое копьё [3] §b[Редкое]
+item.arx:durasteel_lance=§r§fДюрастальная пика [3] §e[Легендарное]
+item.arx:durasteel_spear=§r§fДюралюминиевая пика [3] §b[Редкое]
+item.arx:netherite_lance=§r§fНезеритовое копьё [4] §c[Мифическое+]
+item.arx:steel_spear=§r§fСтальная пика [3] §b[Редкое]
+item.arx:netherite_naginata=§r§fНезеритовая нагината [3] §c[Мифическое+]
+item.arx:durasteel_lance_with_draphorite_inlays=§r§fДюрастальное копьё с драфоритовыми вставками [5] §c[Мифическое+++]
+item.arx:dorionite_lance=§r§fДорионитовое копьё [4] §c[Мифическое]
+item.arx:durasteel_and_aluminium_lance=§r§fДюракопьё [3] §b[Редкое]
+item.arx:bronze_lance=§r§fБронзовое копьё [3] §b[Редкое]
+item.arx:jagged_lance=§r§fЗазубренное копьё [3] §c[Мифическое]
+item.arx:steel_alebard=§r§fСтальная алебарда [3] §b[Редкое]
+item.arx:vicious_lance=§r§fПорочная пика [3] §c[Мифическое+]
+item.arx:vicious_lance_refined=§r§fИстинное порочное копье [4] §c[Мифическое+++]
+
+
+## staffs
+item.arx:staff_san=§r§fПосох Солнца VIII [1] §c[Мифическое+++]\n§7§oЗаклинания Солнца требуют на 25Ũ меньше маны
+item.arx:staff_din=§r§fПосох Искажения VIII [1] §c[Мифическое+++]\n§7§oЗаклинания Искажения требуют на 25Ũ меньше маны
+item.arx:staff_sin=§r§fПосох Энергии VIII [1] §c[Мифическое+++]\n§7§oЗаклинания Энергии требуют на 25Ũ меньше маны
+item.arx:staff_kon=§r§fПосох Хаоса VIII [1] §c[Мифическое+++]\n§7§oЗаклинания Хаоса требуют на 25Ũ меньше маны
+item.arx:staff_battle=§r§fБоевой посох VI [3] §c[Мифическое+++]
+item.arx:staff_battle_custom_magik=§r§fПосох Бедствий VI [3] §c[Мифическое+++]
+item.arx:staff_fulminant=§r§fМолниеносный посох VI [1] §c[Мифическое+++]
+item.arx:staff_caryite=§r§fФорфакоритовый посох VII [1] §c[Мифическое]
+item.arx:staff_chloronite=§r§fХлоронитовый посох VII [1] §c[Мифическое]
+item.arx:staff_dark_netherite=§r§fТёмный незеритовый посох VII [1] §c[Мифическое+]
+item.arx:staff_dorionite=§r§fДорионитовый посох VI [1] §c[Мифическое]
+item.arx:staff_dorionite_with_caryite=§r§fДорионито-форфакоритовый посох VII [1] §c[Мифическое]
+item.arx:staff_netherite_with_ruby=§r§fНезеритовый посох с рубином VII [1] §c[Мифическое+]
+item.arx:staff_of_snowlands=§r§fПосох снежных земель VII [1] §c[Мифическое]
+item.arx:staff_of_twilight=§r§fСумеречный посох VII [1] §c[Мифическое+]
+item.arx:vicious_staff_refined=§r§fИстинный порочный посох VIII §bMPR§f3 §1MP§f8 [1] §c[Мифическое+++]
+item.arx:staff_naginitis=§r§fНагинитовый посох V [1] §e[Легендарное]
+item.arx:vicious_staff=§r§fПорочный посох IV [1] §c[Мифическое+]
+item.arx:staff_cast_iron_with_chrysolite=§r§fЧугунный посох с хризолитом III [1] §e[Легендарное]
+item.arx:staff_chrysolite=§r§fХризолитовый посох IV [1] §e[Легендарное]
+item.arx:staff_golden_with_chrysolite=§r§fЗолотой посох с хризолитом IV [1] §e[Легендарное]
+item.arx:staff_golden_with_sapphire=§r§fЗолотой посох с сапфиром IV [1] §e[Легендарное]
+item.arx:staff_of_forest=§r§fПосох леса IV [1] §e[Легендарное]
+item.arx:staff_of_phoenix=§r§fПосох феникса IV [1] §e[Легендарное]
+item.arx:staff_precious=§r§fДрагоценный посох IV [1] §e[Легендарное]
+item.arx:staff_with_ruby=§r§fПосох с рубином III [1] §e[Легендарное]
+item.arx:staff_steel_with_topaz=§r§fСтальной посох с топазом IV [1] §e[Легендарное]
+item.arx:staff_with_beryl=§r§fПосох с бериллом IV [1] §e[Легендарное]
+item.arx:staff_simple_with_ruby=§r§fПосох с рубином III [1] §e[Легендарное]
+item.arx:staff_tin_with_gold=§r§fЗолотой посох с цирконом IV [1] §e[Легендарное]
+item.arx:staff_gold=§r§fЗолотой посох II [1] §b[Редкое]
+item.arx:staff_wooden_with_chrysolite=§r§fДеревянный посох с хризолитом II [1] §e[Легендарное]
+item.arx:staff_wooden_with_olivine=§r§fДеревянный посох с оливином II [1] §b[Редкое]
+item.arx:staff_wooden=§r§fДеревянный посох I [1] §7[Обычное]
+item.arx:staff_golden_with_violet_handle=§r§fСкоростной золотой посох I [1] §b[Редкое]
+item.arx:staff_of_scarlet_moon=§r§fПосох алой луны I [1] §e[Легендарное]
+
+item.arx:golden_moon_radiance=§r§fСияние золотой луны X [1] §c[Мифическое]
+item.arx:master_of_fates=§r§fПовелитель судеб VI [2] §c[Мифическое]
+item.arx:sturdy_staff=§r§fКрепкий посох II [3] §a[Необычное]
+
+item.arx:staff_dragon=§r§fПосох дракона VI [1] §c[Мифическое+++]
+item.arx:staff_with_skull=§r§fПосох-череп IV [1] §e[Легендарное]
+item.arx:staff_of_hell=§r§fАдский посох V [1] §c[Мифическое+]
+item.arx:staff_of_shaman=§r§fПосох шамана V [1] §c[Мифическое]
+item.arx:staff_of_angel=§r§fПосох ангела V [1] §c[Мифическое]
+item.arx:staff_golden_cross=§r§fПосох золотого креста IV [1] §e[Легендарное]
+item.arx:staff_of_heaven=§r§fРайский посох V [1] §c[Мифическое+]
+
+
+
+item.arx:pireta_sword=§r§fМеч Пиреты §d[Божественное]
+item.arx:pallada_sword=§r§fМеч Паллады §d[Божественное]
+
+
+item.arx:aluminum_wand=§r§fАлюминиевая волшебная палочка II §a[Необычное]
+item.arx:wand_duo=§r§fСтранная волшебная палочка V §e[Легендарное]
+item.arx:wand_flame=§r§fСолнечная волшебная палочка IV §e[Легендарное]
+item.arx:wand_forfacorite=§r§fФорфакоритовая волшебная палочка VII §e[Легендарное]
+item.arx:wand_iron=§r§fЖелезная волшебная палочка III §a[Необычное]
+item.arx:wand_naginitis=§r§fНагинитовая волшебная палочка VI §e[Легендарное]
+item.arx:wand_of_darkness=§r§fТёмная волшебная палочка V §e[Легендарное]
+item.arx:wand_pine_and_netherite=§r§fВолшебная палочка с незеритовой рукоятью VII §c[Мифическое+]
+item.arx:wand_sakura=§r§fВолшебная палочка из сакуры III §b[Редкое]
+item.arx:wand_scarlet=§r§fАдская волшебная палочка VII §c[Мифическое+]
+item.arx:wand_tironite=§r§fМалафиотиронитовая волшебная палочка IIX §c[Мифическое+]
+item.arx:wand_twisted=§r§fЗакрученная волшебная палочка IX §c[Мифическое+]
+item.arx:wand_white=§r§fБелая волшебная палочка V §g[Эпическое]
+item.arx:wand_wooden=§r§fДеревянная волшебная палочка I §7[Обычное]
+item.arx:god_wand=§r§fПовеление Бога X §c[Мифическое+++]
+
+
+item.arx:composite_toothed_sawsword=§r§fКомпозитный пиломеч демона [5] §c[Мифическое+++]
+
+
+item.arx:amul_magic_painit=§r§fПроводник inoffo §c[Мифическое]\n§7§oЗаклинания, содержащие руну inoffo, требуют на 25Ũ меньше маны.
+item.arx:amul_magic_titanite=§r§fПроводник yanamo §c[Мифическое]\n§7§oЗаклинания, содержащие руну yanamo, требуют на 25Ũ меньше маны.
+item.arx:amul_magic_zoisite=§r§fПроводник особой магии §c[Мифическое]\n§7§oЗаклинания, не содержащие ни руны yanamo, ни руны inoffo, требуют на 25Ũ меньше маны.
+
+
+item.arx:piranha_tooth=§r§fЗуб пираньи §g[Эпическое]
+
+
+
+tile.arx:bishop_b.name=§r§fЧёрный шахматный слон §7[Обычное]
+tile.arx:bishop_w.name=§r§fБелый шахматный слон §7[Обычное]
+tile.arx:king_b.name=§r§fЧёрный шахматный король §7[Обычное]
+tile.arx:king_w.name=§r§fБелый шахматный король §7[Обычное]
+tile.arx:knight_b.name=§r§fЧёрный шахматный конь §7[Обычное]
+tile.arx:knight_w.name=§r§fБелый шахматный конь §7[Обычное]
+tile.arx:pawn_b.name=§r§fЧёрная шахматная пешка §7[Обычное]
+tile.arx:pawn_w.name=§r§fБелая шахматная пешка §7[Обычное]
+tile.arx:queen_b.name=§r§fЧёрная шахматная королева §7[Обычное]
+tile.arx:queen_w.name=§r§fБелая шахматная королева §7[Обычное]
+tile.arx:rook_b.name=§r§fЧёрная шахматная ладья §7[Обычное]
+tile.arx:rook_w.name=§r§fБелая шахматная ладья §7[Обычное]
+
+
+
+tile.arx:chromakey_black.name=§r§fЧёрный хромакей §7[Обычное]
+tile.arx:chromakey_blue.name=§r§fСиний хромакей §7[Обычное]
+tile.arx:chromakey_green.name=§r§fЗелёный хромакей §7[Обычное]
+tile.arx:chromakey_red.name=§r§fКрасный хромакей §7[Обычное]
+tile.arx:chromakey_white.name=§r§fБелый хромакей §7[Обычное]
+
+
+
+tile.arx:chloronite_obstruction.name=§r§fХлоронитовая баррикада §c[Мифическое]
+tile.arx:iron_obstruction.name=§r§fЖелезная баррикада §a[Необычное]
+tile.arx:wooden_obstruction.name=§r§fДеревянная баррикада §7[Обычное]
+tile.arx:chair.name=§r§fСтул §7[Обычное]
+
+tile.arx:divine_altar.name=§r§fБожественный алтарь §e[Легендарное]\n§7§oУдар по вырубленному непризрачному разумному существу\nна этом алтаре навсегда расщепит его душу,\nоставив лишь горечь и перо Бога
+
+
+
+tile.arx:crafting_table.name=§r§fПростой верстак §g§o[Верстак]§r §7[Обычное]
+tile.arx:alchemy_crafting_table.name=§r§fАлхимический стол §g§o[Верстак]§r§f §b[Редкое]
+tile.arx:alcohol_mashine.name=§r§fСамогонный аппарат §g§o[Верстак]§r§f §b[Редкое]
+tile.arx:anvil_crafting_table.name=§r§fРасковочная наковальня §g§o[Верстак]§r§f §b[Редкое]
+tile.arx:barrel_of_water_crafting_table.name=§r§fКузнечное ведро с водой §g§o[Верстак]§r§f §a[Необычное]
+tile.arx:boiler_crafting_table.name=§r§fКотелок §g§o[Верстак]§r§f §a[Необычное]
+tile.arx:bugle_crafting_table.name=§r§fПлавильный горн §g§o[Верстак]§r§f §b[Редкое]
+tile.arx:clothes_crafting_table.name=§r§fШвейный стол §g§o[Верстак]§r§f §a[Необычное]
+tile.arx:cooking_crafting_table.name=§r§fСтол для готовки §g§o[Верстак]§r§f §b[Редкое]
+tile.arx:glassworks_crafting_table.name=§r§fСтеклоплавильня §g§o[Верстак]§r§f §a[Необычное]
+tile.arx:heavy_armor_crafting_table.name=§r§fВерстак для тяжёлых доспехов §g§o[Верстак]§r§f §b[Редкое]
+tile.arx:jewelry_crafting_table.name=§r§fЮвелирный станок §g§o[Верстак]§r§f §b[Редкое]
+tile.arx:leather_bench_crafting_table.name=§r§fДубильный станок §g§o[Верстак]§r§f §7[Обычное]
+tile.arx:light_armor_crafting_table.name=§r§fВерстак для лёгких доспехов §g§o[Верстак]§r§f §a[Необычное]
+tile.arx:loom_crafting_table.name=§r§fПрядильный станок §g§o[Верстак]§r§f §7[Обычное]
+tile.arx:pounder_crafting_table.name=§r§fСтупка §g§o[Верстак]§r§f §7[Обычное]
+tile.arx:rune_crafting_table.name=§r§fРуническая сфера §g§o[Верстак]§r§f §b[Редкое]
+tile.arx:substractor.name=§r§fСубстактор §g§o[Верстак]§r§f §c[Мифическое+]
+tile.arx:thermal_cooking_crafting_table.name=§r§fМангал §g§o[Верстак]§r§f §a[Необычное]
+tile.arx:weapons_assembly_crafting_table.name=§r§fОружесборочная §g§o[Верстак]§r§f §a[Необычное]
+tile.arx:tea_table.name=§r§fЧайный стол §g§o[Верстак]§r§f §b[Редкое] 
+
+
+tile.arx:coin_crafting_table_default.name=§r§fМонетный станок §g§o[Верстак]§r§f (обычная форма) §e[Легендарное]
+## tile.arx:coin_crafting_table_falcon.name=§r§fМонетный станок §g§o[Верстак]§r§f (форма - сокол) §e[Легендарное]
+
+
+tile.arx:lamp.name=§r§fМедная лампа §a[Необычное]
+tile.arx:bronze_lamp.name=§r§fБронзовая лампа §b[Редкое]
+tile.arx:chloronite_lamp.name=§r§fХлоронитовая лампа §c[Мифическое]
+tile.arx:chloronite_hanging_lamp.name=§r§fХлоронитовая подвесная лампа §c[Мифическое]
+tile.arx:precious_box.name=§r§fЛарец §b[Редкое]
+
+tile.arx:shield_and_swords.name=§r§fЩит и мечи §b[Редкое]
+tile.arx:table.name=§r§fСтолик §7[Обычное]
+tile.arx:wall_wheel.name=§r§fДекоративное колесо §7[Обычное]
+tile.arx:writing_instruments.name=§r§fИнструменты для письма §a[Необычное]
+
+
+
+tile.arx:minibot.name=§r§fМинибот §c[Мифическое+++]
+
+
+
+tile.arx:altaite_deep_ore.name=§r§fАльтаитовая глубинная руда §c[Мифическое]
+tile.arx:altaite_stone_ore.name=§r§fАльтаитовая руда §c[Мифическое]
+tile.arx:aluminium_deep_ore.name=§r§fАлюминиевая глубинная руда §a[Необычное]
+tile.arx:aluminium_stone_ore.name=§r§fАлюминиевая руда §a[Необычное]
+tile.arx:aquamarine_deep_ore.name=§r§fАквамариновая глубинная руда §e[Легендарное]
+tile.arx:aquamarine_stone_ore.name=§r§fАквамариновая руда §e[Легендарное]
+tile.arx:caryite_deep_ore.name=§r§fКариитовая глубинная руда §c[Мифическое]
+tile.arx:caryite_stone_ore.name=§r§fКариитовая руда §c[Мифическое]
+tile.arx:chloronite_deep_ore.name=§r§fХлоронитовая глубинная руда §c[Мифическое]
+tile.arx:chloronite_stone_ore.name=§r§fХлоронитовая руда §c[Мифическое]
+tile.arx:chrysolite_deep_ore.name=§r§fХризолитовая глубинная руда §e[Легендарное]
+tile.arx:chrysolite_stone_ore.name=§r§fХризолитовая руда §e[Легендарное]
+tile.arx:cornelian_deep_ore.name=§r§fСердоликовая глубинная руда §e[Легендарное]
+tile.arx:cornelian_stone_ore.name=§r§fСердоликовая руда §e[Легендарное]
+tile.arx:dorionite_deep_ore.name=§r§fДорионитовая глубинная руда §c[Мифическое]
+tile.arx:dorionite_stone_ore.name=§r§fДорионитовая руда §c[Мифическое]
+tile.arx:dorionite_sand_ore.name=§r§fДорионитовая руда §c[Мифическое]
+tile.arx:forfactorite_deep_ore.name=§r§fФорфакоритовая глубинная руда §c[Мифическое]
+tile.arx:forfactorite_stone_ore.name=§r§fФорфакоритовая руда §c[Мифическое]
+tile.arx:lamenite_deep_ore.name=§r§fЛаменитовая глубинная руда §c[Мифическое++]
+tile.arx:lamenite_stone_ore.name=§r§fЛаменитовая руда §c[Мифическое++]
+tile.arx:malafiotironite_nether_ore.name=§r§fМалафиотиронитовая руда §c[Мифическое+]
+tile.arx:naginitis_deep_ore.name=§r§fНагинитовая глубинная руда §e[Легендарное]
+tile.arx:naginitis_stone_ore.name=§r§fНагинитовая руда §e[Легендарное]
+tile.arx:plumbum_deep_ore.name=§r§fСвинцовая глубинная руда §b[Редкое]
+tile.arx:plumbum_stone_ore.name=§r§fСвинцовая руда §b[Редкое]
+tile.arx:ruby_deep_ore.name=§r§fРубинная глубинная руда §e[Легендарное]
+tile.arx:ruby_stone_ore.name=§r§fРубинная руда §e[Легендарное]
+tile.arx:salt_deep_ore.name=§r§fСоляная глубинная руда §a[Необычное]
+tile.arx:salt_stone_ore.name=§r§fСоляная руда §a[Необычное]
+tile.arx:sapphire_deep_ore.name=§r§fСапфировая глубинная руда §e[Легендарное]
+tile.arx:sapphire_stone_ore.name=§r§fСапфировая руда §e[Легендарное]
+tile.arx:tin_deep_ore.name=§r§fОловянная глубинная руда §a[Необычное]
+tile.arx:tin_stone_ore.name=§r§fОловянная руда §a[Необычное]
+tile.arx:toliriite_nether_ore.name=§r§fТолириитовая руда §c[Мифическое+]
+tile.arx:topaz_deep_ore.name=§r§fТопазовая глубинная руда §e[Легендарное]
+tile.arx:topaz_stone_ore.name=§r§fТопазовая руда §e[Легендарное]
+
+tile.arx:painit_deep_ore.name=§r§fПейнитовая глубинная руда §c[Мифическое]
+tile.arx:painit_stone_ore.name=§r§fПейнитовая руда §c[Мифическое]
+tile.arx:zoisite_deep_ore.name=§r§fЦоизитовая глубинная руда §c[Мифическое]
+tile.arx:zoisite_stone_ore.name=§r§fЦоизитовая руда §c[Мифическое]
+tile.arx:titanite_deep_ore.name=§r§fТитанитовая глубинная руда §c[Мифическое]
+tile.arx:titanite_stone_ore.name=§r§fТитанитовая руда §c[Мифическое]
+
+tile.arx:beryl_deep_ore.name=§r§fБерилловая глубинная руда §e[Легендарное]
+tile.arx:beryl_stone_ore.name=§r§fБерилловая руда §e[Легендарное]
+tile.arx:olivine_deep_ore.name=§r§fОливиновая глубинная руда §e[Легендарное]
+tile.arx:olivine_stone_ore.name=§r§fОливиновая руда §e[Легендарное]
+tile.arx:zircon_deep_ore.name=§r§fЦирконовая глубинная руда §e[Легендарное]
+tile.arx:zircon_stone_ore.name=§r§fЦирконовая руда §e[Легендарное]
+
+tile.arx:damaged_ancient_electronics_deep_ore.name=§r§fДревняя электроника в глубинном сланце §e[Легендарное]
+tile.arx:damaged_ancient_electronics_stone_ore.name=§r§fДревняя электроника в камне §e[Легендарное]
+
+tile.arx:xp_deep_ore.name=§r§fЭкспиринциальная глубинная руда §g[Эпическое]
+tile.arx:xp_stone_ore.name=§r§fЭкспиринциальная руда §g[Эпическое]
+tile.arx:xp_sand_ore.name=§r§fЭкспиринциальная песчанная руда §g[Эпическое]
+tile.arx:xp_nether_ore.name=§r§fЭкспиринциальная адская руда §g[Эпическое]
+
+
+
+tile.arx:cactus_column.name=§r§fКактусовая колонна §7[Обычное]
+tile.arx:cactus_corner.name=§r§fКактусовый угол §7[Обычное]
+tile.arx:cactus_flower.name=§r§fКактусовый цветок §7[Обычное]
+tile.arx:cactus_top.name=§r§fКактусовое навершие §7[Обычное]
+
+tile.arx:fly_agaric.name=§r§fМухомор §a[Необычное]
+tile.arx:mp_mushroom.name=§r§fГриб маны §a[Необычное]
+tile.arx:mushroom.name=§r§fГриб §a[Необычное]
+tile.arx:blue_cave_mushrooms.name=§r§fСиний мракогриб §g[Эпическое]
+
+tile.arx:nest.name=§r§fГнездо §a[Необычное]
+
+tile.arx:stones.name=§r§fКамушки §7[Обычное]
+
+tile.arx:day_kosk.name=§r§fДневной коск §a[Необычное]\n§7§oНепримечательный цветок, предпочитающий тёплые возвышенности
+tile.arx:dragon_pion.name=§r§fДраконий пион §b[Редкое]\n§7§oПриятно пахнущий и довольно редкий. Вам непроизвольно хочется потрогать его бутоны
+tile.arx:evergreen_dream.name=§r§fВечнозелёный сон §c[Мифическое]\n§7§oБольшой фиолетовый бутон приманивает ваш взгляд. Интересно, каков он на вкус?
+tile.arx:fioletic.name=§r§fФиолетик §a[Необычное]\n§7§oЕго резкий, приятный запах слегка дурманит
+tile.arx:fiuli.name=§r§fФиули §a[Необычное]\n§7§oНепримечательная травка из холодных долин
+tile.arx:fok.name=§r§fФок §a[Необычное]\n§7§oВам нравится его ненавязчивый, приятный и немного травянистый запах
+tile.arx:golden_hay.name=§r§fЗлатоколос §a[Необычное]\n§7§oЕго колоски приманивают вас своим золотистым цветом
+tile.arx:jackal_grass.name=§r§fТрава шакала §a[Необычное]\n§7§oТвёрдая и островатая. Что вы в ней нашли?
+tile.arx:karelo.name=§r§fКарело §a[Необычное]\n§7§oВы невольно задаётесь вопросом, почему эта трава такая фиолетовая
+tile.arx:kari.name=§r§fКари §a[Необычное]\n§7§oТравка, предпочитающая обильное количество воды и песок. Чем-то похожа на камыш
+tile.arx:kaspora.name=§r§fКаспора §a[Необычное]\n§7§oЗеленое высокое растение. Если его потереть, начинает приятно пахнуть
+tile.arx:kavra.name=§r§fТравяная кавра §7[Обычное]\n§7§oТравка, растущая почти везде. Выглядит сочнее, чем обычная
+tile.arx:mp_flower.name=§r§fЦветок маны §b[Редкое]\n§7§oЕго небольшие синие цветки приманивают ваш взор
+tile.arx:night_kosk.name=§r§fНочной коск §a[Необычное]\n§7§oАккуратный цветочек, растущий в тёплых местах
+tile.arx:royal_sorrel.name=§r§fЦарский щавель §c[Мифическое]\n§7§oРедкая и ценная находка
+tile.arx:snowflower.name=§r§fСнегоцвет §b[Редкое]\n§7§oКрасивый бутон, растущий в самых непригодных условиях
+tile.arx:wolf_death.name=§r§fВолчья погибель §b[Редкое]\n§7§oПочему-то большие тёмные ягоды не кажутся вам безопасными
+tile.arx:yuan.name=§r§fЮань §a[Необычное]\n§7§oНебольшая травка, любящая влажный джунглевый климат
+tile.arx:ash_lavaflower.name=§r§fПепельный лавоцвет §c[Мифическое]\n§7§oСлегка дымится и пахнет сажей
+tile.arx:ice_iris.name=§r§fСнежный ирис §c[Мифическое]\n§7§oВам кажется, что этот цветок состоит изо льда. Леденит на ощупь
+tile.arx:gloomy_flower.name=§r§fСветяшка §b[Редкое]\n§7§oНеобычный пепельный цветок. Его ягоды не самые вкусные, но могут выручить, если ничего больше не осталось
+tile.arx:xp_flower.name=§r§fЦветок знаний §b[Редкое]\n§7§oКажется, он пропитан опытом странников, некогда ходивших здесь
+tile.arx:firebloom.name=§r§fОгнецвет §g[Эпическое]\n§7§oВам кажется, что этот цветок испускает жар
+tile.arx:reed.name=§r§fКамыш §a[Необычное]\n§7§oПростой камыш. Растёт на берегах
+
+
+
+tile.arx:broken_minibot.name=§r§fСломаный бот §d[Божественное]
+
+
+tile.arx:iron_trap.name=§r§fКапкан §b[Редкое]
+
+
+
+item.arx:book_asarocchi_i=§r§fТруд Асароччи I §b[Редкое]
+item.arx:book_asarocchi_ii=§r§fТруд Асароччи II §b[Редкое]
+item.arx:book_asarocchi_iii=§r§fТруд Асароччи III §b[Редкое]
+item.arx:book_asarocchi_iv=§r§fТруд Асароччи IV §b[Редкое]
+item.arx:book_dext=§r§fЛегенда о Дексте §b[Редкое]
+item.arx:book_dragon_artifacts=§r§fЛегенда о драконьих артефактах §b[Редкое]
+item.arx:book_golfari=§r§fЛегенда о Гольфари §b[Редкое]
+item.arx:book_holy_sakura=§r§fЛегенда о святой сакуре §b[Редкое]
+item.arx:book_nameless_paladin=§r§fЗаписки о безымянном паладине §b[Редкое]
+item.arx:book_philosophy=§r§fРазмышления §b[Редкое]
+item.arx:book_thinking_about_gods=§r§fО богах §b[Редкое]
+item.arx:book_wandering_puppet=§r§fЖивая кукла §b[Редкое]
+
+item.arx:ancient_diary_from_flooded_cave=§r§fРукописная книжка из затопленной пещеры §e[Легендарное]
+
+item.arx:book_asarocchi_v=§r§fТруд Асароччи V §b[Редкое]
+item.arx:book_asarocchi_vi=§r§fТруд Асароччи VI §b[Редкое]
+item.arx:book_asarocchi_vii=§r§fТруд Асароччи VII §b[Редкое]
+item.arx:book_asarocchi_viii=§r§fТруд Асароччи VIII §b[Редкое]
+item.arx:book_asarocchi_ix=§r§fТруд Асароччи IX §b[Редкое]
+item.arx:book_asarocchi_x=§r§fТруд Асароччи X §b[Редкое]
+item.arx:book_of_immortal_eagle=§r§fЛегенда о бессмертном орле §b[Редкое]
+item.arx:book_legend_of_fallen_god=§r§fЛегенда о павшем боге §b[Редкое]
+item.arx:book_about_ancients=§r§fО древних §b[Редкое]
+item.arx:book_about_tsaskhin=§r§fО Цасхине §b[Редкое]
+item.arx:book_about_march=§r§fЗаметки Марта §b[Редкое]
+item.arx:book_oculus_primae_maledictionis=§r§fOculus primae maledictionis §b[Редкое]
+item.arx:book_mage_notes=§r§fЗаметки мага §a[Необычное]
+
+item.arx:big_storybook=§r§fБольшая книга историй §b[Редкое]\n§o§7Содержит случайное количество историй
+
+item.arx:big_xp_book=§r§fВеликая книга древнего знания §c[Мифическое]
+item.arx:mid_xp_book=§r§fКнига древнего знания §g[Эпическое]
+item.arx:small_xp_book=§r§fМалая книга древнего знания §b[Редкое]
+
+item.arx:xp_shard=§r§fОсколок опыта §b[Редкое]
+item.arx:xp_megashard=§r§fЭссенция опыта §g[Эпическое]
+
+
+tile.arx:apples_bunch.name=§r§fКуча яблок §a[Необычное]
+tile.arx:book.name=§r§fКнига (блок) §a[Необычное]
+tile.arx:bunch_of_books.name=§r§fСтопка книг §a[Необычное]
+tile.arx:naginitis_hanging_lamp.name=§r§fНагинитовая подвесная лампа §e[Легендарное]
+tile.arx:naginitis_lamp.name=§r§fНагинитовая лампа §e[Легендарное]
+tile.arx:plant_in_vase.name=§r§fМак в вазе §a[Необычное]
+tile.arx:tower_of_books.name=§r§fКуча книг §a[Необычное]
+tile.arx:wall_torch.name=§r§fНастенный факел §a[Необычное]
+tile.arx:wooden_box.name=§r§fЯщик §7[Обычное]
+
+tile.arx:sandclock.name=§r§fПесочные часы §a[Необычное]
+tile.arx:teddy_bear.name=§r§fПлюшевый мишка §b[Редкое]
+tile.arx:cloakmedi.name=§r§fМедные часы §a[Необычное]
+tile.arx:colorful_books.name=§r§fСтопка цветных книжек §a[Необычное]
+tile.arx:copper_goblet.name=§r§fМедный кубок §a[Необычное]
+tile.arx:plush_bunny.name=§r§fПлюшевый зайчик §b[Редкое]
+tile.arx:plush_gigamouse.name=§r§fПлюшевый крысиный монстр §b[Редкое]
+tile.arx:plush_gasgolder.name=§r§fПлюшевый Газгольдер §g[Эпическое]
+tile.arx:tea_set.name=§r§fЧайный набор §a[Необычное]
+tile.arx:wooden_cup.name=§r§fЧашка §7[Обычное]
+
+
+tile.arx:altaite_block.name=§r§fАльтаитовый блок §c[Мифическое]
+tile.arx:aluminum_block.name=§r§fАлюминиевый блок §a[Необычное]
+tile.arx:caryite_block.name=§r§fКариитовый блок §c[Мифическое]
+tile.arx:chloronite_block.name=§r§fХлоронитовый блок §c[Мифическое]
+tile.arx:dorionite_block.name=§r§fДорионитовый блок §c[Мифическое]
+tile.arx:draphorite_block.name=§r§fДрафоритовый блок §c[Мифическое+++]
+tile.arx:forfacorite_block.name=§r§fФорфакоритовый блок §c[Мифическое]
+tile.arx:lamenite_block.name=§r§fЛаменитовый блок §c[Мифическое++]
+tile.arx:malafiotironite_block.name=§r§fМалафиотиронитовый блок §c[Мифическое+]
+tile.arx:naginitis_block.name=§r§fНагинитовый блок §e[Легендарное]
+tile.arx:plumbum_block.name=§r§fСвинцовый блок §b[Редкое]
+tile.arx:riolik_block.name=§r§fРиоликовый блок §b[Редкое]
+tile.arx:steel_block.name=§r§fСтальной блок §b[Редкое]
+tile.arx:tin_block.name=§r§fОловянный блок §a[Необычное]
+tile.arx:toliriite_block.name=§r§fТолириитовый блок §c[Мифическое+]
+
+tile.arx:chrome_block.name=§r§fХромовый блок §c[Мифическое]
+
+tile.arx:bronze_block.name=§r§fБронзовый блок §b[Редкое]
+tile.arx:cast_iron_block.name=§r§fЧугунный блок §a[Необычное]
+tile.arx:duraluminum_block.name=§r§fДюралюминиевый блок §b[Редкое]
+tile.arx:durasteel_block.name=§r§fДюрастальной блок §g[Эпическое]
+
+
+item.arx:battery_large=§r§fБольшая батарея §b1000§f §c[Мифическое]
+item.arx:battery_small=§r§fБатарея §b500§f §e[Легендарное]
+item.arx:battery_ultra=§r§fУльтраёмкая батарея §b2000§f §c[Мифическое+++]
+item.arx:battery_broken=§r§fПовреждённая батарея §e[Легендарное]
+item.arx:battery_homemade=§r§fСамодельная батарея §b10§f §e[Легендарное]
+
+item.arx:canister_empty=§r§fПустая канистра §e[Легендарное]
+item.arx:canister_full=§r§fКанистра с бензином §c[Мифическое]
+
+item.arx:damaged_electronics=§r§fПовреждённая электроника §e[Легендарное]
+
+item.arx:conductive_glass=§r§fПроводящее пластистекло §e[Легендарное]
+item.arx:stream_accelerator=§r§fПотоковый ускоритель §c[Мифическое]
+
+
+tile.arx:painting_max_1.name=§r§fКартина Макса §b[Редкое]
+tile.arx:painting_ellis.name=§r§fКартина Эллиса §b[Редкое]
+tile.arx:painting_sara_and_olivia.name=§r§fТолько мы и песок §b[Редкое]
+
+
+item.arx:action_break_arm=§r§fСломать игроку в кандалах руку §b[Редкое]
+item.arx:action_break_leg=§r§fСломать игроку в кандалах ногу §b[Редкое]
+item.arx:action_stab=§r§fУдарить игрока в кандалах (+++стресс) §b[Редкое]
+
+
+item.arx:essence_of_vicious_demon=§r§fСущность порочного демона §c[Мифическое++]\n§7§oЗагадочная эссенция, хранящая в себе нечто... порочное?
+
+tile.arx:grim_stonebricks.name=§r§fПорочный кирпич §e[Легендарное]\n§7§oЧто сделаешь дальше? Унитаз из ламенита?
+
+
+item.spawn_egg.entity.arx:whipping_dummy.name=§r§fМанекен для битья §b[Редкое]\n§7§oОтображает полученный урон
+item.arx:forcemeat=§r§fФарш §b[Редкое]\n§7§oМожет быть сделан почти из любого мяса
+
+
+item.arx:black_tea=§r§fЧёрный чай §a[Необычное] 
+item.arx:green_tea=§r§fЗелёный чай §a[Необычное] 
+item.arx:milk_ylyn=§r§fМолочный улун §a[Необычное] 
+item.arx:pyer_tea=§r§fЧай Пуэр §a[Необычное] 
+item.arx:white_tea=§r§fБелый чай §a[Необычное] 
+item.arx:yellow_tea=§r§fЖёлтый чай §a[Необычное] 
+
+item.arx:see_tea=§r§fНаблюдающий чай §b[Редкое]
+item.arx:celestial_tea=§r§fПоднебесный чай §a[Необычное]
+item.arx:green_teasugaralt=§r§fЗелёный чай с сахарной трубочкой §a[Необычное]
+item.arx:snow_tea=§r§fСнежный чай §a[Необычное]
+item.arx:sun_tea=§r§fСолнечный чай §b[Редкое]
+item.arx:black_tea_med=§r§fЧёрный чай с мёдом §a[Необычное]
+
+item.arx:tea_seeds=§r§fЧайное семечко §7[Обычное]
+tile.arx:tea_corp.name=§r§fЧайный росток
+item.arx:tea_list=§r§fЧайный лист §a[Необычное]\n§o§7Можно использовать на чайном столе
+item.arx:tea_bud=§r§fЧайная почка §a[Необычное]\n§o§7Можно использовать на чайном столе
+item.arx:lightly_fried_tea_kidney=§r§fОбжаренная чайная почка §a[Необычное]\n§o§7Можно использовать на чайном столе
+item.arx:lightly_fried_tea_leaf=§r§fОбжаренный чайный лист §a[Необычное]\n§o§7Можно использовать на чайном столе
+item.arx:medium_fried_tea_leaf=§r§fПережаренный чайный лист §a[Необычное]\n§o§7Можно использовать на чайном столе
+item.arx:heavily_fried_tea_leaf=§r§fСушённый чайный лист §a[Необычное]\n§o§7Можно использовать на чайном столе
+tile.arx:tea_decoration1.name=§r§fЧайный набор §7[Обычное]
+tile.arx:listochki.name=§r§fСушённые листья чая §a[Необычное]
+
+tile.arx:wild_tea.name=§r§fДикий чайный куст §a[Необычное]
+
+
+item.arx:weapon_data=§r§fПоказывать полные данные оружия §7[Обычное]
+item.arx:food_data=§r§fПоказывать полные данные еды §7[Обычное]
+
+item.arx:durasteel_bracers=§r§fДюрастальные балансирные наручи (Базовый урон +1) [1] §g[Эпическое]
+
+item.arx:pouch_with_dyes=§r§fМешочек с красителями §b[Редкое]
+
+item.arx:myterious_eye=§r§fМистическое око §e[Легендарное]
+
+
+item.arx:carrots_seeds=§r§fСемена морковки §7[Обычное]
+item.arx:seeds_beetroot=§r§fСемена свеклы §7[Обычное]
+item.arx:potato_seeds=§r§fПророщенный картофель §7[Обычное]
+
+tile.arx:trash_can.name=Мусорка §e[Легендарное]
+
+tile.arx:biggest_dirt_brick.name=Крупный кирпич из прессованной земли §7[Обычное]
+tile.arx:big_dirt_brick.name=Кирпич из прессованной земли §7[Обычное]
+tile.arx:dirt_brick.name=Мелкий кирпич из прессованной земли §7[Обычное]
+tile.arx:pressed_dirt.name=Прессованная земля §7[Обычное]
+tile.arx:gold_brick.name=Золотой кирпич §b[Редкое]
+tile.arx:planks_iron.name=Железные балки §b[Редкое]
+tile.arx:precious_tessellation.name=Драгоценная мозаика §e[Легендарное]
+tile.arx:steel_bricks.name=Стальные кирпичи §g[Эпическое]
+tile.arx:steel_small_bricks.name=Стальные кирпичики §g[Эпическое]
+tile.arx:diamond_and_amethyst_brick.name=Алмазные и аметистовые кирпичи §e[Легендарное]
+tile.arx:skull_engraving_on_sandstone.name=Песчанник с гравировкой черепа §a[Необычное]
+tile.arx:dirt_with_rocks.name=Каменистая земля §7[Обычное]
+
+tile.arx:gravel_slab.name=Плита из гравия §7[Обычное]
+tile.arx:grass_slab.name=Травяная плита §7[Обычное]
+tile.arx:dirt_slab.name=Земляная плита §7[Обычное]
+
+tile.arx:breaker_of_modified_moving_t1.name=Запретитель магии измененного передвижения (дальность 8м) §b[Редкое]
+tile.arx:breaker_of_modified_moving_t2.name=Запретитель магии измененного передвижения (дальность 16м) §e[Легендарное]
+tile.arx:breaker_of_modified_moving_t3_.name=Запретитель магии измененного передвижения (дальность 32м) §c[Мифическое+]
+
+item.arx:universal_radio_key=§r§fУниверсальный радиоключ §e[Легендарное]
+
+item.arx:military_chip_blueprint=§r§fЧертёж военного чипа для универсального радиоключа §e[Легендарное]
+
+item.arx:blueprint_paper=§r§fТехнческая чертежная бумага §e[Легендарное]
+
+entity.arx:march_sitting_calm.name=Избитый Март
+
+tile.arx:heater.name=§r§fОбогреватель (дальность 16м) [3] §g[Эпическое]
+tile.arx:sunbed.name=§r§fЛежак §a[Необычное]
+
+tile.arx:crying_obsidian_small_bricks.name=§r§fОбсидиановая кирпичная кладка §g[Эпическое]
+tile.arx:crying_obsidian_big_bricks.name=§r§fБольшие обсидиановые кирпичи §g[Эпическое]
+tile.arx:crying_obsidian_even_bricks.name=§r§fРовные обсидиановые кирпичи §g[Эпическое]
+
+tile.arx:sea_bricks.name=§r§fМорские кирпичи §b[Редкое]
+tile.arx:gold_decorative_block.name=§r§fЗолотой декоративный блок §b[Редкое]
+tile.arx:caryite_bricks.name=§r§fКариитовые кирпичи §c[Мифическое]
+
+action.hint.exit.player=§fВас кто-то поднял
+
+item.arx:leg_bag_dual=§r§fДвойная ременная сумка §g[Эпическое]\n§aПереносимый вес +2, §cскорость -8Ũ
+item.arx:leg_bag=§r§fРеменная сумка §b[Редкое]\n§aПереносимый вес +1
+item.arx:mini_bag=§r§fРюкзачок §b[Редкое]\n§aПереносимый вес +2, §cбазовый урон -1
+item.arx:default_bag=§r§fРюкзак §b[Редкое]\n§aПереносимый вес +4, §cбазовый урон -4
+item.arx:big_bag=§r§fПоходный рюкзак [§b+8§f] §g[Эпическое]\n§aПереносимый вес +8, §cбазовый урон -8
+item.arx:belt_bag=§r§fПоясная сумка §b[Редкое]\n§aПереносимый вес +1
+
+commands.message.display.incoming=§f
+commands.message.display.outgoing=§cВ Арксе невозможно использование /w и подобных команд. Вместо этого подойдите к персонажу и скажите ему это лично
+
+item.arx:cotton_seeds=§r§fСемена хлопка §b[Редкое]
+item.arx:cotton_boll=§r§fХлопковая коробочка §b[Редкое]
+
+item.arx:united_player_data=§r§fИнфо\n§7§oПодробная информация о\nвашем персонаже и не только\n§cНе выкладывайте и не выбрасывайте этот предмет!
+
+item.arx:slot_blocker=§r§cВы в нокауте, ваш инвентарь заблокирован
+
+
+
+item.arx:umbrella_golden_silk=§r§fЗолотошёлковый зонтик §b[Редкое]\n§7§oЧтобы закрывать себя и друзей от дождя
+item.arx:umbrella_small_silk=§r§fУсечённый зонтик §a[Необычное]\n§7§oЧтобы закрывать себя и друзей от дождя
+item.arx:umbrella_skin=§r§fКожаный зонтик §b[Редкое]\n§7§oЧтобы закрывать себя и друзей от дождя
+item.arx:umbrella_silk=§r§fШёлковый зонтик §a[Необычное]\n§7§oЧтобы закрывать себя и друзей от дождя
+
+
+item.arx:nagnium=§r§fНагниум §e[Легендарное]\n§7§oИзмельчённый в ступке нагинит
+item.arx:tironium=§r§fТирониум §c[Мифическое+]\n§7§oИзмельчённый в ступке малафиотиронит
+item.arx:forium=§r§fФориум §c[Мифическое]\n§7§oИзмельчённый в ступке форфакорит
+item.arx:plumbium=§r§fСвинцовиум §b[Редкое]\n§7§oИзмельчённый в ступке свинец
+
+
+item.arx:archilight=§r§fАрхисвет §c[Мифическое]\n§eЯркость 100Ũ\n§7§oЭкипируется в слот амулета
+item.arx:belt_lamp=§r§fМышесвет §e[Легендарное]\n§eЯркость 67Ũ\n§7§oЭкипируется в слот амулета
+item.arx:brightmouse=§r§fЯркомышь §c[Мифическое]\n§eЯркость 93Ũ\n§7§oЭкипируется в слот амулета
+item.arx:firefly_belt_lamp=§r§fСветлячок §c[Мифическое]\n§eЯркость 93Ũ\n§7§oЭкипируется в слот амулета
+item.arx:mechanic_belt_lamp=§r§fОгнёвка §g[Эпическое]\n§eЯркость 60Ũ\n§7§oЭкипируется в слот амулета
+item.arx:magilight=§r§fМагисвет §g[Эпическое]\n§eЯркость 60Ũ\n§7§oЭкипируется в слот амулета
+
+
+item.arx:blacksmith_tongs=§r§fПростые кузнечные клещи [1] §a[Необычное]\n§o§7Позволяют держать горячие [] предметы\n§6Для левой руки
+item.arx:blacksmith_tongs_super=§r§fУсиленные кузнечные клещи [2] §g[Эпическое]\n§o§7Позволяют держать горячие [] и очень горячие [] предметы\n§6Для левой руки
+
+
+item.arx:ring_aluminum__empty=§r§fАлюминиевая колечная оправа §a[Необычное]
+item.arx:ring_aluminum_aquamarine=§r§fАлюминиевое кольцо с аквамарином §a[Необычное]\n§o§7+50Ũ к скорости снятия интоксикации
+item.arx:ring_aluminum_beryl=§r§fАлюминиевое кольцо с бериллом §a[Необычное]\n§o§7+0.3 маны в секунду
+item.arx:ring_aluminum_chrysolite=§r§fАлюминиевое кольцо с хризолитом §a[Необычное]\n§o§7+5Ũ скорость бега
+item.arx:ring_aluminum_cornelian=§r§fАлюминиевое кольцо с сердоликом §a[Необычное]\n§o§7+1 переносимый вес
+item.arx:ring_aluminum_sapphire=§r§fАлюминиевое кольцо с сапфиром §a[Необычное]\n§o§7+5 к максимальной мане
+item.arx:ring_aluminum_topaz=§r§fАлюминиевое кольцо с топазом §a[Необычное]\n§o§7Выстрелы чуть-чуть точнее и дальше
+item.arx:ring_aluminum_zircon=§r§fАлюминиевое кольцо с цирконом §a[Необычное]\n§o§7+5Ũ к получаемому опыту
+item.arx:ring_aluminum_amethyst=§r§fКольцо гладиатора §a[Необычное]\n§o§7Если ваша сила выше 1,\nто она будет снижена до 1
+
+item.arx:ring_gold__empty=§r§fЗолотая колечная оправа §b[Редкое]
+item.arx:ring_gold_aquamarine=§r§fЗолотое кольцо с аквамарином §b[Редкое]\n§o§7+100Ũ к скорости снятия интоксикации
+item.arx:ring_gold_beryl=§r§fЗолотое кольцо с бериллом §b[Редкое]\n§o§7+0.8 маны в секунду
+item.arx:ring_gold_chrysolite=§r§fЗолотое кольцо с хризолитом §b[Редкое]\n§o§7+10Ũ скорость бега
+item.arx:ring_gold_cornelian=§r§fЗолотое кольцо с сердоликом §b[Редкое]\n§o§7+2 переносимый вес
+item.arx:ring_gold_ruby=§r§fЗолотое кольцо с рубином §b[Редкое]\n§o§7+1 базовый урон
+item.arx:ring_gold_sapphire=§r§fЗолотое кольцо с сапфиром §b[Редкое]\n§o§7+10 к максимальной мане
+item.arx:ring_gold_topaz=§r§fЗолотое кольцо с топазом §b[Редкое]\n§o§7Выстрелы немного точнее и дальше
+item.arx:ring_gold_zircon=§r§fЗолотое кольцо с цирконом §b[Редкое]\n§o§7+10Ũ к получаемому опыту
+
+item.arx:ring_naginitis__empty=§r§fНагинитовая колечная оправа §e[Легендарное]
+item.arx:ring_naginitis_aquamarine=§r§fНагинитовое кольцо с аквамарином §e[Легендарное]\n§o§7+200Ũ к скорости снятия интоксикации
+item.arx:ring_naginitis_beryl=§r§fНагинитовое кольцо с бериллом §e[Легендарное]\n§o§7+1.5 маны в секунду
+item.arx:ring_naginitis_chrysolite=§r§fНагинитовое кольцо с хризолитом §e[Легендарное]\n§o§7+20Ũ скорость бега
+item.arx:ring_naginitis_cornelian=§r§fНагинитовое кольцо с сердоликом §e[Легендарное]\n§o§7+3 переносимый вес
+item.arx:ring_naginitis_olivine=§r§fНагинитовое кольцо с оливином §e[Легендарное]\n§o§7+1 прыжок
+item.arx:ring_naginitis_ruby=§r§fНагинитовое кольцо с рубином §e[Легендарное]\n§o§7+2 базовый урон
+item.arx:ring_naginitis_sapphire=§r§fНагинитовое кольцо с сапфиром §e[Легендарное]\n§o§7+20 к максимальной мане
+item.arx:ring_naginitis_topaz=§r§fНагинитовое кольцо с топазом §e[Легендарное]\n§o§7Выстрелы заметно точнее и дальше
+item.arx:ring_naginitis_zircon=§r§fНагинитовое кольцо с цирконом §e[Легендарное]\n§o§7+20Ũ к получаемому опыту
+
+item.arx:ring_caryite__empty=§r§fКариитовая колечная оправа §c[Мифическое]
+item.arx:ring_caryite_aquamarine=§r§fКариитовое кольцо с аквамарином §c[Мифическое]\n§o§7+300Ũ к скорости снятия интоксикации
+item.arx:ring_caryite_beryl=§r§fКариитовое кольцо с бериллом §c[Мифическое]\n§o§7+2.5 маны в секунду
+item.arx:ring_caryite_chrysolite=§r§fКариитовое кольцо с хризолитом §c[Мифическое]\n§o§7+30Ũ скорость бега
+item.arx:ring_caryite_cornelian=§r§fКариитовое кольцо с сердоликом §c[Мифическое]\n§o§7+4 переносимый вес
+item.arx:ring_caryite_ruby=§r§fКариитовое кольцо с рубином §c[Мифическое]\n§o§7+3 базовый урон
+item.arx:ring_caryite_sapphire=§r§fКариитовое кольцо с сапфиром §c[Мифическое]\n§o§7+30 к максимальной мане
+item.arx:ring_caryite_zircon=§r§fКариитовое кольцо с цирконом §c[Мифическое]\n§o§7+30Ũ к получаемому опыту
+item.arx:ring_caryite_topaz=§r§fКариитовое кольцо с топазом §c[Мифическое]\n§o§7Выстрелы ощутимо точнее и дальше
+
+item.arx:ring_malafiotironite__empty=§r§fМалафиотиронитовая колечная оправа §c[Мифическое+]
+item.arx:ring_malafiotironite_aquamarine=§r§fМалафиотиронитовое кольцо с аквамарином §c[Мифическое+]\n§o§7+400Ũ к скорости снятия интоксикации
+item.arx:ring_malafiotironite_beryl=§r§fМалафиотиронитовое кольцо с бериллом §c[Мифическое+]\n§o§7+3.8 маны в секунду
+item.arx:ring_malafiotironite_sapphire=§r§fМалафиотиронитовое кольцо с сапфиром §c[Мифическое+]\n§o§7+40 к максимальной мане
+item.arx:ring_malafiotironite_zircon=§r§fМалафиотиронитовое кольцо с цирконом §c[Мифическое+]\n§o§7+40Ũ к получаемому опыту
+item.arx:ring_toliriite__empty=§r§fТолириитовая колечная оправа §c[Мифическое+]
+item.arx:ring_toliriite_chrysolite=§r§fТолириитовая кольцо с хризолитом §c[Мифическое+]\n§o§7+40Ũ скорость бега
+item.arx:ring_toliriite_cornelian=§r§fТолириитовая кольцо с сердоликом §c[Мифическое+]\n§o§7+5 переносимый вес
+item.arx:ring_toliriite_olivine=§r§fТолириитовая кольцо с оливином §c[Мифическое+]\n§o§7+2 прыжок
+item.arx:ring_toliriite_ruby=§r§fТолириитовая кольцо с рубином §c[Мифическое+]\n§o§7+4 базовый урон
+item.arx:ring_toliriite_topaz=§r§fТолириитовая кольцо с топазом §c[Мифическое+]\n§o§7Выстрелы гораздо точнее и дальше
+
+item.arx:ring_lamenite__empty=§r§fЛаменитовая колечная оправа §c[Мифическое++]
+item.arx:ring_lamenite_aquamarine=§r§fЛаменитовое кольцо с аквамарином §c[Мифическое++]\n§o§7+500Ũ к скорости снятия интоксикации
+item.arx:ring_lamenite_beryl=§r§fЛаменитовое кольцо с бериллом §c[Мифическое++]\n§o§7+5 маны в секунду
+item.arx:ring_lamenite_chrysolite=§r§fЛаменитовое кольцо с хризолитом §c[Мифическое++]\n§o§7+50Ũ скорость бега
+item.arx:ring_lamenite_cornelian=§r§fЛаменитовое кольцо с сердоликом §c[Мифическое++]\n§o§7+6 переносимый вес
+item.arx:ring_lamenite_olivine=§r§fЛаменитовое кольцо с оливином §c[Мифическое++]\n§o§7+3 прыжок
+item.arx:ring_lamenite_ruby=§r§fЛаменитовое кольцо с рубином §c[Мифическое++]\n§o§7+5 базовый урон
+item.arx:ring_lamenite_sapphire=§r§fЛаменитовое кольцо с сапфиром §c[Мифическое++]\n§o§7+50 к максимальной мане
+item.arx:ring_lamenite_topaz=§r§fЛаменитовое кольцо с топазом §c[Мифическое++]\n§o§7Выстрелы колоссально точнее и дальше
+item.arx:ring_lamenite_zircon=§r§fЛаменитовое кольцо с цирконом §c[Мифическое++]\n§o§7+50Ũ к получаемому опыту
+
+
+item.arx:crystal_of_durability=§r§fКристалл стойкости §g[Эпическое]\n§7§oПри следующем нокауте вы не получите стресс
+item.arx:crystal_of_mob_calmness=§r§fКристалл щита §g[Эпическое]\n§7§oПри окончании следующего нокаута вы получите эффект защиты на 1 минуту
+item.arx:crystal_of_return=§r§fКристалл второй жизни §e[Легендарное]\n§7§oЕсли вас добьют, когда вы будете в нокауте, \nвы не умрете, а снова отправитесь в нокаут. \nРасходуется при любом нокауте и срабатывает только один раз за нокаут.
+item.arx:crystal_of_swift_respawn=§r§fКристалл быстрого возрождения §g[Эпическое]\n§7§oПри следующем нокауте вы придёте в себя на 50Ũ быстрее
+
+
+item.arx:amul_dash=§r§fАмулет уклонения §e[Легендарное]\n§o§7При получении урона вы совершаете небольшой рывок в случайном направлении
+
+item.arx:ancient_banknote=§r§fБанкнота древних §e[Легендарное]\n§o§7Выглядит очень старой.\nВам нравится, как она чувствуется наощупь.
+item.arx:bunker_access_card=§r§fКарта допуска в бункер §e[Легендарное]\n§o§7Красивый кусок пластика с металлическим краем.\nПо словам Мендифентискульса, используется для входа в бункер поблизости.
+item.arx:cultists_letter=§r§fПисьмо крыс-культистов §b[Редкое]\n§o§7Одно из самых необычных писем, что вы получали
+item.arx:cultists_letter_ii=§r§fПриказ крыс-культистов §b[Редкое]\n§o§7Выглядит настораживающе
+
+item.arx:steady_boat_spawner=§r§fУстойчивая лодка [5] §b[Редкое]\n§o§73 места\nВместительность 8 слотов
+action.hint.exit.arx:steady_boat=Устойчивая лодка
+
+
+item.arx:chrupie_flake=§r§fОсколок хрупи §e[Легендарное]\n§o§7Осколок панция монстра, живущего в подземельях.\nОн холодный наощупть, будто состоит из металла
+item.arx:demonic_staff_fragment=§r§fФрагмент демонического посоха §e[Легендарное]\n§o§7Посоха демона из ада,\nкоторый вы безжалостно разломали
+
+
+item.arx:harakiri_sword=§r§fМеч для харакири §b[Редкое]\n§o§7Используйте, чтобы §cнавсегда убить себя§7.\n// После этого вы сможете создать нового персонажа
+
+item.arx:cult_nasty_gift_bomb=§r§fПодарок от культа §b[Редкое]\n§o§7Внутри что-то твёрдое и тяжёлое
+item.arx:cult_nasty_gift_poison=§r§fПодарок от культа §b[Редкое]\n§o§7Внутри какая-то жидкость
+item.arx:cult_nasty_gift_iron_pie=§r§fПодарок от культа §b[Редкое]\n§o§7Внутри что-то мягкое. Пахнет выпечкой
+item.arx:cult_nasty_gift_harakiri_sword=§r§fПодарок от культа §b[Редкое]\n§o§7Внутри что-то длинное и твёрдое
+
+item.arx:towel=§r§fПолотенце §b[Редкое]\n§o§7Позволяет избавиться от намокания.\nЭффективнее работает без верхней одежды

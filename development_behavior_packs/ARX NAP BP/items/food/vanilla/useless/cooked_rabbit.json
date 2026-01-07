@@ -1,0 +1,11 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:icon": "cooked_rabbit"
+        },
+        "description": {
+            "identifier": "minecraft:cooked_rabbit"
+        }
+    }
+}

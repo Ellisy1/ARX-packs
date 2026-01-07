@@ -1,0 +1,81 @@
+{
+	"format_version": "1.10.0",
+	"geometry.kofata_clothes": {
+		"texturewidth": 128,
+		"textureheight": 64,
+		"visible_bounds_width": 3,
+		"visible_bounds_height": 3,
+		"visible_bounds_offset": [0, 1.5, 0],
+		"bones": [
+			{
+				"name": "body",
+				"pivot": [0, 24, 0],
+				"cubes": [
+					{"origin": [-4, 12, -2], "size": [8, 12, 4], "uv": [0, 0], "inflate": 0.6},
+					{"origin": [-4, 12, -2], "size": [8, 12, 4], "uv": [0, 16], "inflate": 0.9}
+				]
+			},
+			{
+				"name": "rightArm",
+				"pivot": [-5, 22, 0],
+				"cubes": [
+					{"origin": [-8, 12, -2], "size": [4, 12, 4], "uv": [24, 0], "inflate": 0.5},
+					{"origin": [-8, 12, -2], "size": [4, 12, 4], "uv": [24, 16], "inflate": 0.8}
+				]
+			},
+			{
+				"name": "leftArm",
+				"pivot": [5, 22, 0],
+				"mirror": true,
+				"cubes": [
+					{"origin": [4, 12, -2], "size": [4, 12, 4], "uv": [24, 0], "inflate": 0.5},
+					{"origin": [4, 12, -2], "size": [4, 12, 4], "uv": [24, 16], "inflate": 0.8}
+				]
+			},
+			{
+				"name": "leftLeg",
+				"pivot": [1.9, 12, 0],
+				"mirror": true,
+				"cubes": [
+					{"origin": [0.25, 2, -2], "size": [4, 10, 4], "uv": [64, 0], "inflate": 0.5},
+					{"origin": [0.25, 2, -2], "size": [4, 10, 4], "uv": [64, 16], "inflate": 0.7}
+				]
+			},
+			{
+				"name": "leftLeg2",
+				"parent": "leftLeg",
+				"pivot": [1.9, 12, 0],
+				"mirror": true,
+				"cubes": [
+					{"origin": [0.3, 0, -2], "size": [4, 4, 4], "uv": [80, 5], "inflate": 0.6},
+					{"origin": [0.3, 0, -2], "size": [4, 4, 4], "uv": [80, 21], "inflate": 0.9}
+				]
+			},
+			{
+				"name": "rightLeg",
+				"pivot": [-1.9, 12, 0],
+				"cubes": [
+					{"origin": [-4.2, 2, -2], "size": [4, 10, 4], "uv": [64, 0], "inflate": 0.5},
+					{"origin": [-4.2, 2, -2], "size": [4, 10, 4], "uv": [64, 16], "inflate": 0.7}
+				]
+			},
+			{
+				"name": "rightLeg2",
+				"parent": "rightLeg",
+				"pivot": [-1.9, 12, 0],
+				"cubes": [
+					{"origin": [-4.2, 0, -2], "size": [4, 4, 4], "uv": [80, 5], "inflate": 0.6},
+					{"origin": [-4.2, 0, -2], "size": [4, 4, 4], "uv": [80, 21], "inflate": 0.9}
+				]
+			},
+			{
+				"name": "cloak",
+				"pivot": [0.1, 24, 3],
+				"cubes": [
+					{"origin": [-4, 8.4, -4.8], "size": [8, 12, 4], "uv": [40, 0], "inflate": 3.9},
+					{"origin": [-4, 8.4, -4.3], "size": [8, 12, 4], "uv": [40, 16], "inflate": 3.9}
+				]
+			}
+		]
+	}
+}

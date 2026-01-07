@@ -1,0 +1,26 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:kaspora_salad"
+    },
+
+    
+    "tags": [ "cooking_crafting_table" ],
+    "pattern": [
+      "###",
+      " A "
+    ],
+    "key": {
+      "#": {
+        "item": "arx:kaspora"
+      },
+      "A": {
+        "item": "minecraft:bowl"
+      }
+    },
+    "result": {
+      "item": "arx:kaspora_salad"
+    }
+  }
+}

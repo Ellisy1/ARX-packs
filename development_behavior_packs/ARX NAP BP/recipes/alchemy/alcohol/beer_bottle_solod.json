@@ -1,0 +1,15 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_brewing_mix": {
+    "description": {
+      "identifier": "arx:beer_bottle_solod"
+    },
+
+    "tags": [ "brewing_stand" ],
+
+    "input": "arx:beer_bottle_water",
+    "reagent": "arx:solod",
+    "output": "arx:beer_bottle_solod"
+  }
+
+}

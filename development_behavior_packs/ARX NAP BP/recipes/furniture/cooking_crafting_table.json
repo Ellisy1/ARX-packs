@@ -1,0 +1,30 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:cooking_crafting_table"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "NN ",
+      "RRR",
+      "i i"
+    ],
+    "key": {
+      "R": {
+        "item": "minecraft:stick"
+      },
+      "i": {
+        "item": "minecraft:planks"
+      },
+      "N": {
+        "item": "minecraft:bowl"
+      }
+    },
+    "result": {
+      "item": "arx:cooking_crafting_table"
+    }
+  }
+}

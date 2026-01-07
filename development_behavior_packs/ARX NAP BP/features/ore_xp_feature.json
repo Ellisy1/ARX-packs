@@ -1,0 +1,28 @@
+{
+    "format_version": "1.19.50",
+    "minecraft:ore_feature": {
+        "description": {
+            "identifier": "arx:ore_xp_feature"
+        },
+        "count": 7,
+        "discard_chance_on_air_exposure": 0,
+        "replace_rules": [
+            {
+                "places_block": "arx:xp_stone_ore",
+                "may_replace": ["minecraft:stone"]
+            },
+            {
+                "places_block": "arx:xp_deep_ore",
+                "may_replace": ["minecraft:deepslate"]
+            },
+            {
+                "places_block": "arx:xp_sand_ore",
+                "may_replace": ["minecraft:sand"]
+            },
+            {
+                "places_block": "arx:xp_nether_ore",
+                "may_replace": ["minecraft:netherrack"]
+            }
+        ]
+    }
+}

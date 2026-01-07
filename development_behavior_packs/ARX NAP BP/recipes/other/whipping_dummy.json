@@ -1,0 +1,30 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:whipping_dummy"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      " B ",
+      "CBC",
+      "AAA"
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:stone_block_slab"
+      },
+      "B": {
+        "item": "minecraft:hay_block"
+      },
+      "C": {
+        "item": "minecraft:stick"
+      }
+    },
+    "result": {
+      "item": "arx:whipping_dummy_spawn_egg"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:staff_chloronite"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      "  S",
+      " N ",
+      "A  "
+    ],
+    "key": {
+      "A": {
+        "item": "arx:steel_billet"
+      },
+      "S": {
+        "item": "arx:chloronite_billet"
+      },
+      "N": {
+        "item": "arx:sphere_of_power"
+      }
+    },
+    "result": {
+      "item": "arx:staff_chloronite"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:simple_iron_axe"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      " # ",
+      "  X",
+      "XX "
+    ],
+    "key": {
+      "#": {
+        "item": "arx:iron_billet"
+      },
+      "X": {
+        "item": "minecraft:stick"
+      }
+    },
+    "result": {
+      "item": "arx:simple_iron_axe"
+    }
+  }
+}

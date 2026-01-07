@@ -1,0 +1,14 @@
+{
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:icon": "arx:book_case_c"
+        },
+        "description": {
+            "identifier": "arx:book_case_c",
+            "menu_category": {
+                "category": "items"
+            }
+        }
+    }
+}

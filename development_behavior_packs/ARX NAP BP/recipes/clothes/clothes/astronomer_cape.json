@@ -1,0 +1,30 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:astronomer_cape"
+    },
+
+    
+    "tags": [ "clothes_crafting_table" ],
+    "pattern": [
+      "ADA",
+      "DBD"
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:gold_ingot"
+      },
+      "B": {
+        "item": "minecraft:dye",
+        "data": 5
+      },
+      "D": {
+        "item": "arx:cotton_fabric"
+      }
+    },
+    "result": {
+      "item": "arx:astronomer_cape"
+    }
+  }
+}

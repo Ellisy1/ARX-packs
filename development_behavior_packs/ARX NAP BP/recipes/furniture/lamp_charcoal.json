@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:lamp_charcoal"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      " I ",
+      " R ",
+      "III"
+    ],
+    "key": {
+      "I": {
+        "item": "minecraft:copper_ingot"
+      },
+      "R": {
+        "item": "minecraft:charcoal"
+      }
+    },
+    "result": {
+      "item": "arx:lamp"
+    }
+  }
+}

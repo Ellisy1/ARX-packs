@@ -1,0 +1,22 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:toliriite_billet"
+    },
+
+    
+    "tags": [ "barrel_of_water_crafting_table" ],
+    "pattern": [
+      "#"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:toliriite_forged_billet"
+      }
+    },
+    "result": {
+      "item": "arx:toliriite_billet"
+    }
+  }
+}

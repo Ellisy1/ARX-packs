@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:chloronite_hanging_lamp"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      " I",
+      "R ",
+      "I "
+    ],
+    "key": {
+      "I": {
+        "item": "arx:chloronite_ingot"
+      },
+      "R": {
+        "item": "minecraft:coal"
+      }
+    },
+    "result": {
+      "item": "arx:chloronite_hanging_lamp"
+    }
+  }
+}

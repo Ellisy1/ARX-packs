@@ -1,0 +1,7 @@
+Все оружия должны иметь тег is_weapon
+Так же, обязателен тег типа is_тип
+Теги материалов:
+material_wooden
+material_stone
+material_metal
+material_rare_metal

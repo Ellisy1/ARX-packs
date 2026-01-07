@@ -1,0 +1,30 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:steel_simple_sword"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      " XX",
+      " # ",
+      "Y  "
+    ],
+    "key": {
+      "#": {
+        "item": "arx:steel_billet"
+      },
+      "X": {
+        "item": "arx:steel_ingot"
+      },
+      "Y": {
+        "item": "minecraft:stick"
+      }
+    },
+    "result": {
+      "item": "arx:steel_simple_sword"
+    }
+  }
+}

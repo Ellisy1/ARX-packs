@@ -1,0 +1,56 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.deer.basic": {
+			"loop": true,
+			"bones": {
+				"head": {
+					"rotation": ["math.cos(query.anim_time * 100) * 1.5", 0, 0]
+				}
+			}
+		},
+		"animation.deer.walk": {
+			"loop": true,
+			"bones": {
+				"Deer": {
+					"position": [0, "math.sin((query.anim_time + 130) * 600) * 0.4", 0]
+				},
+				"rightLeg_front": {
+					"rotation": ["math.sin(query.anim_time * 300) * 30", 0, 0]
+				},
+				"rightLeg2": {
+					"rotation": ["math.sin(query.anim_time * 300) * 30", 0, 0]
+				},
+				"leftLeg_front": {
+					"rotation": ["math.sin(query.anim_time * 300) * -30", 0, 0]
+				},
+				"leftLeg": {
+					"rotation": ["math.sin(query.anim_time * 300) * -30", 0, 0]
+				},
+				"tail": {
+					"rotation": [0, 0, "math.sin(query.anim_time * 300) * 5"]
+				}
+			}
+		},
+		"animation.deer.attack": {
+			"animation_length": 0.4167,
+			"bones": {
+				"head": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0417": [9.27457, 0, 0],
+						"0.0833": [80.72543, 0, 0],
+						"0.125": [90, 0, 0],
+						"0.1667": [92.5, 0, 0],
+						"0.2083": {
+							"pre": [90, 0, 0],
+							"post": [90, 0, 0],
+							"lerp_mode": "catmullrom"
+						},
+						"0.3333": [0, 0, 0]
+					}
+				}
+			}
+		}
+	}
+}

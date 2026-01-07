@@ -1,0 +1,26 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.grim_skull",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [0, 0.75, 0]
+			},
+			"bones": [
+				{
+					"name": "sn_mob",
+					"pivot": [0, 0, 2],
+					"cubes": [
+						{"origin": [-4, 0, -2], "size": [8, 8, 1], "uv": [0, 0]},
+						{"origin": [-4, 0, -2], "size": [8, 8, 1], "inflate": 0.4, "uv": [0, 9]},
+						{"origin": [-3, 1, -1.75], "size": [6, 5, 5], "uv": [18, 0]}
+					]
+				}
+			]
+		}
+	]
+}

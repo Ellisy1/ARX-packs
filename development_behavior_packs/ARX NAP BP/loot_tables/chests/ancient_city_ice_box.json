@@ -1,0 +1,43 @@
+{
+    "pools": [
+        {
+            "rolls": {
+                "min": 4,
+                "max": 10.0
+            },
+            "bonus_rolls": 0,
+            "entries": [
+                {
+                    "type": "item",
+                    "weight": 2,
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 2,
+                                "max": 6.0
+                            },
+                            "add": false
+                        }
+                    ],
+                    "name": "minecraft:packed_ice"
+                },
+                {
+                    "type": "item",
+                    "weight": 4,
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 2,
+                                "max": 6.0
+                            },
+                            "add": false
+                        }
+                    ],
+                    "name": "minecraft:snowball"
+                }
+            ]
+        }
+    ]
+}

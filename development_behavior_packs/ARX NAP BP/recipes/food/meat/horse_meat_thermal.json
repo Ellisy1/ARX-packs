@@ -1,0 +1,22 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:horse_meat_thermal"
+    },
+
+    
+    "tags": [ "thermal_cooking_crafting_table" ],
+    "pattern": [
+      "#"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:horse_meat"
+      }
+    },
+    "result": {
+      "item": "arx:fried_horse_meat"
+    }
+  }
+}

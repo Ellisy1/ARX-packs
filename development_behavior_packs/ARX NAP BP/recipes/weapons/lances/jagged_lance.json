@@ -1,0 +1,33 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:jagged_lance"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      "  #",
+      "CB ",
+      "A  "
+    ],
+    "key": {
+      "#": {
+        "item": "arx:durasteel_billet"
+      },
+      "B": {
+        "item": "minecraft:dye:13"
+      },
+      "C": {
+        "item": "arx:gold_billet"
+      },
+      "A": {
+        "item": "arx:steel_billet"
+      }
+    },
+    "result": {
+      "item": "arx:jagged_lance"
+    }
+  }
+}

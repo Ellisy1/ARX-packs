@@ -1,0 +1,20 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:attachable": {
+        "description": {
+            "identifier": "arx:staff_chloronite",
+            "materials": {
+                "default": "entity"
+            },
+            "textures": {
+                "default": "textures/items/weapons/staffs/staff_chloronite"
+            },
+            "geometry": {
+                "default": "geometry.32px_weapon_mesh"
+            },
+            "render_controllers": [
+                "controller.render.default"
+            ]
+        }
+    }
+}

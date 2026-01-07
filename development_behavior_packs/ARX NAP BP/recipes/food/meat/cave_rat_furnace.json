@@ -1,0 +1,13 @@
+{
+  "format_version": "1.17",
+  "minecraft:recipe_furnace": {
+    "description": {
+    "identifier": "arx:cave_rat_meat_furnace"
+    },
+
+    "tags": ["furnace", "smoker", "campfire", "soul_campfire"],
+    "input": "arx:cave_rat_meat",
+    "output": "arx:fried_cave_rat_meat"
+  }
+  
+}

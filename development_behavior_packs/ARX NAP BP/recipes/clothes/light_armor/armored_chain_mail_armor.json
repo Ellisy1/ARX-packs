@@ -1,0 +1,33 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:armored_chain_mail_armor"
+    },
+
+    
+    "tags": [ "light_armor_crafting_table" ],
+    "pattern": [
+      "C C",
+      "D#D",
+      "B B"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:cheap_cloth"
+      },
+      "B": {
+        "item": "arx:tin_protective_plate"
+      },
+      "C": {
+        "item": "arx:steel_protective_plate"
+      },
+      "D": {
+        "item": "arx:iron_protective_plate"
+      }
+    },
+    "result": {
+      "item": "arx:armored_chain_mail_armor"
+    }
+  }
+}

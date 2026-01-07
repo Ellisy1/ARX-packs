@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:pires_ranger_coat"
+    },
+
+    
+    "tags": [ "light_armor_crafting_table" ],
+    "pattern": [
+      "B B",
+      "#B#",
+      "B#B"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:golden_silk"
+      },
+      "B": {
+        "item": "arx:pushnina"
+      }
+    },
+    "result": {
+      "item": "arx:pires_ranger_coat"
+    }
+  }
+}

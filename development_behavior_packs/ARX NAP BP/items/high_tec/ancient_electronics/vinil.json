@@ -1,0 +1,14 @@
+{
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:icon": "arx:vinil"
+        },
+        "description": {
+            "identifier": "arx:vinil",
+            "menu_category": {
+                "category": "items"
+            }
+        }
+    }
+}

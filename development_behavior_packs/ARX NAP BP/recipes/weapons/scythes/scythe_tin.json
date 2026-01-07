@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:scythe_tin"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      "B ",
+      " A",
+      "A "
+    ],
+    "key": {
+      "A": {
+        "item": "arx:tin_ingot"
+      },
+      "B": {
+        "item": "arx:tin_billet"
+      }
+    },
+    "result": {
+      "item": "arx:scythe_tin"
+    }
+  }
+}

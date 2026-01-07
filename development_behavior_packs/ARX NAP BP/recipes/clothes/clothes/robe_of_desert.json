@@ -1,0 +1,31 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:robe_of_desert"
+    },
+
+    
+    "tags": [ "clothes_crafting_table" ],
+    "pattern": [
+      "C C",
+      "#B#",
+      "C#C"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:cotton_fabric"
+      },
+      "B": {
+        "item": "arx:gold_protective_plate"
+      },
+      "C": {
+        "item": "minecraft:dye",
+        "data": 1
+      }
+    },
+    "result": {
+      "item": "arx:robe_of_desert"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:human_meat_thermal"
+    },
+
+    
+    "tags": [ "thermal_cooking_crafting_table" ],
+    "pattern": [
+      "#"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:human_meat"
+      }
+    },
+    "result": {
+      "item": "arx:fried_human_meat"
+    }
+  }
+}

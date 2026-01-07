@@ -1,0 +1,22 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:forfactorite_protective_plate"
+    },
+
+    
+    "tags": [ "barrel_of_water_crafting_table" ],
+    "pattern": [
+      "#"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:forfactorite_hot_protective_plate"
+      }
+    },
+    "result": {
+      "item": "arx:forfactorite_protective_plate"
+    }
+  }
+}

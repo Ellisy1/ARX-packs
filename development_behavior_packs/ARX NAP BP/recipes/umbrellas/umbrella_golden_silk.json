@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:umbrella_golden_silk"
+    },
+
+    
+    "tags": [ "clothes_crafting_table" ],
+    "pattern": [
+      "A#A",
+      " # ",
+      " # "
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:stick"
+      },
+      "A": {
+        "item": "arx:golden_silk"
+      }
+    },
+    "result": {
+      "item": "arx:umbrella_golden_silk"
+    }
+  }
+}

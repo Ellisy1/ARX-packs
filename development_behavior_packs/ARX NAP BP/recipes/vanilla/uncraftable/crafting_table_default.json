@@ -1,0 +1,27 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "minecraft:WorkBench_recipeId_from_oak"
+        },
+        "tags": [
+            "ban"
+        ],
+        "pattern": [
+            "AA",
+            "AA"
+        ],
+        "key": {
+            "A": {
+                "item": "minecraft:bedrock"
+            }
+        },
+        "unlock": {
+            "context": "AlwaysUnlocked"
+        },
+        "result": {
+            "item": "crafting_table"
+        },
+        "priority": -1
+    }
+}

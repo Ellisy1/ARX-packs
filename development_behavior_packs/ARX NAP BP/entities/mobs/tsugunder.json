@@ -1,0 +1,223 @@
+{
+	"format_version": "1.16.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "arx:tsugunder",
+			"is_spawnable": true,
+			"is_summonable": true
+		},
+		"components": {
+			"minecraft:despawn": {
+				"despawn_from_distance": {}
+			},
+			"minecraft:behavior.float": {
+				"priority": 2
+			},
+			"minecraft:loot": {
+				"table": "loot_tables/entities/tsugunder.json"
+			},
+			"minecraft:is_hidden_when_invisible": {},
+			"minecraft:type_family": {
+				"family": [
+					"mob",
+					"dangerous",
+					"despawn_as_ghost",
+					"boat_destroyer"
+				]
+			},
+			"minecraft:navigation.walk": {
+				"can_path_over_water": false,
+				"avoid_water": true,
+				"avoid_blocks": true,
+				"avoid_portals": true
+			},
+			"minecraft:movement.basic": {},
+			"minecraft:jump.static": {},
+			"minecraft:can_climb": {},
+			"minecraft:collision_box": {
+				"width": 0.6,
+				"height": 1.6
+			},
+			"minecraft:health": { // Ненастоящее хп. Нужно, чтобы его не ваншотнули. Настоящее хп ниже
+				"value": 100000
+			},
+			"minecraft:balloonable": {},
+			"minecraft:physics": {},
+			"minecraft:pushable": {
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			},
+			"minecraft:conditional_bandwidth_optimization": {},
+			"minecraft:behavior.look_at_entity": {
+				"priority": 7,
+				"look_distance": 5,
+				"look_time": [
+					0.3,
+					2
+				],
+				"probability": 0.01
+			},
+			"minecraft:trade_table": {
+				"convert_trades_economy": false,
+				"display_name": "Цугундер",
+				"new_screen": false,
+				"persist_trades": false,
+				"table": "trading/tsugunder.json"
+			},
+			"minecraft:on_hurt_by_player": {
+				"event": "arx:istrebitor_state",
+				"target": "self"
+			},
+			"minecraft:movement": {
+				"value": 0.36
+			}
+		},
+		"component_groups": {
+			"arx:despawn_as_ghost": {
+				"minecraft:instant_despawn": {}
+			},
+			"arx:istrebitor_state": { // Фаза истребитора
+				"minecraft:boss": {
+					"hud_range": 20,
+					"name": "§c§lЦугундер Истребитор",
+					"should_darken_sky": false
+				},
+				"minecraft:timer": {
+					"time": 1,
+					"looping": true,
+					"time_down_event": {
+						"event": "arx:tsugunder_istrebitor_analyse",
+						"target": "self"
+					}
+				},
+				"minecraft:on_hurt_by_player": {
+					"event": "arx:pass",
+					"target": "self"
+				},
+				"minecraft:health": {
+					"value": 750
+				},
+				"minecraft:behavior.avoid_mob_type": {
+					"priority": 1,
+					"entity_types": [
+						{
+							"filters": {
+								"test": "is_family",
+								"subject": "other",
+								"value": "dangerous"
+							},
+							"max_dist": 15,
+							"max_flee": 20,
+							"walk_speed_multiplier": 1.4,
+							"sprint_speed_multiplier": 1.33
+						}
+					],
+					"avoid_target_xz": 20
+				}
+			},
+			"arx:remove_on_istrebitor_state": {
+				"minecraft:trade_table": {
+					"convert_trades_economy": false,
+					"display_name": "Цугундер",
+					"new_screen": false,
+					"persist_trades": false,
+					"table": "trading/tsugunder.json"
+				}
+			}
+		},
+		"events": {
+			"arx:despawn_as_ghost": {
+				"add": {
+					"component_groups": [
+						"arx:despawn_as_ghost"
+					]
+				}
+			},
+			"arx:istrebitor_state": {
+				"queue_command": {
+					"command": [
+						"scoreboard players set @s mp_max 100",
+						"scoreboard players set @s mp 100",
+						"effect @a[r=7] blindness 2 0 true",
+						"playsound mob.rat_eliminator.spawn @a ~ ~ ~"
+					]
+				},
+				"add": {
+					"component_groups": [
+						"arx:istrebitor_state"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"arx:remove_on_istrebitor_state"
+					]
+				}
+			},
+			"arx:tsugunder_istrebitor_analyse": {
+				"queue_command": {
+					"command": [
+						// Необходимый анализ
+						"scoreboard players random @s custom_random 0 1000",
+						"event entity @s arx:test_for_low_hp",
+						// Реген маны
+						"scoreboard players add @s mp 7",
+						"execute if score @s mp > @s mp_max run scoreboard players operation @s mp = @s mp_max",
+						// Анализ действий
+						// Атака магией
+						"execute as @s[scores={mp=30.., custom_random=0..300}] if entity @a[r=15, has_property={arx:is_knocked=false}] run playsound dissecting_fog @a ~ ~ ~",
+						"execute as @s[scores={mp=30.., custom_random=0..300}] if entity @a[r=15, has_property={arx:is_knocked=false}] run tag @s add spell_activated",
+						"execute as @s[scores={mp=30.., custom_random=0..300}] if entity @a[r=15, has_property={arx:is_knocked=false}] at @p[has_property={arx:is_knocked=false}] run particle arx:sempra_a ~ ~2 ~",
+						"execute as @s[scores={mp=30.., custom_random=0..300}] if entity @a[r=15, has_property={arx:is_knocked=false}] run damage @p[scores={tick_nosempra_a=0, tick_nosempra_b=0, tick_nosempra_c=0}, has_property={arx:is_knocked=false}] 20 entity_attack entity @p",
+						"execute as @s[scores={mp=30.., custom_random=0..300}] if entity @a[r=15, has_property={arx:is_knocked=false}] run damage @p[scores={tick_nosempra_a=!0}, has_property={arx:is_knocked=false}] 15 entity_attack entity @s",
+						"execute as @s[scores={mp=30.., custom_random=0..300}] if entity @a[r=15, has_property={arx:is_knocked=false}] run damage @p[scores={tick_nosempra_b=!0}, has_property={arx:is_knocked=false}] 10 entity_attack entity @s",
+						"execute as @s[scores={mp=30.., custom_random=0..300}] if entity @a[r=15, has_property={arx:is_knocked=false}] run damage @p[scores={tick_nosempra_c=!0}, has_property={arx:is_knocked=false}] 0 entity_attack entity @s",
+						"execute as @s[scores={mp=30.., custom_random=0..300}] if entity @a[r=15, has_property={arx:is_knocked=false}] run scoreboard players add @s mp -30",
+						// Хил
+						"execute as @s[scores={mp=30.., custom_random=500..700}, tag=low_hp] run effect @s regeneration 10 2",
+						"execute as @s[scores={mp=30.., custom_random=500..700}, tag=low_hp] run tag @s add spell_activated",
+						"execute as @s[scores={mp=30.., custom_random=500..700}, tag=low_hp] run scoreboard players add @s mp -30",
+						// Завершающий анализ
+						"playanimation @s[tag=spell_activated] animation.tsugunder.cast_spell",
+						"tag @s remove spell_activated"
+					]
+				}
+			},
+			"arx:pass": {},
+			"arx:test_for_low_hp": {
+				"sequence": [
+					{
+						"queue_command": {
+							"command": [
+								"tag @s remove low_hp"
+							]
+						},
+						"filters": {
+							"test": "actor_health",
+							"operator": "<=",
+							"value": 375
+						},
+						"queue_command": {
+							"command": [
+								"tag @s add low_hp"
+							]
+						}
+					}
+				]
+			},
+			"minecraft:entity_spawned": {
+				"queue_command": {
+					"command": [
+						"execute if entity @a[scores={verify=2}, tag=scarlet_night] run tag @s add force_to_despawn"
+					]
+				}
+			},
+			"arx:despawn_forced": {
+				"add": {
+					"component_groups": [
+						"arx:despawn_as_ghost"
+					]
+				}
+			}
+		}
+	}
+}

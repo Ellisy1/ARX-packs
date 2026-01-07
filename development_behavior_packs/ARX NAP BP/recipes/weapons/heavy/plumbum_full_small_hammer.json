@@ -1,0 +1,30 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:plumbum_full_small_hammer"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      " Z#",
+      " XZ",
+      "Z  "
+    ],
+    "key": {
+      "#": {
+        "item": "arx:plumbum_billet"
+      },
+      "Z": {
+        "item": "arx:plumbum_ingot"
+      },
+      "X": {
+        "item": "minecraft:stick"
+      }
+    },
+    "result": {
+      "item": "arx:plumbum_full_small_hammer"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:book_case_b"
+    },
+
+    
+    "tags": [ "rune_crafting_table" ],
+    "pattern": [
+      "A A",
+      " B ",
+      "A A"
+    ],
+    "key": {
+      "A": {
+        "item": "arx:scientific_book"
+      },
+      "B": {
+        "item": "arx:book_case_a"
+      }
+    },
+    "result": {
+      "item": "arx:book_case_b"
+    }
+  }
+}

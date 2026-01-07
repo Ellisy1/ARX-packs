@@ -1,0 +1,74 @@
+{
+	"format_version": "1.16.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "arx:statue_of_trailblazer",
+			"is_spawnable": true,
+			"is_summonable": true
+		},
+		"components": {
+			"minecraft:knockback_resistance": {
+				"value": 1
+			},
+			"minecraft:type_family": {
+				"family": [
+					"statue"
+				]
+			},
+			"minecraft:collision_box": {
+				"width": 1,
+				"height": 1
+			},
+			"minecraft:health": {
+				"value": 1000
+			},
+			"minecraft:balloonable": {},
+			"minecraft:physics": {},
+			"minecraft:pushable": {
+				"is_pushable": false,
+				"is_pushable_by_piston": true
+			},
+			"minecraft:conditional_bandwidth_optimization": {},
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "all",
+						"deals_damage": false
+					}
+				]
+			},
+			"minecraft:interact": {
+				"interactions": [
+					{
+						"on_interact": {
+							"event": "arx:interact"
+						}
+					}
+				]
+			},
+			"minecraft:timer": {
+				"time": 1,
+				"looping": true,
+				"time_down_event": {
+					"event": "arx:clear"
+				}
+			}
+		},
+		"events": {
+			"arx:interact": {
+				"queue_command": {
+					"command": [
+						"function crpg_items/statue_of_trailblazer"
+					]
+				}
+			},
+			"arx:clear": {
+				"queue_command": {
+					"command": [
+						"clear @a[rm=10] arx:trailblazer_up"
+					]
+				}
+			}
+		}
+	}
+}

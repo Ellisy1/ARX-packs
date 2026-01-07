@@ -1,0 +1,30 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "arx:night_knight",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/clothes/light_armor/night_knight_set"
+      },
+      "geometry": {
+        "default": "geometry.night_knight_armor"
+      },
+      "animations": {
+        "cloak": "animation.cloak.default",
+        "cloak_controller": "controller.animation.cloak"
+      },
+      "scripts": {
+        "animate": [
+          "cloak_controller"
+        ],
+        "parent_setup": "variable.chest_layer_visible = 0.0;"
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ]
+    }
+  }
+}

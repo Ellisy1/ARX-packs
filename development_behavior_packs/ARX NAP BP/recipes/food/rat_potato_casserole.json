@@ -1,0 +1,33 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:rat_potato_casserole"
+    },
+
+    
+    "tags": [ "thermal_cooking_crafting_table" ],
+    "pattern": [
+      "AAA",
+      "BCD",
+      "AAA"
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:potato"
+      },
+      "B": {
+        "item": "arx:rat_monstr_meat"
+      },
+      "C": {
+        "item": "arx:cave_rat_meat"
+      },
+      "D": {
+        "item": "arx:small_rat_meat"
+      }
+    },
+    "result": {
+      "item": "arx:rat_potato_casserole"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "format_version": "1.17",
+  "minecraft:recipe_furnace": {
+    "description": {
+    "identifier": "arx:gold_tail_fish_meat_furnace"
+    },
+
+    "tags": ["furnace", "smoker", "campfire", "soul_campfire"],
+    "input": "arx:gold_tail_fish_meat",
+    "output": "arx:gold_tail_fish_meat_fried"
+  }
+  
+}

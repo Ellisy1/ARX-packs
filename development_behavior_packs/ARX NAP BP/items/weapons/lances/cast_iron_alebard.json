@@ -1,0 +1,36 @@
+{
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:can_destroy_in_creative": false,
+            "minecraft:cooldown": {
+                "category": "weapon",
+                "duration": 1
+            },
+            "minecraft:damage": 4,
+            "minecraft:durability": {
+                "max_durability": 732
+            },
+            "minecraft:enchantable": {
+                "slot": "sword",
+                "value": 15
+            },
+            "minecraft:icon": "arx:cast_iron_alebard",
+            "minecraft:max_stack_size": 1,
+            "minecraft:tags": {
+                "tags": [
+                    "is_lance",
+                    "is_weapon",
+                    "material_metal"
+                ]
+            }
+        },
+        "description": {
+            "identifier": "arx:cast_iron_alebard",
+            "menu_category": {
+                "category": "equipment",
+                "group": "itemGroup.name.sword"
+            }
+        }
+    }
+}

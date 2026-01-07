@@ -1,0 +1,23 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:stones"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      " A",
+      "AA"
+    ],
+    "key": {
+      "A": {
+        "item": "arx:small_stone"
+      }
+    },
+    "result": {
+      "item": "arx:stones"
+    }
+  }
+}

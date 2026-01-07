@@ -1,0 +1,37 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "arx:hungry_rat",
+      "min_engine_version": "1.12.0",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/mobs/hungry_rat"
+      },
+      "geometry": {
+        "default": "geometry.hungry_rat"
+      },
+      "animations": {
+				"run": "animation.hungry_rat.run",
+        "look_at_target_default": "animation.humanoid.look_at_target.default"
+			},
+			"scripts": {
+				"animate": [
+					{
+						"run": "query.modified_move_speed"
+					},
+          "look_at_target_default"
+				]
+			},
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "spawn_egg": {
+        "base_color": "#1a1a1a",
+        "overlay_color": "#6f6f6f"
+      }
+    }
+  }
+}

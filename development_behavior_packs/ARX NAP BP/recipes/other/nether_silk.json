@@ -1,0 +1,26 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:nether_silk"
+    },
+
+    
+    "tags": [ "loom_crafting_table" ],
+    "pattern": [
+      "AFA",
+      "FAF"
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:netherite_ingot"
+      },
+      "F": {
+        "item": "arx:silk"
+      }
+    },
+    "result": {
+      "item": "arx:nether_silk"
+    }
+  }
+}

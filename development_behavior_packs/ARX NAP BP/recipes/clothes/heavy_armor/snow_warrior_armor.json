@@ -1,0 +1,33 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:snow_warrior_armor"
+    },
+
+    
+    "tags": [ "heavy_armor_crafting_table" ],
+    "pattern": [
+      "DCB",
+      "DAC",
+      "DAD"
+    ],
+    "key": {
+      "A": {
+        "item": "arx:altaite_protective_plate"
+      },
+      "B": {
+        "item": "minecraft:dye:18"
+      },
+      "C": {
+        "item": "arx:pushnina"
+      },
+      "D": {
+        "item": "arx:steel_ingot"
+      }
+    },
+    "result": {
+      "item": "arx:snow_warrior_armor"
+    }
+  }
+}

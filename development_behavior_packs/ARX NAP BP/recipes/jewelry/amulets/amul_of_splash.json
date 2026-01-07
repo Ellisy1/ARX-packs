@@ -1,0 +1,30 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:amul_of_splash"
+    },
+
+    
+    "tags": [ "jewelry_crafting_table" ],
+    "pattern": [
+      " I ",
+      "RAR",
+      "RRR"
+    ],
+    "key": {
+      "I": {
+        "item": "arx:amul_string"
+      },
+      "R": {
+        "item": "minecraft:water_bucket"
+      },
+      "A": {
+        "item": "arx:sapphire_gem"
+      }
+    },
+    "result": {
+      "item": "arx:amul_of_splash"
+    }
+  }
+}

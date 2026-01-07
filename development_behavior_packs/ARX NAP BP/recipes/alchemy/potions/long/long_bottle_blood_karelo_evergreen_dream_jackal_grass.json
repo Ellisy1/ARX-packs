@@ -1,0 +1,26 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:long_bottle_blood_karelo_evergreen_dream_jackal_grass"
+    },
+
+    
+    "tags": [ "substractor" ],
+    "pattern": [
+      "A",
+      "#"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:long_bottle_blood_karelo_evergreen_dream"
+      },
+      "A": {
+        "item": "arx:jackal_grass"
+      }
+    },
+    "result": {
+      "item": "arx:long_bottle_blood_karelo_evergreen_dream_jackal_grass"
+    }
+  }
+}

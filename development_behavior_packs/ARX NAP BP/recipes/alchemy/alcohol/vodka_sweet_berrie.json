@@ -1,0 +1,15 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_brewing_mix": {
+    "description": {
+      "identifier": "arx:vodka_sweet_berrie"
+    },
+
+    "tags": [ "brewing_stand" ],
+
+    "input": "arx:vodka",
+    "reagent": "minecraft:sweet_berries",
+    "output": "arx:vodka_sweet_berrie"
+  }
+
+}

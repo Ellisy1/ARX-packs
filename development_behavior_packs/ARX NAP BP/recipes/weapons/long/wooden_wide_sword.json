@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "arx:wooden_wide_sword_ct"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      " ##",
+      " ##",
+      "A  "
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:wood"
+      },
+      "A": {
+        "item": "minecraft:stick"
+      }
+    },
+    "result": {
+      "item": "arx:wooden_wide_sword"
+    }
+  }
+}

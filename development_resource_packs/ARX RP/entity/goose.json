@@ -1,0 +1,41 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "arx:goose",
+      "min_engine_version": "1.12.0",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/mobs/goose"
+      },
+      "geometry": {
+        "default": "geometry.goose"
+      },
+      "animations": {
+				"walk": "animation.goose.walk",
+        "try_to_fly": "animation.goose.try_to_fly",
+        "look_at_target_default": "animation.humanoid.look_at_target.default"
+			},
+			"scripts": {
+				"animate": [
+					{
+						"walk": "query.modified_move_speed"
+					},
+          {
+						"try_to_fly": "query.is_avoiding_mobs || !query.is_on_ground"
+					},
+          "look_at_target_default"
+				]
+			},
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "spawn_egg": {
+        "base_color": "#1a1a1a",
+        "overlay_color": "#6f6f6f"
+      }
+    }
+  }
+}

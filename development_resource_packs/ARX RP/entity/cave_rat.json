@@ -1,0 +1,43 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "arx:cave_rat",
+      "min_engine_version": "1.8.0",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/mobs/cave_rat"
+      },
+      "geometry": {
+        "default": "geometry.cave_rat"
+      },
+      "animations": {
+        "look_at_target_default": "animation.humanoid.look_at_target.default",
+        "move": "animation.cave_rat.move",
+        "attack": "animation.cave_rat.attack",
+        "stay": "animation.cave_rat.stay"
+      },
+      "scripts": {
+        "animate": [
+          {
+            "move": "query.modified_move_speed * 2"
+          },
+          "stay",
+          {
+            "attack": "variable.attack_time > 0.0"
+          },
+          "look_at_target_default"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "spawn_egg": {
+        "base_color": "#4e4e4e",
+        "overlay_color": "#212121"
+      }
+    }
+  }
+}

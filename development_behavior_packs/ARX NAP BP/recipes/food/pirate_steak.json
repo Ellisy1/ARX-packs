@@ -1,0 +1,30 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:pirate_steak"
+    },
+
+    
+    "tags": [ "thermal_cooking_crafting_table" ],
+    "pattern": [
+      " B ",
+      "CA",
+      " B "
+    ],
+    "key": {
+      "A": {
+        "item": "arx:sea_turtle_meat"
+      },
+      "B": {
+        "item": "minecraft:kelp"
+      },
+      "C": {
+        "item": "arx:salt"
+      }
+    },
+    "result": [
+      {"item": "arx:pirate_steak"}
+    ]
+  }
+}

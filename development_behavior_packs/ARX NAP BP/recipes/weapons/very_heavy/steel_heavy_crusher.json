@@ -1,0 +1,30 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:steel_heavy_crusher"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      " AA",
+      " AA",
+      "B  "
+    ],
+    "key": {
+      "A": {
+        "item": "arx:steel_billet"
+      },
+      "B": {
+        "item": "arx:gold_billet"
+      },
+      "C": {
+        "item": "minecraft:dye", "data": 18
+      }
+    },
+    "result": {
+      "item": "arx:steel_heavy_crusher"
+    }
+  }
+}

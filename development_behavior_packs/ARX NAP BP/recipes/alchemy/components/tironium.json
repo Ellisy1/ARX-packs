@@ -1,0 +1,23 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:tironium"
+    },
+
+    
+    "tags": [ "pounder_crafting_table" ],
+    "pattern": [
+      "#"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:malafiotironite_ingot"
+      }
+    },
+    "result": {
+      "item": "arx:tironium",
+      "count": 2
+    }
+  }
+}

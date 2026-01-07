@@ -1,0 +1,13 @@
+{
+  "format_version": "1.17",
+  "minecraft:recipe_furnace": {
+    "description": {
+    "identifier": "arx:frog_legs_furnace"
+    },
+
+    "tags": ["furnace", "smoker", "campfire", "soul_campfire"],
+    "input": "arx:frog_legs",
+    "output": "arx:fried_frog_legs"
+  }
+  
+}

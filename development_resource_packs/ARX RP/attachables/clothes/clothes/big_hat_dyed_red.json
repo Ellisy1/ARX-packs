@@ -1,0 +1,23 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "arx:big_hat_dyed_red",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/clothes/clothes/big_hat_dyed_red"
+      },
+      "geometry": {
+        "default": "geometry.big_hat"
+      },
+      "scripts": {
+        "parent_setup": "variable.helmet_layer_visible = 0.0;"
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ]
+    }
+  }
+}

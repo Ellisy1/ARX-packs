@@ -1,0 +1,30 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:silk"
+    },
+
+    "priority": 0,
+    "tags": [ "loom_crafting_table" ],
+    "pattern": [
+      "ABA",
+      "CAC",
+      "ABA"
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:web"
+      },
+      "B": {
+        "item": "minecraft:string"
+      },
+      "C": {
+        "item": "arx:cotton_fabric"
+      }
+    },
+    "result": {
+      "item": "arx:silk"
+    }
+  }
+}

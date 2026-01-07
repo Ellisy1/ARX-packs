@@ -1,0 +1,35 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "arx:cultist_entrance_guard",
+      "min_engine_version": "1.12.0",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/mobs/rat_cultists/cultist_entrance_guard"
+      },
+      "geometry": {
+        "default": "geometry.cultist_entrance_guard"
+      },
+      "animations": {
+        "stay": "animation.cultist_scout_rat.stay",
+        "look_at_target_default": "animation.humanoid.look_at_target.default"
+			},
+			"scripts": {
+				"animate": [
+          "stay",
+          "look_at_target_default"
+				]
+			},
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "spawn_egg": {
+        "base_color": "#e6e6e6",
+        "overlay_color": "#d3d3d3"
+      }
+    }
+  }
+}

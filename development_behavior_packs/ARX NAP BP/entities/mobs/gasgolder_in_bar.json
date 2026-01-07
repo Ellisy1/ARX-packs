@@ -1,0 +1,54 @@
+{
+	"format_version": "1.16.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "arx:gasgolder_in_bar",
+			"is_spawnable": true,
+			"is_summonable": true
+		},
+		"components": {
+			"minecraft:health": {
+				"value": 1000
+			},
+			"minecraft:balloonable": {},
+			"minecraft:physics": {},
+			"minecraft:pushable": {
+				"is_pushable": false,
+				"is_pushable_by_piston": false
+			},
+			"minecraft:conditional_bandwidth_optimization": {},
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "all",
+						"deals_damage": false
+					}
+				]
+			},
+			"minecraft:collision_box": {
+				"height": 1,
+				"width": 0.5
+			},
+			"minecraft:type_family": {
+				"family": [
+					"bar_stool_sittable"
+				]
+			},
+			"minecraft:behavior.look_at_player": {
+				"angle_of_view_vertical": 360,
+				"angle_of_view_horizontal": 360,
+				"look_distance": 6,
+				"probability": 0.02,
+				"look_time": [],
+				"target_distance": 6
+			},
+			"minecraft:interact": {
+				"interactions": [
+					{
+						"on_interact": {}
+					}
+				]
+			}
+		}
+	}
+}

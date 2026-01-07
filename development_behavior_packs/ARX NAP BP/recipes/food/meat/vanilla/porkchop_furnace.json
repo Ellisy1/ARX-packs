@@ -1,0 +1,13 @@
+{
+  "format_version": "1.17",
+  "minecraft:recipe_furnace": {
+    "description": {
+    "identifier": "arx:porkchop_furnace"
+    },
+
+    "tags": ["furnace", "smoker", "campfire", "soul_campfire"],
+    "input": "minecraft:porkchop",
+    "output": "arx:fried_porkchop"
+  }
+  
+}

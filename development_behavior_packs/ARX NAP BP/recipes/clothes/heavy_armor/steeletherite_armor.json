@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:steeletherite_armor"
+    },
+
+    
+    "tags": [ "heavy_armor_crafting_table" ],
+    "pattern": [
+      "# #",
+      "#A#",
+      "#A#"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:steel_protective_plate"
+      },
+      "A": {
+        "item": "arx:netherite_protective_plate"
+      }
+    },
+    "result": {
+      "item": "arx:steeletherite_armor"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:scythe_chloronite"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      "## ",
+      " A ",
+      "A  "
+    ],
+    "key": {
+      "#": {
+        "item": "arx:chloronite_billet"
+      },
+      "A": {
+        "item": "arx:chloronite_ingot"
+      }
+    },
+    "result": {
+      "item": "arx:scythe_chloronite"
+    }
+  }
+}

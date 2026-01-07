@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:bandage_red"
+    },
+
+    
+    "tags": [ "clothes_crafting_table" ],
+    "pattern": [
+      "#A",
+      "A#"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:cheap_cloth"
+      },
+      "A": {
+        "item": "minecraft:dye",
+        "data": 1
+      }
+    },
+    "result": {
+      "item": "arx:bandage_red"
+    }
+  }
+}

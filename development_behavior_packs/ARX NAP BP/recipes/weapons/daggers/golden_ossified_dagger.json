@@ -1,0 +1,30 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:golden_ossified_dagger"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      "  Y",
+      " # ",
+      "X  "
+    ],
+    "key": {
+      "#": {
+        "item": "arx:gold_billet"
+      },
+      "X": {
+        "item": "minecraft:amethyst_shard"
+      },
+      "Y": {
+        "item": "arx:iron_billet"
+      }
+    },
+    "result": {
+      "item": "arx:golden_ossified_dagger"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+	"format_version": "1.17.41",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "arx:milk_ylyn"
+		},
+		"tags": ["tea_table"],
+		"pattern": [
+			"LM",
+			"C"
+		],
+		"key": {
+			"C": "arx:cup",
+			"L": "arx:lightly_fried_tea_leaf",
+            "M":"minecraft:milk_bucket"
+		},
+		"result": [
+			{"item": "arx:milk_ylyn", "count": 1},
+			{"item": "minecraft:bucket", "count": 1}
+		  ]
+	}
+}

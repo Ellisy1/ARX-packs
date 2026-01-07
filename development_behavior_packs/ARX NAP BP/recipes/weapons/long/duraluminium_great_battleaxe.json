@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:duraluminium_great_battleaxe"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      "## ",
+      " ##",
+      "A #"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:duraluminum_billet"
+      },
+      "A": {
+        "item": "arx:aluminum_billet"
+      }
+    },
+    "result": {
+      "item": "arx:duraluminium_great_battleaxe"
+    }
+  }
+}

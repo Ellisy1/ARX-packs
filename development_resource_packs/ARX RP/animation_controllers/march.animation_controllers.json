@@ -1,0 +1,155 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.march.basic": {
+			"initial_state": "descent",
+			"states": {
+
+
+
+				"descent": {
+					"animations": [
+						"hide_railgun_on_back",
+						"launch_flying_engines",
+						"default_eyes",
+						"hold_railgun_while_not_aiming"
+					],
+					"transitions": [
+						{
+							"phase0": "query.property('arx:descent') == false"
+						}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+
+
+				
+				"phase0": {
+					"animations": [
+						"hide_railgun_in_hand",
+						"default_eyes",
+						"block_with_hand"
+					],
+					"transitions": [
+						{
+							"phase1": "query.property('arx:phase') > 0"
+						},
+						{
+							"phase0_walk": "q.ground_speed > 1.0"
+						}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+				"phase0_walk": {
+					"animations": [
+						"hide_railgun_in_hand",
+						"default_eyes",
+						"block_with_hand",
+						"walk_legs"
+					],
+					"transitions": [
+						{
+							"phase1": "query.property('arx:phase') > 0"
+						},
+						{
+							"phase0": "q.ground_speed < 0.5"
+						}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+
+
+
+				"phase1": {
+					"animations": [
+						"hide_railgun_in_hand",
+						"default_eyes"
+					],
+					"transitions": [
+						{
+							"phase2": "query.property('arx:phase') > 1"
+						},
+						{
+							"phase1_walk": "q.ground_speed > 1.0"
+						}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+				"phase1_walk": {
+					"animations": [
+						"hide_railgun_in_hand",
+						"default_eyes",
+						"run_fast_legs",
+						"run_fast_arms"
+					],
+					"transitions": [
+						{
+							"phase2": "query.property('arx:phase') > 1"
+						},
+						{
+							"phase1": "q.ground_speed < 0.5"
+						}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+
+
+
+				"phase2": {
+					"animations": [
+						"hide_railgun_on_back",
+						"default_eyes",
+						{"hold_railgun_while_not_aiming": "query.property('arx:ranged') == false"},
+						{"hold_railgun_aiming_without_legs": "query.property('arx:ranged') == true"},
+						{"hold_railgun_aiming_only_legs": "query.property('arx:ranged') == true"}
+					],
+					"transitions": [
+						{
+							"phase3": "query.property('arx:phase') > 2"
+						},
+						{
+							"phase2_walk": "q.ground_speed > 1.0"
+						}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+				"phase2_walk": {
+					"animations": [
+						"hide_railgun_on_back",
+						"default_eyes",
+						"run_fast_legs",
+						{"hold_railgun_while_not_aiming": "query.property('arx:ranged') == false"},
+						{"hold_railgun_aiming_without_legs": "query.property('arx:ranged') == true"}
+					],
+					"transitions": [
+						{
+							"phase3": "query.property('arx:phase') > 2"
+						},
+						{
+							"phase2": "q.ground_speed < 0.5"
+						}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+
+
+				
+				"phase3": {
+					"animations": [
+						"hide_railgun_on_back",
+						"hold_railgun_aiming_without_legs",
+						"hold_railgun_aiming_only_legs",
+						"red_eyes"
+					]
+				}
+			}
+		}
+	}
+}

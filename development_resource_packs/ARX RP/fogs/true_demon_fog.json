@@ -1,0 +1,40 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:fog_settings": {
+    "description": {
+      "identifier": "arx:true_demon_fog"
+    },
+    "distance": {
+      "air": {
+        "fog_start": 0,
+        "fog_end": 0.8,
+        "fog_color": "#ff0000",
+        "render_distance_type": "render"
+      },
+      "water": {
+        "fog_start": 0,
+        "fog_end": 0.8,
+        "fog_color": "#ff0000",
+        "render_distance_type": "render"
+      },
+      "weather": {
+        "fog_start": 0,
+        "fog_end": 0.8,
+        "fog_color": "#ff0000",
+        "render_distance_type": "render"
+      },
+      "lava": {
+        "fog_start": 0,
+        "fog_end": 16,
+        "fog_color": "#ff0000",
+        "render_distance_type": "fixed"
+      },
+      "lava_resistance": {
+        "fog_start": 0,
+        "fog_end": 16,
+        "fog_color": "#ff0000",
+        "render_distance_type": "fixed"
+      }
+    }
+  }
+}

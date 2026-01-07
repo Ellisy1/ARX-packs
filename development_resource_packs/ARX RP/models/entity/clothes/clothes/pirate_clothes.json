@@ -1,0 +1,127 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.pirate_clothes",
+				"texture_width": 128,
+				"texture_height": 64,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 3.5,
+				"visible_bounds_offset": [0, 1.25, 0]
+			},
+			"bones": [
+				{
+					"name": "waist",
+					"pivot": [0, 12, 0]
+				},
+				{
+					"name": "body",
+					"parent": "waist",
+					"pivot": [0, 24, 0],
+					"cubes": [
+						{"origin": [-4, 12, -2], "size": [8, 12, 4], "inflate": 0.4, "uv": [16, 0]}
+					]
+				},
+				{
+					"name": "leftArm",
+					"parent": "body",
+					"pivot": [5, 22, 0],
+					"mirror": true,
+					"cubes": [
+						{"origin": [4, 12, -2], "size": [4, 12, 4], "inflate": 0.375, "uv": [40, 0]}
+					]
+				},
+				{
+					"name": "over2",
+					"parent": "leftArm",
+					"pivot": [5, 22, 0],
+					"mirror": true,
+					"cubes": [
+						{"origin": [4, 12, -2], "size": [4, 12, 4], "inflate": 0.775, "uv": [40, 16]}
+					]
+				},
+				{
+					"name": "rightArm",
+					"parent": "body",
+					"pivot": [-5, 22, 0],
+					"cubes": [
+						{"origin": [-8, 12, -2], "size": [4, 12, 4], "inflate": 0.375, "uv": [40, 0]}
+					]
+				},
+				{
+					"name": "over3",
+					"parent": "rightArm",
+					"pivot": [-5, 22, 0],
+					"cubes": [
+						{"origin": [-8, 12, -2], "size": [4, 12, 4], "inflate": 0.775, "uv": [40, 16]}
+					]
+				},
+				{
+					"name": "over",
+					"parent": "body",
+					"pivot": [0, 24, 0],
+					"cubes": [
+						{"origin": [-4, 12, -2], "size": [8, 12, 4], "inflate": 0.675, "uv": [16, 16]}
+					]
+				},
+				{
+					"name": "cloak",
+					"parent": "body",
+					"pivot": [0, 24, 2.725],
+					"rotation": [5, 0, 0],
+					"cubes": [
+						{"origin": [-4, 5.01743, 2.72576], "size": [8, 19, 1], "uv": [96, 9]}
+					]
+				},
+				{
+					"name": "bust",
+					"parent": "body",
+					"pivot": [0, 23, -2.1],
+					"cubes": [
+						{"origin": [-4, 19, -2.1], "size": [8, 4, 4], "inflate": 0.24, "uv": [56, 0]},
+						{"origin": [-4, 19, -2.1], "size": [8, 4, 4], "inflate": 0.51, "uv": [56, 8]}
+					]
+				},
+				{
+					"name": "bust_related",
+					"parent": "body",
+					"pivot": [0, 24, 0],
+					"cubes": [
+						{"origin": [-4, 12, -2], "size": [8, 12, 4], "inflate": 0.302, "uv": [104, 48]}
+					]
+				},
+				{
+					"name": "rightLeg",
+					"pivot": [-1.9, 12, 0],
+					"cubes": [
+						{"origin": [-3.9, 0, -2], "size": [4, 12, 4], "inflate": 0.375, "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "over4",
+					"parent": "rightLeg",
+					"pivot": [-1.9, 12, 0],
+					"cubes": [
+						{"origin": [-3.9, 0, -2], "size": [4, 12, 4], "inflate": 0.7, "uv": [0, 16]}
+					]
+				},
+				{
+					"name": "leftLeg",
+					"pivot": [1.9, 12, 0],
+					"cubes": [
+						{"origin": [-0.1, 0, -2], "size": [4, 12, 4], "inflate": 0.35, "uv": [16, 32]}
+					]
+				},
+				{
+					"name": "over5",
+					"parent": "leftLeg",
+					"pivot": [1.9, 12, 0],
+					"cubes": [
+						{"origin": [-0.1, 0, -2], "size": [4, 12, 4], "inflate": 0.725, "uv": [0, 32]}
+					]
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,26 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:chloronite_dagger"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      " #",
+      "X "
+    ],
+    "key": {
+      "#": {
+        "item": "arx:chloronite_billet"
+      },
+      "X": {
+        "item": "arx:plumbum_billet"
+      }
+    },
+    "result": {
+      "item": "arx:chloronite_dagger"
+    }
+  }
+}

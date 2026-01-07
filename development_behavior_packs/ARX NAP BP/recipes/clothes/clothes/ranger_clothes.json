@@ -1,0 +1,31 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:ranger_clothes"
+    },
+
+    
+    "tags": [ "clothes_crafting_table" ],
+    "pattern": [
+      "ACA",
+      "#A#",
+      " A "
+    ],
+    "key": {
+      "#": {
+        "item": "arx:leather_super"
+      },
+      "A": {
+        "item": "arx:cotton_fabric"
+      },
+      "C": {
+        "item": "minecraft:dye",
+        "data": 2
+      }
+    },
+    "result": {
+      "item": "arx:ranger_clothes"
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:feature_rules": {
+		"description": {
+			"identifier": "arx:plant_golden_hay_feature_rule",
+			"places_feature": "arx:plant_golden_hay_feature"
+		},
+		"conditions": {
+			"placement_pass": "surface_pass",
+			"minecraft:biome_filter": [
+				{
+					"any_of": [
+						{
+							"test": "has_biome_tag",
+							"operator": "==",
+							"value": "savanna" 
+						},
+						{
+							"test": "has_biome_tag",
+							"operator": "==",
+							"value": "plains" 
+						}
+					]
+				}
+			]
+		},
+		"distribution": {
+			"scatter_chance": {
+				"numerator": 1,
+				"denominator": 3
+			},
+			"iterations": 10,
+			"x": {
+				"distribution": "gaussian",
+				"extent": [ 0, 16 ]
+			  },
+			"y": "query.heightmap(variable.worldx, variable.worldz)",
+			"z": {
+				"distribution": "gaussian",
+				"extent": [ 0, 16 ]
+			  }
+		}
+	}
+}

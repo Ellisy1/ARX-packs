@@ -1,0 +1,16 @@
+{
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:hand_equipped": true,
+            "minecraft:icon": "arx:iron_forged_billet",
+            "minecraft:max_stack_size": 1
+        },
+        "description": {
+            "identifier": "arx:iron_forged_billet",
+            "menu_category": {
+                "category": "items"
+            }
+        }
+    }
+}

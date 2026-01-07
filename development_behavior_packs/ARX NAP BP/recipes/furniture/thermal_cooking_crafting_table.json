@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:thermal_cooking_crafting_table"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "F F",
+      " A ",
+      "FFF"
+    ],
+    "key": {
+      "F": {
+        "item": "minecraft:iron_ingot"
+      },
+      "A": {
+        "item": "minecraft:coal"
+      }
+    },
+    "result": [
+      {"item": "arx:thermal_cooking_crafting_table"}
+    ]
+  }
+}

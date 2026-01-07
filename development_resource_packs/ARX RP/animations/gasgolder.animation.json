@@ -1,0 +1,77 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.gasgolder.constant": {
+			"loop": true,
+			"bones": {
+				"body": {
+					"rotation": ["math.sin(query.anim_time * 100) * 2", 0, 0]
+				},
+				"saw": {
+					"rotation": [0, "query.anim_time * 6", 0]
+				},
+				"arm_r": {
+					"rotation": ["math.sin(query.anim_time * 40) * 3", 0, 0]
+				},
+				"hand1": {
+					"rotation": ["-math.cos(query.anim_time * 49) * 2", 0, 0]
+				},
+				"arm_l": {
+					"rotation": ["math.cos(query.anim_time * 33) * 3", 0, 0]
+				},
+				"hand2": {
+					"rotation": ["-math.sin(query.anim_time * 36) * 3", 0, 0]
+				},
+				"leg_l": {
+					"rotation": ["-math.sin(query.anim_time * 100) * 2", 0, 0]
+				},
+				"leg_r": {
+					"rotation": ["-math.sin(query.anim_time * 100) * 2", 0, 0]
+				},
+				"head": {
+					"position": [0, 0, "-math.sin(query.anim_time * 100) * 0.4"]
+				}
+			}
+		},
+		"animation.gasgolder.smoke": {
+			"loop": true,
+			"animation_length": 8,
+			"bones": {
+				"arm_r": {
+					"rotation": {
+						"0.0": [-22.5, 0, 0],
+						"5.125": [-22.5, 0, 0],
+						"5.8333": [-29.89121, -3.37562, -3.69066],
+						"6.2083": [-29.89121, -3.37562, -3.69066],
+						"6.9583": [-22.5, 0, 0],
+						"8.0": [-22.5, 0, 0]
+					}
+				},
+				"hand1": {
+					"rotation": {
+						"0.0": [-32.5, 0, 0],
+						"5.125": [-32.5, 0, 0],
+						"5.8333": [-47.5, 0, 0],
+						"6.2083": [-47.5, 0, 0],
+						"6.9583": [-32.5, 0, 0],
+						"8.0": [-32.5, 0, 0]
+					}
+				},
+				"head": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"5.125": [0, 0, 0],
+						"5.8333": [10.39807, 11.91276, 3.81397],
+						"6.2083": [10.39807, 11.91276, 3.81397],
+						"7.0417": [-14.4743, -8.5208, 3.85212],
+						"7.4167": [-14.4743, -8.5208, 3.85212],
+						"8.0": [0, 0, 0]
+					}
+				},
+				"cigarette": {
+					"scale": 1
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,33 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:coin_crafting_table_default"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      " I ",
+      "IRI",
+      " iA"
+    ],
+    "key": {
+      "I": {
+        "item": "arx:cast_iron_protective_plate"
+      },
+      "R": {
+        "item": "arx:durasteel_protective_plate"
+      },
+      "i": {
+        "item": "minecraft:log"
+      },
+      "A": {
+        "item": "arx:cast_iron_hammer"
+      }
+    },
+    "result": {
+      "item": "arx:coin_crafting_table_default"
+    }
+  }
+}

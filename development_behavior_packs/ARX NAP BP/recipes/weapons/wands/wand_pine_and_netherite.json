@@ -1,0 +1,30 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:wand_pine_and_netherite"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      "  S",
+      " A ",
+      "Z  "
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:feather"
+      },
+      "S": {
+        "item": "minecraft:planks:1"
+      },
+      "Z": {
+        "item": "arx:netherite_billet"
+      }
+    },
+    "result": {
+      "item": "arx:wand_pine_and_netherite"
+    }
+  }
+}

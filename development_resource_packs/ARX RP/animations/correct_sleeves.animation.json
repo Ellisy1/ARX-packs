@@ -1,0 +1,22 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.player.correct_sleeves": {
+			"loop": true,
+			"bones": {
+				"rightSleeveNarrow": {
+					"scale": "q.property('arx:arms_type') == 1"
+				},
+				"leftSleeveWide": {
+					"scale": "!q.property('arx:arms_type') == 1"
+				},
+				"leftSleeveNarrow": {
+					"scale": "q.property('arx:arms_type') == 1"
+				},
+				"rightSleeveWide": {
+					"scale": "!q.property('arx:arms_type') == 1"
+				}
+			}
+		}
+	}
+}

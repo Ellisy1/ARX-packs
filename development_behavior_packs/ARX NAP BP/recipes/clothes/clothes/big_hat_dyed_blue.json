@@ -1,0 +1,33 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:big_hat_dyed_blue"
+    },
+
+    
+    "tags": [ "clothes_crafting_table" ],
+    "pattern": [
+      "ABA",
+      "#C#"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:cheap_cloth"
+      },
+      "A": {
+        "item": "minecraft:dye",
+        "data": 12
+      },
+      "B": {
+        "item": "minecraft:feather"
+      },
+      "C": {
+        "item": "arx:cotton_fabric"
+      }
+    },
+    "result": {
+      "item": "arx:big_hat_dyed_blue"
+    }
+  }
+}

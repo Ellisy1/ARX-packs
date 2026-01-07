@@ -1,0 +1,41 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "arx:sand_elemental",
+      "min_engine_version": "1.8.0",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/mobs/sand_elemental"
+      },
+      "geometry": {
+        "default": "geometry.sand_elemental"
+      },
+      "animations": {
+        "look_at_target_default": "animation.humanoid.look_at_target.default",
+        "look_at_target_gliding": "animation.humanoid.look_at_target.gliding",
+        "look_at_target_swimming": "animation.humanoid.look_at_target.swimming",
+        "move": "animation.sand_elemental.move",
+        "attack": "animation.sand_elemental.attack",
+        "stay": "animation.sand_elemental.stay"
+      },
+      "animation_controllers": [
+        {
+          "move": "controller.animation.sand_elemental.basic"
+        },
+        {
+          "look_at_target": "controller.animation.humanoid.look_at_target"
+        }
+      ],
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "spawn_egg": {
+        "base_color": "#c5be59",
+        "overlay_color": "#eb05b9"
+      }
+    }
+  }
+}

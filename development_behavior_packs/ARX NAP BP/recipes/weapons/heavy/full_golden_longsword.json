@@ -1,0 +1,23 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:full_golden_longsword"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      " #",
+      "# "
+    ],
+    "key": {
+      "#": {
+        "item": "arx:gold_billet"
+      }
+    },
+    "result": {
+      "item": "arx:full_golden_longsword"
+    }
+  }
+}

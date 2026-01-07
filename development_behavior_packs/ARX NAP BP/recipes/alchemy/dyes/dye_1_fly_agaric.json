@@ -1,0 +1,22 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:dye_1_fly_agaric"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "#"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:fly_agaric"
+      }
+    },
+    "result": {
+      "item": "minecraft:dye:1"
+    }
+  }
+}

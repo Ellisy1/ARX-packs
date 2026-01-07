@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:beer_bottle"
+    },
+
+    
+    "tags": [ "glassworks_crafting_table" ],
+    "pattern": [
+      " ##",
+      "X#X",
+      "X#X"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:bung"
+      },
+      "X": {
+        "item": "minecraft:glass"
+      }
+    },
+    "result": [
+      {"item": "arx:beer_bottle", "count": 4}
+    ]
+  }
+}

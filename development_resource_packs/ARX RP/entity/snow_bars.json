@@ -1,0 +1,41 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "arx:snow_bars",
+      "min_engine_version": "1.8.0",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/mobs/snow_bars"
+      },
+      "geometry": {
+        "default": "geometry.snow_bars"
+      },
+      "animations": {
+        "look_at_target_default": "animation.humanoid.look_at_target.default",
+        "look_at_target_gliding": "animation.humanoid.look_at_target.gliding",
+        "look_at_target_swimming": "animation.humanoid.look_at_target.swimming",
+        "walk": "animation.snow_bars.walk",
+        "attack": "animation.snow_bars.attack",
+        "stay": "animation.snow_bars.stay"
+      },
+      "animation_controllers": [
+        {
+          "move": "controller.animation.snow_bars.main"
+        },
+        {
+          "look_at_target": "controller.animation.humanoid.look_at_target"
+        }
+      ],
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "spawn_egg": {
+        "base_color": "#c6c6c6",
+        "overlay_color": "#4a5157"
+      }
+    }
+  }
+}

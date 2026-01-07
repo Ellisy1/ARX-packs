@@ -1,0 +1,20 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "arx:magilight",
+      "materials": {
+        "default": "entity_emissive_alpha"
+      },
+      "textures": {
+        "default": "textures/entity/belt_lamps/magilight"
+      },
+      "geometry": {
+        "default": "geometry.magilight"
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ]
+    }
+  }
+}

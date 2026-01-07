@@ -1,0 +1,22 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:salmon_fillet_thermal"
+    },
+
+    
+    "tags": [ "thermal_cooking_crafting_table" ],
+    "pattern": [
+      "#"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:salmon_fillet"
+      }
+    },
+    "result": {
+      "item": "arx:salmon_fillet_fried"
+    }
+  }
+}

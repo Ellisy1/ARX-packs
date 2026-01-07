@@ -1,0 +1,28 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:purple_cape"
+    },
+
+    
+    "tags": [ "clothes_crafting_table" ],
+    "pattern": [
+      "###",
+      "C C",
+      "# #"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:cotton_fabric"
+      },
+      "C": {
+        "item": "minecraft:dye",
+        "data": 5
+      }
+    },
+    "result": {
+      "item": "arx:purple_cape"
+    }
+  }
+}

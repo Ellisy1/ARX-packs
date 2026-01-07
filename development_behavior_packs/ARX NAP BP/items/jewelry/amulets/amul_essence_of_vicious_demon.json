@@ -1,0 +1,26 @@
+{
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:durability": {
+                "max_durability": 160
+            },
+            "minecraft:enchantable": {
+                "slot": "armor_legs",
+                "value": 15
+            },
+            "minecraft:icon": "arx:amul_essence_of_vicious_demon",
+            "minecraft:max_stack_size": 1,
+            "minecraft:wearable": {
+                "slot": "slot.armor.legs"
+            }
+        },
+        "description": {
+            "identifier": "arx:amul_essence_of_vicious_demon",
+            "menu_category": {
+                "category": "equipment",
+                "group": "itemGroup.name.leggings"
+            }
+        }
+    }
+}

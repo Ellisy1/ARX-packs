@@ -1,0 +1,60 @@
+{
+	"format_version": "1.20.0",
+	"animation_controllers": {
+		"controller.animation.vicious_demon.basic": {
+			"initial_state": "stay_state",
+			"states": {
+				"stay_state": {
+					"animations": [
+						"stay",
+						"basic",
+						{"attack": "variable.attack_time > 0.0"}
+					],
+					"transitions": [
+						{"move_state": "q.ground_speed > 1.0"},
+						{"spin_state": "q.property('arx:spin')"},
+						{"shield_state": "q.property('arx:shield')"},
+						{"rest_state": "q.property('arx:is_resting') && !q.property('arx:hp') == 0"}
+					],
+					"blend_transition": 0.2
+				},
+				"move_state": {
+					"animations": [
+						"move",
+						"basic",
+						{"attack": "variable.attack_time > 0.0"}
+					],
+					"transitions": [
+						{"stay_state": "q.ground_speed < 0.5"},
+						{"shield_state": "q.property('arx:shield')"},
+						{"spin_state": "q.property('arx:spin')"}
+					],
+					"blend_transition": 0.2
+				},
+				"spin_state": {
+					"animations": ["spin", "basic"],
+					"transitions": [
+						{"stay_state": "!q.property('arx:spin')"},
+						{"shield_state": "q.property('arx:shield')"}
+					],
+					"blend_transition": 0.2
+				},
+				"rest_state": {
+					"animations": ["rest", "basic"],
+					"transitions": [
+						{"shield_state": "q.property('arx:shield')"},
+						{"stay_state": "!q.property('arx:is_resting') || q.property('arx:hp') == 0"}
+					],
+					"blend_transition": 0.3
+				},
+				"shield_state": {
+					"animations": ["block", "basic", "stay"],
+					"transitions": [
+						{"stay_state": "!q.property('arx:shield')"}
+					],
+					"blend_transition": 0.3
+				}
+			}
+		}
+	}
+}

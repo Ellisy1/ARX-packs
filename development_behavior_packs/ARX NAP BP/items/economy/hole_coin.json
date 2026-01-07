@@ -1,0 +1,14 @@
+{
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:icon": "arx:hole_coin"
+        },
+        "description": {
+            "identifier": "arx:hole_coin",
+            "menu_category": {
+                "category": "items"
+            }
+        }
+    }
+}

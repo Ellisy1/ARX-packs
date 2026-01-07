@@ -1,0 +1,126 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.arx_nest",
+				"texture_width": 32,
+				"texture_height": 32,
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 1.5,
+				"visible_bounds_offset": [0, 0.25, 0]
+			},
+			"bones": [
+				{
+					"name": "base",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-3, 0, -3], "size": [6, 1, 6], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "eggs",
+					"parent": "base",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "egg2",
+					"parent": "eggs",
+					"pivot": [1.2, 0, 0.6],
+					"rotation": [0, 10, -5],
+					"mirror": true,
+					"cubes": [
+						{"origin": [-0.075, 0.6, -0.125], "size": [2, 2, 2], "inflate": -0.2, "pivot": [1.2, 0, 0.6], "rotation": [-1.51666, 7.75745, 7.23328], "uv": [18, 0]}
+					]
+				},
+				{
+					"name": "egg1",
+					"parent": "eggs",
+					"pivot": [-0.8, 0, 0.6],
+					"rotation": [0, -12.5, -5],
+					"cubes": [
+						{"origin": [-1.8, 0.6, -0.4], "size": [2, 2, 2], "inflate": -0.2, "uv": [18, 0]}
+					]
+				},
+				{
+					"name": "edges",
+					"parent": "base",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "edges_grass",
+					"parent": "edges",
+					"pivot": [-1, 0, 0]
+				},
+				{
+					"name": "grass1",
+					"parent": "edges_grass",
+					"pivot": [-0.73953, 1.47721, -2.7],
+					"rotation": [7.5, 0, 10],
+					"cubes": [
+						{"origin": [-3.73953, 0.47721, -3.2], "size": [6, 2, 1], "uv": [0, 11]}
+					]
+				},
+				{
+					"name": "grass2",
+					"parent": "edges_grass",
+					"pivot": [-2.9, 1.45106, -1.43058],
+					"rotation": [0, 0, -10],
+					"cubes": [
+						{"origin": [-3.3, 0, -3], "size": [1, 2, 3], "pivot": [-2.9, 1, 0], "rotation": [-17.5, 0, 0], "uv": [24, 1]}
+					]
+				},
+				{
+					"name": "grass3",
+					"parent": "edges_grass",
+					"pivot": [-2.8, 1.75059, 1.66368],
+					"rotation": [47.34319, 4.41997, -4.06161],
+					"cubes": [
+						{"origin": [-3.3, 0.29953, 0.09426], "size": [1, 2, 3], "pivot": [-2.8, 1.29953, 3.09426], "rotation": [-17.5, 0, 0], "uv": [24, 6]}
+					]
+				},
+				{
+					"name": "grass4",
+					"parent": "edges_grass",
+					"pivot": [2.8, 1.85059, 1.66368],
+					"cubes": [
+						{"origin": [2.27728, 0.27066, -2.90288], "size": [1, 2, 6], "pivot": [2.77728, 1.27066, 0.09712], "rotation": [12.5, 0, 10], "uv": [0, 14], "mirror": true}
+					]
+				},
+				{
+					"name": "grass5",
+					"parent": "edges_grass",
+					"pivot": [0.26047, 1.47721, 2.7],
+					"rotation": [-7.5, 0, 10],
+					"cubes": [
+						{"origin": [-2.73953, 0.47721, 2.2], "size": [6, 2, 1], "pivot": [0.26047, -0.02279, -0.1], "rotation": [0, 2.5, -20], "uv": [0, 22]}
+					]
+				},
+				{
+					"name": "sides",
+					"parent": "edges",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-3, 1, -3], "size": [6, 1, 1], "uv": [0, 7]},
+						{"origin": [-3, 1, 2], "size": [6, 1, 1], "uv": [0, 7]}
+					]
+				},
+				{
+					"name": "edges2",
+					"parent": "edges",
+					"pivot": [0, 0, 0],
+					"rotation": [0, 90, 0]
+				},
+				{
+					"name": "sides2",
+					"parent": "edges2",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-2, 1, -3], "size": [4, 1, 1], "uv": [0, 9]},
+						{"origin": [-2, 1, 2], "size": [4, 1, 1], "uv": [0, 9]}
+					]
+				}
+			]
+		}
+	]
+}

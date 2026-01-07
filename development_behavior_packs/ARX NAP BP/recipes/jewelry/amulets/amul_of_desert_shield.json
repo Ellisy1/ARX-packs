@@ -1,0 +1,33 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:amul_of_desert_shield"
+    },
+
+    
+    "tags": [ "jewelry_crafting_table" ],
+    "pattern": [
+      "RIR",
+      "FFF",
+      " K "
+    ],
+    "key": {
+      "I": {
+        "item": "arx:amul_string"
+      },
+      "R": {
+        "item": "arx:golden_silk"
+      },
+      "F": {
+        "item": "arx:bronze_ingot"
+      },
+      "K": {
+        "item": "arx:chitin"
+      }
+    },
+    "result": {
+      "item": "arx:amul_of_desert_shield"
+    }
+  }
+}

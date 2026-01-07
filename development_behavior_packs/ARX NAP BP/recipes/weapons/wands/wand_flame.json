@@ -1,0 +1,31 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:wand_flame"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      " DD",
+      " AD",
+      "S  "
+    ],
+    "key": {
+      "D": {
+        "item": "arx:desert_essence"
+      },
+      "A": {
+        "item": "minecraft:feather"
+      },
+      "S": {
+        "item": "minecraft:stick"
+      }
+    },
+    "result": [
+      {"item": "arx:wand_flame"},
+      {"item": "arx:bottle_for_blood", "count": 3}
+    ]
+  }
+}

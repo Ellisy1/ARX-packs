@@ -1,0 +1,36 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:staff_kon"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      " BV",
+      " AW",
+      "S  "
+    ],
+    "key": {
+      "A": {
+        "item": "arx:steel_billet"
+      },
+      "B": {
+        "item": "minecraft:wood"
+      },
+      "S": {
+        "item": "arx:ruby_gem"
+      },
+      "V": {
+        "item": "arx:sphere_of_power"
+      },
+      "W": {
+        "item": "arx:gold_feather"
+      }
+    },
+    "result": {
+      "item": "arx:staff_kon"
+    }
+  }
+}

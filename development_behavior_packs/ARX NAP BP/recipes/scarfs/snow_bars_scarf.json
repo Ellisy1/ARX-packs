@@ -1,0 +1,24 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:snow_bars_scarf"
+    },
+
+    
+    "tags": [ "clothes_crafting_table" ],
+    "pattern": [
+      " #",
+      "##",
+      "# "
+    ],
+    "key": {
+      "#": {
+        "item": "arx:snow_bars_skin"
+      }
+    },
+    "result": {
+      "item": "arx:snow_bars_scarf"
+    }
+  }
+}

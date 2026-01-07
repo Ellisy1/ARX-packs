@@ -1,0 +1,629 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.player.sneaking":{
+			"initial_state": "staying",
+			"states": {
+				"staying": {
+					"animations": [
+						"none"
+					],
+					"transitions": [
+						{"sneaking": "query.is_sneaking && !query.is_sleeping"}
+					],
+					"blend_transition": 0.25,
+					"blend_via_shortest_path": true
+				},
+				"sneaking": {
+					"animations": [
+						"sneaking"
+					],
+					"transitions": [
+						{"staying": "!(query.is_sneaking && !query.is_sleeping)"}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				}
+			}
+		},
+		"controller.animation.player.root": {
+			"initial_state": "first_person",
+			"states": {
+				"first_person": {
+					"animations": [
+						{
+							"weapon_normalize": "q.equipped_item_any_tag('slot.weapon.mainhand', 'is_staff') || q.equipped_item_any_tag('slot.weapon.mainhand', 'is_default_sword') || q.equipped_item_any_tag('slot.weapon.mainhand', 'is_hheavy_sword') || q.equipped_item_any_tag('slot.weapon.mainhand', 'is_wand') || q.equipped_item_any_tag('slot.weapon.mainhand', 'is_long_sword')"
+						},
+						{"umbrella_rotations": "query.equipped_item_any_tag('slot.weapon.mainhand', 'is_umbrella')"},
+						{"first_person_swap_item": "!query.blocking"},
+						{"first_person_shield_block": "query.blocking"},
+						{"first_person_attack_controller": "variable.attack_time > 0.0f && query.get_equipped_item_name != 'filled_map'"},
+						"first_person_base_pose",
+						{"first_person_empty_hand": "query.get_equipped_item_name(0, 1) != 'filled_map'"},
+						{"first_person_walk": "variable.bob_animation"},
+						{"first_person_map_controller": "(query.get_equipped_item_name(0, 1) == 'filled_map' || query.get_equipped_item_name('off_hand') == 'filled_map')"},
+						{"first_person_crossbow_equipped": "query.get_equipped_item_name == 'crossbow' && (variable.item_use_normalized > 0 && variable.item_use_normalized < 1.0)"},
+						{"first_person_breathing_bob": "variable.attack_time <= 0.0"}
+					],
+					"transitions": [
+						{"paperdoll": "variable.is_paperdoll"},
+						{"map_player": "variable.map_face_icon"},
+						{"third_person": "!variable.is_first_person"}
+					]
+				},
+				"map_player": {
+					"transitions": [
+						{"paperdoll": "variable.is_paperdoll"},
+						{"first_person": "variable.is_first_person"},
+						{"third_person": "!variable.map_face_icon && !variable.is_first_person"}
+					]
+				},
+				"paperdoll": {
+					"animations": ["humanoid_base_pose", "look_at_target_ui", "move.arms", "move.legs", "cape"],
+					"transitions": [
+						{"first_person": "!variable.is_paperdoll && variable.is_first_person"},
+						{"map_player": "variable.map_face_icon"},
+						{"third_person": "!variable.is_paperdoll && !variable.is_first_person"}
+					]
+				},
+				"third_person": {
+					"animations": [
+						"humanoid_base_pose",
+						{"look_at_target": "!query.is_sleeping && !query.is_emoting"},
+						"move.arms",
+						"move.legs",
+						"cape",
+						{"riding.arms": "query.is_riding"},
+						{"riding.legs": "query.is_riding"},
+						"holding",
+						{"brandish_spear": "variable.is_brandishing_spear"},
+						{"holding_spyglass": "variable.is_holding_spyglass"},
+						{"charging": "query.is_charging"},
+						{"bob": "!variable.is_holding_spyglass && !variable.is_tooting_goat_horn"},
+						{"damage_nearby_mobs": "variable.damage_nearby_mobs"},
+						{"swimming": "variable.swim_amount > 0.0"},
+						{"swimming.legs": "variable.swim_amount > 0.0"},
+						{"use_item_progress": "( variable.use_item_interval_progress > 0.0 ) || ( variable.use_item_startup_progress > 0.0 ) && !variable.is_brandishing_spear && !variable.is_holding_spyglass && !variable.is_tooting_goat_horn && !query.is_item_name_any('slot.weapon.mainhand', 'minecraft:bow')"},
+						{"sleeping": "query.is_sleeping && query.is_alive"},
+						{"attack.positions": "variable.attack_time >= 0.0"},
+						{"attack.rotations": "variable.attack_time >= 0.0 && !query.is_item_name_any('slot.weapon.mainhand', 0, 'arx:staff_wooden') && !query.is_item_name_any('slot.weapon.mainhand', 0, 'arx:costorub')"},
+						{"shield_block_main_hand": "query.blocking && query.get_equipped_item_name('off_hand') != 'shield' && query.get_equipped_item_name == 'shield'"},
+						{"shield_block_off_hand": "query.blocking && query.get_equipped_item_name('off_hand') == 'shield'"},
+						{"crossbow_controller": "query.get_equipped_item_name == 'crossbow'"},
+						{"third_person_bow_equipped": "query.get_equipped_item_name == 'bow' && (variable.item_use_normalized > 0 && variable.item_use_normalized < 1.0)"},
+						{"tooting_goat_horn": "variable.is_tooting_goat_horn"}
+					],
+					"transitions": [
+						{"paperdoll": "variable.is_paperdoll"},
+						{"first_person": "variable.is_first_person"},
+						{"map_player": "variable.map_face_icon"},
+						{"knockout_tracer": "query.property('arx:is_knocked') > 0"},
+						{"third_person_heavy": "query.equipped_item_any_tag('slot.weapon.mainhand', 'is_heavy_sword')"},
+						{"third_person_veryheavy": "query.equipped_item_any_tag('slot.weapon.mainhand', 'is_hheavy_sword')"},
+						{"third_person_light_longsword": "query.equipped_item_any_tag('slot.weapon.mainhand', 'is_long_sword')"},
+						{"third_person_dagger": "query.equipped_item_any_tag('slot.weapon.mainhand', 'is_dagger')"},
+						{"third_person_lance": "query.equipped_item_any_tag('slot.weapon.mainhand', 'is_lance')"},
+						{"third_person_default_sword": "query.equipped_item_any_tag('slot.weapon.mainhand', 'is_default_sword')"},
+						{"third_person_scythe": "query.equipped_item_any_tag('slot.weapon.mainhand', 'is_scythe')"},
+						{"third_person_staff_standing": "query.equipped_item_any_tag('slot.weapon.mainhand', 'is_staff') && !q.is_moving"},
+						{"third_person_staff_moving": "query.equipped_item_any_tag('slot.weapon.mainhand', 'is_staff') && q.is_moving"},
+						{"third_person_gun": "query.is_item_name_any('slot.weapon.mainhand', 0, 'arx:moder_gun')"},
+						{"third_person_umbrella": "query.equipped_item_any_tag('slot.weapon.mainhand', 'is_umbrella')"},
+						{"third_person_torch": "q.is_item_name_any('slot.weapon.mainhand', 'minecraft:torch') || q.is_item_name_any('slot.weapon.mainhand', 'minecraft:copper_torch') || q.is_item_name_any('slot.weapon.mainhand', 'minecraft:redstone_torch') || q.is_item_name_any('slot.weapon.mainhand', 'minecraft:soul_torch')"}
+					],
+					"blend_transition": 0.1
+				},
+				"third_person_heavy": {
+					"animations": [
+						"humanoid_base_pose",
+						{"look_at_target": "!query.is_sleeping && !query.is_emoting"},
+						"move.legs",
+						"cape",
+						"holding.onlyleft",
+						{"riding.arms": "query.is_riding"},
+						{"riding.legs": "query.is_riding"},
+						"holdingheavy",
+						{"brandish_spear": "variable.is_brandishing_spear"},
+						{"holding_spyglass": "variable.is_holding_spyglass"},
+						{"charging": "query.is_charging"},
+						{"bob_no_arms": "!variable.is_holding_spyglass && !variable.is_tooting_goat_horn"},
+						{"damage_nearby_mobs": "variable.damage_nearby_mobs"},
+						{"swimming": "variable.swim_amount > 0.0"},
+						{"swimming.legs": "variable.swim_amount > 0.0"},
+						{"use_item_progress": "( variable.use_item_interval_progress > 0.0 ) || ( variable.use_item_startup_progress > 0.0 ) && !variable.is_brandishing_spear && !variable.is_holding_spyglass && !variable.is_tooting_goat_horn && !query.is_item_name_any('slot.weapon.mainhand', 'minecraft:bow')"},
+						{"sleeping": "query.is_sleeping && query.is_alive"},
+						{"shield_block_main_hand": "query.blocking && query.get_equipped_item_name('off_hand') != 'shield' && query.get_equipped_item_name == 'shield'"},
+						{"shield_block_off_hand": "query.blocking && query.get_equipped_item_name('off_hand') == 'shield'"},
+						{"crossbow_controller": "query.get_equipped_item_name == 'crossbow'"},
+						{"third_person_bow_equipped": "query.get_equipped_item_name == 'bow' && (variable.item_use_normalized > 0 && variable.item_use_normalized < 1.0)"},
+						{"tooting_goat_horn": "variable.is_tooting_goat_horn"}
+					],
+					"transitions": [
+						{"paperdoll": "variable.is_paperdoll"},
+						{"first_person": "variable.is_first_person"},
+						{"map_player": "variable.map_face_icon"},
+						{"third_person": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_heavy_sword') || q.property('arx:is_knocked') == true"}
+					],
+					"blend_transition": 0.1
+				},
+				"third_person_veryheavy": {
+					"animations": [
+						"humanoid_base_pose",
+						{"look_at_target": "!query.is_sleeping && !query.is_emoting"},
+						"move.legs",
+						"move.only_left_arm",
+						"cape",
+						"holding.onlyleft",
+						{"riding.arms": "query.is_riding"},
+						{"riding.legs": "query.is_riding"},
+						"holdingveryheavy",
+						{"brandish_spear": "variable.is_brandishing_spear"},
+						{"holding_spyglass": "variable.is_holding_spyglass"},
+						{"charging": "query.is_charging"},
+						{"bob_only_left_arm": "!variable.is_holding_spyglass && !variable.is_tooting_goat_horn"},
+						{"damage_nearby_mobs": "variable.damage_nearby_mobs"},
+						{"swimming": "variable.swim_amount > 0.0"},
+						{"swimming.legs": "variable.swim_amount > 0.0"},
+						{"use_item_progress": "( variable.use_item_interval_progress > 0.0 ) || ( variable.use_item_startup_progress > 0.0 ) && !variable.is_brandishing_spear && !variable.is_holding_spyglass && !variable.is_tooting_goat_horn && !query.is_item_name_any('slot.weapon.mainhand', 'minecraft:bow')"},
+						{"sleeping": "query.is_sleeping && query.is_alive"},
+						{"shield_block_main_hand": "query.blocking && query.get_equipped_item_name('off_hand') != 'shield' && query.get_equipped_item_name == 'shield'"},
+						{"shield_block_off_hand": "query.blocking && query.get_equipped_item_name('off_hand') == 'shield'"},
+						{"crossbow_controller": "query.get_equipped_item_name == 'crossbow'"},
+						{"third_person_bow_equipped": "query.get_equipped_item_name == 'bow' && (variable.item_use_normalized > 0 && variable.item_use_normalized < 1.0)"},
+						{"tooting_goat_horn": "variable.is_tooting_goat_horn"}
+					],
+					"transitions": [
+						{"paperdoll": "variable.is_paperdoll"},
+						{"first_person": "variable.is_first_person"},
+						{"map_player": "variable.map_face_icon"},
+						{"third_person": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_hheavy_sword') || q.property('arx:is_knocked') == true"}
+					],
+					"blend_transition": 0.1
+				},
+				"third_person_light_longsword": {
+					"animations": [
+						"humanoid_base_pose",
+						{"look_at_target": "!query.is_sleeping && !query.is_emoting"},
+						"move.legs",
+						"cape",
+						"holding.onlyleft",
+						{"riding.arms": "query.is_riding"},
+						{"riding.legs": "query.is_riding"},
+						"holding_light_longsword",
+						{"brandish_spear": "variable.is_brandishing_spear"},
+						{"holding_spyglass": "variable.is_holding_spyglass"},
+						{"charging": "query.is_charging"},
+						{"bob_no_arms": "!variable.is_holding_spyglass && !variable.is_tooting_goat_horn"},
+						{"damage_nearby_mobs": "variable.damage_nearby_mobs"},
+						{"swimming": "variable.swim_amount > 0.0"},
+						{"swimming.legs": "variable.swim_amount > 0.0"},
+						{"use_item_progress": "( variable.use_item_interval_progress > 0.0 ) || ( variable.use_item_startup_progress > 0.0 ) && !variable.is_brandishing_spear && !variable.is_holding_spyglass && !variable.is_tooting_goat_horn && !query.is_item_name_any('slot.weapon.mainhand', 'minecraft:bow')"},
+						{"sleeping": "query.is_sleeping && query.is_alive"},
+						{"shield_block_main_hand": "query.blocking && query.get_equipped_item_name('off_hand') != 'shield' && query.get_equipped_item_name == 'shield'"},
+						{"shield_block_off_hand": "query.blocking && query.get_equipped_item_name('off_hand') == 'shield'"},
+						{"crossbow_controller": "query.get_equipped_item_name == 'crossbow'"},
+						{"third_person_bow_equipped": "query.get_equipped_item_name == 'bow' && (variable.item_use_normalized > 0 && variable.item_use_normalized < 1.0)"},
+						{"tooting_goat_horn": "variable.is_tooting_goat_horn"}
+					],
+					"transitions": [
+						{"paperdoll": "variable.is_paperdoll"},
+						{"first_person": "variable.is_first_person"},
+						{"map_player": "variable.map_face_icon"},
+						{"third_person": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_long_sword') || q.property('arx:is_knocked') == true"}
+					],
+					"blend_transition": 0.1
+				},
+				"third_person_dagger": {
+					"animations": [
+						"humanoid_base_pose",
+						{"look_at_target": "!query.is_sleeping && !query.is_emoting"},
+						"move.legs",
+						"cape",
+						"holding.onlyleft",
+						{"riding.arms": "query.is_riding"},
+						{"riding.legs": "query.is_riding"},
+						"holding_dagger",
+						{"brandish_spear": "variable.is_brandishing_spear"},
+						{"holding_spyglass": "variable.is_holding_spyglass"},
+						{"charging": "query.is_charging"},
+						{"bob_no_arms": "!variable.is_holding_spyglass && !variable.is_tooting_goat_horn"},
+						{"damage_nearby_mobs": "variable.damage_nearby_mobs"},
+						{"swimming": "variable.swim_amount > 0.0"},
+						{"swimming.legs": "variable.swim_amount > 0.0"},
+						{"use_item_progress": "( variable.use_item_interval_progress > 0.0 ) || ( variable.use_item_startup_progress > 0.0 ) && !variable.is_brandishing_spear && !variable.is_holding_spyglass && !variable.is_tooting_goat_horn && !query.is_item_name_any('slot.weapon.mainhand', 'minecraft:bow')"},
+						{"sleeping": "query.is_sleeping && query.is_alive"},
+						{"shield_block_main_hand": "query.blocking && query.get_equipped_item_name('off_hand') != 'shield' && query.get_equipped_item_name == 'shield'"},
+						{"shield_block_off_hand": "query.blocking && query.get_equipped_item_name('off_hand') == 'shield'"},
+						{"crossbow_controller": "query.get_equipped_item_name == 'crossbow'"},
+						{"third_person_bow_equipped": "query.get_equipped_item_name == 'bow' && (variable.item_use_normalized > 0 && variable.item_use_normalized < 1.0)"},
+						{"tooting_goat_horn": "variable.is_tooting_goat_horn"}
+					],
+					"transitions": [
+						{"paperdoll": "variable.is_paperdoll"},
+						{"first_person": "variable.is_first_person"},
+						{"map_player": "variable.map_face_icon"},
+						{"third_person": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_dagger') || q.property('arx:is_knocked') == true"}
+					],
+					"blend_transition": 0.1
+				},
+				"third_person_lance": {
+					"animations": [
+						"humanoid_base_pose",
+						{"look_at_target": "!query.is_sleeping && !query.is_emoting"},
+						"move.legs",
+						"cape",
+						"holding.onlyleft",
+						{"riding.arms": "query.is_riding"},
+						{"riding.legs": "query.is_riding"},
+						"holding_lance",
+						{"brandish_spear": "variable.is_brandishing_spear"},
+						{"holding_spyglass": "variable.is_holding_spyglass"},
+						{"charging": "query.is_charging"},
+						{"bob_no_arms": "!variable.is_holding_spyglass && !variable.is_tooting_goat_horn"},
+						{"damage_nearby_mobs": "variable.damage_nearby_mobs"},
+						{"swimming": "variable.swim_amount > 0.0"},
+						{"swimming.legs": "variable.swim_amount > 0.0"},
+						{"use_item_progress": "( variable.use_item_interval_progress > 0.0 ) || ( variable.use_item_startup_progress > 0.0 ) && !variable.is_brandishing_spear && !variable.is_holding_spyglass && !variable.is_tooting_goat_horn && !query.is_item_name_any('slot.weapon.mainhand', 'minecraft:bow')"},
+						{"sleeping": "query.is_sleeping && query.is_alive"},
+						{"shield_block_main_hand": "query.blocking && query.get_equipped_item_name('off_hand') != 'shield' && query.get_equipped_item_name == 'shield'"},
+						{"shield_block_off_hand": "query.blocking && query.get_equipped_item_name('off_hand') == 'shield'"},
+						{"crossbow_controller": "query.get_equipped_item_name == 'crossbow'"},
+						{"third_person_bow_equipped": "query.get_equipped_item_name == 'bow' && (variable.item_use_normalized > 0 && variable.item_use_normalized < 1.0)"},
+						{"tooting_goat_horn": "variable.is_tooting_goat_horn"}
+					],
+					"transitions": [
+						{"paperdoll": "variable.is_paperdoll"},
+						{"first_person": "variable.is_first_person"},
+						{"map_player": "variable.map_face_icon"},
+						{"third_person": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_lance') || q.property('arx:is_knocked') == true"}
+					],
+					"blend_transition": 0.1
+				},
+				"third_person_default_sword": {
+					"animations": [
+						"humanoid_base_pose",
+						{"look_at_target": "!query.is_sleeping && !query.is_emoting"},
+						"move.legs",
+						"move.arms",
+						"cape",
+						"holding.onlyleft",
+						{"riding.arms": "query.is_riding"},
+						{"riding.legs": "query.is_riding"},
+						"holding_default_sword",
+						{"brandish_spear": "variable.is_brandishing_spear"},
+						{"holding_spyglass": "variable.is_holding_spyglass"},
+						{"charging": "query.is_charging"},
+						{"bob": "!variable.is_holding_spyglass && !variable.is_tooting_goat_horn"},
+						{"damage_nearby_mobs": "variable.damage_nearby_mobs"},
+						{"swimming": "variable.swim_amount > 0.0"},
+						{"swimming.legs": "variable.swim_amount > 0.0"},
+						{"use_item_progress": "( variable.use_item_interval_progress > 0.0 ) || ( variable.use_item_startup_progress > 0.0 ) && !variable.is_brandishing_spear && !variable.is_holding_spyglass && !variable.is_tooting_goat_horn && !query.is_item_name_any('slot.weapon.mainhand', 'minecraft:bow')"},
+						{"sleeping": "query.is_sleeping && query.is_alive"},
+						{"shield_block_main_hand": "query.blocking && query.get_equipped_item_name('off_hand') != 'shield' && query.get_equipped_item_name == 'shield'"},
+						{"shield_block_off_hand": "query.blocking && query.get_equipped_item_name('off_hand') == 'shield'"},
+						{"crossbow_controller": "query.get_equipped_item_name == 'crossbow'"},
+						{"third_person_bow_equipped": "query.get_equipped_item_name == 'bow' && (variable.item_use_normalized > 0 && variable.item_use_normalized < 1.0)"},
+						{"tooting_goat_horn": "variable.is_tooting_goat_horn"}
+					],
+					"transitions": [
+						{"paperdoll": "variable.is_paperdoll"},
+						{"first_person": "variable.is_first_person"},
+						{"map_player": "variable.map_face_icon"},
+						{"third_person": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_default_sword') || q.property('arx:is_knocked') == true"},
+						{"third_person_default_sword_fast_move": "q.is_moving"}
+					],
+					"blend_transition": 0.5
+				},
+				"third_person_default_sword_fast_move": {
+					"animations": [
+						"humanoid_base_pose",
+						{"look_at_target": "!query.is_sleeping && !query.is_emoting"},
+						"move.legs",
+						"move.arms",
+						"cape",
+						"holding.onlyleft",
+						{"riding.arms": "query.is_riding"},
+						{"riding.legs": "query.is_riding"},
+						"holding_default_sword_fast_moving",
+						{"brandish_spear": "variable.is_brandishing_spear"},
+						{"holding_spyglass": "variable.is_holding_spyglass"},
+						{"charging": "query.is_charging"},
+						{"bob": "!variable.is_holding_spyglass && !variable.is_tooting_goat_horn"},
+						{"damage_nearby_mobs": "variable.damage_nearby_mobs"},
+						{"swimming": "variable.swim_amount > 0.0"},
+						{"swimming.legs": "variable.swim_amount > 0.0"},
+						{"use_item_progress": "( variable.use_item_interval_progress > 0.0 ) || ( variable.use_item_startup_progress > 0.0 ) && !variable.is_brandishing_spear && !variable.is_holding_spyglass && !variable.is_tooting_goat_horn && !query.is_item_name_any('slot.weapon.mainhand', 'minecraft:bow')"},
+						{"sleeping": "query.is_sleeping && query.is_alive"},
+						{"shield_block_main_hand": "query.blocking && query.get_equipped_item_name('off_hand') != 'shield' && query.get_equipped_item_name == 'shield'"},
+						{"shield_block_off_hand": "query.blocking && query.get_equipped_item_name('off_hand') == 'shield'"},
+						{"crossbow_controller": "query.get_equipped_item_name == 'crossbow'"},
+						{"third_person_bow_equipped": "query.get_equipped_item_name == 'bow' && (variable.item_use_normalized > 0 && variable.item_use_normalized < 1.0)"},
+						{"tooting_goat_horn": "variable.is_tooting_goat_horn"}
+					],
+					"transitions": [
+						{"paperdoll": "variable.is_paperdoll"},
+						{"first_person": "variable.is_first_person"},
+						{"map_player": "variable.map_face_icon"},
+						{"third_person": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_default_sword') || q.property('arx:is_knocked') == true"},
+						{"third_person_default_sword": "!q.is_moving"}
+					],
+					"blend_transition": 0
+				},
+				"third_person_scythe": {
+					"animations": [
+						"humanoid_base_pose",
+						{"look_at_target": "!query.is_sleeping && !query.is_emoting"},
+						"move.legs",
+						"cape",
+						"holding.onlyleft",
+						{"riding.arms": "query.is_riding"},
+						{"riding.legs": "query.is_riding"},
+						"holding_scythe",
+						{"brandish_spear": "variable.is_brandishing_spear"},
+						{"holding_spyglass": "variable.is_holding_spyglass"},
+						{"charging": "query.is_charging"},
+						{"bob_no_arms": "!variable.is_holding_spyglass && !variable.is_tooting_goat_horn"},
+						{"damage_nearby_mobs": "variable.damage_nearby_mobs"},
+						{"swimming": "variable.swim_amount > 0.0"},
+						{"swimming.legs": "variable.swim_amount > 0.0"},
+						{"use_item_progress": "( variable.use_item_interval_progress > 0.0 ) || ( variable.use_item_startup_progress > 0.0 ) && !variable.is_brandishing_spear && !variable.is_holding_spyglass && !variable.is_tooting_goat_horn && !query.is_item_name_any('slot.weapon.mainhand', 'minecraft:bow')"},
+						{"sleeping": "query.is_sleeping && query.is_alive"},
+						{"shield_block_main_hand": "query.blocking && query.get_equipped_item_name('off_hand') != 'shield' && query.get_equipped_item_name == 'shield'"},
+						{"shield_block_off_hand": "query.blocking && query.get_equipped_item_name('off_hand') == 'shield'"},
+						{"crossbow_controller": "query.get_equipped_item_name == 'crossbow'"},
+						{"third_person_bow_equipped": "query.get_equipped_item_name == 'bow' && (variable.item_use_normalized > 0 && variable.item_use_normalized < 1.0)"},
+						{"tooting_goat_horn": "variable.is_tooting_goat_horn"}
+					],
+					"transitions": [
+						{"paperdoll": "variable.is_paperdoll"},
+						{"first_person": "variable.is_first_person"},
+						{"map_player": "variable.map_face_icon"},
+						{"third_person": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_scythe') || q.property('arx:is_knocked') == true"}
+					],
+					"blend_transition": 0.1
+				},
+				"third_person_staff_standing": {
+					"animations": [
+						"humanoid_base_pose",
+						{"look_at_target": "!query.is_sleeping && !query.is_emoting"},
+						"move.legs",
+						"cape",
+						"holding.onlyleft",
+						{"riding.arms": "query.is_riding"},
+						{"riding.legs": "query.is_riding"},
+						"holding_staff_standing",
+						{"brandish_spear": "variable.is_brandishing_spear"},
+						{"holding_spyglass": "variable.is_holding_spyglass"},
+						{"charging": "query.is_charging"},
+						{"bob_only_left_arm": "!variable.is_holding_spyglass && !variable.is_tooting_goat_horn"},
+						{"damage_nearby_mobs": "variable.damage_nearby_mobs"},
+						{"swimming": "variable.swim_amount > 0.0"},
+						{"swimming.legs": "variable.swim_amount > 0.0"},
+						{"use_item_progress": "( variable.use_item_interval_progress > 0.0 ) || ( variable.use_item_startup_progress > 0.0 ) && !variable.is_brandishing_spear && !variable.is_holding_spyglass && !variable.is_tooting_goat_horn && !query.is_item_name_any('slot.weapon.mainhand', 'minecraft:bow')"},
+						{"sleeping": "query.is_sleeping && query.is_alive"},
+						{"shield_block_main_hand": "query.blocking && query.get_equipped_item_name('off_hand') != 'shield' && query.get_equipped_item_name == 'shield'"},
+						{"shield_block_off_hand": "query.blocking && query.get_equipped_item_name('off_hand') == 'shield'"},
+						{"crossbow_controller": "query.get_equipped_item_name == 'crossbow'"},
+						{"third_person_bow_equipped": "query.get_equipped_item_name == 'bow' && (variable.item_use_normalized > 0 && variable.item_use_normalized < 1.0)"},
+						{"tooting_goat_horn": "variable.is_tooting_goat_horn"}
+					],
+					"transitions": [
+						{"paperdoll": "variable.is_paperdoll"},
+						{"first_person": "variable.is_first_person"},
+						{"map_player": "variable.map_face_icon"},
+						{"third_person": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_staff') || q.property('arx:is_knocked') == true"},
+						{"third_person_staff_moving": "q.is_moving"}
+					],
+					"blend_transition": 0.3
+				},
+				"third_person_staff_moving": {
+					"animations": [
+						"humanoid_base_pose",
+						{"look_at_target": "!query.is_sleeping && !query.is_emoting"},
+						"move.arms",
+						"move.legs",
+						"cape",
+						"holding.onlyleft",
+						"holding_staff_moving",
+						{"riding.arms": "query.is_riding"},
+						{"riding.legs": "query.is_riding"},
+						{"brandish_spear": "variable.is_brandishing_spear"},
+						{"holding_spyglass": "variable.is_holding_spyglass"},
+						{"charging": "query.is_charging"},
+						{"bob_only_left_arm": "!variable.is_holding_spyglass && !variable.is_tooting_goat_horn"},
+						{"damage_nearby_mobs": "variable.damage_nearby_mobs"},
+						{"swimming": "variable.swim_amount > 0.0"},
+						{"swimming.legs": "variable.swim_amount > 0.0"},
+						{"use_item_progress": "( variable.use_item_interval_progress > 0.0 ) || ( variable.use_item_startup_progress > 0.0 ) && !variable.is_brandishing_spear && !variable.is_holding_spyglass && !variable.is_tooting_goat_horn && !query.is_item_name_any('slot.weapon.mainhand', 'minecraft:bow')"},
+						{"sleeping": "query.is_sleeping && query.is_alive"},
+						{"shield_block_main_hand": "query.blocking && query.get_equipped_item_name('off_hand') != 'shield' && query.get_equipped_item_name == 'shield'"},
+						{"shield_block_off_hand": "query.blocking && query.get_equipped_item_name('off_hand') == 'shield'"},
+						{"crossbow_controller": "query.get_equipped_item_name == 'crossbow'"},
+						{"third_person_bow_equipped": "query.get_equipped_item_name == 'bow' && (variable.item_use_normalized > 0 && variable.item_use_normalized < 1.0)"},
+						{"tooting_goat_horn": "variable.is_tooting_goat_horn"}
+					],
+					"transitions": [
+						{"paperdoll": "variable.is_paperdoll"},
+						{"first_person": "variable.is_first_person"},
+						{"map_player": "variable.map_face_icon"},
+						{"third_person": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_staff') || q.property('arx:is_knocked') == true"},
+						{"third_person_staff_standing": "!q.is_moving"}
+					],
+					"blend_transition": 0.3
+				},
+				"third_person_gun": {
+					"animations": [
+						"humanoid_base_pose",
+						{"look_at_target": "!query.is_sleeping && !query.is_emoting"},
+						"move.legs",
+						"cape",
+						"holding.onlyleft",
+						{"riding.arms": "query.is_riding"},
+						{"riding.legs": "query.is_riding"},
+						"holding_gun",
+						{"brandish_spear": "variable.is_brandishing_spear"},
+						{"holding_spyglass": "variable.is_holding_spyglass"},
+						{"charging": "query.is_charging"},
+						{"bob_only_left_arm": "!variable.is_holding_spyglass && !variable.is_tooting_goat_horn"},
+						{"damage_nearby_mobs": "variable.damage_nearby_mobs"},
+						{"swimming": "variable.swim_amount > 0.0"},
+						{"swimming.legs": "variable.swim_amount > 0.0"},
+						{"use_item_progress": "( variable.use_item_interval_progress > 0.0 ) || ( variable.use_item_startup_progress > 0.0 ) && !variable.is_brandishing_spear && !variable.is_holding_spyglass && !variable.is_tooting_goat_horn && !query.is_item_name_any('slot.weapon.mainhand', 'minecraft:bow')"},
+						{"sleeping": "query.is_sleeping && query.is_alive"},
+						{"shield_block_main_hand": "query.blocking && query.get_equipped_item_name('off_hand') != 'shield' && query.get_equipped_item_name == 'shield'"},
+						{"shield_block_off_hand": "query.blocking && query.get_equipped_item_name('off_hand') == 'shield'"},
+						{"crossbow_controller": "query.get_equipped_item_name == 'crossbow'"},
+						{"third_person_bow_equipped": "query.get_equipped_item_name == 'bow' && (variable.item_use_normalized > 0 && variable.item_use_normalized < 1.0)"},
+						{"tooting_goat_horn": "variable.is_tooting_goat_horn"}
+					],
+					"transitions": [
+						{"paperdoll": "variable.is_paperdoll"},
+						{"first_person": "variable.is_first_person"},
+						{"map_player": "variable.map_face_icon"},
+						{"third_person": "!query.is_item_name_any('slot.weapon.mainhand', 0, 'arx:moder_gun') || q.property('arx:is_knocked') == true"}
+					],
+					"blend_transition": 0.1
+				},
+				"third_person_umbrella": {
+					"animations": [
+						"humanoid_base_pose",
+						{"look_at_target": "!query.is_sleeping && !query.is_emoting"},
+						"move.legs",
+						"move.only_left_arm",
+						"cape",
+						"holding.onlyleft",
+						{"riding.arms": "query.is_riding"},
+						{"riding.legs": "query.is_riding"},
+						"holding_umbrella",
+						{"brandish_spear": "variable.is_brandishing_spear"},
+						{"holding_spyglass": "variable.is_holding_spyglass"},
+						{"charging": "query.is_charging"},
+						{"bob_only_left_arm": "!variable.is_holding_spyglass && !variable.is_tooting_goat_horn"},
+						{"damage_nearby_mobs": "variable.damage_nearby_mobs"},
+						{"swimming": "variable.swim_amount > 0.0"},
+						{"swimming.legs": "variable.swim_amount > 0.0"},
+						{"use_item_progress": "( variable.use_item_interval_progress > 0.0 ) || ( variable.use_item_startup_progress > 0.0 ) && !variable.is_brandishing_spear && !variable.is_holding_spyglass && !variable.is_tooting_goat_horn && !query.is_item_name_any('slot.weapon.mainhand', 'minecraft:bow')"},
+						{"sleeping": "query.is_sleeping && query.is_alive"},
+						{"shield_block_main_hand": "query.blocking && query.get_equipped_item_name('off_hand') != 'shield' && query.get_equipped_item_name == 'shield'"},
+						{"shield_block_off_hand": "query.blocking && query.get_equipped_item_name('off_hand') == 'shield'"},
+						{"crossbow_controller": "query.get_equipped_item_name == 'crossbow'"},
+						{"third_person_bow_equipped": "query.get_equipped_item_name == 'bow' && (variable.item_use_normalized > 0 && variable.item_use_normalized < 1.0)"},
+						{"tooting_goat_horn": "variable.is_tooting_goat_horn"}
+					],
+					"transitions": [
+						{"paperdoll": "variable.is_paperdoll"},
+						{"first_person": "variable.is_first_person"},
+						{"map_player": "variable.map_face_icon"},
+						{"third_person": "!query.equipped_item_any_tag('slot.weapon.mainhand', 'is_umbrella') || q.property('arx:is_knocked') == true"}
+					],
+					"blend_transition": 0.1
+				},
+				"third_person_torch": {
+					"animations": [
+						"humanoid_base_pose",
+						{"look_at_target": "!query.is_sleeping && !query.is_emoting"},
+						"move.legs",
+						"move.only_left_arm",
+						"cape",
+						"holding.onlyleft",
+						{"riding.arms": "query.is_riding"},
+						{"riding.legs": "query.is_riding"},
+						"holding_torch",
+						{"brandish_spear": "variable.is_brandishing_spear"},
+						{"holding_spyglass": "variable.is_holding_spyglass"},
+						{"charging": "query.is_charging"},
+						{"bob_only_left_arm": "!variable.is_holding_spyglass && !variable.is_tooting_goat_horn"},
+						{"damage_nearby_mobs": "variable.damage_nearby_mobs"},
+						{"swimming": "variable.swim_amount > 0.0"},
+						{"swimming.legs": "variable.swim_amount > 0.0"},
+						{"use_item_progress": "( variable.use_item_interval_progress > 0.0 ) || ( variable.use_item_startup_progress > 0.0 ) && !variable.is_brandishing_spear && !variable.is_holding_spyglass && !variable.is_tooting_goat_horn && !query.is_item_name_any('slot.weapon.mainhand', 'minecraft:bow')"},
+						{"sleeping": "query.is_sleeping && query.is_alive"},
+						{"shield_block_main_hand": "query.blocking && query.get_equipped_item_name('off_hand') != 'shield' && query.get_equipped_item_name == 'shield'"},
+						{"shield_block_off_hand": "query.blocking && query.get_equipped_item_name('off_hand') == 'shield'"},
+						{"crossbow_controller": "query.get_equipped_item_name == 'crossbow'"},
+						{"third_person_bow_equipped": "query.get_equipped_item_name == 'bow' && (variable.item_use_normalized > 0 && variable.item_use_normalized < 1.0)"},
+						{"tooting_goat_horn": "variable.is_tooting_goat_horn"}
+					],
+					"transitions": [
+						{"paperdoll": "variable.is_paperdoll"},
+						{"first_person": "variable.is_first_person"},
+						{"map_player": "variable.map_face_icon"},
+						{"third_person": "!(q.is_item_name_any('slot.weapon.mainhand', 'minecraft:torch') || q.is_item_name_any('slot.weapon.mainhand', 'minecraft:copper_torch') || q.is_item_name_any('slot.weapon.mainhand', 'minecraft:redstone_torch') || q.is_item_name_any('slot.weapon.mainhand', 'minecraft:soul_torch')) || q.property('arx:is_knocked') == true"}
+					],
+					"blend_transition": 0.1
+				},
+
+
+
+
+				"knockout_tracer": { // Настраиваем анимацию нокаута
+					"animations": [
+						"none"
+					],
+					"transitions": [
+						{"carried_by_someone_static": "query.property('arx:is_knocked') == true && q.is_riding"},
+						{"knockout_var_a": "query.property('arx:is_knocked_anim_var') == 0"},
+						{"knockout_var_b": "query.property('arx:is_knocked_anim_var') == 1"},
+						{"third_person": "query.property('arx:is_knocked') == false"}
+					],
+					"blend_transition": 0.1
+				},
+
+				"carried_by_someone_static": { // Если нас взяли и мы is_riding (СТАТИЧНАЯ)
+					"animations": [
+						"carried_by_someone_static",
+						"holding.onlyleft",
+						"knockout_basic"
+					],
+					"transitions": [
+						{"carried_by_someone_moving": "query.cape_flap_amount > 0.2"},
+						{"third_person": "query.property('arx:is_knocked') == false"},
+						{"knockout_tracer": "!q.is_riding"}
+					],
+					"blend_transition": 0.3
+				},
+				"carried_by_someone_moving": { // Если нас взяли и мы is_riding (ДИВЖУЮЩАЯСЯ)
+					"animations": [
+						"carried_by_someone_static",
+						"carried_by_someone_moving",
+						"holding.onlyleft",
+						"knockout_basic"
+					],
+					"transitions": [
+						{"carried_by_someone_static": "query.cape_flap_amount < 0.15"},
+						{"third_person": "query.property('arx:is_knocked') == false"},
+						{"knockout_tracer": "!q.is_riding"}
+					],
+					"blend_transition": 0.3
+				},
+
+				"knockout_var_a": { // Далее разные анимации перенесения игрока (рандомно определяющиеся)
+					"animations": [
+						"bob",
+						"knockout_basic",
+						"holding.onlyleft",
+						"knockout_var_a"
+					],
+					"transitions": [
+						{"knockout_tracer": "q.is_riding"},
+						{"third_person": "query.property('arx:is_knocked') == false"}
+					],
+					"blend_transition": 0.1
+				},
+				"knockout_var_b": {
+					"animations": [
+						"bob",
+						"knockout_basic",
+						"holding.onlyleft",
+						"knockout_var_b"
+					],
+					"transitions": [
+						{"knockout_tracer": "q.is_riding"},
+						{"third_person": "query.property('arx:is_knocked') == false"}
+					],
+					"blend_transition": 0.1
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,20 @@
+{
+    "format_version": "1.19.50",
+    "minecraft:ore_feature": {
+        "description": {
+            "identifier": "arx:ore_rare_caryite_feature"
+        },
+        "count": 8,
+        "discard_chance_on_air_exposure": 0,
+        "replace_rules": [
+            {
+                "places_block": "arx:caryite_stone_ore",
+                "may_replace": ["minecraft:stone"]
+            },
+            {
+                "places_block": "arx:caryite_deep_ore",
+                "may_replace": ["minecraft:deepslate"]
+            }
+        ]
+    }
+}

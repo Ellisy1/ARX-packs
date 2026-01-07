@@ -1,0 +1,33 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:northerner_armor"
+    },
+
+    
+    "tags": [ "heavy_armor_crafting_table" ],
+    "pattern": [
+      "B#B",
+      "B#B",
+      "ADA"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:altaite_protective_plate"
+      },
+      "A": {
+        "item": "arx:pushnina"
+      },
+      "B": {
+        "item": "arx:duraluminum_protective_plate"
+      },
+      "D": {
+        "item": "minecraft:gold_ingot"
+      }
+    },
+    "result": {
+      "item": "arx:northerner_armor"
+    }
+  }
+}

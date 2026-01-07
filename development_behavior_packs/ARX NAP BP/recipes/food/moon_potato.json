@@ -1,0 +1,30 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:moon_potato_a"
+    },
+
+    
+    "tags": [ "thermal_cooking_crafting_table" ],
+    "pattern": [
+      " A ",
+      "BBB",
+      "ACA"
+    ],
+    "key": {
+      "A": {
+        "item": "arx:mayonnaise"
+      },
+      "B": {
+        "item": "minecraft:potato"
+      },
+      "C": {
+        "item": "arx:salt"
+      }
+    },
+    "result": [
+      {"item": "arx:moon_potato"}
+    ]
+  }
+}

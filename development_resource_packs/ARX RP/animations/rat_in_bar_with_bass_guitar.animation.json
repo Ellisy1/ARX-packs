@@ -1,0 +1,76 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.rat_in_bar_with_bass_guitar.play_and_dance": {
+			"loop": true,
+			"animation_length": 2.0417,
+			"bones": {
+				"arm_r": {
+					"rotation": ["-math.sin(query.anim_time * 880) * 1", 0, 0]
+				},
+				"hand1": {
+					"rotation": [0, "-math.sin(query.anim_time * 880) * 8", "-math.sin(query.anim_time * 880) * 2"]
+				},
+				"claw5": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.875": [17.13574, -5.11091, 7.62859],
+						"2.0417": [0, 0, 0]
+					}
+				},
+				"claw6": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"1.375": [21.99594, -5.69505, 7.90319],
+						"2.0417": [0, 0, 0]
+					}
+				},
+				"arm_l": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.875": [0, 0, 0],
+						"1.0": [-17.08985, -1.88486, -28.42588],
+						"1.875": [-17.08985, -1.88486, -28.42588],
+						"2.0417": [0, 0, 0]
+					}
+				},
+				"hand2": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.875": [0, 0, 0],
+						"1.0": [9.94754, 16.56213, -0.79076],
+						"1.875": [9.94754, 16.56213, -0.79076],
+						"2.0417": [0, 0, 0]
+					}
+				},
+				"head": {
+					"rotation": ["-math.sin(query.anim_time * 880) * 3", 0, "-math.sin(query.anim_time * 440) * 0.5"]
+				},
+				"all": {
+					"position": [0, "-math.sin(query.anim_time * 880) * 0.1", 0]
+				},
+				"leg_l": {
+					"position": [0, 0, "-math.sin(query.anim_time * 880) * 0.1"]
+				},
+				"leg_r": {
+					"position": [0, 0, "-math.sin(query.anim_time * 880) * 0.1"]
+				},
+				"bass_guitar": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.9167": [0, 0, 0],
+						"1.0": [0, 0, 1],
+						"1.9583": [0, 0, 1],
+						"2.0417": [0, 0, 0]
+					}
+				},
+				"l_ear": {
+					"rotation": [0, 0, "-math.sin(query.anim_time * 880 - 90) * 3"]
+				},
+				"r_ear": {
+					"rotation": [0, 0, "math.sin(query.anim_time * 880 - 90) * 3"]
+				}
+			}
+		}
+	}
+}

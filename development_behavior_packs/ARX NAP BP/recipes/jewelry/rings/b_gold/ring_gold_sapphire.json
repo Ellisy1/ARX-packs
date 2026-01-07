@@ -1,0 +1,26 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:ring_gold_sapphire"
+    },
+
+    
+    "tags": [ "jewelry_crafting_table" ],
+    "pattern": [
+      "I",
+      "R"
+    ],
+    "key": {
+      "I": {
+        "item": "arx:sapphire_gem"
+      },
+      "R": {
+        "item": "arx:ring_gold__empty"
+      }
+    },
+    "result": {
+      "item": "arx:ring_gold_sapphire"
+    }
+  }
+}

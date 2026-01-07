@@ -1,0 +1,15 @@
+{
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:icon": "arx:wave_fish"
+        },
+        "description": {
+            "identifier": "arx:wave_fish",
+            "menu_category": {
+                "category": "equipment",
+                "group": "itemGroup.name.cookedFood"
+            }
+        }
+    }
+}

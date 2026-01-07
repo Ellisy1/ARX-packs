@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:anvil_crafting_table"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "IRI",
+      " I ",
+      "III"
+    ],
+    "key": {
+      "I": {
+        "item": "arx:aluminum_ingot"
+      },
+      "R": {
+        "item": "arx:cast_iron_ingot"
+      }
+    },
+    "result": {
+      "item": "arx:anvil_crafting_table"
+    }
+  }
+}

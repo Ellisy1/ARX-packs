@@ -1,0 +1,39 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.watermelon_hat",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 3.5,
+				"visible_bounds_offset": [0, 1.25, 0]
+			},
+			"bones": [
+				{
+					"name": "Custom",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "head",
+					"parent": "Custom",
+					"pivot": [0, 24, 0],
+					"cubes": [
+						{"origin": [-4, 24, -4], "size": [8, 8, 8], "inflate": 0.55, "uv": [0, 16]},
+						{"origin": [-1, 32, -1], "size": [2, 1, 2], "uv": [46, 23]},
+						{"origin": [-0.36146, 32.5, 0], "size": [1, 2, 1], "pivot": [0.13854, 33.70092, 0.10658], "rotation": [-37.00492, -0.92468, 19.78147], "uv": [56, 23]}
+					]
+				},
+				{
+					"name": "over",
+					"parent": "head",
+					"pivot": [0, 24, 0],
+					"cubes": [
+						{"origin": [-4, 24, -4], "size": [8, 8, 8], "inflate": 0.8, "uv": [0, 0]}
+					]
+				}
+			]
+		}
+	]
+}

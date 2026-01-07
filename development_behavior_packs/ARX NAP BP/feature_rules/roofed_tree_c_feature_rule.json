@@ -1,0 +1,39 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:feature_rules": {
+		"description": {
+			"identifier": "arx:roofed_tree_c_feature_rule",
+			"places_feature": "arx:roofed_tree_c_feature"
+		},
+		"conditions": {
+			"placement_pass": "first_pass",
+			"minecraft:biome_filter": [
+				{
+					"all_of": [
+						{
+							"test": "has_biome_tag",
+							"operator": "==",
+							"value": "roofed"
+						}
+					]
+				}
+			]
+		},
+		"distribution": {
+			"scatter_chance": {
+				"numerator": 1,
+				"denominator": 4
+			},
+			"iterations": 1,
+			"x": {
+				"distribution": "gaussian",
+				"extent": [ -32, 32 ]
+			  },
+			"y": "query.heightmap(variable.worldx, variable.worldz)",
+			"z": {
+				"distribution": "gaussian",
+				"extent": [ -32, 32 ]
+			  }
+		}
+	}
+}

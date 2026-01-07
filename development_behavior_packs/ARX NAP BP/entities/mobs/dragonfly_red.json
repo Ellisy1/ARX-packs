@@ -1,0 +1,106 @@
+{
+	"format_version": "1.16.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "arx:dragonfly_red",
+			"is_spawnable": true,
+			"is_summonable": true
+		},
+		"components": {
+			"minecraft:scale": {
+				"value": 0.35
+			},
+			"minecraft:despawn": {
+				"despawn_from_distance": {}
+			},
+			"minecraft:experience_reward": {
+				"on_death": "query.last_hit_by_player ? 1 : 0"
+			},
+			"minecraft:type_family": {
+				"family": [
+					"mob",
+					"insect"
+				]
+			},
+			"minecraft:health": {
+				"value": 1
+			},
+			"minecraft:collision_box": {
+				"width": 0.5,
+				"height": 0.1
+			},
+			"minecraft:balloonable": {},
+			"minecraft:physics": {},
+			"minecraft:pushable": {
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			},
+			"minecraft:conditional_bandwidth_optimization": {},
+			"minecraft:on_death": {
+				"event": "on_death",
+				"target": "self"
+			},
+			"minecraft:behavior.random_hover": {
+				"priority": 2,
+				"xz_dist": 8,
+				"y_dist": 4,
+				"y_offset": -1,
+				"interval": 400,
+				"hover_height": [
+					1,
+					2
+				]
+			},
+			"minecraft:behavior.float": {
+				"priority": 3
+			},
+			"minecraft:flying_speed": {
+				"value": 0.22
+			},
+			"minecraft:navigation.hover": {
+				"can_path_over_water": false,
+				"can_sink": false,
+				"can_pass_doors": false,
+				"can_path_from_air": true,
+				"avoid_water": true,
+				"avoid_damage_blocks": true,
+				"avoid_sun": false
+			},
+			"minecraft:movement.hover": {},
+			"minecraft:jump.static": {},
+			"minecraft:can_fly": {},
+			"minecraft:behavior.avoid_mob_type": {
+				"priority": 1,
+				"entity_types": [
+					{
+						"filters": {
+							"test": "is_family",
+							"subject": "other",
+							"value": "player"
+						},
+						"max_dist": 20,
+						"walk_speed_multiplier": 1.3
+					}
+				]
+			}
+		},
+		"component_groups": {},
+		"events": {
+			"on_death": {
+				"queue_command": {
+					"command": [
+						"scoreboard players add @a[r=10] xp_tray 1",
+						"scoreboard players add @a[r=10] count_mob_kills 1"
+					]
+				}
+			},
+			"minecraft:entity_spawned": {
+				"queue_command": {
+					"command": [
+						"tp ~ ~1 ~"
+					]
+				}
+			}
+		}
+	}
+}

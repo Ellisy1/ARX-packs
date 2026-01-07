@@ -1,0 +1,15 @@
+{
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:icon": "arx:tea_bud"
+        },
+        "description": {
+            "identifier": "arx:tea_bud",
+            "menu_category": {
+                "category": "equipment",
+                "group": "itemGroup.name.cookedFood"
+            }
+        }
+    }
+}

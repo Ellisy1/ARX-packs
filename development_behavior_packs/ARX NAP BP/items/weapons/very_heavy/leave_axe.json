@@ -1,0 +1,37 @@
+{
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:can_destroy_in_creative": false,
+            "minecraft:cooldown": {
+                "category": "weapon",
+                "duration": 1
+            },
+            "minecraft:damage": 9,
+            "minecraft:durability": {
+                "max_durability": 1134
+            },
+            "minecraft:enchantable": {
+                "slot": "sword",
+                "value": 15
+            },
+            "minecraft:icon": "arx:leave_axe",
+            "minecraft:max_stack_size": 1,
+            "minecraft:tags": {
+                "tags": [
+                    "is_hheavy_sword",
+                    "is_weapon",
+                    "material_metal"
+                ]
+            },
+            "tag:raw_cost:2100": {}
+        },
+        "description": {
+            "identifier": "arx:leave_axe",
+            "menu_category": {
+                "category": "equipment",
+                "group": "itemGroup.name.sword"
+            }
+        }
+    }
+}

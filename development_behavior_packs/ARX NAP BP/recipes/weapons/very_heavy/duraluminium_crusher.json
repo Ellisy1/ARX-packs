@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:duraluminium_crusher"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      " AA",
+      "AAA",
+      "BA "
+    ],
+    "key": {
+      "A": {
+        "item": "arx:duraluminum_billet"
+      },
+      "B": {
+        "item": "arx:iron_billet"
+      }
+    },
+    "result": {
+      "item": "arx:duraluminium_crusher"
+    }
+  }
+}

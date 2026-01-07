@@ -1,0 +1,22 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:leg_bag_dual"
+    },
+
+    
+    "tags": [ "clothes_crafting_table" ],
+    "pattern": [
+      "##"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:leg_bag"
+      }
+    },
+    "result": {
+      "item": "arx:leg_bag_dual"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.player.holding_torch": {
+			"loop": true,
+			"bones": {
+				"rightArm": {
+					"rotation": [
+						"-97.1528 + math.cos(query.anim_time * 50) * 5 + query.cape_flap_amount * -20",
+						"12.0675 + math.cos(query.anim_time * 40) * 3",
+						"3.284 + math.cos(query.anim_time * 60) * 1"
+					]
+				}
+			}
+		}
+	}
+}

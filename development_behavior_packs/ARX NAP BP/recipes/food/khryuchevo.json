@@ -1,0 +1,36 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:khryuchevo"
+    },
+
+    
+    "tags": [ "boiler_crafting_table" ],
+    "pattern": [
+      "BAC",
+      "#A#",
+      " D "
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:porkchop"
+      },
+      "A": {
+        "item": "minecraft:potato"
+      },
+      "B": {
+        "item": "minecraft:carrot"
+      },
+      "C": {
+        "item": "arx:salt"
+      },
+      "D": {
+        "item": "minecraft:bowl"
+      }
+    },
+    "result": {
+      "item": "arx:khryuchevo"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:amul_antighost"
+    },
+
+    
+    "tags": [ "jewelry_crafting_table" ],
+    "pattern": [
+      " I ",
+      "RRR",
+      " R "
+    ],
+    "key": {
+      "I": {
+        "item": "arx:amul_string"
+      },
+      "R": {
+        "item": "arx:jw_gold"
+      }
+    },
+    "result": {
+      "item": "arx:amul_antighost"
+    }
+  }
+}

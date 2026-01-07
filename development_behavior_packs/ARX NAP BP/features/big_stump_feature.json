@@ -1,0 +1,14 @@
+{
+	"format_version": "1.19.50",
+	"minecraft:structure_template_feature": {
+		"description": {
+			"identifier": "arx:big_stump_feature"
+		},
+		"structure_name": "arx:big_stump",
+		"adjustment_radius": 0,
+		"constraints": {
+			"grounded": {},
+			"unburied": {}
+		}
+	}
+}

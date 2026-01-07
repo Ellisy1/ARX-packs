@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:copper_sword_hook"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      "  A",
+      " #A",
+      "A  "
+    ],
+    "key": {
+      "#": {
+        "item": "arx:cast_iron_billet"
+      },
+      "A": {
+        "item": "minecraft:copper_ingot"
+      }
+    },
+    "result": {
+      "item": "arx:copper_sword_hook"
+    }
+  }
+}

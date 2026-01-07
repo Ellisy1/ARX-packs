@@ -1,0 +1,20 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "arx:brightmouse",
+      "materials": {
+        "default": "entity_emissive_alpha"
+      },
+      "textures": {
+        "default": "textures/entity/belt_lamps/brightmouse"
+      },
+      "geometry": {
+        "default": "geometry.brightmouse"
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ]
+    }
+  }
+}

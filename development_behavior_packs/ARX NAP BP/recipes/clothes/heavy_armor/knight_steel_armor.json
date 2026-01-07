@@ -1,0 +1,33 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:knight_steel_armor"
+    },
+
+    
+    "tags": [ "heavy_armor_crafting_table" ],
+    "pattern": [
+      "#A#",
+      "###",
+      "BAC"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:steel_protective_plate"
+      },
+      "A": {
+        "item": "arx:cotton_fabric"
+      },
+      "B": {
+        "item": "arx:leather_super"
+      },
+      "C": {
+        "item": "minecraft:dye:1"
+      }
+    },
+    "result": {
+      "item": "arx:knight_steel_armor"
+    }
+  }
+}

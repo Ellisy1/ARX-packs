@@ -1,0 +1,143 @@
+{
+	"format_version": "1.16.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "arx:cultist_scout_rat",
+			"is_spawnable": true,
+			"is_summonable": true
+		},
+		"components": {
+			"minecraft:despawn": {
+				"despawn_from_distance": {}
+			},
+			"minecraft:is_hidden_when_invisible": {},
+			"minecraft:type_family": {
+				"family": [
+					"mob",
+					"dangerous",
+					"despawn_as_ghost"
+				]
+			},
+			"minecraft:navigation.walk": {
+				"can_path_over_water": false,
+				"avoid_water": true,
+				"avoid_damage_blocks": true,
+				"avoid_portals": true
+			},
+			"minecraft:movement.basic": {},
+			"minecraft:jump.static": {},
+			"minecraft:can_climb": {},
+			"minecraft:collision_box": {
+				"width": 0.8,
+				"height": 1.6
+			},
+			"minecraft:health": {
+				"value": 10000
+			},
+			"minecraft:movement": {
+				"value": 0.21
+			},
+			"minecraft:behavior.random_stroll": {
+				"priority": 6,
+				"speed_multiplier": 0.8
+			},
+			"minecraft:balloonable": {},
+			"minecraft:physics": {},
+			"minecraft:pushable": {
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			},
+			"minecraft:conditional_bandwidth_optimization": {},
+			"minecraft:timer": {
+				"time": 0.25,
+				"looping": true,
+				"time_down_event": {
+					"event": "check_for_players",
+					"target": "self"
+				}
+			},
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "all",
+						"on_damage": {
+							"event": "despawn_and_drop_letter"
+						}
+					}
+				]
+			},
+			"minecraft:behavior.look_at_player": {
+				"angle_of_view_vertical": 360,
+				"angle_of_view_horizontal": 360,
+				"look_distance": 10,
+				"probability": 1,
+				"look_time": [],
+				"target_distance": 8,
+				"priority": 7
+			},
+			"minecraft:behavior.melee_attack": {
+				"priority": 1,
+				"speed_multiplier": 1.4,
+				"track_target": false,
+				"reach_multiplier": 0.0
+			},
+			"minecraft:attack": {
+				"damage": 0
+			},
+			"minecraft:behavior.nearest_attackable_target": {
+				"priority": 1,
+				"must_see": true,
+				"entity_types": [
+					{
+						"filters": {
+							"test": "is_family",
+							"subject": "other",
+							"value": "player"
+						},
+						"max_dist": 48.0
+					}
+				]
+			}
+		},
+		"events": {
+			"check_for_players": {
+				"queue_command": {
+					"command": [
+						"execute if entity @a[r=3] run event entity @s despawn_and_drop_letter"
+					]
+				}
+			},
+			"despawn_and_drop_letter": {
+				"queue_command": {
+					"command": [
+						"function entities/cultist_scout_rat"
+					]
+				}
+			},
+			"run_despawning": {
+				"add": {
+					"component_groups": [
+						"despawn_immideately"
+					]
+				}
+			},
+			"arx:despawn_as_ghost": {
+				"add": {
+					"component_groups": [
+						"arx:despawn_as_ghost"
+					]
+				}
+			}
+		},
+		"component_groups": {
+			"despawn_immideately": {
+				"minecraft:instant_despawn": {
+					"remove_child_entities": false
+				}
+			},
+			"arx:despawn_as_ghost": {
+				"minecraft:instant_despawn": {}
+			}
+		}
+	}
+}

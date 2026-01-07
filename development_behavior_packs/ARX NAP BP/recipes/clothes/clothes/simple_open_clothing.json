@@ -1,0 +1,25 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:simple_open_clothing"
+    },
+
+    
+    "tags": [ "clothes_crafting_table" ],
+    "pattern": [
+      "#A"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:cheap_cloth"
+      },
+      "A": {
+        "item": "minecraft:string"
+      }
+    },
+    "result": {
+      "item": "arx:simple_open_clothing"
+    }
+  }
+}

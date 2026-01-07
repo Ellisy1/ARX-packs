@@ -1,0 +1,28 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:gold_decorative_block"
+    },
+
+    
+    "tags": [ "bugle_crafting_table" ],
+    "pattern": [
+      "ABA",
+      " B ",
+      "A A"
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:gold_ingot"
+      },
+      "B": {
+        "item": "minecraft:gold_nugget"
+      }
+    },
+    "result": {
+      "item": "arx:gold_decorative_block",
+      "count": 1
+    }
+  }
+}

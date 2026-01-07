@@ -1,0 +1,23 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "arx:arabic_bandage",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/clothes/clothes/arabic_bandage"
+      },
+      "geometry": {
+        "default": "geometry.arabic_bandage"
+      },
+      "scripts": {
+        "parent_setup": "variable.helmet_layer_visible = 0.0;"
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ]
+    }
+  }
+}

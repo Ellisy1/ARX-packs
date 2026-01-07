@@ -1,0 +1,64 @@
+{
+  "tiers": [
+    {
+      "trades": [
+        //Обмен валют
+        {
+          "wants": [
+            {
+              "item": "arx:rat_coin",
+              "quantity": 60
+            }
+          ],
+          "gives": [
+            {
+              "item": "arx:rat_coin_gold"
+            }
+          ]
+        },
+        {
+          "wants": [
+            {
+              "item": "arx:rat_coin_gold"
+            }
+          ],
+          "gives": [
+            {
+              "item": "arx:rat_coin",
+              "quantity": 40
+            }
+          ]
+        },
+        //ПРОДАЖА
+        {
+          "wants": [
+            {
+              "item": "arx:rat_coin",
+              "quantity": 16
+            }
+          ],
+          "gives": [
+            {
+              "item": "arx:conductive_glass"
+            }
+          ]
+        },
+        {
+          "wants": [
+            {
+              "item": "arx:rat_coin",
+              "quantity": 14
+            }
+          ],
+          "gives": [
+            {
+              "item": "arx:battery_homemade"
+            }
+          ]
+        }
+        //СКУПКА
+
+      ]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:icon": "arx:towel",
+            "minecraft:cooldown": {
+                "category": "towel",
+                "duration": 15
+            }
+        },
+        "description": {
+            "identifier": "arx:towel",
+            "menu_category": {
+                "category": "items"
+            }
+        }
+    }
+}

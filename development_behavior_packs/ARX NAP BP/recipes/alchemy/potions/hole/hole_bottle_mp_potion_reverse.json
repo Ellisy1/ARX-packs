@@ -1,0 +1,26 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:hole_bottle_mp_potion_reverse"
+    },
+
+    
+    "tags": [ "alchemy_crafting_table" ],
+    "pattern": [
+      "#X"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:rounded_bottle"
+      },
+      "X": {
+        "item": "arx:hole_bottle_mp_potion"
+      }
+    },
+    "result": [
+      {"item": "arx:rounded_bottle_water_golden_hay_mp_flower"},
+      {"item": "arx:hole_bottle"}
+    ]
+  }
+}

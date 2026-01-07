@@ -1,0 +1,26 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:aluminum_wand"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      " A",
+      "S "
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:feather"
+      },
+      "S": {
+        "item": "arx:aluminum_billet"
+      }
+    },
+    "result": {
+      "item": "arx:aluminum_wand"
+    }
+  }
+}

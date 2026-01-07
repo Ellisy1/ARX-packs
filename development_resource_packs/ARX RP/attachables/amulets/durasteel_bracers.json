@@ -1,0 +1,30 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "arx:durasteel_bracers",
+      "materials": {
+        "default": "armor",
+        "enchanted": "armor_enchanted"
+      },
+      "animations": {
+        "correct_sleeves": "animation.player.correct_sleeves"
+      },
+      "textures": {
+        "default": "textures/entity/amulets/durasteel_bracers",
+        "enchanted": "textures/misc/enchanted_item_glint"
+      },
+      "geometry": {
+        "default": "geometry.durasteel_bracers"
+      },
+      "scripts": {
+        "animate": [
+          "correct_sleeves"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.armor"
+      ]
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:bandage_white"
+    },
+
+    
+    "tags": [ "clothes_crafting_table" ],
+    "pattern": [
+      "# ",
+      " #"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:cheap_cloth"
+      }
+    },
+    "result": {
+      "item": "arx:bandage_white"
+    }
+  }
+}

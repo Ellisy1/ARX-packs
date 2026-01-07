@@ -1,0 +1,51 @@
+{
+	"format_version": "1.16.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "arx:rat_monstr_cherry_cosplay",
+			"is_spawnable": true,
+			"is_summonable": true
+		},
+		"components": {
+			"minecraft:health": {
+				"value": 1000
+			},
+			"minecraft:balloonable": {},
+			"minecraft:physics": {},
+			"minecraft:pushable": {
+				"is_pushable": false,
+				"is_pushable_by_piston": false
+			},
+			"minecraft:conditional_bandwidth_optimization": {},
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "all",
+						"deals_damage": false
+					}
+				]
+			},
+			"minecraft:timer": {
+				"time": 1,
+				"looping": true,
+				"time_down_event": {
+					"event": "arx:tick",
+					"target": "self"
+				}
+			},
+			"minecraft:collision_box": {
+				"height": 1,
+				"width": 1
+			}
+		},
+		"events": {
+			"arx:tick": {
+				"queue_command": {
+					"command": [
+						"effect @s levitation 999999 255 true"
+					]
+				}
+			}
+		}
+	}
+}

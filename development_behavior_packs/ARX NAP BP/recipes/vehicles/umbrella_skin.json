@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:steady_boat"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "###",
+      "A#A",
+      "###"
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:planks"
+      },
+      "A": {
+        "item": "minecraft:iron_ingot"
+      }
+    },
+    "result": {
+      "item": "arx:steady_boat_spawner"
+    }
+  }
+}

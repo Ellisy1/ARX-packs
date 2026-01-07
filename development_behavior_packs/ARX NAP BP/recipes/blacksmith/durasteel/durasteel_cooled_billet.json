@@ -1,0 +1,22 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:durasteel_billet"
+    },
+
+    
+    "tags": [ "barrel_of_water_crafting_table" ],
+    "pattern": [
+      "#"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:durasteel_forged_billet"
+      }
+    },
+    "result": {
+      "item": "arx:durasteel_billet"
+    }
+  }
+}

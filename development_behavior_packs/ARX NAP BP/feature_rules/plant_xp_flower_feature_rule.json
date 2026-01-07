@@ -1,0 +1,49 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:feature_rules": {
+		"description": {
+			"identifier": "arx:plant_xp_flower_feature_rule",
+			"places_feature": "arx:plant_xp_flower_feature"
+		},
+		"conditions": {
+			"placement_pass": "surface_pass",
+			"minecraft:biome_filter": [
+				{
+					"any_of": [
+						{
+							"test": "has_biome_tag",
+							"operator": "==",
+							"value": "forest"
+						},
+						{
+							"test": "has_biome_tag",
+							"operator": "==",
+							"value": "meadow"
+						},
+						{
+							"test": "has_biome_tag",
+							"operator": "!=",
+							"value": "cold"
+						}
+					]
+				}
+			]
+		},
+		"distribution": {
+			"scatter_chance": {
+				"numerator": 1,
+				"denominator": 40
+			},
+			"iterations": 1,
+			"x": {
+				"distribution": "uniform",
+				"extent": [ 0, 32 ]
+			  },
+			"y": "query.heightmap(variable.worldx, variable.worldz)",
+			"z": {
+				"distribution": "uniform",
+				"extent": [ 0, 32 ]
+			  }
+		}
+	}
+}

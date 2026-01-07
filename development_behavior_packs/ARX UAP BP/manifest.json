@@ -1,0 +1,30 @@
+{
+  "format_version": 2,
+  "header": {
+    "description": "UAP [behaviour]",
+    "name": "United ARX Pack 3 [behaviour] (engine 1.17.0)",
+    "uuid": "aff7786d-c74a-4f78-a478-34b94c0b98a6",
+    "version": [
+      3,
+      0,
+      0
+    ],
+    "min_engine_version": [
+      1,
+      17,
+      0
+    ]
+  },
+  "modules": [
+    {
+      "description": "Pack",
+      "type": "data",
+      "uuid": "27b77bb1-81a4-4e30-be7d-49f50504d050",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    }
+  ]
+}

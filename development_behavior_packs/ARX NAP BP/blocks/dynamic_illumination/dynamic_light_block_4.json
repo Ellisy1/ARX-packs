@@ -1,0 +1,31 @@
+{
+    "format_version": "1.21.30",
+    "minecraft:block": {
+        "components": {
+            "minecraft:collision_box": false,
+            "minecraft:custom_components": [
+                "arx:onTick"
+            ],
+            "minecraft:geometry": "geometry.none",
+            "minecraft:light_emission": 4,
+            "minecraft:loot": "loot_tables/blocks/empty.json",
+            "minecraft:material_instances": {
+                "*": {
+                    "render_method": "alpha_test",
+                    "texture": "arx_invisible"
+                }
+            },
+            "minecraft:selection_box": false,
+            "minecraft:tick": {
+                "interval_range": [
+                    2,
+                    2
+                ],
+                "looping": true
+            }
+        },
+        "description": {
+            "identifier": "arx:dynamic_light_block_4"
+        }
+    }
+}

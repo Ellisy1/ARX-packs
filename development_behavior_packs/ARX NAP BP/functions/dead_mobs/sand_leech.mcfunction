@@ -1,0 +1,5 @@
+# Удаляем предмет
+    clear @s arx:dead_sand_leech 0 1
+
+# Дроп
+    give @s minecraft:slime_ball 1

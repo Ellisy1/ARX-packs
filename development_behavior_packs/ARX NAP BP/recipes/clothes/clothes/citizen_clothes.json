@@ -1,0 +1,31 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:citizen_clothes"
+    },
+
+    
+    "tags": [ "clothes_crafting_table" ],
+    "pattern": [
+      "B#B",
+      " A ",
+      " A "
+    ],
+    "key": {
+      "#": {
+        "item": "arx:cotton_fabric"
+      },
+      "A": {
+        "item": "arx:leather_super"
+      },
+      "B": {
+        "item": "minecraft:dye",
+        "data": 19
+      }
+    },
+    "result": {
+      "item": "arx:citizen_clothes"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "format_version": "1.17",
+  "minecraft:recipe_furnace": {
+    "description": {
+    "identifier": "arx:baked_apple_furnace"
+    },
+
+    "tags": ["furnace", "smoker", "campfire", "soul_campfire"],
+    "input": "arx:apple",
+    "output": "arx:baked_apple"
+  }
+  
+}

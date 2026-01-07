@@ -1,0 +1,23 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:plumbium"
+    },
+
+    
+    "tags": [ "pounder_crafting_table" ],
+    "pattern": [
+      "#"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:plumbum_ingot"
+      }
+    },
+    "result": {
+      "item": "arx:plumbium",
+      "count": 2
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:longed_cast_iron_dagger"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      "  Y",
+      "X#X",
+      "X  "
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:stick"
+      },
+      "X": {
+        "item": "arx:cast_iron_ingot"
+      },
+      "Y": {
+        "item": "arx:cast_iron_billet"
+      }
+    },
+    "result": {
+      "item": "arx:longed_cast_iron_dagger"
+    }
+  }
+}

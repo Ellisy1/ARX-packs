@@ -1,0 +1,39 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:feature_rules": {
+		"description": {
+			"identifier": "arx:swamp_tree_c_feature_rule",
+			"places_feature": "arx:swamp_tree_c_feature"
+		},
+		"conditions": {
+			"placement_pass": "surface_pass",
+			"minecraft:biome_filter": [
+				{
+					"all_of": [
+						{
+							"test": "has_biome_tag",
+							"operator": "==",
+							"value": "swamp"
+						}
+					]
+				}
+			]
+		},
+		"distribution": {
+			"scatter_chance": {
+				"numerator": 1,
+				"denominator": 4
+			},
+			"iterations": 2,
+			"x": {
+				"distribution": "uniform",
+				"extent": [ 0, 32 ]
+			  },
+			"y": "query.heightmap(variable.worldx, variable.worldz)",
+			"z": {
+				"distribution": "uniform",
+				"extent": [ 0, 32 ]
+			  }
+		}
+	}
+}

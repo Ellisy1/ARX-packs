@@ -1,0 +1,23 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "arx:plague_doctor_mask",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/clothes/clothes/plague_doctor_mask"
+      },
+      "geometry": {
+        "default": "geometry.plague_doctor_mask"
+      },
+      "scripts": {
+        "parent_setup": "variable.helmet_layer_visible = 0.0;"
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ]
+    }
+  }
+}

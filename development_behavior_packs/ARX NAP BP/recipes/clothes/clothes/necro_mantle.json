@@ -1,0 +1,33 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:necro_mantle"
+    },
+
+    
+    "tags": [ "clothes_crafting_table" ],
+    "pattern": [
+      " #Z",
+      "#C#",
+      "ZAZ"
+    ],
+    "key": {
+      "#": {
+        "item": "arx:golden_silk"
+      },
+      "Z": {
+        "item": "arx:silk"
+      },
+      "A": {
+        "item": "minecraft:dye:16"
+      },
+      "C": {
+        "item": "arx:sand_elemental_heart"
+      }
+    },
+    "result": {
+      "item": "arx:necro_mantle"
+    }
+  }
+}

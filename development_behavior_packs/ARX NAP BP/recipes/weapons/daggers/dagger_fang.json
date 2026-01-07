@@ -1,0 +1,26 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:dagger_fang"
+    },
+
+    
+    "tags": [ "weapons_assembly_crafting_table" ],
+    "pattern": [
+      " X",
+      "# "
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:stick"
+      },
+      "X": {
+        "item": "arx:steel_billet"
+      }
+    },
+    "result": {
+      "item": "arx:dagger_fang"
+    }
+  }
+}

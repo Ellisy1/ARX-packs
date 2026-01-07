@@ -1,0 +1,43 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:feature_rules": {
+		"description": {
+			"identifier": "arx:ore_cavematerial_savanna_feature_rule",
+			"places_feature": "arx:ore_cavematerial_savanna_feature"
+		},
+		"conditions": {
+			"placement_pass": "after_underground_pass",
+			"minecraft:biome_filter": [
+				{
+					"test": "has_biome_tag",
+					"operator": "==",
+					"value": "savanna"
+				}
+			]
+		},
+		"distribution": {
+			"iterations": 30,
+			"x": {
+				"distribution": "uniform",
+				"extent": [
+					0,
+					16
+				]
+			},
+			"y": {
+				"distribution": "uniform",
+				"extent": [
+					0,
+					120
+				]
+			},
+			"z": {
+				"distribution": "uniform",
+				"extent": [
+					0,
+					16
+				]
+			}
+		}
+	}
+}

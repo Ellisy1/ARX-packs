@@ -1,0 +1,11 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:icon": "muttonCooked"
+        },
+        "description": {
+            "identifier": "minecraft:muttonCooked"
+        }
+    }
+}

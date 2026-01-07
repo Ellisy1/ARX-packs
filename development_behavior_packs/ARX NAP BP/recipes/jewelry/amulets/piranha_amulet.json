@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:piranha_amulet"
+    },
+
+    
+    "tags": [ "jewelry_crafting_table" ],
+    "pattern": [
+      " I ",
+      "R R",
+      " R "
+    ],
+    "key": {
+      "I": {
+        "item": "minecraft:string"
+      },
+      "R": {
+        "item": "arx:piranha_tooth"
+      }
+    },
+    "result": {
+      "item": "arx:piranha_amulet"
+    }
+  }
+}

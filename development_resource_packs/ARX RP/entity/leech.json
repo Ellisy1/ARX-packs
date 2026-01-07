@@ -1,0 +1,25 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "arx:leech",
+      "min_engine_version": "1.8.0",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/mobs/leech"
+      },
+      "geometry": {
+        "default": "geometry.leech"
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "spawn_egg": {
+        "base_color": "#121711",
+        "overlay_color": "#0a1d12"
+      }
+    }
+  }
+}

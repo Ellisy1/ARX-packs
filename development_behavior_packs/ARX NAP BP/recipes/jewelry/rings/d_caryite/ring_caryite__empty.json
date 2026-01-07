@@ -1,0 +1,22 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:ring_caryite__empty"
+    },
+
+    
+    "tags": [ "jewelry_crafting_table" ],
+    "pattern": [
+      "I"
+    ],
+    "key": {
+      "I": {
+        "item": "arx:jw_caryite"
+      }
+    },
+    "result": {
+      "item": "arx:ring_caryite__empty"
+    }
+  }
+}

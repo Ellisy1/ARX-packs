@@ -1,0 +1,27 @@
+{
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:durability": {
+                "max_durability": 200
+            },
+            "minecraft:enchantable": {
+                "slot": "armor_head",
+                "value": 10
+            },
+            "minecraft:icon": "arx:youkai_mask",
+            "minecraft:max_stack_size": 1,
+            "minecraft:wearable": {
+                "protection": 2,
+                "slot": "slot.armor.head"
+            }
+        },
+        "description": {
+            "identifier": "arx:youkai_mask",
+            "menu_category": {
+                "category": "equipment",
+                "group": "itemGroup.name.helmet"
+            }
+        }
+    }
+}

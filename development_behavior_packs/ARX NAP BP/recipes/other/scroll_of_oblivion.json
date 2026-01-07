@@ -1,0 +1,30 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:scroll_of_oblivion"
+    },
+
+    
+    "tags": [ "rune_crafting_table" ],
+    "pattern": [
+      "B B",
+      " A ",
+      "BCB"
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:paper"
+      },
+      "B": {
+        "item": "arx:xp_shard"
+      },
+      "C": {
+        "item": "arx:naginitis_ingot"
+      }
+    },
+    "result": {
+      "item": "arx:scroll_of_oblivion"
+    }
+  }
+}

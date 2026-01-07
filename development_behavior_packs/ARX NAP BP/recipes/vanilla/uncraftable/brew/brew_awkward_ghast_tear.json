@@ -1,0 +1,15 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_brewing_mix": {
+    "description": {
+      "identifier": "minecraft:brew_awkward_ghast_tear"
+    },
+
+    "tags": [ "brewing_stand" ],
+
+    "input": "minecraft:bedrock",
+    "reagent": "minecraft:stick",
+    "output": "minecraft:stick"
+  }
+
+}

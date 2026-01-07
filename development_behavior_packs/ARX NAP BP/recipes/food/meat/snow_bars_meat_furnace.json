@@ -1,0 +1,13 @@
+{
+  "format_version": "1.17",
+  "minecraft:recipe_furnace": {
+    "description": {
+    "identifier": "arx:snow_bars_meat_furnace"
+    },
+
+    "tags": ["furnace", "smoker", "campfire", "soul_campfire"],
+    "input": "arx:snow_bars_meat",
+    "output": "arx:fried_snow_bars_meat"
+  }
+  
+}

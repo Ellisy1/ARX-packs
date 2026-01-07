@@ -1,0 +1,23 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.big_leech": {
+			"initial_state": "stay",
+			"states": {
+				"stay": {
+					"transitions": [
+						{"move": "q.ground_speed > 0.1"}
+					],
+					"blend_transition": 0.2
+				},
+				"move": {
+					"animations": ["move"],
+					"transitions": [
+						{"stay": "q.ground_speed <= 0.1"}
+					],
+					"blend_transition": 0.2
+				}
+			}
+		}
+	}
+}
