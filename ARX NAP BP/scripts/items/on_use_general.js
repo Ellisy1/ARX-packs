@@ -23,12 +23,7 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
         // Тест
         case "arx:mod_sword":
             if (manageCD(player)) {
-                const block = player.dimension.getBlock({ x: player.location.x, y: player.location.y - 1, z: player.location.z })
-                const itemStack = block.getItemStack()
-                block.setType("minecraft:air")
-                if (itemStack) block.dimension.spawnItem(itemStack, block.location)
-
-                player.sendMessage("\uE100"); // выведет  (если шрифт поддерживает)
+                player.dimension.placeFeature('arx:lobby_feature', {x: 9, y: 30, z: 11}, true)
             }
             break
 

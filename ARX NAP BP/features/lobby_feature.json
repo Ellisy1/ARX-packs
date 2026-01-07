@@ -1,0 +1,12 @@
+{
+	"format_version": "1.19.50",
+	"minecraft:structure_template_feature": {
+		"description": {
+			"identifier": "arx:lobby_feature"
+		},
+		"structure_name": "arx:lobby",
+		"adjustment_radius": 0,
+		"constraints": {},
+		"facing_direction": "north"
+	}
+}

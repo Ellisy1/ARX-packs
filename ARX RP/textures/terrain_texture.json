@@ -7,15 +7,6 @@
 		"arx_broken_minibot": {
 			"textures": "textures/blocks/hightec/minibot/broken_minibot"
 		},
-		"arx_painting_ellis": {
-			"textures": "textures/blocks/furniture/paintings/painting_ellis"
-		},
-		"arx_painting_max_1": {
-			"textures": "textures/blocks/furniture/paintings/painting_max_1"
-		},
-		"arx_painting_sara_and_olivia": {
-			"textures": "textures/blocks/furniture/paintings/painting_sara_and_olivia"
-		},
 		"arx_nest": {
 			"textures": "textures/blocks/nature/nest/nest"
 		},

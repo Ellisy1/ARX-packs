@@ -15,26 +15,10 @@ system.runInterval(() => {
         let music_location = 0
 
         // Кастомные локации. Ставят отрицательное значение
-        // Порочные сады
-        if (isEntityInCube(player, [-2274, 13, 1773], [-2205, 45, 1839])) {
-            music_location = -1
-        }
         // Порочные сады - тишина
-        if (isEntityInCube(player, [-2225, 24, 1839], [-2255, 30, 1868])) {
-            music_location = -2
-        }
-        // Бой с порочным демоном
-        if (world.getDynamicProperty('vicious_demon:is_fight_right_now') && isEntityInCube(player, [-2252, 32, 1843], [-2227, 22, 1866])) {
-            music_location = -1000
-        }
-        // Венард
-        if (isEntityInCube(player, [-2341, -31, 1933], [-2267, -46, 1897])) {
-            music_location = -3
-        }
-        // Крысиный бар
-        if (isEntityInCube(player, [-2112, 56, 1486], [-2099, 65, 1511])) {
-            music_location = -4
-        }
+        // if (isEntityInCube(player, [-2225, 24, 1839], [-2255, 30, 1868])) {
+        //     music_location = -2
+        // }
 
         // Мы не в кастомной локации
         if (music_location === 0) {
@@ -62,38 +46,15 @@ system.runInterval(() => {
             // Шахты
             music_location += player.location.y < 0 ? 60 : 0
             music_location += player.location.y < 55 ? 70 : 0
-            // Кровавая луна
-            music_location += player.hasTag("scarlet_night") ? 1000 : 0
         }
 
 
         // Запускаем музыку
         if (music_location != player.getDynamicProperty("music_location_previous")) {
             // Запускаем музыку (выше в списке = приоритетнее)
-            console.warn('Music restart')
-            // Порочные сады
-            if (music_location === -1) {
-                player.playMusic(`Music_for_Manatees`, musicOptions)
-            }
-            // Порочные сады - тишина (полное отсутствие музыки)
-            else if (music_location === -2) {
-                player.playMusic(`Silence`, musicOptions)
-            }
-            // Бой с Порочным Демоном
-            else if (music_location === -1000) {
-                player.playMusic(`Darkling`, musicOptions)
-            }
-            // Вернард
-            else if (music_location === -3) {
-                player.playMusic(`Bleeping_Demo`, musicOptions)
-            }
-            // Крысиный бар
-            else if (music_location === -4) {
-                player.playMusic(`Hillbilly_Swing`, musicOptions)
-            }
 
             // Ад
-            else if (player.hasTag("in_nether")) {
+            if (player.hasTag("in_nether")) {
                 player.playMusic(`Wretched_Destroyer`, musicOptions)
             }
             // Шахты - низ
@@ -152,7 +113,7 @@ system.runInterval(() => {
                 if (isDay(player)) { player.playMusic(`Ether_Vox`, musicOptions) }
                 else { player.playMusic(`Immersed`, musicOptions) }
             }
-            // Океан (ещё срабатывает на реки)
+            // Океан (так же срабатывает на реки)
             else if (player.hasTag("BIOME_ocean")) {
                 if (isDay(player)) { player.playMusic(`Skye_Cuillin`, musicOptions) }
                 else { player.playMusic(`Almost_New`, musicOptions) }

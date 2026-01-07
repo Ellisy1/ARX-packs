@@ -31,6 +31,7 @@ import { checkForTrait } from "./traits/traitsOperations"
 import { getPlayersInRadius } from "./getPlayersInRadius"
 import { getItem } from "./items/getItem"
 import { getActiveStaffChannel } from "./magic/getActiveStaffChannel"
+import { obj2str } from "./converters"
 
 world.afterEvents.playerButtonInput.subscribe((event) => {
     const button = event.button
@@ -100,17 +101,70 @@ world.afterEvents.playerSpawn.subscribe((event) => {
 
     if (world.getPlayers().length === 1) { // Если только один игрок в мире, т.е. только хостер
         player.runCommand("function world_reg/_world_reg") // Регистрируем переменные
-        player.runCommand('setmaxplayers 40')
-    }
 
-    system.runTimeout(() => {
-        const graphicsMode = player.graphicsMode
-        switch (graphicsMode) {
-            case 'Simple':
-                player.sendMessage('§6Внимание! §fУ вас установлен самый плохой уровень графики, <Простой>. Рекомендуется поставить более качественный уровень графики, <Причудливое>, т.к. это почти не влияет на производительность, но значительно улучшает визуальные эффекты.')
-                break;
+        // Check, is this the first time the hoster entered the world with Arx
+        let arxEverLoaded = world.getDynamicProperty('arxEverLoaded')
+        // It's the first time
+        if (!arxEverLoaded) {
+            ssDP(world, 'initialSpawnPoint', obj2str(player.location))
+            world.setDefaultSpawnLocation({ x: -10000, y: 4, z: -10000 })
+            const d = world.getDimension('minecraft:overworld')
+            // Lobby room creation
+            let loadingCD = 10 // sec
+
+            d.runCommand('tickingarea add -9980 0 -9980 -10020 0 -10020 lobbyReg true')
+
+            function createLobby(d, hoster) {
+                // Loading screen for hoster
+                hoster.runCommand('camera @s fade time 0 1 0 color 10 10 10')
+                hoster.runCommand('title @s title Loading...')
+                hoster.runCommand('title @s actionbar ARX 3 thirst initialization....')
+                // Is the world completely loaded?
+                try {
+                    loadingCD -= 1
+                    if (loadingCD >= 0) throw new Error('Still loading')
+
+                    hoster.teleport({ x: -9999.5, y: 4, z: -9999.5 }, { checkForBlocks: false, dimension: d, facingLocation: { x: -9999.5, y: 4, z: -9993 }, keepVelocity: false })
+                    // Verify lobby loading
+                    // Blocks above broken portal
+                    const b1 = d.getBlock({ x: -10001, y: 5, z: -10001 })
+                    const b2 = d.getBlock({ x: -10001, y: 5, z: -9999 })
+                    const b3 = d.getBlock({ x: -9999,  y: 5, z: -10001 })
+                    const b4 = d.getBlock({ x: -9999,  y: 5, z: -9999 })
+                    if (!b1 || !b2 || !b3 || !b4) throw new Error('Lobby is still loading')
+
+                    d.placeFeature('arx:lobby_feature', { x: -9991, y: 0, z: -9989 }, true)
+
+                    // Are the upper blocks really air?
+                    const air = 'minecraft:air'
+                    if (b1.typeId != air || b2.typeId != air || b3.typeId != air || b4.typeId != air) throw new Error('Wrong lobby placement')
+
+                    // Are the bottom blocks correct?
+                    const b5 = d.getBlock({ x: -10001, y: 3, z: -10001 }) // mossy_stone_bricks
+                    const b6 = d.getBlock({ x: -10001, y: 3, z: -9999 }) // stone_bricks
+                    const b7 = d.getBlock({ x: -9999,  y: 3, z: -10001 }) // stone_bricks
+                    const b8 = d.getBlock({ x: -9999,  y: 3, z: -9999 }) // cracked_stone_bricks
+
+                    if (b5.typeId != 'minecraft:mossy_stone_bricks' || b6.typeId != 'minecraft:stone_bricks' || b7.typeId != 'minecraft:stone_bricks' || b8.typeId != 'minecraft:cracked_stone_bricks') throw new Error('Wrong lobby placement')
+                }
+                catch {
+                    system.runTimeout(() => {
+                        createLobby(d, hoster)
+                    }, 19)
+                    return
+                }
+                // Other thing we have to do
+                player.runCommand('title @s clear')
+                player.runCommand('playsound random.orb @s')
+                player.runCommand('title @s actionbar Successfull!')
+                d.spawnEntity('arx:lobby_character_creation', { x: -9999.5, y: 4, z: -9993 }, { initialRotation: 180 })
+                d.spawnEntity('arx:carved_bench', { x: -9994.5, y: 4, z: -10003.5 }, { initialRotation: 90 })
+                d.runCommand('tickingarea remove lobbyReg')
+            }
+
+            createLobby(d, player)
         }
-    }, 60)
+    }
 });
 
 // Спавн сущностей

@@ -254,11 +254,6 @@ scoreboard objectives add heal_scrl_durt dummy heal_scrl_durt
 
 scoreboard objectives add mp_boost_by_amul_of_starpower dummy mp_boost_by_amul_of_starpower
 
-# Универсальный радиоключ
-    # Просто тестовый ключ для теста алгоритма. Не используется функционально в игре.
-        scoreboard objectives add urk_12343 dummy urk_12343
-    # Используемые ключи в игре
-
 scoreboard objectives add e19_generator_enabled dummy e19_generator_enabled
 
 scoreboard objectives add spell_of_small_head dummy spell_of_small_head
@@ -269,6 +264,4 @@ scoreboard objectives add spell_of_small_head dummy spell_of_small_head
 # Обучение
     scoreboard objectives add learning dummy Этап_обучения
 
-# Данные для отката в до-смертельное состояние
-    scoreboard objectives add xp_roll_back dummy xp_roll_back
-    scoreboard objectives add xp_stage_roll_back dummy xp_stage_roll_back
+scoreboard objectives add weighLoading dummy weighLoading

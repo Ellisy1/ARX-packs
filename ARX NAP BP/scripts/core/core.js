@@ -586,12 +586,11 @@ system.runInterval(() => {
             if (player.hasTag('is_sprinting')) { speedPower += 25 }
 
             // Скорость - реализация
-            if (player.getDynamicProperty("speedPower") != speedPower && speedPower != NaN) {
+            if (speedPower && player.getDynamicProperty("speedPower") != speedPower) {
                 const movementComponent = player.getComponent("minecraft:movement")
                 movementComponent.setCurrentValue(speedPower / 1000)
+                ssDP(player, "speedPower", speedPower)
             }
-
-            ssDP(player, "speedPower", speedPower)
         }
 
         // Контроль расстояния от места спавна
@@ -1139,7 +1138,10 @@ system.runInterval(() => {
         {
             // Анализируем, когда надо анимировать
             if (player.hasTag('is_moving')) { setScore(player, "move_delay", killingTimeAnimDelay) }
-            else { setScore(player, "move_delay", getScore(player, "move_delay") - 1) }
+            else {
+                const currentDelay = getScore(player, "move_delay") ?? 0;
+                setScore(player, "move_delay", currentDelay - 1);
+            }
 
             if (getScore(player, "move_delay") <= 0) {
                 animate_killing_time(player)
@@ -1184,11 +1186,6 @@ system.runInterval(() => {
 
         // Анализ туманов
         {
-            // Порочные сады
-            if (isEntityInCube(player, [-2274, 13, 1773], [-2205, 45, 1839])) {
-                player.runCommand('scoreboard players add @s no_fog 1')
-            }
-
             // Снятие туманов
             player.runCommand(`fog @s remove "redglasses_fog"`)
             player.runCommand(`fog @s remove "night_vision_device_fog"`)

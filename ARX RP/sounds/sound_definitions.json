@@ -818,15 +818,6 @@
          }
       ]
    },
-   "Hiding_Your_Reality": {
-      "category": "music",
-      "sounds": [
-         {
-            "name": "sounds/music/Hiding_Your_Reality",
-            "stream": true
-         }
-      ]
-   },
    "Kalimba_Relaxation_Music": {
       "category": "music",
       "sounds": [
@@ -854,47 +845,11 @@
          }
       ]
    },
-   "Music_for_Manatees": {
-      "category": "music",
-      "sounds": [
-         {
-            "name": "sounds/music/Music_for_Manatees",
-            "stream": true
-         }
-      ]
-   },
-   "Darkling": {
-      "category": "music",
-      "sounds": [
-         {
-            "name": "sounds/music/Darkling",
-            "stream": true
-         }
-      ]
-   },
    "Silence": {
       "category": "music",
       "sounds": [
          {
             "name": "sounds/music/Silence",
-            "stream": true
-         }
-      ]
-   },
-   "Bleeping_Demo": {
-      "category": "music",
-      "sounds": [
-         {
-            "name": "sounds/music/Bleeping_Demo",
-            "stream": true
-         }
-      ]
-   },
-   "Hillbilly_Swing": {
-      "category": "music",
-      "sounds": [
-         {
-            "name": "sounds/music/Hillbilly_Swing",
             "stream": true
          }
       ]
