@@ -1,5 +1,6 @@
 import { acquireTrait, checkForTrait } from "../traits/traitsOperations"
 import { ssDP, iDP } from "../DPOperations"
+import { sl, fl } from '../lang/fetchLocalization'
 
 export function onFoodConsume(player, foodname) {
     // Тип пищи у конкретной съеденной еды
@@ -284,7 +285,7 @@ export function onFoodConsume(player, foodname) {
     switch (foodname) {
         // Еда
         case "arx:iron_pie": {
-            player.runCommand(`tellraw @s { "rawtext": [ { "text": "§cВ пирожке что-то острое!" } ] }`)
+            sl(player, 'food.iron_pie')
             player.runCommand(`effect @s fatal_poison infinite 255 true`)
             break
         }
@@ -390,10 +391,10 @@ export function onFoodConsume(player, foodname) {
         case "arx:hole_bottle_mp_potion_royal_sorrel": {
             if (player.getDynamicProperty('MPPermanentBonus') < 5) {
                 iDP(player, 'MPPermanentBonus', 1)
-                player.runCommand(`tellraw @s { "rawtext": [ { "text": "§aМаксимальная мана §d+1§a!" } ] }`)
+                sl(player, 'food.permanent_mp_potion.successful')
             }
             else {
-                player.runCommand(`tellraw @s { "rawtext": [ { "text": "§cВы уже очень мощны, и это зелье не вас усилит." } ] }`)
+                sl(player, 'food.permanent_mp_potion.max_already_reached')
             }
             break
         }
@@ -564,64 +565,59 @@ export function onFoodConsume(player, foodname) {
 
     // Вычисляем полученное счастье, если тип еды не undefined и не potion. То есть мы едим еду, а не что-то ещё
     if (foodType !== undefined && foodType !== "potion") {
-        if (player.getProperty('arx:is_ghost') == false) {
-            // Обрабатываем подсказку
-            if (player.getDynamicProperty('hasEverAteSomething') !== true) {
-                player.runCommand(`tellraw @s { "rawtext": [ { "text": "[§aГид§f] > §aЕда восстанавливает§f вам §dвсю сытость§f примерно на 5 минут.\n[§aГид§f] > §aЧем вкуснее еда§f, §aтем больше счастья§f и §aболее сильную регенерацию§f вы получите при съедании.\n" } ] }`)
-            }
-            ssDP(player, 'hasEverAteSomething', true)
-
-
-            // Рассчет вкусности далее
-            let happinessBonus = 0
-
-            // Устанавливаем бонус счастья от нашего вкуса типа этой пищи
-            if (foodType === 'meat') { playerTaste_meat > 0 ? happinessBonus = playerTaste_meat * meatFood[foodname] : happinessBonus = playerTaste_meat * 20 }
-            if (foodType === 'fish') { playerTaste_fish > 0 ? happinessBonus = playerTaste_fish * fishFood[foodname] : happinessBonus = playerTaste_fish * 20 }
-            if (foodType === 'bread') { playerTaste_bread > 0 ? happinessBonus = playerTaste_bread * breadFood[foodname] : happinessBonus = playerTaste_bread * 20 }
-            if (foodType === 'dairy') { playerTaste_dairy > 0 ? happinessBonus = playerTaste_dairy * dairyFood[foodname] : happinessBonus = playerTaste_dairy * 20 }
-            if (foodType === 'herbal') { playerTaste_herbal > 0 ? happinessBonus = playerTaste_herbal * herbalFood[foodname] : happinessBonus = playerTaste_herbal * 20 }
-            if (foodType === 'sweets') { playerTaste_sweet > 0 ? happinessBonus = playerTaste_sweet * sweetFood[foodname] : happinessBonus = playerTaste_sweet * 20 }
-
-            // Домножаем для того, чтобы значение было нормальным
-            happinessBonus *= 0.7
-
-            // Срезаем от черты
-            if (checkForTrait(player, 'fastidious')) happinessBonus -= 200
-
-            // Если мы ещё не проголодались
-            if (player.getDynamicProperty('saturation') > 1) {
-                if (happinessBonus > 0) { happinessBonus = 0 }
-                player.runCommand(`tellraw @s { "rawtext": [ { "text": "§cВы слишком сыты, чтобы получить удовольстве от еды." } ] }`)
-            }
-            // Если мы проголодались
-            else {
-                // Регенерируем
-                const regenLevel = Math.floor(happinessBonus / 1000)
-
-                if (regenLevel === NaN) {
-                    console.warn(`Получено NaN значение для regenLevel при съедании еды. Еда ${foodname}, игрок ${player.name}`)
-                } else {
-                    player.runCommand(`effect @s regeneration 10 ${regenLevel} true`)
-                }
-            }
-
-            // Сообщаем пользователю о вкусах
-            let messageStart
-            let messageColor
-            if (happinessBonus < -500) { messageStart = 'Невкусно!'; messageColor = "§c" }
-            else if (happinessBonus > 500) { messageStart = 'Вкусно!'; messageColor = "§a" }
-            else { messageStart = 'Нормально.'; messageColor = "§e" }
-
-            player.runCommand(`tellraw @s { "rawtext": [ { "text": "${messageColor}${messageStart}§f Бонус счастья ${messageColor}${(happinessBonus / 1000).toFixed(1)}§f." } ] }`)
-
-            ssDP(player, 'saturation', 1500)
-
-            // Выдаем счастье
-            iDP(player, 'stress', -happinessBonus)
-        } else {
-            player.runCommand(`tellraw @s { "rawtext": [ { "text": "§cВам безразлична еда." } ] }`)
+        // Обрабатываем подсказку
+        if (player.getDynamicProperty('hasEverAteSomething') !== true) {
+            sl(player, 'food.thirst_meal')
         }
+        ssDP(player, 'hasEverAteSomething', true)
+
+
+        // Рассчет вкусности далее
+        let happinessBonus = 0
+
+        // Устанавливаем бонус счастья от нашего вкуса типа этой пищи
+        if (foodType === 'meat') { playerTaste_meat > 0 ? happinessBonus = playerTaste_meat * meatFood[foodname] : happinessBonus = playerTaste_meat * 20 }
+        if (foodType === 'fish') { playerTaste_fish > 0 ? happinessBonus = playerTaste_fish * fishFood[foodname] : happinessBonus = playerTaste_fish * 20 }
+        if (foodType === 'bread') { playerTaste_bread > 0 ? happinessBonus = playerTaste_bread * breadFood[foodname] : happinessBonus = playerTaste_bread * 20 }
+        if (foodType === 'dairy') { playerTaste_dairy > 0 ? happinessBonus = playerTaste_dairy * dairyFood[foodname] : happinessBonus = playerTaste_dairy * 20 }
+        if (foodType === 'herbal') { playerTaste_herbal > 0 ? happinessBonus = playerTaste_herbal * herbalFood[foodname] : happinessBonus = playerTaste_herbal * 20 }
+        if (foodType === 'sweets') { playerTaste_sweet > 0 ? happinessBonus = playerTaste_sweet * sweetFood[foodname] : happinessBonus = playerTaste_sweet * 20 }
+
+        // Домножаем для того, чтобы значение было нормальным
+        happinessBonus *= 0.7
+
+        // Срезаем от черты
+        if (checkForTrait(player, 'fastidious')) happinessBonus -= 200
+
+        // Если мы ещё не проголодались
+        if (player.getDynamicProperty('saturation') > 1) {
+            if (happinessBonus > 0) { happinessBonus = 0 }
+            sl(player, 'food.too_saturated')
+        }
+        // Если мы проголодались
+        else {
+            // Регенерируем
+            const regenLevel = Math.floor(happinessBonus / 1000)
+
+            if (regenLevel === NaN) {
+                console.warn(`Got NaN value as regenLevel while eating a food. Food ${foodname}, player ${player.name}`)
+            } else {
+                player.runCommand(`effect @s regeneration 10 ${regenLevel} true`)
+            }
+        }
+
+        // Сообщаем пользователю о вкусах
+        let messageStart
+        let messageColor
+        if (happinessBonus < -500) { messageStart = fl(player, 'food.not_tasty'); messageColor = "§c" }
+        else if (happinessBonus > 500) { messageStart = fl(player, 'food.tasty'); messageColor = "§a" }
+        else { messageStart = fl(player, 'food.normal_taste'); messageColor = "§e" }
+
+        player.sendMessage(`${messageColor}${messageStart}§f ${fl(player, 'food.happiness_bonus')} ${messageColor}${(happinessBonus / 1000).toFixed(1)}§f.`)
+        ssDP(player, 'saturation', 1500)
+
+        // Выдаем счастье
+        iDP(player, 'stress', -happinessBonus)
     }
     // Мы выпили зелье. Надо накинуть отравление
     else if (foodType === "potion") {

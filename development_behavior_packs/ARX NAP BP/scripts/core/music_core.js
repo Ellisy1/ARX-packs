@@ -1,6 +1,6 @@
-// Движок музыки Аркса
+// ARX music core
 
-// Импортируем
+// Imports
 import { system, world } from "@minecraft/server"
 import { getScore } from "../scoresOperations"
 import { ssDP } from "../DPOperations"
@@ -15,10 +15,10 @@ system.runInterval(() => {
         let music_location = 0
 
         // Кастомные локации. Ставят отрицательное значение
-        // Порочные сады - тишина
-        // if (isEntityInCube(player, [-2225, 24, 1839], [-2255, 30, 1868])) {
-        //     music_location = -2
-        // }
+        // Lobby
+        if (isEntityInCube(player, [-10020, 0, -10020], [-9980, 20, -9980])) {
+            music_location = -1
+        }
 
         // Мы не в кастомной локации
         if (music_location === 0) {
@@ -46,6 +46,8 @@ system.runInterval(() => {
             // Шахты
             music_location += player.location.y < 0 ? 60 : 0
             music_location += player.location.y < 55 ? 70 : 0
+            // Lush caves
+            music_location += player.dimension.getBiome(player.location).id === "minecraft:lush_caves" ? 81 : 0
         }
 
 
@@ -53,9 +55,17 @@ system.runInterval(() => {
         if (music_location != player.getDynamicProperty("music_location_previous")) {
             // Запускаем музыку (выше в списке = приоритетнее)
 
+            // Lobby
+            if (isEntityInCube(player, [-10020, 0, -10020], [-9980, 20, -9980])) {
+                player.playMusic(`Martian_Cowboy`, musicOptions)
+            }
             // Ад
-            if (player.hasTag("in_nether")) {
+            else if (player.hasTag("in_nether")) {
                 player.playMusic(`Wretched_Destroyer`, musicOptions)
+            }
+            // Mines - lush caves
+            else if (player.dimension.getBiome(player.location).id === "minecraft:lush_caves") {
+                player.playMusic(`Easy_Lemon`, musicOptions)
             }
             // Шахты - низ
             else if (player.location.y < 0) {

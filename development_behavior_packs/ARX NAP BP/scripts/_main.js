@@ -14,6 +14,7 @@ import { showDialog } from './dialogues'
 import { isEntityInCube } from './core/music_core'
 import { interactWithViciousDemonSpawner } from './bosses/vicious_demon'
 import { weighAnalysis } from './weighAnalysis'
+import { fl, sl } from './lang/fetchLocalization'
 
 // Imports - Local scripts
 import './chat'
@@ -129,8 +130,8 @@ world.afterEvents.playerSpawn.subscribe((event) => {
                     // Blocks above broken portal
                     const b1 = d.getBlock({ x: -10001, y: 5, z: -10001 })
                     const b2 = d.getBlock({ x: -10001, y: 5, z: -9999 })
-                    const b3 = d.getBlock({ x: -9999,  y: 5, z: -10001 })
-                    const b4 = d.getBlock({ x: -9999,  y: 5, z: -9999 })
+                    const b3 = d.getBlock({ x: -9999, y: 5, z: -10001 })
+                    const b4 = d.getBlock({ x: -9999, y: 5, z: -9999 })
                     if (!b1 || !b2 || !b3 || !b4) throw new Error('Lobby is still loading')
 
                     d.placeFeature('arx:lobby_feature', { x: -9991, y: 0, z: -9989 }, true)
@@ -142,8 +143,8 @@ world.afterEvents.playerSpawn.subscribe((event) => {
                     // Are the bottom blocks correct?
                     const b5 = d.getBlock({ x: -10001, y: 3, z: -10001 }) // mossy_stone_bricks
                     const b6 = d.getBlock({ x: -10001, y: 3, z: -9999 }) // stone_bricks
-                    const b7 = d.getBlock({ x: -9999,  y: 3, z: -10001 }) // stone_bricks
-                    const b8 = d.getBlock({ x: -9999,  y: 3, z: -9999 }) // cracked_stone_bricks
+                    const b7 = d.getBlock({ x: -9999, y: 3, z: -10001 }) // stone_bricks
+                    const b8 = d.getBlock({ x: -9999, y: 3, z: -9999 }) // cracked_stone_bricks
 
                     if (b5.typeId != 'minecraft:mossy_stone_bricks' || b6.typeId != 'minecraft:stone_bricks' || b7.typeId != 'minecraft:stone_bricks' || b8.typeId != 'minecraft:cracked_stone_bricks') throw new Error('Wrong lobby placement')
                 }
@@ -159,6 +160,7 @@ world.afterEvents.playerSpawn.subscribe((event) => {
                 player.runCommand('title @s actionbar Successfull!')
                 d.spawnEntity('arx:lobby_character_creation', { x: -9999.5, y: 4, z: -9993 }, { initialRotation: 180 })
                 d.spawnEntity('arx:carved_bench', { x: -9994.5, y: 4, z: -10003.5 }, { initialRotation: 90 })
+                d.spawnEntity('arx:statue_of_sinriada', { x: -9991.5, y: 8, z: -9997.0 }, { initialRotation: 90 })
                 d.runCommand('tickingarea remove lobbyReg')
             }
 
@@ -363,7 +365,7 @@ world.afterEvents.playerInteractWithEntity.subscribe((interactEvent) => {
     }
     // Статуя Синриады у Порочных Садов
     else if (interactEvent.target?.typeId == "arx:statue_of_sinriada") {
-        interactEvent.player.runCommand('function statues/statue_of_sinriada')
+        sl(interactEvent.player, 'lobby.statue_of_sinriada')
     }
     // Аси
     else if (interactEvent.target?.typeId == "arx:asi") {

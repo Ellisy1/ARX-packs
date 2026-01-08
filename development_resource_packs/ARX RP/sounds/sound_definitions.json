@@ -473,15 +473,6 @@
    "music.overworld.jungle": {},
    "music.overworld.jungle_edge": {},
    "music.overworld.mesa": {},
-   "ai_music.deepDrumBass": {
-      "category": "music",
-      "sounds": [
-         {
-            "name": "sounds/ai_music/deepDrumBass",
-            "stream": true
-         }
-      ]
-   },
    "spell.healing": {
       "category": "neutral",
       "sounds": [
@@ -850,6 +841,24 @@
       "sounds": [
          {
             "name": "sounds/music/Silence",
+            "stream": true
+         }
+      ]
+   },
+   "Martian_Cowboy": {
+      "category": "music",
+      "sounds": [
+         {
+            "name": "sounds/music/Martian_Cowboy",
+            "stream": true
+         }
+      ]
+   },
+   "Easy_Lemon": {
+      "category": "music",
+      "sounds": [
+         {
+            "name": "sounds/music/Easy_Lemon",
             "stream": true
          }
       ]
