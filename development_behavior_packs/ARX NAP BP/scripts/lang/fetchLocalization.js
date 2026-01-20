@@ -8,10 +8,12 @@ const langMap = {
     'ru': ruLocalization,
     'en': enLocalization
 }
+const insertionsLimit = 64
 
 // Fetch Localization
 // This functions takes a player and textId as input and returns requested text as output 
-export function fl(player, textId) {
+// Insertions are words from array that we should insert in text. In raw text, they marks as $0$, $1$ and so on. $ is special symbol for parcer, and num is an index of insertion in array. 
+export function fl(player, textId, insertions = []) {
 
     // Wrong usage
     if (!player) {
@@ -32,18 +34,40 @@ export function fl(player, textId) {
 
     if (!returnText) returnText = `§cNo localization for ${textId} in ${langId}§f`
 
+    // Replace insertions with real text
+    if (insertions.length > 0) { // If there are any insertions
+        for (let i = 0; i < insertionsLimit; i++) { // Every iteration = parcing one insertion in returnText
+            const first$ = returnText.indexOf('$')
+            const second$ = returnText.indexOf('$', first$ + 1)
+            if (first$ === -1 || second$ === -1) break // No insertions to parce
+            const arrayIndexOfInsertion = +returnText.slice(first$ + 1, second$)
+            if (isNaN(arrayIndexOfInsertion) || arrayIndexOfInsertion < 0 || arrayIndexOfInsertion > insertions.length - 1) break // Something unexpected with index
+            const strWithInsertion = returnText.slice(0, first$) + insertions[arrayIndexOfInsertion] + returnText.slice(second$ + 1)
+            returnText = strWithInsertion
+        }
+    }
+
     // Return
-    return returnText 
+    return returnText
 }
 
 // Send localization
 // This function is a convenient way to shortly use fl() and permanently send the text to the player as a message.
-export function sl(player, textId) {
-    player.sendMessage(fl(player, textId))
+export function sl(player, textId, insertions = []) {
+    player.sendMessage(fl(player, textId, insertions))
+}
+
+// Send chat-like message from system
+export function slFromSystem(player, textId, insertions = []) {
+    player.sendMessage(`<§dSYSTEM§f> ${fl(player, textId, insertions)}`)
 }
 
 // Returns player's language as 'en' or 'ru' etc.
 function getPlayerLanguage(player) {
     const language = player.getDynamicProperty('language')
     return language in langMap ? language : defaultLanguage
+}
+
+function countChar(str, char) {
+    return str.split(char).length - 1;
 }

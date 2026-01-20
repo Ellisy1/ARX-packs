@@ -1,6 +1,6 @@
 // Arx core manager
 
-// Импорт - основа
+// Basic Imports
 import { system, world, EntityComponentTypes, EquipmentSlot, MolangVariableMap } from "@minecraft/server"
 
 import { getScore, setScore } from '../scoresOperations'
@@ -21,7 +21,7 @@ import { ssDP, iDP } from '../DPOperations'
 import { acquireTrait } from "../traits/traitsOperations"
 import { sendToActionBar } from './actionBarCore'
 
-// Импорт - другие области движка
+// Other core parts
 import { getNearestPlayer } from "../getNearestPlayer"
 import { queueCommand } from "../commandQueue"
 import { msgFromGuide, parceChatCommand } from "../chat"
@@ -29,13 +29,6 @@ import './ambience_core'
 import './dynamicLightCore'
 import { getEntityFamilies } from "../_main"
 import { infoScreen } from "../info/_infoScreen"
-
-// ARXGate
-export let ARXGate = {
-    index: "ARXGATE_INDEX",
-    out: "ARXGATE_OUTPUT",
-    in: `ARXGATE_INPUT000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000`
-}
 
 // 1 tick
 system.runInterval(() => {
@@ -1289,10 +1282,6 @@ system.runInterval(() => {
             wipeSkills(player)
             player.removeTag("wipeskills")
             player.runCommand(`tellraw @s { "rawtext": [ { "text": "§aНавыки сброшены." } ] }`)
-        }
-        if (player.hasTag("just_entered_arx")) {
-            ssDP(player, 'music_location_previous', 0)
-            player.removeTag("just_entered_arx")
         }
 
         // Интерфейс вкусов

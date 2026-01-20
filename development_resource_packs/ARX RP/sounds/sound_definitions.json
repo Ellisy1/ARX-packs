@@ -145,14 +145,6 @@
          }
       ]
    },
-   "moder_gun": {
-      "category": "hostile",
-      "sounds": [
-         {
-            "name": "sounds/items/moder_gun"
-         }
-      ]
-   },
    "mob.rat_eliminator.spawn": {
       "category": "neutral",
       "sounds": [
@@ -764,24 +756,6 @@
          }
       ]
    },
-   "Clean_Soul": {
-      "category": "music",
-      "sounds": [
-         {
-            "name": "sounds/music/Clean_Soul",
-            "stream": true
-         }
-      ]
-   },
-   "Angel_Share": {
-      "category": "music",
-      "sounds": [
-         {
-            "name": "sounds/music/Angel_Share",
-            "stream": true
-         }
-      ]
-   },
    "Morgana_Rides": {
       "category": "music",
       "sounds": [
@@ -859,6 +833,24 @@
       "sounds": [
          {
             "name": "sounds/music/Easy_Lemon",
+            "stream": true
+         }
+      ]
+   },
+   "Cattails": {
+      "category": "music",
+      "sounds": [
+         {
+            "name": "sounds/music/Cattails",
+            "stream": true
+         }
+      ]
+   },
+   "Clean_Soul": {
+      "category": "music",
+      "sounds": [
+         {
+            "name": "sounds/music/Clean_Soul",
             "stream": true
          }
       ]

@@ -1,13 +1,13 @@
 {
   "format_version": 2,
   "header": {
-    "description": "NAP [resourse]",
-    "name": "ARX resource pack 3.4.3 [1.21.0 engine]",
+    "description": "ARX Ultima [resourse pack]. Made by Kate (@pireta)",
+    "name": "ARX Ultima v 0.0.0",
     "uuid": "cad4ce53-2a75-45ac-83fb-85d44d83a36a",
     "version": [
-      3,
-      4,
-      3
+      0,
+      0,
+      0
     ],
     "min_engine_version": [
       1,

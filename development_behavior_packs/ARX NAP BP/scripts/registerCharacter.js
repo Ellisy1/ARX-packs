@@ -3,16 +3,26 @@ import { getScore, setScore } from "./scoresOperations"
 import { setRandomTastes } from './food/setRandomTastes'
 import { tasteBodyString } from "./core/core"
 import { ssDP } from "./DPOperations"
+import { world } from "@minecraft/server"
 
 // Функция регистрации персонажа
 export function registerCharacter(player) {
+    // Player already has a character
     if (player.getDynamicProperty('hasRegisteredCharacter') === true) {
         const formNo = new ActionFormData()
             .title("Регистрация невозможна")
             .body(`Вы уже имеете загрегитрованного персонажа ${player.getDynamicProperty('trueName')}`)
             .show(player)
     }
-    else if (player.getDynamicProperty('verify') === true) {
+    // Player isn't verified
+    else if (world.getDynamicProperty('requireUserVerification') && player.getDynamicProperty('verify') === false) {
+        const form = new ActionFormData()
+            .title("Создание персонажа")
+            .body(`Добро пожаловать в Аркс, §a${player.name}§f!\n\nДождитесь, пока вас верифицируют! Верификация означает, что вы можете играть здесь.\n\nВам сразу же выдадут верификацию, как удостоверяется, что вы §aзнаете правила§f и §aимеете подходящий скин§f.\n\n\n\n\n\n\n\nВы получите сообщение, когда вас верифицируют.`)
+            .show(player)
+    }
+    // Everything is fine
+    else {
         switch (player.getDynamicProperty('registerCharacterStage')) {
             case undefined:
             case 0: // Начало регистрации
@@ -256,10 +266,5 @@ export function registerCharacter(player) {
                     })
                 break
         }
-    } else {
-        const form = new ActionFormData()
-            .title("Создание персонажа")
-            .body(`Добро пожаловать в Аркс, §a${player.name}§f!\n\nДождитесь, пока вас верифицируют! Верификация означает, что вы можете играть здесь.\n\nВам сразу же выдадут верификацию, как удостоверяется, что вы §aзнаете правила§f и §aимеете подходящий скин§f.\n\n\n\n\n\n\n\nВы получите сообщение, когда вас верифицируют.`)
-            .show(player)
     }
 }

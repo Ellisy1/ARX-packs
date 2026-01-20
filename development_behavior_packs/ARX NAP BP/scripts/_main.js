@@ -33,6 +33,7 @@ import { getPlayersInRadius } from "./getPlayersInRadius"
 import { getItem } from "./items/getItem"
 import { getActiveStaffChannel } from "./magic/getActiveStaffChannel"
 import { obj2str } from "./converters"
+import { isAdmin, getAdmins } from './admin'
 
 world.afterEvents.playerButtonInput.subscribe((event) => {
     const button = event.button
@@ -92,7 +93,20 @@ world.afterEvents.playerSpawn.subscribe((event) => {
     player.nameTag = ""
     player.runCommand("function javascript/on_player_spawn")
     player.runCommand("function javascript/scores_autoreg")
-    player.addTag("just_entered_arx")
+
+    // Restart their music
+    ssDP(player, 'musicLocation', undefined)
+
+    // Is this the thirst time the player entered Arx?
+    const thirstPlay = player.getDynamicProperty('hasEverPlayedArx')
+    if (!thirstPlay) {
+        if (world.getDynamicProperty('requireUserVerification')) {
+            for (const admin of getAdmins()) {
+                sl(admin, 'lobby.new_player_entered_arx', [player.name])
+            }
+        }
+        ssDP(player, 'hasEverPlayedArx', true)
+    }
 
     ssDP(player, 'camera:activeCamera', false)
     ssDP(player, 'camera:tickCountdownToNextTimecode', 0)
@@ -109,6 +123,16 @@ world.afterEvents.playerSpawn.subscribe((event) => {
         if (!arxEverLoaded) {
             ssDP(world, 'initialSpawnPoint', obj2str(player.location))
             world.setDefaultSpawnLocation({ x: -10000, y: 4, z: -10000 })
+
+            // Gamerules default settings
+            world.gameRules.sendCommandFeedback = false
+            world.gameRules.doInsomnia = false
+            world.gameRules.doWeatherCycle = false
+            world.gameRules.showDeathMessages = false
+
+            // Remember who is hoster
+            ssDP(player, 'isHoster', true)
+
             const d = world.getDimension('minecraft:overworld')
             // Lobby room creation
             let loadingCD = 10 // sec
@@ -165,6 +189,7 @@ world.afterEvents.playerSpawn.subscribe((event) => {
             }
 
             createLobby(d, player)
+            ssDP(world, 'arxEverLoaded', true)
         }
     }
 });

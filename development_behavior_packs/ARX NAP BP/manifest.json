@@ -1,11 +1,11 @@
 {
   "format_version": 2,
   "header": {
-    "description": "NAP [behaviour]",
-    "name": "New ARX Pack 3 [behaviour] [1.20.32 engine]",
+    "description": "ARX Ultima pack [behaviour]. Made by Kate (@pireta)",
+    "name": "ARX Ultima v 0.0.0",
     "uuid": "54d940a1-9f7c-42a9-9f41-e591764a8b60",
     "version": [
-      3,
+      0,
       0,
       0
     ],

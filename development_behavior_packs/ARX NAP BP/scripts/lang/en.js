@@ -1,5 +1,6 @@
 export const enLocalization = {
     'lobby.statue_of_sinriada': "A statue of a tall women. The text on the nameplate is highly damaged, you can't understand it",
+    'lobby.verify.new_player_entered_arx': "Player $0$ §ajust entered Arx§f! Verification required. Use !verify command",
 
     'food.iron_pie': '§cThere\'s something sharp in this pie!',
     'food.permanent_mp_potion.successful': '§aMax mana §d+1§a!',
@@ -10,4 +11,6 @@ export const enLocalization = {
     'food.not_tasty': 'Not tasty!',
     'food.normal_taste': 'Meh.',
     'food.happiness_bonus': 'Happiness bonus',
+
+    'chat.command.unable_to_use_cus_admin_rights_required': '§cUnable to use this command without admin rights',
 }

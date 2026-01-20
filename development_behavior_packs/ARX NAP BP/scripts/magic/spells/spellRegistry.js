@@ -769,10 +769,8 @@ Object.keys(spellRegistry).forEach(spell => {
     if (!spellRegistry[spell].mpCost) console.warn(`Некорректно указана требуемая мана для заклинания ${spell}`)
     if (!spellRegistry[spell].mpCost) console.warn(`Отсутствует описание для заклинания ${spell}`)
     const runeArray = spell.split(' ')
-    const firstRune = runeArray[0]
-    if (firstRune != 'kon' && firstRune != 'sin' && firstRune != 'san' && firstRune != 'din') console.warn(`Некорректная первая руна для заклинания ${key}`)
     runeArray.forEach((rune, index) => {
-        if (!Object.keys(runeCiphers).includes(rune)) console.warn(`Неверная руна ${element} в заклинании ${spell}`)
+        if (!Object.keys(runeCiphers).includes(rune)) console.warn(`Non-existent rune ${rune} in spell ${spell}`)
     })
     // Добавляем шифровку рун каждому заклинанию в реестр заклинаний
     let cipher = ''

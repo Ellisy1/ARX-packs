@@ -5,12 +5,14 @@ import { getScore } from './scoresOperations'
 import { getSkillsData } from './skillsOperations'
 import { queueCommand } from './commandQueue'
 import { checkForItem } from "./checkForItem"
+import { sl, fl } from "./lang/fetchLocalization"
 
 import { runeCiphers } from './magic/rune_cipher_list'
 import { cipherRuneSequence } from './magic/on_use_magic_items'
 
 import { acquireTrait, checkForTrait, clearTraits } from './traits/traitsOperations'
 import { ssDP } from "./DPOperations"
+import { isAdmin, getAdmins } from './admin'
 
 // Обработка чата before
 world.beforeEvents.chatSend.subscribe((eventData) => {
@@ -34,9 +36,9 @@ export function parceChatCommand(player, trimmedMessage) {
 
         if (command[0] == "!test") { // Тест функция
             if (isAdmin(player)) {
-                acquireTrait(player, undefined, command[1])
+                sl(player, 'lobby.verify.new_player_entered_arx', [player.name])
             } else {
-                queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cНевозможно использовать команду ${command[0]} без прав модератора." } ] }`)
+                sl(player, 'chat.command.unable_to_use_cus_admin_rights_required')
             }
         }
 
@@ -53,7 +55,7 @@ export function parceChatCommand(player, trimmedMessage) {
                     player.sendMessage("[§dSYSTEM§f] > Не удалось получить координаты");
                 }
             } else {
-                queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cНевозможно использовать команду ${command[0]} без прав модератора." } ] }`);
+                sl(player, 'chat.command.unable_to_use_cus_admin_rights_required')
             }
         }
 
@@ -69,13 +71,8 @@ export function parceChatCommand(player, trimmedMessage) {
                     queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cОшибка: ${error}" } ] }`);
                 }
             } else {
-                queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cНевозможно использовать команду ${command[0]} без прав модератора." } ] }`)
+                sl(player, 'chat.command.unable_to_use_cus_admin_rights_required')
             }
-        }
-
-        else if (command[0] == "!rm") { // Получить инфо о груди
-            queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§fМузыка перезапущена. §eЕсли вы не её слышите, то убедитесь, что у вас громкость музыки не установлена в 0 (Меню -> Опции -> Звук -> Музыка)" } ] }`)
-            ssDP(player, 'music_location_previous', 0)
         }
 
         else if (command[0] == "!") { // Инфо о командах
@@ -140,7 +137,7 @@ export function parceChatCommand(player, trimmedMessage) {
                     }
                 }
             } else {
-                queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cТребуются права администратора!" } ] }`);
+                sl(player, 'chat.command.unable_to_use_cus_admin_rights_required')
             }
         }
 
@@ -152,7 +149,7 @@ export function parceChatCommand(player, trimmedMessage) {
                 }
             }
             else {
-                queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cНевозможно использовать команду ${command[0]} без прав модератора." } ] }`)
+                sl(player, 'chat.command.unable_to_use_cus_admin_rights_required')
             }
         }
 
@@ -164,7 +161,7 @@ export function parceChatCommand(player, trimmedMessage) {
                 }
             }
             else {
-                queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cНевозможно использовать команду ${command[0]} без прав модератора." } ] }`)
+                sl(player, 'chat.command.unable_to_use_cus_admin_rights_required')
             }
         }
 
@@ -174,43 +171,40 @@ export function parceChatCommand(player, trimmedMessage) {
                 queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§f§aКликните на блок§f, чтобы получить данные о его взаимдействиях на этом хосте." } ] }`)
             }
             else {
-                queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cНевозможно использовать команду ${command[0]} без прав модератора." } ] }`)
+                sl(player, 'chat.command.unable_to_use_cus_admin_rights_required')
             }
         }
 
         else if (command[0] == "!verify") { // Верификация игрока
-            if (isAdmin(player)) {
-                if (!command[1]) { queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cИспользуйте формат §f!§cverify §f<игрок>" } ] }`) }
-                else {
-                    const playerNickName = command.slice(1).join(' ')
+            if (!isAdmin(player)) sl(player, 'chat.command.unable_to_use_cus_admin_rights_required')
+            else if (!world.getDynamicProperty('requireUserVerification')) player.sendMessage('§cВерификация отключена глобально')
+            else if (!command[1]) player.sendMessage('§cИспользуйте формат §f!§cverify §f<игрок>')
+            else {
+                const playerNickName = command.slice(1).join(' ')
 
-                    const targetPlayer = world.getPlayers().find(p =>
-                        p.name.toLowerCase() === playerNickName.trim().toLowerCase()
-                    )
+                const targetPlayer = world.getPlayers().find(p =>
+                    p.name.toLowerCase() === playerNickName.trim().toLowerCase()
+                )
 
-                    if (!targetPlayer) {
-                        queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cИгрок с ником §f${playerNickName}§c не найден" } ] }`)
+                if (!targetPlayer) {
+                    queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cИгрок с ником §f${playerNickName}§c не найден" } ] }`)
+                } else {
+                    if (targetPlayer.getDynamicProperty('verify') == true) { // Если уже верифицирован
+                        queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§eИгрок §f${playerNickName}§e уже верифицирован" } ] }`)
                     } else {
-                        if (targetPlayer.getDynamicProperty('verify') == true) { // Если уже верифицирован
-                            queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§eИгрок §f${playerNickName}§e уже верифицирован" } ] }`)
-                        } else {
-                            player.sendMessage(`§aВыдана верификация§f игроку §a${targetPlayer.name}`)
-                            targetPlayer.sendMessage("§aВам выдана верификация!§f Вы можете приступать к созданию персонажа.")
-                            // Говорим, как начать создание персонажа
-                            let textToSend
-                            switch (targetPlayer.inputInfo.lastInputModeUsed) {
-                                case 'KeyboardAndMouse': textToSend = 'Для этого подойдите к статуе <Создать персонажа> и нажмите на неё правой кнопкой мыши.'; break
-                                case 'Touch': textToSend = 'Для этого подойдите к статуе <Создать персонажа> и долго зажмите на ней пальцем.'
-                            }
-                            if (textToSend) targetPlayer.sendMessage(textToSend)
-                            queueCommand(targetPlayer, 'playsound random.orb @s ~ ~ ~ ')
-                            ssDP(targetPlayer, 'verify', true)
+                        player.sendMessage(`§aВыдана верификация§f игроку §a${targetPlayer.name}`)
+                        targetPlayer.sendMessage("§aВам выдана верификация!§f Вы можете приступать к созданию персонажа.")
+                        // Говорим, как начать создание персонажа
+                        let textToSend
+                        switch (targetPlayer.inputInfo.lastInputModeUsed) {
+                            case 'KeyboardAndMouse': textToSend = 'Для этого подойдите к статуе <Создать персонажа> и нажмите на неё правой кнопкой мыши.'; break
+                            case 'Touch': textToSend = 'Для этого подойдите к статуе <Создать персонажа> и долго зажмите на ней пальцем.'
                         }
+                        if (textToSend) targetPlayer.sendMessage(textToSend)
+                        queueCommand(targetPlayer, 'playsound random.orb @s ~ ~ ~ ')
+                        ssDP(targetPlayer, 'verify', true)
                     }
                 }
-            }
-            else {
-                queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cНевозможно использовать команду ${command[0]} без прав модератора." } ] }`)
             }
         }
 
@@ -247,7 +241,7 @@ export function parceChatCommand(player, trimmedMessage) {
         }
 
         else if (command[0].toLowerCase() == "!д" || command[0].toLowerCase() == "!a" || command[0].toLowerCase() == "!me") { // Использование действия
-            if (world.getDynamicProperty('RPMode') === true) {
+            if (world.getDynamicProperty('localChatEnabled') === true) {
                 if (player.getDynamicProperty('respawnDelay') === 0) {
                     sendChatMessage(player, `§o(${trimmedMessage.slice(3).trim()})`, "§bДействие", 8, player.getDynamicProperty('name'))
                 }
@@ -261,7 +255,7 @@ export function parceChatCommand(player, trimmedMessage) {
         }
 
         else if (command[0].startsWith("!к") && command[0].length - ((command[0].match(/к/g) || []).length) === 1) { // Использование крика
-            if (world.getDynamicProperty('RPMode') === true) {
+            if (world.getDynamicProperty('localChatEnabled') === true) {
                 if (player.getDynamicProperty('respawnDelay') === 0) {
                     if (!command[1]) {
                         queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cНельзя крикнуть без слов, чел." } ] }`)
@@ -297,7 +291,7 @@ export function parceChatCommand(player, trimmedMessage) {
         }
 
         else if (command[0].toLowerCase() == "!г" || command[0].toLowerCase() == "!g") {
-            if (world.getDynamicProperty('RPMode') === true) {
+            if (world.getDynamicProperty('localChatEnabled') === true) {
                 if (player.getDynamicProperty('respawnDelay') === 0) {
                     if (!command[1]) {
                         player.sendMessage(`§cНельзя отправить пустое глобальное сообщение.`)
@@ -417,7 +411,7 @@ function sendChatMessage(player, speech, prefix, clearDistance = 0, senderName =
     }
 
     // ЕСЛИ ВКЛЮЧЕН РП ЧАТ
-    if (world.getDynamicProperty('RPMode') === true) {
+    if (world.getDynamicProperty('localChatEnabled') === true) {
         // Делаем речевую эмоцию, если это нужно
         if (!player.hasTag('is_emoting_via_arx_command') && (prefix === "§aЛокал." || prefix === "§vКрик")) {
             speechEmote(player, speech)
@@ -829,10 +823,6 @@ function speechEmote(player, phrase) {
     }
 
     return phraseStats; // Возвращаем статистику для дальнейшего использования
-}
-
-function isAdmin(player) {
-    return getScore(player, "verify") == 2 ? true : false
 }
 
 export function msgFromGuide(player, message) {

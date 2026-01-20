@@ -418,8 +418,6 @@ item.arx:teleportation_rune=§r§fРуна телепортации §e[Леге
 
 
 item.arx:mod_sword=§r§fМеч модератора §e[Ебалосносное]
-item.arx:moder_gun=§r§fСКС модератора §e[Ебалосносное]
-
 
 
 entity.arx:resurrected_armor_stand.name=Воскесший маникен

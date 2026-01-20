@@ -2,169 +2,254 @@
 
 // Imports
 import { system, world } from "@minecraft/server"
-import { getScore } from "../scoresOperations"
 import { ssDP } from "../DPOperations"
 
 const musicOptions = { fade: 2, loop: true }
 
-// Запускаем каждую 1 сек. 
+// All locations.
+// Proprity - if conditions for more then 1 locations met, system would choose location with less priority
+const musicLocations = {
+    // Mines
+    "upperMines": {
+        priority: 10,
+        condition: (player) => player.location.y < 55,
+        music: 'Ossuary_6_Air'
+    },
+    "deepslateMines": {
+        priority: 9,
+        condition: (player) => player.location.y < 0,
+        music: 'Ossuary_2_Turn'
+    },
+    "lushCaves": {
+        priority: 5,
+        condition: (player) => isInBiome(player, 'minecraft:lush_caves'),
+        music: 'Easy_Lemon'
+    },
+
+    // Sky
+    "sky": {
+        priority: 5,
+        condition: (player) => player.location.y > 120 && player.dimension.id === 'minecraft:overworld' && player.location.y - player.dimension.getBlockBelow(player.location).location.y > 14,
+        music: 'Cattails'
+    },
+
+    // Overworld biomes
+    "coldDay": {
+        priority: 10,
+        condition: (player) => player.hasTag("in_snow_biome") && isDay(),
+        music: 'The_Snow_Queen'
+    },
+    "coldNight": {
+        priority: 10,
+        condition: (player) => player.hasTag("in_snow_biome") && !isDay(),
+        music: 'Hidden_Past'
+    },
+
+    "birchDay": {
+        priority: 10,
+        condition: (player) => player.hasTag("BIOME_birch") && isDay(),
+        music: 'Morning'
+    },
+    "birchNight": {
+        priority: 10,
+        condition: (player) => player.hasTag("BIOME_birch") && !isDay(),
+        music: 'Silent_Night'
+    },
+
+    "beachDay": {
+        priority: 10,
+        condition: (player) => player.hasTag("BIOME_beach") && isDay(),
+        music: 'Kalimba_Relaxation_Music'
+    },
+    "beachNight": {
+        priority: 10,
+        condition: (player) => player.hasTag("BIOME_beach") && !isDay(),
+        music: 'Silver_Flame'
+    },
+
+    "desertDay": {
+        priority: 10,
+        condition: (player) => player.hasTag("BIOME_desert") && isDay(),
+        music: 'Adding_the_Sun'
+    },
+    "desertNight": {
+        priority: 10,
+        condition: (player) => player.hasTag("BIOME_desert") && !isDay(),
+        music: 'Comfortable_Mystery'
+    },
+
+    "taigaDay": {
+        priority: 10,
+        condition: (player) => player.hasTag("BIOME_taiga") && isDay(),
+        music: 'Ossuary_5_Rest'
+    },
+    "taigaNight": {
+        priority: 10,
+        condition: (player) => player.hasTag("BIOME_taiga") && !isDay(),
+        music: 'Ossuary_1_A_Beginning'
+    },
+
+    "jungleDay": {
+        priority: 10,
+        condition: (player) => player.hasTag("BIOME_jungle") && isDay(),
+        music: 'Energizing'
+    },
+    "jungleNight": {
+        priority: 10,
+        condition: (player) => player.hasTag("BIOME_jungle") && !isDay(),
+        music: 'Ancient_Rite'
+    },
+
+    "mangroveSwamp": {
+        priority: 10,
+        condition: (player) => player.hasTag("BIOME_mangrove_swamp"),
+        music: 'An_Upsetting_Theme'
+    },
+    "swamp": {
+        priority: 10,
+        condition: (player) => player.hasTag("BIOME_swamp"),
+        music: 'Myst_on_the_Moor'
+    },
+
+    "mesaDay": {
+        priority: 10,
+        condition: (player) => player.hasTag("BIOME_mesa") && isDay(),
+        music: 'Ether_Vox'
+    },
+    "mesaNight": {
+        priority: 10,
+        condition: (player) => player.hasTag("BIOME_mesa") && !isDay(),
+        music: 'Immersed'
+    },
+
+    "oceanDay": {
+        priority: 10,
+        condition: (player) => player.hasTag("BIOME_ocean") && isDay(),
+        music: 'Skye_Cuillin'
+    },
+    "oceanNight": {
+        priority: 10,
+        condition: (player) => player.hasTag("BIOME_ocean") && !isDay(),
+        music: 'Almost_New'
+    },
+
+    "plainsDay": {
+        priority: 10,
+        condition: (player) => player.hasTag("BIOME_plains") && isDay(),
+        music: 'Evening'
+    },
+    "plainsNight": {
+        priority: 10,
+        condition: (player) => player.hasTag("BIOME_plains") && !isDay(),
+        music: 'Canon_in_D_Major'
+    },
+
+    "roofedDay": {
+        priority: 10,
+        condition: (player) => player.hasTag("BIOME_roofed") && isDay(),
+        music: 'Man_Down'
+    },
+    "roofedNight": {
+        priority: 10,
+        condition: (player) => player.hasTag("BIOME_roofed") && !isDay(),
+        music: 'Moorland'
+    },
+
+    "savannaDay": {
+        priority: 10,
+        condition: (player) => player.hasTag("BIOME_savanna") && isDay(),
+        music: 'Ascending_the_Vale'
+    },
+    "savannaNight": {
+        priority: 10,
+        condition: (player) => player.hasTag("BIOME_savanna") && !isDay(),
+        music: 'With_the_Sea'
+    },
+
+    "forestDay": { // Default forest. Priority is 11 cus other forests also can trigger player.hasTag("BIOME_forest")
+        priority: 11,
+        condition: (player) => player.hasTag("BIOME_forest") && isDay(),
+        music: 'Magic_Forest'
+    },
+    "forestNight": {
+        priority: 11,
+        condition: (player) => player.hasTag("BIOME_forest") && !isDay(),
+        music: 'Temple_of_the_Manes'
+    },
+
+    // Special locations
+    "lobby": {
+        priority: 2,
+        condition: (player) => isEntityInCube(player, [-10020, 0, -10020], [-9980, 20, -9980]) && player.dimension.id === 'minecraft:overworld',
+        music: 'Martian_Cowboy'
+    },
+
+    // Other dimensions
+    "nether": {
+        priority: 99,
+        condition: (player) => player.dimension.id === 'minecraft:nether',
+        music: 'Wretched_Destroyer'
+    },
+
+    // Special conditions
+    "knocked": {
+        priority: 0,
+        condition: (player) => player.getDynamicProperty('respawnDelay') > 0,
+        music: 'Clean_Soul'
+    },
+}
+
+// Start every 1 sec
 system.runInterval(() => {
-    for (let player of world.getPlayers()) { // Цикл для каждого игрока
+    for (const player of world.getPlayers()) {
 
-        // Анализируем, где мы находимся
-        let music_location = 0
+        // Where the player was last processed time?
+        let musicLocationLastPass = player.getDynamicProperty('musicLocation')
 
-        // Кастомные локации. Ставят отрицательное значение
-        // Lobby
-        if (isEntityInCube(player, [-10020, 0, -10020], [-9980, 20, -9980])) {
-            music_location = -1
+        // Check every location of musicLocations
+        let validLocs = []
+        for (const loc in musicLocations) {
+            if (musicLocations[loc].condition(player)) validLocs.push(loc)
         }
 
-        // Мы не в кастомной локации
-        if (music_location === 0) {
-
-            // Биомы
-            if (player.location.y >= 55 || (player.hasTag("scarlet_night") && !isDay(player))) { // Надо ли нам проверять, в каком мы биоме?
-                music_location += player.hasTag("in_snow_biome") ? 1 : 0
-                music_location += player.hasTag("BIOME_birch") ? 2 : 0
-                music_location += player.hasTag("BIOME_desert") ? 3 : 0
-                music_location += player.hasTag("BIOME_forest") ? 4 : 0
-                music_location += player.hasTag("BIOME_jungle") ? 5 : 0
-                music_location += player.hasTag("BIOME_mangrove_swamp") ? 6 : 0
-                music_location += player.hasTag("BIOME_mesa") ? 7 : 0
-                music_location += player.hasTag("BIOME_ocean") ? 8 : 0
-                music_location += player.hasTag("BIOME_plains") ? 9 : 0
-                music_location += player.hasTag("BIOME_roofed") ? 10 : 0
-                music_location += player.hasTag("BIOME_savanna") ? 11 : 0
-                music_location += player.hasTag("BIOME_swamp") ? 12 : 0
-                music_location += player.hasTag("BIOME_taiga") ? 13 : 0
-                music_location += player.hasTag("BIOME_beach") ? 14 : 0
-                music_location += isDay(player) ? 777 : 0
-            }
-            // Измерения
-            music_location += player.hasTag("in_nether") ? 50 : 0
-            // Шахты
-            music_location += player.location.y < 0 ? 60 : 0
-            music_location += player.location.y < 55 ? 70 : 0
-            // Lush caves
-            music_location += player.dimension.getBiome(player.location).id === "minecraft:lush_caves" ? 81 : 0
+        // Now, process the array. System needs to define only one music location
+        let musicLocation
+        if (validLocs.length === 0) musicLocation = 'unknown'
+        else if (validLocs.length === 1) musicLocation = validLocs[0]
+        else {
+            // Finding the location with lowest priority
+            musicLocation = validLocs.reduce((bestKey, currentKey) => {
+                const best = musicLocations[bestKey]
+                const current = musicLocations[currentKey]
+                return current.priority < best.priority ? currentKey : bestKey
+            })
         }
 
+        // Remember player's music location
+        ssDP(player, 'musicLocation', musicLocation)
 
-        // Запускаем музыку
-        if (music_location != player.getDynamicProperty("music_location_previous")) {
-            // Запускаем музыку (выше в списке = приоритетнее)
+        // Now, check, is the music alrealy playing?
+        if (musicLocation === musicLocationLastPass) continue
 
-            // Lobby
-            if (isEntityInCube(player, [-10020, 0, -10020], [-9980, 20, -9980])) {
-                player.playMusic(`Martian_Cowboy`, musicOptions)
-            }
-            // Ад
-            else if (player.hasTag("in_nether")) {
-                player.playMusic(`Wretched_Destroyer`, musicOptions)
-            }
-            // Mines - lush caves
-            else if (player.dimension.getBiome(player.location).id === "minecraft:lush_caves") {
-                player.playMusic(`Easy_Lemon`, musicOptions)
-            }
-            // Шахты - низ
-            else if (player.location.y < 0) {
-                player.playMusic(`Ossuary_2_Turn`, musicOptions)
-            }
-            // Шахты - верх
-            else if (player.location.y < 55) {
-                player.playMusic(`Ossuary_6_Air`, musicOptions)
-            }
-            // Алая ночь
-            else if (player.hasTag("scarlet_night") && !isDay(player)) {
-                player.playMusic(`Hiding_Your_Reality`, musicOptions)
-            }
-            // Снег
-            else if (player.hasTag("in_snow_biome")) {
-                if (isDay(player)) { player.playMusic(`The_Snow_Queen`, musicOptions) }
-                else { player.playMusic(`Hidden_Past`, musicOptions) }
-            }
-            // Береза
-            else if (player.hasTag("BIOME_birch")) {
-                if (isDay(player)) { player.playMusic(`Morning`, musicOptions) }
-                else { player.playMusic(`Silent_Night`, musicOptions) }
-            }
-            // Пляж
-            else if (player.hasTag("BIOME_beach")) {
-                if (isDay(player)) { player.playMusic(`Kalimba_Relaxation_Music`, musicOptions) }
-                else { player.playMusic(`Silver_Flame`, musicOptions) }
-            }
-            // Пустыня
-            else if (player.hasTag("BIOME_desert")) {
-                if (isDay(player)) { player.playMusic(`Adding_the_Sun`, musicOptions) }
-                else { player.playMusic(`Comfortable_Mystery`, musicOptions) }
-            }
-            // Тайга
-            else if (player.hasTag("BIOME_taiga")) {
-                if (isDay(player)) { player.playMusic(`Ossuary_5_Rest`, musicOptions) }
-                else { player.playMusic(`Ossuary_1_A_Beginning`, musicOptions) }
-            }
-            // Обычный лес
-            else if (player.hasTag("BIOME_forest")) {
-                if (isDay(player)) { player.playMusic(`Magic_Forest`, musicOptions) }
-                else { player.playMusic(`Temple_of_the_Manes`, musicOptions) }
-            }
-            // Джунгли
-            else if (player.hasTag("BIOME_jungle")) {
-                if (isDay(player)) { player.playMusic(`Energizing`, musicOptions) }
-                else { player.playMusic(`Ancient_Rite`, musicOptions) }
-            }
-            // Мангровые болота
-            else if (player.hasTag("BIOME_mangrove_swamp")) {
-                player.playMusic(`An_Upsetting_Theme`, musicOptions)
-            }
-            // Меза
-            else if (player.hasTag("BIOME_mesa")) {
-                if (isDay(player)) { player.playMusic(`Ether_Vox`, musicOptions) }
-                else { player.playMusic(`Immersed`, musicOptions) }
-            }
-            // Океан (так же срабатывает на реки)
-            else if (player.hasTag("BIOME_ocean")) {
-                if (isDay(player)) { player.playMusic(`Skye_Cuillin`, musicOptions) }
-                else { player.playMusic(`Almost_New`, musicOptions) }
-            }
-            // Равнины
-            else if (player.hasTag("BIOME_plains")) {
-                if (isDay(player)) { player.playMusic(`Evening`, musicOptions) }
-                else { player.playMusic(`Canon_in_D_Major`, musicOptions) }
-            }
-            // Тёмный лес
-            else if (player.hasTag("BIOME_roofed")) {
-                if (isDay(player)) { player.playMusic(`Man_Down`, musicOptions) }
-                else { player.playMusic(`Moorland`, musicOptions) }
-            }
-            // Саванна
-            else if (player.hasTag("BIOME_savanna")) {
-                if (isDay(player)) { player.playMusic(`Ascending_the_Vale`, musicOptions) }
-                else { player.playMusic(`With_the_Sea`, musicOptions) }
-            }
-            // Болото
-            else if (player.hasTag("BIOME_swamp")) {
-                player.playMusic(`Myst_on_the_Moor`, musicOptions)
-            }
-
-            // Если ни одно условие выше не сработало
-            else {
-                if (isDay(player)) { player.playMusic(`Angel_Share`, musicOptions) }
-                else { player.playMusic(`Morgana_Rides`, musicOptions) }
-            }
-        }
-
-        ssDP(player, "music_location_previous", music_location)
+        // Music location changed. Play new music
+        console.warn(`Music -> ${musicLocation}`)
+        if (musicLocation === 'unknown') player.playMusic('Morgana_Rides', musicOptions)
+        else player.playMusic(musicLocations[musicLocation].music, musicOptions)
     }
 }, 20)
 
 
 
+// Is the player in specified biome?
+function isInBiome(player, biome) {
+    return player.dimension.getBiome(player.location).id === biome
+}
+
+
+
 // Функция для определения дня/ночи
-function isDay(player) {
-    // return world.getTimeOfDay() >= 360 && world.getTimeOfDay() < 12360;
-    return getScore(player, "is_day") == 0 ? false : true
+function isDay() {
+    return world.getTimeOfDay() < 12550 || world.getTimeOfDay() > 23500
 }
 
 

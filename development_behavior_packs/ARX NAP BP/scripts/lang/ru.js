@@ -10,4 +10,6 @@ export const ruLocalization = {
     'food.not_tasty': 'Невкусно!',
     'food.normal_taste': 'Нормально.',
     'food.happiness_bonus': 'Бонус счастья',
+
+    'chat.command.unable_to_use_cus_admin_rights_required': '§cНевозможно использовать эту команду без прав модератора.',
 }

@@ -37,12 +37,23 @@
           "variable.hand_bob = query.life_time < 0.01 ? 0.0 : variable.hand_bob + ((query.is_on_ground && query.is_alive ? math.clamp(math.sqrt(math.pow(query.position_delta(0), 2.0) + math.pow(query.position_delta(2), 2.0)), 0.0, 0.1) : 0.0) - variable.hand_bob) * 0.02;",
           "variable.map_angle = math.clamp(1 - variable.player_x_rotation / 45.1, 0.0, 1.0);",
           "variable.item_use_normalized = query.main_hand_item_use_duration / query.main_hand_item_max_duration;",
-          "variable.is_moving_anyway = query.is_moving || (query.ground_speed != 0) ? 1 : 0;"
+          "variable.is_moving_anyway = query.is_moving || (query.ground_speed != 0) ? 1 : 0;",
+          "variable.riding_y_offset = query.is_riding_any_entity_of_type('minecraft:minecart', 'minecraft:boat', 'minecraft:chest_boat', 'minecraft:strider') ? -3.0 : 0.0;",
+          "variable.first_person_item_rotation_factor = 1.0;"
         ],
         "animate": [
           "root",
           "sneaking_controller"
-        ]
+        ],
+        "variables": {
+          "variable.fp_melee_spear_use_attachable_rotation_z": "public",
+          "variable.tp_melee_spear_use_attachable_rotation_z": "public",
+          "variable.fp_melee_spear_attack_attachable_rotation_z": "public",
+          "variable.tp_melee_spear_attack_attachable_position_z": "public",
+          "variable.attack_time": "public",
+          "variable.item_use_normalized": "public"
+        },
+        "should_update_effects_offscreen": "1.0"
       },
       "animations": {
         "holdingveryheavy": "animation.weapon.hold.veryheavy",

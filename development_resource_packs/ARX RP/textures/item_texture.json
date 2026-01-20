@@ -2453,10 +2453,6 @@
     "arx:rune_ratatao_zelenchik": {
       "textures": "textures/items/runes/special/rune_ratatao_zelenchik"
     },
-
-    "arx:moder_gun": {
-      "textures": "textures/items/moder/moder_gun"
-    },
     
     "arx:bone_dagger": {
       "textures": "textures/items/weapons/daggers/bone_dagger"
