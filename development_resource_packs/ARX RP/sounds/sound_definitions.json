@@ -854,5 +854,14 @@
             "stream": true
          }
       ]
+   },
+   "Shadowlands_5_Antechamber": {
+      "category": "music",
+      "sounds": [
+         {
+            "name": "sounds/music/Shadowlands_5_Antechamber",
+            "stream": true
+         }
+      ]
    }
 }

@@ -1,0 +1,103 @@
+// Safely Set Dynamic Property
+// Saves value to Dynamic Property with extended data types
+// object - the object we should save DP on
+export function ssDP(object, DPName, value) {
+    if (!object || !DPName) {
+        console.warn(`Called ssDP() without necessary vars`)
+        return undefined
+    }
+    if (typeof value === 'function') {
+        console.warn('Cannot write function to DP with ssDP()')
+        return undefined
+    }
+    if (typeof value === 'string' && value.startsWith(specialDataTypePrefix)) {
+        console.warn(`ssDP(): cannot write a string that starts with ${specialDataTypePrefix}`)
+        return undefined
+    }
+
+    // Get the old value of this DP
+    const oldValue = object.getDynamicProperty(DPName)
+
+    // Special data format that can't be hadled just by obj.setDynamicProperty()
+    if (value !== null && typeof value === 'object') {
+        value = specialDataTypePrefix + JSON.stringify(value)
+    }
+    // If the new value is not equal to the old value, write the new value
+    if (oldValue !== value) {
+        object.setDynamicProperty(DPName, value)
+    }
+}
+
+// Increase Dyncamic Property
+// If you will try to increase non-existent DP, it will be set to the value that you are trying to add to this DP.
+// Returns new value after increase
+export function iDP(object, DPName, valueToIncrease = 1) {
+    if (!object || !DPName) {
+        console.warn(`Called iDP() without necessary vars`)
+        return undefined
+    }
+    if (typeof valueToIncrease === 'object' || typeof valueToIncrease === 'function') {
+        console.warn('iDP(): cannot use a function or an object as valueToIncrease')
+        return undefined
+    }
+
+    // Get the current DP value
+    const currentValue = gDP(object, DPName)
+
+    // If DP is empty (minecraft returns undefined if DP is empty), set it to valueToIncrease
+    if (currentValue === undefined) {
+        ssDP(object, DPName, valueToIncrease)
+        return valueToIncrease
+    }
+    // If DP is a string
+    else if (typeof currentValue === 'string') {
+        const newVlaue = currentValue + String(valueToIncrease)
+        ssDP(object, DPName, newVlaue)
+        return newVlaue
+    }
+    // If DP is a number
+    else if (typeof currentValue === 'number') {
+        if (typeof valueToIncrease !== 'number') {
+            console.warn(`iDP(): cannot increase a number ${currentValue} by a non-number value <${valueToIncrease}> (type ${typeof valueToIncrease})`)
+            return undefined
+        }
+        const newVlaue = currentValue + valueToIncrease
+        ssDP(object, DPName, newVlaue)
+        return newVlaue
+    }
+    // If DP is an array
+    else if (Array.isArray(currentValue)) {
+        currentValue.push(valueToIncrease)
+        ssDP(object, DPName, currentValue)
+        return currentValue
+    }
+    // Fallback (I don't see the way this code activates, but why not)
+    else {
+        console.warn('iDP(): cannot use this funcion with current values')
+        return undefined
+    }
+}
+
+// Get Dynamic Property
+// Supports arrays and objects
+export function gDP(object, DPName) {
+    if (!object || !DPName) {
+        console.warn(`Called gDP() without necessary vars`)
+        return undefined
+    }
+
+    let value = object.getDynamicProperty(DPName)
+    if (typeof value === 'string' && value.startsWith(specialDataTypePrefix)) {
+        try {
+            const result = JSON.parse(value.slice(specialDataTypePrefix.length))
+            return result
+        }
+        catch {
+            console.warn(`gDP(): dp ${DPName} cannot be deserialized (value: ${value})`)
+            return null
+        }
+    }
+    else return value
+}
+
+const specialDataTypePrefix = 'JSON$'
