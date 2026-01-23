@@ -79,11 +79,6 @@ scoreboard players add @a count_dist_x100 0
 scoreboard players add @a count_spells 0
 scoreboard players add @a count_spent_mp 0
 
-scoreboard players add @a crys_dur 0
-scoreboard players add @a crys_mob_calm 0
-scoreboard players add @a crys_return 0
-scoreboard players add @a crys_sw_respawn 0
-
 scoreboard players add @a attack_weakness 0
 
 scoreboard players add @a allow_block_buff 0

@@ -29,10 +29,16 @@ import './ambience_core'
 import './dynamicLightCore'
 import { getEntityFamilies } from "../_main"
 import { infoScreen } from "../info/_infoScreen"
+import { getHoster } from "../admin"
 
 // 1 tick
 system.runInterval(() => {
     world.getDimension("minecraft:overworld").runCommand("function core_parts_NAP/core")
+
+    // Watchdog system (imput)
+    if (world.getPlayers().length > 0) {
+        setScore(getHoster(), 'watchdog', Math.floor(Math.random() * 4294967296) - 2147483648)
+    }
 
     for (const player of world.getPlayers()) {
 
@@ -858,7 +864,7 @@ system.runInterval(() => {
     try {
         world.scoreboard.removeObjective('playtime_display')
     }
-    catch {}
+    catch { }
     world.scoreboard.addObjective('playtime_display', "§a§lHours played")
     for (const player of world.getPlayers()) {
         setScore(player, 'playtime_display', gDP(player, 'playTimeH'))

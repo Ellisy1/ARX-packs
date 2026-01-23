@@ -2,12 +2,12 @@
   "format_version": 2,
   "header": {
     "description": "ARX Ultima [resourse pack]. Made by Kate (@pireta)",
-    "name": "ARX Ultima 0.1.0",
+    "name": "ARX Ultima 0.1.1",
     "uuid": "cad4ce53-2a75-45ac-83fb-85d44d83a36a",
     "version": [
       0,
       1,
-      0
+      1
     ],
     "min_engine_version": [
       1,

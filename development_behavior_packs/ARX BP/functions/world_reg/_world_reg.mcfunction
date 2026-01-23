@@ -265,3 +265,7 @@ scoreboard objectives add spell_of_small_head dummy spell_of_small_head
     scoreboard objectives add learning dummy Этап_обучения
 
 scoreboard objectives add weighLoading dummy weighLoading
+
+# Watchdog
+scoreboard objectives add watchdog_last_pass dummy watchdog_last_pass
+scoreboard objectives add watchdog_counter dummy watchdog_counter
