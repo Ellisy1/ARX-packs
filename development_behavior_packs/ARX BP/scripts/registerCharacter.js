@@ -1,7 +1,7 @@
 import { ModalFormData, MessageFormData, ActionFormData } from "@minecraft/server-ui"
 import { getScore, setScore } from "./scoresOperations"
 import { setRandomTastes } from './food/setRandomTastes'
-import { tasteBodyString } from "./core/core"
+import { tasteBodyString } from "./info/infoAboutTastes"
 import { ssDP } from "./DPOperations"
 import { world } from "@minecraft/server"
 

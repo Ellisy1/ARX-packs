@@ -216,7 +216,7 @@ world.afterEvents.entitySpawn.subscribe((spawnEvent) => {
         for (let i = 0; i < (Math.random() * 20 + 5); i++) {
             generateGrass({ x: entity.location.x + Math.random() * 42 - 21, y: entity.location.y + Math.random() * 4 - 2, z: entity.location.z + Math.random() * 42 - 21 }, entity.dimension)
         }
-        entity.runCommand('event entity @s arx:suicide')
+        entity.remove()
     }
 
     if (entity.typeId === 'arx:wandering_flame_of_mines') ssDP(entity, 'dynamicLightPower', 9)

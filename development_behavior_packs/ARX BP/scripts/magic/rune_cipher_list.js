@@ -32,5 +32,5 @@ export const runeCiphers = {
     "minima": "AN", // Ослабление
     "durata": "AS", // Длительность
     "area": "AD", // Действие по площади
-    "alternus": "AL", // Действие по площади
+    "alternus": "AL", // Альетрнативное действие
 }

@@ -30,18 +30,6 @@
 # Звуки от Газгольдера Истрибитора
     execute as @e[type=arx:gasgolder_istribitor] at @s run playsound gasgolder_istribitor_saw @a ~ ~ ~ 
 
-# Если я (админ) в выживании, отключаем показ координат
-    execute if entity @a[scores={verify=2}, m=survival] run gamerule showcoordinates false
-
-# Урон от заклинаний пассивного урона
-    execute as @e[scores={tick_sempra_dps=1..}] run damage @s[scores={tick_nosempra_a=0, tick_nosempra_b=0, tick_nosempra_c=0}] 2
-    execute as @e[scores={tick_sempra_dps=1..}] run damage @s[scores={tick_nosempra_a=!0}] 1
-    execute as @e[scores={tick_sempra_dps=1..}] run damage @s[scores={tick_nosempra_b=!0}] 0
-    execute as @e[scores={tick_sempra_dps=1..}] run damage @s[scores={tick_nosempra_c=!0}] 0
-    execute at @e[scores={tick_sempra_dps=1..}, type=player] run particle arx:sempra_a ~ ~2 ~
-    execute at @e[scores={tick_sempra_dps=1..}, type=!player] run particle arx:sempra_a ~ ~1 ~
-    scoreboard players add @e[scores={tick_sempra_dps=1..}] tick_sempra_dps -1
-
 # Заклинание метки
     execute at @a[scores={mark=1..}] run particle minecraft:endrod ~ ~1 ~ 
     scoreboard players add @a[scores={mark=1..}] mark -1
@@ -80,10 +68,6 @@
 # Обнаружение и автофикс некоторых ошибок
     execute as @a[tag=self] run tellraw @a[scores={verify=2}] { "rawtext": [ { "text": "§4Обнаружена ошибка у @s core>>tags>>self" } ] }
     tag @a remove self
-    execute as @a[tag=staffself] run tellraw @a[scores={verify=2}] { "rawtext": [ { "text": "§4Обнаружена ошибка у @s core>>tags>>staffself" } ] }
-    tag @a remove staffself
-    execute as @a[tag=success] run tellraw @a[scores={verify=2}] { "rawtext": [ { "text": "§4Обнаружена ошибка у @s core>>tags>>success" } ] }
-    tag @a remove success
 
 # Обжигание об горячие предметы
     # Теги кузнечных клещей (tongs - обычные клещи, tongs_super - усиленные)
@@ -103,14 +87,6 @@
     # Чистка
         tag @a remove tongs
         tag @a remove tongs_super
-
-# Снятие масла при активных лампах
-    scoreboard players add @a[scores={lamp_oil=1..}, hasitem={item=arx:belt_lamp, location=slot.armor.legs}] lamp_oil -150
-    scoreboard players add @a[scores={lamp_oil=1..}, hasitem={item=arx:brightmouse, location=slot.armor.legs}] lamp_oil -67
-    scoreboard players add @a[scores={lamp_oil=1..}, hasitem={item=arx:magilight, location=slot.armor.legs}] lamp_oil -65
-    scoreboard players add @a[scores={lamp_oil=1..}, hasitem={item=arx:archilight, location=slot.armor.legs}] lamp_oil -43
-    scoreboard players add @a[scores={lamp_oil=1..}, hasitem={item=arx:firefly_belt_lamp, location=slot.armor.legs}] lamp_oil -30
-    scoreboard players add @a[scores={lamp_oil=1..}, hasitem={item=arx:mechanic_belt_lamp, location=slot.armor.legs}] lamp_oil -85
 
 # Деспавним крыс днём
     execute if entity @a[scores={verify=2, is_day=1}] at @e[family=despawn_as_ghost] run particle arx:rat_ghost_despawn ~ ~1.5 ~
