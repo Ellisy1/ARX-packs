@@ -56,10 +56,6 @@
 			"minecraft:on_hurt_by_player": {
 				"event": "become_agressive"
 			},
-			"minecraft:on_death": {
-				"event": "on_death",
-				"target": "self"
-			},
 			"minecraft:behavior.random_hover": {
 				"priority": 12,
 				"xz_dist": 8,
@@ -139,15 +135,6 @@
 			"minecraft:fire_immune": {}
 		},
 		"component_groups": {},
-		"events": {
-			"on_death": {
-				"queue_command": {
-					"command": [
-						"scoreboard players add @a[r=10] xp_tray 40",
-						"scoreboard players add @a[r=10] count_mob_kills 1"
-					]
-				}
-			}
-		}
+		"events": {}
 	}
 }

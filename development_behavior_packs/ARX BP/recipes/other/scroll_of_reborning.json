@@ -9,15 +9,12 @@
     "tags": [ "rune_crafting_table" ],
     "pattern": [
       "DED",
-      "BAB",
+      " A ",
       "DCD"
     ],
     "key": {
       "A": {
         "item": "minecraft:paper"
-      },
-      "B": {
-        "item": "arx:demon_entity"
       },
       "C": {
         "item": "arx:scientific_book"

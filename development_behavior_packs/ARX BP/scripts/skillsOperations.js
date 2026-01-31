@@ -65,7 +65,10 @@ export function calculateXPMultiplier(player) {
     if (checkForItem(player, "Feet", "arx:ring_aluminum_zircon")) { increaseMultiplier += 0.05 }
     if (checkForItem(player, "Offhand", "arx:ring_aluminum_zircon")) { increaseMultiplier += 0.05 }
 
-    // От опыта
+    // Amul
+    if (checkForItem(player, "Legs", "arx:amul_higher_knowledge")) { increaseMultiplier += 0.5 }
+
+    // By traits
     if (checkForTrait(player, 'genius')) { increaseMultiplier += 0.1 }
     if (checkForTrait(player, 'lazy')) { increaseMultiplier -= 0.1 }
 

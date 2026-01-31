@@ -122,22 +122,8 @@
 						}
 					}
 				]
-			},
-			"minecraft:on_death": {
-				"event": "on_death",
-				"target": "self"
 			}
 		},
-		"events": {
-			"on_death": {
-				"queue_command": {
-					"command": [
-						"scoreboard players set @a[r=10, scores={ach_kill_sand_elemental=0}] ach_kill_sand_elemental 1",
-						"scoreboard players add @a[r=10] xp_tray 300",
-						"scoreboard players add @a[r=10] count_mob_kills 1"
-					]
-				}
-			}
-		}
+		"events": {}
 	}
 }

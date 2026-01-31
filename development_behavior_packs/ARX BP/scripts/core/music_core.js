@@ -171,6 +171,17 @@ const musicLocations = {
         music: 'With_the_Sea'
     },
 
+    "extremeHillsDay": {
+        priority: 10,
+        condition: (player) => isInBiome(player, 'minecraft:extreme_hills') && isDay(),
+        music: 'Devonshire_Waltz_Allegretto'
+    },
+    "extremeHillsNight": {
+        priority: 10,
+        condition: (player) => isInBiome(player, 'minecraft:extreme_hills') && !isDay(),
+        music: 'A_Very_Brady_Special'
+    },
+
     "forestDay": { // Default forest. Priority is 11 cus other forests also can trigger player.hasTag("BIOME_forest")
         priority: 11,
         condition: (player) => player.hasTag("BIOME_forest") && isDay(),

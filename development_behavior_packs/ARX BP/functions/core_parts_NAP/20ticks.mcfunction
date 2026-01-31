@@ -49,10 +49,6 @@
     # Нагреватели
         tag @a[tag=!heating_by_heater_block_control] remove heating_by_heater_block_activate
         tag @a remove heating_by_heater_block_control
-        
-# Анализ алых ночей
-    tag @a remove scarlet_night
-    execute as @a if entity @s[scores={is_day=0}] run event entity @a arx:test_moon_phase
 
 # Одежда
     effect @a[tag=electrical_engineering_available, hasitem={item=arx:night_vision_device, location=slot.armor.head}] night_vision 12 0 true

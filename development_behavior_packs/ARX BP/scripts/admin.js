@@ -15,7 +15,7 @@ export function getAdmins() {
 export function getHoster() {
     let hosterArray = world.getPlayers().filter(player => getScore(player, 'verify') === 2)
     if (hosterArray.length !== 1) {
-        console.warn('Unexpected behaviour of getHoster(): No hosters or more then one hoster')
+        console.log('Unexpected behaviour of getHoster(): No hosters or more then one hoster')
         return undefined
     }
     return hosterArray[0]

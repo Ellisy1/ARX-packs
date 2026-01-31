@@ -82,21 +82,8 @@
 				"is_pushable": true,
 				"is_pushable_by_piston": true
 			},
-			"minecraft:conditional_bandwidth_optimization": {},
-			"minecraft:on_death": {
-				"event": "on_death",
-				"target": "self"
-			}
+			"minecraft:conditional_bandwidth_optimization": {}
 		},
-		"events": {
-			"on_death": {
-				"queue_command": {
-					"command": [
-						"scoreboard players add @a[r=10] xp_tray 7",
-						"scoreboard players add @a[r=10] count_mob_kills 1"
-					]
-				}
-			}
-		}
+		"events": {}
 	}
 }

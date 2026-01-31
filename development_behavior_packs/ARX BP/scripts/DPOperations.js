@@ -1,3 +1,5 @@
+import { str2obj, obj2str } from "./converters"
+
 // Safely Set Dynamic Property
 // Saves value to Dynamic Property with extended data types
 // object - the object we should save DP on
@@ -20,11 +22,16 @@ export function ssDP(object, DPName, value) {
 
     // Special data format that can't be hadled just by obj.setDynamicProperty()
     if (value !== null && typeof value === 'object') {
-        value = specialDataTypePrefix + JSON.stringify(value)
+        value = specialDataTypePrefix + obj2str(value)
     }
     // If the new value is not equal to the old value, write the new value
     if (oldValue !== value) {
-        object.setDynamicProperty(DPName, value)
+        try { // I use try - catch, because sometimes system can throw an error when trying to ssdp at imcopletely loaded player. It just can be ignored
+            object.setDynamicProperty(DPName, value)
+        }
+        catch {
+            console.log(`ssDP(): an unexpected problem with writing DP to Entity`)
+        }
     }
 }
 
@@ -89,7 +96,7 @@ export function gDP(object, DPName) {
     let value = object.getDynamicProperty(DPName)
     if (typeof value === 'string' && value.startsWith(specialDataTypePrefix)) {
         try {
-            const result = JSON.parse(value.slice(specialDataTypePrefix.length))
+            const result = str2obj(value.slice(specialDataTypePrefix.length))
             return result
         }
         catch {

@@ -338,9 +338,7 @@
 			"on_death": {
 				"queue_command": {
 					"command": [
-						"scoreboard players set @a[r=10, scores={ach_kill_rat_monster=0}] ach_kill_rat_monster 1",
-						"scoreboard players add @a[r=10] xp_tray 40",
-						"scoreboard players add @a[r=10] count_mob_kills 1"
+						"scoreboard players set @a[r=10, scores={ach_kill_rat_monster=0}] ach_kill_rat_monster 1"
 					]
 				}
 			},

@@ -62,10 +62,6 @@
 			"minecraft:on_hurt_by_player": {
 				"event": "become_agressive"
 			},
-			"minecraft:on_death": {
-				"event": "on_death",
-				"target": "self"
-			},
 			"minecraft:behavior.nearest_attackable_target": {
 				"priority": 3,
 				"must_see": true,
@@ -146,14 +142,6 @@
 			}
 		},
 		"events": {
-			"on_death": {
-				"queue_command": {
-					"command": [
-						"scoreboard players add @a[r=10] xp_tray 1500",
-						"scoreboard players add @a[r=10] count_mbs_kills 1"
-					]
-				}
-			},
 			"arx:summon_rat_monster": {
 				"queue_command": {
 					"command": [

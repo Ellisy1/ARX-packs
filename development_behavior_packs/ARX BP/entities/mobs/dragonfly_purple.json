@@ -36,10 +36,6 @@
 				"is_pushable_by_piston": true
 			},
 			"minecraft:conditional_bandwidth_optimization": {},
-			"minecraft:on_death": {
-				"event": "on_death",
-				"target": "self"
-			},
 			"minecraft:behavior.random_hover": {
 				"priority": 2,
 				"xz_dist": 8,
@@ -86,14 +82,6 @@
 		},
 		"component_groups": {},
 		"events": {
-			"on_death": {
-				"queue_command": {
-					"command": [
-						"scoreboard players add @a[r=10] xp_tray 1",
-						"scoreboard players add @a[r=10] count_mob_kills 1"
-					]
-				}
-			},
 			"minecraft:entity_spawned": {
 				"queue_command": {
 					"command": [

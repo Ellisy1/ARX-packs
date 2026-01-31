@@ -58,16 +58,19 @@ export function sl(player, textId, insertions = []) {
 }
 
 // Send chat-like message from system
-export function slFromSystem(player, textId, insertions = []) {
-    player.sendMessage(`<§dSYSTEM§f> ${fl(player, textId, insertions)}`)
+// Send message from system. Automatically adds all prefixes
+export function slfs(player, textId, insertions = []) {
+    player.sendMessage('[§dSystem§f] > ' + fl(player, textId, insertions))
+}
+
+// Send chat-like message from guide
+// Send message from guide. Automatically adds all prefixes
+export function slfg(player, textId, insertions = []) {
+    player.sendMessage('[§aGuide§f] > ' + fl(player, textId, insertions))
 }
 
 // Returns player's language as 'en' or 'ru' etc.
 function getPlayerLanguage(player) {
     const language = player.getDynamicProperty('language')
     return language in langMap ? language : defaultLanguage
-}
-
-function countChar(str, char) {
-    return str.split(char).length - 1;
 }

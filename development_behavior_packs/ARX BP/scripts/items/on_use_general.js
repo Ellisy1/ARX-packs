@@ -13,6 +13,8 @@ import { TPWithNoxenessionPortal } from '../portals'
 import { showDialog } from '../dialogues'
 import { clearTraits, acquireTrait } from '../traits/traitsOperations'
 import { iDP, ssDP, gDP } from "../DPOperations";
+import { sl } from "../lang/fetchLocalization";
+import { md5 } from "../converters";
 
 // Использование предметов
 world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юзание предмета на ПКМ
@@ -23,10 +25,7 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
         // Тест
         case "arx:mod_sword":
             if (manageCD(player)) {
-                console.warn(getScore(player, 'abadfcs'))
-                console.warn(incScore(player, 'abadfcs', 10))
-                incScore(player, 'abadfcs', 10)
-                console.warn(getScore(player, 'abadfcs'))
+                console.warn(md5('abc'))
             }
             break
 
@@ -96,17 +95,21 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
 
         // КНИГИ
         // Книги, дропающие чар книги
-        case "arx:book_case_a":
-            player.runCommand("function books/enchanted_books/book_case_a")
+        case 'arx:book_case_a':
+            player.runCommand('clear @s arx:book_case_a')
+            player.runCommand('loot give @s loot "custom/book_case_a"')
             break
-        case "arx:book_case_b":
-            player.runCommand("function books/enchanted_books/book_case_b")
+        case 'arx:book_case_b':
+            player.runCommand('clear @s arx:book_case_b')
+            player.runCommand('loot give @s loot "custom/book_case_b"')
             break
-        case "arx:book_case_c":
-            player.runCommand("function books/enchanted_books/book_case_c")
+        case 'arx:book_case_c':
+            player.runCommand('clear @s arx:book_case_c')
+            player.runCommand('loot give @s loot "custom/book_case_c"')
             break
-        case "arx:book_case_d":
-            player.runCommand("function books/enchanted_books/book_case_d")
+        case 'arx:book_case_d':
+            player.runCommand('clear @s arx:book_case_d')
+            player.runCommand('loot give @s loot "custom/book_case_d"')
             break
 
         // Читаемые
@@ -639,17 +642,61 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
             player.runCommand('clear @s arx:scroll_of_barrier_breaking 0 1');
 
             break;
-        // ДЕМОНСКОЕ
+        // Demon book
         case "arx:demon_book":
             if (manageCD(player)) {
-                player.runCommand("function demon/demon_book")
+                const r = Math.random()
+                // DEFAULT RARITY
+                // Demon damages
+                if (r < 0.16) {
+                    sl(player, 'book_demon.damage')
+                    player.applyDamage(8, { cause: 'magic' })
+                }
+                // Demon grants regen
+                else if (r < 0.32) {
+                    sl(player, 'book_demon.regen')
+                    player.addEffect('regeneration', 60, { amplifier: 1, showParticles: true })
+                }
+                // Demon grants coal
+                else if (r < 0.48) {
+                    sl(player, 'book_demon.grants_coal')
+                    player.runCommand('give @s coal')
+                }
+                // Demon is busy
+                else if (r < 0.64) {
+                    sl(player, 'book_demon.busy')
+                }
+                // Demon grants power
+                else if (r < 0.94) {
+                    sl(player, 'book_demon.grants_power')
+                    player.addEffect('strength', 400, { amplifier: 0, showParticles: false })
+                }
+                // Demon grants mask
+                else if (r < 0.97) {
+                    sl(player, 'book_demon.grants_mask')
+                    player.runCommand('give @s arx:demon_mask')
+                }
+                // RARE
+                // Demon left book
+                else if (r < 0.98) {
+                    sl(player, 'book_demon.leave_book')
+                    player.runCommand('clear @s arx:demon_book')
+                    player.runCommand('give @s book')
+                }
+                // Poisoning
+                else if (r < 0.99) {
+                    sl(player, 'book_demon.poison')
+                    player.addEffect('poison', 2400, { amplifier: 0, showParticles: true })
+                }
+                // Levitation
+                else {
+                    sl(player, 'book_demon.levitate')
+                    player.addEffect('levitation', 3, { amplifier: 40, showParticles: false })
+                }
             }
             break
-        case "arx:undemon_book":
-            player.runCommand("function demon/undemon_book")
-            break
 
-        // ИНФО
+        // Info book
         case "arx:united_player_data":
             if (player.getDynamicProperty('myRule:cinematographicMode') === true && player.hasTag('is_sneaking') && player.getDynamicProperty('respawnDelay') === 0) {
                 launchCameraUI(player)

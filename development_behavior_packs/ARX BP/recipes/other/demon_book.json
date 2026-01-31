@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "arx:demon_book"
+    },
+
+    
+    "tags": [ "rune_crafting_table" ],
+    "pattern": [
+      "B B",
+      " A ",
+      "B B"
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:book"
+      }, 
+      "B": {
+        "item": "minecraft:redstone_block"
+      }
+    },
+    "result": {
+      "item": "arx:demon_book"
+    }
+  }
+}

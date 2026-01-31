@@ -647,22 +647,10 @@
       "minecraft:nameable": {
       },
       "minecraft:conditional_bandwidth_optimization": {
-      },
-			"minecraft:on_death": {
-				"event": "on_death",
-				"target": "self"
-			}
+      }
     },
 
     "events": {
-      "on_death": {
-				"queue_command": {
-					"command": [
-						"scoreboard players add @a[r=10] xp_tray 1",
-            "scoreboard players add @a[r=10] count_mob_kills 1"
-					]
-				}
-			},
       "minecraft:become_anenonme": {
         "add": { "component_groups": [ "minecraft:anenonme" ] }
       },

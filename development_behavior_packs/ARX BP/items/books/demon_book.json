@@ -1,0 +1,21 @@
+{
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:durability": {
+                "max_durability": 8
+            },
+            "minecraft:icon": "arx:demon_book",
+            "minecraft:cooldown": {
+                "category": "demon_book",
+                "duration": 30
+            }
+        },
+        "description": {
+            "identifier": "arx:demon_book",
+            "menu_category": {
+                "category": "items"
+            }
+        }
+    }
+}

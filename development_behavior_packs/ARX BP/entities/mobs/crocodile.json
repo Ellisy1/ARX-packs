@@ -91,10 +91,6 @@
 			"minecraft:on_hurt_by_player": {
 				"event": "become_agressive"
 			},
-			"minecraft:on_death": {
-				"event": "on_death",
-				"target": "self"
-			},
 			"minecraft:behavior.nearest_attackable_target": {
 				"priority": 2,
 				"must_see": true,
@@ -139,15 +135,6 @@
 				"damage": 7
 			}
 		},
-		"events": {
-			"on_death": {
-				"queue_command": {
-					"command": [
-						"scoreboard players add @a[r=10] xp_tray 65",
-						"scoreboard players add @a[r=10] count_mob_kills 1"
-					]
-				}
-			}
-		}
+		"events": {}
 	}
 }

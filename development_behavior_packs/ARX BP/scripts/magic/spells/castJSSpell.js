@@ -1,7 +1,7 @@
 // Imports
 import { getNearestPlayer } from '../../getNearestPlayer';
 import { getEntityFamilies } from '../../_main';
-import { system } from "@minecraft/server"
+import { system, MolangVariableMap } from "@minecraft/server"
 import { spellRegistry } from './spellRegistry';
 
 // Создает и возвращает объект spellData, хранящий в себе всё, что может пригодиться в обработке заклинания
@@ -41,7 +41,7 @@ function defineSpellData(player, runeSequence, currentTargetRaw) {
             targets = [player]
         }
         else if (currentTargetRaw === 2) {
-            const rayHits = player.getEntitiesFromViewDirection({ maxDistance: spellDistance })
+            const rayHits = player.getEntitiesFromViewDirection({ maxDistance: spellDistance, includeLiquidBlocks: false, includePassableBlocks: false })
                 .filter(hit => hit.entity.name !== player.name)
             if (rayHits.length > 0) {
                 // Находим hit с минимальной дистанцией
@@ -95,14 +95,15 @@ export function castJSSpell(player, runeSequence, target) {
     if (spellData.targets.length > 0) {
         let successfulCastsCounter = 0
         let wasWrongEntityType = false
+
         for (const entity of spellData.targets) {
             // Проверка onlyOnPlayers: true
             if (spell.onlyOnPlayers === true && entity.typeId !== 'minecraft:player') {
                 wasWrongEntityType = true
                 continue
             }
-            // Луч заклинания
-            if (!spellData.isAreaSpell && !spellData.castingOnSelf) spawnParticleTrail(spellData.initiator, entity, runeSequence)
+            // Trace
+            if (!spellData.isAreaSpell && !spellData.castingOnSelf) spawnParticleTrail(spellData.initiator, entity, runeSequence, spell.color)
             // Активируем заклинание
             spell.handler(entity, spellData)
             successfulCastsCounter++
@@ -115,8 +116,8 @@ export function castJSSpell(player, runeSequence, target) {
     }
 }
 
-// Создаем луч из частиц, зависимо от набранного заклинания 
-function spawnParticleTrail(initiator, entity, runeSequence, delayTicks = 0.25) {
+// Create spell trace
+function spawnParticleTrail(initiator, entity, runeSequence, colorFromSpell, delayTicks = 0.25) {
     let p0, p1;
 
     try {
@@ -126,10 +127,12 @@ function spawnParticleTrail(initiator, entity, runeSequence, delayTicks = 0.25) 
         return;
     }
 
-    // Определяем частицу
-    const magicDirection = runeSequence.substring(0, 3)
-    const particleName = `arx:magic_trace_${magicDirection}`
+    // Setting up a particle color
+    const molang = new MolangVariableMap()
+    const color = hexToParticleRgb(colorFromSpell) ?? { red: 1, green: 1, blue: 1 }
+    molang.setColorRGB('variable.color', color)
 
+    // Finding the points where we have to draw the particles
     const dx = p1.x - p0.x;
     const dy = p1.y - p0.y;
     const dz = p1.z - p0.z;
@@ -144,7 +147,16 @@ function spawnParticleTrail(initiator, entity, runeSequence, delayTicks = 0.25) 
         const z = p0.z + dz * t;
 
         system.runTimeout(() => {
-            initiator.dimension.spawnParticle(particleName, { x, y, z });
+            initiator.dimension.spawnParticle('arx:magic_trace_universal', { x, y, z }, molang);
         }, (i - 1) * delayTicks);
+    }
+}
+
+function hexToParticleRgb(hex) {
+    if (hex) {
+        const r = parseInt(hex.slice(1, 3), 16) / 255;
+        const g = parseInt(hex.slice(3, 5), 16) / 255;
+        const b = parseInt(hex.slice(5, 7), 16) / 255;
+        return { red: r, green: g, blue: b };
     }
 }

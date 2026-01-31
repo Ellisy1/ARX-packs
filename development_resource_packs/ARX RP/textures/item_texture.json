@@ -552,16 +552,6 @@
         "textures/items/clothes/light_armor/night_knight_icon"
       ]
     },
-    "arx:pallas_crown": {
-      "textures": [
-        "textures/items/clothes/light_armor/pallas_crown_icon"
-      ]
-    },
-    "arx:pires_crown": {
-      "textures": [
-        "textures/items/clothes/light_armor/pires_crown_icon"
-      ]
-    },
     "arx:precious_coat": {
       "textures": [
         "textures/items/clothes/light_armor/precious_coat_icon"
@@ -1050,17 +1040,8 @@
     "arx:big_storybook": {
       "textures": "textures/items/books/big_storybook"
     },
-    "arx:used_demon_book": {
-      "textures": "textures/items/books/used_demon_book"
-    },
     "arx:demon_book": {
       "textures": "textures/items/books/demon_book"
-    },
-    "arx:undemon_book": {
-      "textures": "textures/items/books/undemon_book"
-    },
-    "arx:demon_entity": {
-      "textures": "textures/items/crafting/demon_entity"
     },
     "arx:inst_cooler": {
       "textures": "textures/items/high_tec/instructions/inst_cooler"
@@ -1386,15 +1367,12 @@
     },
 
 
-    "arx:bertold's_silver_ring": {
-      "textures": "textures/items/jewelry/rings/bertold's_silver_ring"
-    },
     "arx:ring_of_immortal_eagle": {
       "textures": "textures/items/jewelry/rings/ring_of_immortal_eagle"
     },
 
 
-    //амулеты
+    // Amulets
     "arx:demon_chain": {
       "textures": "textures/items/jewelry/amulets/demon_chain"
     },
@@ -1430,12 +1408,6 @@
     },
     "arx:amul_string": {
       "textures": "textures/items/jewelry/amulets/amul_string"
-    },
-    "arx:amul_pires": {
-      "textures": "textures/items/jewelry/amulets/amul_pires"
-    },
-    "arx:amul_pallas": {
-      "textures": "textures/items/jewelry/amulets/amul_pallas"
     },
     "arx:amul_demon_essence": {
       "textures": "textures/items/jewelry/amulets/amul_demon_essence"
@@ -3122,9 +3094,6 @@
     },
     "arx:plumbum_saber": {
       "textures": "textures/items/weapons/default/plumbum_saber"
-    },
-    "arx:hacksaw": {
-      "textures": "textures/items/weapons/default/hacksaw"
     },
     "arx:cast_iron_tooth": {
       "textures": "textures/items/weapons/default/cast_iron_tooth"

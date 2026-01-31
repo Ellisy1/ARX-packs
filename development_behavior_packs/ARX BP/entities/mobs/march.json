@@ -340,7 +340,6 @@
 			"on_death": {
 				"queue_command": {
 					"command": [
-						"scoreboard players add @a[r=10, has_property={arx:is_knocked=false}] xp_tray 1200",
 						"scoreboard players add @a[r=10, has_property={arx:is_knocked=false}] count_bss_kills 1",
 						"function march/finalize_battle_march_lost"
 					]

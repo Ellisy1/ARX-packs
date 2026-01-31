@@ -53,18 +53,6 @@ scoreboard objectives add freezing dummy freezing
 
 scoreboard objectives add on_hurt_delay dummy on_hurt_delay
 
-scoreboard objectives add water_block_saki dummy water_block_saki
-
-scoreboard objectives add sin_host_block dummy sin_host_block
-scoreboard objectives add sin_host_saki dummy sin_host_saki
-
-scoreboard objectives add blind_block dummy blind_block
-scoreboard objectives add blind_block_saki dummy blind_block_saki
-
-scoreboard objectives add check_one_point dummy Дебаг_позиции
-
-scoreboard objectives add demon_power dummy сила_демона
-
 scoreboard objectives add weather dummy Погода
 scoreboard objectives add weather_cond dummy Тип_погоды
 scoreboard players set @s weather_cond 0
@@ -75,12 +63,7 @@ scoreboard objectives add day_delta dummy Дельта_дня
 
 scoreboard objectives add in_battle dummy В_бою
 
-scoreboard objectives add regen_saki_a dummy regen_saki_a
-scoreboard objectives add regen_saki_b dummy regen_saki_b
-scoreboard objectives add regen_saki_c dummy regen_saki_c
-
 scoreboard objectives add invisible dummy Невидимость
-scoreboard objectives add invis_saki dummy Невид_саки
 
 scoreboard objectives add teleport_def dummy Обычн_тп
 scoreboard objectives add teleport_dmg dummy Тп_с_уроном
@@ -161,32 +144,6 @@ scoreboard players set @s sec 0
 scoreboard objectives setdisplay list time_h
 
 scoreboard objectives add attack_weakness dummy attack_weakness
-
-#Книги
-    scoreboard objectives add book_asar_i dummy book_asar_i
-    scoreboard objectives add book_asar_ii dummy book_asar_ii
-    scoreboard objectives add book_asar_iii dummy book_asar_iii
-    scoreboard objectives add book_asar_iv dummy book_asar_iv
-    scoreboard objectives add book_asar_v dummy book_asar_v
-    scoreboard objectives add book_asar_vi dummy book_asar_vi
-    scoreboard objectives add book_asar_vii dummy book_asar_vii
-    scoreboard objectives add book_asar_viii dummy book_asar_viii
-    scoreboard objectives add book_asar_ix dummy book_asar_ix
-    scoreboard objectives add book_asar_x dummy book_asar_x
-    scoreboard objectives add book_th_ab_gods dummy book_th_ab_gods
-    scoreboard objectives add book_golfari dummy book_golfari
-    scoreboard objectives add book_namel_pal dummy book_namel_pal
-    scoreboard objectives add book_holy_sakura dummy book_holy_sakura
-    scoreboard objectives add book_wand_puppet dummy book_wand_puppet
-    scoreboard objectives add book_dragon_arti dummy book_dragon_arti
-    scoreboard objectives add book_dext dummy book_dext
-    scoreboard objectives add book_philosophy dummy book_philosophy
-    scoreboard objectives add book_imm_eagle dummy book_imm_eagle
-    scoreboard objectives add book_fallen_god dummy book_fallen_god
-    scoreboard objectives add book_about_ancients dummy book_about_ancients
-    scoreboard objectives add book_about_tsaskhin dummy book_about_tsaskhin
-    scoreboard objectives add book_about_march dummy book_about_march
-    scoreboard objectives add book_oculus_primae_maledictionis dummy book_oculus_primae_maledictionis
 
 # Высокотехнологичное
     scoreboard objectives add battery_avail dummy battery_avail

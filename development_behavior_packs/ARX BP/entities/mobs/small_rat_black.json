@@ -102,10 +102,6 @@
 			},
 			"minecraft:on_hurt_by_player": {
 				"event": "damage_trigger"
-			},
-			"minecraft:on_death": {
-				"event": "on_death",
-				"target": "self"
 			}
 		},
 		"component_groups": {
@@ -169,14 +165,6 @@
 			"become_calm": {
 				"remove": {
 					"component_groups": "arx:agressive"
-				}
-			},
-			"on_death": {
-				"queue_command": {
-					"command": [
-						"scoreboard players add @a[r=10] xp_tray 10",
-						"scoreboard players add @a[r=10] count_mob_kills 1"
-					]
 				}
 			}
 		}

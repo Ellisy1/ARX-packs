@@ -308,22 +308,10 @@
         "priority": 10,
         "target_distance": 6.0,
         "probability": 0.02
-      },
-			"minecraft:on_death": {
-				"event": "on_death",
-				"target": "self"
-			}
+      }
     },
 
     "events": {
-      "on_death": {
-				"queue_command": {
-					"command": [
-						"scoreboard players add @a[r=10] xp_tray 2",
-            "scoreboard players add @a[r=10] count_mob_kills 1"
-					]
-				}
-			},
       "minecraft:entity_spawned": {
         "sequence": [
           {

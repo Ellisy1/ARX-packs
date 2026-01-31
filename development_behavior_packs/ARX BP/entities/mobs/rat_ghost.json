@@ -103,10 +103,6 @@
 					5
 				],
 				"probability": 0.5
-			},
-			"minecraft:on_death": {
-				"event": "on_death",
-				"target": "self"
 			}
 		},
 		"component_groups": {
@@ -115,14 +111,6 @@
 			}
 		},
 		"events": {
-			"on_death": {
-				"queue_command": {
-					"command": [
-						"summon arx:rat_ghost_to_eliminator",
-						"scoreboard players add @a[r=10] count_mob_kills 1"
-					]
-				}
-			},
 			"minecraft:entity_spawned": {
 				"queue_command": {
 					"command": [

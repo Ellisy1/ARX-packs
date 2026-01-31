@@ -2,10 +2,10 @@ import { ModalFormData, MessageFormData, ActionFormData } from "@minecraft/serve
 import { getScore, setScore } from "./scoresOperations"
 import { setRandomTastes } from './food/setRandomTastes'
 import { tasteBodyString } from "./info/infoAboutTastes"
-import { ssDP } from "./DPOperations"
+import { gDP, ssDP } from "./DPOperations"
 import { world } from "@minecraft/server"
 
-// Функция регистрации персонажа
+// Register character
 export function registerCharacter(player) {
     // Player already has a character
     if (player.getDynamicProperty('hasRegisteredCharacter') === true) {
@@ -253,6 +253,7 @@ export function registerCharacter(player) {
                     .then((response) => {
                         if (response.selection != undefined) { // Игрок нажал хоть что-то
                             if (response.selection === 0) {
+                                player.teleport(gDP(world, 'worldSpawnPoint'), { dimension: world.getDimension('minecraft:overworld'), checkForBlocks: false, keepVelocity: false })
                                 player.runCommand("function tp/2_spawn")
 
                                 ssDP(player, "registerCharacterStage", 0)

@@ -189,21 +189,9 @@
       "minecraft:nameable": {},
       "minecraft:loot": {
         "table": "loot_tables/entities/warden.json"
-      },
-			"minecraft:on_death": {
-				"event": "on_death",
-				"target": "self"
-			}
+      }
     },
     "events": {
-      "on_death": {
-				"queue_command": {
-					"command": [
-						"scoreboard players add @a[r=10] xp_tray 300",
-            "scoreboard players add @a[r=10] count_mob_kills 1"
-					]
-				}
-			},
       "minecraft:spawn_emerging": {
         "add": {
           "component_groups": [

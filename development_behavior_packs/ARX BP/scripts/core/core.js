@@ -4,7 +4,7 @@
 import { system, world, EntityComponentTypes, EquipmentSlot, MolangVariableMap } from "@minecraft/server"
 
 import { getScore, setScore } from '../scoresOperations'
-import { calculateXPMultiplier, increaseSkillLevel, increaseSkillProgress, wipeSkills } from '../skillsOperations'
+import { increaseSkillLevel, increaseSkillProgress, wipeSkills } from '../skillsOperations'
 import { checkForItem } from "../checkForItem"
 import { ModalFormData, MessageFormData, MessageFormResponse } from "@minecraft/server-ui"
 import { setRandomTastes } from '../food/setRandomTastes'
@@ -66,7 +66,8 @@ const coreFramework = {
         tickSpeed: 1,
         operations: () => {
             if (world.getPlayers().length > 0) {
-                setScore(getHoster(), 'watchdog', Math.floor(Math.random() * 4294967296) - 2147483648)
+                const hoster = getHoster()
+                if (hoster) setScore(hoster, 'watchdog', Math.floor(Math.random() * 4294967296) - 2147483648)
             }
         }
     },
@@ -121,17 +122,17 @@ const coreFramework = {
                     let stringToDisplay
                     // Отображаем в тактах
                     if (player.getDynamicProperty("myRule:showAttackCDMode") == 'ticks') {
-                        if (player?.getDynamicProperty("prohibit_damage") > 0) stringToDisplay = ` §c${attackCD}`
+                        if (player?.getDynamicProperty("prohibit_damage") > 0) stringToDisplay = ` §c${attackCD}`
                         else stringToDisplay = ` ${attackCD}`
                     }
                     // Секундах
                     else if (player.getDynamicProperty("myRule:showAttackCDMode") == 'seconds') {
-                        if (player?.getDynamicProperty("prohibit_damage") > 0) stringToDisplay = ` §c${Math.ceil(attackCD / 20)}`
+                        if (player?.getDynamicProperty("prohibit_damage") > 0) stringToDisplay = ` §c${Math.ceil(attackCD / 20)}`
                         else stringToDisplay = ` ${Math.ceil(attackCD / 20)}`
                     }
                     // Дробных долях секунд
                     else if (player.getDynamicProperty("myRule:showAttackCDMode") == 'secondsFloat') {
-                        if (player?.getDynamicProperty("prohibit_damage") > 0) stringToDisplay = ` §c${(attackCD / 20).toFixed(1)}`
+                        if (player?.getDynamicProperty("prohibit_damage") > 0) stringToDisplay = ` §c${(attackCD / 20).toFixed(1)}`
                         else stringToDisplay = ` ${(attackCD / 20).toFixed(1)}`
                     }
                     // Строкой
@@ -140,7 +141,7 @@ const coreFramework = {
                         if (player?.getDynamicProperty("prohibit_damage") > 0) {
                             for (let i = 0; i < Math.ceil(attackCD / 10); i++) { damageString += '=' }
                             damageString += "§f"
-                            stringToDisplay = ` §c${damageString}§f `
+                            stringToDisplay = ` §c${damageString}§f `
                         }
                         else {
                             for (let i = 0; i < Math.ceil(attackCD / 10); i++) { damageString += '-' }
@@ -636,7 +637,7 @@ const coreFramework = {
         tickSpeed: 20,
         operations: () => {
             for (const player of world.getPlayers()) {
-                if (player.getGameMode() !== 'Creative' && player.getGameMode() !== 'Spectator') {
+                if (player.getGameMode() !== 'Creative' && player.getGameMode() !== 'Spectator' && gDP(player, 'hasRegisteredCharacter')) {
                     let freezing = player.getDynamicProperty('freezing')
 
                     // Определяем блокировку холода
@@ -1786,7 +1787,7 @@ export function displayMPAndAdjacent(player) {
 
         sendToActionBar(player, 'magicChannel', `§d${channelRomanNums[activeChannel - 1]} канал`, 2)
         sendToActionBar(player, 'magicTarget', `§d${targets[activeTarget - 1]}`, 2)
-        sendToActionBar(player, 'MP', `${manaStr} §1MP`, 2)
+        sendToActionBar(player, 'MP', `${manaStr} `, 2)
     }
     // Мы держим руну
     else if (itemTags?.includes('is_rune')) {
@@ -1808,7 +1809,7 @@ export function displayMPAndAdjacent(player) {
         const activeChannel = getActiveStaffChannel(player, channels, false)
 
         sendToActionBar(player, 'magicChannel', `§d${channelRomanNums[activeChannel - 1]} канал`, 2)
-        sendToActionBar(player, 'MP', `${manaStr} §1MP`, 2)
+        sendToActionBar(player, 'MP', `${manaStr} `, 2)
     }
     // Мы держим волшебную палочку
     else if (itemTags?.includes('is_wand')) {
@@ -1833,7 +1834,7 @@ export function displayMPAndAdjacent(player) {
         const targetRuOpposite = player.getDynamicProperty(currentChannel) === 1 ? '§6на другого' : '§aна себя'
 
         sendToActionBar(player, 'magicChannel', `§d${channelRomanNums[activeChannel - 1]}§f канал ${targetRuCurrent}§f -> §o${targetRuOpposite}`, 2)
-        sendToActionBar(player, 'MP', `${manaStr} §1MP`, 2)
+        sendToActionBar(player, 'MP', `${manaStr}`, 2)
     }
     // У нас амулет гиперсинергии
     else if (checkForItem(player, "Legs", 'arx:amul_hypersynergy') || checkForItem(player, "Legs", 'arx:amul_hypersynergy_improved') || checkForItem(player, "Legs", 'arx:amul_hypersynergy_superior')) {
@@ -1847,9 +1848,9 @@ export function displayMPAndAdjacent(player) {
         const activeChannel = getActiveStaffChannel(player, channels, false)
 
         sendToActionBar(player, 'magicChannel', `§7${channelRomanNums[activeChannel - 1]} канал`, 2)
-        sendToActionBar(player, 'MP', `${manaStr} §1MP`, 2)
+        sendToActionBar(player, 'MP', `${manaStr}`, 2)
     }
 
     // Выводим ману в любом случае
-    sendToActionBar(player, 'MP', `${manaStr} §1MP`, 2)
+    sendToActionBar(player, 'MP', `${manaStr}`, 2)
 }

@@ -390,26 +390,6 @@ function sendChatMessage(player, speech, prefix, clearDistance = 0, senderName =
         return undefined
     }
 
-    // Обрабатываем, если игрок - материшинник
-    if (checkForTrait(player, 'rude') && prefix !== "§cГлобал." && prefix !== "§bДействие" && prefix !== "§vКрик") {
-        // Надо вставить мат
-        if (Math.random() > 0.5) {
-            const lastSymbol = '!.?'.includes(speech[speech.length - 1]) ? speech[speech.length - 1] : ''
-            if (lastSymbol) {
-                speech = speech.slice(0, -1)
-            }
-
-            const rand = Math.floor(Math.random() * 5)
-            switch (rand) {
-                case 0: speech = speech + ', сука' + lastSymbol; break
-                case 1: speech = speech + ', блядь' + lastSymbol; break
-                case 2: speech = speech + ', ёпта' + lastSymbol; break
-                case 3: speech = speech + ', бля' + lastSymbol; break
-                case 4: speech = speech + ', ебать' + lastSymbol; break
-            }
-        }
-    }
-
     // ЕСЛИ ВКЛЮЧЕН РП ЧАТ
     if (world.getDynamicProperty('localChatEnabled') === true) {
         // Делаем речевую эмоцию, если это нужно

@@ -14,7 +14,7 @@ import { showDialog } from './dialogues'
 import { isEntityInCube } from './core/music_core'
 import { interactWithViciousDemonSpawner } from './bosses/vicious_demon'
 import { weighAnalysis } from './weighAnalysis'
-import { fl, sl } from './lang/fetchLocalization'
+import { fl, sl, slfs } from './lang/fetchLocalization'
 
 // Imports - Local scripts
 import './chat'
@@ -33,7 +33,7 @@ import { getPlayersInRadius } from "./getPlayersInRadius"
 import { getItem } from "./items/getItem"
 import { getActiveStaffChannel } from "./magic/getActiveStaffChannel"
 import { obj2str } from "./converters"
-import { isAdmin, getAdmins } from './admin'
+import { isAdmin, getAdmins, getHoster } from './admin'
 
 world.afterEvents.playerButtonInput.subscribe((event) => {
     const button = event.button
@@ -100,11 +100,27 @@ world.afterEvents.playerSpawn.subscribe((event) => {
     // Is this the thirst time the player entered Arx?
     const thirstPlay = player.getDynamicProperty('hasEverPlayedArx')
     if (!thirstPlay) {
+        // Notify admins about requred verification
         if (world.getDynamicProperty('requireUserVerification')) {
             for (const admin of getAdmins()) {
-                sl(admin, 'lobby.new_player_entered_arx', [player.name])
+                slfs(admin, 'lobby.new_player_entered_arx', [player.name])
             }
         }
+        // Check GM
+        if (player.getGameMode() === 'Creative') {
+            player.setGameMode("Survival")
+            if (world.getPlayers().length > 1) { // Notify moderator about player's gamemode changing 
+                for (const admin of getAdmins()) {
+                    slfs(admin, 'lobby.new_player_auto_gamemode_change', [player.name])
+                }
+            }
+        }
+        // Give Info book
+        {
+            const item = new ItemStack("minecraft:diamond", 1)
+            player.getComponent("inventory").container.addItem(item)
+        }
+
         ssDP(player, 'hasEverPlayedArx', true)
     }
 
@@ -121,8 +137,10 @@ world.afterEvents.playerSpawn.subscribe((event) => {
         let arxEverLoaded = world.getDynamicProperty('arxEverLoaded')
         // It's the first time
         if (!arxEverLoaded) {
-            ssDP(world, 'initialSpawnPoint', obj2str(player.location))
+            setScore(player, 'verify', 2) // Register the player as a hoster
             world.setDefaultSpawnLocation({ x: -10000, y: 4, z: -10000 })
+            ssDP(world, 'initialWorldSpawnPoint', player.location) // The location of the first spawnpoint
+            ssDP(world, 'worldSpawnPoint', player.location) // The location where a player spawn after registration
 
             // Gamerules default settings
             world.gameRules.sendCommandFeedback = false
@@ -132,6 +150,7 @@ world.afterEvents.playerSpawn.subscribe((event) => {
             world.gameRules.doImmediateRespawn = true
             world.gameRules.locatorBar = false
             world.gameRules.spawnRadius = 0
+            world.gameRules.showTags = false
 
             // Arx default settings
             ssDP(world, 'localChatEnabled', true)
@@ -141,7 +160,7 @@ world.afterEvents.playerSpawn.subscribe((event) => {
 
             const d = world.getDimension('minecraft:overworld')
             // Lobby room creation
-            let loadingCD = 10 // sec
+            let loadingCD = 16 // sec
 
             d.runCommand('tickingarea add -9980 0 -9980 -10020 0 -10020 lobbyReg true')
 
@@ -155,7 +174,7 @@ world.afterEvents.playerSpawn.subscribe((event) => {
                     loadingCD -= 1
                     if (loadingCD >= 0) throw new Error('Still loading')
 
-                    hoster.teleport({ x: -9999.5, y: 4, z: -9999.5 }, { checkForBlocks: false, dimension: d, facingLocation: { x: -9999.5, y: 4, z: -9993 }, keepVelocity: false })
+                    hoster.teleport({ x: -9999.5, y: 4, z: -9999.5 }, { checkForBlocks: true, dimension: d, facingLocation: { x: -9999.5, y: 4, z: -9993 }, keepVelocity: false })
                     // Verify lobby loading
                     // Blocks above broken portal
                     const b1 = d.getBlock({ x: -10001, y: 5, z: -10001 })

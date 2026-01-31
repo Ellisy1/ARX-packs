@@ -1,8 +1,12 @@
 import { ActionFormData } from "@minecraft/server-ui"
 import { getScore } from "../scoresOperations"
+import { calculateXPMultiplier } from "../skillsOperations"
 
-// Отображение UI еды
+// UI
 export function infoAboutStats(player) {
+    // Recalculate XP bonus
+    calculateXPMultiplier(player)
+
     const form = new ActionFormData()
         .title("Характеристики")
         .body(getBodyText(player))

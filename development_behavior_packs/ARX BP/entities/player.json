@@ -2980,23 +2980,6 @@
           }
         ]
       },
-      // Фаза луны
-      "arx:test_moon_phase": {
-        "sequence": [
-          {
-            "filters": {
-              "test": "moon_phase",
-              "operator": "==",
-              "value": 1
-            },
-            "queue_command": {
-              "command": [
-                "tag @s add scarlet_night"
-              ]
-            }
-          }
-        ]
-      },
       // Хп
       "arx:set_2_hp": {
         "add": {

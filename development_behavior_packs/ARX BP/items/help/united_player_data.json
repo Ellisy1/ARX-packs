@@ -3,7 +3,12 @@
     "minecraft:item": {
         "components": {
             "minecraft:icon": "arx:united_player_data",
-            "minecraft:max_stack_size": 1
+            "minecraft:max_stack_size": 1,
+            "minecraft:tags": {
+                "tags": [
+                    "is_invisible"
+                ]
+            }
         },
         "description": {
             "identifier": "arx:united_player_data",

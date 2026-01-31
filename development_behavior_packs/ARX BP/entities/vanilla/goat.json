@@ -428,10 +428,6 @@
         "is_pushable": true,
         "is_pushable_by_piston": true
       },
-      "minecraft:on_death": {
-        "event": "on_death",
-        "target": "self"
-      },
       "minecraft:on_hurt_by_player": {
         "event": "become_agressive"
       }
@@ -445,14 +441,6 @@
       "become_calm": {
         "remove": {
           "component_groups": "arx:agressive"
-        }
-      },
-      "on_death": {
-        "queue_command": {
-          "command": [
-            "scoreboard players add @a[r=10] xp_tray 18",
-            "scoreboard players add @a[r=10] count_mob_kills 1"
-          ]
         }
       },
       "minecraft:entity_spawned": {

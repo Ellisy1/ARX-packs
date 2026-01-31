@@ -273,7 +273,6 @@
         scoreboard players add @s[hasitem={item=arx:sturdy_staff}] weighLoading 3
         scoreboard players add @s[hasitem={item=arx:golden_moon_radiance}] weighLoading 1
         scoreboard players add @s[hasitem={item=arx:master_of_fates}] weighLoading 2
-        scoreboard players add @s[hasitem={item=arx:hacksaw}] weighLoading 1
         scoreboard players add @s[hasitem={item=arx:composite_toothed_sawsword}] weighLoading 5
 
     #Особые предметы
@@ -403,8 +402,6 @@
         scoreboard players add @s[hasitem={item=arx:moon_mask}] weighLoading 2
         scoreboard players add @s[hasitem={item=arx:night_knight}] weighLoading 3
         scoreboard players add @s[hasitem={item=arx:night_knight_helmet}] weighLoading 3
-        scoreboard players add @s[hasitem={item=arx:pallas_crown}] weighLoading 2
-        scoreboard players add @s[hasitem={item=arx:pires_crown}] weighLoading 2
         scoreboard players add @s[hasitem={item=arx:precious_coat}] weighLoading 3
         scoreboard players add @s[hasitem={item=arx:protector_armor}] weighLoading 4
         scoreboard players add @s[hasitem={item=arx:raven_armor}] weighLoading 5

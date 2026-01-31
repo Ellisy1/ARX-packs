@@ -62,27 +62,6 @@
          "sounds/charaters/pallada_beacon"
       ]
    },
-   "demon.agressive": {
-      "category": "neutral",
-      "sounds": [
-         "sounds/demon/agressive"
-      ]
-   },
-   "getdemon": {
-      "category": "neutral",
-      "sounds": [
-         "sounds/demon/getdemon"
-      ]
-   },
-   "demon.say": {
-      "category": "neutral",
-      "sounds": [
-         "sounds/demon/say1",
-         "sounds/demon/say2",
-         "sounds/demon/say3",
-         "sounds/demon/say4"
-      ]
-   },
    "undemon": {
       "category": "neutral",
       "sounds": [
@@ -96,36 +75,6 @@
             "name": "sounds/crpg_system/lvl_up",
             "stream": true
          }
-      ]
-   },
-   "action.sneeze.man": {
-      "category": "neutral",
-      "sounds": [
-         "sounds/player_actions/sneeze/sneeze_man_1",
-         "sounds/player_actions/sneeze/sneeze_man_2",
-         "sounds/player_actions/sneeze/sneeze_man_3"
-      ]
-   },
-   "action.sneeze.woman": {
-      "category": "neutral",
-      "sounds": [
-         "sounds/player_actions/sneeze/sneeze_woman_1",
-         "sounds/player_actions/sneeze/sneeze_woman_2",
-         "sounds/player_actions/sneeze/sneeze_woman_3"
-      ]
-   },
-   "action.cough.man": {
-      "category": "neutral",
-      "sounds": [
-         "sounds/player_actions/cough/cough_man_1",
-         "sounds/player_actions/cough/cough_man_2"
-      ]
-   },
-   "action.cough.woman": {
-      "category": "neutral",
-      "sounds": [
-         "sounds/player_actions/cough/cough_woman_1",
-         "sounds/player_actions/cough/cough_woman_2"
       ]
    },
    "skill_upgrade_stream": {
@@ -860,6 +809,24 @@
       "sounds": [
          {
             "name": "sounds/music/Shadowlands_5_Antechamber",
+            "stream": true
+         }
+      ]
+   },
+   "A_Very_Brady_Special": {
+      "category": "music",
+      "sounds": [
+         {
+            "name": "sounds/music/A_Very_Brady_Special",
+            "stream": true
+         }
+      ]
+   },
+   "Devonshire_Waltz_Allegretto": {
+      "category": "music",
+      "sounds": [
+         {
+            "name": "sounds/music/Devonshire_Waltz_Allegretto",
             "stream": true
          }
       ]

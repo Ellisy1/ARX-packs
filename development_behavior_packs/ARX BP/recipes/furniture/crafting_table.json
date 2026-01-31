@@ -8,15 +8,12 @@
     
     "tags": [ "crafting_table" ],
     "pattern": [
-      "ii",
+      "II",
       "II"
     ],
     "key": {
       "I": {
         "item": "minecraft:planks"
-      },
-      "i": {
-        "item": "minecraft:cobblestone"
       }
     },
     "result": {
