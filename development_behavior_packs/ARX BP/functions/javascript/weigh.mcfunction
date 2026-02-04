@@ -12,7 +12,6 @@
         scoreboard players add @s[hasitem={item=arx:dorionite_dismantler}] weighLoading 7
         scoreboard players add @s[hasitem={item=arx:steel_heavy_crusher}] weighLoading 7
         scoreboard players add @s[hasitem={item=arx:steel_light_sword}] weighLoading 2
-        scoreboard players add @s[hasitem={item=arx:adona_sword}] weighLoading 2
         scoreboard players add @s[hasitem={item=arx:blood_waiting}] weighLoading 3
         scoreboard players add @s[hasitem={item=arx:tearing_flesh}] weighLoading 2
         scoreboard players add @s[hasitem={item=arx:bone_dagger}] weighLoading 1
@@ -215,7 +214,6 @@
         scoreboard players add @s[hasitem={item=arx:steel_shortsword}] weighLoading 2
         scoreboard players add @s[hasitem={item=arx:steel_dark_shortsword}] weighLoading 2
         scoreboard players add @s[hasitem={item=arx:chloronite_shortsword}] weighLoading 2
-        scoreboard players add @s[hasitem={item=arx:chloronite_shortsword_magik}] weighLoading 2
         scoreboard players add @s[hasitem={item=arx:caryite_heavysword}] weighLoading 3
         scoreboard players add @s[hasitem={item=arx:cast_iron_tooth}] weighLoading 3
         scoreboard players add @s[hasitem={item=arx:steel_sword_with_gold_inlay}] weighLoading 3
@@ -257,7 +255,6 @@
         scoreboard players add @s[hasitem={item=arx:staff_golden_with_violet_handle}] weighLoading 1
         scoreboard players add @s[hasitem={item=arx:staff_of_scarlet_moon}] weighLoading 1
         scoreboard players add @s[hasitem={item=arx:staff_battle}] weighLoading 3
-        scoreboard players add @s[hasitem={item=arx:staff_battle_custom_magik}] weighLoading 3
         scoreboard players add @s[hasitem={item=arx:staff_of_hell}] weighLoading 1
         scoreboard players add @s[hasitem={item=arx:staff_of_snowlands}] weighLoading 1
         scoreboard players add @s[hasitem={item=arx:staff_din}] weighLoading 1
@@ -280,10 +277,8 @@
         scoreboard players add @s[hasitem={item=arx:blacksmith_tongs}] weighLoading 1
         scoreboard players add @s[hasitem={item=arx:blacksmith_tongs_super}] weighLoading 2
         scoreboard players add @s[hasitem={item=arx:heater}] weighLoading 3
-        scoreboard players add @s[hasitem={item=arx:steady_boat_spawner}] weighLoading 5
 
     #Одежда
-        scoreboard players add @s[hasitem={item=arx:adona_jacket}] weighLoading 2
         scoreboard players add @s[hasitem={item=arx:apprentice_robe}] weighLoading 2
         scoreboard players add @s[hasitem={item=arx:archmage_robe}] weighLoading 2
         scoreboard players add @s[hasitem={item=arx:big_hat}] weighLoading 1
@@ -303,7 +298,6 @@
         scoreboard players add @s[hasitem={item=arx:demon_mask}] weighLoading 1
         scoreboard players add @s[hasitem={item=arx:derek_hat}] weighLoading 1
         scoreboard players add @s[hasitem={item=arx:diadem_of_desert_wanderer}] weighLoading 1
-        scoreboard players add @s[hasitem={item=arx:diadem_of_the_forgotten_queen}] weighLoading 1
         scoreboard players add @s[hasitem={item=arx:dress_of_green_rose}] weighLoading 1
         scoreboard players add @s[hasitem={item=arx:elven_tunic}] weighLoading 1
         scoreboard players add @s[hasitem={item=arx:exquisite_town_clothes}] weighLoading 2
@@ -313,16 +307,12 @@
         scoreboard players add @s[hasitem={item=arx:gown_of_desert_wanderer}] weighLoading 1
         scoreboard players add @s[hasitem={item=arx:gray_dress}] weighLoading 1
         scoreboard players add @s[hasitem={item=arx:night_hunter_dress}] weighLoading 1
-        scoreboard players add @s[hasitem={item=arx:gray_dress_of_the_forgotten_queen}] weighLoading 1
         scoreboard players add @s[hasitem={item=arx:horn_mask}] weighLoading 1
         scoreboard players add @s[hasitem={item=arx:hu_tao_hat}] weighLoading 1
-        scoreboard players add @s[hasitem={item=arx:kofata_clothes}] weighLoading 2
         scoreboard players add @s[hasitem={item=arx:morning_forest_clothes}] weighLoading 1
         scoreboard players add @s[hasitem={item=arx:night_vision_device}] weighLoading 1
-        scoreboard players add @s[hasitem={item=arx:pallada_sweater}] weighLoading 2
         scoreboard players add @s[hasitem={item=arx:pirate_clothes}] weighLoading 2
         scoreboard players add @s[hasitem={item=arx:pirate_hat}] weighLoading 1
-        scoreboard players add @s[hasitem={item=arx:pireta_clothes}] weighLoading 1
         scoreboard players add @s[hasitem={item=arx:plague_doctor_mask}] weighLoading 1
         scoreboard players add @s[hasitem={item=arx:purple_cape}] weighLoading 1
         scoreboard players add @s[hasitem={item=arx:ranger_clothes}] weighLoading 2
@@ -377,7 +367,6 @@
         scoreboard players add @s[hasitem={item=arx:pallas_apprentice_robe}] weighLoading 1
         scoreboard players add @s[hasitem={item=arx:pires_apprentice_robe}] weighLoading 1
         scoreboard players add @s[hasitem={item=arx:necro_mantle}] weighLoading 2
-        scoreboard players add @s[hasitem={item=arx:necro_mantle_zel}] weighLoading 2
         scoreboard players add @s[hasitem={item=arx:pallas_mage_mantle}] weighLoading 2
         scoreboard players add @s[hasitem={item=arx:pires_mage_mantle}] weighLoading 2
 
@@ -441,7 +430,6 @@
         scoreboard players add @s[hasitem={item=arx:precursor_armor}] weighLoading 6
         scoreboard players add @s[hasitem={item=arx:precursor_helmet}] weighLoading 6
         scoreboard players add @s[hasitem={item=arx:purple_plate_helmet}] weighLoading 5
-        scoreboard players add @s[hasitem={item=arx:purple_plate_helmet_magik}] weighLoading 5
         scoreboard players add @s[hasitem={item=arx:purple_plates}] weighLoading 6
         scoreboard players add @s[hasitem={item=arx:steeletherite_armor}] weighLoading 8
         scoreboard players add @s[hasitem={item=arx:lamenite_plate_armor}] weighLoading 8

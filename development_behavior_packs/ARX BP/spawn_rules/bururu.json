@@ -18,7 +18,7 @@
         "minecraft:brightness_filter": {
           "min": 0,
           "max": 7,
-          "adjust_for_weather": true
+          "adjust_for_weather": false
         },
         "minecraft:biome_filter": [
           {"test": "has_biome_tag", "operator":"!=", "value": "nether"}

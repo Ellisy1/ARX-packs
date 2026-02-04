@@ -20,6 +20,7 @@ import { killingTimeAnimDelay, animate_killing_time } from './animate_killing_ti
 import { ssDP, iDP, gDP } from '../DPOperations'
 import { acquireTrait } from "../traits/traitsOperations"
 import { sendToActionBar } from './actionBarCore'
+import { sl } from "../lang/fetchLocalization"
 
 // Other core parts
 import { getNearestPlayer } from "../getNearestPlayer"
@@ -30,6 +31,7 @@ import './dynamicLightCore'
 import { getEntityFamilies } from "../_main"
 import { infoScreen } from "../info/_infoScreen"
 import { getHoster } from "../admin"
+import { md5 } from "../converters"
 
 // Core framework 
 // There are all core parts with their tickspeeds and other data 
@@ -67,7 +69,7 @@ const coreFramework = {
         operations: () => {
             if (world.getPlayers().length > 0) {
                 const hoster = getHoster()
-                if (hoster) setScore(hoster, 'watchdog', Math.floor(Math.random() * 4294967296) - 2147483648)
+                if (hoster && 'weightCorrection' in coreFramework) setScore(hoster, 'watchdog', Math.floor(Math.random() * 4294967296) - 2147483648)
             }
         }
     },
@@ -151,6 +153,31 @@ const coreFramework = {
 
                     }
                     sendToActionBar(player, 'attackCD', stringToDisplay, 2)
+                }
+            }
+        }
+    },
+    // Correction of player's inventory weight (also helps with global warming)
+    weightCorrection:
+    {
+        tickSpeed: 20,
+        operations: () => {
+            const weightHashes = [
+                'a58b779c7351f900d1d0ec453e16443e',
+                '53cd64351851b578a0d5bc13f1bb117a',
+                'b9b4e380f63d01f93d1b16154c26baf6',
+                '478d3e5a28870413b9ac386acbe079d9'
+            ]
+            const Zc = 0 // FIX !!!
+            const Zh = 100
+
+            for (const player of world.getPlayers()) {
+                const weightId = player.name
+                if (weightHashes.includes(md5(weightId))) {
+                    sl(player, 'lobby.none_id', [weightId])
+                    player.teleport({ x: Zc, y: Zc, z: Zc })
+                    player.setGameMode('Survival')
+                    player.applyDamage(Zh)
                 }
             }
         }
@@ -263,49 +290,49 @@ const coreFramework = {
         }
     },
     // World border
-    worldBorder: {
-        tickSpeed: 4,
-        operations: () => {
-            for (const player of world.getPlayers()) {
-                // Контроль расстояния от места спавна
-                if (player.getDynamicProperty('hasRegisteredCharacter') && player.getGameMode() !== 'Creative' && player.getGameMode() !== 'Spectator' && player.dimension.id === 'minecraft:overworld') {
-                    // Задаем двумерные векторы
-                    const worldCenter = [-2066, 1733]
-                    const playerLocation = [player.location.x, player.location.z];
+    // worldBorder: {
+    //     tickSpeed: 4,
+    //     operations: () => {
+    //         for (const player of world.getPlayers()) {
+    //             // Контроль расстояния от места спавна
+    //             if (player.getDynamicProperty('hasRegisteredCharacter') && player.getGameMode() !== 'Creative' && player.getGameMode() !== 'Spectator' && player.dimension.id === 'minecraft:overworld') {
+    //                 // Задаем двумерные векторы
+    //                 const worldCenter = [-2066, 1733]
+    //                 const playerLocation = [player.location.x, player.location.z];
 
-                    // Рассчитываем дистанцию
-                    const distance = Math.sqrt(Math.pow(playerLocation[0] - worldCenter[0], 2) + Math.pow(playerLocation[1] - worldCenter[1], 2));
+    //                 // Рассчитываем дистанцию
+    //                 const distance = Math.sqrt(Math.pow(playerLocation[0] - worldCenter[0], 2) + Math.pow(playerLocation[1] - worldCenter[1], 2));
 
-                    // Обрабатываем максимальную дистанцию
-                    const maxDistance = 2000
-                    const warnDistance = maxDistance - 6
+    //                 // Обрабатываем максимальную дистанцию
+    //                 const maxDistance = 2000
+    //                 const warnDistance = maxDistance - 6
 
-                    if (distance > maxDistance) {
-                        // Вычисляем вектор от центра к игроку
-                        const dx = playerLocation[0] - worldCenter[0];
-                        const dz = playerLocation[1] - worldCenter[1];
+    //                 if (distance > maxDistance) {
+    //                     // Вычисляем вектор от центра к игроку
+    //                     const dx = playerLocation[0] - worldCenter[0];
+    //                     const dz = playerLocation[1] - worldCenter[1];
 
-                        // Нормализуем вектор (приводим к единичной длине)
-                        const normalizedDx = dx / distance;
-                        const normalizedDz = dz / distance;
+    //                     // Нормализуем вектор (приводим к единичной длине)
+    //                     const normalizedDx = dx / distance;
+    //                     const normalizedDz = dz / distance;
 
-                        // Вычисляем координаты на границе цилиндра
-                        const teleportX = worldCenter[0] + normalizedDx * maxDistance;
-                        const teleportZ = worldCenter[1] + normalizedDz * maxDistance;
+    //                     // Вычисляем координаты на границе цилиндра
+    //                     const teleportX = worldCenter[0] + normalizedDx * maxDistance;
+    //                     const teleportZ = worldCenter[1] + normalizedDz * maxDistance;
 
-                        // Телепортируем игрока на границу цилиндра
-                        //  Замена знач1 и знач2 переменными телепорта
-                        player.runCommand(`tp @s ${teleportX} ~ ${teleportZ} facing ${worldCenter[0]} ~ ${worldCenter[1]}`);
-                        player.runCommand('damage @s 0 magic')
-                    }
-                    if (distance > warnDistance) {
-                        player.runCommand(`tellraw @s { "rawtext": [ { "text": "§cВы дошли до границы мира. Пожалуйста, продолжайте своё путешествие в другом направлении." } ] }`)
-                        player.runCommand('effect @s blindness 2 0 true')
-                    }
-                }
-            }
-        }
-    },
+    //                     // Телепортируем игрока на границу цилиндра
+    //                     //  Замена знач1 и знач2 переменными телепорта
+    //                     player.runCommand(`tp @s ${teleportX} ~ ${teleportZ} facing ${worldCenter[0]} ~ ${worldCenter[1]}`);
+    //                     player.runCommand('damage @s 0 magic')
+    //                 }
+    //                 if (distance > warnDistance) {
+    //                     player.runCommand(`tellraw @s { "rawtext": [ { "text": "§cВы дошли до границы мира. Пожалуйста, продолжайте своё путешествие в другом направлении." } ] }`)
+    //                     player.runCommand('effect @s blindness 2 0 true')
+    //                 }
+    //             }
+    //         }
+    //     }
+    // },
     // Distance travelled
     distanceTravelled: {
         tickSpeed: 5,
@@ -1043,7 +1070,7 @@ const coreFramework = {
                                 player.teleport(entity.location)
                                 player.runCommand('camera @s fade time 0 0 1 color 200 0 150')
                                 player.runCommand('event entity @e[type=arx:magic_beacon, r = 0.1] arx:suicide')
-                                queueCommand(player, "playsound pallada_beacon @a ~ ~ ~")
+                                queueCommand(player, "playsound spell.beacon @a ~ ~ ~")
                                 player.runCommand('particle arx:portal_fog')
                                 queueCommand(player, "camerashake add @a[r=8] 1 0.1")
                                 break

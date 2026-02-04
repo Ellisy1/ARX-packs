@@ -11,8 +11,6 @@
     scoreboard players add @s count_hits 1
 
 # Отслеживание состояний
-    # Отслеживание боя (нигде не используется, просто есть)
-        scoreboard players set @s in_battle 10
     # Задержка для установки минимального интервала между получеными ударами
         scoreboard players set @s on_hurt_delay 10
 

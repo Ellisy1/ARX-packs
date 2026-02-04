@@ -91,7 +91,6 @@ world.afterEvents.playerInventoryItemChange.subscribe((event) => {
 world.afterEvents.playerSpawn.subscribe((event) => {
     const player = event.player; // Получаем объект игрока
     player.nameTag = ""
-    player.runCommand("function javascript/on_player_spawn")
     player.runCommand("function javascript/scores_autoreg")
 
     // Restart their music

@@ -56,12 +56,6 @@
          "sounds/items/crystal"
       ]
    },
-   "pallada_beacon": {
-      "category": "neutral",
-      "sounds": [
-         "sounds/charaters/pallada_beacon"
-      ]
-   },
    "undemon": {
       "category": "neutral",
       "sounds": [
@@ -460,6 +454,12 @@
       "category": "neutral",
       "sounds": [
          "sounds/spells/classic_damage"
+      ]
+   },
+   "spell.beacon": {
+      "category": "neutral",
+      "sounds": [
+         "sounds/spells/beacon"
       ]
    },
    "beep.long": {

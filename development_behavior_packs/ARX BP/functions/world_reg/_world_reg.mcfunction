@@ -30,15 +30,8 @@
 
 scoreboard objectives add drugs_delay dummy Наркозавис.
 
-scoreboard objectives add gender dummy Пол_перс.
 scoreboard objectives add time_h dummy "Часы игры"
 scoreboard objectives add time_m dummy Минуты-игры.
-scoreboard objectives add class dummy is_ghost
-scoreboard objectives add target dummy цель_мага
-
-scoreboard objectives add mp_current dummy Текущая_мана
-scoreboard objectives add mp_req dummy Треб_маны_для_закл
-scoreboard objectives add mp dummy Мана
 
 scoreboard objectives add mark dummy Метка
 
@@ -48,8 +41,6 @@ scoreboard objectives add poit_mp_reg dummy poit_mp_reg
 
 
 scoreboard objectives add move_delay dummy задержка_аним_бездействия
-            
-scoreboard objectives add freezing dummy freezing
 
 scoreboard objectives add on_hurt_delay dummy on_hurt_delay
 
@@ -60,8 +51,6 @@ scoreboard players set @s weather_cond 0
 scoreboard objectives add is_day dummy День 
 scoreboard objectives add day_history dummy Лог_дня
 scoreboard objectives add day_delta dummy Дельта_дня
-
-scoreboard objectives add in_battle dummy В_бою
 
 scoreboard objectives add invisible dummy Невидимость
 
@@ -131,9 +120,6 @@ scoreboard objectives add item_control dummy item_control
     scoreboard players set @s const_1500 1500
 
 #ТИКИ
-scoreboard objectives add tick_nosempra_a dummy sempra-25
-scoreboard objectives add tick_nosempra_b dummy sempra-50
-scoreboard objectives add tick_nosempra_c dummy sempra-100
 scoreboard objectives add tick_sempra_dps dummy маг.ур.в.сек
 scoreboard objectives add tick dummy такт
 scoreboard objectives add sec dummy секунда
@@ -192,13 +178,6 @@ scoreboard objectives add dwarf_cam_cd dummy dwarf_cam_cd
 scoreboard objectives add dwarf_curse dummy dwarf_curse
 
 scoreboard objectives add uni_cool_down dummy uni_cool_down
-
-
-# Кристаллы возрождения
-    scoreboard objectives add crys_dur dummy crys_dur
-    scoreboard objectives add crys_mob_calm dummy crys_mob_calm
-    scoreboard objectives add crys_return dummy crys_return
-    scoreboard objectives add crys_sw_respawn dummy crys_sw_respawn
 
 scoreboard objectives add heal_scrl_durt dummy heal_scrl_durt
 

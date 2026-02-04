@@ -32,16 +32,6 @@
         "textures/items/clothes/clothes/descriptor_icon"
       ]
     },
-    "arx:adona_bandage": {
-      "textures": [
-        "textures/items/clothes/clothes/adona_bandage_icon"
-      ]
-    },
-    "arx:adona_jacket": {
-      "textures": [
-        "textures/items/clothes/clothes/adona_jacket_icon"
-      ]
-    },
     "arx:apprentice_robe": {
       "textures": [
         "textures/items/clothes/clothes/apprentice_robe_icon"
@@ -172,11 +162,6 @@
         "textures/items/clothes/clothes/diadem_of_desert_wanderer_icon"
       ]
     },
-    "arx:diadem_of_the_forgotten_queen": {
-      "textures": [
-        "textures/items/clothes/clothes/diadem_of_the_forgotten_queen_icon"
-      ]
-    },
     "arx:dress_of_green_rose": {
       "textures": [
         "textures/items/clothes/clothes/dress_of_green_rose_icon"
@@ -237,11 +222,6 @@
         "textures/items/clothes/clothes/gray_dress_icon"
       ]
     },
-    "arx:gray_dress_of_the_forgotten_queen": {
-      "textures": [
-        "textures/items/clothes/clothes/gray_dress_of_the_forgotten_queen_icon"
-      ]
-    },
     "arx:horn_mask": {
       "textures": [
         "textures/items/clothes/clothes/horn_mask_icon"
@@ -250,16 +230,6 @@
     "arx:hu_tao_hat": {
       "textures": [
         "textures/items/clothes/clothes/hu_tao_hat_icon"
-      ]
-    },
-    "arx:kofata_bandage": {
-      "textures": [
-        "textures/items/clothes/clothes/kofata_bandage_icon"
-      ]
-    },
-    "arx:kofata_clothes": {
-      "textures": [
-        "textures/items/clothes/clothes/kofata_clothes_icon"
       ]
     },
     "arx:morning_forest_clothes": {
@@ -277,16 +247,6 @@
         "textures/items/clothes/clothes/night_vision_device_icon"
       ]
     },
-    "arx:pallada_barrette": {
-      "textures": [
-        "textures/items/clothes/clothes/pallada_barrette_icon"
-      ]
-    },
-    "arx:pallada_sweater": {
-      "textures": [
-        "textures/items/clothes/clothes/pallada_sweater_icon"
-      ]
-    },
     "arx:pirate_clothes": {
       "textures": [
         "textures/items/clothes/clothes/pirate_clothes_icon"
@@ -295,16 +255,6 @@
     "arx:pirate_hat": {
       "textures": [
         "textures/items/clothes/clothes/pirate_hat_icon"
-      ]
-    },
-    "arx:pireta_clothes": {
-      "textures": [
-        "textures/items/clothes/clothes/pireta_clothes_icon"
-      ]
-    },
-    "arx:pireta_hairband": {
-      "textures": [
-        "textures/items/clothes/clothes/pireta_hairband_icon"
       ]
     },
     "arx:plague_doctor_mask": {
@@ -687,11 +637,6 @@
         "textures/items/clothes/heavy_armor/purple_plate_helmet_icon"
       ]
     },
-    "arx:purple_plate_helmet_magik": {
-      "textures": [
-        "textures/items/clothes/heavy_armor/purple_plate_helmet_magik_icon"
-      ]
-    },
     "arx:purple_plates": {
       "textures": [
         "textures/items/clothes/heavy_armor/purple_plates_icon"
@@ -708,11 +653,6 @@
     "arx:necro_mantle": {
       "textures": [
         "textures/items/clothes/clothes/necro_mantle_icon"
-      ]
-    },
-    "arx:necro_mantle_zel": {
-      "textures": [
-        "textures/items/clothes/clothes/necro_mantle_zel_icon"
       ]
     },
     "arx:pallas_apprentice_robe": {
@@ -932,52 +872,6 @@
         "textures/items/clothes/clothes/marchs_wreath_icon"
       ]
     },
-
-
-
-    "arx:bio_adona": {
-      "textures": "textures/items/high_tec/biochips/bio_adona"
-    },
-    "arx:bio_baldur": {
-      "textures": "textures/items/high_tec/biochips/bio_baldur"
-    },
-    "arx:bio_derek": {
-      "textures": "textures/items/high_tec/biochips/bio_derek"
-    },
-    "arx:bio_diego": {
-      "textures": "textures/items/high_tec/biochips/bio_diego"
-    },
-    "arx:bio_jarken": {
-      "textures": "textures/items/high_tec/biochips/bio_jarken"
-    },
-    "arx:bio_kofata": {
-      "textures": "textures/items/high_tec/biochips/bio_kofata"
-    },
-    "arx:bio_mortis": {
-      "textures": "textures/items/high_tec/biochips/bio_mortis"
-    },
-    "arx:bio_pallada": {
-      "textures": "textures/items/high_tec/biochips/bio_pallada"
-    },
-    "arx:bio_pireta": {
-      "textures": "textures/items/high_tec/biochips/bio_pireta"
-    },
-    "arx:bio_rigata": {
-      "textures": "textures/items/high_tec/biochips/bio_rigata"
-    },
-    "arx:bio_saburo": {
-      "textures": "textures/items/high_tec/biochips/bio_saburo"
-    },
-    "arx:bio_toka": {
-      "textures": "textures/items/high_tec/biochips/bio_toka"
-    },
-    "arx:bio_empty": {
-      "textures": "textures/items/high_tec/biochips/bio_empty"
-    },
-    "arx:bio_juggernaut": {
-      "textures": "textures/items/high_tec/biochips/bio_juggernaut"
-    },
-
 
     
     "arx:mod_sword": {
@@ -1399,9 +1293,6 @@
     },
     "arx:amul_titan": {
       "textures": "textures/items/jewelry/amulets/amul_titan"
-    },
-    "arx:pallada_amul": {
-      "textures": "textures/items/jewelry/amulets/pallada_amulet"
     },
     "arx:piranha_amulet": {
       "textures": "textures/items/jewelry/amulets/piranha_amulet"
@@ -2422,9 +2313,6 @@
     "arx:rune_ratatao": {
       "textures": "textures/items/runes/special/rune_ratatao"
     },
-    "arx:rune_ratatao_zelenchik": {
-      "textures": "textures/items/runes/special/rune_ratatao_zelenchik"
-    },
     
     "arx:bone_dagger": {
       "textures": "textures/items/weapons/daggers/bone_dagger"
@@ -3036,11 +2924,6 @@
       "textures": "textures/items/weapons/scythes/scythe_naginitis"
     },
 
-
-
-    "arx:adona_sword": {
-      "textures": "textures/items/weapons/default/adona_sword"
-    },
     "arx:tearing_flesh": {
       "textures": "textures/items/weapons/default/tearing_flesh"
     },
@@ -3073,9 +2956,6 @@
     },
     "arx:chloronite_shortsword": {
       "textures": "textures/items/weapons/default/chloronite_shortsword"
-    },
-    "arx:chloronite_shortsword_magik": {
-      "textures": "textures/items/weapons/default/chloronite_shortsword_magik"
     },
     "arx:steel_sword_with_gold_inlay": {
       "textures": "textures/items/weapons/default/steel_sword_with_gold_inlay"
@@ -3202,9 +3082,6 @@
     },
     "arx:staff_battle": {
       "textures": "textures/items/weapons/staffs/staff_battle"
-    },
-    "arx:staff_battle_custom_magik": {
-      "textures": "textures/items/weapons/staffs/staff_battle_custom_magik"
     },
     "arx:staff_of_hell": {
       "textures": "textures/items/weapons/staffs/staff_of_hell"
@@ -3608,9 +3485,6 @@
     },
     "arx:big_bag": {
       "textures": "textures/items/bags/big_bag"
-    },
-    "arx:water_textile": {
-      "textures": "textures/items/crafting/water_textile"
     },
 
 
@@ -4686,11 +4560,6 @@
     },
     "arx:bunker_access_card": {
       "textures": "textures/items/ancient/bunker_access_card"
-    },
-
-
-    "arx:steady_boat_icon": {
-      "textures": "textures/items/vehicles/steady_boat_icon"
     },
 
     "arx:chrupie_flake": {

@@ -1,7 +1,10 @@
+// Insertions are defined as $num-of-insertion$
+
 export const enLocalization = {
     'lobby.statue_of_sinriada': "A statue of a tall women. The text on the nameplate is highly damaged, you can't understand it",
     'lobby.verify.new_player_entered_arx': "Player $0$ §ajust entered Arx for the first time§f! Verification required. Use !verify command",
     'lobby.new_player_auto_gamemode_change': "Player $0$ §ajust entered Arx for the first time§f! Their gamemode was Creative, and it was automatically switched to Survival",
+    'lobby.none_id': 'You (§c$0$§f) are not allowed to play Arx Ultima',
 
     'food.iron_pie': "§cThere's something sharp in this pie!",
     'food.permanent_mp_potion.successful': '§aMax mana §d+1§a!',
@@ -24,4 +27,6 @@ export const enLocalization = {
     'book_demon.leave_book': 'The demon... left my book?',
     'book_demon.poison': 'The demon poisons you!',
     'book_demon.levitate': 'Ooups...',
+
+    'magic.rune_writed_into_cannel': '§6$0$ §bwrited into §6$1$ §bchannel',
 }

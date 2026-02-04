@@ -245,7 +245,7 @@ export let spellRegistry = {
     },
 
     // Маяк
-    "translatio durata": {
+    "translatio": {
         mpCost: 40,
         color: '#ae19cb',
         description: 'заклинание маяка с задержкой 10 секунд',
@@ -257,7 +257,7 @@ export let spellRegistry = {
             player.runCommand(`tag @e[type=arx:magic_beacon, r=0.1] add ${player.name}`)
         }
     },
-    "translatio durata durata": {
+    "translatio durata": {
         mpCost: 60,
         color: '#ae19cb',
         description: 'заклинание маяка с задержкой 30 секунд',
@@ -844,23 +844,24 @@ export let spellRegistry = {
         handler: (entity) => { entity.addEffect('night_vision', 1200, { showParticles: false }) }
     },
 
+    // Damage
     "impetus": {
         mpCost: 5,
         color: '#df3b3b',
         description: 'заклинание небольшого урона',
-        handler: (player) => { classicDamage(player, 2.5) }
+        handler: (entity, spellData) => { classicDamage(entity, spellData, 2.5) }
     },
     "impetus magna": {
         mpCost: 15,
         color: '#df3b3b',
         description: 'заклинание хорошего урона',
-        handler: (player) => { classicDamage(player, 7.5) }
+        handler: (entity, spellData) => { classicDamage(entity, spellData, 7.5) }
     },
     "impetus magna magna": {
         mpCost: 45,
         color: '#df3b3b',
         description: 'заклинание мощного урона',
-        handler: (player) => { classicDamage(player, 22.5) }
+        handler: (entity, spellData) => { classicDamage(entity, spellData, 22.5) }
     },
 };
 

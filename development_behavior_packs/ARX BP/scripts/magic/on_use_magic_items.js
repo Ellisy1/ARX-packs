@@ -16,6 +16,8 @@ import { iDP, ssDP } from "../DPOperations";
 import { spellRegistry } from "./spells/spellRegistry";
 import { getItem } from '../items/getItem'
 import { channelRomanNums } from "./channelRomanNums";
+import { fl, sl } from "../lang/fetchLocalization";
+import { checkForItem } from "../checkForItem";
 
 // Использование предметов
 world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юзание предмета на ПКМ
@@ -27,7 +29,7 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
         return undefined
     }
 
-    // Руна 
+    // Rune
     for (const itemTag of item?.getTags()) {
         // Нашли тег вида rune:runeName
         if (itemTag.includes('rune:')) {
@@ -123,16 +125,16 @@ export function cipherRuneSequence(player, runeName, runeTags) {
 
     // Сообщаем игроку о введенной руне
     const runeNameCapitalized = runeName[0].toUpperCase() + runeName.slice(1)
-    queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§6${runeNameCapitalized} §bзаписано в §6${channelRomanNums[channel - 1]} §bканал" } ] }`)
+    sl(player, 'magic.rune_writed_into_cannel', [runeNameCapitalized, channelRomanNums[channel - 1]])
 }
 
-// Использован посох
+// Using a staff
 export function useStaff(player, forceChannel = undefined) {
 
-    // Получаем объект предметы
+    // Get a staff object
     const staffItem = player.getComponent(EntityComponentTypes.Equippable).getEquipment(EquipmentSlot.Mainhand)
 
-    // Получаем количество каналов посоха
+    // Get num of staff channels
     let staffChannels
     const tagPrefix = "staff_channels_";
 
@@ -148,12 +150,12 @@ export function useStaff(player, forceChannel = undefined) {
         }
     }
 
-    // Получаем текущий канал
+    // Get active caster's channel
     let activeChannel = 1
     if (forceChannel) activeChannel = forceChannel
     else activeChannel = getActiveStaffChannel(player, staffChannels)
 
-    // Получаем заклинание
+    // Get spell (spell - string, spellArray - array of runes)
     const spell = findSpell(player, activeChannel, 'sequence')
     const spellArray = spell?.split(' ')
 
@@ -165,10 +167,10 @@ export function useStaff(player, forceChannel = undefined) {
 
     // Если есть закл
     if (spell) {
-        // Множитель стоимости заклинания. Нужен для рассчёта скидок
+        // Spell mp cost multiplier
         let spellCostMult = 1
 
-        // Определяем, есть ли скидка по руне или рунам. Тег хранится в виде spell_cost_reduction_with_rune_san:0.25 и может находиться на любом экипируемом предмете
+        // Определяем, есть ли скидка по руне или рунам. Тег хранится в виде spell_cost_reduction_with_rune_runename:0.25 и может находиться на любом экипируемом предмете
         const spellCostReductionPrefix = 'spell_cost_reduction_with_rune_'
         const equipment = getItem(player, 'equipment')
         for (let equipmentItem of equipment) for (const tag of equipmentItem?.getTags()) {
@@ -180,10 +182,15 @@ export function useStaff(player, forceChannel = undefined) {
             }
         }
 
-        // Если скидка каким-то образом слишком большая
+        // Mp reduction by rare gem amuls
+        if (checkForItem(player, 'Legs', 'arx:amul_magic_painit') && magicTarget === 2) spellCostMult -= 0.25
+        if (checkForItem(player, 'Legs', 'arx:amul_magic_titanite') && magicTarget === 1) spellCostMult -= 0.25
+        if (checkForItem(player, 'Legs', 'arx:amul_magic_zoisite')) spellCostMult -= 0.1
+
+        // If mp reduction is more than 0.9 
         if (spellCostMult < 0.1) spellCostMult = 0.1
 
-        // Проверяем, можем ли мы использовать заклинание
+        // Check that the caster has enough MP
         const spellCostReq = Math.round(spellRegistry[spell].mpCost * spellCostMult)
         const canCast = player.getDynamicProperty('mp') >= spellCostReq
 
