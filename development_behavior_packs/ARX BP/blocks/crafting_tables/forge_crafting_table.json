@@ -4,21 +4,21 @@
         "components": {
             "minecraft:crafting_table": {
                 "crafting_tags": [
-                    "bugle_crafting_table"
+                    "forge_crafting_table"
                 ],
-                "table_name": "Кузнечный горн"
+                "table_name": "Forge"
             },
             "minecraft:destructible_by_mining": {
                 "seconds_to_destroy": 2
             },
-            "minecraft:geometry": "geometry.bugle_crafting_table",
+            "minecraft:geometry": "geometry.forge_crafting_table",
             "minecraft:light_emission": 15,
             "minecraft:map_color": "#444444",
             "minecraft:material_instances": {
                 "*": {
                     "face_dimming": false,
                     "render_method": "alpha_test",
-                    "texture": "arx_bugle_crafting_table"
+                    "texture": "arx_forge_crafting_table"
                 }
             },
             "minecraft:placement_filter": {
@@ -39,7 +39,7 @@
             }
         },
         "description": {
-            "identifier": "arx:bugle_crafting_table",
+            "identifier": "arx:forge_crafting_table",
             "menu_category": {
                 "category": "construction"
             },

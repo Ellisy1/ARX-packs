@@ -6,13 +6,13 @@
     },
 
     
-    "tags": [ "barrel_of_water_crafting_table" ],
+    "tags": [ "forge_crafting_table" ],
     "pattern": [
-      "#"
+      "##"
     ],
     "key": {
       "#": {
-        "item": "arx:duraluminum_forged_billet"
+        "item": "arx:duraluminum_ingot"
       }
     },
     "result": {

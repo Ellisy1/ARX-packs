@@ -116,8 +116,10 @@ world.afterEvents.playerSpawn.subscribe((event) => {
         }
         // Give Info book
         {
-            const item = new ItemStack("minecraft:diamond", 1)
-            player.getComponent("inventory").container.addItem(item)
+            const item = new ItemStack("arx:united_player_data", 1)
+            item.lockMode = "slot"
+            item.keepOnDeath = true
+            player.getComponent("inventory").container.setItem(8, item)
         }
 
         ssDP(player, 'hasEverPlayedArx', true)
@@ -582,7 +584,7 @@ system.beforeEvents.startup.subscribe(initEvent => {
                     break
 
                 // Горн
-                case "arx:bugle_crafting_table":
+                case "arx:forge_crafting_table":
                     world.getDimension(event.block.dimension.id).runCommand(executeOnBlockPosition + "particle minecraft:lava_particle ~ ~1 ~")
                     break
 

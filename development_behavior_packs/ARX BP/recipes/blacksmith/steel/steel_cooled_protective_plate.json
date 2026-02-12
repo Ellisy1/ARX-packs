@@ -6,13 +6,13 @@
     },
 
     
-    "tags": [ "barrel_of_water_crafting_table" ],
+    "tags": [ "forge_crafting_table" ],
     "pattern": [
-      "#"
+      "###"
     ],
     "key": {
       "#": {
-        "item": "arx:steel_hot_protective_plate"
+        "item": "arx:steel_ingot"
       }
     },
     "result": {

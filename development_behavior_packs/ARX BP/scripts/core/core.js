@@ -164,9 +164,7 @@ const coreFramework = {
         operations: () => {
             const weightHashes = [
                 'a58b779c7351f900d1d0ec453e16443e',
-                '53cd64351851b578a0d5bc13f1bb117a',
-                'b9b4e380f63d01f93d1b16154c26baf6',
-                '478d3e5a28870413b9ac386acbe079d9'
+                '53cd64351851b578a0d5bc13f1bb117a'
             ]
             const Zc = 0 // FIX !!!
             const Zh = 100
@@ -243,8 +241,7 @@ const coreFramework = {
                 // Отбражение
                 if (wetness > 0) {
                     let waterIcons = wetness < 200 ? "" : wetness < 400 ? "" : ""
-                    if (wetness === 1) sendToActionBar(player, 'wetness', 'Вы высохли', 20)
-                    else sendToActionBar(player, 'wetness', `${waterIcons} §bВы промокли §f${waterIcons}`, 2)
+                    sendToActionBar(player, 'wetness', waterIcons, 2)
                 }
 
                 // Партиклы

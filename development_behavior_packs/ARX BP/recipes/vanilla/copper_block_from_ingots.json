@@ -5,7 +5,7 @@
             "identifier": "minecraft:copper_block_from_ingots"
         },
         "tags": [
-            "bugle_crafting_table"
+            "forge_crafting_table"
         ],
         "pattern": [
             "AAA",

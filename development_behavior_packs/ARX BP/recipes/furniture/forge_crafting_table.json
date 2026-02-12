@@ -2,32 +2,26 @@
   "format_version": "1.12",
   "minecraft:recipe_shaped": {
     "description": {
-    "identifier": "arx:bugle_crafting_table"
+    "identifier": "arx:forge_crafting_table"
     },
 
     
     "tags": [ "crafting_table" ],
     "pattern": [
-      "RiR",
-      "AiA",
-      "RIR"
+      "IiI",
+      "IiI",
+      "III"
     ],
     "key": {
       "I": {
-        "item": "arx:steel_ingot"
-      },
-      "A": {
-        "item": "arx:tin_ingot"
-      },
-      "R": {
-        "item": "arx:cast_iron_ingot"
+        "item": "minecraft:cobblestone"
       },
       "i": {
         "item": "minecraft:coal"
       }
     },
     "result": [
-      {"item": "arx:bugle_crafting_table"}
+      {"item": "arx:forge_crafting_table"}
     ]
   }
 }

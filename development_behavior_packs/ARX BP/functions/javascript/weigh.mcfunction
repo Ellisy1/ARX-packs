@@ -274,8 +274,6 @@
 
     #Особые предметы
         scoreboard players add @s[hasitem={item=arx:shackles}] weighLoading 3
-        scoreboard players add @s[hasitem={item=arx:blacksmith_tongs}] weighLoading 1
-        scoreboard players add @s[hasitem={item=arx:blacksmith_tongs_super}] weighLoading 2
         scoreboard players add @s[hasitem={item=arx:heater}] weighLoading 3
 
     #Одежда

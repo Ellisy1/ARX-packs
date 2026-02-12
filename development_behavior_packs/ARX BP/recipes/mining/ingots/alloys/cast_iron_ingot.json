@@ -6,8 +6,9 @@
     },
 
     "priority": -1,
-    "tags": [ "bugle_crafting_table" ],
+    "tags": [ "forge_crafting_table" ],
     "pattern": [
+      "# ",
       "##"
     ],
     "key": {

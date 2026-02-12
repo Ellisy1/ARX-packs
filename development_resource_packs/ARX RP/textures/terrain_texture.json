@@ -163,9 +163,6 @@
 		"arx_clothes_crafting_table": {
 			"textures": "textures/blocks/furniture/clothes_crafting_table"
 		},
-		"arx_anvil_crafting_table": {
-			"textures": "textures/blocks/furniture/anvil_crafting_table"
-		},
 		"arx_substractor": {
 			"textures": "textures/blocks/furniture/substractor"
 		},
@@ -187,14 +184,11 @@
 		"arx_loom_crafting_table": {
 			"textures": "textures/blocks/furniture/loom_crafting_table"
 		},
-		"arx_barrel_of_water_crafting_table": {
-			"textures": "textures/blocks/furniture/barrel_of_water_crafting_table"
-		},
 		"arx_weapons_assembly_crafting_table": {
 			"textures": "textures/blocks/furniture/weapons_assembly_crafting_table"
 		},
-		"arx_bugle_crafting_table": {
-			"textures": "textures/blocks/furniture/bugle_crafting_table"
+		"arx_forge_crafting_table": {
+			"textures": "textures/blocks/furniture/forge_crafting_table"
 		},
 		"arx_cooking_crafting_table": {
 			"textures": "textures/blocks/furniture/cooking_crafting_table"

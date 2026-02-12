@@ -75,45 +75,12 @@ export const achievementsList = { // Список со всеми достиже
         }
     },
 
-    "has_blacksmith_tongs": {
-        name: "Кузнец",
-        description: "Получить простые кузнечные клещи",
-        trigger: {
-            type: "hasItem",
-            value: "arx:blacksmith_tongs"
-        }
-    },
-    "has_blacksmith_tongs_super": {
-        name: "Кузнец-профи",
-        description: "Получить усиленные кузнечные клещи",
-        trigger: {
-            type: "hasItem",
-            value: "arx:blacksmith_tongs_super"
-        }
-    },
-
-    "has_barrel_of_water_crafting_table": {
-        name: "Охлаждение",
-        description: "Получить кузнечное ведро с водой",
-        trigger: {
-            type: "hasItem",
-            value: "arx:barrel_of_water_crafting_table"
-        }
-    },
-    "has_anvil_crafting_table": {
-        name: "Наковален много не бывает",
-        description: "Получить расковочную наковальню",
-        trigger: {
-            type: "hasItem",
-            value: "arx:anvil_crafting_table"
-        }
-    },
-    "has_bugle_crafting_table": {
+    "has_forge_crafting_table": {
         name: "Задайте жару!",
         description: "Получить горн",
         trigger: {
             type: "hasItem",
-            value: "arx:bugle_crafting_table"
+            value: "arx:forge_crafting_table"
         }
     },
     "has_aluminum_billet": {

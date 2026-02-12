@@ -6,9 +6,10 @@
     },
 
     
-    "tags": [ "bugle_crafting_table" ],
+    "tags": [ "forge_crafting_table" ],
     "pattern": [
-      "AA"
+      "A ",
+      " A"
     ],
     "key": {
       "A": {

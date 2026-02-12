@@ -65,25 +65,6 @@
     execute as @a[tag=self] run tellraw @a[scores={verify=2}] { "rawtext": [ { "text": "§4Обнаружена ошибка у @s core>>tags>>self" } ] }
     tag @a remove self
 
-# Обжигание об горячие предметы
-    # Теги кузнечных клещей (tongs - обычные клещи, tongs_super - усиленные)
-        # Левая рука
-            tag @a[hasitem={item=arx:blacksmith_tongs, location=slot.weapon.offhand}] add tongs
-            tag @a[hasitem={item=arx:blacksmith_tongs_super, location=slot.weapon.offhand}] add tongs
-            tag @a[hasitem={item=arx:blacksmith_tongs_super, location=slot.weapon.offhand}] add tongs_super
-
-        # Правая рука 
-            tag @a[hasitem={item=arx:blacksmith_tongs, location=slot.weapon.mainhand}] add tongs
-            tag @a[hasitem={item=arx:blacksmith_tongs_super, location=slot.weapon.mainhand}] add tongs
-            tag @a[hasitem={item=arx:blacksmith_tongs_super, location=slot.weapon.mainhand}] add tongs_super
-
-    # Обжигаем
-        function core_parts_NAP/damage_by_hot_item
-
-    # Чистка
-        tag @a remove tongs
-        tag @a remove tongs_super
-
 # Деспавним крыс днём
     execute if entity @a[scores={verify=2, is_day=1}] at @e[family=despawn_as_ghost] run particle arx:rat_ghost_despawn ~ ~1.5 ~
     execute if entity @a[scores={verify=2, is_day=1}] at @e[family=despawn_as_ghost] run particle arx:rat_ghost_despawn ~ ~1.5 ~

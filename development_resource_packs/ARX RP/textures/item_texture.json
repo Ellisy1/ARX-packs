@@ -1025,24 +1025,6 @@
     "arx:minced_beef": {
       "textures": "textures/items/food/minced_beef"
     },
-    "arx:carameli": {
-      "textures": "textures/items/food/caramel"
-    },
-    "arx:sirok": {
-      "textures": "textures/items/food/sirok"
-    },
-    "arx:kolbasi": {
-      "textures": "textures/items/food/sausage"
-    },
-    "arx:tborog": {
-      "textures": "textures/items/food/cottage_cheese"
-    },
-    "arx:apple_pie_preparation": {
-      "textures": "textures/items/food/apple_pie_preparation"
-    },
-    "arx:bowl_tborop": {
-      "textures": "textures/items/food/cottage_cheese_bowl"
-    },
     "arx:phantom_icon": {
       "textures": "textures/items/runes/special/phantom_icon"
     },
@@ -3135,29 +3117,11 @@
     "arx:altaite_billet": {
       "textures": "textures/items/blacksmith/altaite_billet"
     },
-    "arx:altaite_forged_billet": {
-      "textures": "textures/items/blacksmith/altaite_forged_billet"
-    },
-    "arx:altaite_hot_billet": {
-      "textures": "textures/items/blacksmith/altaite_hot_billet"
-    },
-    "arx:altaite_hot_protective_plate": {
-      "textures": "textures/items/blacksmith/altaite_hot_protective_plate"
-    },
     "arx:altaite_protective_plate": {
       "textures": "textures/items/blacksmith/altaite_protective_plate"
     },
     "arx:aluminum_billet": {
       "textures": "textures/items/blacksmith/aluminum_billet"
-    },
-    "arx:aluminum_forged_billet": {
-      "textures": "textures/items/blacksmith/aluminum_forged_billet"
-    },
-    "arx:aluminum_hot_billet": {
-      "textures": "textures/items/blacksmith/aluminum_hot_billet"
-    },
-    "arx:aluminum_hot_protective_plate": {
-      "textures": "textures/items/blacksmith/aluminum_hot_protective_plate"
     },
     "arx:aluminum_protective_plate": {
       "textures": "textures/items/blacksmith/aluminum_protective_plate"
@@ -3165,29 +3129,11 @@
     "arx:bronze_billet": {
       "textures": "textures/items/blacksmith/bronze_billet"
     },
-    "arx:bronze_forged_billet": {
-      "textures": "textures/items/blacksmith/bronze_forged_billet"
-    },
-    "arx:bronze_hot_billet": {
-      "textures": "textures/items/blacksmith/bronze_hot_billet"
-    },
-    "arx:bronze_hot_protective_plate": {
-      "textures": "textures/items/blacksmith/bronze_hot_protective_plate"
-    },
     "arx:bronze_protective_plate": {
       "textures": "textures/items/blacksmith/bronze_protective_plate"
     },
     "arx:caryite_billet": {
       "textures": "textures/items/blacksmith/caryite_billet"
-    },
-    "arx:caryite_forged_billet": {
-      "textures": "textures/items/blacksmith/caryite_forged_billet"
-    },
-    "arx:caryite_hot_billet": {
-      "textures": "textures/items/blacksmith/caryite_hot_billet"
-    },
-    "arx:caryite_hot_protective_plate": {
-      "textures": "textures/items/blacksmith/caryite_hot_protective_plate"
     },
     "arx:caryite_protective_plate": {
       "textures": "textures/items/blacksmith/caryite_protective_plate"
@@ -3195,29 +3141,11 @@
     "arx:cast_iron_billet": {
       "textures": "textures/items/blacksmith/cast_iron_billet"
     },
-    "arx:cast_iron_forged_billet": {
-      "textures": "textures/items/blacksmith/cast_iron_forged_billet"
-    },
-    "arx:cast_iron_hot_billet": {
-      "textures": "textures/items/blacksmith/cast_iron_hot_billet"
-    },
-    "arx:cast_iron_hot_protective_plate": {
-      "textures": "textures/items/blacksmith/cast_iron_hot_protective_plate"
-    },
     "arx:cast_iron_protective_plate": {
       "textures": "textures/items/blacksmith/cast_iron_protective_plate"
     },
     "arx:chloronite_billet": {
       "textures": "textures/items/blacksmith/chloronite_billet"
-    },
-    "arx:chloronite_forged_billet": {
-      "textures": "textures/items/blacksmith/chloronite_forged_billet"
-    },
-    "arx:chloronite_hot_billet": {
-      "textures": "textures/items/blacksmith/chloronite_hot_billet"
-    },
-    "arx:chloronite_hot_protective_plate": {
-      "textures": "textures/items/blacksmith/chloronite_hot_protective_plate"
     },
     "arx:chloronite_protective_plate": {
       "textures": "textures/items/blacksmith/chloronite_protective_plate"
@@ -3225,29 +3153,11 @@
     "arx:dorionite_billet": {
       "textures": "textures/items/blacksmith/dorionite_billet"
     },
-    "arx:dorionite_forged_billet": {
-      "textures": "textures/items/blacksmith/dorionite_forged_billet"
-    },
-    "arx:dorionite_hot_billet": {
-      "textures": "textures/items/blacksmith/dorionite_hot_billet"
-    },
-    "arx:dorionite_hot_protective_plate": {
-      "textures": "textures/items/blacksmith/dorionite_hot_protective_plate"
-    },
     "arx:dorionite_protective_plate": {
       "textures": "textures/items/blacksmith/dorionite_protective_plate"
     },
     "arx:draphorite_billet": {
       "textures": "textures/items/blacksmith/draphorite_billet"
-    },
-    "arx:draphorite_forged_billet": {
-      "textures": "textures/items/blacksmith/draphorite_forged_billet"
-    },
-    "arx:draphorite_hot_billet": {
-      "textures": "textures/items/blacksmith/draphorite_hot_billet"
-    },
-    "arx:draphorite_hot_protective_plate": {
-      "textures": "textures/items/blacksmith/draphorite_hot_protective_plate"
     },
     "arx:draphorite_protective_plate": {
       "textures": "textures/items/blacksmith/draphorite_protective_plate"
@@ -3255,29 +3165,11 @@
     "arx:duraluminum_billet": {
       "textures": "textures/items/blacksmith/duraluminum_billet"
     },
-    "arx:duraluminum_forged_billet": {
-      "textures": "textures/items/blacksmith/duraluminum_forged_billet"
-    },
-    "arx:duraluminum_hot_billet": {
-      "textures": "textures/items/blacksmith/duraluminum_hot_billet"
-    },
-    "arx:duraluminum_hot_protective_plate": {
-      "textures": "textures/items/blacksmith/duraluminum_hot_protective_plate"
-    },
     "arx:duraluminum_protective_plate": {
       "textures": "textures/items/blacksmith/duraluminum_protective_plate"
     },
     "arx:durasteel_billet": {
       "textures": "textures/items/blacksmith/durasteel_billet"
-    },
-    "arx:durasteel_forged_billet": {
-      "textures": "textures/items/blacksmith/durasteel_forged_billet"
-    },
-    "arx:durasteel_hot_billet": {
-      "textures": "textures/items/blacksmith/durasteel_hot_billet"
-    },
-    "arx:durasteel_hot_protective_plate": {
-      "textures": "textures/items/blacksmith/durasteel_hot_protective_plate"
     },
     "arx:durasteel_protective_plate": {
       "textures": "textures/items/blacksmith/durasteel_protective_plate"
@@ -3285,29 +3177,11 @@
     "arx:forfactorite_billet": {
       "textures": "textures/items/blacksmith/forfactorite_billet"
     },
-    "arx:forfactorite_forged_billet": {
-      "textures": "textures/items/blacksmith/forfactorite_forged_billet"
-    },
-    "arx:forfactorite_hot_billet": {
-      "textures": "textures/items/blacksmith/forfactorite_hot_billet"
-    },
-    "arx:forfactorite_hot_protective_plate": {
-      "textures": "textures/items/blacksmith/forfactorite_hot_protective_plate"
-    },
     "arx:forfactorite_protective_plate": {
       "textures": "textures/items/blacksmith/forfactorite_protective_plate"
     },
     "arx:gold_billet": {
       "textures": "textures/items/blacksmith/gold_billet"
-    },
-    "arx:gold_forged_billet": {
-      "textures": "textures/items/blacksmith/gold_forged_billet"
-    },
-    "arx:gold_hot_billet": {
-      "textures": "textures/items/blacksmith/gold_hot_billet"
-    },
-    "arx:gold_hot_protective_plate": {
-      "textures": "textures/items/blacksmith/gold_hot_protective_plate"
     },
     "arx:gold_protective_plate": {
       "textures": "textures/items/blacksmith/gold_protective_plate"
@@ -3315,29 +3189,11 @@
     "arx:iron_billet": {
       "textures": "textures/items/blacksmith/iron_billet"
     },
-    "arx:iron_forged_billet": {
-      "textures": "textures/items/blacksmith/iron_forged_billet"
-    },
-    "arx:iron_hot_billet": {
-      "textures": "textures/items/blacksmith/iron_hot_billet"
-    },
-    "arx:iron_hot_protective_plate": {
-      "textures": "textures/items/blacksmith/iron_hot_protective_plate"
-    },
     "arx:iron_protective_plate": {
       "textures": "textures/items/blacksmith/iron_protective_plate"
     },
     "arx:lamenite_billet": {
       "textures": "textures/items/blacksmith/lamenite_billet"
-    },
-    "arx:lamenite_forged_billet": {
-      "textures": "textures/items/blacksmith/lamenite_forged_billet"
-    },
-    "arx:lamenite_hot_billet": {
-      "textures": "textures/items/blacksmith/lamenite_hot_billet"
-    },
-    "arx:lamenite_hot_protective_plate": {
-      "textures": "textures/items/blacksmith/lamenite_hot_protective_plate"
     },
     "arx:lamenite_protective_plate": {
       "textures": "textures/items/blacksmith/lamenite_protective_plate"
@@ -3345,29 +3201,11 @@
     "arx:malafiotironite_billet": {
       "textures": "textures/items/blacksmith/malafiotironite_billet"
     },
-    "arx:malafiotironite_forged_billet": {
-      "textures": "textures/items/blacksmith/malafiotironite_forged_billet"
-    },
-    "arx:malafiotironite_hot_billet": {
-      "textures": "textures/items/blacksmith/malafiotironite_hot_billet"
-    },
-    "arx:malafiotironite_hot_protective_plate": {
-      "textures": "textures/items/blacksmith/malafiotironite_hot_protective_plate"
-    },
     "arx:malafiotironite_protective_plate": {
       "textures": "textures/items/blacksmith/malafiotironite_protective_plate"
     },
     "arx:naginitis_billet": {
       "textures": "textures/items/blacksmith/naginitis_billet"
-    },
-    "arx:naginitis_forged_billet": {
-      "textures": "textures/items/blacksmith/naginitis_forged_billet"
-    },
-    "arx:naginitis_hot_billet": {
-      "textures": "textures/items/blacksmith/naginitis_hot_billet"
-    },
-    "arx:naginitis_hot_protective_plate": {
-      "textures": "textures/items/blacksmith/naginitis_hot_protective_plate"
     },
     "arx:naginitis_protective_plate": {
       "textures": "textures/items/blacksmith/naginitis_protective_plate"
@@ -3375,29 +3213,11 @@
     "arx:netherite_billet": {
       "textures": "textures/items/blacksmith/netherite_billet"
     },
-    "arx:netherite_forged_billet": {
-      "textures": "textures/items/blacksmith/netherite_forged_billet"
-    },
-    "arx:netherite_hot_billet": {
-      "textures": "textures/items/blacksmith/netherite_hot_billet"
-    },
-    "arx:netherite_hot_protective_plate": {
-      "textures": "textures/items/blacksmith/netherite_hot_protective_plate"
-    },
     "arx:netherite_protective_plate": {
       "textures": "textures/items/blacksmith/netherite_protective_plate"
     },
     "arx:plumbum_billet": {
       "textures": "textures/items/blacksmith/plumbum_billet"
-    },
-    "arx:plumbum_forged_billet": {
-      "textures": "textures/items/blacksmith/plumbum_forged_billet"
-    },
-    "arx:plumbum_hot_billet": {
-      "textures": "textures/items/blacksmith/plumbum_hot_billet"
-    },
-    "arx:plumbum_hot_protective_plate": {
-      "textures": "textures/items/blacksmith/plumbum_hot_protective_plate"
     },
     "arx:plumbum_protective_plate": {
       "textures": "textures/items/blacksmith/plumbum_protective_plate"
@@ -3405,29 +3225,11 @@
     "arx:riolik_billet": {
       "textures": "textures/items/blacksmith/riolik_billet"
     },
-    "arx:riolik_forged_billet": {
-      "textures": "textures/items/blacksmith/riolik_forged_billet"
-    },
-    "arx:riolik_hot_billet": {
-      "textures": "textures/items/blacksmith/riolik_hot_billet"
-    },
-    "arx:riolik_hot_protective_plate": {
-      "textures": "textures/items/blacksmith/riolik_hot_protective_plate"
-    },
     "arx:riolik_protective_plate": {
       "textures": "textures/items/blacksmith/riolik_protective_plate"
     },
     "arx:steel_billet": {
       "textures": "textures/items/blacksmith/steel_billet"
-    },
-    "arx:steel_forged_billet": {
-      "textures": "textures/items/blacksmith/steel_forged_billet"
-    },
-    "arx:steel_hot_billet": {
-      "textures": "textures/items/blacksmith/steel_hot_billet"
-    },
-    "arx:steel_hot_protective_plate": {
-      "textures": "textures/items/blacksmith/steel_hot_protective_plate"
     },
     "arx:steel_protective_plate": {
       "textures": "textures/items/blacksmith/steel_protective_plate"
@@ -3435,38 +3237,14 @@
     "arx:tin_billet": {
       "textures": "textures/items/blacksmith/tin_billet"
     },
-    "arx:tin_forged_billet": {
-      "textures": "textures/items/blacksmith/tin_forged_billet"
-    },
-    "arx:tin_hot_billet": {
-      "textures": "textures/items/blacksmith/tin_hot_billet"
-    },
-    "arx:tin_hot_protective_plate": {
-      "textures": "textures/items/blacksmith/tin_hot_protective_plate"
-    },
     "arx:tin_protective_plate": {
       "textures": "textures/items/blacksmith/tin_protective_plate"
     },
     "arx:toliriite_billet": {
       "textures": "textures/items/blacksmith/toliriite_billet"
     },
-    "arx:toliriite_forged_billet": {
-      "textures": "textures/items/blacksmith/toliriite_forged_billet"
-    },
-    "arx:toliriite_hot_billet": {
-      "textures": "textures/items/blacksmith/toliriite_hot_billet"
-    },
-    "arx:toliriite_hot_protective_plate": {
-      "textures": "textures/items/blacksmith/toliriite_hot_protective_plate"
-    },
     "arx:toliriite_protective_plate": {
       "textures": "textures/items/blacksmith/toliriite_protective_plate"
-    },
-    "arx:blacksmith_tongs": {
-      "textures": "textures/items/blacksmith/tongs/blacksmith_tongs"
-    },
-    "arx:blacksmith_tongs_super": {
-      "textures": "textures/items/blacksmith/tongs/blacksmith_tongs_super"
     },
     "arx:leg_bag": {
       "textures": "textures/items/bags/leg_bag"
@@ -3490,12 +3268,6 @@
 
     "arx:mushroom_knife": {
       "textures": "textures/items/weapons/mushroom_knife"
-    },
-    "arx:cast_iron_preperation": {
-      "textures": "textures/items/blacksmith/preperations/cast_iron_preperation"
-    },
-    "arx:steel_preperation": {
-      "textures": "textures/items/blacksmith/preperations/steel_preperation"
     },
     "arx:altaite_ingot": {
       "textures": "textures/items/mining/ingots/altaite_ingot"

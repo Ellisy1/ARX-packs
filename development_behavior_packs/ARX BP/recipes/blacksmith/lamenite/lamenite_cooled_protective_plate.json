@@ -6,13 +6,13 @@
     },
 
     
-    "tags": [ "barrel_of_water_crafting_table" ],
+    "tags": [ "forge_crafting_table" ],
     "pattern": [
-      "#"
+      "###"
     ],
     "key": {
       "#": {
-        "item": "arx:lamenite_hot_protective_plate"
+        "item": "arx:lamenite_ingot"
       }
     },
     "result": {

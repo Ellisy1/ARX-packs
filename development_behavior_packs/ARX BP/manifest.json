@@ -2,12 +2,12 @@
   "format_version": 2,
   "header": {
     "description": "ARX Ultima pack [behaviour]. Made by Kate (@pireta)",
-    "name": "ARX Ultima 0.1.4",
+    "name": "ARX Ultima 0.1.5",
     "uuid": "54d940a1-9f7c-42a9-9f41-e591764a8b60",
     "version": [
       0,
       1,
-      4
+      5
     ],
     "min_engine_version": [
       1,
@@ -49,7 +49,7 @@
     },
     {
       "module_name": "@minecraft/server",
-      "version": "2.5.0-beta"
+      "version": "2.6.0-beta"
     },
     {
       "module_name": "@minecraft/server-ui",
