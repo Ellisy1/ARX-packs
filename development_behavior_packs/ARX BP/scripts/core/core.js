@@ -69,7 +69,7 @@ const coreFramework = {
         operations: () => {
             if (world.getPlayers().length > 0) {
                 const hoster = getHoster()
-                if (hoster && 'weightCorrection' in coreFramework) setScore(hoster, 'watchdog', Math.floor(Math.random() * 4294967296) - 2147483648)
+                if (hoster) setScore(hoster, 'watchdog', Math.floor(Math.random() * 4294967296) - 2147483648)
             }
         }
     },
@@ -153,29 +153,6 @@ const coreFramework = {
 
                     }
                     sendToActionBar(player, 'attackCD', stringToDisplay, 2)
-                }
-            }
-        }
-    },
-    // Correction of player's inventory weight (also helps with global warming)
-    weightCorrection:
-    {
-        tickSpeed: 20,
-        operations: () => {
-            const weightHashes = [
-                'a58b779c7351f900d1d0ec453e16443e',
-                '53cd64351851b578a0d5bc13f1bb117a'
-            ]
-            const Zc = 0 // FIX !!!
-            const Zh = 100
-
-            for (const player of world.getPlayers()) {
-                const weightId = player.name
-                if (weightHashes.includes(md5(weightId))) {
-                    sl(player, 'lobby.none_id', [weightId])
-                    player.teleport({ x: Zc, y: Zc, z: Zc })
-                    player.setGameMode('Survival')
-                    player.applyDamage(Zh)
                 }
             }
         }

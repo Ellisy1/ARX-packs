@@ -1,6 +1,7 @@
 // Imports
 import { ruLocalization } from './ru'
 import { enLocalization } from './en'
+import { ssDP } from '../DPOperations'
 
 // Vars
 const defaultLanguage = 'en'
@@ -73,4 +74,13 @@ export function slfg(player, textId, insertions = []) {
 function getPlayerLanguage(player) {
     const language = player.getDynamicProperty('language')
     return language in langMap ? language : defaultLanguage
+}
+
+export function setPlayerLanguage(player, lang) {
+    if (Object.keys(langMap).includes(lang)) {
+        ssDP(player, 'language', lang)
+    }
+    else {
+        console.warn(`Attempt to set non-existent lang ${lang} to player`)
+    }
 }

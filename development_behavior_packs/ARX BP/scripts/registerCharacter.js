@@ -4,6 +4,7 @@ import { setRandomTastes } from './food/setRandomTastes'
 import { tasteBodyString } from "./info/infoAboutTastes"
 import { gDP, ssDP } from "./DPOperations"
 import { world } from "@minecraft/server"
+import { fl, setPlayerLanguage } from "./lang/fetchLocalization"
 
 // Register character
 export function registerCharacter(player) {
@@ -11,7 +12,7 @@ export function registerCharacter(player) {
     if (player.getDynamicProperty('hasRegisteredCharacter') === true) {
         const formNo = new ActionFormData()
             .title("Регистрация невозможна")
-            .body(`Вы уже имеете загрегитрованного персонажа ${player.getDynamicProperty('trueName')}`)
+            .body(`Вы уже имеете загрегитрованного персонажа ${player.getDynamicProperty('name')}`)
             .show(player)
     }
     // Player isn't verified
@@ -25,17 +26,24 @@ export function registerCharacter(player) {
     else {
         switch (player.getDynamicProperty('registerCharacterStage')) {
             case undefined:
-            case 0: // Начало регистрации
-                const form0 = new MessageFormData()
-                    .title("Создание персонажа")
-                    .body('§lВы придумали своего персонажа?§r§f\n\n§cВНИМАНИЕ!§f Вы §cне сможете§f изменить персонажа позже, так что подумайте хорошо.\nНе торопитесь.')
-                    .button1("Нет, мне ещё нужно подумать")
-                    .button2("Да, начать создание персонажа")
+            case 0: // Language
+                const form0 = new ActionFormData()
+                    .title(fl(player, 'lobby.registration.lang.title'))
+                    .body(fl(player, 'lobby.registration.lang.body'))
+                    .button("English", 'textures/ui/registration/lang_en')
+                    .button("Русский", 'textures/ui/registration/lang_ru')
 
                     .show(player)
                     .then((response) => {
-                        if (response.selection === 1) { // Игрок нажал "продолжитиь"
-                            ssDP(player, "registerCharacterStage", 1)
+                        if (response.selection === 0) { // Муж
+                            setPlayerLanguage(player, 'en')
+
+                            ssDP(player, "registerCharacterStage", 3)
+                            registerCharacter(player)
+                        } else if (response.selection === 1) { // Жен
+                            setPlayerLanguage(player, 'ru')
+
+                            ssDP(player, "registerCharacterStage", 2)
                             registerCharacter(player)
                         }
                     })
@@ -91,7 +99,6 @@ export function registerCharacter(player) {
                 const localNameSample = getScore(player, 'gender') === 1 ? "Таинственный незнакомец" : "Таинственная незнакомка"
                 const form3 = new ModalFormData()
                     .title("Имя персонажа")
-                    .textField("Настоящее имя вашего персонажа.\n§7§oКроме вас его никто не увидит, даже модератор", "Настоящее имя персонажа")
                     .textField(`Имя для локального чата. \n§7§oМожно в любой момент сменить командой §d!§asetname§7.\nЭто может быть имя, а может быть\nчто-то вроде <${localNameSample}>`, "Имя для локального чата")
                     .submitButton('Установить имя')
 
@@ -99,29 +106,19 @@ export function registerCharacter(player) {
 
                         if (response.formValues) {
 
-                            const correctedTrueName = response.formValues[0].trim()
-                            const correctedName = response.formValues[1].trim()
+                            const correctedName = response.formValues[0].trim()
 
                             let wrongInput = false
 
-                            if (correctedTrueName == "") {
-                                player.runCommand(`tellraw @s { "rawtext": [ { "text": "§cНастоящее имя персонажа не может быть пустым." } ] }`)
-                                wrongInput = true
-                            } else if (correctedTrueName.length > 30) {
-                                player.runCommand(`tellraw @s { "rawtext": [ { "text": "§cНастоящее имя персонажа не может быть таким длинным." } ] }`)
-                                wrongInput = true
-                            }
-
                             if (correctedName == "") {
-                                player.runCommand(`tellraw @s { "rawtext": [ { "text": "§cИмя для локального чата не может быть пустым." } ] }`)
+                                player.sendMessage("§cИмя не может быть пустым.")
                                 wrongInput = true
                             } else if (correctedName.length > 30) {
-                                player.runCommand(`tellraw @s { "rawtext": [ { "text": "§cИмя для локального чата не может быть таким длинным." } ] }`)
+                                player.sendMessage("§cИмя не может быть таким длинным.")
                                 wrongInput = true
                             }
 
                             if (!wrongInput) {
-                                ssDP(player, "trueName", correctedTrueName)
                                 ssDP(player, "name", correctedName)
 
                                 ssDP(player, "registerCharacterStage", 4)
@@ -242,7 +239,7 @@ export function registerCharacter(player) {
 
             case 9: // Спавн в мире
                 let bodyText
-                getScore(player, "gender") === 1 ? bodyText = `${player.getDynamicProperty('trueName')} создан!` : bodyText = `${player.getDynamicProperty('trueName')} создана!`
+                getScore(player, "gender") === 1 ? bodyText = `${player.getDynamicProperty('name')} создан!` : bodyText = `${player.getDynamicProperty('name')} создана!`
                 const form9 = new ActionFormData()
                     .title("Появление в мире")
                     .body(bodyText)
@@ -258,10 +255,6 @@ export function registerCharacter(player) {
 
                                 ssDP(player, "registerCharacterStage", 0)
                                 ssDP(player, "hasRegisteredCharacter", true)
-
-                                player.runCommand(`give @s arx:united_player_data 1 0 {"keep_on_death":{}}`)
-
-                                player.runCommand(`tellraw @s { "rawtext": [ { "text": "§aВы в игре!§f\n§c!§f Используйте §aкнижку§f, которая у вас в инвентаре, и выберите в открывшемся меню самый верхний пункт §aГид§f. Обращайтесь к нему почаще!" } ] }`)
                             }
                         }
                     })

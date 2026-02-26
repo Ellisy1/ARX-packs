@@ -208,24 +208,6 @@ export function parceChatCommand(player, trimmedMessage) {
             }
         }
 
-        else if (command[0] == "!lore") { // История персонажа
-            if (!command[1] || (command[1] !== 'add' && command[1] !== 'set') || !command[2]) {
-                queueCommand(player, `tellraw @s { "rawtext": [ { "text": "§cИспользуйте §d!§alore set <история>§c, чтобы написать историю персонажа с нуля, или §d!§alore add <дополнение истории>§c, чтобы добавить к существующей истории новый эпизод." } ] }`);
-            } else if (command[1] === 'set') {
-                ssDP(player, 'characterLore', command.slice(2).join(' ').trim())
-                queueCommand(player, `tellraw @s { "rawtext": [ { "text": "История §aустановлена§f." } ] }`)
-            } else if (command[1] === 'add') {
-                if (player.getDynamicProperty('characterLore') === '' || player.getDynamicProperty('characterLore') === undefined) {
-                    ssDP(player, 'characterLore', command.slice(2).join(' ').trim())
-                } else {
-                    ssDP(player, 'characterLore', player.getDynamicProperty('characterLore') + " " + command.slice(2).join(' ').trim())
-                }
-                queueCommand(player, `tellraw @s { "rawtext": [ { "text": "История §aдополнена§f." } ] }`)
-            } else {
-                console.warn(`Произошла непредвиденная ошибка у ${player.name} в обработке !lore в сообщении ${trimmedMessage}`);
-            }
-        }
-
         else if (command[0] == "!i" || command[0] == "!и") { // Открыть инфо
             player.sendMessage('§aЗакройте чат и прыгните§f, чтобы открыть <Инфо>')
             ssDP(player, 'ui:readyToOpenInfoBook', true)

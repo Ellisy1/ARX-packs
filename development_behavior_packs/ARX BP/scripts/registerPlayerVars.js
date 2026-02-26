@@ -95,9 +95,6 @@ export function registerPlayerVars(player) {
     if (player.getDynamicProperty("verify") === undefined) {
         ssDP(player, "verify", false)
     }
-    if (player.getDynamicProperty("trueName") === undefined) {
-        ssDP(player, "trueName", "Странник")
-    }
     if (player.getDynamicProperty("statistics:distance") === undefined) {
         ssDP(player, "statistics:distance", 0)
     }
