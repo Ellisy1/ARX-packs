@@ -7,7 +7,7 @@ import { ActionFormData } from "@minecraft/server-ui"
 // Imports - Arx functions 
 import { getScore, setScore } from './scoresOperations'
 import { increaseSkillProgress, wipeSkillsProgress } from './skillsOperations'
-import { onFoodConsume } from './food/onConsume'
+import { onConsume } from './food/onConsume'
 import { registerCharacter } from "./registerCharacter"
 import { executeCommandDelayed } from "./executeCommandDelayed"
 import { showDialog } from './dialogues'
@@ -34,6 +34,7 @@ import { getItem } from "./items/getItem"
 import { getActiveStaffChannel } from "./magic/getActiveStaffChannel"
 import { obj2str } from "./converters"
 import { isAdmin, getAdmins, getHoster } from './admin'
+import { isPlayerCompletelyLoaded } from "./isPlayerCompletelyLoaded"
 
 world.afterEvents.playerButtonInput.subscribe((event) => {
     const button = event.button
@@ -75,30 +76,24 @@ world.afterEvents.playerInventoryItemChange.subscribe((event) => {
     // Анализ поднимаемного игроком веса
     weighAnalysis(player)
 
-    // Подмена яблок
-    if (checkForItem(player, 'Inventory', 'minecraft:apple')) {
-        player.runCommand('clear @s minecraft:apple 0 1')
-        player.runCommand('give @s arx:apple')
-    }
-
     // Проверка на меч модератора
     if (checkForItem(player, 'Inventory', 'arx:mod_sword') && getScore(player, "verify") !== 2) {
         console.warn(`${player.name} §cmod_sword`)
     }
 })
 
-// Игрок зашёл в мир
-world.afterEvents.playerSpawn.subscribe((event) => {
+// Player spawned (also triggers after knockout)
+world.afterEvents.playerSpawn.subscribe(async (event) => {
     const player = event.player; // Получаем объект игрока
     player.nameTag = ""
     player.runCommand("function javascript/scores_autoreg")
 
-    // Restart their music
+    // Restart music
     ssDP(player, 'musicLocation', undefined)
 
     // Is this the thirst time the player entered Arx?
-    const thirstPlay = player.getDynamicProperty('hasEverPlayedArx')
-    if (!thirstPlay) {
+    const playedBefore = player.getDynamicProperty('hasEverPlayedArx')
+    if (!playedBefore) {
         // Notify admins about requred verification
         if (world.getDynamicProperty('requireUserVerification')) {
             for (const admin of getAdmins()) {
@@ -132,12 +127,12 @@ world.afterEvents.playerSpawn.subscribe((event) => {
     registerPlayerVars(player)
 
     if (world.getPlayers().length === 1) { // Если только один игрок в мире, т.е. только хостер
-        player.runCommand("function world_reg/_world_reg") // Регистрируем переменные
 
         // Check, is this the first time the hoster entered the world with Arx
         let arxEverLoaded = world.getDynamicProperty('arxEverLoaded')
         // It's the first time
         if (!arxEverLoaded) {
+            player.runCommand("function world_reg/_world_reg") // Register scores 
             setScore(player, 'verify', 2) // Register the player as a hoster
             world.setDefaultSpawnLocation({ x: -10000, y: 4, z: -10000 })
             ssDP(world, 'initialWorldSpawnPoint', player.location) // The location of the first spawnpoint
@@ -152,6 +147,8 @@ world.afterEvents.playerSpawn.subscribe((event) => {
             world.gameRules.locatorBar = false
             world.gameRules.spawnRadius = 0
             world.gameRules.showTags = false
+            world.gameRules.naturalRegeneration = true
+            world.gameRules.recipesUnlock = false
 
             // Arx default settings
             ssDP(world, 'localChatEnabled', true)
@@ -160,22 +157,15 @@ world.afterEvents.playerSpawn.subscribe((event) => {
             ssDP(player, 'isHoster', true)
 
             const d = world.getDimension('minecraft:overworld')
-            // Lobby room creation
-            let loadingCD = 16 // sec
 
             d.runCommand('tickingarea add -9980 0 -9980 -10020 0 -10020 lobbyReg true')
 
-            function createLobby(d, hoster) {
-                // Loading screen for hoster
-                hoster.runCommand('camera @s fade time 0 1 0 color 10 10 10')
-                hoster.runCommand('title @s title Loading...')
-                hoster.runCommand('title @s actionbar ARX 3 thirst initialization....')
+            async function createLobby(d, hoster) {
                 // Is the world completely loaded?
                 try {
-                    loadingCD -= 1
-                    if (loadingCD >= 0) throw new Error('Still loading')
 
                     hoster.teleport({ x: -9999.5, y: 4, z: -9999.5 }, { checkForBlocks: true, dimension: d, facingLocation: { x: -9999.5, y: 4, z: -9993 }, keepVelocity: false })
+                    hoster.runCommand('fill ~-10 ~-10 ~-10 10 10 10 air')
                     // Verify lobby loading
                     // Blocks above broken portal
                     const b1 = d.getBlock({ x: -10001, y: 5, z: -10001 })
@@ -201,21 +191,34 @@ world.afterEvents.playerSpawn.subscribe((event) => {
                 catch {
                     system.runTimeout(() => {
                         createLobby(d, hoster)
-                    }, 19)
-                    return
+                    }, 2)
                 }
                 // Other thing we have to do
-                player.runCommand('title @s clear')
-                player.runCommand('playsound random.orb @s')
-                player.runCommand('title @s actionbar Successfull!')
                 d.spawnEntity('arx:lobby_character_creation', { x: -9999.5, y: 4, z: -9993 }, { initialRotation: 180 })
                 d.spawnEntity('arx:carved_bench', { x: -9994.5, y: 4, z: -10003.5 }, { initialRotation: 90 })
                 d.spawnEntity('arx:statue_of_sinriada', { x: -9991.5, y: 8, z: -9997.0 }, { initialRotation: 90 })
                 d.runCommand('tickingarea remove lobbyReg')
             }
 
-            createLobby(d, player)
+            const delay = (ticks) => new Promise(resolve => system.runTimeout(resolve, ticks));
+
+            async function waitUntilHosterIsLoaded(hoster) {
+                hoster.addEffect('instant_health', 60, { amplifier: 255, showParticles: false })
+                const hosterLoaded = await isPlayerCompletelyLoaded(hoster)
+                // Loading screen for hoster
+                if (!hosterLoaded) {
+                    await waitUntilHosterIsLoaded(hoster)
+                }
+            }
+
+            await waitUntilHosterIsLoaded(player)
+
+            await createLobby(d, player)
             ssDP(world, 'arxEverLoaded', true)
+
+            // Loading screen for hoster
+            player.runCommand('camera @s fade time 0 2 0 color 10 10 10')
+            player.runCommand('title @s title §gArx Ultima')
         }
     }
 });
@@ -225,7 +228,7 @@ world.afterEvents.entitySpawn.subscribe((spawnEvent) => {
     const entity = spawnEvent.entity
 
     if (entity.typeId === 'arx:grave') {
-        entity.nameTag = 'Ударьте, чтобы\nполучить все вещи'
+        entity.nameTag = 'Hit to break'
     }
     if (entity.typeId === 'arx:hungry_rat' || entity.typeId === 'arx:larva') {
         if (isEntityInCube(entity, [-2274, 13, 1773], [-2205, 45, 1839]) || isEntityInCube(entity, [-2225, 24, 1839], [-2255, 30, 1868])) {
@@ -272,6 +275,7 @@ export function generateGrass(vector3, dimension) {
 world.afterEvents.entityHitEntity.subscribe((hitEvent) => {
     const damaged = hitEvent.hitEntity
     const damager = hitEvent.damagingEntity
+
     // Ударил игрок
     if (damager.typeId == 'minecraft:player') {
         iDP(damager, 'anticheat:autoclick_tracker')
@@ -286,6 +290,19 @@ world.afterEvents.entityHitEntity.subscribe((hitEvent) => {
         // По гробу
         if (damaged.typeId === 'arx:grave' && damager.getProperty('arx:is_knocked') === false) {
             damaged.runCommand('kill @s')
+        }
+
+        // Lobby character creation
+        if (damaged.typeId === 'arx:lobby_character_creation') {
+            const playerDeviceType = damager.clientSystemInfo.platformType
+            switch (playerDeviceType) {
+                case 'Desktop':
+                    damager.sendMessage(`Right-click to interact`)
+                    break
+                case 'Mobile':
+                    damager.sendMessage(`Long-press to interact`)
+                    break
+            }
         }
     }
     // Ударил культист воин
@@ -333,6 +350,7 @@ world.afterEvents.entityHitEntity.subscribe((hitEvent) => {
         // Игроку попали в лицо
         else {
 
+            // Animate attack + give CD. Default processAttack trigger won't trigger cus it triggers only when entity deals damage.
             if (damager.typeId === 'minecraft:player') processAttack(damager, false)
 
             const damagerItem = damager.typeId === 'minecraft:player' ? damager.getComponent(EntityComponentTypes.Equippable).getEquipment(EquipmentSlot.Mainhand) : undefined
@@ -399,15 +417,42 @@ function pickUpPlayer(initiator, playerToPickUp) {
     initiator.runCommand('playanimation @s animation.player.pick_up_knocked_player')
 }
 
-// Взаимодействие с сущностями на пкм
-world.afterEvents.playerInteractWithEntity.subscribe((interactEvent) => {
-    if (interactEvent.target?.typeId == "minecraft:player") {
-        // Поднимаем игрока
-        {
-            const nearest = interactEvent.target // Взятый игрок
-            const self = interactEvent.player // Поднимающий игрок
+/**
+ * Вычисляет расстояние между двумя сущностями
+ * @param {Entity} entity1 - Первая сущность
+ * @param {Entity} entity2 - Вторая сущность
+ * @returns {number} Расстояние в блоках
+ */
+export function getDistanceBetween(entity1, entity2) {
+    if (!entity1?.location || !entity2?.location) return undefined;
 
-            if (r.selection === 0) pickUpPlayer(self, nearest)
+    return Math.hypot(
+        entity1.location.x - entity2.location.x,
+        entity1.location.y - entity2.location.y,
+        entity1.location.z - entity2.location.z
+    );
+}
+
+// Взаимодействие с сущностями на пкм
+world.afterEvents.playerInteractWithEntity.subscribe(async (interactEvent) => {
+    if (interactEvent.target?.typeId == "minecraft:player") {
+
+        const target = interactEvent.target // Взятый игрок
+        const self = interactEvent.player // Поднимающий игрок
+
+        // Поднимаем игрока
+        if (getDistanceBetween(target, self) < 1) {
+            if (await isPlayerCompletelyLoaded(target)) {
+                const mainhandItem = getItem(target, 'mainhand')
+
+                if (!mainhandItem?.getTags().includes('is_weapon')) pickUpPlayer(self, target)
+                else {
+                    self.sendMessage(`Can't pick up a player if he is holding a weapon`)
+                }
+            }
+            else {
+                self.sendMessage(`${target.getDynamicProperty('name')} is not fully loaded yet...`)
+            }
         }
     }
     // Создание персонажа в лобби
@@ -631,23 +676,6 @@ system.beforeEvents.startup.subscribe(initEvent => {
                     }
                     break
 
-                // Ванильные растения
-                case "arx:beetroots":
-                    if (event.block.permutation.getState("arx:growth_stage") < 3 && Math.random() < 0.2) { // Проверям, не вырос ли уже до конца
-                        event.block.setPermutation(event.block.permutation.withState("arx:growth_stage", event.block.permutation.getState("arx:growth_stage") + 1))
-                    }
-                    break
-                case "arx:carrots":
-                    if (event.block.permutation.getState("arx:growth_stage") < 3 && Math.random() < 0.2) { // Проверям, не вырос ли уже до конца
-                        event.block.setPermutation(event.block.permutation.withState("arx:growth_stage", event.block.permutation.getState("arx:growth_stage") + 1))
-                    }
-                    break
-                case "arx:potatoes":
-                    if (event.block.permutation.getState("arx:growth_stage") < 3 && Math.random() < 0.2) { // Проверям, не вырос ли уже до конца
-                        event.block.setPermutation(event.block.permutation.withState("arx:growth_stage", event.block.permutation.getState("arx:growth_stage") + 1))
-                    }
-                    break
-
                 // Хлопок
                 case "arx:cotton_plant":
                     if (event.block.permutation.getState("arx:growth_stage") < 6 && Math.random() < 0.07) { // Проверям, не вырос ли уже до конца
@@ -656,14 +684,8 @@ system.beforeEvents.startup.subscribe(initEvent => {
                     break
             }
         }
-    });
-
-    initEvent.itemComponentRegistry.registerCustomComponent('arx:onConsume', {
-        onConsume(event) { // Юзание предмета на ПКМ
-            onFoodConsume(event.source, event.itemStack.typeId)
-        }
-    });
-});
+    })
+})
 
 // Смерти сущностей
 world.afterEvents.entityDie.subscribe((dieEvent) => {
@@ -951,7 +973,7 @@ world.afterEvents.entityHurt.subscribe((hurtEvent) => {
     // Если атакует игрок
     if (damager) { // Проверяем, есть ли вообще атакующая сущность
         // Если атакует игрок
-        if (damager.typeId === "minecraft:player" && damageCause !== "projectile") {
+        if (damager.typeId === "minecraft:player" && damageCause !== "projectile" && !damager.hasTag('used_magic_damage_just_now')) {
 
             processAttack(damager)
 
@@ -1063,4 +1085,23 @@ export function getEntityFamilies(entity) {
 // Режим игры
 world.afterEvents.playerGameModeChange.subscribe((event) => {
     if (event.toGameMode !== 'Survival') world.getDimension('minecraft:overworld').runCommand(`tellraw @a[scores={verify=2}] { "rawtext": [ { "text": "§f[§dСистема§f] ${event.player.name} gamemode -> §a${event.toGameMode}" } ] }`)
+})
+
+// Entity removing
+world.beforeEvents.entityRemove.subscribe(async (event) => {
+    const entity = event.removedEntity
+    const altitude = entity.location.y
+    // If it is grave and it is NOT on 16px-height block
+    if (entity.typeId == 'arx:grave' && !Number.isInteger(altitude)) {
+        const loc = entity.location
+        const d = entity.dimension
+        system.runTimeout(() => {
+            d.runCommand(`execute positioned ${loc.x} ${loc.y} ${loc.z} as @e[type=item, r=3] at @s run tp @s ${loc.x} ${loc.y} ${loc.z}`)
+        }, 1)
+    }
+})
+
+// Food catch
+world.afterEvents.itemCompleteUse.subscribe((event) => {
+    onConsume(event.source, event.itemStack)
 })

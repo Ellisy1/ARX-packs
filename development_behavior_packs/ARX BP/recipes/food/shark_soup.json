@@ -8,13 +8,13 @@
     
     "tags": [ "boiler_crafting_table" ],
     "pattern": [
-      "AAA",
+      " A ",
       "B C",
       " D "
     ],
     "key": {
       "A": {
-        "item": "arx:baby_shark_meat"
+        "item": "arx:baby_shark"
       },
       "B": {
         "item": "arx:salt"

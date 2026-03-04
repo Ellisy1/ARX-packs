@@ -14,10 +14,10 @@
     ],
     "key": {
       "#": {
-        "item": "arx:dough"
+        "item": "minecraft:wheat"
       },
       "A": {
-        "item": "arx:apple"
+        "item": "minecraft:apple"
       },
       "B": {
         "item": "minecraft:sugar"

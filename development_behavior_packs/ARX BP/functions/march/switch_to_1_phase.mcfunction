@@ -1,1 +1,0 @@
-event entity @s switch_to_1_phase

@@ -10,11 +10,11 @@
     "pattern": [
       "C ",
       "BC",
-      "AA"
+      "A "
     ],
     "key": {
       "A": {
-        "item": "arx:wave_fish_meat"
+        "item": "arx:wave_fish"
       },
       "B": {
         "item": "arx:salt"

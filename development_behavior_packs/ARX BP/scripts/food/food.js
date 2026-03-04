@@ -1,0 +1,329 @@
+import { acquireTrait, checkForTrait } from "../traits/traitsOperations"
+import { ssDP, iDP, gDP } from "../DPOperations"
+import { sl, fl } from '../lang/fetchLocalization'
+
+// All registered food
+// Key - food id, value - deliciousness
+export const foodRegistry = {
+    meat: {
+        "arx:bears_potato": 65,
+        "arx:bloody_steak": 60,
+        "arx:borsch": 60,
+        "arx:cake_contemplator": 65,
+        "arx:camel_shashlik": 35,
+        "arx:caretaker": 15,
+        "arx:cave_rat_meat_in_caramel": 58,
+        "arx:chicken_in_vodka": 50,
+        "arx:cutlet": 32,
+        "arx:duckling_crisps": 42,
+        "arx:dumplings": 35,
+        "arx:firesalo": 80,
+        "arx:fried_brain": 17,
+        "arx:fried_eggs": 20,
+        "arx:fried_frog_legs_in_elvish": 75,
+        "arx:heart_stew": 35,
+        "arx:hoof_bouillon": 22,
+        "arx:horse_shashlik": 64,
+        "arx:juicy_goat_ribs": 46,
+        "arx:khryuchevo": 55,
+        "arx:king_steak": 87,
+        "arx:lama_in_wine": 60,
+        "arx:liver_stew": 43,
+        "arx:meat_bug_bug": 30,
+        "arx:meat_hurricane": 90,
+        "arx:pirate_steak": 48,
+        "arx:rat_monstr_with_potatoes_and_mayonnaise": 68,
+        "arx:rat_potato_casserole": 65,
+        "arx:reconstruction_meat_cake": 58,
+        "arx:salo": 18,
+        "arx:sausage": 38,
+        "arx:small_rat_cutlet": 10,
+        "arx:snow_bars_steak": 60,
+        "arx:steamed_dolphin": 35,
+        "arx:stew": 55,
+        "arx:storm_steak": 67,
+
+        "arx:fried_allay_meat": 20,
+        "arx:fried_animal_heart": 20,
+        "arx:fried_bat_meat": 20,
+        "arx:fried_beast_heart": 20,
+        "arx:fried_camel_meat": 24,
+        "arx:fried_cat_meat": 20,
+        "arx:fried_cave_rat_meat": 20,
+        "arx:fried_dolphin_meat": 20,
+        "arx:fried_duckling_fowl": 20,
+        "arx:fried_fiercewolf_meat": 20,
+        "arx:fried_fox_meat": 20,
+        "arx:fried_venison": 20,
+        "arx:fried_frog_legs": 20,
+        "arx:fried_goat_meat": 20,
+        "arx:fried_horse_meat": 20,
+        "arx:fried_human_meat": 20,
+        "arx:fried_kapibara_meat": 20,
+        "arx:fried_lama_meat": 20,
+        "arx:fried_liver": 20,
+        "arx:fried_meat_beatle_meat": 20,
+        "arx:fried_parrot_fowl": 20,
+        "arx:fried_polar_bear_meat": 24,
+        "arx:fried_rabbit_meat": 20,
+        "arx:fried_rat_monstr_meat": 22,
+        "arx:fried_sea_turtle_meat": 20,
+        "arx:fried_small_rat_meat": 20,
+        "arx:fried_snow_bars_meat": 20,
+        "arx:fried_wolf_meat": 20,
+
+        // Vanilla
+        "minecraft:cooked_chicken": 20,
+        "minecraft:cooked_beef": 22,
+        "minecraft:cooked_porkchop": 20,
+        "minecraft:cooked_mutton": 20,
+        "minecraft:cooked_rabbit": 20,
+
+        "minecraft:chicken": 5,
+        "minecraft:beef": 5,
+        "minecraft:porkchop": 5,
+        "minecraft:mutton": 5,
+        "minecraft:rabbit": 5,
+
+        "minecraft:rotten_flesh": -100,
+        "minecraft:spider_eye": -30,
+        "minecraft:rabbit_stew": 45,
+    },
+    fish: {
+        "arx:devil_soup": 95,
+        "arx:electrodinner": 85,
+        "arx:fish_crisps": 20,
+        "arx:fish_cutlet": 24,
+        "arx:fish_pie": 45,
+        "arx:fish_soup": 30,
+        "arx:fried_fugu": 41,
+        "arx:fulfilled_wish": 80,
+        "arx:shark_soup": 95,
+        "arx:sun_snack": 92,
+        "arx:wave_of_taste": 87,
+
+        "arx:baby_shark_fried": 34,
+        "arx:cramp_fish_fried": 35,
+        "arx:devil_fish_fried": 36,
+        "arx:gold_tail_fish_fried": 34,
+        "arx:piranha_fried": 30,
+        "arx:sun_fish_fried": 34,
+        "arx:wave_fish_fried": 34,
+
+        "arx:le_fishe_au_chocolat": 42,
+
+        // Vanilla
+        "minecraft:salmon": 10,
+        "minecraft:cod": 7,
+        "minecraft:pufferfish": -10,
+        "minecraft:tropical_fish": 10,
+
+        "minecraft:cooked_salmon": 20,
+        "minecraft:cooked_cod": 14,
+    },
+    bread: {
+        "arx:allaybread": 40,
+        "arx:apple_pie": 60,
+        "arx:bandit_pie": 55,
+        "arx:beefbread": 40,
+        "arx:brainbread": 30,
+        "arx:cactus_sandwich": 26,
+        "arx:cheese_pie": 70,
+        "arx:chocolate_donut": 58,
+        "arx:chocolate_waffles": 50,
+        "arx:eggbread": 35,
+        "arx:fiercebread": 50,
+        "arx:gnil_pie": -30,
+        "arx:iron_pie": 30,
+        "arx:king_bun": 80,
+        "arx:lasagna": 85,
+        "arx:loaf": 40,
+        "arx:meat_pie": 65,
+        "arx:pie": 30,
+        "arx:piratebread": 40,
+        "arx:spicy_beefbread": 65,
+
+        "arx:cupcake": 42,
+        "arx:caramel_buns": 60,
+        "arx:sugar_donut": 52,
+        "arx:sweet_bun": 50,
+        "arx:sweet_pie": 62,
+
+        // Vanilla
+        "minecraft:cookie": 35,
+        "minecraft:bread": 30,
+        "minecraft:pumpkin_pie": 65,
+
+    },
+    dairy: {
+        "arx:cheese": 55,
+        "arx:curd": 20,
+        "arx:kefir": 35,
+        "arx:sour_cream": 44,
+    },
+    herbal: {
+        "arx:baked_apple": 15,
+        "arx:cactus_soup": 15,
+        "arx:crisps": 35,
+        "arx:elven_salad": 44,
+        "arx:fiolix": 20,
+        "arx:fire_berry": 8,
+        "arx:grass_soup": 3,
+        "arx:green_salad": 35,
+        "arx:juicy_grass": 2,
+        "arx:kaspora_salad": 36,
+        "arx:mayonnaise": 20,
+        "arx:moon_potato": 65,
+        "arx:mushroom_soup": 35,
+        "arx:royal_salad": 65,
+        "arx:spicy_mushroom_soup": 42,
+        "arx:spicy_sauce": 18,
+        "arx:tea_cup_of_evergreen_dream": 85,
+        "arx:tea_cup_of_fioletic": 30,
+        "arx:tea_cup_of_fok": 45,
+        "arx:tea_cup_of_kavra": 37,
+        "arx:wooden_crust": -75,
+
+        "arx:black_tea": 25,
+        "arx:black_teamed": 50,
+        "arx:celestial_tea": 37,
+        "arx:green_tea": 22,
+        "arx:green_teasugaralt": 39,
+        "arx:milk_ylyn": 34,
+        "arx:pyer_tea": 30,
+        "arx:see_tea": 32,
+        "arx:snow_tea": 45,
+        "arx:sun_tea": 52,
+        "arx:white_tea": 30,
+        "arx:yellow_tea": 26,
+
+        "arx:caramel": 23,
+        "arx:chocolate_bar": 27,
+        "arx:chocolate_cubes": 36,
+
+        // Vanilla
+        "minecraft:honey_bottle": 25,
+
+        "minecraft:apple": 18,
+        "minecraft:golden_apple": 30,
+        "minecraft:enchanted_golden_apple": 100,
+
+        "minecraft:potato": 20,
+        "minecraft:poisonous_potato": -40,
+        "minecraft:baked_potato": 35,
+        "minecraft:carrot": 18,
+        "minecraft:golden_carrot": 30,
+        "minecraft:beetroot": 14,
+        "minecraft:beetroot_soup": 46,
+        "minecraft:melon_slice": 25,
+
+        "minecraft:sweet_berries": 20,
+        "minecraft:glow_berries": 24,
+
+        "minecraft:suspicious_stew": -30,
+        "minecraft:dried_kelp": 8,
+    }
+}
+
+// All possible tastes
+const tasteTypes = Object.keys(foodRegistry)
+
+// Get food type
+function getFoodType(foodId) {
+    for (const key of Object.keys(foodRegistry)) {
+        if (foodId in foodRegistry[key]) return key
+    }
+    return undefined
+}
+
+// Check, is the given food in the registry
+export function isFoodInRegistry(foodId) {
+    if (!foodId) return false
+
+    return Object.values(foodRegistry).some(category => foodId in category)
+}
+
+// Triggers when a player eats a food
+export function onFoodConsume(player, itemStack) {
+
+    const foodId = itemStack.typeId
+    const foodType = getFoodType(foodId)
+
+    // If there is no data about given food in registry
+    if (!isFoodInRegistry(foodId)) return undefined
+
+    // Get player's taste to given food
+    const playerTaste = player.getDynamicProperty(`playerTaste_${foodType}`) ?? 0
+
+    // Get food's deleciousness
+    const foodTaste = foodRegistry[foodType][foodId]
+
+    // Проводим особые операции, если это требуется
+    switch (foodId) {
+        // Еда
+        case "arx:iron_pie": {
+            sl(player, 'food.iron_pie')
+            player.runCommand(`effect @s fatal_poison infinite 255 true`)
+            break
+        }
+        case "arx:fiolix": {
+            iDP(player, 'FiolixNarcoticPower', 1800)
+            break
+        }
+        case "arx:le_fishe_au_chocolat": {
+            player.runCommand(`playsound le_fishe_au_chocolat @s ~ ~ ~ 0.5`)
+            iDP(player, 'eatenLeFisheCounter')
+            break
+        }
+    }
+
+    // Tip
+    if (player.getDynamicProperty('hasEverAteSomething') !== true) {
+        sl(player, 'food.thirst_meal')
+        ssDP(player, 'hasEverAteSomething', true)
+    }
+
+    // Happiness bonus
+    let happinessBonus = (playerTaste * 1.3) + foodTaste
+
+    // Normalize value
+    happinessBonus *= 15
+
+    // Decrease from trait
+    if (checkForTrait(player, 'fastidious')) happinessBonus -= 200
+
+    // Если мы ещё не проголодались
+    if (player.getDynamicProperty('foodCD') > 1 && happinessBonus > 0) {
+        happinessBonus = 0
+        sl(player, 'food.cannot_gain_happines')
+    }
+
+    // Send message
+    notifyAboutFoodTastiness(player, happinessBonus)
+
+    // Выдаем счастье
+    iDP(player, 'stress', -happinessBonus)
+
+    // Set CD for happiness gain
+    ssDP(player, 'foodCD', 3 * 60)
+}
+
+function notifyAboutFoodTastiness(player, happinessBonus) {
+    let messageStart
+    let messageColor
+    if (happinessBonus < -500) {
+        messageStart = fl(player, 'food.not_tasty')
+        messageColor = "§c"
+    }
+    else if (happinessBonus > 500) {
+        messageStart = fl(player, 'food.tasty')
+        messageColor = "§a"
+    }
+    else {
+        messageStart = fl(player, 'food.normal_taste')
+        messageColor = "§e"
+    }
+    const mathSign = happinessBonus >= 0 ? '+' : ''
+
+    player.sendMessage(`${messageColor}${messageStart}§f ${fl(player, 'food.happiness_bonus')} ${messageColor}${mathSign}${(happinessBonus / 1000).toFixed(1)}§f.`)
+}

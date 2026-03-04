@@ -16,13 +16,13 @@ function defineSpellData(player, runeSequence, currentTargetRaw) {
     // Определяем дальность действия заклинания
     let spellDistance = 10
 
-    // Определяем, по площади ли заклинание? Если оно содержит руну disortari, то по площади
-    const isAreaSpell = runeSequence.includes("disortari")
+    // Определяем, по площади ли заклинание? Если оно содержит руну area, то по площади
+    const isAreaSpell = runeSequence.includes("area")
 
     // Определяем инициатора
     spellData['initiator'] = player
 
-    // Определяем ближайшего игрока
+    // Определяем ближайшего игрока (БЛИЖАЙШЕГО! НЕ ОБЯЗАТЕЛЬНО ЦЕЛЬ ЗАКЛИНАНИЯ!)
     spellData['nearestPlayer'] = getNearestPlayer(player, spellDistance)
 
     // Определяем, используем ли мы закл на себя? (для быстрых запросов)
@@ -36,6 +36,7 @@ function defineSpellData(player, runeSequence, currentTargetRaw) {
 
     // Определяем объекты целей
     let targets = []
+    // Default spell
     if (!isAreaSpell) {
         if (currentTargetRaw === 1) {
             targets = [player]
@@ -52,11 +53,15 @@ function defineSpellData(player, runeSequence, currentTargetRaw) {
             }
         }
     }
+    // Area spell
     else {
+        // Get ALL entities is spell range
         if (currentTargetRaw === 1) {
             targets = player.dimension.getEntities({ location: player.location, maxDistance: spellDistance })
                 .filter(entity => !getEntityFamilies(entity).includes('furniture'))
-        } else {
+        } 
+        // Get all entities, excluding the caster
+        else {
             targets = player.dimension.getEntities({ location: player.location, maxDistance: spellDistance, minDistance: 0.001 })
                 .filter(entity => !getEntityFamilies(entity).includes('furniture'))
         }
@@ -102,8 +107,9 @@ export function castJSSpell(player, runeSequence, target) {
                 wasWrongEntityType = true
                 continue
             }
-            // Trace
-            if (!spellData.isAreaSpell && !spellData.castingOnSelf) spawnParticleTrail(spellData.initiator, entity, runeSequence, spell.color)
+            // Spell trail
+            spawnParticleTrail(spellData.initiator, entity, spell.color)
+
             // Активируем заклинание
             spell.handler(entity, spellData)
             successfulCastsCounter++
@@ -117,7 +123,7 @@ export function castJSSpell(player, runeSequence, target) {
 }
 
 // Create spell trace
-function spawnParticleTrail(initiator, entity, runeSequence, colorFromSpell, delayTicks = 0.25) {
+function spawnParticleTrail(initiator, entity, colorFromSpell, delayTicks = 0.25) {
     let p0, p1;
 
     try {

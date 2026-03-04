@@ -1,6 +1,6 @@
 import { traitsList } from './traitsList'
 import { queueCommand } from '../commandQueue'
-import { ssDP } from '../DPOperations';
+import { gDP, ssDP } from '../DPOperations';
 
 // Черты хранятся в dynamicProperty игрока вида trait:traitId = ( 0 === нет черты || 1 === есть черта || 2 === закреп )
 
@@ -82,7 +82,7 @@ export function checkForTrait(player, traitId) {
         console.warn(`[Traits] запрос на наличие незарегистрированной в системе черты ${traitId} у игрока ${player.name}`)
     }
 
-    return player.getDynamicProperty(`trait:${traitId}`) > 0 ? true : false
+    return gDP(player, `trait:${traitId}`) > 0
 }
 
 

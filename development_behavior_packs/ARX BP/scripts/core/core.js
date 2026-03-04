@@ -7,20 +7,18 @@ import { getScore, setScore } from '../scoresOperations'
 import { increaseSkillLevel, increaseSkillProgress, wipeSkills } from '../skillsOperations'
 import { checkForItem } from "../checkForItem"
 import { ModalFormData, MessageFormData, MessageFormResponse } from "@minecraft/server-ui"
-import { setRandomTastes } from '../food/setRandomTastes'
 import { getPlayersInRadius } from '../getPlayersInRadius'
 import { getActiveStaffChannel } from '../magic/getActiveStaffChannel'
 import { channelRomanNums } from '../magic/channelRomanNums'
 import { isEntityInCube } from "./music_core"
 import { weighAnalysis } from '../weighAnalysis'
 import { checkForTrait } from "../traits/traitsOperations"
-import { portals } from '../portals'
-import { getPlayersInRadiusFromCoords } from '../portals'
 import { killingTimeAnimDelay, animate_killing_time } from './animate_killing_time'
 import { ssDP, iDP, gDP } from '../DPOperations'
 import { acquireTrait } from "../traits/traitsOperations"
 import { sendToActionBar } from './actionBarCore'
 import { sl } from "../lang/fetchLocalization"
+import { isPlayerCompletelyLoaded } from "../isPlayerCompletelyLoaded"
 
 // Other core parts
 import { getNearestPlayer } from "../getNearestPlayer"
@@ -29,9 +27,7 @@ import { msgFromGuide, parceChatCommand } from "../chat"
 import './ambience_core'
 import './dynamicLightCore'
 import { getEntityFamilies } from "../_main"
-import { infoScreen } from "../info/_infoScreen"
 import { getHoster } from "../admin"
-import { md5 } from "../converters"
 
 // Core framework 
 // There are all core parts with their tickspeeds and other data 
@@ -82,7 +78,11 @@ const coreFramework = {
                     player.runCommand('spawnpoint @s -10000 4 -10000')
                 }
                 else {
-                    player.runCommand('spawnpoint @s ~ ~ ~')
+                    const loc = player.location
+                    const headBlockId = player.dimension.getBlock(player.getHeadLocation()).typeId
+                    if (headBlockId === 'minecraft:air' || headBlockId.startsWith('arx:dynamic_light_block_')) {
+                        player.runCommand('spawnpoint @s ~ ~ ~')
+                    }
                 }
             }
         }
@@ -345,22 +345,6 @@ const coreFramework = {
             for (const player of world.getPlayers()) {
                 if (checkForItem(player, 'Mainhand', 'minecraft:torch') || checkForItem(player, 'Mainhand', 'minecraft:soul_torch') || checkForItem(player, 'Mainhand', 'minecraft:copper_torch') || checkForItem(player, 'Mainhand', 'minecraft:redstone_torch')) {
                     player.runCommand('execute positioned ~ ~1.9 ~ run particle minecraft:basic_smoke_particle ^-0.3 ^0 ^0.4')
-                }
-            }
-        }
-    },
-    // Hunger from actions 
-    hungerFromActions: {
-        tickSpeed: 20,
-        operations: () => {
-            for (const player of world.getPlayers()) {
-                // Jumps
-                if (player.getDynamicProperty('pressedJumpButton')) {
-                    if (player.getDynamicProperty('saturation') > 0) iDP(player, 'saturation', -2)
-                }
-                // Sprint
-                if (player.hasTag('is_sprinting')) {
-                    if (player.getDynamicProperty('saturation') > 0) iDP(player, 'saturation', -1)
                 }
             }
         }
@@ -697,7 +681,7 @@ const coreFramework = {
     // Knockout
     knockout: {
         tickSpeed: 20,
-        operations: () => {
+        operations: async () => {
             for (const player of world.getPlayers()) {
                 // respawnDelay - задержка до момента, когда игрок встанет естественным образом
                 // reviveDelay - время, пока игрока поднимают. Хранится на нокнутом поднимаемом игроке
@@ -759,25 +743,33 @@ const coreFramework = {
                     // Ресаем
                     for (const nearbyPlayer of nearbyPlayers) {
                         if (nearbyPlayer.getProperty('arx:is_knocked') === true && !nearbyPlayer.hasTag('is_riding')) {
-                            iDP(nearbyPlayer, 'reviveDelay', reviveSpeedValue)
-                            displayRespawnLine(nearbyPlayer, player) // Отображаем линию воскрешения ресающему
-                            displayRespawnLine(nearbyPlayer, nearbyPlayer) // Отображаем линию воскрешения тому кого ресают
 
-                            // Мы воскресили до нужного reviveDelay (reviveDelay === 10)
-                            if (nearbyPlayer.getDynamicProperty('reviveDelay') >= 10) {
-                                // Отправляем сообщение поднимаемому
-                                if (nearbyPlayer.getDynamicProperty("respawnDelay") === 0) {
-                                    nearbyPlayer.runCommand(`tellraw @s { "rawtext": [ { "text": "${player.getDynamicProperty('name')} §aпомогает мне. Притворяться вырубленным сейчас не выйдет" } ] }`)
-                                } else {
-                                    nearbyPlayer.runCommand(`tellraw @s { "rawtext": [ { "text": "${player.getDynamicProperty('name')} §aпомогает мне" } ] }`)
+                            const is_loaded = await isPlayerCompletelyLoaded(nearbyPlayer)
+
+                            if (is_loaded) {
+                                iDP(nearbyPlayer, 'reviveDelay', reviveSpeedValue)
+                                displayRespawnLine(nearbyPlayer, player) // Отображаем линию воскрешения ресающему
+                                displayRespawnLine(nearbyPlayer, nearbyPlayer) // Отображаем линию воскрешения тому кого ресают
+
+                                // Мы воскресили до нужного reviveDelay or more (reviveDelay >= 10)
+                                if (nearbyPlayer.getDynamicProperty('reviveDelay') >= 10) {
+                                    // Отправляем сообщение поднимаемому
+                                    if (nearbyPlayer.getDynamicProperty("respawnDelay") === 0) {
+                                        nearbyPlayer.runCommand(`tellraw @s { "rawtext": [ { "text": "${player.getDynamicProperty('name')} §aпомогает мне. Притворяться вырубленным сейчас не выйдет" } ] }`)
+                                    } else {
+                                        nearbyPlayer.runCommand(`tellraw @s { "rawtext": [ { "text": "${player.getDynamicProperty('name')} §aпомогает мне" } ] }`)
+                                    }
+                                    // Отправляем сообщение поднимающему
+                                    player.runCommand(`tellraw @s { "rawtext": [ { "text": "${nearbyPlayer.getDynamicProperty('name')} §aчувствует себя лучше" } ] }`)
+
+                                    // Выставляем данные
+                                    ssDP(nearbyPlayer, 'respawnDelay', 0)
+                                    nearbyPlayer.setProperty("arx:is_knocked", false)
+                                    nearbyPlayer.runCommand('event entity @s arx:property_is_knockout_set_0')
                                 }
-                                // Отправляем сообщение поднимающему
-                                player.runCommand(`tellraw @s { "rawtext": [ { "text": "${nearbyPlayer.getDynamicProperty('name')} §aчувствует себя лучше" } ] }`)
-
-                                // Выставляем данные
-                                ssDP(nearbyPlayer, 'respawnDelay', 0)
-                                nearbyPlayer.setProperty("arx:is_knocked", false)
-                                nearbyPlayer.runCommand('event entity @s arx:property_is_knockout_set_0')
+                            }
+                            else {
+                                player.sendMessage(`${nearbyPlayer.getDynamicProperty('name')} is still loading...`)
                             }
                         }
                     }
@@ -841,20 +833,6 @@ const coreFramework = {
                 }
                 if (player.getTags().includes('very_low_hp')) {
                     player.dimension.spawnParticle('arx:blood_drop_bright', particleLoc, molang)
-                }
-            }
-        }
-    },
-    // Autoregeneration
-    autoregen: {
-        tickSpeed: 20,
-        operations: () => {
-            for (const player of world.getPlayers()) {
-                if (player.getDynamicProperty("autoHPRegenCD") == 0) {
-                    if (checkForTrait(player, 'tenacious')) ssDP(player, 'autoHPRegenCD', 80)
-                    else ssDP(player, 'autoHPRegenCD', 90)
-
-                    player.addEffect("regeneration", 200, { amplifier: 0, showParticles: false })
                 }
             }
         }
@@ -1072,18 +1050,7 @@ const coreFramework = {
             for (const player of world.getPlayers()) {
                 if (!player.getDynamicProperty('hasRegisteredCharacter')) {
                     player.runCommand('effect @s regeneration 2 255 true')
-                    ssDP(player, 'saturation', 720)
-                }
-            }
-        }
-    },
-    // Saturation (execution)
-    saturation: {
-        tickSpeed: 20,
-        operations: () => {
-            for (const player of world.getPlayers()) {
-                if (player.getDynamicProperty('saturation') > 0) {
-                    player.runCommand('effect @s saturation 5 255 true')
+                    player.runCommand('effect @s saturation 2 255 true')
                 }
             }
         }
@@ -1711,13 +1678,18 @@ const coreFramework = {
 
 // Core Launcher
 for (const coreBlock of Object.values(coreFramework)) {
-    system.runInterval(() => { coreBlock.operations() }, coreBlock['tickSpeed'])
+    system.runInterval(async () => {
+        const result = coreBlock.operations();
+        // Если operations вернул Promise — ждём его, иначе игнорируем
+        if (result instanceof Promise) {
+            await result.catch(err => console.error(`[CoreError] ${err}`));
+        }
+    }, coreBlock['tickSpeed']);
 }
 
 // DP, которые мы уменьшаем вплоть до 0 (inclusive)
 // 'dp': 'Сообщение при снижении до 0'
 const dynamicPropertiesToDecrease = {
-    'saturation': undefined,
     'noRainFog': undefined,
     'noNightFog': undefined,
     'jumpBoostByPotion': '§6Бонус прыжка от зелья закончился',
@@ -1743,7 +1715,8 @@ const dynamicPropertiesToDecrease = {
     'shootingBoostBySpell_minus2': '§aШтраф стрельбы от заклинания (-2) закончился',
     'shootingBoostBySpell_minus4': '§aШтраф стрельбы от заклинания (-4) закончился',
     'allowArchilight': '§6Действие архисвета закончилось',
-    'allowMagilight': '§6Действие магисвета закончилось'
+    'allowMagilight': '§6Действие магисвета закончилось',
+    'foodCD': '§aВы снова не против перекусить'
 };
 
 // Отображение маны

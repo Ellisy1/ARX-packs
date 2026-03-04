@@ -1638,17 +1638,8 @@
     "arx:pig_skin": {
       "textures": "textures/items/alchemy/pig_skin"
     },
-    "arx:allay_meat": {
-      "textures": "textures/items/alchemy/allay_meat"
-    },
     "arx:allay_skin": {
       "textures": "textures/items/alchemy/allay_skin"
-    },
-    "arx:animal_heart": {
-      "textures": "textures/items/alchemy/animal_heart"
-    },
-    "arx:beast_heart": {
-      "textures": "textures/items/alchemy/beast_heart"
     },
     "arx:squama": {
       "textures": "textures/items/alchemy/squama"
@@ -1661,9 +1652,6 @@
     },
     "arx:claws": {
       "textures": "textures/items/alchemy/claws"
-    },
-    "arx:liver": {
-      "textures": "textures/items/alchemy/liver"
     },
     "arx:solod": {
       "textures": "textures/items/alchemy/solod"
@@ -1680,26 +1668,14 @@
     "arx:arctic_fox_skin": {
       "textures": "textures/items/alchemy/arctic_fox_skin"
     },
-    "arx:bat_meat": {
-      "textures": "textures/items/alchemy/bat_meat"
-    },
     "arx:bat_skin": {
       "textures": "textures/items/alchemy/bat_skin"
     },
     "arx:big_leech_skin": {
       "textures": "textures/items/alchemy/big_leech_skin"
     },
-    "arx:camel_meat": {
-      "textures": "textures/items/alchemy/camel_meat"
-    },
     "arx:camel_skin": {
       "textures": "textures/items/alchemy/camel_skin"
-    },
-    "arx:cat_meat": {
-      "textures": "textures/items/alchemy/cat_meat"
-    },
-    "arx:cave_rat_meat": {
-      "textures": "textures/items/alchemy/cave_rat_meat"
     },
     "arx:cave_rat_skin": {
       "textures": "textures/items/alchemy/cave_rat_skin"
@@ -1710,86 +1686,38 @@
     "arx:desert_essence": {
       "textures": "textures/items/alchemy/desert_essence"
     },
-    "arx:dolphin_meat": {
-      "textures": "textures/items/alchemy/dolphin_meat"
-    },
-    "arx:duckling_fowl": {
-      "textures": "textures/items/alchemy/duckling_fowl"
-    },
-    "arx:fiercewolf_meat": {
-      "textures": "textures/items/alchemy/fiercewolf_meat"
-    },
     "arx:fiercewolf_skin": {
       "textures": "textures/items/alchemy/fiercewolf_skin"
-    },
-    "arx:fox_meat": {
-      "textures": "textures/items/alchemy/fox_meat"
     },
     "arx:fox_skin": {
       "textures": "textures/items/alchemy/fox_skin"
     },
-    "arx:frog_legs": {
-      "textures": "textures/items/alchemy/frog_legs"
-    },
-    "arx:goat_meat": {
-      "textures": "textures/items/alchemy/goat_meat"
-    },
     "arx:goat_skin": {
       "textures": "textures/items/alchemy/goat_skin"
-    },
-    "arx:horse_meat": {
-      "textures": "textures/items/alchemy/horse_meat"
-    },
-    "arx:human_meat": {
-      "textures": "textures/items/alchemy/human_meat"
     },
     "arx:human_skin": {
       "textures": "textures/items/alchemy/human_skin"
     },
-    "arx:kapibara_meat": {
-      "textures": "textures/items/alchemy/kapibara_meat"
-    },
     "arx:kapibara_skin": {
       "textures": "textures/items/alchemy/kapibara_skin"
-    },
-    "arx:lama_meat": {
-      "textures": "textures/items/alchemy/lama_meat"
     },
     "arx:lama_skin": {
       "textures": "textures/items/alchemy/lama_skin"
     },
-    "arx:meat_beatle_meat": {
-      "textures": "textures/items/alchemy/meat_beatle_meat"
-    },
     "arx:panda_skin": {
       "textures": "textures/items/alchemy/panda_skin"
-    },
-    "arx:parrot_fowl": {
-      "textures": "textures/items/alchemy/parrot_fowl"
-    },
-    "arx:polar_bear_meat": {
-      "textures": "textures/items/alchemy/polar_bear_meat"
     },
     "arx:polar_bear_skin": {
       "textures": "textures/items/alchemy/polar_bear_skin"
     },
-    "arx:rabbit_meat": {
-      "textures": "textures/items/alchemy/rabbit_meat"
-    },
     "arx:rabbit_skin": {
       "textures": "textures/items/alchemy/rabbit_skin"
-    },
-    "arx:rat_monstr_meat": {
-      "textures": "textures/items/alchemy/rat_monstr_meat"
     },
     "arx:rat_monstr_skin": {
       "textures": "textures/items/alchemy/rat_monstr_skin"
     },
     "arx:sand_elemental_heart": {
       "textures": "textures/items/alchemy/sand_elemental_heart"
-    },
-    "arx:sea_turtle_meat": {
-      "textures": "textures/items/alchemy/sea_turtle_meat"
     },
     "arx:sea_turtle_shell": {
       "textures": "textures/items/alchemy/sea_turtle_shell"
@@ -1806,14 +1734,8 @@
     "arx:small_rat_black_skin": {
       "textures": "textures/items/alchemy/small_rat_black_skin"
     },
-    "arx:small_rat_meat": {
-      "textures": "textures/items/alchemy/small_rat_meat"
-    },
     "arx:small_rat_white_skin": {
       "textures": "textures/items/alchemy/small_rat_white_skin"
-    },
-    "arx:snow_bars_meat": {
-      "textures": "textures/items/alchemy/snow_bars_meat"
     },
     "arx:snow_bars_skin": {
       "textures": "textures/items/alchemy/snow_bars_skin"
@@ -1827,9 +1749,6 @@
     "arx:swamp_monster_heart": {
       "textures": "textures/items/alchemy/swamp_monster_heart"
     },
-    "arx:wolf_meat": {
-      "textures": "textures/items/alchemy/wolf_meat"
-    },
     "arx:wolf_skin": {
       "textures": "textures/items/alchemy/wolf_skin"
     },
@@ -1839,18 +1758,99 @@
     "arx:deer_skin": {
       "textures": "textures/items/alchemy/deer_skin"
     },
-    "arx:raw_venison": {
-      "textures": "textures/items/alchemy/raw_venison"
-    },
     "arx:zakuska": {
       "textures": "textures/items/food/zakuska"
     },
+
+    "arx:allay_meat": {
+      "textures": "textures/items/food/raw_meat/allay_meat"
+    },
+    "arx:animal_heart": {
+      "textures": "textures/items/food/raw_meat/animal_heart"
+    },
+    "arx:beast_heart": {
+      "textures": "textures/items/food/raw_meat/beast_heart"
+    },
+    "arx:liver": {
+      "textures": "textures/items/food/raw_meat/liver"
+    },
+    "arx:bat_meat": {
+      "textures": "textures/items/food/raw_meat/bat_meat"
+    },
+    "arx:camel_meat": {
+      "textures": "textures/items/food/raw_meat/camel_meat"
+    },
+    "arx:cat_meat": {
+      "textures": "textures/items/food/raw_meat/cat_meat"
+    },
+    "arx:cave_rat_meat": {
+      "textures": "textures/items/food/raw_meat/cave_rat_meat"
+    },
+    "arx:dolphin_meat": {
+      "textures": "textures/items/food/raw_meat/dolphin_meat"
+    },
+    "arx:duckling_fowl": {
+      "textures": "textures/items/food/raw_meat/duckling_fowl"
+    },
+    "arx:fiercewolf_meat": {
+      "textures": "textures/items/food/raw_meat/fiercewolf_meat"
+    },
+    "arx:frog_legs": {
+      "textures": "textures/items/food/raw_meat/frog_legs"
+    },
+    "arx:goat_meat": {
+      "textures": "textures/items/food/raw_meat/goat_meat"
+    },
+    "arx:horse_meat": {
+      "textures": "textures/items/food/raw_meat/horse_meat"
+    },
+    "arx:human_meat": {
+      "textures": "textures/items/food/raw_meat/human_meat"
+    },
+    "arx:kapibara_meat": {
+      "textures": "textures/items/food/raw_meat/kapibara_meat"
+    },
+    "arx:lama_meat": {
+      "textures": "textures/items/food/raw_meat/lama_meat"
+    },
+    "arx:meat_beatle_meat": {
+      "textures": "textures/items/food/raw_meat/meat_beatle_meat"
+    },
+    "arx:parrot_fowl": {
+      "textures": "textures/items/food/raw_meat/parrot_fowl"
+    },
+    "arx:polar_bear_meat": {
+      "textures": "textures/items/food/raw_meat/polar_bear_meat"
+    },
+     "arx:rat_monstr_meat": {
+      "textures": "textures/items/food/raw_meat/rat_monstr_meat"
+    },
+    "arx:sea_turtle_meat": {
+      "textures": "textures/items/food/raw_meat/sea_turtle_meat"
+    },
+    "arx:small_rat_meat": {
+      "textures": "textures/items/food/raw_meat/small_rat_meat"
+    },
+    "arx:snow_bars_meat": {
+      "textures": "textures/items/food/raw_meat/snow_bars_meat"
+    },
+    "arx:wolf_meat": {
+      "textures": "textures/items/food/raw_meat/wolf_meat"
+    },
+    "arx:raw_venison": {
+      "textures": "textures/items/food/raw_meat/raw_venison"
+    },
+    "arx:fox_meat": {
+      "textures": "textures/items/food/raw_meat/fox_meat"
+    },
+
     "arx:cheap_cloth": {
       "textures": "textures/items/crafting/cheap_cloth"
     },
     "arx:cotton_fabric": {
       "textures": "textures/items/crafting/cotton_fabric"
     },
+
     "arx:book_case_a": {
       "textures": "textures/items/books/book_case_a"
     },
@@ -3860,84 +3860,51 @@
     "arx:loaf": {
       "textures": "textures/items/food/loaf"
     },
-    "arx:dough": {
-      "textures": "textures/items/food/dough"
-    },
+
     "arx:baby_shark": {
       "textures": "textures/items/food/fish/baby_shark"
-    },
-    "arx:baby_shark_meat": {
-      "textures": "textures/items/food/fish/baby_shark_meat"
     },
     "arx:cramp_fish": {
       "textures": "textures/items/food/fish/cramp_fish"
     },
-    "arx:cramp_fish_meat": {
-      "textures": "textures/items/food/fish/cramp_fish_meat"
-    },
     "arx:devil_fish": {
       "textures": "textures/items/food/fish/devil_fish"
-    },
-    "arx:devil_fish_meat": {
-      "textures": "textures/items/food/fish/devil_fish_meat"
-    },
-    "arx:fish_fillet_fried": {
-      "textures": "textures/items/food/fish/fish_fillet_fried"
-    },
-    "arx:fish_fillet": {
-      "textures": "textures/items/food/fish/fish_fillet"
-    },
-    "arx:salmon_fillet_fried": {
-      "textures": "textures/items/food/fish/salmon_fillet_fried"
-    },
-    "arx:salmon_fillet": {
-      "textures": "textures/items/food/fish/salmon_fillet"
     },
     "arx:gold_tail_fish": {
       "textures": "textures/items/food/fish/gold_tail_fish"
     },
-    "arx:gold_tail_fish_meat": {
-      "textures": "textures/items/food/fish/gold_tail_fish_meat"
-    },
     "arx:piranha": {
       "textures": "textures/items/food/fish/piranha"
-    },
-    "arx:piranha_meat": {
-      "textures": "textures/items/food/fish/piranha_meat"
     },
     "arx:sun_fish": {
       "textures": "textures/items/food/fish/sun_fish"
     },
-    "arx:sun_fish_meat": {
-      "textures": "textures/items/food/fish/sun_fish_meat"
-    },
     "arx:wave_fish": {
       "textures": "textures/items/food/fish/wave_fish"
     },
-    "arx:wave_fish_meat": {
-      "textures": "textures/items/food/fish/wave_fish_meat"
+
+    "arx:baby_shark_fried": {
+      "textures": "textures/items/food/fried_fish/baby_shark"
     },
-    "arx:baby_shark_meat_fried": {
-      "textures": "textures/items/food/fish/baby_shark_meat_fried"
+    "arx:cramp_fish_fried": {
+      "textures": "textures/items/food/fried_fish/cramp_fish"
     },
-    "arx:cramp_fish_meat_fried": {
-      "textures": "textures/items/food/fish/cramp_fish_meat_fried"
+    "arx:devil_fish_fried": {
+      "textures": "textures/items/food/fried_fish/devil_fish"
     },
-    "arx:devil_fish_meat_fried": {
-      "textures": "textures/items/food/fish/devil_fish_meat_fried"
+    "arx:gold_tail_fish_fried": {
+      "textures": "textures/items/food/fried_fish/gold_tail_fish"
     },
-    "arx:gold_tail_fish_meat_fried": {
-      "textures": "textures/items/food/fish/gold_tail_fish_meat_fried"
+    "arx:piranha_fried": {
+      "textures": "textures/items/food/fried_fish/piranha"
     },
-    "arx:piranha_meat_fried": {
-      "textures": "textures/items/food/fish/piranha_meat_fried"
+    "arx:sun_fish_fried": {
+      "textures": "textures/items/food/fried_fish/sun_fish"
     },
-    "arx:sun_fish_meat_fried": {
-      "textures": "textures/items/food/fish/sun_fish_meat_fried"
+    "arx:wave_fish_fried": {
+      "textures": "textures/items/food/fried_fish/wave_fish"
     },
-    "arx:wave_fish_meat_fried": {
-      "textures": "textures/items/food/fish/wave_fish_meat_fried"
-    },
+
     "arx:allay_meat_fried": {
       "textures": "textures/items/food/meat/allay_meat"
     },
@@ -4000,9 +3967,6 @@
     },
     "arx:polar_bear_meat_fried": {
       "textures": "textures/items/food/meat/polar_bear_meat"
-    },
-    "arx:rabbit_meat_fried": {
-      "textures": "textures/items/food/meat/rabbit_meat"
     },
     "arx:rat_monstr_meat_fried": {
       "textures": "textures/items/food/meat/rat_monstr_meat"
@@ -4166,9 +4130,6 @@
     "arx:essence_of_vicious_demon": {
       "textures": "textures/items/alchemy/essence_of_vicious_demon"
     },
-    "arx:scroll_of_teleportation": {
-      "textures": "textures/items/other/scroll_of_teleportation"
-    },
     "arx:scroll_of_bane_removing": {
       "textures": "textures/items/other/scroll_of_bane_removing"
     },
@@ -4288,17 +4249,6 @@
 
     "arx:bed_straw": {
       "textures": "textures/items/furniture/beds/bed_straw"
-    },
-
-
-    "seeds_beetroot":{
-      "textures":"textures/items/vanilla_plants/seeds_beetroot"
-    },
-    "carrots_seeds":{
-        "textures":"textures/items/vanilla_plants/carrots_seeds"
-    },
-    "potato_seeds":{
-        "textures":"textures/items/vanilla_plants/potato_seeds"
     },
 
 

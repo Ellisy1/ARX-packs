@@ -261,5 +261,5 @@ function withdrawMP(player, spellCostReq, spellCostMult) {
     increaseSkillProgress(player, "mana", manaSkillIncreaseValue)
 
     if (spellCostMult === 1) player.sendMessage(`Потрачено §b${spellCostReq}§f маны`)
-    else player.sendMessage(`Потрачено §b${spellCostReq}§f маны §a§o(скидка ${(1 - spellCostMult) * 100}Ũ)`)
+    else player.sendMessage(`Потрачено §b${spellCostReq}§f маны §a§o(скидка ${Math.round((1 - spellCostMult) * 100)}Ũ)`)
 }

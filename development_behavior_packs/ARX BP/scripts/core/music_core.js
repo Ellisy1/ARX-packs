@@ -139,13 +139,13 @@ const musicLocations = {
     },
 
     "plainsDay": {
-        priority: 10,
-        condition: (player) => player.hasTag("BIOME_plains") && isDay(),
+        priority: 6,
+        condition: (player) => (player.hasTag("BIOME_plains") || isInBiome(player, 'minecraft:meadow') || isInBiome(player, 'minecraft:flower_forest')) && isDay(),
         music: 'Evening'
     },
     "plainsNight": {
-        priority: 10,
-        condition: (player) => player.hasTag("BIOME_plains") && !isDay(),
+        priority: 6,
+        condition: (player) => (player.hasTag("BIOME_plains") || isInBiome(player, 'minecraft:meadow') || isInBiome(player, 'minecraft:flower_forest')) && !isDay(),
         music: 'Canon_in_D_Major'
     },
 

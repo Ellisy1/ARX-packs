@@ -1,10 +1,10 @@
 import { ModalFormData, MessageFormData, ActionFormData } from "@minecraft/server-ui"
 import { getScore, setScore } from "./scoresOperations"
-import { setRandomTastes } from './food/setRandomTastes'
-import { tasteBodyString } from "./info/infoAboutTastes"
 import { gDP, ssDP } from "./DPOperations"
 import { world } from "@minecraft/server"
 import { fl, setPlayerLanguage } from "./lang/fetchLocalization"
+
+const thirstRegStep = 10
 
 // Register character
 export function registerCharacter(player) {
@@ -24,9 +24,11 @@ export function registerCharacter(player) {
     }
     // Everything is fine
     else {
+        // Language
+        if (gDP(player, 'language') === undefined) ssDP(player, 'registerCharacterStage', -1)
         switch (player.getDynamicProperty('registerCharacterStage')) {
             case undefined:
-            case 0: // Language
+            case -1: // Language -1
                 const form0 = new ActionFormData()
                     .title(fl(player, 'lobby.registration.lang.title'))
                     .body(fl(player, 'lobby.registration.lang.body'))
@@ -35,21 +37,17 @@ export function registerCharacter(player) {
 
                     .show(player)
                     .then((response) => {
-                        if (response.selection === 0) { // Муж
+                        if (response.selection === 0) {
                             setPlayerLanguage(player, 'en')
-
-                            ssDP(player, "registerCharacterStage", 3)
-                            registerCharacter(player)
-                        } else if (response.selection === 1) { // Жен
+                            setRegWindow(player, thirstRegStep)
+                        } else if (response.selection === 1) {
                             setPlayerLanguage(player, 'ru')
-
-                            ssDP(player, "registerCharacterStage", 2)
-                            registerCharacter(player)
+                            setRegWindow(player, thirstRegStep)
                         }
                     })
                 break
 
-            case 1: // Выбор пола
+            case 10: // Выбор пола 10
                 const form1 = new ActionFormData()
                     .title("Пол персонажа")
                     .body('§lВыберите пол вашего персонажа.\nПол §aне влияет§f на механики.')
@@ -63,19 +61,17 @@ export function registerCharacter(player) {
                             setScore(player, "gender", 1)
                             player.setProperty('arx:bust_size', 0)
 
-                            ssDP(player, "registerCharacterStage", 3)
-                            registerCharacter(player)
+                            setRegWindow(player, 30)
                         } else if (response.selection === 1) { // Жен
                             player.setProperty('arx:gender', 2)
                             setScore(player, "gender", 2)
 
-                            ssDP(player, "registerCharacterStage", 2)
-                            registerCharacter(player)
+                            setRegWindow(player, 20)
                         }
                     })
                 break
 
-            case 2: // Выбор размера груди
+            case 20: // Выбор размера груди 20
                 const form2 = new ActionFormData()
                     .title("Размер груди")
                     .body('§lВыберите размер груди вашего персонажа.\nВлияет на отображение груди на одежде.')
@@ -89,13 +85,12 @@ export function registerCharacter(player) {
                         if (response.selection != undefined) { // Выбран размер
                             player.setProperty('arx:bust_size', response.selection)
 
-                            ssDP(player, "registerCharacterStage", 3)
-                            registerCharacter(player)
+                            setRegWindow(player, 30)
                         }
                     })
                 break
 
-            case 3: // Установка имени
+            case 30: // Установка имени 30
                 const localNameSample = getScore(player, 'gender') === 1 ? "Таинственный незнакомец" : "Таинственная незнакомка"
                 const form3 = new ModalFormData()
                     .title("Имя персонажа")
@@ -121,34 +116,96 @@ export function registerCharacter(player) {
                             if (!wrongInput) {
                                 ssDP(player, "name", correctedName)
 
-                                ssDP(player, "registerCharacterStage", 4)
-                                registerCharacter(player)
+                                setRegWindow(player, 40)
                             }
                         }
                     })
                 break
 
-            case 4: // Установка вуксов
-                setRandomTastes(player)
-                const form4 = new MessageFormData()
-                    .title("Перебрасывайте вкусы, пока они вам не понравятся")
-                    .body(tasteBodyString(player))
-                    .button1("Принять и продолжить")
-                    .button2("Перебросить вкусы")
+            case 40: // Tastes 40
+
+                const responce_variants = [
+                    `§a${fl(player, 'food.taste_var.2')}`,
+                    `§2${fl(player, 'food.taste_var.1')}`,
+                    `§6${fl(player, 'food.taste_var.0')}`,
+                    `§v${fl(player, 'food.taste_var.-1')}`,
+                    `§c${fl(player, 'food.taste_var.-2')}`,
+                ]
+
+                // Index of value - weight of value
+                const tasteWeights = [3, 1, 0, -1, -3]
+                const tasteDPs = [80, 25, 8, -25, -80]
+
+                const defaultValues = gDP(player, 'tastesRegSelection') ?? [2, 2, 2, 2, 2, 2]
+
+                const form4 = new ModalFormData()
+                    .title(fl(player, 'food.registration.title'))
+                    .dropdown(' ' + fl(player, 'food.type.meat'), responce_variants, { defaultValueIndex: defaultValues[0] })
+                    .dropdown(' ' + fl(player, 'food.type.fish'), responce_variants, { defaultValueIndex: defaultValues[1] })
+                    .dropdown(' ' + fl(player, 'food.type.bread'), responce_variants, { defaultValueIndex: defaultValues[2] })
+                    .dropdown(' ' + fl(player, 'food.type.dairy'), responce_variants, { defaultValueIndex: defaultValues[3] })
+                    .dropdown(' ' + fl(player, 'food.type.herbal'), responce_variants, { defaultValueIndex: defaultValues[4] })
 
                     .show(player)
-                    .then((response) => {
-                        if (response.selection === 0) { // Игрок принял
-                            ssDP(player, "registerCharacterStage", 5)
-                            registerCharacter(player)
-                        }
-                        else if (response.selection === 1) { // Игрок перебросил
-                            registerCharacter(player)
+                    .then(response => {
+                        const fv = response.formValues
+                        if (fv) {
+                            ssDP(player, 'tastesRegSelection', fv)
+
+                            // Is the selection balanced?
+                            const resultWeight = fv.reduce((sum, selectedIndex) => sum + tasteWeights[selectedIndex], 0)
+                            // It is CRAZY
+                            if (resultWeight == 15) {
+                                setRegWindow(player, 43)
+                            }
+                            // It is NOT
+                            else if (resultWeight > 3) {
+                                setRegWindow(player, 42)
+                            }
+                            // It is balanced
+                            else {    
+                                ssDP(player, 'playerTaste_meat', tasteDPs[fv[0]])
+                                ssDP(player, 'playerTaste_fish', tasteDPs[fv[1]])
+                                ssDP(player, 'playerTaste_bread', tasteDPs[fv[2]])
+                                ssDP(player, 'playerTaste_dairy', tasteDPs[fv[3]])
+                                ssDP(player, 'playerTaste_herbal', tasteDPs[fv[4]])
+                                ssDP(player, 'playerTaste_sweet', tasteDPs[fv[5]])
+                                
+                                setRegWindow(player, 50)
+                            }
                         }
                     })
                 break
 
-            case 5: // Установка формы рук
+            case 42: // unbalanced tastes input 42
+                const form42 = new ModalFormData()
+                    .title(fl(player, 'food.registration.title'))
+                    .label(fl(player, 'food.registration.unbalanced.label'))
+                    .submitButton(fl(player, 'food.registration.unbalanced.confirm'))
+
+                    .show(player)
+                    .then((response) => {
+                        if (response.formValues) {
+                            setRegWindow(player, 40)
+                        }
+                    })
+                break
+
+            case 43: // unbalanced tastes input 43
+                const form43 = new ModalFormData()
+                    .title(fl(player, 'food.registration.title'))
+                    .label(fl(player, 'food.registration.highly_unbalanced.label'))
+                    .submitButton(fl(player, 'food.registration.unbalanced.confirm'))
+
+                    .show(player)
+                    .then((response) => {
+                        if (response.formValues) {
+                            setRegWindow(player, 40)
+                        }
+                    })
+                break
+
+            case 50: // Установка формы рук 50
                 const form5 = new ActionFormData()
                     .title("Форма рук")
                     .body("Какова форма рук скина вашего персонажа?\nЭто скорректирует отображение некоторой одежды")
@@ -160,13 +217,12 @@ export function registerCharacter(player) {
 
                         if (response.selection != 2 && response.selection != undefined) {
                             player.setProperty('arx:arms_type', response.selection)
-                            ssDP(player, "registerCharacterStage", 6)
-                            registerCharacter(player)
+                            setRegWindow(player, 60)
                         }
                     })
                 break
 
-            case 6: // Установка роста
+            case 60: // Установка роста 60
                 let defaultHeightValue
                 player.getDynamicProperty('height') === undefined ? defaultHeightValue = 175 : defaultHeightValue = player.getDynamicProperty('height')
                 const form6 = new ModalFormData()
@@ -182,13 +238,13 @@ export function registerCharacter(player) {
                             player.runCommand(`event entity @s arx:setHeight_${response.formValues[0]}`)
 
 
-                            ssDP(player, "registerCharacterStage", 7)
+                            ssDP(player, "registerCharacterStage", 70)
                             player.runCommand(`tellraw @s { "rawtext": [ { "text": "Посмотрите на своего персонажа от третьего лица, §aвам нравится§f его §aрост§f? Возвращайтесь к <создать персонажа>, когда определитесь с ответом." } ] }`)
                         }
                     })
                 break
 
-            case 7: // Проверка роста
+            case 70: // Проверка роста 70
                 const form7 = new MessageFormData()
                     .title("Рост персонажа")
                     .body('Сохраняем рост?')
@@ -198,16 +254,14 @@ export function registerCharacter(player) {
                     .show(player)
                     .then((response) => {
                         if (response.selection === 0) { // Игрок нажал "продолжить"
-                            ssDP(player, "registerCharacterStage", 8)
-                            registerCharacter(player)
+                            setRegWindow(player, 80)
                         } else if (response.selection === 1) {
-                            ssDP(player, "registerCharacterStage", 6)
-                            registerCharacter(player)
+                            setRegWindow(player, 60)
                         }
                     })
                 break
 
-            case 8: // Установка типа глаз
+            case 80: // Установка типа глаз 80
 
                 const form8 = new ActionFormData()
                     .title("Позиция глаз")
@@ -230,20 +284,20 @@ export function registerCharacter(player) {
                             if (response.selection === 4) { player.setProperty('arx:eyes_position', 0) }
                             // Перекидываем на след этап регистрации
                             if (response.selection !== 5) {
-                                ssDP(player, "registerCharacterStage", 9)
-                                registerCharacter(player)
+                                setRegWindow(player, 99)
                             }
                         }
                     })
                 break
 
-            case 9: // Спавн в мире
+            case 99: // Спавн в мире 99
                 let bodyText
                 getScore(player, "gender") === 1 ? bodyText = `${player.getDynamicProperty('name')} создан!` : bodyText = `${player.getDynamicProperty('name')} создана!`
                 const form9 = new ActionFormData()
                     .title("Появление в мире")
                     .body(bodyText)
                     .button("Поехали!\n(рекомендуется помолиться)", 'textures/ui/registration/spawn')
+                    .button("Перепройти регистрацию", 'textures/ui/registration/restart')
                     .button("Я пока позависаю в лобби", 'textures/ui/registration/spawn_pass_for_now')
 
                     .show(player)
@@ -253,12 +307,23 @@ export function registerCharacter(player) {
                                 player.teleport(gDP(world, 'worldSpawnPoint'), { dimension: world.getDimension('minecraft:overworld'), checkForBlocks: false, keepVelocity: false })
                                 player.runCommand("function tp/2_spawn")
 
-                                ssDP(player, "registerCharacterStage", 0)
+                                ssDP(player, "registerCharacterStage", thirstRegStep)
                                 ssDP(player, "hasRegisteredCharacter", true)
                             }
+                            else if (response.selection === 1) setRegWindow(player, thirstRegStep)
                         }
                     })
                 break
+
+            // Smth unexpected
+            default:
+                player.sendMessage('Unexpected registerCharacterStage value. Registration restarted.')
+                ssDP(player, 'registerCharacterStage', thirstRegStep)
         }
     }
+}
+
+function setRegWindow(player, value) {
+    ssDP(player, "registerCharacterStage", value)
+    registerCharacter(player)
 }

@@ -71,7 +71,7 @@ export function slfg(player, textId, insertions = []) {
 }
 
 // Returns player's language as 'en' or 'ru' etc.
-function getPlayerLanguage(player) {
+export function getPlayerLanguage(player) {
     const language = player.getDynamicProperty('language')
     return language in langMap ? language : defaultLanguage
 }

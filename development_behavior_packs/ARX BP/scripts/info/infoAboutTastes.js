@@ -9,7 +9,7 @@ export function infoAboutTastes(player) {
 }
 
 // Формируем строку для вывода вкусов в кастом окошко
-export function tasteBodyString(player) {
+function tasteBodyString(player) {
     let resultString = '§eВаши вкусы§f:\n'
 
     const tastes = ['meat', 'fish', 'bread', 'dairy', 'herbal', 'sweet']

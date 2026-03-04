@@ -446,16 +446,6 @@
 		"sound": "grass"
 	},
 
-	"arx:beetroots": {
-		"sound": "grass"
-	},
-	"arx:carrots": {
-		"sound": "grass"
-	},
-	"arx:potatoes": {
-		"sound": "grass"
-	},
-
 	"arx:mossy_brick": {
 		"textures": "mossy_brick"
 	},

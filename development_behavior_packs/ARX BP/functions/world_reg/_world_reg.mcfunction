@@ -1,29 +1,10 @@
 # Автоматическая регистрация scores в мире
 
-# Установка некоторых важных gamerule
-    gamerule mobgriefing false
-    gamerule naturalregeneration false
-    gamerule tntexplodes false
-    gamerule spawnradius 0
-    gamerule doimmediaterespawn true
-    gamerule doweathercycle false 
-    gamerule showdeathmessages false
-
-# Просчет стабильности
-    scoreboard objectives add stability_core dummy stability_core
-    scoreboard objectives add stability_const dummy stability_const
-    scoreboard players set @s stability_const 1200
-
-# Просчет кармы
-    scoreboard objectives add karma_pallas dummy Карма_пл
-    scoreboard objectives add karma_pires dummy Карма_пр
-
 # Переменная верификации и её настройка
     scoreboard objectives add verify dummy Верификация
     scoreboard players set @s verify 2
 
 # Различные переменные рандома
-    scoreboard objectives add attack_anim_rand dummy Аним_атаки
     scoreboard objectives add custom_random dummy Спец_ранд 
     scoreboard objectives add custom_random_b dummy Спец_ранд_b
     scoreboard objectives add custom_random_c dummy Спец_ранд_c
@@ -166,27 +147,7 @@ scoreboard objectives add saturation dummy saturation
 # Дебаг верификаций
     scoreboard objectives add debug_verify dummy debug_verify
 
-# Порочный демон и связанные с ним механики
-    scoreboard objectives add vicious_demon dummy vicious_demon
-    scoreboard objectives add vic_dem_hit_cnt dummy vic_dem_hit_cnt
-    scoreboard objectives add vic_dem_defeated dummy vic_dem_defeated
-    scoreboard objectives add vic_dem_rest dummy vic_dem_rest
-    scoreboard objectives add vicious_flame dummy vicious_flame
-    scoreboard objectives add vic_dag_bonus dummy vic_dag_bonus
-
-scoreboard objectives add dwarf_cam_cd dummy dwarf_cam_cd
-scoreboard objectives add dwarf_curse dummy dwarf_curse
-
 scoreboard objectives add uni_cool_down dummy uni_cool_down
-
-scoreboard objectives add heal_scrl_durt dummy heal_scrl_durt
-
-# Уникальный идентефикатор
-    scoreboard objectives add UID dummy UID
-
-# Магический рывок
-    scoreboard objectives add tp_cd dummy tp_cd
-    scoreboard objectives add tp_cd_ghost dummy tp_cd_ghost
 
 scoreboard objectives add mp_boost_by_amul_of_starpower dummy mp_boost_by_amul_of_starpower
 

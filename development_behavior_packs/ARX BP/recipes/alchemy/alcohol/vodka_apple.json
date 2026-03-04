@@ -8,7 +8,7 @@
     "tags": [ "brewing_stand" ],
 
     "input": "arx:vodka",
-    "reagent": "arx:apple",
+    "reagent": "minecraft:apple",
     "output": "arx:vodka_apple"
   }
 

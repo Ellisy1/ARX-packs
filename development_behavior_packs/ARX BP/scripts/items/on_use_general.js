@@ -8,7 +8,6 @@ import { checkForItem } from "../checkForItem"
 import { infoScreen } from '../info/_infoScreen'
 import { manageCD } from "../manageCD";
 import { launchCameraUI } from '../camera/launchCameraUI'
-import { TPWithNoxenessionPortal } from '../portals'
 
 import { showDialog } from '../dialogues'
 import { clearTraits, acquireTrait } from '../traits/traitsOperations'
@@ -25,7 +24,7 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
         // Тест
         case "arx:mod_sword":
             if (manageCD(player)) {
-                console.warn(md5('abc'))
+                console.warn('\U+E121')
             }
             break
 
@@ -593,12 +592,6 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
                 player.runCommand('camera @s fade time 0.5 4 1 color 230 255 230')
             } else {
                 player.runCommand(`tellraw @s { "rawtext": [ { "text": "§cМне сейчас это не нужно, я не призрак." } ] }`)
-            }
-            break
-
-        case "arx:scroll_of_teleportation":
-            if (manageCD(player)) {
-                TPWithNoxenessionPortal(player, player, 'scroll')
             }
             break
 

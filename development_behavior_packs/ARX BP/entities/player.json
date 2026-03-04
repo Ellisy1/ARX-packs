@@ -7,7 +7,7 @@
       "is_summonable": false,
       "is_experimental": false,
       "properties": {
-        // Размер грузи 
+        // Boobies size 
         "arx:bust_size": {
           "type": "int",
           "range": [
@@ -17,8 +17,8 @@
           "default": 0,
           "client_sync": true
         },
-        // Тип рук
-        "arx:arms_type": { // 0 - стив, 1 - алекс
+        // Arms type
+        "arx:arms_type": { // 0 - steve, 1 - alex
           "type": "int",
           "range": [
             0,
@@ -27,14 +27,8 @@
           "default": 0,
           "client_sync": true
         },
-        // Нокнут ли игрок
+        // Is player knocked
         "arx:is_knocked": {
-          "type": "bool",
-          "default": false,
-          "client_sync": true
-        },
-        // Переменная для замера пинга
-        "arx:ping_test": {
           "type": "bool",
           "default": false,
           "client_sync": true
@@ -81,6 +75,12 @@
         },
         // Призрак ли игрок
         "arx:is_ghost": {
+          "type": "bool",
+          "default": false,
+          "client_sync": true
+        },
+        // Var to test client's loading
+        "arx:loading_test": {
           "type": "bool",
           "default": false,
           "client_sync": true

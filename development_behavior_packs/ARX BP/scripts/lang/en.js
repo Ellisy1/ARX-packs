@@ -12,11 +12,29 @@ export const enLocalization = {
     'food.permanent_mp_potion.successful': '§aMax mana §d+1§a!',
     'food.permanent_mp_potion.max_already_reached': "§cYou are already so powerful that this potion won't strengthen you further.",
     'food.thirst_meal': "[§aGuide§f] > §aThis meal restores your §dhunger bar fully§a for about 5 minutes§f.\n[§aGuide§f] > §aThe tastier the food§f, §athe more happiness§f and §astronger regeneration§f you'll gain when eating it.\n",
-    'food.too_saturated': "§cYou're too full to enjoy food right now.",
+    'food.cannot_gain_happines': "§eYou've eaten recently, so you can't enjoy the taste now.",
     'food.tasty': 'Tasty!',
     'food.not_tasty': 'Not tasty!',
     'food.normal_taste': 'Meh.',
     'food.happiness_bonus': 'Happiness bonus',
+
+    'food.taste_var.2': 'Loves',
+    'food.taste_var.1': 'Likes',
+    'food.taste_var.0': 'Neutral',
+    'food.taste_var.-1': 'Doesn\'t like',
+    'food.taste_var.-2': 'Hates',
+
+    'food.registration.title': 'Select your character\'s tastes',
+    'food.registration.unbalanced.label': '§vNot so fast!§f\nPlease, pick more balanced tastes.\n\n[§eTip§f] Add more food types your character §vdoesn\'t like§f or §chates§f.',
+    'food.registration.highly_unbalanced.label': '§cWow, perfect idea!§f\nYou really think you can just pick the best variants and continue?? WHERE are your character\'s details about dishes he/she doesn\'t like? WHERE is the story, the RP? You really think you can skip this part by choosing the best of the best? You can not.',
+    'food.registration.unbalanced.confirm': 'Let\'s try again...',
+
+    'food.type.meat': 'Meat',
+    'food.type.fish': 'Fish',
+    'food.type.bread': 'Bread',
+    'food.type.dairy': 'Dairy',
+    'food.type.herbal': 'Herbal',
+    'food.type.sweet': 'Sweet',
 
     'chat.command.unable_to_use_cus_admin_rights_required': '§cUnable to use this command without admin rights',
 

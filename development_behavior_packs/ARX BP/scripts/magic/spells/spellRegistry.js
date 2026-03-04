@@ -20,7 +20,6 @@ import { dispelEffects } from './SPELLDispelEffects'
 // Other
 import { iDP, ssDP } from '../../DPOperations'
 import { setScore, getScore } from '../../scoresOperations';
-import { TPWithNoxenessionPortal } from '../../portals';
 import { getEntityFamilies } from '../../_main';
 import { system } from "@minecraft/server"
 import { runeCiphers } from '../rune_cipher_list'
@@ -589,40 +588,73 @@ export let spellRegistry = {
         }
     },
 
+    // Fire
+    'ignis': {
+        mpCost: 5,
+        color: '#df853c',
+        description: 'заклинание поджога на 5 секунд',
+        handler: (entity) => { entity.setOnFire(5, true) }
+    },
+    'ignis durata': {
+        mpCost: 12,
+        color: '#df853c',
+        description: 'заклинание поджога на 12 секунд',
+        handler: (entity) => { entity.setOnFire(12, true) }
+    },
+    'ignis durata durata': {
+        mpCost: 30,
+        color: '#df853c',
+        description: 'заклинание поджога на 30 секунд',
+        handler: (entity) => { entity.setOnFire(30, true) }
+    },
+    'ignis durata durata durata': {
+        mpCost: 60,
+        color: '#df853c',
+        description: 'заклинание поджога на 60 секунд',
+        handler: (entity) => { entity.setOnFire(60, true) }
+    },
+
+    'non ignis': {
+        mpCost: 8,
+        color: '#92a8e9',
+        description: 'заклинание тушения пламени',
+        handler: (entity) => { entity.extinguishFire(true) }
+    },
+
     // Огнестойкость
     'defensio ignis': {
         mpCost: 20,
-        color: '#ffb700',
+        color: '#c1ab1a',
         description: 'заклинание огнестойкости на 10 сек.',
         handler: (player, spellData) => { fireResistance(player, spellData, 10) }
     },
     'defensio ignis area': {
         mpCost: 60,
-        color: '#ffb700',
+        color: '#c1ab1a',
         description: 'заклинание огнестойкости по площади на 10 сек.',
         handler: (player, spellData) => { fireResistance(player, spellData, 10) }
     },
     'defensio ignis magna': {
         mpCost: 60,
-        color: '#ffb700',
+        color: '#c1ab1a',
         description: 'заклинание огнестойкости на 30 сек.',
         handler: (player, spellData) => { fireResistance(player, spellData, 30) }
     },
     'defensio ignis area magna': {
         mpCost: 180,
-        color: '#ffb700',
+        color: '#c1ab1a',
         description: 'заклинание огнестойкости по площади на 30 сек.',
         handler: (player, spellData) => { fireResistance(player, spellData, 30) }
     },
     'defensio ignis magna magna': {
         mpCost: 180,
-        color: '#ffb700',
+        color: '#c1ab1a',
         description: 'заклинание огнестойкости на 90 сек.',
         handler: (player, spellData) => { fireResistance(player, spellData, 90) }
     },
     'defensio ignis area magna magna': {
         mpCost: 540,
-        color: '#ffb700',
+        color: '#c1ab1a',
         description: 'заклинание огнестойкости по площади на 90 сек.',
         handler: (player, spellData) => { fireResistance(player, spellData, 90) }
     },

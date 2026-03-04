@@ -1,164 +1,167 @@
-import { ssDP } from "./DPOperations"
+import { gDP, ssDP } from "./DPOperations"
 import { registeredSkills } from "./skillsOperations"
 
 // Эта функция устанавливает игроку значения переменных в дефолтные
 export function registerPlayerVars(player) {
     for (let skill in registeredSkills) {
-        if (player.getDynamicProperty(`skill:${skill}_level`) === undefined) {
+        if (gDP(player, `skill:${skill}_level`) === undefined) {
             ssDP(player, `skill:${skill}_level`, 0)
         }
-        if (player.getDynamicProperty(`skill:${skill}_progress`) === undefined) {
+        if (gDP(player, `skill:${skill}_progress`) === undefined) {
             ssDP(player, `skill:${skill}_progress`, 0.0)
         }
     }
 
     // Каналы магии
     for (let i = 1; i < 11; i++) {
-        if (player.getDynamicProperty(`channel_${i}_rune_sequence`) === undefined) {
+        if (gDP(player, `channel_${i}_rune_sequence`) === undefined) {
             ssDP(player, `channel_${i}_rune_sequence`, '')
         }
-        if (player.getDynamicProperty(`channel_${i}_target`) === undefined || player.getDynamicProperty(`channel_${i}_target`) > 2) {
+        if (gDP(player, `channel_${i}_target`) === undefined || gDP(player, `channel_${i}_target`) > 2) {
             ssDP(player, `channel_${i}_target`, 1)
         }
     }
 
     // Бусты скорости
     for (let i = 0; i < 4; i++) {
-        if (player.getDynamicProperty(`speedBoost:level${i}`) === undefined) {
+        if (gDP(player, `speedBoost:level${i}`) === undefined) {
             ssDP(player, `speedBoost:level${i}`, 0)
         }
     }
 
-    if (player.getDynamicProperty("mp") === undefined) {
+    if (gDP(player, "mp") === undefined) {
         ssDP(player, "mp", 1000)
     }
-    if (player.getDynamicProperty("myRule:showAttackCDMode") === undefined) {
+    if (gDP(player, "myRule:showAttackCDMode") === undefined) {
         ssDP(player, "myRule:showAttackCDMode", "secondsFloat")
     }
-    if (player.getDynamicProperty("myRule:manaDisplayMode") === undefined) {
+    if (gDP(player, "myRule:manaDisplayMode") === undefined) {
         ssDP(player, "myRule:manaDisplayMode", "integers")
     }
-    if (player.getDynamicProperty("myRule:canSeeServerSpeedInInfoBook") === undefined) {
+    if (gDP(player, "myRule:canSeeServerSpeedInInfoBook") === undefined) {
         ssDP(player, "myRule:canSeeServerSpeedInInfoBook", false)
     }
-    if (player.getDynamicProperty("myRule:chatPrefixes") === undefined) {
+    if (gDP(player, "myRule:chatPrefixes") === undefined) {
         ssDP(player, "myRule:chatPrefixes", 'fullEN')
     }
-    if (player.getDynamicProperty("attackCD") === undefined) {
+    if (gDP(player, "attackCD") === undefined) {
         ssDP(player, "attackCD", 0)
     }
-    if (player.getDynamicProperty("overLoading") === undefined) {
+    if (gDP(player, "overLoading") === undefined) {
         ssDP(player, "overLoading", 0)
     }
-    if (player.getDynamicProperty("prohibit_damage") === undefined) {
+    if (gDP(player, "prohibit_damage") === undefined) {
         ssDP(player, "prohibit_damage", 0)
     }
-    if (player.getDynamicProperty("MPPermanentBonus") === undefined) {
+    if (gDP(player, "MPPermanentBonus") === undefined) {
         ssDP(player, "MPPermanentBonus", 0)
     }
-    if (player.getDynamicProperty("intoxication") === undefined) {
+    if (gDP(player, "intoxication") === undefined) {
         ssDP(player, "intoxication", 0)
     }
-    if (player.getDynamicProperty("FiolixNarcoticPower") === undefined) {
+    if (gDP(player, "FiolixNarcoticPower") === undefined) {
         ssDP(player, "FiolixNarcoticPower", 0)
     }
-    if (player.getDynamicProperty("magicTarget") === undefined) {
+    if (gDP(player, "magicTarget") === undefined) {
         ssDP(player, "magicTarget", 1)
     }
-    if (player.getDynamicProperty("freezing") === undefined) {
+    if (gDP(player, "freezing") === undefined) {
         ssDP(player, "freezing", 0)
     }
-    if (player.getDynamicProperty("freezingBlockByPotion") === undefined) {
+    if (gDP(player, "freezingBlockByPotion") === undefined) {
         ssDP(player, "freezingBlockByPotion", 0)
     }
-    if (player.getDynamicProperty("heatingBlockByPotion") === undefined) {
+    if (gDP(player, "heatingBlockByPotion") === undefined) {
         ssDP(player, "heatingBlockByPotion", 0)
     }
-    if (player.getDynamicProperty("heatingBlockByScroll") === undefined) {
+    if (gDP(player, "heatingBlockByScroll") === undefined) {
         ssDP(player, "heatingBlockByScroll", 0)
     }
-    if (player.getDynamicProperty("scrollOfHealingCD") === undefined) {
+    if (gDP(player, "scrollOfHealingCD") === undefined) {
         ssDP(player, "scrollOfHealingCD", 0)
     }
-    if (player.getDynamicProperty("intoxicationLevel") === undefined) {
+    if (gDP(player, "intoxicationLevel") === undefined) {
         ssDP(player, "intoxicationLevel", 0)
     }
-    if (player.getDynamicProperty("hasRegisteredCharacter") === undefined) {
+    if (gDP(player, "hasRegisteredCharacter") === undefined) {
         ssDP(player, "hasRegisteredCharacter", false)
     }
-    if (player.getDynamicProperty("autoHPRegenCD") === undefined) {
+    if (gDP(player, "autoHPRegenCD") === undefined) {
         ssDP(player, "autoHPRegenCD", 60)
     }
-    if (player.getDynamicProperty("is_whispering") === undefined) {
+    if (gDP(player, "is_whispering") === undefined) {
         ssDP(player, "is_whispering", false)
     }
-    if (player.getDynamicProperty("verify") === undefined) {
+    if (gDP(player, "verify") === undefined) {
         ssDP(player, "verify", false)
     }
-    if (player.getDynamicProperty("statistics:distance") === undefined) {
+    if (gDP(player, "statistics:distance") === undefined) {
         ssDP(player, "statistics:distance", 0)
     }
-    if (player.getDynamicProperty("height") === undefined) {
+    if (gDP(player, "height") === undefined) {
         ssDP(player, "height", 180)
     }
-    if (player.getDynamicProperty('ghostWithering') === undefined) {
+    if (gDP(player, 'ghostWithering') === undefined) {
         ssDP(player, 'ghostWithering', 0)
     }
-    if (player.getDynamicProperty('ghostWitheringLevel') === undefined) {
+    if (gDP(player, 'ghostWitheringLevel') === undefined) {
         ssDP(player, 'ghostWitheringLevel', 0)
     }
-    if (player.getDynamicProperty('ghostUltimateResistance') === undefined) {
+    if (gDP(player, 'ghostUltimateResistance') === undefined) {
         ssDP(player, 'ghostUltimateResistance', 0)
     }
 
-    if (player.getDynamicProperty('reviveDelay') === undefined) {
+    if (gDP(player, 'reviveDelay') === undefined) {
         ssDP(player, 'reviveDelay', 0)
     }
-    if (player.getDynamicProperty('respawnDelay') === undefined) {
+    if (gDP(player, 'respawnDelay') === undefined) {
         ssDP(player, 'respawnDelay', 0)
     }
-    if (player.getDynamicProperty('camera:activeCamera') === undefined) {
+    if (gDP(player, 'camera:activeCamera') === undefined) {
         ssDP(player, 'camera:activeCamera', false)
     }
-    if (player.getDynamicProperty('camera:tickCountdownToNextTimecode') === undefined) {
+    if (gDP(player, 'camera:tickCountdownToNextTimecode') === undefined) {
         ssDP(player, 'camera:tickCountdownToNextTimecode', 0)
     }
-    if (player.getDynamicProperty('camera:numOfProcessedTimecodes') === undefined) {
+    if (gDP(player, 'camera:numOfProcessedTimecodes') === undefined) {
         ssDP(player, 'camera:numOfProcessedTimecodes', 0)
     }
-    if (player.getDynamicProperty('speedBoostAfterKnockout') === undefined) {
+    if (gDP(player, 'speedBoostAfterKnockout') === undefined) {
         ssDP(player, 'speedBoostAfterKnockout', 0)
     }
 
-    if (player.getDynamicProperty('stress') === undefined) {
+    if (gDP(player, 'stress') === undefined) {
         ssDP(player, 'stress', 0)
     }
-    if (player.getDynamicProperty('stressLevel') === undefined) {
+    if (gDP(player, 'stressLevel') === undefined) {
         ssDP(player, 'stressLevel', 0)
     }
-    if (player.getDynamicProperty('stressDynamic') === undefined) {
+    if (gDP(player, 'stressDynamic') === undefined) {
         ssDP(player, 'stressDynamic', 0)
     }
-    if (player.getDynamicProperty('characterLifeSec') === undefined) {
+    if (gDP(player, 'characterLifeSec') === undefined) {
         ssDP(player, 'characterLifeSec', 0)
     }
-    if (player.getDynamicProperty('MPSmoothAccrue') === undefined) {
+    if (gDP(player, 'MPSmoothAccrue') === undefined) {
         ssDP(player, 'MPSmoothAccrue', 0)
     }
-    if (player.getDynamicProperty('eatenLeFisheCounter') === undefined) {
+    if (gDP(player, 'eatenLeFisheCounter') === undefined) {
         ssDP(player, 'eatenLeFisheCounter', 0)
     }
-    if (player.getDynamicProperty('holdedMagicChannel') === undefined) {
+    if (gDP(player, 'holdedMagicChannel') === undefined) {
         ssDP(player, 'holdedMagicChannel', 1)
     }
-    if (player.getDynamicProperty('wetness') === undefined) {
+    if (gDP(player, 'wetness') === undefined) {
         ssDP(player, 'wetness', 0)
     }
-    if (player.getDynamicProperty('anticheat:autoclick_tracker') === undefined) {
+    if (gDP(player, 'anticheat:autoclick_tracker') === undefined) {
         ssDP(player, 'anticheat:autoclick_tracker', 0)
     }
+    if (gDP(player, 'foodCD') === undefined) {
+        ssDP(player, 'foodCD', 0)
+    }
 
-    if (player.getDynamicProperty('playTimeSec') === undefined) ssDP(player, 'playTimeSec', 0)
-    if (player.getDynamicProperty('playTimeMin') === undefined) ssDP(player, 'playTimeMin', 0)
-    if (player.getDynamicProperty('playTimeH') === undefined) ssDP(player, 'playTimeH', 0)
+    if (gDP(player, 'playTimeSec') === undefined) ssDP(player, 'playTimeSec', 0)
+    if (gDP(player, 'playTimeMin') === undefined) ssDP(player, 'playTimeMin', 0)
+    if (gDP(player, 'playTimeH') === undefined) ssDP(player, 'playTimeH', 0)
 }

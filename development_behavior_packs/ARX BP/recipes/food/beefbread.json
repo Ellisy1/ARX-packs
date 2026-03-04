@@ -12,10 +12,10 @@
     ],
     "key": {
       "#": {
-        "item": "arx:bread"
+        "item": "minecraft:bread"
       },
       "A": {
-        "item": "arx:fried_beef"
+        "item": "minecraft:cooked_beef"
       }
     },
     "result": {

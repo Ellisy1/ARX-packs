@@ -5,17 +5,17 @@
       "entries": [
         {
           "type": "item",
-          "name": "arx:fish",
+          "name": "minecraft:fish",
           "weight": 600
         },
         {
           "type": "item",
-          "name": "arx:salmon",
+          "name": "minecraft:salmon",
           "weight": 250
         },
         {
           "type": "item",
-          "name": "arx:clownfish",
+          "name": "minecraft:clownfish",
           "weight": 20
         },
         {

@@ -15,7 +15,7 @@
         "item": "minecraft:iron_ingot"
       },
       "A": {
-        "item": "arx:dough"
+        "item": "minecraft:wheat"
       }
     },
     "result": {
