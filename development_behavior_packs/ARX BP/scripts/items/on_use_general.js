@@ -1,19 +1,17 @@
 // Imports - Minecraft
-import { world, EntityComponentTypes, ItemComponentTypes, EquipmentSlot, system, ItemStack } from "@minecraft/server";
+import { world, EntityComponentTypes, EquipmentSlot, system } from "@minecraft/server";
 import { ActionFormData } from "@minecraft/server-ui";
 
-import { getScore, setScore, incScore } from "../scoresOperations";
+import { setScore } from "../scoresOperations";
 import { getNearestPlayer } from "../getNearestPlayer"
 import { checkForItem } from "../checkForItem"
 import { infoScreen } from '../info/_infoScreen'
 import { manageCD } from "../manageCD";
 import { launchCameraUI } from '../camera/launchCameraUI'
-
-import { showDialog } from '../dialogues'
 import { clearTraits, acquireTrait } from '../traits/traitsOperations'
 import { iDP, ssDP, gDP } from "../DPOperations";
 import { sl } from "../lang/fetchLocalization";
-import { md5 } from "../converters";
+import { onUseSBHammer } from "../structureBuilder";
 
 // Использование предметов
 world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юзание предмета на ПКМ
@@ -26,6 +24,11 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
             if (manageCD(player)) {
                 console.warn('\U+E121')
             }
+            break
+
+        // StructureBuilder Hammer
+        case "arx:structurebuilder_hammer":
+            onUseSBHammer(player)
             break
 
         // АЛХИМИЯ

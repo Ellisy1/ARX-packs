@@ -1897,3 +1897,5 @@ item.arx:cult_nasty_gift_iron_pie=§r§fПодарок от культа §b[Rar
 item.arx:cult_nasty_gift_harakiri_sword=§r§fПодарок от культа §b[Rare]\n§o§7Внутри что-то длинное и твёрдое
 
 item.arx:towel=§r§fПолотенце §b[Rare]\n§o§7Позволяет избавиться от намокания.\nЭффективнее работает без верхней одежды
+
+item.arx:structurebuilder_hammer=§r§fStructureBuilder Hammer §q[Out-game]

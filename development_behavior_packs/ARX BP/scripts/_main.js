@@ -23,6 +23,7 @@ import './items/on_use_general'
 import './magic/on_use_magic_items'
 import './stabilityTesting'
 import './camera/processCamera'
+import './structureBuilder'
 import './blocksHistory'
 
 import { registerPlayerVars } from "./registerPlayerVars"

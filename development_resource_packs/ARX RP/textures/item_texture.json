@@ -4295,6 +4295,11 @@
     },
     "arx:towel": {
       "textures": "textures/items/other/towel"
+    },
+
+
+    "arx:structurebuilder_hammer": {
+      "textures": "textures/items/structure_builder/structurebuilder_hammer"
     }
   }
 }

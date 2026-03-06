@@ -29,6 +29,11 @@
 							"test": "has_biome_tag",
 							"operator": "!=",
 							"value": "swamp"
+						},
+						{
+							"test": "has_biome_tag",
+							"operator": "!=",
+							"value": "pale_garden"
 						}
 					]
 				}
