@@ -27,7 +27,7 @@
     },
     "result": [
       {"item": "arx:lama_in_wine"},
-      {"item": "arx:default_bottle"}
+      {"item": "minecraft:glass_bottle"}
     ]
   }
 }

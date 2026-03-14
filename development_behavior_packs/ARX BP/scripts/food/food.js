@@ -12,12 +12,10 @@ export const foodRegistry = {
         "arx:cake_contemplator": 65,
         "arx:camel_shashlik": 35,
         "arx:caretaker": 15,
-        "arx:cave_rat_meat_in_caramel": 58,
         "arx:chicken_in_vodka": 50,
         "arx:cutlet": 32,
         "arx:duckling_crisps": 42,
         "arx:dumplings": 35,
-        "arx:firesalo": 80,
         "arx:fried_brain": 17,
         "arx:fried_eggs": 20,
         "arx:fried_frog_legs_in_elvish": 75,
@@ -30,7 +28,6 @@ export const foodRegistry = {
         "arx:lama_in_wine": 60,
         "arx:liver_stew": 43,
         "arx:meat_bug_bug": 30,
-        "arx:meat_hurricane": 90,
         "arx:pirate_steak": 48,
         "arx:rat_monstr_with_potatoes_and_mayonnaise": 68,
         "arx:rat_potato_casserole": 65,
@@ -41,7 +38,6 @@ export const foodRegistry = {
         "arx:snow_bars_steak": 60,
         "arx:steamed_dolphin": 35,
         "arx:stew": 55,
-        "arx:storm_steak": 67,
 
         "arx:fried_allay_meat": 20,
         "arx:fried_animal_heart": 20,
@@ -71,6 +67,35 @@ export const foodRegistry = {
         "arx:fried_small_rat_meat": 20,
         "arx:fried_snow_bars_meat": 20,
         "arx:fried_wolf_meat": 20,
+
+        "arx:allay_meat": -10,
+        "arx:animal_heart": -10,
+        "arx:bat_meat": -10,
+        "arx:beast_heart": -10,
+        "arx:camel_meat": -14,
+        "arx:cat_meat": -10,
+        "arx:cave_rat_meat": -10,
+        "arx:dolphin_meat": -10,
+        "arx:duckling_fowl": 10,
+        "arx:fiercewolf_meat": -10,
+        "arx:fox_meat": -10,
+        "arx:venison": 10,
+        "arx:frog_legs": 10,
+        "arx:goat_meat": -10,
+        "arx:horse_meat": -10,
+        "arx:human_meat": -10,
+        "arx:kapibara_meat": -10,
+        "arx:lama_meat": -10,
+        "arx:liver": 10,
+        "arx:meat_beatle_meat": -10,
+        "arx:parrot_fowl": 10,
+        "arx:polar_bear_meat": -14,
+        "arx:rabbit_meat": -10,
+        "arx:rat_monstr_meat": -12,
+        "arx:sea_turtle_meat": -10,
+        "arx:small_rat_meat": -10,
+        "arx:snow_bars_meat": -10,
+        "arx:wolf_meat": -10,
 
         // Vanilla
         "minecraft:cooked_chicken": 20,
@@ -122,15 +147,11 @@ export const foodRegistry = {
         "minecraft:cooked_cod": 14,
     },
     bread: {
-        "arx:allaybread": 40,
         "arx:apple_pie": 60,
         "arx:bandit_pie": 55,
         "arx:beefbread": 40,
         "arx:brainbread": 30,
         "arx:cactus_sandwich": 26,
-        "arx:cheese_pie": 70,
-        "arx:chocolate_donut": 58,
-        "arx:chocolate_waffles": 50,
         "arx:eggbread": 35,
         "arx:fiercebread": 50,
         "arx:gnil_pie": -30,
@@ -143,7 +164,6 @@ export const foodRegistry = {
         "arx:piratebread": 40,
         "arx:spicy_beefbread": 65,
 
-        "arx:cupcake": 42,
         "arx:caramel_buns": 60,
         "arx:sugar_donut": 52,
         "arx:sweet_bun": 50,
@@ -173,7 +193,6 @@ export const foodRegistry = {
         "arx:juicy_grass": 2,
         "arx:kaspora_salad": 36,
         "arx:mayonnaise": 20,
-        "arx:moon_potato": 65,
         "arx:mushroom_soup": 35,
         "arx:royal_salad": 65,
         "arx:spicy_mushroom_soup": 42,
@@ -199,7 +218,8 @@ export const foodRegistry = {
 
         "arx:caramel": 23,
         "arx:chocolate_bar": 27,
-        "arx:chocolate_cubes": 36,
+
+        "arx:grape": 25,
 
         // Vanilla
         "minecraft:honey_bottle": 25,
@@ -257,25 +277,6 @@ export function onFoodConsume(player, itemStack) {
 
     // Get food's deleciousness
     const foodTaste = foodRegistry[foodType][foodId]
-
-    // Проводим особые операции, если это требуется
-    switch (foodId) {
-        // Еда
-        case "arx:iron_pie": {
-            sl(player, 'food.iron_pie')
-            player.runCommand(`effect @s fatal_poison infinite 255 true`)
-            break
-        }
-        case "arx:fiolix": {
-            iDP(player, 'FiolixNarcoticPower', 1800)
-            break
-        }
-        case "arx:le_fishe_au_chocolat": {
-            player.runCommand(`playsound le_fishe_au_chocolat @s ~ ~ ~ 0.5`)
-            iDP(player, 'eatenLeFisheCounter')
-            break
-        }
-    }
 
     // Tip
     if (player.getDynamicProperty('hasEverAteSomething') !== true) {

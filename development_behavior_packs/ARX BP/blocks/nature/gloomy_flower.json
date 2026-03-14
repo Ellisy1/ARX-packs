@@ -47,7 +47,8 @@
         "description": {
             "identifier": "arx:gloomy_flower",
             "menu_category": {
-                "category": "nature"
+                "category": "nature",
+                "group": "itemGroup.name.flower"
             }
         }
     }

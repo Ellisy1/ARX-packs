@@ -14,7 +14,7 @@
     ],
     "key": {
       "D": {
-        "item": "arx:desert_essence"
+        "item": "minecraft:blaze_powder"
       },
       "A": {
         "item": "minecraft:feather"
@@ -24,8 +24,7 @@
       }
     },
     "result": [
-      {"item": "arx:wand_flame"},
-      {"item": "arx:bottle_for_blood", "count": 3}
+      {"item": "arx:wand_flame"}
     ]
   }
 }

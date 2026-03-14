@@ -38,17 +38,25 @@ function defineSpellData(player, runeSequence, currentTargetRaw) {
     let targets = []
     // Default spell
     if (!isAreaSpell) {
+        // Cast on self
         if (currentTargetRaw === 1) {
             targets = [player]
         }
+        // Cast forward
         else if (currentTargetRaw === 2) {
             const rayHits = player.getEntitiesFromViewDirection({ maxDistance: spellDistance, includeLiquidBlocks: false, includePassableBlocks: false })
-                .filter(hit => hit.entity.name !== player.name)
+                .filter(hit => hit.entity.name !== player.name) // Remove the caster, if he got to the raycast somehow
+            
+            // If we got no entites, try to find them via blockRayCast
+            if (rayHits.length === 0) {
+
+            }
+
             if (rayHits.length > 0) {
                 // Находим hit с минимальной дистанцией
                 const nearestHit = rayHits.reduce((closest, current) =>
                     current.distance < closest.distance ? current : closest
-                );
+                )
                 targets = [nearestHit.entity];
             }
         }
@@ -62,8 +70,9 @@ function defineSpellData(player, runeSequence, currentTargetRaw) {
         } 
         // Get all entities, excluding the caster
         else {
-            targets = player.dimension.getEntities({ location: player.location, maxDistance: spellDistance, minDistance: 0.001 })
+            targets = player.dimension.getEntities({ location: player.location, maxDistance: spellDistance })
                 .filter(entity => !getEntityFamilies(entity).includes('furniture'))
+                .filter(hit => hit.entity.name !== player.name)
         }
     }
     // Записываем в массив

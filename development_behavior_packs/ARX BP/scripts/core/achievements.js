@@ -273,7 +273,7 @@ export const achievementsList = { // Список со всеми достиже
         description: "Получить зелье дурака",
         trigger: {
             type: "hasItem",
-            value: "arx:long_bottle_blood_karelo_evergreen_dream_jackal_grass"
+            value: "arx:potion_negativeTrait"
         }
     },
     "has_evergreen_dream": {

@@ -1,7 +1,7 @@
 // ARX javascript
 
 // Imports - Minecraft
-import { system, world, EntityComponentTypes, EquipmentSlot, Player, ItemStack, MolangVariableMap } from "@minecraft/server"
+import { system, world, EntityComponentTypes, EquipmentSlot, Player, ItemStack, MolangVariableMap, CommandPermissionLevel, CustomCommandParamType, CustomCommandStatus } from "@minecraft/server"
 import { ActionFormData } from "@minecraft/server-ui"
 
 // Imports - Arx functions 
@@ -28,12 +28,12 @@ import './blocksHistory'
 
 import { registerPlayerVars } from "./registerPlayerVars"
 import { checkForItem } from "./checkForItem"
-import { iDP, ssDP } from "./DPOperations"
+import { gDP, iDP, ssDP } from "./DPOperations"
 import { checkForTrait } from "./traits/traitsOperations"
 import { getPlayersInRadius } from "./getPlayersInRadius"
 import { getItem } from "./items/getItem"
 import { getActiveStaffChannel } from "./magic/getActiveStaffChannel"
-import { obj2str } from "./converters"
+import { md5, obj2str } from "./converters"
 import { isAdmin, getAdmins, getHoster } from './admin'
 import { isPlayerCompletelyLoaded } from "./isPlayerCompletelyLoaded"
 
@@ -73,13 +73,24 @@ world.afterEvents.playerButtonInput.subscribe((event) => {
 // Изменились предметы в инвентаре
 world.afterEvents.playerInventoryItemChange.subscribe((event) => {
     const player = event.player
+    const item = event.itemStack
+    if (item) {
 
-    // Анализ поднимаемного игроком веса
-    weighAnalysis(player)
+        // Анализ поднимаемного игроком веса
+        weighAnalysis(player)
 
-    // Проверка на меч модератора
-    if (checkForItem(player, 'Inventory', 'arx:mod_sword') && getScore(player, "verify") !== 2) {
-        console.warn(`${player.name} §cmod_sword`)
+        // Swords registry
+        if (item.getTags().includes('is_weapon')) {
+            if (!gDP(item, 'everHolded')) {
+                item.setLore([
+                    'Made by '
+                ]);
+                ssDP(item, 'everHolded', true)
+                ssDP(item, 'xp', 0)
+                ssDP(item, 'level', 0)
+                ssDP(item, 'abilities', [])
+            }
+        }
     }
 })
 
@@ -116,6 +127,10 @@ world.afterEvents.playerSpawn.subscribe(async (event) => {
             item.lockMode = "slot"
             item.keepOnDeath = true
             player.getComponent("inventory").container.setItem(8, item)
+        }
+        // Set unique id
+        {
+            ssDP(player, 'id', md5(player.name) + Math.random() * 1000000)
         }
 
         ssDP(player, 'hasEverPlayedArx', true)
@@ -478,8 +493,9 @@ world.afterEvents.playerInteractWithEntity.subscribe(async (interactEvent) => {
 system.beforeEvents.startup.subscribe(initEvent => {
     initEvent.blockComponentRegistry.registerCustomComponent('arx:blockInteration', {
         onPlayerInteract(event) { // Взаимодействие с блоком через ПКМ
-            let executeOnBlockPosition = `execute positioned ${event.block.location.x} ${event.block.location.y} ${event.block.location.z} run `
-            switch (event.block.type.id) {
+            const b = event.block
+            let executeOnBlockPosition = `execute positioned ${b.location.x} ${b.location.y} ${b.location.z} run `
+            switch (b.type.id) {
 
                 // Таблички
                 case "arx:ancient_nameplate_above_military_gate_in_e19": // ЗАМЕНИТЬ НА ТАБЛУ ПОРОЧНОГО ДЕМОНА
@@ -507,39 +523,6 @@ system.beforeEvents.startup.subscribe(initEvent => {
                     event.player.sendMessage('§v§lРаскрытая тетрадь\n§r§fВ прошлый раз я в локациях древних нашла столько всего! Продала Фринцеру с Цугундером на 6 с половиной крайнцев. В этот раз я повышаю ставку - надо пройти через скрытый портал в Порочных Садах, там наверняка куча всего интересного.\nЯ осмотрела это загадочное дрвенее место. Оно очень необычное! Здесь есть стальная машина, я уже встречала такую - ей надо дать слиток железа, и она вернёт какую-то зеленую бумажку. Пустая трата ресурсов, да и к тому же эта машина, видать, сломана. Я нашла кучу всего, что можно вынести. Секунду, кажется я слышу шаги. Допишу позже')
                     break
 
-                case "arx:ancient_iron_processor":
-                    if (checkForItem(event.player, 'Mainhand', 'minecraft:iron_ingot')) {
-                        event.block.dimension.playSound('random.explode', event.block.location)
-
-                        const stack1 = new ItemStack('arx:ancient_banknote', 3)
-                        event.block.dimension.spawnItem(stack1, event.block.location)
-
-                        const stack2 = new ItemStack('coal', 5)
-                        event.block.dimension.spawnItem(stack2, event.block.location)
-
-                        const stack3 = new ItemStack('arx:chrome_nugget', 3)
-                        event.block.dimension.spawnItem(stack3, event.block.location)
-
-                        const stack4 = new ItemStack('iron_ingot', 21)
-                        event.block.dimension.spawnItem(stack4, event.block.location)
-
-                        const stack5 = new ItemStack('arx:steel_protective_plate', 3)
-                        event.block.dimension.spawnItem(stack5, event.block.location)
-
-                        event.block.dimension.runCommand(executeOnBlockPosition + 'damage @a[r=8] 10 block_explosion')
-                        event.block.dimension.spawnParticle('arx:dirty_fog', event.block.location)
-                        event.block.dimension.runCommand(executeOnBlockPosition + 'fill ~ ~ ~ ~ ~ ~ air')
-                        event.block.dimension.runCommand(executeOnBlockPosition + 'camera @a[r=8] fade time 0 0.5 1 color 200 20 10')
-                    }
-                    else {
-                        event.player.sendMessage('§b§lМеталлическое устройство\n§r§o§fКажется, оно никак не реагирует, что бы вы ни делали')
-                    }
-
-
-                    // event.player.sendMessage('§b§lМеталлическое устройство\n§r§o§fКажется, оно никак не реагирует, что бы вы ни делали')
-
-                    break
-
                 // Мусорка
                 case "arx:trash_can":
                     event.player.runCommand(executeOnBlockPosition + "function high_tec/talk_with_trash_can")
@@ -555,11 +538,21 @@ system.beforeEvents.startup.subscribe(initEvent => {
                     event.player.runCommand(`tellraw @s { "rawtext": [ { "text": "§fНанесите удар по непризрачному разумному вырубленному существу на этом алтаре, чтобы уничтожить его и получить перо Бога." } ] }`)
                     break
 
-                // Растение хлопка
+                // Cotton
                 case "arx:cotton_plant":
-                    if (event.block.permutation.getState("arx:growth_stage") == 6) { // Проверям, не вырос ли уже до конца
-                        event.block.setPermutation(event.block.permutation.withState("arx:growth_stage", 4))
-                        event.player.runCommand(executeOnBlockPosition + `loot spawn ~ ~ ~ loot "blocks/nature/cotton_plant_mature"`)
+                    if (b.permutation.getState("arx:growth_stage") == 6) { // Has the plant finally grown?
+                        b.setPermutation(b.permutation.withState("arx:growth_stage", 4))
+                        b.dimension.runCommand(executeOnBlockPosition + `loot spawn ~ ~ ~ loot "blocks/nature/cotton_plant_mature"`)
+                    }
+                    break
+
+                // Grape
+                case "arx:grape_plant":
+                    const finalStage = 9
+
+                    if (b.permutation.getState("arx:growth_stage") == finalStage) { // Has the plant finally grown?
+                        b.setPermutation(b.permutation.withState("arx:growth_stage", 5))
+                        b.dimension.runCommand(executeOnBlockPosition + `loot spawn ~ ~ ~ loot "blocks/nature/grape_mature_finally"`)
                     }
                     break
             }
@@ -567,15 +560,16 @@ system.beforeEvents.startup.subscribe(initEvent => {
     });
     initEvent.blockComponentRegistry.registerCustomComponent('arx:onEntityStepOn', {
         onStepOn(event) { // Наступаение на блок
-            let executeOnBlockPosition = `execute positioned ${event.block.location.x} ${event.block.location.y} ${event.block.location.z} run `
-            switch (event.block.type.id) {
+            const b = event.block
+            let executeOnBlockPosition = `execute positioned ${b.location.x} ${b.location.y} ${b.location.z} run `
+            switch (b.type.id) {
 
                 // Таблички
                 case "arx:mushroom":
                 case "arx:mp_mushroom":
                 case "arx:fly_agaric":
                     if (event.entity.typeId === "minecraft:player") {
-                        event.entity.runCommand(executeOnBlockPosition + "fill ~ ~ ~ ~ ~ ~ air")
+                        b.setType('minecraft:air')
                     }
                     break
 
@@ -588,60 +582,61 @@ system.beforeEvents.startup.subscribe(initEvent => {
     });
     initEvent.blockComponentRegistry.registerCustomComponent('arx:onTick', {
         onTick(event) { // Тиканье блока
-            let executeOnBlockPosition = `execute positioned ${event.block.location.x} ${event.block.location.y} ${event.block.location.z} run `
-            let executeOnBlockPositionWithoutRun = `execute positioned ${event.block.location.x} ${event.block.location.y} ${event.block.location.z} `
-            switch (event.block.type.id) {
+            const b = event.block
+            const d = b.dimension
+            let executeOnBlockPosition = `execute positioned ${b.location.x} ${b.location.y} ${b.location.z} run `
+            switch (b.type.id) {
 
                 // Защитные конструкции
                 case "arx:wooden_obstruction":
-                    world.getDimension(event.block.dimension.id).runCommand(executeOnBlockPosition + "damage @e[type=!item, r=1] 1 none")
+                    d.runCommand(executeOnBlockPosition + "damage @e[type=!item, r=1] 1 none")
                     break
                 case "arx:iron_obstruction":
-                    world.getDimension(event.block.dimension.id).runCommand(executeOnBlockPosition + "damage @e[type=!item, r=1] 4 none")
+                    d.runCommand(executeOnBlockPosition + "damage @e[type=!item, r=1] 4 none")
                     break
                 case "arx:chloronite_obstruction":
-                    world.getDimension(event.block.dimension.id).runCommand(executeOnBlockPosition + "damage @e[type=!item, r=1] 8 none")
-                    world.getDimension(event.block.dimension.id).runCommand(executeOnBlockPosition + "effect @e[type=!item, r=1] fatal_poison 5 2")
+                    d.runCommand(executeOnBlockPosition + "damage @e[type=!item, r=1] 8 none")
+                    d.runCommand(executeOnBlockPosition + "effect @e[type=!item, r=1] fatal_poison 5 2")
                     break
 
                 // Прерыватели магического передвижения
                 case "arx:breaker_of_modified_moving_t1":
-                    world.getDimension(event.block.dimension.id).runCommand(executeOnBlockPosition + "tag @a[r=8] add disable_magic_of_modified_moving_activate")
-                    world.getDimension(event.block.dimension.id).runCommand(executeOnBlockPosition + "tag @a[r=8] add disable_magic_of_modified_moving")
+                    d.runCommand(executeOnBlockPosition + "tag @a[r=8] add disable_magic_of_modified_moving_activate")
+                    d.runCommand(executeOnBlockPosition + "tag @a[r=8] add disable_magic_of_modified_moving")
                     break
                 case "arx:breaker_of_modified_moving_t2":
-                    world.getDimension(event.block.dimension.id).runCommand(executeOnBlockPosition + "tag @a[r=16] add disable_magic_of_modified_moving_activate")
-                    world.getDimension(event.block.dimension.id).runCommand(executeOnBlockPosition + "tag @a[r=16] add disable_magic_of_modified_moving")
+                    d.runCommand(executeOnBlockPosition + "tag @a[r=16] add disable_magic_of_modified_moving_activate")
+                    d.runCommand(executeOnBlockPosition + "tag @a[r=16] add disable_magic_of_modified_moving")
                     break
                 case "arx:breaker_of_modified_moving_t3_":
-                    world.getDimension(event.block.dimension.id).runCommand(executeOnBlockPosition + "tag @a[r=32] add disable_magic_of_modified_moving_activate")
-                    world.getDimension(event.block.dimension.id).runCommand(executeOnBlockPosition + "tag @a[r=32] add disable_magic_of_modified_moving")
+                    d.runCommand(executeOnBlockPosition + "tag @a[r=32] add disable_magic_of_modified_moving_activate")
+                    d.runCommand(executeOnBlockPosition + "tag @a[r=32] add disable_magic_of_modified_moving")
                     break
 
                 // Нагреватор
                 case "arx:heater":
-                    world.getDimension(event.block.dimension.id).runCommand(executeOnBlockPosition + "tag @a[r=16] add heating_by_heater_block_activate")
-                    world.getDimension(event.block.dimension.id).runCommand(executeOnBlockPosition + "tag @a[r=16] add heating_by_heater_block_control")
+                    d.runCommand(executeOnBlockPosition + "tag @a[r=16] add heating_by_heater_block_activate")
+                    d.runCommand(executeOnBlockPosition + "tag @a[r=16] add heating_by_heater_block_control")
                     break
 
                 // Порочный кирпич
                 case "arx:grim_stonebricks":
-                    world.getDimension(event.block.dimension.id).runCommand(executeOnBlockPosition + "particle arx:grim_stonebricks ~ ~ ~")
+                    d.runCommand(executeOnBlockPosition + "particle arx:grim_stonebricks ~ ~ ~")
                     break
 
                 // Горн
                 case "arx:forge_crafting_table":
-                    world.getDimension(event.block.dimension.id).runCommand(executeOnBlockPosition + "particle minecraft:lava_particle ~ ~1 ~")
+                    d.runCommand(executeOnBlockPosition + "particle minecraft:lava_particle ~ ~1 ~")
                     break
 
                 // Мангал
                 case "arx:thermal_cooking_crafting_table":
-                    world.getDimension(event.block.dimension.id).runCommand(executeOnBlockPosition + "particle minecraft:campfire_smoke_particle ~ ~0.5 ~")
+                    d.runCommand(executeOnBlockPosition + "particle minecraft:campfire_smoke_particle ~ ~0.5 ~")
                     break
 
                 // Стеклоплавильня
                 case "arx:glassworks_crafting_table":
-                    world.getDimension(event.block.dimension.id).runCommand(executeOnBlockPosition + "particle minecraft:campfire_smoke_particle ~ ~1.5 ~")
+                    d.runCommand(executeOnBlockPosition + "particle minecraft:campfire_smoke_particle ~ ~1.5 ~")
                     break
 
                 default:
@@ -667,25 +662,47 @@ system.beforeEvents.startup.subscribe(initEvent => {
     });
     initEvent.blockComponentRegistry.registerCustomComponent('arx:onRandomTick', {
         onRandomTick(event) { // Рандомное тиканье блока
-            let executeOnBlockPosition = `execute positioned ${event.block.location.x} ${event.block.location.y} ${event.block.location.z} run `
-            switch (event.block.type.id) {
+            const b = event.block
+            switch (b.type.id) {
 
-                // Растение чая
+                // Tea
                 case "arx:tea_corp":
-                    if (event.block.permutation.getState("arx:growth_stage") < 4 && Math.random() < 0.15) { // Проверям, не вырос ли уже до конца
-                        event.block.setPermutation(event.block.permutation.withState("arx:growth_stage", event.block.permutation.getState("arx:growth_stage") + 1))
+                    if (b.permutation.getState("arx:growth_stage") < 4 && Math.random() < 0.15) { // Has the plant finally grown?
+                        b.setPermutation(b.permutation.withState("arx:growth_stage", b.permutation.getState("arx:growth_stage") + 1))
                     }
                     break
 
-                // Хлопок
+                // Cotton
                 case "arx:cotton_plant":
-                    if (event.block.permutation.getState("arx:growth_stage") < 6 && Math.random() < 0.07) { // Проверям, не вырос ли уже до конца
-                        event.block.setPermutation(event.block.permutation.withState("arx:growth_stage", event.block.permutation.getState("arx:growth_stage") + 1))
+                    if (b.permutation.getState("arx:growth_stage") < 6 && Math.random() < 0.07) { // Has the plant finally grown?
+                        b.setPermutation(b.permutation.withState("arx:growth_stage", b.permutation.getState("arx:growth_stage") + 1))
+                    }
+                    break
+
+                // Grape
+                case "arx:grape_plant":
+                    if (b.permutation.getState("arx:growth_stage") < 9 && Math.random() < 0.1) { // Has the plant finally grown?
+                        b.setPermutation(b.permutation.withState("arx:growth_stage", b.permutation.getState("arx:growth_stage") + 1))
                     }
                     break
             }
         }
     })
+    // Custom commands
+    initEvent.customCommandRegistry.registerCommand(
+        {
+            name: 'arx:test',
+            description: 'Just a test func',
+            permissionLevel: CommandPermissionLevel.Any,
+            cheatsRequired: false,
+        },
+        origin => {
+            const player = origin.initiator ?? origin.sourceEntity
+            const item = getItem(player, 'mainhand')
+            item.setLore('Abc')
+            player.sendMessage('abc')
+        }
+    )
 })
 
 // Смерти сущностей
@@ -698,11 +715,6 @@ world.afterEvents.entityDie.subscribe((dieEvent) => {
         if (player.getDynamicProperty('hasEverBeenKnocked') !== true) {
             ssDP(player, 'hasEverBeenKnocked', true)
             player.runCommand(`tellraw @s { "rawtext": [ { "text": "[§aГид§f] > §cВы в нокауте§f. Ничего страшного, это не смерть. Вы полежите около минуты и снова очнётесь. §aВаши вещи§f лежат рядом с вами в деревянном ящике (если они у вас вообще были)." } ] }`)
-        }
-
-        // Уменьшаем интоксикацию, если надо
-        if (player.getDynamicProperty('intoxication') > 1200) {
-            ssDP(player, 'intoxication', 1200)
         }
 
         ssDP(player, 'blockingResistanceCD', 0)
@@ -839,8 +851,10 @@ function bleed(entity, intencity, damager) {
 
 const bleedingMobs = [
     'minecraft:cow', 'minecraft:sheep', 'minecraft:chicken', 'minecraft:pig', 'minecraft:bat', 'minecraft:wolf', 'minecraft:polar_bear', 'minecraft:ocelot', 'minecraft:cat',
-    'minecraft:parrot', 'minecraft:rabbit', 'minecraft:lama', 'minecraft:horse', 'minecraft:donkey', 'minecraft:mule', 'minecraft:turtle', 'minecraft:panda', 'minecraft:fox', 'minecraft:cave_spider',
+    'minecraft:parrot', 'minecraft:rabbit', 'minecraft:llama', 'minecraft:horse', 'minecraft:donkey', 'minecraft:mule', 'minecraft:turtle', 'minecraft:panda', 'minecraft:fox', 'minecraft:cave_spider',
     'minecraft:piglin', 'minecraft:hoglin', 'minecraft:goat', 'minecraft:axolotl', 'minecraft:frog', 'minecraft:camel', 'minecraft:sniffer', 'minecraft:armadillo',
+
+    'minecraft:villager', 'minecraft:pillager',
 
     "arx:cave_rat", "arx:fat_larva", "arx:deer", "arx:tsugunder", "arx:snow_lady", "arx:snow_bars", "arx:small_rat_white", "arx:small_rat_black", "arx:rat_monstr_white", "arx:rat_monstr",
     "arx:rat_eliminator", "arx:leech", "arx:larva", "arx:kapibara", "arx:hungry_rat", "arx:goose", "arx:gasgolder_istribitor", "arx:gasgolder", "arx:gabz", "arx:frintser", "arx:fiercewolf", "arx:crocodile",

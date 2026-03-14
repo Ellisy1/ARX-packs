@@ -44,7 +44,8 @@
         "description": {
             "identifier": "arx:ice_iris",
             "menu_category": {
-                "category": "nature"
+                "category": "nature",
+                "group": "itemGroup.name.flower"
             }
         }
     }

@@ -1,0 +1,14 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_brewing_mix": {
+    "description": {
+      "identifier": "arx:potion_mp_regen_d_upgrade"
+    },
+    "tags": [
+      "brewing_stand"
+    ],
+    "input": "arx:potion_mp_regen",
+    "reagent": "minecraft:redstone",
+    "output": "arx:potion_mp_regen_d_upgrade"
+  }
+}

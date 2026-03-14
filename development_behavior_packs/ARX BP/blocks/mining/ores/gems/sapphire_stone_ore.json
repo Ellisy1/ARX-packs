@@ -11,7 +11,8 @@
         "description": {
             "identifier": "arx:sapphire_stone_ore",
             "menu_category": {
-                "category": "nature"
+                "category": "nature",
+                "group": "itemGroup.name.ore"
             }
         }
     }

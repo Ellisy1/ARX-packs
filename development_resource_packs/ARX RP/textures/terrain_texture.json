@@ -151,6 +151,38 @@
 			"textures": "textures/blocks/nature/cotton_plant/cotton_plant_stage_final" 
 		},
 
+		"grape_0": {
+			"textures": "textures/blocks/nature/grape/grape_0" 
+		},
+		"grape_1": {
+			"textures": "textures/blocks/nature/grape/grape_1" 
+		},
+		"grape_2": {
+			"textures": "textures/blocks/nature/grape/grape_2" 
+		},
+		"grape_3": {
+			"textures": "textures/blocks/nature/grape/grape_3" 
+		},
+		"grape_4": {
+			"textures": "textures/blocks/nature/grape/grape_4" 
+		},
+		"grape_mature_0": {
+			"textures": "textures/blocks/nature/grape/grape_mature_0" 
+		},
+		"grape_mature_1": {
+			"textures": "textures/blocks/nature/grape/grape_mature_1" 
+		},
+		"grape_mature_2": {
+			"textures": "textures/blocks/nature/grape/grape_mature_2" 
+		},
+		"grape_mature_3": {
+			"textures": "textures/blocks/nature/grape/grape_mature_3" 
+		},
+		"grape_mature_finally": {
+			"textures": "textures/blocks/nature/grape/grape_mature_finally" 
+		},
+
+
 		"arx_light_armor_crafting_table": {
 			"textures": "textures/blocks/furniture/light_armor_crafting_table"
 		},

@@ -17,10 +17,10 @@
         "item": "minecraft:milk_bucket"
       },
       "R": {
-        "item": "minecraft:glow_berries"
+        "item": "minecraft:glow_berries" 
       },
       "A": {
-        "item": "arx:default_bottle"
+        "item": "minecraft:glass_bottle"
       }
     },
     "result": [

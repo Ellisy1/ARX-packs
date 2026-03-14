@@ -7,14 +7,13 @@
 		"tags": ["crafting_table"],
 		"pattern": [
 		"TOD",
-		"CBM",
+		"COM",
 		"LFL"
 		],
 		"key": {
 			"C": "arx:cup",
 			"L": "minecraft:planks",
-			"O":"arx:rounded_bottle",
-			"B":"arx:default_bottle",
+			"O":"minecraft:glass_bottle",
 			"T":"arx:tea_list",
 			"D":"minecraft:stick",
 			"M":"minecraft:bowl",

@@ -1,0 +1,17 @@
+*
+!.gitignore
+!README.md
+
+# Разрешаем вход в папки
+!development_behavior_packs/
+!development_resource_packs/
+
+# Игнорируем всё внутри
+development_behavior_packs/*
+development_resource_packs/*
+
+# Разрешаем только нужные подпапки и их содержимое
+!development_behavior_packs/ARX BP/
+!development_behavior_packs/ARX BP/**
+!development_resource_packs/ARX RP/
+!development_resource_packs/ARX RP/**

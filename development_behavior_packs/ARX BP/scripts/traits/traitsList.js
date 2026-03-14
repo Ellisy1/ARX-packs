@@ -23,10 +23,6 @@ export const traitsList = {
             "name": "Мудрый",
             "description": "+0.2 к регенерации маны."
         },
-        "persistent": {
-            "name": "Стойкий",
-            "description": "интоксикация (отравление от зелий) не наносит стресс."
-        },
         "tenacious": {
             "name": "Живучий",
             "description": "регенерация на 10 секунд чаще."

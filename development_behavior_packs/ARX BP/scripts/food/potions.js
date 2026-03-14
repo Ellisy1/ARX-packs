@@ -1,345 +1,143 @@
-// Key - potion, value - posioning 
-// Potions, alcohol, etc.
+import { acquireTrait, checkForTrait } from "../traits/traitsOperations"
+import { ssDP, iDP, gDP } from "../DPOperations"
+import { sl, fl } from '../lang/fetchLocalization'
+
+// Potions, alcohol and consumables with unusual effect
+
+// === Example for potionsRegistry ===
+// 'arx:potion': (player => {
+//     Function
+// }),
+
 export const potionsRegistry = {
-    "arx:beer_bottle_solod": 350,
-    "arx:beer_bottle_solod_kari": 350,
-    "arx:beer_bottle_solod_kari_substractor": 350,
-    "arx:beer_bottle_solod_salt": 200,
-    "arx:beer_bottle_solod_solod": 350,
-    "arx:beer_bottle_solod_solod_substractor": 350,
-    "arx:beer_bottle_water": 0,
+    // === ALCOHOL ===
+    'arx:ale': (player => player.addEffect('regeneration', 160)),
+    'arx:beer': (player => player.addEffect('regeneration', 300)),
+    'arx:cider': (player => player.addEffect('speed', 400)),
+    'arx:mead': (player => iDP(player, 'stress', -300)),
+    'arx:rum': (player => iDP(player, 'MPSmoothAccrue', 15)),
+    'arx:vodka': (player => {
+        player.addEffect('strength', 400)
+        player.addEffect('nausea', 600)
+    }),
+    'arx:wine': (player => player.addEffect('night_vision', 400)),
 
-    "arx:default_bottle_sugar": 1800,
-    "arx:default_bottle_water": 0,
-    "arx:vodka": 1000,
-    "arx:vodka_apple": 800,
-    "arx:vodka_cactus": 650,
-    "arx:vodka_fiolix": 1200,
-    "arx:vodka_light_berries": 800,
-    "arx:vodka_mushroom": 1100,
-    "arx:vodka_sweet_berrie": 750,
-    "arx:wine": 350,
+    // === POTIONS ===
+    'arx:potion_blindness': (player => player.addEffect('blindness', 600)),
+    'arx:potion_blindness_d_upgrade': (player => player.addEffect('blindness', 3600)),
 
-    "arx:hole_bottle_mp_potion": 350,
-    "arx:hole_bottle_mp_potion_royal_sorrel": 700,
+    'arx:potion_happiness': (player => iDP(player, 'stress', -1000)),
+    'arx:potion_happiness_p_upgrade': (player => iDP(player, 'stress', -2000)),
 
-    "arx:long_bottle_blood": 350,
-    "arx:long_bottle_blood_karelo": 350,
-    "arx:long_bottle_blood_karelo_evergreen_dream": 350,
-    "arx:long_bottle_blood_karelo_evergreen_dream_dragon_pion": 350,
-    "arx:long_bottle_blood_karelo_evergreen_dream_jackal_grass": 350,
+    'arx:potion_haste': (player => player.addEffect('haste', 3600)),
+    'arx:potion_haste_d_upgrade': (player => player.addEffect('haste', 9600)),
+    'arx:potion_haste_p_upgrade': (player => player.addEffect('haste', 3600, { amplifier: 1 })),
 
-    "arx:rounded_bottle_blood": 350,
-    "arx:rounded_bottle_water": 0,
-    "arx:rounded_bottle_water_fiuli": 350,
-    "arx:rounded_bottle_water_fiuli_kari": 350,
-    "arx:rounded_bottle_water_fiuli_night_kosk": 350,
-    "arx:rounded_bottle_water_fiuli_night_kosk_dragon_pion": 350,
-    "arx:rounded_bottle_water_fiuli_wolf_death": 5000,
-    "arx:rounded_bottle_water_fiuli_yuan": 350,
-    "arx:rounded_bottle_water_golden_hay": 350,
-    "arx:rounded_bottle_water_golden_hay_animal_eye": 350,
-    "arx:rounded_bottle_water_golden_hay_animal_eye_day_kosk": 350,
-    "arx:rounded_bottle_water_golden_hay_animal_eye_night_kosk": 350,
-    "arx:rounded_bottle_water_golden_hay_animal_eye_night_kosk_dragon_pion": 350,
-    "arx:rounded_bottle_water_golden_hay_beast_heart": 350,
-    "arx:rounded_bottle_water_golden_hay_beast_heart_dragon_pion": 350,
-    "arx:rounded_bottle_water_golden_hay_bone": 350,
-    "arx:rounded_bottle_water_golden_hay_bone_dragon_pion": 350,
-    "arx:rounded_bottle_water_golden_hay_brain": 350,
-    "arx:rounded_bottle_water_golden_hay_claws": 350,
-    "arx:rounded_bottle_water_golden_hay_claws_jackal_grass": 350,
-    "arx:rounded_bottle_water_golden_hay_fang": 350,
-    "arx:rounded_bottle_water_golden_hay_fang_dragon_pion": 350,
-    "arx:rounded_bottle_water_golden_hay_feather": 350,
-    "arx:rounded_bottle_water_golden_hay_feather_dragon_pion": 350,
-    "arx:rounded_bottle_water_golden_hay_hoof": 350,
-    "arx:rounded_bottle_water_golden_hay_hoof_dragon_pion": 350,
-    "arx:rounded_bottle_water_golden_hay_kari": 350,
-    "arx:rounded_bottle_water_golden_hay_kavra": 350,
-    "arx:rounded_bottle_water_golden_hay_kavra_dragon_pion": 350,
-    "arx:rounded_bottle_water_golden_hay_liver": 350,
-    "arx:rounded_bottle_water_golden_hay_liver_dragon_pion": 350,
-    "arx:rounded_bottle_water_golden_hay_liver_dragon_pion_dragon_pion": 350,
-    "arx:rounded_bottle_water_golden_hay_liver_dragon_pion_dragon_pion_dragon_pion": 350,
-    "arx:rounded_bottle_water_golden_hay_monster_eye": 350,
-    "arx:rounded_bottle_water_golden_hay_mp_flower": 350,
-    "arx:rounded_bottle_water_golden_hay_mp_flower_dragon_pion": 350,
-    "arx:rounded_bottle_water_golden_hay_snowflower": 350,
-    "arx:rounded_bottle_water_golden_hay_snowflower_jackal_grass": 350,
-    "arx:rounded_bottle_water_golden_hay_squama": 350,
-    "arx:rounded_bottle_water_golden_hay_yuan": 350,
-    "arx:triangle_bottle_water": 0,
-    "arx:triangle_bottle_water_karelo": 350,
-    "arx:triangle_bottle_water_karelo_fioletic": 350,
-    "arx:fioletic_dose": 350,
+    'arx:potion_instant_mp': (player => iDP(player, 'MPSmoothAccrue', 30)),
+    'arx:potion_instant_mp_p_upgrade': (player => iDP(player, 'MPSmoothAccrue', 90)),
+
+    'arx:potion_mp_max': (player => ssDP(player, 'maxMPBonusFromPotion', 180)),
+    'arx:potion_mp_max_d_upgrade': (player => ssDP(player, 'maxMPBonusFromPotion', 480)),
+    'arx:potion_mp_max_p_upgrade': (player => ssDP(player, 'maxMPBonusFromPotionImproved', 180)),
+
+    'arx:potion_mp_regen': (player => ssDP(player, 'MPRegenBonusFromPotion', 180)),
+    'arx:potion_mp_regen_d_upgrade': (player => ssDP(player, 'MPRegenBonusFromPotion', 480)),
+    'arx:potion_mp_regen_p_upgrade': (player => ssDP(player, 'MPRegenBonusFromPotionImproved', 180)),
+
+    'arx:potion_no_freezing': (player => ssDP(player, 'freezingBlockByPotion', 300)),
+    'arx:potion_no_freezing_d_upgrade': (player => ssDP(player, 'freezingBlockByPotion', 1200)),
+
+    'arx:potion_perm_mp_max': (player => processPermanentPotion(player, 'arx:potion_perm_mp_max')),
+    'arx:potion_perm_mp_regen': (player => processPermanentPotion(player, 'arx:potion_perm_mp_regen')),
+    'arx:potion_perm_weight_limit_bonus': (player => processPermanentPotion(player, 'arx:potion_perm_weight_limit_bonus')),
+
+    'arx:potion_remove_negative_effects': (player => {
+        player.removeEffect('slowness')
+        player.removeEffect('mining_fatigue')
+        player.removeEffect('instant_damage')
+        player.removeEffect('nausea')
+        player.removeEffect('blindness')
+        player.removeEffect('hunger')
+        player.removeEffect('weakness')
+        player.removeEffect('poison')
+        player.removeEffect('fatal_poison')
+        player.removeEffect('wither')
+        player.removeEffect('darkness')
+        player.removeEffect('infested')
+        player.removeEffect('oozing')
+        player.removeEffect('weaving')
+        player.removeEffect('wind_charged')
+    }),
+
+    'arx:potion_stress': (player => iDP(player, 'stress', 1000)),
+    'arx:potion_stress_p_upgrade': (player => iDP(player, 'stress', 2000)),
+
+    'arx:potion_trait_negative': (player => acquireTrait(player, [0, 0, 1])),
+    'arx:potion_trait_neutral': (player => acquireTrait(player, [0, 1, 0])),
+    'arx:potion_trait_positive': (player => acquireTrait(player, [1, 0, 0])),
+
+    'arx:potion_weight_limit_bonus': (player => ssDP(player, 'weighLimitBonusByPotion', 180)),
+    'arx:potion_weight_limit_bonus_d_upgrade': (player => ssDP(player, 'weighLimitBonusByPotion', 480)),
+    'arx:potion_weight_limit_bonus_p_upgrade': (player => ssDP(player, 'weighLimitBonusByPotionImproved', 180)),
+
+    // === OTHER ===
+    'arx:le_fishe_au_chocolat': (player => {
+        player.runCommand(`playsound le_fishe_au_chocolat @s ~ ~ ~ 0.5`)
+        iDP(player, 'eatenLeFisheCounter')
+    }),
+    'arx:fiolix': (player => {
+        // ?
+    }),
+    'arx:iron_pie': (player => {
+        sl(player, 'food.iron_pie')
+        player.runCommand(`effect @s fatal_poison infinite 255 true`)
+    }),
+}
+
+// Use permanent potion
+function processPermanentPotion(player, stackId) {
+    if (!stackId in permanentBonuses) return
+
+    const usesCounterDP = 'permCounter:' + stackId
+    const usesCounter = gDP(player, usesCounterDP) ?? 0
+
+    const maxUses = permanentBonuses[stackId]['maxUses']
+    const allow = usesCounter < maxUses
+
+    if (allow) {
+        iDP(player, permanentBonuses[stackId]['DPToIncrease'])
+        iDP(player, usesCounterDP)
+        sl(player, 'potion.perm.used')
+        const howManyCanDrinkMore = maxUses - usesCounter - 1
+        if (howManyCanDrinkMore > 0) sl(player, 'potion.perm.can_use_more', [howManyCanDrinkMore])
+        else sl(player, 'potion.perm.cannot_drink_more')
+    }
+    else {
+        sl(player, 'potion.perm.drank_over_limit')
+    }
+}
+
+// Key - potion id, value - data
+const permanentBonuses = {
+    'arx:potion_perm_mp_max': {
+        maxUses: 10,
+        DPToIncrease: 'MPPermanentBonus'
+    },
+    'arx:potion_perm_mp_regen': {
+        maxUses: 10,
+        DPToIncrease: 'MPRegenPermanentBonus'
+    },
+    'arx:potion_perm_weight_limit_bonus': {
+        maxUses: 6,
+        DPToIncrease: 'weightLimitPermanentBonus'
+    },
 }
 
 export function onPotionConsume(player, itemStack) {
-    // Проводим особые операции, если это требуется
-    switch (foodId) {
 
-        // Пиво
-        case "arx:beer_bottle_solod": {
-            player.runCommand(`effect @s regeneration 5 0 true`)
-            player.runCommand(`effect @s nausea 7 0 true`)
-            iDP(player, 'stress', -500)
-            break
-        }
-        case "arx:beer_bottle_solod_kari": {
-            player.runCommand(`effect @s regeneration 10 0 true`)
-            player.runCommand(`effect @s nausea 5 0 true`)
-            iDP(player, 'stress', -500)
-            break
-        }
-        case "arx:beer_bottle_solod_kari_substractor": {
-            player.runCommand(`effect @s regeneration 15 0 true`)
-            iDP(player, 'stress', -500)
-            break
-        }
-        case "arx:beer_bottle_solod_salt": {
-            player.runCommand(`effect @s regeneration 8 0 true`)
-            iDP(player, 'stress', -500)
-            break
-        }
-        case "arx:beer_bottle_solod_solod": {
-            player.runCommand(`effect @s regeneration 5 0 true`)
-            player.runCommand(`effect @s nausea 5 0 true`)
-            player.runCommand(`effect @s haste 10 0 true`)
-            iDP(player, 'stress', -500)
-            break
-        }
-        case "arx:beer_bottle_solod_solod_substractor": {
-            player.runCommand(`effect @s regeneration 10 0 true`)
-            player.runCommand(`effect @s haste 30 0 true`)
-            iDP(player, 'stress', -500)
-            break
-        }
+    const potionId = itemStack.typeId
+    if (!potionId in potionsRegistry) return
 
-        // Обычные бутылки
-        case "arx:default_bottle_sugar": {
-            player.runCommand(`effect @s nausea 30 0 true`)
-            player.runCommand(`damage @s 2 magic`)
-            break
-        }
-        case "arx:vodka": {
-            player.runCommand(`effect @s nausea 10 0 true`)
-            player.runCommand(`effect @s night_vision 15 0 true`)
-            break
-        }
-        case "arx:vodka_apple": {
-            player.runCommand(`effect @s nausea 8 0 true`)
-            iDP(player, 'stress', -1000)
-            break
-        }
-        case "arx:vodka_cactus": {
-            player.runCommand(`effect @s nausea 8 0 true`)
-            iDP(player, 'stress', -1000)
-            break
-        }
-        case "arx:vodka_fiolix": {
-            player.runCommand(`effect @s nausea 8 0 true`)
-            iDP(player, 'stress', -1000)
-            break
-        }
-        case "arx:vodka_light_berries": {
-            player.runCommand(`effect @s nausea 8 0 true`)
-            iDP(player, 'stress', -1000)
-            break
-        }
-        case "arx:vodka_mushroom": {
-            player.runCommand(`effect @s nausea 8 0 true`)
-            iDP(player, 'stress', -1000)
-            break
-        }
-        case "arx:vodka_sweet_berrie": {
-            player.runCommand(`effect @s nausea 8 0 true`)
-            iDP(player, 'stress', -1000)
-            break
-        }
-        case "arx:wine": {
-            player.runCommand(`effect @s regeneration 8 1 true`)
-            iDP(player, 'stress', -1000)
-            break
-        }
-
-        // Бутыки тора
-        case "arx:hole_bottle_mp_potion": {
-            iDP(player, 'MPSmoothAccrue', 20)
-            break
-        }
-        case "arx:hole_bottle_mp_potion_royal_sorrel": {
-            if (player.getDynamicProperty('MPPermanentBonus') < 5) {
-                iDP(player, 'MPPermanentBonus', 1)
-                sl(player, 'food.permanent_mp_potion.successful')
-            }
-            else {
-                sl(player, 'food.permanent_mp_potion.max_already_reached')
-            }
-            break
-        }
-        // Вертикальные бутылки
-        case "arx:long_bottle_blood_karelo_evergreen_dream": {
-            acquireTrait(player, [0, 1, 0])
-            break
-        }
-        case "arx:long_bottle_blood_karelo_evergreen_dream_dragon_pion": {
-            acquireTrait(player, [1, 0, 0])
-            break
-        }
-        case "arx:long_bottle_blood_karelo_evergreen_dream_jackal_grass": {
-            acquireTrait(player, [0, 0, 1])
-            break
-        }
-        // Круглые бутылки
-        case "arx:rounded_bottle_water_fiuli_kari": {
-            iDP(player, 'stress', 3000)
-            break
-        }
-        case "arx:rounded_bottle_water_fiuli_night_kosk": {
-            player.runCommand(`effect @s blindness 60 0 true`)
-            break
-        }
-        case "arx:rounded_bottle_water_fiuli_night_kosk_dragon_pion": {
-            player.runCommand(`effect @s blindness 300 0 true`)
-            break
-        }
-        case "arx:rounded_bottle_water_fiuli_yuan": {
-            player.runCommand(`effect @s hunger 20 0 true`)
-            if (player.getDynamicProperty('saturation') > 60) {
-                iDP(player, 'saturation', -60)
-            } else {
-                ssDP(player, 'saturation', 0)
-            }
-            break
-        }
-        case "arx:rounded_bottle_water_golden_hay_animal_eye": {
-            player.runCommand(`effect @s night_vision 30 0 true`)
-            break
-        }
-        case "arx:rounded_bottle_water_golden_hay_animal_eye_day_kosk": {
-            ssDP(player, 'noRainFog', 300)
-            break
-        }
-        case "arx:rounded_bottle_water_golden_hay_animal_eye_night_kosk": {
-            ssDP(player, 'noNightFog', 300)
-            break
-        }
-        case "arx:rounded_bottle_water_golden_hay_animal_eye_night_kosk_dragon_pion": {
-            player.runCommand(`effect @s darkness 30 0 true`)
-            break
-        }
-        case "arx:rounded_bottle_water_golden_hay_beast_heart": {
-            player.runCommand(`effect @s fire_resistance 30 0 true`)
-            break
-        }
-        case "arx:rounded_bottle_water_golden_hay_beast_heart_dragon_pion": {
-            player.runCommand(`effect @s fire_resistance 120 0 true`)
-            break
-        }
-        case "arx:rounded_bottle_water_golden_hay_bone": {
-            ssDP(player, 'jumpBoostByPotion', 60)
-            break
-        }
-        case "arx:rounded_bottle_water_golden_hay_bone_dragon_pion": {
-            ssDP(player, 'jumpBoostByPotion', 300)
-            break
-        }
-        case "arx:rounded_bottle_water_golden_hay_brain": {
-            ssDP(player, 'mpRegenBoostByPotion', 60)
-            break
-        }
-        case "arx:rounded_bottle_water_golden_hay_claws": {
-            player.runCommand(`effect @s haste 60 0 true`)
-            break
-        }
-        case "arx:rounded_bottle_water_golden_hay_claws_jackal_grass": {
-            player.runCommand(`effect @s mining_fatigue 60 0 true`)
-            break
-        }
-        case "arx:rounded_bottle_water_golden_hay_fang": {
-            ssDP(player, 'weighLimitBonusByPotion', 120)
-            break
-        }
-        case "arx:rounded_bottle_water_golden_hay_fang_dragon_pion": {
-            ssDP(player, 'weighLimitBonusByPotion', 480)
-            break
-        }
-        case "arx:rounded_bottle_water_golden_hay_feather": {
-            player.runCommand(`effect @s slow_falling 2 0 true`)
-            break
-        }
-        case "arx:rounded_bottle_water_golden_hay_feather_dragon_pion": {
-            player.runCommand(`effect @s levitation 1 3 true`)
-            break
-        }
-        case "arx:rounded_bottle_water_golden_hay_hoof": {
-            ssDP(player, 'speedBonusByPotion', 60)
-            break
-        }
-        case "arx:rounded_bottle_water_golden_hay_hoof_dragon_pion": {
-            ssDP(player, 'speedBonusByPotion', 300)
-            break
-        }
-        case "arx:rounded_bottle_water_golden_hay_kari": {
-            iDP(player, 'stress', -1200)
-            break
-        }
-        case "arx:rounded_bottle_water_golden_hay_kavra": {
-            player.runCommand(`effect @s regeneration 20 0 true`)
-            break
-        }
-        case "arx:rounded_bottle_water_golden_hay_kavra_dragon_pion": {
-            player.runCommand(`effect @s regeneration 20 1 true`)
-            break
-        }
-        case "arx:rounded_bottle_water_golden_hay_liver": {
-            ssDP(player, 'intitoxicationBonusByPotion100', 60)
-            break
-        }
-        case "arx:rounded_bottle_water_golden_hay_liver_dragon_pion": {
-            ssDP(player, 'intitoxicationBonusByPotion100', 300)
-            break
-        }
-        case "arx:rounded_bottle_water_golden_hay_liver_dragon_pion_dragon_pion": {
-            ssDP(player, 'intitoxicationBonusByPotion300', 60)
-            break
-        }
-        case "arx:rounded_bottle_water_golden_hay_liver_dragon_pion_dragon_pion_dragon_pion": {
-            ssDP(player, 'intitoxicationBonusByPotion300', 300)
-            break
-        }
-        case "arx:rounded_bottle_water_golden_hay_monster_eye": {
-            player.runCommand(`effect @s invisibility 10 0 true`)
-            break
-        }
-        case "arx:rounded_bottle_water_golden_hay_mp_flower": {
-            ssDP(player, 'MPSmoothAccrue', 20)
-            break
-        }
-        case "arx:rounded_bottle_water_golden_hay_mp_flower_dragon_pion": {
-            ssDP(player, 'MPSmoothAccrue', 80)
-            break
-        }
-        case "arx:rounded_bottle_water_golden_hay_snowflower": {
-            ssDP(player, 'freezingBlockByPotion', 600)
-            break
-        }
-        case "arx:rounded_bottle_water_golden_hay_snowflower_jackal_grass": {
-            ssDP(player, 'heatingBlockByPotion', 60)
-            break
-        }
-        case "arx:rounded_bottle_water_golden_hay_squama": {
-            player.runCommand(`effect @s water_breathing 300 0 true`)
-            break
-        }
-        case "arx:rounded_bottle_water_golden_hay_yuan": {
-            ssDP(player, 'saturation', 1800)
-            break
-        }
-        case "arx:fioletic_dose": {
-            iDP(player, 'FiolixNarcoticPower', 600)
-            break
-        }
-    }
+    // Run code
+    potionsRegistry[potionId](player)
 }

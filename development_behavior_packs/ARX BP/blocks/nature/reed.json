@@ -44,7 +44,8 @@
         "description": {
             "identifier": "arx:reed",
             "menu_category": {
-                "category": "nature"
+                "category": "nature",
+                "group": "itemGroup.name.flower"
             }
         }
     }

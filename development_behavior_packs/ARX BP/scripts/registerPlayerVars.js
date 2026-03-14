@@ -56,9 +56,6 @@ export function registerPlayerVars(player) {
     if (gDP(player, "MPPermanentBonus") === undefined) {
         ssDP(player, "MPPermanentBonus", 0)
     }
-    if (gDP(player, "intoxication") === undefined) {
-        ssDP(player, "intoxication", 0)
-    }
     if (gDP(player, "FiolixNarcoticPower") === undefined) {
         ssDP(player, "FiolixNarcoticPower", 0)
     }
@@ -74,14 +71,8 @@ export function registerPlayerVars(player) {
     if (gDP(player, "heatingBlockByPotion") === undefined) {
         ssDP(player, "heatingBlockByPotion", 0)
     }
-    if (gDP(player, "heatingBlockByScroll") === undefined) {
-        ssDP(player, "heatingBlockByScroll", 0)
-    }
     if (gDP(player, "scrollOfHealingCD") === undefined) {
         ssDP(player, "scrollOfHealingCD", 0)
-    }
-    if (gDP(player, "intoxicationLevel") === undefined) {
-        ssDP(player, "intoxicationLevel", 0)
     }
     if (gDP(player, "hasRegisteredCharacter") === undefined) {
         ssDP(player, "hasRegisteredCharacter", false)

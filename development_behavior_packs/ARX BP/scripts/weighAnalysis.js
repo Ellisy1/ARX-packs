@@ -2,7 +2,7 @@ import { checkForItem } from "./checkForItem"
 import { getScore } from "./scoresOperations"
 import { checkForTrait } from './traits/traitsOperations'
 import { getNearestPlayer } from './getNearestPlayer'
-import { ssDP } from "./DPOperations"
+import { gDP, ssDP } from "./DPOperations"
 
 export function weighAnalysis(player) {
     // weighLimit - ограничение переносимого веса, при переходе за который накладывается штраф
@@ -28,19 +28,20 @@ export function weighAnalysis(player) {
     if (checkForItem(player, "Feet", "arx:ring_lamenite_cornelian")) weighLimit += 6
     if (checkForItem(player, "OffHand", "arx:ring_lamenite_cornelian")) weighLimit += 6
 
-    if (player.getDynamicProperty('weighLimitBonusByPotion') > 0) { weighLimit += 2 }
+    if (gDP(player, 'weighLimitBonusByPotion') > 0) weighLimit += 2
+    if (gDP(player, 'weighLimitBonusByPotionImproved') > 0) weighLimit += 6
+
+    // From perma potions
+    weighLimit += ((gDP(player, 'weightLimitPermanentBonus') / 2) ?? 0)
 
     // От черты
-    if (checkForTrait(player, 'powerful')) { weighLimit += 1 }
+    if (checkForTrait(player, 'powerful')) weighLimit += 1
 
     // Увеличение от прокачки
-    weighLimit += player.getDynamicProperty('skill:endurance_level')
+    weighLimit += (player.getDynamicProperty('skill:endurance_level') ?? 0)
 
     // Увеличение от бонуса фиоликса
     if (player.getDynamicProperty('statsBonusByFiolix') > 0) { weighLimit += 2 }
-
-    // Срезание от отравления
-    if (player.getDynamicProperty('intoxicationLevel') >= 2) { weighLimit -= player.getDynamicProperty('intoxicationLevel') }
 
     // Воздействие стресса
     if (player.getDynamicProperty('stressLevel') == 4) { weighLimit -= 4 }

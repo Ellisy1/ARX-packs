@@ -118,6 +118,11 @@ export function getSkillsData(player) {
         const lengthDone = Math.floor(lineLength * progress / 100);
         const lengthUndone = lineLength - lengthDone;
 
+        if (lengthDone < 0) {
+            console.warn(`getSkillsData: Unsupported lengthDone value: ${lengthDone}`)
+            return
+        }
+
         let progressString = '[§a' + symb.repeat(lengthDone) + `§r§l${symb}§r§8` + symb.repeat(lengthUndone) + `§f] (§a${Math.floor(progress)}§fŨ)`;
         resultString += progressString;
     }

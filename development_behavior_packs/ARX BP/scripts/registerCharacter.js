@@ -91,11 +91,10 @@ export function registerCharacter(player) {
                 break
 
             case 30: // Установка имени 30
-                const localNameSample = getScore(player, 'gender') === 1 ? "Таинственный незнакомец" : "Таинственная незнакомка"
                 const form3 = new ModalFormData()
-                    .title("Имя персонажа")
-                    .textField(`Имя для локального чата. \n§7§oМожно в любой момент сменить командой §d!§asetname§7.\nЭто может быть имя, а может быть\nчто-то вроде <${localNameSample}>`, "Имя для локального чата")
-                    .submitButton('Установить имя')
+                    .title("Character's name")
+                    .textField(`Character's name. Will be displayed in §aLocal chat§f and §bon weapons you crafted§f.\n\n§7§oCan be changed with command §d/§asetname§7.`, "Character's name")
+                    .submitButton('Set name')
 
                     .show(player).then(response => {
 

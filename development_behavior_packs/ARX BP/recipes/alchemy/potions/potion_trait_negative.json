@@ -1,0 +1,14 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_brewing_mix": {
+    "description": {
+      "identifier": "arx:potion_trait_negative"
+    },
+    "tags": [
+      "brewing_stand"
+    ],
+    "input": "arx:potion_trait_neutral",
+    "reagent": "arx:jackal_grass",
+    "output": "arx:potion_trait_negative"
+  }
+}

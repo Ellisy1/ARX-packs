@@ -78,11 +78,5 @@ function getBodyText(player) {
 
     bodyText += "§6|§f " + `Увеличение получаемого опыта: §b${player.getDynamicProperty('xpMultiplier')}§fx\n`
 
-    bodyText += "§8|§f\n"
-
-    bodyText += "§2|§f " + `Уровень интоксикации: §b${player.getDynamicProperty('intoxicationLevel')}§f\n`
-
-    bodyText += "§2|§f " + `Скорость снижения интоксикации: §b${player.getDynamicProperty('intoxicationDecreasePower')}§fŨ\n`
-
     return bodyText
 }

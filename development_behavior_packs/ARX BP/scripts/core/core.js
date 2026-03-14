@@ -837,77 +837,6 @@ const coreFramework = {
             }
         }
     },
-    // Intoxication
-    intoxication: {
-        tickSpeed: 20,
-        operations: () => {
-            for (const player of world.getPlayers()) {
-                // Расчёт снятия интоксикации
-                let intoxicationDecreasePower = 100 // По умолчанию
-
-                // Бонус от колец
-                if (checkForItem(player, "Feet", "arx:ring_aluminum_aquamarine")) { intoxicationDecreasePower += 50 }
-                if (checkForItem(player, "Feet", "arx:ring_gold_aquamarine")) { intoxicationDecreasePower += 100 }
-                if (checkForItem(player, "Feet", "arx:ring_naginitis_aquamarine")) { intoxicationDecreasePower += 200 }
-                if (checkForItem(player, "Feet", "arx:ring_caryite_aquamarine")) { intoxicationDecreasePower += 300 }
-                if (checkForItem(player, "Feet", "arx:ring_malafiotironite_aquamarine")) { intoxicationDecreasePower += 400 }
-                if (checkForItem(player, "Feet", "arx:ring_lamenite_aquamarine")) { intoxicationDecreasePower += 500 }
-
-                // Бонус от зелий
-                if (player.getDynamicProperty('intitoxicationBonusByPotion100') > 0) { intoxicationDecreasePower += 100 }
-                if (player.getDynamicProperty('intitoxicationBonusByPotion300') > 0) { intoxicationDecreasePower += 300 }
-
-                // Записываем получившееся значение
-                ssDP(player, 'intoxicationDecreasePower', intoxicationDecreasePower)
-
-                // Снятие интоксикации
-                if (player.getDynamicProperty('intoxication') > 0) iDP(player, 'intoxication', -intoxicationDecreasePower / 100)
-                else if (player.getDynamicProperty('intoxication') < 0) ssDP(player, 'intoxication', 0)
-
-                // Расчитываем степень интоксикации
-                const intoxicationLevel = Math.round(player.getDynamicProperty('intoxication') / 1000)
-
-                // Если есть какая-то динамика интоксикации
-                if (player.getDynamicProperty("intoxicationLevel") != intoxicationLevel) {
-                    const intoxicationLevelColor =
-                        intoxicationLevel == 0 ? '§a' :
-                            intoxicationLevel == 1 ? '§e' : '§c'
-
-                    // Если стало лучше
-                    if (player.getDynamicProperty("intoxicationLevel") > intoxicationLevel) {
-                        player.runCommand(`tellraw @s { "rawtext": [ { "text": "§aВам стало лучше §f(теперь ${intoxicationLevelColor}${intoxicationLevel}§f ур. интоксикации)" } ] }`)
-                    }
-                    // Если стало хуже
-                    if (player.getDynamicProperty("intoxicationLevel") < intoxicationLevel) {
-                        player.runCommand(`tellraw @s { "rawtext": [ { "text": "§cВам стало хуже §f(теперь ${intoxicationLevelColor}${intoxicationLevel}§f ур. интоксикации)" } ] }`)
-                    }
-                }
-
-                // Вешаем дебаффы
-                // 2 ур
-                if (intoxicationLevel == 2) {
-                    if (Math.random() < 0.08) { player.runCommand(`effect @s nausea 12 0 true`) }
-                    if (!checkForTrait(player, 'persistent')) iDP(player, 'stress', 5)
-                }
-                // 3 ур
-                else if (intoxicationLevel == 3) {
-                    if (Math.random() < 0.2) { player.runCommand(`effect @s nausea 12 0 true`) }
-                    if (Math.random() < 0.14) { player.runCommand(`effect @s darkness 5 0 true`) }
-                    if (Math.random() < 0.03) { player.runCommand(`effect @s fatal_poison 5 0 true`) }
-                    if (!checkForTrait(player, 'persistent')) iDP(player, 'stress', 12)
-                }
-                // 4 ур
-                else if (intoxicationLevel >= 4) {
-                    player.runCommand(`effect @s nausea 10 0 true`)
-                    player.runCommand(`effect @s blindness 5 0 true`)
-                    if (Math.random() < 0.2) { player.runCommand(`effect @s fatal_poison 5 1 true`) }
-                    if (!checkForTrait(player, 'persistent')) iDP(player, 'stress', 30)
-                }
-
-                ssDP(player, 'intoxicationLevel', intoxicationLevel)
-            }
-        }
-    },
     // Fiolix (drugs)
     fiolix: {
         tickSpeed: 20,
@@ -1151,9 +1080,6 @@ const coreFramework = {
                     case -4: basicStrength += 3; break
                 }
 
-                // Срезание от отравления
-                if (player.getDynamicProperty('intoxicationLevel') >= 2) { basicStrength -= player.getDynamicProperty('intoxicationLevel') * 2 }
-
                 // Штрафовое срезание от перегруза
                 if (player?.getDynamicProperty('overLoading') > 0) { basicStrength -= (player?.getDynamicProperty('overLoading') * 3) }
 
@@ -1200,7 +1126,11 @@ const coreFramework = {
                 if (checkForItem(player, "Feet", "arx:ring_lamenite_beryl")) { mpRegenPower += 5 }
                 if (checkForItem(player, "Offhand", "arx:ring_lamenite_beryl")) { mpRegenPower += 5 }
 
-                if (player.getDynamicProperty('mpRegenBoostByPotion') > 0) { mpRegenPower += 1 }
+                // Potions 
+                if (gDP(player, 'MPRegenBonusFromPotion') > 0) mpRegenPower += 0.3
+                if (gDP(player, 'MPRegenBonusFromPotionImproved') > 0) mpRegenPower += 1
+                // Perm
+                mpRegenPower += ((gDP(player, 'MPRegenPermanentBonus') / 10) ?? 0)
 
                 // Увеличение от бонуса фиоликса
                 if (player.getDynamicProperty('statsBonusByFiolix') > 0) { mpRegenPower += 1.5 }
@@ -1221,9 +1151,6 @@ const coreFramework = {
                     case -3: mpRegenPower += 0.2; break
                     case -4: mpRegenPower += 0.4; break
                 }
-
-                // Срезание от отравления
-                if (player.getDynamicProperty('intoxicationLevel') >= 2) { mpRegenPower -= player.getDynamicProperty('intoxicationLevel') }
 
                 // Увеличение от прокачки
                 mpRegenPower += player.getDynamicProperty('skill:mp_regen_level') / 3
@@ -1254,6 +1181,10 @@ const coreFramework = {
                 if (checkForItem(player, "Chest", "arx:apprentice_robe")) { maxMp += 3 }
                 if (checkForItem(player, "Head", "arx:royal_sorrel_flower")) { maxMp += 5 }
 
+                // Potions 
+                if (gDP(player, 'maxMPBonusFromPotion') > 0) maxMp += 15
+                if (gDP(player, 'maxMPBonusFromPotionImproved') > 0) maxMp += 45
+
                 // Увеличение от бонуса фиоликса
                 if (player.getDynamicProperty('statsBonusByFiolix') > 0) { maxMp += 10 }
 
@@ -1270,9 +1201,6 @@ const coreFramework = {
                     case -3: maxMp += 10; break
                     case -4: maxMp += 15; break
                 }
-
-                // Срезание от отравления
-                if (player.getDynamicProperty('intoxicationLevel') >= 2) { maxMp -= player.getDynamicProperty('intoxicationLevel') * 4 }
 
                 // Увеличение от прокачки
                 maxMp += player.getDynamicProperty('skill:mana_level') * 5
@@ -1294,9 +1222,16 @@ const coreFramework = {
                         iDP(player, "mp", mpRegenPower / 10)
                     }
                     // Если нам надо плавно накопить ману от зелий
-                    if (player.getDynamicProperty('MPSmoothAccrue') > 0) {
-                        iDP(player, "mp")
-                        iDP(player, 'MPSmoothAccrue', -1)
+                    const smoothAccrue = gDP(player, 'MPSmoothAccrue')
+                    if (smoothAccrue > 0) {
+                        if (smoothAccrue > 2) {
+                            iDP(player, "mp", 3)
+                            iDP(player, 'MPSmoothAccrue', -3)
+                        }
+                        else {
+                            iDP(player, "mp", smoothAccrue)
+                            iDP(player, 'MPSmoothAccrue', -smoothAccrue)
+                        }
                     }
                     displayMPAndAdjacent(player)
                 }
@@ -1362,8 +1297,6 @@ const coreFramework = {
                 if (checkForItem(player, "Feet", "arx:ring_lamenite_chrysolite")) speedPower += 50
                 if (checkForItem(player, "Offhand", "arx:ring_lamenite_chrysolite")) speedPower += 50
 
-                if (player.getDynamicProperty('speedBonusByPotion') > 0) speedPower += 20 || 0
-
                 // От экипировки
                 if (checkForItem(player, "Feet", "arx:leg_bag_dual")) speedPower -= 8 || 0
 
@@ -1421,9 +1354,6 @@ const coreFramework = {
 
                 // Срезание от охлаждения
                 speedPower -= (Math.abs(player.getDynamicProperty('freezing')) / 2)
-
-                // Срезание от отравления
-                if (player.getDynamicProperty('intoxicationLevel') >= 2) { speedPower -= player.getDynamicProperty('intoxicationLevel') * 10 }
 
                 // Срезание от темноты
                 if (player.hasTag("low_bright")) { speedPower -= 15 }
@@ -1489,8 +1419,6 @@ const coreFramework = {
 
                 if (checkForItem(player, "Feet", "arx:ring_lamenite_olivine")) { jumpPower += 3 }
                 if (checkForItem(player, "Offhand", "arx:ring_lamenite_olivine")) { jumpPower += 3 }
-
-                if (player.getDynamicProperty('jumpBoostByPotion') > 0) { jumpPower += 1 }
 
                 // Увеличение от бонуса фиоликса
                 if (player.getDynamicProperty('statsBonusByFiolix') > 0) { jumpPower += 1 }
@@ -1692,16 +1620,7 @@ for (const coreBlock of Object.values(coreFramework)) {
 const dynamicPropertiesToDecrease = {
     'noRainFog': undefined,
     'noNightFog': undefined,
-    'jumpBoostByPotion': '§6Бонус прыжка от зелья закончился',
-    'mpRegenBoostByPotion': '§6Бонус регенерации маны от зелья закончился',
-    'weighLimitBonusByPotion': '§6Бонус переносимого веса от зелья закончился',
-    'speedBonusByPotion': '§6Бонус скорости от зелья закончился',
-    'intitoxicationBonusByPotion100': '§6Бонус снятия интоксикации от зелья закончился',
-    'intitoxicationBonusByPotion300': '§6Бонус усиленного снятия интоксикации от зелья закончился',
-    'freezingBlockByPotion': '§6Неуязвимость к холоду от зелья закончилась',
-    'heatingBlockByPotion': '§6Неуязвимость к жаре от зелья закончилась',
     'statsBonusByFiolix': undefined,
-    'heatingBlockByScroll': '§6Неуязвимость к жаре от свитка закончилась',
     'scrollOfHealingCD': '§aСвиток исцеления снова можно использовать',
     'autoHPRegenCD': undefined,
     'ghostUltimateResistance': undefined,
@@ -1716,7 +1635,18 @@ const dynamicPropertiesToDecrease = {
     'shootingBoostBySpell_minus4': '§aШтраф стрельбы от заклинания (-4) закончился',
     'allowArchilight': '§6Действие архисвета закончилось',
     'allowMagilight': '§6Действие магисвета закончилось',
-    'foodCD': '§aВы снова не против перекусить'
+    'foodCD': '§aВы снова не против перекусить',
+    // Ultima Potions
+    'maxMPBonusFromPotion': '§eБонус максимальной маны (+15) от зелья закончился',
+    'maxMPBonusFromPotionImproved': '§eБонус максимальной маны (+45) от зелья закончился',
+
+    'MPRegenBonusFromPotion': '§eБонус регенерации маны (+0.3/сек) от зелья закончился',
+    'MPRegenBonusFromPotionImproved': '§eБонус регенерации маны (+1/сек) от зелья закончился',
+
+    'freezingBlockByPotion': '§6Неуязвимость к холоду от зелья закончилась',
+
+    'weighLimitBonusByPotion': '§6Бонус к весу (+2) от зелья закончился',
+    'weighLimitBonusByPotionImproved': '§6Бонус к весу (+6) от зелья закончился',
 };
 
 // Отображение маны

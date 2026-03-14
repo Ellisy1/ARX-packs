@@ -1,22 +1,16 @@
 {
-  "format_version": "1.12",
-  "minecraft:recipe_shaped": {
+  "format_version": "1.20.10",
+  "minecraft:recipe_furnace": {
     "description": {
-    "identifier": "arx:caramel"
+      "identifier": "arx:caramel"
     },
-
-    
-    "tags": [ "boiler_crafting_table" ],
-    "pattern": [
-      "AAA"
-    ],
-    "key": {
-      "A": {
+    "input": "minecraft:sugar",
+    "output": "arx:caramel",
+    "unlock": [
+      {
         "item": "minecraft:sugar"
       }
-    },
-    "result": {
-      "item": "arx:caramel"
-    }
+    ],
+    "tags": ["furnace", "smoker", "campfire", "soul_campfire"]
   }
 }

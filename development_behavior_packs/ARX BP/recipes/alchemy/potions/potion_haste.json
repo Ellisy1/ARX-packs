@@ -1,0 +1,14 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_brewing_mix": {
+    "description": {
+      "identifier": "arx:potion_haste"
+    },
+    "tags": [
+      "brewing_stand"
+    ],
+    "input": "minecraft:potion_type:awkward",
+    "reagent": "arx:sand_elemental_heart",
+    "output": "arx:potion_haste"
+  }
+}

@@ -152,162 +152,30 @@
             }
           ]
         },
-        //Зелья
-        {
-          "wants": [
-            {
-              "item": "arx:rat_coin",
-              "quantity": {
-                "min": 5,
-                "max": 30
-              }
-            }
-          ],
-          "gives": [
-            {
-              "choice": [
-                {
-                  "item": "arx:hole_bottle_mp_potion"
-                },
-                {
-                  "item": "arx:long_bottle_blood"
-                },
-                {
-                  "item": "arx:long_bottle_blood_karelo"
-                },
-                {
-                  "item": "arx:rounded_bottle_blood"
-                },
-                {
-                  "item": "arx:rounded_bottle_water"
-                },
-                {
-                  "item": "arx:rounded_bottle_water_fiuli"
-                },
-                {
-                  "item": "arx:rounded_bottle_water_fiuli_kari"
-                },
-                {
-                  "item": "arx:rounded_bottle_water_fiuli_night_kosk"
-                },
-                {
-                  "item": "arx:rounded_bottle_water_fiuli_night_kosk_dragon_pion"
-                },
-                {
-                  "item": "arx:rounded_bottle_water_fiuli_wolf_death"
-                },
-                {
-                  "item": "arx:rounded_bottle_water_fiuli_yuan"
-                },
-                {
-                  "item": "arx:rounded_bottle_water_golden_hay"
-                },
-                {
-                  "item": "arx:rounded_bottle_water_golden_hay_animal_eye"
-                },
-                {
-                  "item": "arx:rounded_bottle_water_golden_hay_animal_eye_day_kosk"
-                },
-                {
-                  "item": "arx:rounded_bottle_water_golden_hay_animal_eye_night_kosk"
-                },
-                {
-                  "item": "arx:rounded_bottle_water_golden_hay_animal_eye_night_kosk_dragon_pion"
-                },
-                {
-                  "item": "arx:rounded_bottle_water_golden_hay_beast_heart"
-                },
-                {
-                  "item": "arx:rounded_bottle_water_golden_hay_beast_heart_dragon_pion"
-                },
-                {
-                  "item": "arx:rounded_bottle_water_golden_hay_bone"
-                },
-                {
-                  "item": "arx:rounded_bottle_water_golden_hay_bone_dragon_pion"
-                },
-                {
-                  "item": "arx:rounded_bottle_water_golden_hay_brain"
-                },
-                {
-                  "item": "arx:rounded_bottle_water_golden_hay_claws"
-                },
-                {
-                  "item": "arx:rounded_bottle_water_golden_hay_claws_jackal_grass"
-                },
-                {
-                  "item": "arx:rounded_bottle_water_golden_hay_fang"
-                },
-                {
-                  "item": "arx:rounded_bottle_water_golden_hay_fang_dragon_pion"
-                },
-                {
-                  "item": "arx:rounded_bottle_water_golden_hay_feather"
-                },
-                {
-                  "item": "arx:rounded_bottle_water_golden_hay_feather_dragon_pion"
-                },
-                {
-                  "item": "arx:rounded_bottle_water_golden_hay_hoof"
-                },
-                {
-                  "item": "arx:rounded_bottle_water_golden_hay_hoof_dragon_pion"
-                },
-                {
-                  "item": "arx:rounded_bottle_water_golden_hay_kari"
-                },
-                {
-                  "item": "arx:rounded_bottle_water_golden_hay_kavra"
-                },
-                {
-                  "item": "arx:rounded_bottle_water_golden_hay_kavra_dragon_pion"
-                },
-                {
-                  "item": "arx:rounded_bottle_water_golden_hay_liver"
-                },
-                {
-                  "item": "arx:rounded_bottle_water_golden_hay_liver_dragon_pion"
-                },
-                {
-                  "item": "arx:rounded_bottle_water_golden_hay_liver_dragon_pion_dragon_pion"
-                },
-                {
-                  "item": "arx:rounded_bottle_water_golden_hay_liver_dragon_pion_dragon_pion_dragon_pion"
-                },
-                {
-                  "item": "arx:rounded_bottle_water_golden_hay_monster_eye"
-                },
-                {
-                  "item": "arx:rounded_bottle_water_golden_hay_mp_flower"
-                },
-                {
-                  "item": "arx:rounded_bottle_water_golden_hay_mp_flower_dragon_pion"
-                },
-                {
-                  "item": "arx:rounded_bottle_water_golden_hay_snowflower"
-                },
-                {
-                  "item": "arx:rounded_bottle_water_golden_hay_snowflower_jackal_grass"
-                },
-                {
-                  "item": "arx:rounded_bottle_water_golden_hay_squama"
-                },
-                {
-                  "item": "arx:rounded_bottle_water_golden_hay_yuan"
-                },
-                {
-                  "item": "arx:triangle_bottle_water"
-                },
-                {
-                  "item": "arx:triangle_bottle_water_karelo"
-                },
-                {
-                  "item": "arx:triangle_bottle_water_karelo_fioletic"
-                }
-              ]
-            }
-          ]
-        },
+        // //Зелья
+        // {
+        //   "wants": [
+        //     {
+        //       "item": "arx:rat_coin",
+        //       "quantity": {
+        //         "min": 5,
+        //         "max": 30
+        //       }
+        //     }
+        //   ],
+        //   "gives": [
+        //     {
+        //       "choice": [
+        //         {
+        //           "item": "arx:hole_bottle_mp_potion"
+        //         },
+        //         {
+        //           "item": "arx:long_bottle_blood"
+        //         }
+        //       ]
+        //     }
+        //   ]
+        // },
         //Дорогой товар - крынцы
         {
           "wants": [

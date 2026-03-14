@@ -57,7 +57,8 @@
         "description": {
             "identifier": "arx:mushroom",
             "menu_category": {
-                "category": "nature"
+                "category": "nature",
+                "group": "itemGroup.name.mushroom"
             },
             "traits": {
                 "minecraft:placement_direction": {

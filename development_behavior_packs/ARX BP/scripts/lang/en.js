@@ -49,4 +49,9 @@ export const enLocalization = {
     'book_demon.levitate': 'Ooups...',
 
     'magic.rune_writed_into_cannel': '§6$0$ §bwrited into §6$1$ §bchannel',
+
+    'potion.perm.used': '§6You feel enhanced...',
+    'potion.perm.can_use_more': 'You can drink $0$ more!',
+    'potion.perm.cannot_drink_more': '§eRemember, you can\'t drink this potion any more!',
+    'potion.perm.drank_over_limit': '§cYou have already reached your limit with this type of potion! It has no effect on you...',
 }

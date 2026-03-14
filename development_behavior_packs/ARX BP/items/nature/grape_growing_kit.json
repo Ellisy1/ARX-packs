@@ -1,0 +1,17 @@
+{
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:icon": "arx:grape_growing_kit",
+            "minecraft:block_placer": {
+                "block": "arx:grape_plant"
+            }
+        },
+        "description": {
+            "identifier": "arx:grape_growing_kit",
+            "menu_category": {
+                "category": "nature"
+            }
+        }
+    }
+}

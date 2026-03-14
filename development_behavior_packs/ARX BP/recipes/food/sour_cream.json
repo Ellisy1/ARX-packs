@@ -26,7 +26,7 @@
     "result": [
       {"item": "arx:sour_cream"},
       {"item": "minecraft:bucket", "count": 2},
-      {"item": "arx:default_bottle", "count": 2}
+      {"item": "minecraft:glass_bottle", "count": 2}
     ]
   }
 }

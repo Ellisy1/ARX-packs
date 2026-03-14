@@ -4,7 +4,8 @@
       "description": {
         "identifier": "arx:cotton_plant",
         "menu_category": {
-          "category": "nature"
+          "category": "nature",
+                "group": "itemGroup.name.flower"
         },
         "states": {
           "arx:growth_stage": [

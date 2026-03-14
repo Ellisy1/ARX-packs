@@ -1,0 +1,14 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_brewing_mix": {
+    "description": {
+      "identifier": "arx:potion_stress_p_upgrade"
+    },
+    "tags": [
+      "brewing_stand"
+    ],
+    "input": "arx:potion_stress",
+    "reagent": "minecraft:glowstone_dust",
+    "output": "arx:potion_stress_p_upgrade"
+  }
+}

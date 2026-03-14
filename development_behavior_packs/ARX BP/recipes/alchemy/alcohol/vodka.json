@@ -1,26 +1,14 @@
 {
   "format_version": "1.12",
-  "minecraft:recipe_shaped": {
+  "minecraft:recipe_brewing_mix": {
     "description": {
-    "identifier": "arx:vodka"
+      "identifier": "arx:vodka"
     },
-
-    "priority": 0,
-    "tags": [ "alchemy_crafting_table" ],
-    "pattern": [
-      "#X"
+    "tags": [
+      "brewing_stand"
     ],
-    "key": {
-      "#": {
-        "item": "arx:default_bottle_sugar"
-      },
-      "X": {
-        "item": "arx:default_bottle_water"
-      }
-    },
-    "result": [
-      {"item": "arx:vodka"},
-      {"item": "arx:default_bottle"}
-    ]
+    "input": "minecraft:potion_type:water",
+    "reagent": "minecraft:potato",
+    "output": "arx:vodka"
   }
 }

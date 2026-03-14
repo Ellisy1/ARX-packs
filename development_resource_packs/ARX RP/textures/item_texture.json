@@ -1373,250 +1373,85 @@
     "arx:sea_water": {
       "textures": "textures/items/alchemy/sea_water"
     },
-    "arx:bung": {
-      "textures": "textures/items/alchemy/bottles/bung"
+
+    "arx:potion_mp_regen": {
+      "textures": "textures/items/alchemy/potions/potion_mp_regen"
     },
-    "arx:heal_potion": {
-      "textures": "textures/items/alchemy/heal_potion"
+    "arx:potion_happiness": {
+      "textures": "textures/items/alchemy/potions/potion_happiness"
     },
-    "arx:default_bottle": {
-      "textures": "textures/items/alchemy/bottles/default_bottle"
+    "arx:potion_stress": {
+      "textures": "textures/items/alchemy/potions/potion_stress"
     },
-    "arx:vial": {
-      "textures": "textures/items/alchemy/bottles/vial"
+    "arx:potion_weight_limit_bonus": {
+      "textures": "textures/items/alchemy/potions/potion_weight_limit_bonus"
+    },
+    "arx:potion_no_freezing": {
+      "textures": "textures/items/alchemy/potions/potion_no_freezing"
+    },
+    "arx:potion_instant_mp": {
+      "textures": "textures/items/alchemy/potions/potion_instant_mp"
+    },
+    "arx:potion_remove_negative_effects": {
+      "textures": "textures/items/alchemy/potions/potion_remove_negative_effects"
+    },
+    "arx:potion_haste": {
+      "textures": "textures/items/alchemy/potions/potion_haste"
+    },
+    "arx:potion_blindness": {
+      "textures": "textures/items/alchemy/potions/potion_blindness"
+    },
+    "arx:potion_perm_weight_limit_bonus": {
+      "textures": "textures/items/alchemy/potions/potion_perm_weight_limit_bonus"
+    },
+    "arx:potion_perm_mp_regen": {
+      "textures": "textures/items/alchemy/potions/potion_perm_mp_regen"
+    },
+    "arx:potion_perm_mp_max": {
+      "textures": "textures/items/alchemy/potions/potion_perm_mp_max"
+    },
+    "arx:potion_trait_negative": {
+      "textures": "textures/items/alchemy/potions/potion_trait_negative"
+    },
+    "arx:potion_trait_neutral": {
+      "textures": "textures/items/alchemy/potions/potion_trait_neutral"
+    },
+    "arx:potion_trait_positive": {
+      "textures": "textures/items/alchemy/potions/potion_trait_positive"
+    },
+    "arx:potion_saturation": {
+      "textures": "textures/items/alchemy/potions/potion_saturation"
+    },
+    "arx:potion_mp_max": {
+      "textures": "textures/items/alchemy/potions/potion_mp_max"
     },
 
-    "arx:hole_bottle": {
-      "textures": "textures/items/alchemy/bottles/hole_bottle"
-    },
-    "arx:long_bottle": {
-      "textures": "textures/items/alchemy/bottles/long_bottle"
-    },
-    "arx:rounded_bottle": {
-      "textures": "textures/items/alchemy/bottles/rounded_bottle"
-    },
-    "arx:small_bottle": {
-      "textures": "textures/items/alchemy/bottles/small_bottle"
-    },
-    "arx:square_bottle": {
-      "textures": "textures/items/alchemy/bottles/square_bottle"
-    },
-    "arx:triangle_bottle": {
-      "textures": "textures/items/alchemy/bottles/triangle_bottle"
-    },
-    "arx:bottle_for_blood": {
-      "textures": "textures/items/alchemy/bottles/bottle_for_blood"
-    },
-    "arx:bottle_of_blood": {
-      "textures": "textures/items/alchemy/bottles/bottle_of_blood"
-    },
-    "arx:beer_bottle": {
-      "textures": "textures/items/alchemy/bottles/beer_bottle"
-    },
-    "arx:rounded_bottle_blood": {
-      "textures": "textures/items/alchemy/potions/rounded_bottle_blood"
-    },
-    "arx:rounded_bottle_water": {
-      "textures": "textures/items/alchemy/potions/rounded_bottle_water"
-    },
-    "arx:rounded_bottle_water_fiuli": {
-      "textures": "textures/items/alchemy/potions/rounded_bottle_water_fiuli"
-    },
-    "arx:rounded_bottle_water_fiuli_night_kosk": {
-      "textures": "textures/items/alchemy/potions/rounded_bottle_water_fiuli_night_kosk"
-    },
-    "arx:rounded_bottle_water_fiuli_night_kosk_dragon_pion": {
-      "textures": "textures/items/alchemy/potions/rounded_bottle_water_fiuli_night_kosk_dragon_pion"
-    },
-    "arx:rounded_bottle_water_golden_hay": {
-      "textures": "textures/items/alchemy/potions/rounded_bottle_water_golden_hay"
-    },
-    "arx:rounded_bottle_water_fiuli_yuan": {
-      "textures": "textures/items/alchemy/potions/rounded_bottle_water_fiuli_yuan"
-    },
-    "arx:rounded_bottle_water_fiuli_kari": {
-      "textures": "textures/items/alchemy/potions/rounded_bottle_water_fiuli_kari"
-    },
-    "arx:rounded_bottle_water_fiuli_wolf_death": {
-      "textures": "textures/items/alchemy/potions/rounded_bottle_water_fiuli_wolf_death"
-    },
-    "arx:rounded_bottle_water_golden_hay_snowflower": {
-      "textures": "textures/items/alchemy/potions/rounded_bottle_water_golden_hay_snowflower"
-    },
-    "arx:rounded_bottle_water_golden_hay_snowflower_jackal_grass": {
-      "textures": "textures/items/alchemy/potions/rounded_bottle_water_golden_hay_snowflower_jackal_grass"
-    },
-    "arx:rounded_bottle_water_golden_hay_kavra": {
-      "textures": "textures/items/alchemy/potions/rounded_bottle_water_golden_hay_kavra"
-    },
-    "arx:rounded_bottle_water_golden_hay_kavra_dragon_pion": {
-      "textures": "textures/items/alchemy/potions/rounded_bottle_water_golden_hay_kavra_dragon_pion"
-    },
-    "arx:rounded_bottle_water_golden_hay_mp_flower": {
-      "textures": "textures/items/alchemy/potions/rounded_bottle_water_golden_hay_mp_flower"
-    },
-    "arx:rounded_bottle_water_golden_hay_mp_flower_dragon_pion": {
-      "textures": "textures/items/alchemy/potions/rounded_bottle_water_golden_hay_mp_flower_dragon_pion"
-    },
-    "arx:rounded_bottle_water_golden_hay_yuan": {
-      "textures": "textures/items/alchemy/potions/rounded_bottle_water_golden_hay_yuan"
-    },
-    "arx:rounded_bottle_water_golden_hay_hoof": {
-      "textures": "textures/items/alchemy/potions/rounded_bottle_water_golden_hay_hoof"
-    },
-    "arx:rounded_bottle_water_golden_hay_hoof_dragon_pion": {
-      "textures": "textures/items/alchemy/potions/rounded_bottle_water_golden_hay_hoof_dragon_pion"
-    },
-    "arx:rounded_bottle_water_golden_hay_kari": {
-      "textures": "textures/items/alchemy/potions/rounded_bottle_water_golden_hay_kari"
-    },
-    "arx:rounded_bottle_water_golden_hay_animal_eye": {
-      "textures": "textures/items/alchemy/potions/rounded_bottle_water_golden_hay_animal_eye"
-    },
-    "arx:rounded_bottle_water_golden_hay_animal_eye_day_kosk": {
-      "textures": "textures/items/alchemy/potions/rounded_bottle_water_golden_hay_animal_eye_day_kosk"
-    },
-    "arx:rounded_bottle_water_golden_hay_animal_eye_night_kosk": {
-      "textures": "textures/items/alchemy/potions/rounded_bottle_water_golden_hay_animal_eye_night_kosk"
-    },
-    "arx:rounded_bottle_water_golden_hay_animal_eye_night_kosk_dragon_pion": {
-      "textures": "textures/items/alchemy/potions/rounded_bottle_water_golden_hay_animal_eye_night_kosk_dragon_pion"
-    },
-    "arx:rounded_bottle_water_golden_hay_beast_heart": {
-      "textures": "textures/items/alchemy/potions/rounded_bottle_water_golden_hay_beast_heart"
-    },
-    "arx:rounded_bottle_water_golden_hay_beast_heart_dragon_pion": {
-      "textures": "textures/items/alchemy/potions/rounded_bottle_water_golden_hay_beast_heart_dragon_pion"
-    },
-    "arx:rounded_bottle_water_golden_hay_bone": {
-      "textures": "textures/items/alchemy/potions/rounded_bottle_water_golden_hay_bone"
-    },
-    "arx:rounded_bottle_water_golden_hay_bone_dragon_pion": {
-      "textures": "textures/items/alchemy/potions/rounded_bottle_water_golden_hay_bone_dragon_pion"
-    },
-    "arx:rounded_bottle_water_golden_hay_brain": {
-      "textures": "textures/items/alchemy/potions/rounded_bottle_water_golden_hay_brain"
-    },
-    "arx:rounded_bottle_water_golden_hay_squama": {
-      "textures": "textures/items/alchemy/potions/rounded_bottle_water_golden_hay_squama"
-    },
-    "arx:rounded_bottle_water_golden_hay_feather": {
-      "textures": "textures/items/alchemy/potions/rounded_bottle_water_golden_hay_feather"
-    },
-    "arx:rounded_bottle_water_golden_hay_feather_dragon_pion": {
-      "textures": "textures/items/alchemy/potions/rounded_bottle_water_golden_hay_feather_dragon_pion"
-    },
-    "arx:rounded_bottle_water_golden_hay_monster_eye": {
-      "textures": "textures/items/alchemy/potions/rounded_bottle_water_golden_hay_monster_eye"
-    },
-    "arx:rounded_bottle_water_golden_hay_fang": {
-      "textures": "textures/items/alchemy/potions/rounded_bottle_water_golden_hay_fang"
-    },
-    "arx:rounded_bottle_water_golden_hay_fang_dragon_pion": {
-      "textures": "textures/items/alchemy/potions/rounded_bottle_water_golden_hay_fang_dragon_pion"
-    },
-    "arx:rounded_bottle_water_golden_hay_claws": {
-      "textures": "textures/items/alchemy/potions/rounded_bottle_water_golden_hay_claws"
-    },
-    "arx:rounded_bottle_water_golden_hay_claws_jackal_grass": {
-      "textures": "textures/items/alchemy/potions/rounded_bottle_water_golden_hay_claws_jackal_grass"
-    },
-    "arx:rounded_bottle_water_golden_hay_liver": {
-      "textures": "textures/items/alchemy/potions/rounded_bottle_water_golden_hay_liver"
-    },
-    "arx:rounded_bottle_water_golden_hay_liver_dragon_pion": {
-      "textures": "textures/items/alchemy/potions/rounded_bottle_water_golden_hay_liver_dragon_pion"
-    },
-    "arx:rounded_bottle_water_golden_hay_liver_dragon_pion_dragon_pion": {
-      "textures": "textures/items/alchemy/potions/rounded_bottle_water_golden_hay_liver_dragon_pion_dragon_pion"
-    },
-    "arx:rounded_bottle_water_golden_hay_liver_dragon_pion_dragon_pion_dragon_pion": {
-      "textures": "textures/items/alchemy/potions/rounded_bottle_water_golden_hay_liver_dragon_pion_dragon_pion_dragon_pion"
-    },
-    "arx:hole_bottle_mp_potion": {
-      "textures": "textures/items/alchemy/potions/hole_bottle_mp_potion"
-    },
-    "arx:hole_bottle_mp_potion_royal_sorrel": {
-      "textures": "textures/items/alchemy/potions/hole_bottle_mp_potion_royal_sorrel"
-    },
-    "arx:long_bottle_blood": {
-      "textures": "textures/items/alchemy/potions/long_bottle_blood"
-    },
-    "arx:long_bottle_blood_karelo": {
-      "textures": "textures/items/alchemy/potions/long_bottle_blood_karelo"
-    },
-    "arx:long_bottle_blood_karelo_evergreen_dream": {
-      "textures": "textures/items/alchemy/potions/long_bottle_blood_karelo_evergreen_dream"
-    },
-    "arx:long_bottle_blood_karelo_evergreen_dream_dragon_pion": {
-      "textures": "textures/items/alchemy/potions/long_bottle_blood_karelo_evergreen_dream_dragon_pion"
-    },
-    "arx:long_bottle_blood_karelo_evergreen_dream_jackal_grass": {
-      "textures": "textures/items/alchemy/potions/long_bottle_blood_karelo_evergreen_dream_jackal_grass"
-    },
-    "arx:triangle_bottle_water": {
-      "textures": "textures/items/alchemy/potions/triangle_bottle_water"
-    },
-    "arx:triangle_bottle_water_karelo": {
-      "textures": "textures/items/alchemy/potions/triangle_bottle_water_karelo"
-    },
-    "arx:triangle_bottle_water_karelo_fioletic": {
-      "textures": "textures/items/alchemy/potions/triangle_bottle_water_karelo_fioletic"
-    },
     "arx:fioletic_dose": {
-      "textures": "textures/items/alchemy/potions/fioletic_dose"
+      "textures": "textures/items/alchemy/fioletic_dose"
     },
-    "arx:beer_bottle_water": {
-      "textures": "textures/items/alchemy/alcohol/beer_bottle_water"
+
+    "arx:ale": {
+      "textures": "textures/items/alchemy/alcohol/ale"
     },
-    "arx:beer_bottle_solod": {
-      "textures": "textures/items/alchemy/alcohol/beer_bottle_solod"
+    "arx:beer": {
+      "textures": "textures/items/alchemy/alcohol/beer"
     },
-    "arx:beer_bottle_solod_kari": {
-      "textures": "textures/items/alchemy/alcohol/beer_bottle_solod_kari"
+    "arx:cider": {
+      "textures": "textures/items/alchemy/alcohol/cider"
     },
-    "arx:beer_bottle_solod_kari_substractor": {
-      "textures": "textures/items/alchemy/alcohol/beer_bottle_solod_kari_substractor"
+    "arx:mead": {
+      "textures": "textures/items/alchemy/alcohol/mead"
     },
-    "arx:beer_bottle_solod_salt": {
-      "textures": "textures/items/alchemy/alcohol/beer_bottle_solod_salt"
-    },
-    "arx:beer_bottle_solod_solod": {
-      "textures": "textures/items/alchemy/alcohol/beer_bottle_solod_solod"
-    },
-    "arx:beer_bottle_solod_solod_substractor": {
-      "textures": "textures/items/alchemy/alcohol/beer_bottle_solod_solod_substractor"
-    },
-    "arx:default_bottle_water": {
-      "textures": "textures/items/alchemy/alcohol/default_bottle_water"
-    },
-    "arx:default_bottle_sugar": {
-      "textures": "textures/items/alchemy/alcohol/default_bottle_sugar"
+    "arx:rum": {
+      "textures": "textures/items/alchemy/alcohol/rum"
     },
     "arx:vodka": {
       "textures": "textures/items/alchemy/alcohol/vodka"
     },
-    "arx:vodka_apple": {
-      "textures": "textures/items/alchemy/alcohol/vodka_apple"
-    },
-    "arx:vodka_cactus": {
-      "textures": "textures/items/alchemy/alcohol/vodka_cactus"
-    },
-    "arx:vodka_fiolix": {
-      "textures": "textures/items/alchemy/alcohol/vodka_fiolix"
-    },
-    "arx:vodka_light_berries": {
-      "textures": "textures/items/alchemy/alcohol/vodka_light_berries"
-    },
-    "arx:vodka_mushroom": {
-      "textures": "textures/items/alchemy/alcohol/vodka_mushroom"
-    },
-    "arx:vodka_sweet_berrie": {
-      "textures": "textures/items/alchemy/alcohol/vodka_sweet_berrie"
-    },
     "arx:wine": {
       "textures": "textures/items/alchemy/alcohol/wine"
     },
+    
     "arx:cigarette_fiolix": {
       "textures": "textures/items/alchemy/cigarettes/cigarette_fiolix"
     },
@@ -3557,9 +3392,6 @@
       "textures": "textures/items/alchemy/components/forium"
     },
     //FOOD
-    "arx:allaybread": {
-      "textures": "textures/items/food/allaybread"
-    },
     "arx:apple_pie": {
       "textures": "textures/items/food/apple_pie"
     },
@@ -3605,14 +3437,8 @@
     "arx:caretaker": {
       "textures": "textures/items/food/caretaker"
     },
-    "arx:cave_rat_meat_in_caramel": {
-      "textures": "textures/items/food/cave_rat_meat_in_caramel"
-    },
     "arx:cheese": {
       "textures": "textures/items/food/cheese"
-    },
-    "arx:cheese_pie": {
-      "textures": "textures/items/food/cheese_pie"
     },
     "arx:chicken_in_vodka": {
       "textures": "textures/items/food/chicken_in_vodka"
@@ -3620,20 +3446,8 @@
     "arx:chocolate_bar": {
       "textures": "textures/items/food/chocolate_bar"
     },
-    "arx:chocolate_cubes": {
-      "textures": "textures/items/food/chocolate_cubes"
-    },
-    "arx:chocolate_donut": {
-      "textures": "textures/items/food/chocolate_donut"
-    },
-    "arx:chocolate_waffles": {
-      "textures": "textures/items/food/chocolate_waffles"
-    },
     "arx:crisps": {
       "textures": "textures/items/food/crisps"
-    },
-    "arx:cupcake": {
-      "textures": "textures/items/food/cupcake"
     },
     "arx:curd": {
       "textures": "textures/items/food/curd"
@@ -3664,9 +3478,6 @@
     },
     "arx:fiolix": {
       "textures": "textures/items/food/fiolix"
-    },
-    "arx:firesalo": {
-      "textures": "textures/items/food/firesalo"
     },
     "arx:fish_crisps": {
       "textures": "textures/items/food/fish_crisps"
@@ -3755,14 +3566,8 @@
     "arx:meat_bug_bug": {
       "textures": "textures/items/food/meat_bug_bug"
     },
-    "arx:meat_hurricane": {
-      "textures": "textures/items/food/meat_hurricane"
-    },
     "arx:meat_pie": {
       "textures": "textures/items/food/meat_pie"
-    },
-    "arx:moon_potato": {
-      "textures": "textures/items/food/moon_potato"
     },
     "arx:mushroom_soup": {
       "textures": "textures/items/food/mushroom_soup"
@@ -3820,9 +3625,6 @@
     },
     "arx:stew": {
       "textures": "textures/items/food/stew"
-    },
-    "arx:storm_steak": {
-      "textures": "textures/items/food/storm_steak"
     },
     "arx:sugar_donut": {
       "textures": "textures/items/food/sugar_donut"
@@ -4215,6 +4017,13 @@
     },
     "arx:tea_seeds": {
       "textures": "textures/items/tea_update/tea_seeds"
+    },
+
+    "arx:grape_growing_kit": {
+      "textures": "textures/items/nature/grape_growing_kit"
+    },
+    "arx:grape": {
+      "textures": "textures/items/food/grape"
     },
 
     "arx:pouch_with_dyes": {

@@ -1,5 +1,5 @@
 // Imports - Minecraft
-import { world, EntityComponentTypes, EquipmentSlot, system } from "@minecraft/server";
+import { world, EntityComponentTypes, ItemComponentTypes, EquipmentSlot, system } from "@minecraft/server";
 import { ActionFormData } from "@minecraft/server-ui";
 
 import { setScore } from "../scoresOperations";
@@ -22,7 +22,18 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
         // Тест
         case "arx:mod_sword":
             if (manageCD(player)) {
-                console.warn('\U+E121')
+                console.warn(gDP(item, 'everHolded'))
+
+                item.setLore([
+                    '§c§lDiamond Sword of Awesome§r'
+                ]);
+                
+                
+
+                // Set item
+                const inventory = player.getComponent(EntityComponentTypes.Inventory)
+                const container = inventory.container
+                container.setItem(player.selectedSlotIndex, item)
             }
             break
 
@@ -42,28 +53,6 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
             if (manageCD(player)) {
                 player.runCommand("function alchemy/cigarettes/cigarette_fiolix")
                 iDP(player, 'FiolixNarcoticPower', 600)
-            }
-            break
-
-        // Бутылки
-        case "arx:beer_bottle":
-            if (manageCD(player)) {
-                player.runCommand("function alchemy/bottles/beer_bottle")
-            }
-            break
-        case "arx:default_bottle":
-            if (manageCD(player)) {
-                player.runCommand("function alchemy/bottles/default_bottle")
-            }
-            break
-        case "arx:rounded_bottle":
-            if (manageCD(player)) {
-                player.runCommand("function alchemy/bottles/rounded_bottle")
-            }
-            break
-        case "arx:triangle_bottle":
-            if (manageCD(player)) {
-                player.runCommand("function alchemy/bottles/triangle_bottle")
             }
             break
 
@@ -535,18 +524,6 @@ world.afterEvents.itemUse.subscribe((event) => { // Обнаружаем юза�
             break
 
         // Свитки
-        case "arx:scroll_of_fire_resistance":
-            if (player.getDynamicProperty('freezing') < 0) {
-                ssDP(player, 'freezing', 0)
-            }
-            ssDP(player, 'heatingBlockByScroll', 30)
-
-            player.runCommand('effect @s fire_resistance 30 0 true')
-            player.runCommand('clear @s arx:scroll_of_fire_resistance 0 1')
-            player.runCommand(`tellraw @s { "rawtext": [ { "text": "§aСвиток использован!" } ] }`)
-            player.runCommand('playsound elemental_use @a ~ ~ ~')
-            break
-
         case "arx:scroll_of_healing":
             if (player.getDynamicProperty('scrollOfHealingCD') == 0) {
                 ssDP(player, 'scrollOfHealingCD', 60)

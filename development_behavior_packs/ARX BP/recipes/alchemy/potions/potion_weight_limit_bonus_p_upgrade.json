@@ -1,0 +1,14 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_brewing_mix": {
+    "description": {
+      "identifier": "arx:potion_weight_limit_bonus_p_upgrade"
+    },
+    "tags": [
+      "brewing_stand"
+    ],
+    "input": "arx:potion_weight_limit_bonus",
+    "reagent": "minecraft:glowstone_dust",
+    "output": "arx:potion_weight_limit_bonus_p_upgrade"
+  }
+}

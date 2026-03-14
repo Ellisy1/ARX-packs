@@ -1,0 +1,26 @@
+{
+    "format_version": "1.21.0",
+    "minecraft:item": {
+        "components": {
+            "minecraft:food": {
+                "nutrition": 0,
+                "saturation_modifier": 0,
+                "using_converts_to": "minecraft:glass_bottle"
+            },
+            "minecraft:icon": "arx:potion_weight_limit_bonus",
+            "minecraft:use_animation": "drink",
+            "minecraft:use_modifiers": {
+                "movement_modifier": 0.5,
+                "use_duration": 2.0
+            },
+            "minecraft:max_stack_size": 1
+        },
+        "description": {
+            "identifier": "arx:potion_weight_limit_bonus_p_upgrade",
+            "menu_category": {
+                "category": "equipment",
+                "group": "itemGroup.name.potion"
+            }
+        }
+    }
+}

@@ -36,17 +36,6 @@
 # Деспавним всех приговоренных алой ночью / обычной ночью
     execute if entity @a[scores={is_day=0}] run event entity @e[tag=force_to_despawn] arx:despawn_forced
 
-# Обнаружение несуществующих мобов и их деспавн
-    tp @e[type=pillager] -10000 -100 -10000
-    tp @e[type=villager] -10000 -100 -10000
-    tp @e[type=wandering_trader] -10000 -100 -10000
-    tp @e[type=zombie] -10000 -100 -10000
-    tp @e[type=skeleton] -10000 -100 -10000
-    tp @e[type=skeleton_horse] -10000 -100 -10000
-    tp @e[type=zombie_villager] -10000 -100 -10000
-    tp @e[type=spider] -10000 -100 -10000
-    tp @e[type=witch] -10000 -100 -10000
-
 # Рандом
     scoreboard players random @a custom_random 0 1000
     scoreboard players random @a custom_random_b 0 1000

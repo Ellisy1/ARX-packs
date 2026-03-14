@@ -1,0 +1,317 @@
+{
+  "format_version": "1.21.30",
+  "minecraft:block": {
+    "description": {
+      "identifier": "arx:grape_plant",
+      "menu_category": {
+        "category": "nature",
+        "group": "itemGroup.name.flower"
+      },
+      "states": {
+        "arx:growth_stage": [
+          // Young
+          0,
+          1,
+          2,
+          3,
+          4,
+          // Mature
+          5,
+          6,
+          7,
+          8,
+          // Final
+          9
+        ]
+      }
+    },
+    "components": {
+      "minecraft:flammable": true,
+      "minecraft:collision_box": {
+        "origin": [
+          -1.0,
+          0.0,
+          -1.0
+        ],
+        "size": [
+          2.0,
+          16.0,
+          2.0
+        ]
+      },
+      "minecraft:geometry": "geometry.high_plant",
+      "minecraft:light_dampening": 0,
+      "minecraft:placement_filter": {
+        "conditions": [
+          {
+            "allowed_faces": [
+              "up"
+            ],
+            "block_filter": [
+              "minecraft:farmland"
+            ]
+          }
+        ]
+      },
+      "minecraft:custom_components": [
+        "arx:onRandomTick",
+        "arx:blockInteration"
+      ],
+      "minecraft:loot": "loot_tables/blocks/nature/grape_immature.json"
+    },
+    "permutations": [
+      {
+        "condition": "q.block_state('arx:growth_stage') == 0",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "grape_0",
+              "render_method": "alpha_test",
+              "face_dimming": true,
+              "ambient_occlusion": false
+            }
+          },
+          "minecraft:selection_box": {
+            "origin": [
+              -8,
+              0,
+              -8
+            ],
+            "size": [
+              16,
+              2,
+              16
+            ]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('arx:growth_stage') == 1",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "grape_1",
+              "render_method": "alpha_test",
+              "face_dimming": true,
+              "ambient_occlusion": false
+            }
+          },
+          "minecraft:selection_box": {
+            "origin": [
+              -8,
+              0,
+              -8
+            ],
+            "size": [
+              16,
+              5,
+              16
+            ]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('arx:growth_stage') == 2",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "grape_2",
+              "render_method": "alpha_test",
+              "face_dimming": true,
+              "ambient_occlusion": false
+            }
+          },
+          "minecraft:selection_box": {
+            "origin": [
+              -8,
+              0,
+              -8
+            ],
+            "size": [
+              16,
+              9,
+              16
+            ]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('arx:growth_stage') == 3",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "grape_3",
+              "render_method": "alpha_test",
+              "face_dimming": true,
+              "ambient_occlusion": false
+            }
+          },
+          "minecraft:selection_box": {
+            "origin": [
+              -8,
+              0,
+              -8
+            ],
+            "size": [
+              16,
+              13,
+              16
+            ]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('arx:growth_stage') == 4",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "grape_4",
+              "render_method": "alpha_test",
+              "face_dimming": true,
+              "ambient_occlusion": false
+            }
+          },
+          "minecraft:selection_box": {
+            "origin": [
+              -8,
+              0,
+              -8
+            ],
+            "size": [
+              16,
+              13,
+              16
+            ]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('arx:growth_stage') == 5",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "grape_mature_0",
+              "render_method": "alpha_test",
+              "face_dimming": true,
+              "ambient_occlusion": false
+            }
+          },
+          "minecraft:selection_box": {
+            "origin": [
+              -8,
+              0,
+              -8
+            ],
+            "size": [
+              16,
+              13,
+              16
+            ]
+          },
+          "minecraft:loot": "loot_tables/blocks/nature/grape_immature.json"
+        }
+      },
+      {
+        "condition": "q.block_state('arx:growth_stage') == 6",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "grape_mature_1",
+              "render_method": "alpha_test",
+              "face_dimming": true,
+              "ambient_occlusion": false
+            }
+          },
+          "minecraft:selection_box": {
+            "origin": [
+              -8,
+              0,
+              -8
+            ],
+            "size": [
+              16,
+              16,
+              16
+            ]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('arx:growth_stage') == 7",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "grape_mature_2",
+              "render_method": "alpha_test",
+              "face_dimming": true,
+              "ambient_occlusion": false
+            }
+          },
+          "minecraft:selection_box": {
+            "origin": [
+              -8,
+              0,
+              -8
+            ],
+            "size": [
+              16,
+              16,
+              16
+            ]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('arx:growth_stage') == 8",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "grape_mature_3",
+              "render_method": "alpha_test",
+              "face_dimming": true,
+              "ambient_occlusion": false
+            }
+          },
+          "minecraft:selection_box": {
+            "origin": [
+              -8,
+              0,
+              -8
+            ],
+            "size": [
+              16,
+              16,
+              16
+            ]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('arx:growth_stage') == 9",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "grape_mature_finally",
+              "render_method": "alpha_test",
+              "face_dimming": true,
+              "ambient_occlusion": false
+            }
+          },
+          "minecraft:selection_box": {
+            "origin": [
+              -8,
+              0,
+              -8
+            ],
+            "size": [
+              16,
+              16,
+              16
+            ]
+          },
+          "minecraft:loot": "loot_tables/blocks/nature/grape_mature_finally_breaking.json"
+        }
+      }
+    ]
+  }
+}

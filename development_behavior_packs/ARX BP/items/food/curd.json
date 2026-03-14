@@ -4,7 +4,8 @@
         "components": {
             "minecraft:food": {
                 "nutrition": 4,
-                "saturation_modifier": 1
+                "saturation_modifier": 1,
+                "using_converts_to": "minecraft:bowl"
             },
             "minecraft:icon": "arx:curd",
             "minecraft:use_animation": "eat",

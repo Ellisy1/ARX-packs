@@ -1,27 +1,14 @@
 {
   "format_version": "1.12",
-  "minecraft:recipe_shaped": {
+  "minecraft:recipe_brewing_mix": {
     "description": {
-    "identifier": "arx:wine"
+      "identifier": "arx:wine"
     },
-
-    
-    "tags": [ "substractor" ],
-    "pattern": [
-      "AAA",
-      "A#A",
-      "AAA"
+    "tags": [
+      "brewing_stand"
     ],
-    "key": {
-      "#": {
-        "item": "arx:vodka_sweet_berrie"
-      },
-      "A": {
-        "item": "minecraft:sweet_berries"
-      }
-    },
-    "result": {
-      "item": "arx:wine"
-    }
+    "input": "minecraft:potion_type:water",
+    "reagent": "arx:grape",
+    "output": "arx:wine"
   }
 }

@@ -1,0 +1,14 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_brewing_mix": {
+    "description": {
+      "identifier": "arx:potion_perm_weight_limit_bonus"
+    },
+    "tags": [
+      "brewing_stand"
+    ],
+    "input": "minecraft:potion_type:awkward",
+    "reagent": "arx:ash_lavaflower",
+    "output": "arx:potion_perm_weight_limit_bonus"
+  }
+}

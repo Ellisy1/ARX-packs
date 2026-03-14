@@ -1,0 +1,14 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_brewing_mix": {
+    "description": {
+      "identifier": "arx:potion_trait_positive"
+    },
+    "tags": [
+      "brewing_stand"
+    ],
+    "input": "arx:potion_trait_neutral",
+    "reagent": "arx:dragon_pion",
+    "output": "arx:potion_trait_positive"
+  }
+}

@@ -18,6 +18,16 @@
 						{
 							"test": "has_biome_tag",
 							"operator": "!=",
+							"value": "frozen"
+						},
+						{
+							"test": "has_biome_tag",
+							"operator": "!=",
+							"value": "ice"
+						},
+						{
+							"test": "has_biome_tag",
+							"operator": "!=",
 							"value": "nether"
 						},
 						{

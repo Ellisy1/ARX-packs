@@ -514,7 +514,6 @@ export let spellRegistry = {
         onlyOnPlayers: true,
         handler: (player) => {
             player.runCommand('effect @s poison 5 0 true')
-            iDP(player, 'intoxication', 100)
         }
     },
     'venenatio durata': {
@@ -524,7 +523,6 @@ export let spellRegistry = {
         onlyOnPlayers: true,
         handler: (player) => {
             player.runCommand('effect @s poison 15 0 true')
-            iDP(player, 'intoxication', 100)
         }
     },
     'venenatio magna': {
@@ -534,7 +532,6 @@ export let spellRegistry = {
         onlyOnPlayers: true,
         handler: (player) => {
             player.runCommand('effect @s poison 5 1 true')
-            iDP(player, 'intoxication', 100)
         }
     },
     'venenatio magna durata': {
@@ -544,47 +541,6 @@ export let spellRegistry = {
         onlyOnPlayers: true,
         handler: (player) => {
             player.runCommand('effect @s poison 5 1 true')
-            iDP(player, 'intoxication', 100)
-        }
-    },
-
-    // Intoxication
-    'venenatio alternus': {
-        mpCost: 40,
-        color: '#13c32d',
-        description: 'заклинание слабого отравления',
-        onlyOnPlayers: true,
-        handler: (player) => {
-            iDP(player, 'intoxication', 100)
-        }
-    },
-    'venenatio magna alternus': {
-        mpCost: 120,
-        color: '#13c32d',
-        description: 'заклинание слабого отравления',
-        onlyOnPlayers: true,
-        handler: (player) => {
-            iDP(player, 'intoxication', 300)
-        }
-    },
-
-    // Cure intoxication
-    'cura venenatio alternus': {
-        mpCost: 20,
-        color: '#62d358',
-        description: 'заклинание слабого излечения отравления',
-        onlyOnPlayers: true,
-        handler: (player) => {
-            iDP(player, 'intoxication', -100)
-        }
-    },
-    'cura venenatio magna alternus': {
-        mpCost: 60,
-        color: '#62d358',
-        description: 'заклинание хорошего излечения отравления',
-        onlyOnPlayers: true,
-        handler: (player) => {
-            iDP(player, 'intoxication', -300)
         }
     },
 

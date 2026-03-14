@@ -25,10 +25,49 @@ world.afterEvents.playerSwingStart.subscribe((event) => {
 })
 
 const defaultCoords = { x: 0, y: 0, z: 0 }
+let megachunkId = 0
 
 class BlocksMegaArray {
-    constructor(pos1, pos2) {
+    constructor(dimension, pos1, pos2) {
+        if (!dimension || typeof pos1 !== "object" || typeof pos2 !== "object") {
+            console.warn('Trying to create BlocksMegaArray with irrelevant positions')
+        }
 
+        // Anchor is a Vector3 vertex of MegaArray with smallest values
+        this.anchor = {
+            x: Math.min(pos1.x, pos2.x),
+            y: Math.min(pos1.y, pos2.y),
+            z: Math.min(pos1.z, pos2.z)
+        }
+        // Size of all array
+        this.size = {
+            x: Math.abs(pos1.x - pos2.x) + 1,
+            y: Math.abs(pos1.y - pos2.y) + 1,
+            z: Math.abs(pos1.z - pos2.z) + 1
+        }
+    }
+
+    registerMegachunks() {
+
+    }
+
+    // This is 2x2 default chunks. I mean, x = 32, y = default (can be decreased if needed), y = 32 blocks array
+    static MegaChunk = class {
+        constructor(pos1, pos2) {
+            // Register ID
+            this.uid = megachunkId
+            megachunkId += 1
+        }
+
+        fillWithBlock(blockTypeId) {
+
+        }
+        createTickingArea() {
+            world.dimension.runCommand('')
+        }
+        unloadTickingArea() {
+            world.dimension.runCommand('')
+        }
     }
 }
 

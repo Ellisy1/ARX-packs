@@ -8,23 +8,19 @@
     
     "tags": [ "cooking_crafting_table" ],
     "pattern": [
-      "A#A",
-      "BA "
+      " #",
+      "B "
     ],
     "key": {
       "#": {
         "item": "minecraft:beef"
-      },
-      "A": {
-        "item": "arx:bottle_of_blood"
       },
       "B": {
         "item": "arx:salt"
       }
     },
     "result": [
-      {"item": "arx:bloody_steak"},
-      {"item": "arx:bottle_for_blood", "count": 3}
+      {"item": "arx:bloody_steak"}
     ]
   }
 }

@@ -5,7 +5,7 @@
             "minecraft:food": {
                 "nutrition": 4,
                 "saturation_modifier": 1,
-                "using_converts_to": "arx:default_bottle"
+                "using_converts_to": "minecraft:glass_bottle"
             },
             "minecraft:icon": "arx:kefir",
             "minecraft:use_animation": "drink",
