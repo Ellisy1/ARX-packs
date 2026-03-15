@@ -1,0 +1,40 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "arx:red_cheese"
+        },
+        "tags": [
+            "cooking_crafting_table"
+        ],
+        "pattern": [
+            "CDC",
+            " C ",
+            "ADA"
+        ],
+        "key": {
+            "A": {
+                "item": "minecraft:milk_bucket"
+            },
+            "C": {
+                "item": "arx:cream"
+            },
+            "D": {
+                "item": "minecraft:resin_brick"
+            }
+        },
+        "result": [
+            {
+                "item": "arx:red_cheese"
+            },
+            {
+                "item": "minecraft:bucket",
+                "count": 2
+            },
+            {
+                "item": "minecraft:glass_bottle",
+                "count": 3
+            }
+        ]
+    }
+}

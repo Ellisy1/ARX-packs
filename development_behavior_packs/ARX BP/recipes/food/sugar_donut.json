@@ -1,29 +1,31 @@
 {
-  "format_version": "1.12",
-  "minecraft:recipe_shaped": {
-    "description": {
-    "identifier": "arx:sugar_donut"
-    },
-
-    
-    "tags": [ "thermal_cooking_crafting_table" ],
-    "pattern": [
-      " C ",
-      "ABA"
-    ],
-    "key": {
-      "A": {
-        "item": "minecraft:sugar"
-      },
-      "B": {
-        "item": "minecraft:wheat"
-      },
-      "C": {
-        "item": "minecraft:egg"
-      }
-    },
-    "result": [
-      {"item": "arx:sugar_donut"}
-    ]
-  }
+    "format_version": "1.12",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "arx:sugar_donut"
+        },
+        "tags": [
+            "cooking_crafting_table"
+        ],
+        "pattern": [
+            " C ",
+            "ABA"
+        ],
+        "key": {
+            "A": {
+                "item": "minecraft:sugar"
+            },
+            "B": {
+                "item": "minecraft:wheat"
+            },
+            "C": {
+                "item": "minecraft:egg"
+            }
+        },
+        "result": [
+            {
+                "item": "arx:sugar_donut"
+            }
+        ]
+    }
 }

@@ -712,7 +712,15 @@ item.arx:brainbread=§r§fБутерброд с мозгами §b[Rare]
 item.arx:le_fishe_au_chocolat=§r§fLe Fishe Au Chocolat §e[Legendary]
 item.arx:grape=§r§fGrape §b[Rare]
 
-
+item.arx:blue_cheese=§r§fBlue cheese §b[Rare]
+item.arx:green_cheese=§r§fGreen cheese §b[Rare]
+item.arx:red_cheese=§r§fRed cheese §b[Rare]
+item.arx:butter=§r§fButter §b[Rare]
+item.arx:posset=§r§fPosset §b[Rare]
+item.arx:milk_tart=§r§fMilk tart §b[Rare]
+item.arx:cream=§r§fCream §b[Rare]
+item.arx:ayran=§r§fAyran §b[Rare]
+item.arx:yogurt=§r§fYogurt §b[Rare]
 
 item.arx:custom_cookie=§r§eПеченька админа
 

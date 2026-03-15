@@ -1,26 +1,28 @@
 {
-  "format_version": "1.12",
-  "minecraft:recipe_shaped": {
-    "description": {
-    "identifier": "arx:bloody_steak_a"
-    },
-
-    
-    "tags": [ "cooking_crafting_table" ],
-    "pattern": [
-      " #",
-      "B "
-    ],
-    "key": {
-      "#": {
-        "item": "minecraft:beef"
-      },
-      "B": {
-        "item": "arx:salt"
-      }
-    },
-    "result": [
-      {"item": "arx:bloody_steak"}
-    ]
-  }
+    "format_version": "1.12",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "arx:bloody_steak_a"
+        },
+        "tags": [
+            "cooking_crafting_table"
+        ],
+        "pattern": [
+            " #",
+            "B "
+        ],
+        "key": {
+            "#": {
+                "item": "minecraft:beef"
+            },
+            "B": {
+                "item": "arx:salt"
+            }
+        },
+        "result": [
+            {
+                "item": "arx:bloody_steak"
+            }
+        ]
+    }
 }

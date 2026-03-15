@@ -3440,6 +3440,35 @@
     "arx:cheese": {
       "textures": "textures/items/food/cheese"
     },
+
+    "arx:blue_cheese": {
+      "textures": "textures/items/food/blue_cheese"
+    },
+    "arx:green_cheese": {
+      "textures": "textures/items/food/green_cheese"
+    },
+    "arx:red_cheese": {
+      "textures": "textures/items/food/red_cheese"
+    },
+    "arx:butter": {
+      "textures": "textures/items/food/butter"
+    },
+    "arx:posset": {
+      "textures": "textures/items/food/posset"
+    },
+    "arx:milk_tart": {
+      "textures": "textures/items/food/milk_tart"
+    },
+    "arx:cream": {
+      "textures": "textures/items/food/cream"
+    },
+    "arx:ayran": {
+      "textures": "textures/items/food/ayran"
+    },
+    "arx:yogurt": {
+      "textures": "textures/items/food/yogurt"
+    },
+
     "arx:chicken_in_vodka": {
       "textures": "textures/items/food/chicken_in_vodka"
     },

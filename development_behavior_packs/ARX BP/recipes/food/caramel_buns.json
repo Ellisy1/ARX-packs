@@ -1,31 +1,30 @@
 {
-  "format_version": "1.12",
-  "minecraft:recipe_shaped": {
-    "description": {
-    "identifier": "arx:caramel_buns"
-    },
-
-    
-    "tags": [ "thermal_cooking_crafting_table" ],
-    "pattern": [
-      " A ",
-      "ACA",
-      "BBB"
-
-    ],
-    "key": {
-      "A": {
-        "item": "arx:caramel"
-      },
-      "B": {
-        "item": "minecraft:wheat"
-      },
-      "C": {
-        "item": "minecraft:sugar"
-      }
-    },
-    "result": {
-      "item": "arx:caramel_buns"
+    "format_version": "1.12",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "arx:caramel_buns"
+        },
+        "tags": [
+            "cooking_crafting_table"
+        ],
+        "pattern": [
+            " A ",
+            "ACA",
+            "BBB"
+        ],
+        "key": {
+            "A": {
+                "item": "arx:caramel"
+            },
+            "B": {
+                "item": "minecraft:wheat"
+            },
+            "C": {
+                "item": "minecraft:sugar"
+            }
+        },
+        "result": {
+            "item": "arx:caramel_buns"
+        }
     }
-  }
 }

@@ -37,6 +37,11 @@ import { md5, obj2str } from "./converters"
 import { isAdmin, getAdmins, getHoster } from './admin'
 import { isPlayerCompletelyLoaded } from "./isPlayerCompletelyLoaded"
 
+// Type of release. 
+// Available: pre, special, stable
+export const RELEASE = 'pre'
+export const VERSION = [0, 1, 10]
+
 world.afterEvents.playerButtonInput.subscribe((event) => {
     const button = event.button
     const state = event.newButtonState

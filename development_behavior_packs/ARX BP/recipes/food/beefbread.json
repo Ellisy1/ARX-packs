@@ -1,25 +1,25 @@
 {
-  "format_version": "1.12",
-  "minecraft:recipe_shaped": {
-    "description": {
-    "identifier": "arx:beefbread"
-    },
-
-    
-    "tags": [ "cooking_crafting_table" ],
-    "pattern": [
-      "A#"
-    ],
-    "key": {
-      "#": {
-        "item": "minecraft:bread"
-      },
-      "A": {
-        "item": "minecraft:cooked_beef"
-      }
-    },
-    "result": {
-      "item": "arx:beefbread"
+    "format_version": "1.12",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "arx:beefbread"
+        },
+        "tags": [
+            "cooking_crafting_table"
+        ],
+        "pattern": [
+            "A#"
+        ],
+        "key": {
+            "#": {
+                "item": "minecraft:bread"
+            },
+            "A": {
+                "item": "minecraft:cooked_beef"
+            }
+        },
+        "result": {
+            "item": "arx:beefbread"
+        }
     }
-  }
 }

@@ -1,33 +1,35 @@
 {
-  "format_version": "1.12",
-  "minecraft:recipe_shaped": {
-    "description": {
-    "identifier": "arx:sweet_bun"
-    },
-
-    
-    "tags": [ "thermal_cooking_crafting_table" ],
-    "pattern": [
-      " D ",
-      "BDB",
-      "ACA"
-    ],
-    "key": {
-      "A": {
-        "item": "minecraft:wheat"
-      },
-      "B": {
-        "item": "minecraft:sugar"
-      },
-      "C": {
-        "item": "minecraft:milk_bucket"
-      },
-      "D": {
-        "item": "minecraft:egg"
-      }
-    },
-    "result": [
-      {"item": "arx:sweet_bun"}
-    ]
-  }
+    "format_version": "1.12",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "arx:sweet_bun"
+        },
+        "tags": [
+            "cooking_crafting_table"
+        ],
+        "pattern": [
+            " D ",
+            "BDB",
+            "ACA"
+        ],
+        "key": {
+            "A": {
+                "item": "minecraft:wheat"
+            },
+            "B": {
+                "item": "minecraft:sugar"
+            },
+            "C": {
+                "item": "minecraft:milk_bucket"
+            },
+            "D": {
+                "item": "minecraft:egg"
+            }
+        },
+        "result": [
+            {
+                "item": "arx:sweet_bun"
+            }
+        ]
+    }
 }

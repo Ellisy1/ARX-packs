@@ -1,0 +1,29 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "arx:butter"
+        },
+        "tags": [
+            "cooking_crafting_table"
+        ],
+        "pattern": [
+            "# #",
+            " # "
+        ],
+        "key": {
+            "#": {
+                "item": "arx:cream"
+            }
+        },
+        "result": [
+            {
+                "item": "arx:butter"
+            },
+            {
+                "item": "minecraft:glass_bottle",
+                "count": 3
+            }
+        ]
+    }
+}

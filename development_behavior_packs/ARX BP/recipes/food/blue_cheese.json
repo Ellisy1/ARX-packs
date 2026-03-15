@@ -1,0 +1,43 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "arx:blue_cheese"
+        },
+        "tags": [
+            "cooking_crafting_table"
+        ],
+        "pattern": [
+            "ADA",
+            "BCB",
+            "ACA"
+        ],
+        "key": {
+            "A": {
+                "item": "minecraft:milk_bucket"
+            },
+            "B": {
+                "item": "arx:salt"
+            },
+            "C": {
+                "item": "arx:cream"
+            },
+            "D": {
+                "item": "arx:blue_cave_mushrooms"
+            }
+        },
+        "result": [
+            {
+                "item": "arx:blue_cheese"
+            },
+            {
+                "item": "minecraft:bucket",
+                "count": 4
+            },
+            {
+                "item": "minecraft:glass_bottle",
+                "count": 2
+            }
+        ]
+    }
+}

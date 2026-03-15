@@ -1,25 +1,25 @@
 {
-  "format_version": "1.12",
-  "minecraft:recipe_shaped": {
-    "description": {
-    "identifier": "arx:meat_pie"
-    },
-
-    
-    "tags": [ "thermal_cooking_crafting_table" ],
-    "pattern": [
-      "#A#"
-    ],
-    "key": {
-      "#": {
-        "item": "arx:forcemeat"
-      },
-      "A": {
-        "item": "minecraft:wheat"
-      }
-    },
-    "result": {
-      "item": "arx:meat_pie"
+    "format_version": "1.12",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "arx:meat_pie"
+        },
+        "tags": [
+            "cooking_crafting_table"
+        ],
+        "pattern": [
+            "#A#"
+        ],
+        "key": {
+            "#": {
+                "item": "arx:forcemeat"
+            },
+            "A": {
+                "item": "minecraft:wheat"
+            }
+        },
+        "result": {
+            "item": "arx:meat_pie"
+        }
     }
-  }
 }

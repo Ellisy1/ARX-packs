@@ -127,6 +127,7 @@ export const foodRegistry = {
         "arx:sun_snack": 92,
         "arx:wave_of_taste": 87,
 
+        // Fried fish
         "arx:baby_shark_fried": 34,
         "arx:cramp_fish_fried": 35,
         "arx:devil_fish_fried": 36,
@@ -180,6 +181,16 @@ export const foodRegistry = {
         "arx:curd": 20,
         "arx:kefir": 35,
         "arx:sour_cream": 44,
+
+        "arx:blue_cheese": 70,
+        "arx:green_cheese": 60,
+        "arx:red_cheese": 90,
+        "arx:butter": -10,
+        "arx:posset": 60,
+        "arx:milk_tart": 65,
+        "arx:cream": 45,
+        "arx:ayran": 20,
+        "arx:yogurt": 35,
     },
     herbal: {
         "arx:baked_apple": 15,
